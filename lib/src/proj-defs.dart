@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:proj4dart/proj4dart.dart';
+import 'package:proj4dart/src/proj-parser.dart';
 import 'package:proj4dart/src/projections/epsg23700.dart';
 import 'package:proj4dart/src/projections/epsg4326.dart';
 
@@ -22,7 +23,7 @@ class ProjDefs {
   // Add projection to cache
   // TODO
   Projection register(String name, String def) {
-    var projection = null;
+    var projection = ProjParser.parse(def);
     return projection;
   }
 

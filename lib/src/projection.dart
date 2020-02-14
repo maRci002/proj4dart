@@ -67,9 +67,9 @@ class Projection {
 
   factory Projection.register(String code, String projString) {
     var projection = ProjDefs().register(code, projString);
-    if (projection == null) {
-      throw Exception('An error occured while registering $code, $projString');
-    }
+    // if (projection == null) {
+    //   throw Exception('An error occured while registering $code, $projString');
+    // }
     return projection;
   }
 
@@ -77,7 +77,7 @@ class Projection {
     var projection = ProjDefs().get(code);
     if (projection == null) {
       throw Exception(
-          "${code} projection isn't defined, make sure you defined it by 'Projection.register(String, String)'");
+          "$code projection isn't defined, make sure you defined it by 'Projection.register(String, String)'");
     }
     return projection;
   }

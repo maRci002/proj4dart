@@ -44,5 +44,17 @@ void main() {
     test('proj cache cannot find', () {
       expect(() => Projection('EPSG:1234'), throwsException);
     });
+
+    test('register projection', () {
+      var projection = Projection.register(
+          'EPSG:4326', '+proj=longlat +datum=WGS84 +no_defs');
+      var projection1 = Projection.register('EPSG:3857',
+          '+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs');
+      var projection2 = Projection.register('EPSG:23700',
+          '+proj=somerc +lat_0=47.14439372222222 +lon_0=19.04857177777778 +k_0=0.99993 +x_0=650000 +y_0=200000 +ellps=GRS67 +towgs84=52.17,-71.82,-14.9,0,0,0,0 +units=m +no_defs');
+      expect(projection, null);
+      expect(projection1, null);
+      expect(projection2, null);
+    });
   });
 }
