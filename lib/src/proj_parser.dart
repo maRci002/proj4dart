@@ -1,5 +1,7 @@
 // See: https://github.com/Proj4J/proj4j/blob/master/trunk/src/main/java/org/osgeo/proj4j/parser/Proj4Parser.java
 import 'package:proj4dart/proj4dart.dart';
+import 'package:proj4dart/src/datum2.dart';
+import 'package:proj4dart/src/datum_parameters.dart';
 import 'package:proj4dart/src/proj_keyword.dart';
 import 'package:proj4dart/src/proj_math.dart';
 
@@ -11,28 +13,29 @@ class ProjParser {
       return null;
     }
     var params = _createParameterMap(args);
+    var datumParam = DatumParameters();
+    parseDatum(params, datumParam);
     print(params);
     print('');
 
     return null;
   }
 
-//   static void  parseDatum(Map params, DatumParameters datumParam)
-//  {
-//    String towgs84 = params[ProjKeyword.towgs84];
-//    if (towgs84 != null) {
-//      double[] datumConvParams = parseToWGS84(towgs84);
-//      datumParam.setDatumTransform(datumConvParams);
-//    }
-
-//    String code = (String) params.get(Proj4Keyword.datum);
-//    if (code != null) {
-//      Datum datum = registry.getDatum(code);
-//      if (datum == null)
-//        throw new InvalidValueException("Unknown datum: " + code);
-//      datumParam.setDatum(datum);
-//    }
-//  }
+  static void parseDatum(Map params, DatumParameters datumParam) {
+    String towgs84 = params[ProjKeyword.towgs84];
+    if (towgs84 != null) {
+      var datumConvParams = parseToWGS84(towgs84);
+      datumParam.setDatumTransform(datumConvParams);
+    }
+    var code = params[ProjKeyword.datum] as String;
+    if (code != null) {
+      Datum datum = registry.getDatum(code);
+      if (datum == null) {
+        throw Exception('Unknown datum: ' + code);
+      }
+      datumParam.setDatum(datum);
+    }
+  }
 
   static List<double> parseToWGS84(String paramList) {
     var numStr = paramList.split(',');
@@ -40,9 +43,9 @@ class ProjParser {
       throw Exception(
           'Invalid number of values (must be 3 or 7) in +towgs84: $paramList');
     }
-    var param = [] as List<double>;
+    var param = List<double>(numStr.length);
     for (var i = 0; i < numStr.length; i++) {
-      param[i] = numStr[i] as double;
+      param[i] = double.parse(numStr[i]);
     }
     if (param.length > 3) {
       if (param[3] == 0.0 &&

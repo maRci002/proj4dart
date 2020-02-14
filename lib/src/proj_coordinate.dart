@@ -45,11 +45,11 @@ class ProjCoordinate {
       }
     }
     // Convert strings to doubles.
-    x = parts[0] as double;
-    y = parts[0] as double;
+    x = double.parse(parts[0]);
+    y = double.parse(parts[0]);
     // You might not always have a Z ordinate. If you do, set it.
     if (parts.length == 3) {
-      z = parts[0] as double;
+      z = double.parse(parts[0]);
     }
   }
 
@@ -147,19 +147,19 @@ class ProjCoordinate {
     return true;
   }
 
-  @override
-  int hashCode() {
-    //Algorithm from Effective Java by Joshua Bloch [Jon Aquino]
-    var result = 17;
-    result = 37 * result + hashCodeV2(x);
-    result = 37 * result + hashCodeV2(y);
-    return result;
-  }
+  // @override
+  // int hashCode() {
+  //   //Algorithm from Effective Java by Joshua Bloch [Jon Aquino]
+  //   var result = 17;
+  //   result = 37 * result + hashCodeV2(x);
+  //   result = 37 * result + hashCodeV2(y);
+  //   return result;
+  // }
 
-  static int hashCodeV2(double x) {
-    // long f = Double.doubleToLongBits(x);
-    // return (int)(f^(f>>>32));
-  }
+  // static int hashCodeV2(double x) {
+  //   // long f = Double.doubleToLongBits(x);
+  //   // return (int)(f^(f>>>32));
+  // }
 
   @override
   String toString() {

@@ -86,7 +86,9 @@ class ProjectionMath {
   }
 
   static double trunc(double v) {
-    return v < 0.0 ? v.ceil() as double : v.floor() as double;
+    return v < 0.0
+        ? double.parse(v.ceil().toString())
+        : double.parse(v.floor().toString());
   }
 
   static double frac(double v) {

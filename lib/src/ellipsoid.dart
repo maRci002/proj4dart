@@ -9,97 +9,98 @@ class Ellipsoid {
   var eccentricity2 = 1.0;
 
   // From: USGS PROJ package.
-  static Ellipsoid INTERNATIONAL = Ellipsoid.a(
+  static Ellipsoid INTERNATIONAL = Ellipsoid.v1(
       'intl', 6378388.0, 0.0, 297.0, 'International 1909 (Hayford)');
   static Ellipsoid BESSEL =
-      Ellipsoid.a('bessel', 6377397.155, 0.0, 299.1528128, 'Bessel 1841');
+      Ellipsoid.v1('bessel', 6377397.155, 0.0, 299.1528128, 'Bessel 1841');
   static Ellipsoid CLARKE_1866 =
-      Ellipsoid.a('clrk66', 6378206.4, 6356583.8, 0.0, 'Clarke 1866');
+      Ellipsoid.v1('clrk66', 6378206.4, 6356583.8, 0.0, 'Clarke 1866');
   static Ellipsoid CLARKE_1880 =
-      Ellipsoid.a('clrk80', 6378249.145, 0.0, 293.4663, 'Clarke 1880 mod.');
+      Ellipsoid.v1('clrk80', 6378249.145, 0.0, 293.4663, 'Clarke 1880 mod.');
   static Ellipsoid AIRY =
-      Ellipsoid.a('airy', 6377563.396, 6356256.910, 0.0, 'Airy 1830');
+      Ellipsoid.v1('airy', 6377563.396, 6356256.910, 0.0, 'Airy 1830');
   static Ellipsoid WGS60 =
-      Ellipsoid.a('WGS60', 6378165.0, 0.0, 298.3, 'WGS 60');
+      Ellipsoid.v1('WGS60', 6378165.0, 0.0, 298.3, 'WGS 60');
   static Ellipsoid WGS66 =
-      Ellipsoid.a('WGS66', 6378145.0, 0.0, 298.25, 'WGS 66');
+      Ellipsoid.v1('WGS66', 6378145.0, 0.0, 298.25, 'WGS 66');
   static Ellipsoid WGS72 =
-      Ellipsoid.a('WGS72', 6378135.0, 0.0, 298.26, 'WGS 72');
+      Ellipsoid.v1('WGS72', 6378135.0, 0.0, 298.26, 'WGS 72');
   static Ellipsoid WGS84 =
-      Ellipsoid.a('WGS84', 6378137.0, 0.0, 298.257223563, 'WGS 84');
+      Ellipsoid.v1('WGS84', 6378137.0, 0.0, 298.257223563, 'WGS 84');
   static Ellipsoid KRASSOVSKY =
-      Ellipsoid.a('krass', 6378245.0, 0.0, 298.3, 'Krassovsky, 1942');
+      Ellipsoid.v1('krass', 6378245.0, 0.0, 298.3, 'Krassovsky, 1942');
   static Ellipsoid EVEREST =
-      Ellipsoid.a('evrst30', 6377276.345, 0.0, 300.8017, 'Everest 1830');
+      Ellipsoid.v1('evrst30', 6377276.345, 0.0, 300.8017, 'Everest 1830');
   static Ellipsoid INTERNATIONAL_1967 =
-      Ellipsoid.a('_intl', 6378157.5, 6356772.2, 0.0, ' International 1967');
-  static Ellipsoid GRS80 = Ellipsoid.a(
+      Ellipsoid.v1('_intl', 6378157.5, 6356772.2, 0.0, ' International 1967');
+  static Ellipsoid GRS80 = Ellipsoid.v1(
       'GRS80', 6378137.0, 0.0, 298.257222101, 'GRS 1980 (IUGG, 1980)');
   static Ellipsoid AUSTRALIAN =
-      Ellipsoid.a('australian', 6378160.0, 6356774.7, 298.25, 'Australian');
+      Ellipsoid.v1('australian', 6378160.0, 6356774.7, 298.25, 'Australian');
   static Ellipsoid MERIT =
-      Ellipsoid.a('MERIT', 6378137.0, 0.0, 298.257, 'MERIT 1983');
-  static Ellipsoid SGS85 = Ellipsoid.a(
+      Ellipsoid.v1('MERIT', 6378137.0, 0.0, 298.257, 'MERIT 1983');
+  static Ellipsoid SGS85 = Ellipsoid.v1(
       'SGS85', 6378136.0, 0.0, 298.257, 'Soviet Geodetic System 85');
   static Ellipsoid IAU76 =
-      Ellipsoid.a('IAU76', 6378140.0, 0.0, 298.257, 'IAU 1976');
+      Ellipsoid.v1('IAU76', 6378140.0, 0.0, 298.257, 'IAU 1976');
   static Ellipsoid APL4_9 =
-      Ellipsoid.a('APL4.9', 6378137.0, 0.0, 298.25, 'Appl. Physics. 1965');
+      Ellipsoid.v1('APL4.9', 6378137.0, 0.0, 298.25, 'Appl. Physics. 1965');
   static Ellipsoid NWL9D =
-      Ellipsoid.a('NWL9D', 6378145.0, 0.0, 298.25, 'Naval Weapons Lab., 1965');
+      Ellipsoid.v1('NWL9D', 6378145.0, 0.0, 298.25, 'Naval Weapons Lab., 1965');
   static Ellipsoid MOD_AIRY =
-      Ellipsoid.a('mod_airy', 6377340.189, 6356034.446, 0.0, 'Modified Airy');
-  static Ellipsoid ANDRAE = Ellipsoid.a(
+      Ellipsoid.v1('mod_airy', 6377340.189, 6356034.446, 0.0, 'Modified Airy');
+  static Ellipsoid ANDRAE = Ellipsoid.v1(
       'andrae', 6377104.43, 0.0, 300.0, 'Andrae 1876 (Den., Iclnd.)');
-  static Ellipsoid AUST_SA = Ellipsoid.a(
+  static Ellipsoid AUST_SA = Ellipsoid.v1(
       'aust_SA', 6378160.0, 0.0, 298.25, 'Australian Natl & S. Amer. 1969');
-  static Ellipsoid GRS67 = Ellipsoid.a(
+  static Ellipsoid GRS67 = Ellipsoid.v1(
       'GRS67', 6378160.0, 0.0, 298.2471674270, 'GRS 67 (IUGG 1967)');
-  static Ellipsoid BESS_NAM = Ellipsoid.a(
+  static Ellipsoid BESS_NAM = Ellipsoid.v1(
       'bess_nam', 6377483.865, 0.0, 299.1528128, 'Bessel 1841 (Namibia)');
-  static Ellipsoid CPM = Ellipsoid.a(
+  static Ellipsoid CPM = Ellipsoid.v1(
       'CPM', 6375738.7, 0.0, 334.29, 'Comm. des Poids et Mesures 1799');
   static Ellipsoid DELMBR =
-      Ellipsoid.a('delmbr', 6376428.0, 0.0, 311.5, 'Delambre 1810 (Belgium)');
+      Ellipsoid.v1('delmbr', 6376428.0, 0.0, 311.5, 'Delambre 1810 (Belgium)');
   static Ellipsoid ENGELIS =
-      Ellipsoid.a('engelis', 6378136.05, 0.0, 298.2566, 'Engelis 1985');
+      Ellipsoid.v1('engelis', 6378136.05, 0.0, 298.2566, 'Engelis 1985');
   static Ellipsoid EVRST48 =
-      Ellipsoid.a('evrst48', 6377304.063, 0.0, 300.8017, 'Everest 1948');
+      Ellipsoid.v1('evrst48', 6377304.063, 0.0, 300.8017, 'Everest 1948');
   static Ellipsoid EVRST56 =
-      Ellipsoid.a('evrst56', 6377301.243, 0.0, 300.8017, 'Everest 1956');
+      Ellipsoid.v1('evrst56', 6377301.243, 0.0, 300.8017, 'Everest 1956');
   static Ellipsoid EVRTS69 =
-      Ellipsoid.a('evrst69', 6377295.664, 0.0, 300.8017, 'Everest 1969');
-  static Ellipsoid EVRTSTSS = Ellipsoid.a(
+      Ellipsoid.v1('evrst69', 6377295.664, 0.0, 300.8017, 'Everest 1969');
+  static Ellipsoid EVRTSTSS = Ellipsoid.v1(
       'evrstSS', 6377298.556, 0.0, 300.8017, 'Everest (Sabah & Sarawak)');
-  static Ellipsoid FRSCH60 = Ellipsoid.a(
+  static Ellipsoid FRSCH60 = Ellipsoid.v1(
       'fschr60', 6378166.0, 0.0, 298.3, 'Fischer (Mercury Datum) 1960');
   static Ellipsoid FSRCH60M =
-      Ellipsoid.a('fschr60m', 6378155.0, 0.0, 298.3, 'Modified Fischer 1960');
+      Ellipsoid.v1('fschr60m', 6378155.0, 0.0, 298.3, 'Modified Fischer 1960');
   static Ellipsoid FSCHR68 =
-      Ellipsoid.a('fschr68', 6378150.0, 0.0, 298.3, 'Fischer 1968');
+      Ellipsoid.v1('fschr68', 6378150.0, 0.0, 298.3, 'Fischer 1968');
   static Ellipsoid HELMERT =
-      Ellipsoid.a('helmert', 6378200.0, 0.0, 298.3, 'Helmert 1906');
-  static Ellipsoid HOUGH = Ellipsoid.a('hough', 6378270.0, 0.0, 297.0, 'Hough');
-  static Ellipsoid INTL = Ellipsoid.a(
+      Ellipsoid.v1('helmert', 6378200.0, 0.0, 298.3, 'Helmert 1906');
+  static Ellipsoid HOUGH =
+      Ellipsoid.v1('hough', 6378270.0, 0.0, 297.0, 'Hough');
+  static Ellipsoid INTL = Ellipsoid.v1(
       'intl', 6378388.0, 0.0, 297.0, 'International 1909 (Hayford)');
   static Ellipsoid KAULA =
-      Ellipsoid.a('kaula', 6378163.0, 0.0, 298.24, 'Kaula 1961');
+      Ellipsoid.v1('kaula', 6378163.0, 0.0, 298.24, 'Kaula 1961');
   static Ellipsoid LERCH =
-      Ellipsoid.a('lerch', 6378139.0, 0.0, 298.257, 'Lerch 1979');
+      Ellipsoid.v1('lerch', 6378139.0, 0.0, 298.257, 'Lerch 1979');
   static Ellipsoid MPRTS =
-      Ellipsoid.a('mprts', 6397300.0, 0.0, 191.0, 'Maupertius 1738');
-  static Ellipsoid PLESSIS =
-      Ellipsoid.a('plessis', 6376523.0, 6355863.0, 0.0, 'Plessis 1817 France)');
+      Ellipsoid.v1('mprts', 6397300.0, 0.0, 191.0, 'Maupertius 1738');
+  static Ellipsoid PLESSIS = Ellipsoid.v1(
+      'plessis', 6376523.0, 6355863.0, 0.0, 'Plessis 1817 France)');
   static Ellipsoid SEASIA =
-      Ellipsoid.a('SEasia', 6378155.0, 6356773.3205, 0.0, 'Southeast Asia');
+      Ellipsoid.v1('SEasia', 6378155.0, 6356773.3205, 0.0, 'Southeast Asia');
   static Ellipsoid WALBECK =
-      Ellipsoid.a('walbeck', 6376896.0, 6355834.8467, 0.0, 'Walbeck');
-  static Ellipsoid NAD27 = Ellipsoid.a(
+      Ellipsoid.v1('walbeck', 6376896.0, 6355834.8467, 0.0, 'Walbeck');
+  static Ellipsoid NAD27 = Ellipsoid.v1(
       'NAD27', 6378249.145, 0.0, 293.4663, 'NAD27: Clarke 1880 mod.');
-  static Ellipsoid NAD83 = Ellipsoid.a(
+  static Ellipsoid NAD83 = Ellipsoid.v1(
       'NAD83', 6378137.0, 0.0, 298.257222101, 'NAD83: GRS 1980 (IUGG, 1980)');
   static Ellipsoid SPHERE =
-      Ellipsoid.a('sphere', 6371008.7714, 6371008.7714, 0.0, 'Sphere');
+      Ellipsoid.v1('sphere', 6371008.7714, 6371008.7714, 0.0, 'Sphere');
 
   static List<Ellipsoid> ellipsoids = [
     BESSEL,
@@ -151,7 +152,7 @@ class Ellipsoid {
 
   Ellipsoid();
 
-  Ellipsoid.a(String shortName, double equatorRadius, double poleRadius,
+  Ellipsoid.v1(String shortName, double equatorRadius, double poleRadius,
       double reciprocalFlattening, String name) {
     shortName = shortName;
     name = name;
@@ -174,7 +175,7 @@ class Ellipsoid {
     eccentricity = math.sqrt(eccentricity2);
   }
 
-  Ellipsoid.b(String shortName, double equatorRadius, double eccentricity2,
+  Ellipsoid.v2(String shortName, double equatorRadius, double eccentricity2,
       String name) {
     shortName = shortName;
     name = name;
