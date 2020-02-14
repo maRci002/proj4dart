@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:proj4dart/src/proj-defs.dart';
+import 'package:proj4dart/src/proj_defs.dart';
 
 import 'datum.dart';
 import 'package:proj4dart/src/constants.dart' as consts;

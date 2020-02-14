@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:proj4dart/proj4dart.dart';
-import 'package:proj4dart/src/proj-parser.dart';
+import 'package:proj4dart/src/proj_parser.dart';
 import 'package:proj4dart/src/projections/epsg23700.dart';
 import 'package:proj4dart/src/projections/epsg4326.dart';
 
