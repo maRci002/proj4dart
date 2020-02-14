@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:math' as math;
 
+import 'package:proj4dart/src/proj-defs.dart';
+
 import 'datum.dart';
 import 'package:proj4dart/src/constants.dart' as consts;
 import 'package:proj4dart/src/point.dart';
@@ -64,6 +66,23 @@ class Projection {
         alpha = map['alpha'],
         b0 = map['b0'],
         k = map['K'];
+
+  factory Projection.register(String code, String projString) {
+    var projection = ProjDefs().register(code, projString);
+    if (projection == null) {
+      throw Exception('An error occured while registering $code, $projString');
+    }
+    return projection;
+  }
+
+  factory Projection(String code) {
+    var projection = ProjDefs().get(code);
+    if (projection == null) {
+      throw Exception(
+          "${code} projection isn't defined, make sure you defined it by 'Projection.register(String, String)'");
+    }
+    return projection;
+  }
 
   static bool _checkNotWGS(Projection source, Projection dest) {
     return ((source.datum.datumType == consts.pjd3Param ||

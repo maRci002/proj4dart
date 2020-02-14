@@ -1,9 +1,4 @@
-import 'dart:convert';
-
 import 'package:proj4dart/proj4dart.dart';
-import 'package:proj4dart/src/proj-defs.dart';
-import 'package:proj4dart/src/projections/epsg23700.dart';
-import 'package:proj4dart/src/projections/epsg4326.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -12,8 +7,8 @@ void main() {
     var epsg4326Proj;
 
     setUp(() {
-      epsg23700Proj = Projection.fromJson(json.decode(epsg23700JSON));
-      epsg4326Proj = Projection.fromJson(json.decode(epsg4326JSON));
+      epsg23700Proj = Projection('EPSG:23700');
+      epsg4326Proj = Projection('EPSG:4326');
     });
 
     test('EPSG:23700 to EPSG:4326', () {
@@ -40,10 +35,14 @@ void main() {
           ).toString());
     });
 
-    test('proj cache', () {
-      var projection = ProjDefs().get('EPSG:23700');
+    test('proj cache can find', () {
+      var projection = Projection('EPSG:4326');
       print(projection.title);
-      expect(projection.title, 'EPSG:23700');
+      expect(projection.title, 'WGS 84 (long/lat)');
+    });
+
+    test('proj cache cannot find', () {
+      expect(() => Projection('EPSG:1234'), throwsException);
     });
   });
 }

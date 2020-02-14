@@ -20,8 +20,10 @@ class ProjDefs {
   ProjDefs._internal();
 
   // Add projection to cache
-  void add(String name, Projection projection) {
-    _defs[name] = projection;
+  // TODO
+  Projection register(String name, String def) {
+    var projection = null;
+    return projection;
   }
 
   // Return a cached projection by its name
