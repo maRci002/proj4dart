@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:math' as math;
 
 import 'package:proj4dart/src/proj-defs.dart';
@@ -7,36 +6,35 @@ import 'datum.dart';
 import 'package:proj4dart/src/constants.dart' as consts;
 import 'package:proj4dart/src/point.dart';
 import 'package:proj4dart/src/util.dart';
-import 'package:proj4dart/src/projections/epsg4326.dart';
 
 class Projection {
-  String title;
-  String datumCode;
-  String datumName;
-  String projName;
-  double lat0;
-  double long0;
-  double k0;
-  int x0;
-  int y0;
-  String ellps;
-  List<double> datumParams;
-  String units;
-  bool noDefs;
-  String axis;
-  List<String> names;
-  int a;
-  double b;
-  double rf;
-  double es;
-  double e;
-  double ep2;
-  Datum datum;
-  double lambda0;
-  double r;
-  double alpha;
-  double b0;
-  double k;
+  final String title;
+  final String datumCode;
+  final String datumName;
+  final String projName;
+  final double lat0;
+  final double long0;
+  final double k0;
+  final int x0;
+  final int y0;
+  final String ellps;
+  final List<double> datumParams;
+  final String units;
+  final bool noDefs;
+  final String axis;
+  final List<String> names;
+  final int a;
+  final double b;
+  final double rf;
+  final double es;
+  final double e;
+  final double ep2;
+  final Datum datum;
+  final double lambda0;
+  final double r;
+  final double alpha;
+  final double b0;
+  final double k;
 
   Projection.fromJson(Map<String, dynamic> map)
       : title = map['title'],
@@ -101,8 +99,7 @@ class Projection {
     if (source.datum != null &&
         dest.datum != null &&
         _checkNotWGS(source, dest)) {
-      var wgs84 = Projection.fromJson(
-          json.decode(epsg4326JSON)); // TODO: wgs84 need some cache mechanism
+      var wgs84 = Projection('EPSG:4326');
       point = source.transform(wgs84, point);
       source = wgs84;
     }
