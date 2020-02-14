@@ -1,5 +1,6 @@
 // TODO: remove
 final String epsg23700JSON = '''{
+    "title":"EPSG:23700",
     "projName": "somerc",
     "lat0": 0.8228248943093227,
     "long0": 0.3324602953246919,
