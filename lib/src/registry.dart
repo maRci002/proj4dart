@@ -3,10 +3,10 @@ import 'package:proj4dart/src/ellipsoid.dart';
 
 class Registry {
   Registry() {
-    initialize();
+    // TODO: remove? initialize();
   }
 
-  static final List<Datum> datums = {
+  static final List<Datum> datums = [
     Datum.WGS84,
     Datum.GGRS87,
     Datum.NAD27,
@@ -17,7 +17,7 @@ class Registry {
     Datum.IRE65,
     Datum.NZGD49,
     Datum.OSEB36
-  };
+  ];
 
   Datum getDatum(String code) {
     for (var i = 0; i < datums.length; i++) {
@@ -28,7 +28,7 @@ class Registry {
     return null;
   }
 
-  static final List<Ellipsoid> ellipsoids = {
+  static final List<Ellipsoid> ellipsoids = [
     Ellipsoid.SPHERE,
     Ellipsoid.v1('MERIT', 6378137.0, 0.0, 298.257, 'MERIT 1983'),
     Ellipsoid.v1('SGS85', 6378136.0, 0.0, 298.257, 'Soviet Geodetic System 85'),
@@ -81,7 +81,7 @@ class Registry {
         'NAD27', 6378249.145, 0.0, 293.4663, 'NAD27: Clarke 1880 mod.'),
     Ellipsoid.v1(
         'NAD83', 6378137.0, 0.0, 298.257222101, 'NAD83: GRS 1980 (IUGG, 1980)'),
-  };
+  ];
 
   Ellipsoid getEllipsoid(String name) {
     for (var i = 0; i < ellipsoids.length; i++) {

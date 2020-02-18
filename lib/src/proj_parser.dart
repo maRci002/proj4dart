@@ -29,7 +29,7 @@ class ProjParser {
     }
     var code = params[ProjKeyword.datum] as String;
     if (code != null) {
-      Datum datum = registry.getDatum(code);
+      Datum datum = null; // TODO: remove? registry.getDatum(code);
       if (datum == null) {
         throw Exception('Unknown datum: ' + code);
       }
