@@ -2,7 +2,6 @@ import 'package:proj4dart/src/projection.dart';
 import 'dart:math' as math;
 
 import 'package:proj4dart/src/point.dart';
-import 'package:proj4dart/src/util.dart';
 
 /// references:
 /// Formules et constantes pour le Calcul pour la
@@ -83,7 +82,7 @@ class SwissObliqueMercatorProjection extends Projection {
     var phy = b;
     var prevPhy = -1000.0;
     var iteration = 0;
-    while (abs(phy - prevPhy) > 0.0000001) {
+    while ((phy - prevPhy).abs() > 0.0000001) {
       if (++iteration > 20) {
         // ...reportError("omercFwdInfinity");
         return p;

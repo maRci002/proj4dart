@@ -4,7 +4,7 @@ class Point {
   double x;
   double y;
   double z;
-  double m; // Utils.toPoint() uses m coordinate
+  double m; // utils.toPoint() uses m coordinate
 
   Point({this.x, this.y})
       : z = null,

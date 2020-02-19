@@ -1,8 +1,7 @@
 import 'dart:math' as math;
 
-import 'package:proj4dart/src/constants.dart' as consts;
+import 'package:proj4dart/src/constants/values.dart' as consts;
 import 'package:proj4dart/src/point.dart';
-import 'package:proj4dart/src/util.dart';
 
 class Datum {
   final int datumType;
@@ -24,15 +23,15 @@ class Datum {
     if (source.datumType != dest.datumType) {
       return false; // false, datums are not equal
     } else if (source.a != dest.a ||
-        (abs(source.es - dest.es)) > 0.000000000050) {
+        ((source.es - dest.es).abs()) > 0.000000000050) {
       // the tolerance for es is to ensure that GRS80 and WGS84
       // are considered identical
       return false;
-    } else if (source.datumType == consts.pjd3Param) {
+    } else if (source.datumType == consts.PJD_3PARAM) {
       return (source.datumParams[0] == dest.datumParams[0] &&
           source.datumParams[1] == dest.datumParams[1] &&
           source.datumParams[2] == dest.datumParams[2]);
-    } else if (source.datumType == consts.pjd7Param) {
+    } else if (source.datumType == consts.PJD_7PARAM) {
       return (source.datumParams[0] == dest.datumParams[0] &&
           source.datumParams[1] == dest.datumParams[1] &&
           source.datumParams[2] == dest.datumParams[2] &&
@@ -46,7 +45,7 @@ class Datum {
   }
 
   static bool _checkParams(int type) {
-    return (type == consts.pjd3Param || type == consts.pjd7Param);
+    return (type == consts.PJD_3PARAM || type == consts.PJD_7PARAM);
   }
 
   static Point datumTransform(Datum source, Datum dest, Point point) {
@@ -56,8 +55,8 @@ class Datum {
     }
 
     // Explicitly skip datum transform by setting 'datum=none' as parameter for either source or dest
-    if (source.datumType == consts.pjdNoDatum ||
-        dest.datumType == consts.pjdNoDatum) {
+    if (source.datumType == consts.PJD_NODATUM ||
+        dest.datumType == consts.PJD_NODATUM) {
       return point;
     }
 
@@ -106,11 +105,11 @@ class Datum {
     /// Don't blow up if latitude is just a little out of the value
     /// range as it may just be a rounding issue. Also removed longitude
     /// test, it should be wrapped by math.cos() and math.sin(). NFW for PROJ.4, Sep/2001.
-    if (latitude < -consts.halfPi && latitude > -1.001 * consts.halfPi) {
-      latitude = -consts.halfPi;
-    } else if (latitude > consts.halfPi && latitude < 1.001 * consts.halfPi) {
-      latitude = consts.halfPi;
-    } else if (latitude < -consts.halfPi) {
+    if (latitude < -consts.HALF_PI && latitude > -1.001 * consts.HALF_PI) {
+      latitude = -consts.HALF_PI;
+    } else if (latitude > consts.HALF_PI && latitude < 1.001 * consts.HALF_PI) {
+      latitude = consts.HALF_PI;
+    } else if (latitude < -consts.HALF_PI) {
       // latitude out of range
       // ..reportError('geocent:lat out of range:' + latitude);
       return Point.withZ(
@@ -118,7 +117,7 @@ class Datum {
         y: double.negativeInfinity,
         z: point.z,
       );
-    } else if (latitude > consts.halfPi) {
+    } else if (latitude > consts.HALF_PI) {
       // latitude out of range
       return Point.withZ(
         x: double.infinity,
@@ -181,7 +180,7 @@ class Datum {
       // if (x,y,z)=(0.,0.,0.) then height becomes semi-minor axis
       // of ellipsoid (=center of mass), latitude becomes PI/2
       if (rr / a < genau) {
-        latitude = consts.halfPi;
+        latitude = consts.HALF_PI;
         height = -b;
 
         return Point.withZ(
@@ -240,7 +239,7 @@ class Datum {
 
   static Point _geocentricToWgs84(
       Point point, int datumType, List<double> datumParams) {
-    if (datumType == consts.pjd3Param) {
+    if (datumType == consts.PJD_3PARAM) {
       // if( x[io] === HUGE_VAL )
       //    continue;
       return Point.withZ(
@@ -248,7 +247,7 @@ class Datum {
         y: point.y + datumParams[1],
         z: point.z + datumParams[2],
       );
-    } else if (datumType == consts.pjd7Param) {
+    } else if (datumType == consts.PJD_7PARAM) {
       var dxBf = datumParams[0];
       var dyBf = datumParams[1];
       var dzBf = datumParams[2];
@@ -272,7 +271,7 @@ class Datum {
   /// point to transform in geocentric coordinates (x,y,z)
   static Point _geocentricFromWgs84(
       Point point, int datumType, List<double> datumParams) {
-    if (datumType == consts.pjd3Param) {
+    if (datumType == consts.PJD_3PARAM) {
       //if( x[io] === HUGE_VAL )
       //    continue;
       return Point.withZ(
@@ -280,7 +279,7 @@ class Datum {
         y: point.y - datumParams[1],
         z: point.z - datumParams[2],
       );
-    } else if (datumType == consts.pjd7Param) {
+    } else if (datumType == consts.PJD_7PARAM) {
       var dxBf = datumParams[0];
       var dyBf = datumParams[1];
       var dzBf = datumParams[2];

@@ -2,7 +2,7 @@ import 'package:proj4dart/src/proj_defs.dart';
 import 'package:proj4dart/src/projections/longlat.dart';
 
 import 'datum.dart';
-import 'package:proj4dart/src/constants.dart' as consts;
+import 'package:proj4dart/src/constants/values.dart' as consts;
 import 'package:proj4dart/src/point.dart';
 
 abstract class Projection {
@@ -62,11 +62,11 @@ abstract class Projection {
   }
 
   static bool _checkNotWGS(Projection source, Projection dest) {
-    return ((source.datum.datumType == consts.pjd3Param ||
-                source.datum.datumType == consts.pjd7Param) &&
+    return ((source.datum.datumType == consts.PJD_3PARAM ||
+                source.datum.datumType == consts.PJD_7PARAM) &&
             (dest is LongLat && dest.datumCode != 'WGS84')) ||
-        ((dest.datum.datumType == consts.pjd3Param ||
-                dest.datum.datumType == consts.pjd7Param) &&
+        ((dest.datum.datumType == consts.PJD_3PARAM ||
+                dest.datum.datumType == consts.PJD_7PARAM) &&
             (source is LongLat && source.datumCode != 'WGS84'));
   }
 
@@ -86,8 +86,8 @@ abstract class Projection {
     // Transform source points to long/lat, if they aren't already.
     if (source.projName == 'longlat') {
       point = Point.withZ(
-        x: point.x * consts.d2r,
-        y: point.y * consts.d2r,
+        x: point.x * consts.D2R,
+        y: point.y * consts.D2R,
         z: point.z ?? 0,
       );
     } else {
@@ -100,8 +100,8 @@ abstract class Projection {
     if (dest.projName == 'longlat') {
       // convert radians to decimal degrees
       point = Point.withZ(
-        x: point.x * consts.r2d,
-        y: point.y * consts.r2d,
+        x: point.x * consts.R2D,
+        y: point.y * consts.R2D,
         z: point.z ?? 0,
       );
     } else {
