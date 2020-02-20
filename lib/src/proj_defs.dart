@@ -45,4 +45,10 @@ class ProjDefs {
     }
     return def;
   }
+
+  List<String> names() {
+    List<String> names = [];
+    _defs.forEach((key, value) => names.add(key));
+    return names;
+  }
 }

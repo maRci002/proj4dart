@@ -6,20 +6,20 @@ import 'package:proj4dart/src/constants/values.dart' as consts;
 import 'package:proj4dart/src/point.dart';
 
 abstract class Projection {
-  final String title;
-  final String projName;
-  final double k0;
-  final String ellps;
-  final List<double> datumParams;
-  final String units;
-  final String axis;
-  final int a;
-  final double b;
-  final double rf;
-  final double es;
-  final double e;
-  final double ep2;
-  final Datum datum;
+  String title;
+  String projName;
+  double k0;
+  String ellps;
+  List<double> datumParams;
+  String units;
+  String axis;
+  int a;
+  double b;
+  double rf;
+  double es;
+  double e;
+  double ep2;
+  Datum datum;
 
   Point forward(Point p);
 
