@@ -1,21 +1,23 @@
-// import 'dart:convert';
 import 'package:proj4dart/proj4dart.dart';
-
-// import 'package:proj4dart/src/projections/epsg23700.dart';
-// import 'package:proj4dart/src/projections/epsg4326.dart';
-// import 'package:proj4dart/src/projections/longlat.dart';
-// import 'package:proj4dart/src/projections/somerc.dart';
 
 // Global class for storing predefined and user-defined Projection definitions
 class ProjDefs {
+  static final _wgs84 = '+proj=longlat +datum=WGS84 +no_defs';
+  static final _nad83 =
+      '+title=NAD83 (long/lat) +proj=longlat +a=6378137.0 +b=6356752.31414036 +ellps=GRS80 +datum=NAD83 +units=degrees';
+  static final _google =
+      '+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs';
+
   // Cached projections
   final Map<String, ProjParams> _defs = {
-    // 'EPSG:4326': LongLat.init(json.decode(epsg4326JSON)),
-    // 'EPSG:23700':
-    //     SwissObliqueMercatorProjection.init(json.decode(epsg23700JSON)),
-    'EPSG:4326': ProjParams('+proj=longlat +datum=WGS84 +no_defs'),
-    'EPSG:3857': ProjParams(
-        '+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs')
+    'EPSG:4326': ProjParams(_wgs84),
+    'EPSG:4269': ProjParams(_nad83),
+    'EPSG:3857': ProjParams(_google),
+    'WGS84': ProjParams(_wgs84),
+    'EPSG:3785': ProjParams(_google),
+    'GOOGLE': ProjParams(_google),
+    'EPSG:900913': ProjParams(_google),
+    'EPSG:102113': ProjParams(_google)
   };
 
   static final ProjDefs _projDefs = ProjDefs._internal();
