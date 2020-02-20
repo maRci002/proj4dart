@@ -1,7 +1,7 @@
 import 'package:proj4dart/proj4dart.dart';
 
 // Global class for storing predefined and user-defined Projection definitions
-class ProjDefs {
+class ProjDefStore {
   static final _wgs84 = '+proj=longlat +datum=WGS84 +no_defs';
   static final _nad83 =
       '+title=NAD83 (long/lat) +proj=longlat +a=6378137.0 +b=6356752.31414036 +ellps=GRS80 +datum=NAD83 +units=degrees';
@@ -20,13 +20,13 @@ class ProjDefs {
     'EPSG:102113': ProjParams(_google)
   };
 
-  static final ProjDefs _projDefs = ProjDefs._internal();
+  static final ProjDefStore _projDefs = ProjDefStore._internal();
 
-  factory ProjDefs() {
+  factory ProjDefStore() {
     return _projDefs;
   }
 
-  ProjDefs._internal();
+  ProjDefStore._internal();
 
   ProjParams register(String name, String def) {
     if (def[0] != '+') {
@@ -37,13 +37,22 @@ class ProjDefs {
     return _defs[name];
   }
 
-  // Return a cached projection by its name
+  // Return a cached proj parameter object by its name
   ProjParams get(String name) {
     var def = _defs[name];
     if (def == null) {
       throw Exception('Projection not yet defined');
     }
     return def;
+  }
+
+  // Return a cached proj parameter object map by its name
+  Map<String, dynamic> getMap(String name) {
+    var def = _defs[name];
+    if (def == null) {
+      throw Exception('Projection not yet defined');
+    }
+    return def.map;
   }
 
   List<String> names() {

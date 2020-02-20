@@ -7,7 +7,7 @@ bool _testObj(dynamic code) {
 }
 
 bool _testDef(String name) {
-  return ProjDefs().names().contains(name);
+  return ProjDefStore().names().contains(name);
 }
 
 bool _testWKT(String code) {
@@ -42,7 +42,7 @@ ProjParams parse(dynamic code) {
   if (_testObj(code)) {
     //check to see if this is a WKT string
     if (_testDef(code)) {
-      return ProjDefs().get(code);
+      return ProjDefStore().get(code);
     }
     if (_testWKT(code)) {
       throw Exception('WKT is not yet implemented');

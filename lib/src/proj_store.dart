@@ -4,8 +4,8 @@ import 'package:proj4dart/src/projections/longlat.dart';
 import 'package:proj4dart/src/projections/merc.dart';
 
 List<Projection> projs = [
-  MercProjection.init(ProjDefs().get('EPSG:3857').map),
-  LongLat.init(ProjDefs().get('EPSG:4326').map)
+  MercProjection.init(ProjDefStore().get('EPSG:3857').map),
+  LongLat.init(ProjDefStore().get('EPSG:4326').map)
 ];
 
 class ProjStore {

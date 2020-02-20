@@ -53,7 +53,7 @@ abstract class Projection {
   }
 
   factory Projection(String code) {
-    var projection = ProjDefs().get(code);
+    var projection = ProjDefStore().get(code);
     if (projection == null) {
       throw Exception(
           "$code projection isn't defined, make sure you defined it by 'Projection.register(String, String)'");
