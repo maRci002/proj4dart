@@ -14,14 +14,7 @@ class MercProjection extends Projection {
     'Mercator_Auxiliary_Sphere',
     'merc'
   ];
-  @override
-  double a;
-  @override
-  double b;
-  @override
-  double es;
-  @override
-  double e;
+
   double long0;
   double x0;
   double y0;
@@ -30,9 +23,7 @@ class MercProjection extends Projection {
   double sphere;
 
   MercProjection.init(Map<String, dynamic> map)
-      : a = map['a'],
-        b = map['b'],
-        lat_ts = map['lat_ts'],
+      : lat_ts = map['lat_ts'],
         sphere = map['sphere'],
         k = map['k'],
         long0 = map['long0'],
