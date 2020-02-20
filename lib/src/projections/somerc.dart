@@ -14,8 +14,8 @@ class SwissObliqueMercatorProjection extends Projection {
 
   double lat0;
   double long0;
-  int x0;
-  int y0;
+  double x0;
+  double y0;
   bool noDefs;
   double lambda0;
   double r;
@@ -36,7 +36,7 @@ class SwissObliqueMercatorProjection extends Projection {
     lambda0 = long0;
     var sinPhy0 = math.sin(phy0);
     var semiMajorAxis = a;
-    var invF = rf;
+    var invF = map['rf'];
     var flattening = 1 / invF;
     var e2 = 2 * flattening - math.pow(flattening, 2);
     e = math.sqrt(e2);
