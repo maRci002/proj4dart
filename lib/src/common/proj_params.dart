@@ -1,6 +1,6 @@
-import 'package:proj4dart/src/constants/values.dart' as consts;
-import 'package:proj4dart/src/constants/units.dart' as consts_units;
 import 'package:proj4dart/src/constants/prime_meridian.dart' as consts_pm;
+import 'package:proj4dart/src/constants/units.dart' as consts_units;
+import 'package:proj4dart/src/constants/values.dart' as consts;
 
 class ProjParams {
   String datumCode;

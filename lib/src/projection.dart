@@ -1,9 +1,9 @@
+import 'package:proj4dart/src/constants/values.dart' as consts;
+import 'package:proj4dart/src/point.dart';
 import 'package:proj4dart/src/proj_defs.dart';
 import 'package:proj4dart/src/projections/longlat.dart';
 
 import 'datum.dart';
-import 'package:proj4dart/src/constants/values.dart' as consts;
-import 'package:proj4dart/src/point.dart';
 
 abstract class Projection {
   String title;

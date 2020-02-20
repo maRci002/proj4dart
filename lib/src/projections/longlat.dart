@@ -1,6 +1,5 @@
-import 'package:proj4dart/src/projection.dart';
-
 import 'package:proj4dart/src/point.dart';
+import 'package:proj4dart/src/projection.dart';
 
 class LongLat extends Projection {
   @override

@@ -1,7 +1,8 @@
+import 'dart:math' as math;
+
 import 'package:proj4dart/src/constants/values.dart' as consts;
 import 'package:proj4dart/src/datum2.dart';
 import 'package:proj4dart/src/point.dart';
-import 'dart:math' as math;
 
 bool compareDatums(Datum source, Datum dest) {
   if (source.datum_type != dest.datum_type) {

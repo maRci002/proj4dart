@@ -1,6 +1,7 @@
+import 'dart:math' as math;
+
 import 'package:proj4dart/src/constants/ellipsoids.dart' as ellipsoids;
 import 'package:proj4dart/src/constants/values.dart' as consts;
-import 'dart:math' as math;
 
 dynamic eccentricity(double a, double b, rf, bool R_A) {
   var a2 = a * a; // used in geocentric
