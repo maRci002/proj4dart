@@ -11,3 +11,23 @@ final brussels = 4.367975; //"4d22'4.71\"E",
 final stockholm = 18.058277777778; //"18d3'29.8\"E",
 final athens = 23.7163375; //"23d42'58.815\"E",
 final oslo = 10.722916666667;
+
+final dynamic _items = {
+  'greenwich': greenwich,
+  'lisbon': lisbon,
+  'paris': paris,
+  'bogota': bogota,
+  'madrid': madrid,
+  'rome': rome,
+  'bern': bern,
+  'jakarta': jakarta,
+  'ferro': ferro,
+  'brussels': brussels,
+  'stockholm': stockholm,
+  'athens': athens,
+  'oslo': oslo
+};
+
+double match(String name) {
+  return _items[name];
+}
