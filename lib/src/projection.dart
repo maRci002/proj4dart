@@ -45,11 +45,11 @@ abstract class Projection {
         datum = Datum.fromJSON(map['datum']);
 
   factory Projection.register(String code, String projString) {
-    var projection = ProjDefs().register(code, projString);
+    // var projection = ProjDefs().register(code, projString);
     // if (projection == null) {
     //   throw Exception('An error occured while registering $code, $projString');
     // }
-    return projection;
+    // return projection;
   }
 
   factory Projection(String code) {
@@ -58,7 +58,7 @@ abstract class Projection {
       throw Exception(
           "$code projection isn't defined, make sure you defined it by 'Projection.register(String, String)'");
     }
-    return projection;
+    // return projection;
   }
 
   static bool _checkNotWGS(Projection source, Projection dest) {

@@ -2,7 +2,7 @@ import 'package:proj4dart/src/constants/values.dart' as consts;
 import 'package:proj4dart/src/constants/units.dart' as consts_units;
 import 'package:proj4dart/src/constants/prime_meridian.dart' as consts_pm;
 
-class ProjString {
+class ProjParams {
   String datumCode;
   String proj;
   String datum;
@@ -31,7 +31,7 @@ class ProjString {
   String nadgrids;
   String axis;
 
-  ProjString(String defData) {
+  ProjParams(String defData) {
     var paramObj = {} as dynamic;
     defData
         .split('+')
@@ -145,7 +145,6 @@ class ProjString {
           }
           break;
         default:
-          print('Unknown key: $key');
           break;
       }
     });
