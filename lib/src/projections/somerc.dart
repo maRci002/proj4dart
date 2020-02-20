@@ -12,29 +12,38 @@ class SwissObliqueMercatorProjection extends Projection {
   @override
   final List<String> names = ['somerc'];
 
-  final double lat0;
-  final double long0;
-  final int x0;
-  final int y0;
-  final bool noDefs;
-  final double lambda0;
-  final double r;
-  final double alpha;
-  final double b0;
-  final double k;
+  double lat0;
+  double long0;
+  int x0;
+  int y0;
+  bool noDefs;
+  double lambda0;
+  double r;
+  double alpha;
+  double b0;
+  double k;
 
   SwissObliqueMercatorProjection.init(Map<String, dynamic> map)
-      : lat0 = map['lat0'],
-        long0 = map['long0'],
-        x0 = map['x0'],
-        y0 = map['y0'],
-        noDefs = map['no_defs'],
-        lambda0 = map['lambda0'],
-        r = map['R'],
-        alpha = map['alpha'],
-        b0 = map['b0'],
-        k = map['K'],
-        super.init(map);
+      : super.init(map) {
+    var phy0 = lat0;
+    lambda0 = long0;
+    var sinPhy0 = math.sin(phy0);
+    var semiMajorAxis = a;
+    var invF = rf;
+    var flattening = 1 / invF;
+    var e2 = 2 * flattening - math.pow(flattening, 2);
+    e = math.sqrt(e2);
+    r = k0 *
+        semiMajorAxis *
+        math.sqrt(1 - e2) /
+        (1 - e2 * math.pow(sinPhy0, 2));
+    alpha = math.sqrt(1 + e2 / (1 - e2) * math.pow(math.cos(phy0), 4));
+    b0 = math.asin(sinPhy0 / alpha);
+    var k1 = math.log(math.tan(math.pi / 4 + b0 / 2));
+    var k2 = math.log(math.tan(math.pi / 4 + phy0 / 2));
+    var k3 = math.log((1 + e * sinPhy0) / (1 - e * sinPhy0));
+    k = k1 - alpha * k2 + alpha * e / 2 * k3;
+  }
 
   @override
   Point forward(Point p) {
