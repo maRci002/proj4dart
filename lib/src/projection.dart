@@ -13,7 +13,7 @@ abstract class Projection {
   List<double> datumParams;
   String units;
   String axis;
-  int a;
+  double a;
   double b;
   double rf;
   double es;
@@ -42,7 +42,7 @@ abstract class Projection {
         es = map['es'],
         e = map['e'],
         ep2 = map['ep2'],
-        datum = Datum.fromJSON(map['datum']);
+        datum = Datum.fromJSON(map);
 
   factory Projection.register(String code, String projString) {
     // var projection = ProjDefs().register(code, projString);

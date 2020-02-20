@@ -6,7 +6,7 @@ import 'package:proj4dart/src/point.dart';
 class Datum {
   final int datumType;
   final List<double> datumParams;
-  final int a;
+  final double a;
   final double b;
   final double es;
   final double ep2;
@@ -92,7 +92,7 @@ class Datum {
   ///    x         : Calculated Geocentric x coordinate, in meters    (output)
   ///    y         : Calculated Geocentric y coordinate, in meters    (output)
   ///    z         : Calculated Geocentric z coordinate, in meters    (output)
-  static Point _geodeticToGeocentric(Point point, double es, int a) {
+  static Point _geodeticToGeocentric(Point point, double es, double a) {
     var longitude = point.x;
     var latitude = point.y;
     var height = point.z ?? 0; //z value not always supplied
@@ -141,7 +141,8 @@ class Datum {
     );
   }
 
-  static Point _geocentricToGeodetic(Point point, double es, int a, double b) {
+  static Point _geocentricToGeodetic(
+      Point point, double es, double a, double b) {
     // local defintions and variables
     // end-criterium of loop, accuracy of sin(latitude)
     var genau = 1e-12;

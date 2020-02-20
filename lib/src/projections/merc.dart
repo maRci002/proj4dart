@@ -15,7 +15,7 @@ class MercProjection extends Projection {
     'merc'
   ];
   @override
-  int a;
+  double a;
   @override
   double b;
   @override
