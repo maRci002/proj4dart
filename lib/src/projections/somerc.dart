@@ -25,6 +25,13 @@ class SwissObliqueMercatorProjection extends Projection {
 
   SwissObliqueMercatorProjection.init(Map<String, dynamic> map)
       : super.init(map) {
+    lat0 = map['lat0'];
+    long0 = map['long0'];
+    x0 = map['x0'];
+    y0 = map['y0'];
+    noDefs = map['no_defs'];
+    r = map['R'];
+
     var phy0 = lat0;
     lambda0 = long0;
     var sinPhy0 = math.sin(phy0);
