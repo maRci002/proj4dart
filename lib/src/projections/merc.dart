@@ -39,7 +39,7 @@ class MercProjection extends Projection {
         x0 = map['x0'],
         y0 = map['y0'],
         super.init(map) {
-    var con = map['b'] / map['a'];
+    var con = b / a;
     es = 1 - con * con;
     x0 ??= 0.0;
     y0 ??= 0.0;
