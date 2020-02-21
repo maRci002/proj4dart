@@ -1,7 +1,6 @@
 import 'dart:math' as math;
 
 import 'package:proj4dart/proj4dart.dart';
-import 'package:proj4dart/src/datum.dart';
 import 'package:proj4dart/src/point.dart';
 import 'package:proj4dart/src/projection.dart';
 
@@ -23,7 +22,6 @@ class SwissObliqueMercatorProjection extends Projection {
   double alpha;
   double b0;
   double k;
-  Datum datum;
 
   SwissObliqueMercatorProjection.init(ProjParams params) : super.init(params) {
     lat0 = params.lat0;
@@ -32,7 +30,6 @@ class SwissObliqueMercatorProjection extends Projection {
     y0 = params.y0;
     noDefs = params.no_defs;
     datum = params.datum;
-    r = params.map['R']; // TODO what is 'R'??
 
     var phy0 = lat0;
     lambda0 = long0;
