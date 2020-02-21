@@ -6,7 +6,7 @@ import 'package:proj4dart/src/datum.dart';
 import 'package:proj4dart/src/derive_constants.dart' as dc;
 
 class ProjParams {
-  Map<String, dynamic> map = {'datum_params': List<double>()};
+  Map<String, dynamic> map = {};
 
   String get datumCode => map['datumCode'];
   String get proj => map['proj'];
@@ -46,7 +46,7 @@ class ProjParams {
   double get ep2 => map['ep2'];
 
   // Datum properties
-  String get title => map['title']; // TODO how gets title defined?
+  String get title => map['title'];
   Datum get datum => map['datum'];
 
   ProjParams(String defData) {
