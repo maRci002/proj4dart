@@ -1,7 +1,7 @@
+import 'package:proj4dart/src/classes/datum.dart';
+import 'package:proj4dart/src/classes/point.dart';
+import 'package:proj4dart/src/common/datum_utils.dart' as datum_utils;
 import 'package:proj4dart/src/constants/values.dart' as consts;
-import 'package:proj4dart/src/datum.dart';
-import 'package:proj4dart/src/datum_utils.dart' as datum_utils;
-import 'package:proj4dart/src/point.dart';
 
 bool checkParams(int type) {
   return (type == consts.PJD_3PARAM || type == consts.PJD_7PARAM);

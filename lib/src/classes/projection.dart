@@ -1,9 +1,10 @@
-import 'package:proj4dart/proj4dart.dart';
+import 'package:proj4dart/src/classes/datum.dart';
+import 'package:proj4dart/src/classes/point.dart';
+import 'package:proj4dart/src/classes/proj_params.dart';
+import 'package:proj4dart/src/common/datum_transform.dart' as dt;
 import 'package:proj4dart/src/constants/values.dart' as consts;
-import 'package:proj4dart/src/datum.dart';
-import 'package:proj4dart/src/datum_transform.dart' as dt;
-import 'package:proj4dart/src/point.dart';
-import 'package:proj4dart/src/proj_store.dart';
+import 'package:proj4dart/src/globals/defs.dart';
+import 'package:proj4dart/src/globals/projs.dart';
 import 'package:proj4dart/src/projections/longlat.dart';
 import 'package:proj4dart/src/projections/merc.dart';
 import 'package:proj4dart/src/projections/somerc.dart';

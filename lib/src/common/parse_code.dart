@@ -1,6 +1,5 @@
-import 'package:proj4dart/proj4dart.dart';
-
-// var _codes = ['3857', '900913', '3785', '102113'];
+import 'package:proj4dart/src/classes/proj_params.dart';
+import 'package:proj4dart/src/globals/defs.dart';
 
 bool _testObj(dynamic code) {
   return code is String;

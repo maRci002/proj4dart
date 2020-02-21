@@ -1,9 +1,9 @@
+import 'package:proj4dart/src/classes/datum.dart';
+import 'package:proj4dart/src/common/derive_constants.dart' as dc;
 import 'package:proj4dart/src/constants/datums.dart' as datums;
 import 'package:proj4dart/src/constants/prime_meridians.dart' as consts_pm;
 import 'package:proj4dart/src/constants/units.dart' as consts_units;
 import 'package:proj4dart/src/constants/values.dart' as consts;
-import 'package:proj4dart/src/datum.dart';
-import 'package:proj4dart/src/derive_constants.dart' as dc;
 
 class ProjParams {
   Map<String, dynamic> map = {};

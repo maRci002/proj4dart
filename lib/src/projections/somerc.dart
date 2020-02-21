@@ -1,8 +1,8 @@
 import 'dart:math' as math;
 
-import 'package:proj4dart/proj4dart.dart';
-import 'package:proj4dart/src/point.dart';
-import 'package:proj4dart/src/projection.dart';
+import 'package:proj4dart/src/classes/point.dart';
+import 'package:proj4dart/src/classes/proj_params.dart';
+import 'package:proj4dart/src/classes/projection.dart';
 
 /// references:
 /// Formules et constantes pour le Calcul pour la

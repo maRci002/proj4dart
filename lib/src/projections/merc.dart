@@ -1,10 +1,10 @@
 import 'dart:math' as math;
 
-import 'package:proj4dart/proj4dart.dart';
+import 'package:proj4dart/src/classes/point.dart';
+import 'package:proj4dart/src/classes/proj_params.dart';
+import 'package:proj4dart/src/classes/projection.dart';
 import 'package:proj4dart/src/common/utils.dart' as utils;
 import 'package:proj4dart/src/constants/values.dart' as consts;
-import 'package:proj4dart/src/point.dart';
-import 'package:proj4dart/src/projection.dart';
 
 class MercProjection extends Projection {
   static final List<String> names = [

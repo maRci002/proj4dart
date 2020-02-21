@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:math' as math;
 
+import 'package:proj4dart/src/classes/point.dart';
 import 'package:proj4dart/src/constants/values.dart' as consts;
-import 'package:proj4dart/src/point.dart';
 
 double acosh(double x) {
   return 2 * math.log(math.sqrt((x + 1) / 2) + math.sqrt((x - 1) / 2));

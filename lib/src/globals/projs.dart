@@ -1,5 +1,5 @@
-import 'package:proj4dart/proj4dart.dart';
-import 'package:proj4dart/src/projection.dart';
+import 'package:proj4dart/src/classes/projection.dart';
+import 'package:proj4dart/src/globals/defs.dart';
 
 class ProjStore {
   final List<Projection> _projections = [];

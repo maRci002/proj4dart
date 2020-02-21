@@ -1,4 +1,4 @@
-import 'package:proj4dart/proj4dart.dart';
+import 'package:proj4dart/src/classes/proj_params.dart';
 
 // Global class for storing predefined and user-defined Projection definitions
 class ProjDefStore {

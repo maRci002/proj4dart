@@ -1,5 +1,4 @@
 import 'package:proj4dart/proj4dart.dart';
-import 'package:proj4dart/src/proj_store.dart';
 
 void main() {
   ProjStore().start();

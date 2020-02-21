@@ -1,6 +1,5 @@
 import 'package:proj4dart/proj4dart.dart';
 import 'package:proj4dart/src/common/parse_code.dart' as parser;
-import 'package:proj4dart/src/proj_store.dart';
 import 'package:proj4dart/src/projections/merc.dart';
 import 'package:test/test.dart';
 

@@ -1,9 +1,9 @@
 /// proj4dart library.
 library proj4dart;
 
-export 'src/common/proj_params.dart';
-export 'src/point.dart';
-export 'src/proj_defs.dart';
-export 'src/proj_store.dart';
-export 'src/projection.dart';
-export 'src/datum.dart';
+export 'src/classes/datum.dart';
+export 'src/classes/point.dart';
+export 'src/classes/proj_params.dart';
+export 'src/classes/projection.dart';
+export 'src/globals/defs.dart';
+export 'src/globals/projs.dart';
