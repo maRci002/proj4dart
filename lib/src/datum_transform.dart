@@ -1,5 +1,5 @@
 import 'package:proj4dart/src/constants/values.dart' as consts;
-import 'package:proj4dart/src/datum2.dart';
+import 'package:proj4dart/src/datum.dart';
 import 'package:proj4dart/src/datum_utils.dart' as datum_utils;
 import 'package:proj4dart/src/point.dart';
 
@@ -16,28 +16,28 @@ Point transform(Datum source, Datum dest, Point point) {
   }
 
   // Explicitly skip datum transform by setting 'datum=none' as parameter for either source or dest
-  if (source.datum_type == consts.PJD_NODATUM ||
-      dest.datum_type == consts.PJD_NODATUM) {
+  if (source.datumType == consts.PJD_NODATUM ||
+      dest.datumType == consts.PJD_NODATUM) {
     return point;
   }
 
   // If this datum requires grid shifts, then apply it to geodetic coordinates.
 
   // Do we need to go through geocentric coordinates?
-  // if (source.es === dest.es && source.a === dest.a && !checkParams(source.datum_type) &&  !checkParams(dest.datum_type)) {
+  // if (source.es === dest.es && source.a === dest.a && !checkParams(source.datumType) &&  !checkParams(dest.datumType)) {
   //   return point;
   // }
 
   // Convert to geocentric coordinates.
   point = datum_utils.geodeticToGeocentric(point, source.es, source.a);
   // Convert between datums
-  if (checkParams(source.datum_type)) {
+  if (checkParams(source.datumType)) {
     point = datum_utils.geocentricToWgs84(
-        point, source.datum_type, source.datum_params);
+        point, source.datumType, source.datumParams);
   }
-  if (checkParams(dest.datum_type)) {
+  if (checkParams(dest.datumType)) {
     point = datum_utils.geocentricFromWgs84(
-        point, dest.datum_type, dest.datum_params);
+        point, dest.datumType, dest.datumParams);
   }
   return datum_utils.geocentricToGeodetic(point, dest.es, dest.a, dest.b);
 }

@@ -32,7 +32,7 @@ void main() {
     });
 
     test('Projection init', () {
-      var projection = MercProjection.init(ProjDefStore().getMap('EPSG:3857'));
+      var projection = MercProjection.init(ProjDefStore().get('EPSG:3857'));
       expect(projection != null && projection is Projection, true);
     });
 

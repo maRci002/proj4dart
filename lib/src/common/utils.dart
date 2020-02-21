@@ -13,7 +13,7 @@ double adjust_lat(double x) {
 }
 
 double adjust_lon(double x) {
-  return 2 * math.log(math.sqrt((x + 1) / 2) + math.sqrt((x - 1) / 2));
+  return (x.abs() <= consts.SPI) ? x : (x - (sign(x) * consts.TWO_PI));
 }
 
 int adjust_zone(int zone, double lon) {

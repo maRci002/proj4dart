@@ -8,7 +8,7 @@ dynamic eccentricity(double a, double b, rf, bool R_A) {
   var b2 = b * b; // used in geocentric
   var es = (a2 - b2) / a2; // e ^ 2
   var e = 0.0;
-  if (R_A) {
+  if (R_A != null) {
     a *= 1 - es * (consts.SIXTH + es * (consts.RA4 + es * consts.RA6));
     a2 = a * a;
     es = 0.0;
@@ -16,11 +16,11 @@ dynamic eccentricity(double a, double b, rf, bool R_A) {
     e = math.sqrt(es); // eccentricity
   }
   var ep2 = (a2 - b2) / b2; // used in geocentric
-  return {es: es, e: e, ep2: ep2};
+  return {'es': es, 'e': e, 'ep2': ep2};
 }
 
 dynamic sphere(double a, double b, double rf, String ellps, sphere) {
-  if (a.isNaN) {
+  if (a == null || a.isNaN) {
     // do we have an ellipsoid?
     var ellipse = ellipsoids.match(ellps);
     ellipse ??= ellipsoids.WGS84;
@@ -35,5 +35,5 @@ dynamic sphere(double a, double b, double rf, String ellps, sphere) {
     sphere = true;
     b = a;
   }
-  return {a: a, b: b, rf: rf, sphere: sphere};
+  return {'a': a, 'b': b, 'rf': rf, 'sphere': sphere};
 }

@@ -1,5 +1,7 @@
 import 'dart:math' as math;
 
+import 'package:proj4dart/proj4dart.dart';
+import 'package:proj4dart/src/datum.dart';
 import 'package:proj4dart/src/point.dart';
 import 'package:proj4dart/src/projection.dart';
 
@@ -9,8 +11,7 @@ import 'package:proj4dart/src/projection.dart';
 /// des systèmes de référence.
 /// http://www.swisstopo.admin.ch/internet/swisstopo/fr/home/topics/survey/sys/refsys/switzerland.parsysrelated1.31216.downloadList.77004.DownloadFile.tmp/swissprojectionfr.pdf
 class SwissObliqueMercatorProjection extends Projection {
-  @override
-  final List<String> names = ['somerc'];
+  static final List<String> names = ['somerc'];
 
   double lat0;
   double long0;
@@ -22,21 +23,22 @@ class SwissObliqueMercatorProjection extends Projection {
   double alpha;
   double b0;
   double k;
+  Datum datum;
 
-  SwissObliqueMercatorProjection.init(Map<String, dynamic> map)
-      : super.init(map) {
-    lat0 = map['lat0'];
-    long0 = map['long0'];
-    x0 = map['x0'];
-    y0 = map['y0'];
-    noDefs = map['no_defs'];
-    r = map['R'];
+  SwissObliqueMercatorProjection.init(ProjParams params) : super.init(params) {
+    lat0 = params.lat0;
+    long0 = params.long0;
+    x0 = params.x0;
+    y0 = params.y0;
+    noDefs = params.no_defs;
+    datum = params.datum;
+    r = params.map['R']; // TODO what is 'R'??
 
     var phy0 = lat0;
     lambda0 = long0;
     var sinPhy0 = math.sin(phy0);
     var semiMajorAxis = a;
-    var invF = map['rf'];
+    var invF = params.rf;
     var flattening = 1 / invF;
     var e2 = 2 * flattening - math.pow(flattening, 2);
     e = math.sqrt(e2);

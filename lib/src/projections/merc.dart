@@ -1,13 +1,13 @@
 import 'dart:math' as math;
 
+import 'package:proj4dart/proj4dart.dart';
 import 'package:proj4dart/src/common/utils.dart' as utils;
 import 'package:proj4dart/src/constants/values.dart' as consts;
 import 'package:proj4dart/src/point.dart';
 import 'package:proj4dart/src/projection.dart';
 
 class MercProjection extends Projection {
-  @override
-  final List<String> names = [
+  static final List<String> names = [
     'Mercator',
     'Popular Visualisation Pseudo Mercator',
     'Mercator_1SP',
@@ -20,16 +20,16 @@ class MercProjection extends Projection {
   double y0;
   double k;
   double lat_ts;
-  double sphere;
+  bool sphere;
 
-  MercProjection.init(Map<String, dynamic> map)
-      : lat_ts = map['lat_ts'],
-        sphere = map['sphere'],
-        k = map['k'],
-        long0 = map['long0'],
-        x0 = map['x0'],
-        y0 = map['y0'],
-        super.init(map) {
+  MercProjection.init(ProjParams params)
+      : lat_ts = params.lat_ts,
+        sphere = params.sphere,
+        k = params.k,
+        long0 = params.long0,
+        x0 = params.x0,
+        y0 = params.y0,
+        super.init(params) {
     var con = b / a;
     es = 1 - con * con;
     x0 ??= 0.0;

@@ -1,12 +1,5 @@
 import 'package:proj4dart/proj4dart.dart';
 import 'package:proj4dart/src/projection.dart';
-import 'package:proj4dart/src/projections/longlat.dart';
-import 'package:proj4dart/src/projections/merc.dart';
-
-List<Projection> projs = [
-  MercProjection.init(ProjDefStore().get('EPSG:3857').map),
-  LongLat.init(ProjDefStore().get('EPSG:4326').map)
-];
 
 class ProjStore {
   final List<Projection> _projections = [];
@@ -20,28 +13,38 @@ class ProjStore {
 
   ProjStore._internal();
 
-  dynamic add(Projection proj, i) {
+  void add(List<String> names, Projection proj) {
     var length = _projections.length;
-    if (proj.names == null) {
-      return true;
+    if (names == null) {
+      return;
     }
-    _projections[length] = proj;
-    proj.names.forEach((n) => _names[n.toLowerCase()] = length);
+    _projections.add(proj);
+    names.forEach((n) => _names[n.toLowerCase()] = length);
   }
 
-  Projection get(String name) {
-    if (name == null) {
+  Projection getByName(String projName) {
+    if (projName == null) {
       return null;
     }
-    var n = name.toLowerCase();
+    var n = projName.toLowerCase();
     if (_names[n] != null && _projections[_names[n]] != null) {
       return _projections[_names[n]];
     }
     return null;
   }
 
+  Projection get(String epsg) {
+    var params = ProjDefStore().get(epsg);
+    if (params == null) {
+      return null;
+    }
+    return getByName(params.proj);
+  }
+
   void start() {
-    projs.forEach((p) => _projections.add(p));
+    ProjDefStore().names().forEach((n) {
+      Projection.register(n, ProjDefStore().get(n));
+    });
   }
 
   List<Projection> getProjections() {

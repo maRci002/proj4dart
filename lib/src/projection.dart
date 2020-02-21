@@ -1,9 +1,12 @@
+import 'package:proj4dart/proj4dart.dart';
 import 'package:proj4dart/src/constants/values.dart' as consts;
+import 'package:proj4dart/src/datum.dart';
+import 'package:proj4dart/src/datum_transform.dart' as dt;
 import 'package:proj4dart/src/point.dart';
-import 'package:proj4dart/src/proj_defs.dart';
+import 'package:proj4dart/src/proj_store.dart';
 import 'package:proj4dart/src/projections/longlat.dart';
-
-import 'datum.dart';
+import 'package:proj4dart/src/projections/merc.dart';
+import 'package:proj4dart/src/projections/somerc.dart';
 
 abstract class Projection {
   String title;
@@ -25,40 +28,54 @@ abstract class Projection {
 
   Point inverse(Point p);
 
-  List<String> get names;
+  // List<String> get names;
 
   // TODO: validate these are the real basic params?
-  Projection.init(Map<String, dynamic> map)
-      : title = map['title'],
-        projName = map['projName'],
-        k0 = map['k0'],
-        ellps = map['ellps'],
-        datumParams = map['datum_params']?.cast<double>(),
-        units = map['units'],
-        axis = map['axis'],
-        a = map['a'],
-        b = map['b'],
-        rf = map['rf'],
-        es = map['es'],
-        e = map['e'],
-        ep2 = map['ep2'],
-        datum = Datum.fromJSON(map);
+  Projection.init(ProjParams params)
+      : title = params.title,
+        projName = params.proj,
+        k0 = params.k0,
+        ellps = params.ellps,
+        datumParams = params.datum_params?.cast<double>(),
+        units = params.units,
+        axis = params.axis,
+        a = params.a,
+        b = params.b,
+        rf = params.rf,
+        es = params.es,
+        e = params.e,
+        ep2 = params.ep2,
+        datum = params.datum;
 
-  factory Projection.register(String code, String projString) {
-    // var projection = ProjDefs().register(code, projString);
-    // if (projection == null) {
-    //   throw Exception('An error occured while registering $code, $projString');
-    // }
-    // return projection;
+  factory Projection.register(String code, ProjParams params) {
+    var projName = params.proj;
+    if (MercProjection.names.contains(projName)) {
+      ProjStore().add(MercProjection.names, MercProjection.init(params));
+    } else if (LongLat.names.contains(projName)) {
+      ProjStore().add(LongLat.names, LongLat.init(params));
+    } else if (SwissObliqueMercatorProjection.names.contains(projName)) {
+      ProjStore().add(SwissObliqueMercatorProjection.names,
+          SwissObliqueMercatorProjection.init(params));
+    }
+    var projection = ProjStore().get(code);
+    if (projection == null) {
+      throw Exception('An error occured while registering $code, $params');
+    }
+    return projection;
   }
 
   factory Projection(String code) {
-    var projection = ProjDefStore().get(code);
+    var params = ProjDefStore().get(code);
+    if (params == null) {
+      throw Exception('Proj def not yet registered: $code');
+    }
+    var projection = ProjStore().get(code);
+    projection ??= Projection.register(code, params);
     if (projection == null) {
       throw Exception(
           "$code projection isn't defined, make sure you defined it by 'Projection.register(String, String)'");
     }
-    // return projection;
+    return projection;
   }
 
   static bool _checkNotWGS(Projection source, Projection dest) {
@@ -95,7 +112,7 @@ abstract class Projection {
     }
 
     // Convert datums if needed, and if possible.
-    point = Datum.datumTransform(source.datum, dest.datum, point);
+    point = dt.transform(source.datum, dest.datum, point);
 
     if (dest.projName == 'longlat') {
       // convert radians to decimal degrees

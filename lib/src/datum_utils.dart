@@ -1,29 +1,29 @@
 import 'dart:math' as math;
 
 import 'package:proj4dart/src/constants/values.dart' as consts;
-import 'package:proj4dart/src/datum2.dart';
+import 'package:proj4dart/src/datum.dart';
 import 'package:proj4dart/src/point.dart';
 
 bool compareDatums(Datum source, Datum dest) {
-  if (source.datum_type != dest.datum_type) {
+  if (source.datumType != dest.datumType) {
     return false; // false, datums are not equal
   } else if (source.a != dest.a ||
       (source.es - dest.es).abs() > 0.000000000050) {
     // the tolerance for es is to ensure that GRS80 and WGS84
     // are considered identical
     return false;
-  } else if (source.datum_type == consts.PJD_3PARAM) {
-    return (source.datum_params[0] == dest.datum_params[0] &&
-        source.datum_params[1] == dest.datum_params[1] &&
-        source.datum_params[2] == dest.datum_params[2]);
-  } else if (source.datum_type == consts.PJD_7PARAM) {
-    return (source.datum_params[0] == dest.datum_params[0] &&
-        source.datum_params[1] == dest.datum_params[1] &&
-        source.datum_params[2] == dest.datum_params[2] &&
-        source.datum_params[3] == dest.datum_params[3] &&
-        source.datum_params[4] == dest.datum_params[4] &&
-        source.datum_params[5] == dest.datum_params[5] &&
-        source.datum_params[6] == dest.datum_params[6]);
+  } else if (source.datumType == consts.PJD_3PARAM) {
+    return (source.datumParams[0] == dest.datumParams[0] &&
+        source.datumParams[1] == dest.datumParams[1] &&
+        source.datumParams[2] == dest.datumParams[2]);
+  } else if (source.datumType == consts.PJD_7PARAM) {
+    return (source.datumParams[0] == dest.datumParams[0] &&
+        source.datumParams[1] == dest.datumParams[1] &&
+        source.datumParams[2] == dest.datumParams[2] &&
+        source.datumParams[3] == dest.datumParams[3] &&
+        source.datumParams[4] == dest.datumParams[4] &&
+        source.datumParams[5] == dest.datumParams[5] &&
+        source.datumParams[6] == dest.datumParams[6]);
   } else {
     return true; // datums are equal
   }
@@ -182,22 +182,22 @@ Point geocentricToGeodetic(Point p, double es, double a, double b) {
     Other point classes may be used as long as they have
     x and y properties, which will get modified in the transform method.
 */
-Point geocentricToWgs84(Point p, int datum_type, List<double> datum_params) {
-  if (datum_type == consts.PJD_3PARAM) {
+Point geocentricToWgs84(Point p, int datumType, List<double> datumParams) {
+  if (datumType == consts.PJD_3PARAM) {
     // if( x[io] === HUGE_VAL )
     //    continue;
     return Point.withZ(
-        x: p.x + datum_params[0],
-        y: p.y + datum_params[1],
-        z: p.z + datum_params[2]);
-  } else if (datum_type == consts.PJD_7PARAM) {
-    var Dx_BF = datum_params[0];
-    var Dy_BF = datum_params[1];
-    var Dz_BF = datum_params[2];
-    var Rx_BF = datum_params[3];
-    var Ry_BF = datum_params[4];
-    var Rz_BF = datum_params[5];
-    var M_BF = datum_params[6];
+        x: p.x + datumParams[0],
+        y: p.y + datumParams[1],
+        z: p.z != null ? p.z + datumParams[2] : null);
+  } else if (datumType == consts.PJD_7PARAM) {
+    var Dx_BF = datumParams[0];
+    var Dy_BF = datumParams[1];
+    var Dz_BF = datumParams[2];
+    var Rx_BF = datumParams[3];
+    var Ry_BF = datumParams[4];
+    var Rz_BF = datumParams[5];
+    var M_BF = datumParams[6];
     // if( x[io] === HUGE_VAL )
     //    continue;
     return Point.withZ(
@@ -212,23 +212,23 @@ Point geocentricToWgs84(Point p, int datum_type, List<double> datum_params) {
 // pj_geocentic_from_wgs84()
 //  coordinate system definition,
 //  point to transform in geocentric coordinates (x,y,z)
-Point geocentricFromWgs84(Point p, int datum_type, List<double> datum_params) {
-  if (datum_type == consts.PJD_3PARAM) {
+Point geocentricFromWgs84(Point p, int datumType, List<double> datumParams) {
+  if (datumType == consts.PJD_3PARAM) {
     //if( x[io] === HUGE_VAL )
     //    continue;
     return Point.withZ(
-      x: p.x - datum_params[0],
-      y: p.y - datum_params[1],
-      z: p.z - datum_params[2],
+      x: p.x - datumParams[0],
+      y: p.y - datumParams[1],
+      z: p.z - datumParams[2],
     );
-  } else if (datum_type == consts.PJD_7PARAM) {
-    var Dx_BF = datum_params[0];
-    var Dy_BF = datum_params[1];
-    var Dz_BF = datum_params[2];
-    var Rx_BF = datum_params[3];
-    var Ry_BF = datum_params[4];
-    var Rz_BF = datum_params[5];
-    var M_BF = datum_params[6];
+  } else if (datumType == consts.PJD_7PARAM) {
+    var Dx_BF = datumParams[0];
+    var Dy_BF = datumParams[1];
+    var Dz_BF = datumParams[2];
+    var Rx_BF = datumParams[3];
+    var Ry_BF = datumParams[4];
+    var Rz_BF = datumParams[5];
+    var M_BF = datumParams[6];
     var x_tmp = (p.x - Dx_BF) / M_BF;
     var y_tmp = (p.y - Dy_BF) / M_BF;
     var z_tmp = (p.z - Dz_BF) / M_BF;
