@@ -16,7 +16,6 @@ class SwissObliqueMercatorProjection extends Projection {
   double long0;
   double x0;
   double y0;
-  bool noDefs;
   double lambda0;
   double r;
   double alpha;
@@ -28,7 +27,6 @@ class SwissObliqueMercatorProjection extends Projection {
     long0 = params.long0;
     x0 = params.x0;
     y0 = params.y0;
-    noDefs = params.no_defs;
     datum = params.datum;
 
     var phy0 = lat0;

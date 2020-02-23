@@ -20,11 +20,9 @@ class MercProjection extends Projection {
   double y0;
   double k;
   double lat_ts;
-  bool sphere;
 
   MercProjection.init(ProjParams params)
       : lat_ts = params.lat_ts,
-        sphere = params.sphere,
         k = params.k,
         long0 = params.long0,
         x0 = params.x0,

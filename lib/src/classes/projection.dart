@@ -10,16 +10,15 @@ import 'package:proj4dart/src/projections/merc.dart';
 import 'package:proj4dart/src/projections/somerc.dart';
 
 abstract class Projection {
-  String title;
   String projName;
-  double k0;
   String ellps;
-  List<double> datumParams;
-  String units;
+  bool noDefs;
+  double k0;
   String axis;
   double a;
   double b;
   double rf;
+  bool sphere;
   double es;
   double e;
   double ep2;
@@ -31,18 +30,16 @@ abstract class Projection {
 
   // List<String> get names;
 
-  // TODO: validate these are the real basic params?
   Projection.init(ProjParams params)
-      : title = params.title,
-        projName = params.proj,
-        k0 = params.k0,
+      : projName = params.proj,
         ellps = params.ellps,
-        datumParams = params.datum_params?.cast<double>(),
-        units = params.units,
+        noDefs = params.no_defs,
+        k0 = params.k0,
         axis = params.axis,
         a = params.a,
         b = params.b,
         rf = params.rf,
+        sphere = params.sphere,
         es = params.es,
         e = params.e,
         ep2 = params.ep2,
@@ -50,6 +47,7 @@ abstract class Projection {
 
   factory Projection.register(String code, ProjParams params) {
     var projName = params.proj;
+
     if (MercProjection.names.contains(projName)) {
       ProjStore().add(MercProjection.names, MercProjection.init(params));
     } else if (LongLat.names.contains(projName)) {
