@@ -24,7 +24,6 @@ class CassiniProjection extends Projection {
   double y0;
 
   CassiniProjection.init(ProjParams params) : super.init(params) {
-    sphere = params.sphere;
     lat0 = params.lat0;
     long0 = params.long0;
     x0 = params.x0;

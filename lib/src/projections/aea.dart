@@ -13,8 +13,6 @@ class AlbersProjection extends Projection {
     'aea',
   ];
 
-  double lat1;
-  double lat2;
   double e3;
   double ns0;
   double c;
@@ -24,6 +22,8 @@ class AlbersProjection extends Projection {
   double y0;
 
   AlbersProjection.init(ProjParams params) : super.init(params) {
+    var lat1 = params.lat1;
+    var lat2 = params.lat2;
     long0 = params.long0;
     x0 = params.x0;
     y0 = params.y0;

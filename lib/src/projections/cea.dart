@@ -3,7 +3,6 @@ import 'dart:math' as math;
 import 'package:proj4dart/src/classes/point.dart';
 import 'package:proj4dart/src/classes/proj_params.dart';
 import 'package:proj4dart/src/classes/projection.dart';
-import 'package:proj4dart/src/constants/values.dart' as consts;
 import 'package:proj4dart/src/common/utils.dart' as utils;
 
 ///  reference:
@@ -21,6 +20,9 @@ class CentralCylindricalProjection extends Projection {
   double lat_ts;
 
   CentralCylindricalProjection.init(ProjParams params) : super.init(params) {
+    long0 = params.long0;
+    x0 = params.x0;
+    y0 = params.y0;
     lat_ts = params.lat_ts;
 
     //no-op
