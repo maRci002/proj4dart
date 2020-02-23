@@ -113,9 +113,8 @@ class AlbersProjection extends Projection {
     return p;
   }
 
-/* Function to compute phi1, the latitude for the inverse of the
-   Albers Conical Equal-Area projection.
--------------------------------------------*/
+  /// Function to compute phi1, the latitude for the inverse of the
+  /// Albers Conical Equal-Area projection.
   double _phi1z(eccent, qs) {
     var sinphi, cosphi, con, com, dphi;
     var phi = utils.asinz(0.5 * qs);
