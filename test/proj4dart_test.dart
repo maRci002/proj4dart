@@ -2,6 +2,7 @@ import 'package:proj4dart/proj4dart.dart';
 import 'package:proj4dart/src/common/parse_code.dart' as parser;
 import 'package:proj4dart/src/projections/merc.dart';
 import 'package:test/test.dart';
+import './all_proj4_defs.dart';
 
 void main() {
   group('Parse and add projections', () {
@@ -211,6 +212,32 @@ void main() {
       var pointDst = projSrc.transform(projDst, pointSrc);
       expect(pointDst.x, equals(1949586.4195587242));
       expect(pointDst.y, equals(5708944.203997527));
+    });
+  });
+
+  group('Bulk tests', () {
+    var store;
+    setUp(() {
+      ProjStore().start();
+      store = ProjDefStore();
+    });
+
+    test('Register all defs without exception', () {
+      var defsArray = [];
+
+      allDefs
+          .forEach((key, value) => defsArray.add(store.register(key, value)));
+
+      expect(defsArray.length, allDefs.length);
+    });
+
+    // WARNING: This should pass only if all projection algorithm are implemented
+    test('Create all projections without exception', () {
+      var projectionArray = [];
+
+      allDefs.keys.forEach((key) => projectionArray.add(Projection(key)));
+
+      expect(projectionArray.length, allDefs.length);
     });
   });
 }
