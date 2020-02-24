@@ -58,7 +58,7 @@ class GaussProjection extends Projection {
     var lon = p.x / C;
     var lat = p.y;
     var num = math.pow(math.tan(0.5 * lat + consts.FORTPI) / K, 1 / C);
-    for (var i = MAX_ITER; i > 0; --i) {
+    for (var i = 0; i < MAX_ITER; i++) {
       lat = 2 * math.atan(num * utils.srat(e * math.sin(p.y), -0.5 * e)) -
           consts.HALF_PI;
       if ((lat - p.y).abs() < DEL_TOL) {

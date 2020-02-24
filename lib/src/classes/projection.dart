@@ -15,6 +15,7 @@ import 'package:proj4dart/src/projections/etmerc.dart';
 import 'package:proj4dart/src/projections/gauss.dart';
 import 'package:proj4dart/src/projections/longlat.dart';
 import 'package:proj4dart/src/projections/merc.dart';
+import 'package:proj4dart/src/projections/sinu.dart';
 import 'package:proj4dart/src/projections/somerc.dart';
 import 'package:proj4dart/src/projections/stere.dart';
 import 'package:proj4dart/src/projections/sterea.dart';
@@ -99,6 +100,9 @@ abstract class Projection {
     } else if (StereographicSouthProjection.names.contains(projName)) {
       ProjStore().add(StereographicSouthProjection.names,
           StereographicSouthProjection.init(params));
+    } else if (SinusoidalProjection.names.contains(projName)) {
+      ProjStore()
+          .add(SinusoidalProjection.names, SinusoidalProjection.init(params));
     }
     var projection = ProjStore().get(code);
     if (projection == null) {

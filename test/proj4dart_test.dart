@@ -118,6 +118,20 @@ void main() {
       expect(pointDst.y, equals(6026519.169750551));
     });
 
+    test('sinu', () {
+      code = 'ESRI:54008';
+      ProjDefStore().register(code,
+          '+proj=sinu +lon_0=0 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs');
+      projDst = Projection(code);
+      pointDst = projSrc.transform(projDst, pointSrc);
+      expect(pointDst.x, equals(1434404.3007320191));
+      expect(pointDst.y, equals(5264485.776092447));
+      // inverse
+      var pointInverse = projDst.transform(projSrc, pointDst);
+      expect(pointInverse.x, equals(19.043548857256127));
+      expect(pointInverse.y, equals(47.51484887728806));
+    });
+
     test('somerc', () {
       code = 'EPSG:23700';
       ProjDefStore().register(code,
@@ -126,6 +140,10 @@ void main() {
       pointDst = projSrc.transform(projDst, pointSrc);
       expect(pointDst.x, equals(649706.5890497895));
       expect(pointDst.y, equals(241213.69197525256));
+      // inverse
+      var pointInverse = projDst.transform(projSrc, pointDst);
+      expect(pointInverse.x, equals(19.043548862382636));
+      expect(pointInverse.y, equals(47.51484887721948));
     });
 
     test('stere', () {

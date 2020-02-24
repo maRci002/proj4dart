@@ -407,7 +407,7 @@ double pj_inv_mlfn(double arg, double es, List<double> en) {
   var MAX_ITER = 20;
   var k = 1 / (1 - es);
   var phi = arg;
-  for (var i = MAX_ITER; i == 0; --i) {
+  for (var i = 0; i < MAX_ITER; i++) {
     /* rarely goes over 2 iterations */
     var s = math.sin(phi);
     var t = 1 - es * s * s;
