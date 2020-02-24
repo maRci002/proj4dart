@@ -5,9 +5,9 @@ import 'package:proj4dart/src/classes/proj_params.dart';
 import 'package:proj4dart/src/classes/projection.dart';
 import 'package:proj4dart/src/common/utils.dart' as utils;
 
-class EquirectangularProjection extends Projection {
+class EquidistantCylindricalProjection extends Projection {
   static final List<String> names = [
-    'cea',
+    'eqc',
   ];
 
   double long0;
@@ -17,7 +17,8 @@ class EquirectangularProjection extends Projection {
   double lat0;
   double rc;
 
-  EquirectangularProjection.init(ProjParams params) : super.init(params) {
+  EquidistantCylindricalProjection.init(ProjParams params)
+      : super.init(params) {
     long0 = params.long0;
     x0 = params.x0;
     y0 = params.y0;

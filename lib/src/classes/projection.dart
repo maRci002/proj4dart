@@ -9,6 +9,8 @@ import 'package:proj4dart/src/projections/aea.dart';
 import 'package:proj4dart/src/projections/aeqd.dart';
 import 'package:proj4dart/src/projections/cass.dart';
 import 'package:proj4dart/src/projections/cea.dart';
+import 'package:proj4dart/src/projections/eqc.dart';
+import 'package:proj4dart/src/projections/eqdc.dart';
 import 'package:proj4dart/src/projections/longlat.dart';
 import 'package:proj4dart/src/projections/merc.dart';
 import 'package:proj4dart/src/projections/somerc.dart';
@@ -31,8 +33,6 @@ abstract class Projection {
   Point forward(Point p);
 
   Point inverse(Point p);
-
-  // List<String> get names;
 
   Projection.init(ProjParams params)
       : projName = params.proj,
@@ -70,6 +70,12 @@ abstract class Projection {
     } else if (CentralCylindricalProjection.names.contains(projName)) {
       ProjStore().add(CentralCylindricalProjection.names,
           CentralCylindricalProjection.init(params));
+    } else if (EquidistantCylindricalProjection.names.contains(projName)) {
+      ProjStore().add(EquidistantCylindricalProjection.names,
+          EquidistantCylindricalProjection.init(params));
+    } else if (EquidistantConicProjection.names.contains(projName)) {
+      ProjStore().add(EquidistantConicProjection.names,
+          EquidistantConicProjection.init(params));
     }
     var projection = ProjStore().get(code);
     if (projection == null) {

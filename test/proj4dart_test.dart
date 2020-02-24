@@ -90,14 +90,24 @@ void main() {
       expect(pointDst.y, equals(5425334.354003232));
     });
 
-    test('somerc', () {
-      code = 'EPSG:23700';
+    test('eqc', () {
+      code = 'EPSG:4087';
       ProjDefStore().register(code,
-          '+proj=somerc +lat_0=47.14439372222222 +lon_0=19.04857177777778 +k_0=0.99993 +x_0=650000 +y_0=200000 +ellps=GRS67 +towgs84=52.17,-71.82,-14.9,0,0,0,0 +units=m +no_defs');
+          '+proj=eqc +lat_ts=0 +lat_0=0 +lon_0=0 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs');
       projDst = Projection(code);
       pointDst = projSrc.transform(projDst, pointSrc);
-      expect(pointDst.x, equals(649706.5890497895));
-      expect(pointDst.y, equals(241213.69197525256));
+      expect(pointDst.x, equals(2119918.1616865788));
+      expect(pointDst.y, equals(5289328.782139054));
+    });
+
+    test('eqdc', () {
+      code = 'ESRI:102031';
+      ProjDefStore().register(code,
+          '+proj=eqdc +lat_0=30 +lon_0=10 +lat_1=43 +lat_2=62 +x_0=0 +y_0=0 +ellps=intl +units=m +no_defs');
+      projDst = Projection(code);
+      pointDst = projSrc.transform(projDst, pointSrc);
+      expect(pointDst.x, equals(673155.7616767967));
+      expect(pointDst.y, equals(1986437.6933547938));
     });
 
     test('merc', () {
@@ -106,6 +116,16 @@ void main() {
       pointDst = projSrc.transform(projDst, pointSrc);
       expect(pointDst.x, equals(2119918.1616865788));
       expect(pointDst.y, equals(6026519.169750551));
+    });
+
+    test('somerc', () {
+      code = 'EPSG:23700';
+      ProjDefStore().register(code,
+          '+proj=somerc +lat_0=47.14439372222222 +lon_0=19.04857177777778 +k_0=0.99993 +x_0=650000 +y_0=200000 +ellps=GRS67 +towgs84=52.17,-71.82,-14.9,0,0,0,0 +units=m +no_defs');
+      projDst = Projection(code);
+      pointDst = projSrc.transform(projDst, pointSrc);
+      expect(pointDst.x, equals(649706.5890497895));
+      expect(pointDst.y, equals(241213.69197525256));
     });
   });
 }
