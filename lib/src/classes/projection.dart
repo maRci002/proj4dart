@@ -11,9 +11,12 @@ import 'package:proj4dart/src/projections/cass.dart';
 import 'package:proj4dart/src/projections/cea.dart';
 import 'package:proj4dart/src/projections/eqc.dart';
 import 'package:proj4dart/src/projections/eqdc.dart';
+import 'package:proj4dart/src/projections/etmerc.dart';
 import 'package:proj4dart/src/projections/longlat.dart';
 import 'package:proj4dart/src/projections/merc.dart';
 import 'package:proj4dart/src/projections/somerc.dart';
+import 'package:proj4dart/src/projections/utm.dart';
+import 'package:proj4dart/src/projections/vandg.dart';
 
 abstract class Projection {
   String projName;
@@ -76,6 +79,15 @@ abstract class Projection {
     } else if (EquidistantConicProjection.names.contains(projName)) {
       ProjStore().add(EquidistantConicProjection.names,
           EquidistantConicProjection.init(params));
+    } else if (ExtendedTransverseMercatorProjection.names.contains(projName)) {
+      ProjStore().add(ExtendedTransverseMercatorProjection.names,
+          ExtendedTransverseMercatorProjection.init(params));
+    } else if (UniversalTransverseMercatorProjection.names.contains(projName)) {
+      ProjStore().add(UniversalTransverseMercatorProjection.names,
+          UniversalTransverseMercatorProjection.init(params));
+    } else if (VanDerGrintenProjection.names.contains(projName)) {
+      ProjStore().add(
+          VanDerGrintenProjection.names, VanDerGrintenProjection.init(params));
     }
     var projection = ProjStore().get(code);
     if (projection == null) {

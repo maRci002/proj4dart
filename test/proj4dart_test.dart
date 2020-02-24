@@ -43,7 +43,7 @@ void main() {
     });
   });
 
-  group('Test all projections', () {
+  group('Test all projections (forward and inverse)', () {
     var pointSrc = Point(x: 19.043548857256127, y: 47.51484887728807);
     var projSrc = Projection('EPSG:4326');
     Projection projDst;
@@ -126,6 +126,31 @@ void main() {
       pointDst = projSrc.transform(projDst, pointSrc);
       expect(pointDst.x, equals(649706.5890497895));
       expect(pointDst.y, equals(241213.69197525256));
+    });
+
+    test('utm', () {
+      code = 'EPSG:32633';
+      ProjDefStore()
+          .register(code, '+proj=utm +zone=33 +datum=WGS84 +units=m +no_defs');
+      projDst = Projection(code);
+      // forward
+      pointDst = projSrc.transform(projDst, pointSrc);
+      expect(pointDst.x, equals(804425.6558439163));
+      expect(pointDst.y, equals(5270308.132769558));
+      // inverse
+      var pointInverse = projDst.transform(projSrc, pointDst);
+      expect(pointInverse.x, equals(19.043548857256134));
+      expect(pointInverse.y, equals(47.51484887728806));
+    });
+
+    test('vandg', () {
+      code = 'ESRI:54029';
+      ProjDefStore().register(code,
+          '+proj=vandg +lon_0=0 +x_0=0 +y_0=0 +R_A +datum=WGS84 +units=m +no_defs');
+      projDst = Projection(code);
+      var pointDst = projSrc.transform(projDst, pointSrc);
+      expect(pointDst.x, equals(1949586.4195587242));
+      expect(pointDst.y, equals(5708944.203997527));
     });
   });
 }

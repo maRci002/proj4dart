@@ -19,4 +19,15 @@ void main() {
   print('EPSG:23700 -> EPSG:3857: $point2');
   print('EPSG:23700 -> EPSG:4326 -> EPSG:23700: $point3');
   print('EPSG:23700 -> EPSG:3857 -> EPSG:23700: $point4');
+
+  // var pointSrc = Point(x: 19.043548857256127, y: 47.51484887728807);
+  // var code = 'EPSG:32633';
+  // ProjDefStore()
+  //     .register(code, '+proj=utm +zone=33 +datum=WGS84 +units=m +no_defs');
+
+  // var projSrc = Projection('EPSG:4326');
+  // var projDst = Projection(code);
+
+  // var pointDst = projSrc.transform(projDst, pointSrc);
+  // print(pointDst);
 }
