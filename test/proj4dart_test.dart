@@ -31,7 +31,8 @@ void main() {
     });
 
     test('Projection init', () {
-      var projection = MercProjection.init(ProjDefStore().get('EPSG:3857'));
+      var projection =
+          PseudoMercatorProjection.init(ProjDefStore().get('EPSG:3857'));
       expect(projection != null && projection is Projection, true);
     });
 
@@ -39,6 +40,33 @@ void main() {
       ProjStore().start();
       var projections = ProjStore().getProjections();
       expect(projections.length, 2);
+    });
+  });
+
+  group('All projections', () {
+    var pointSrc = Point(x: 19.043548857256127, y: 47.51484887728807);
+    var projSrc = Projection('EPSG:4326');
+    Projection projDst;
+    Point pointDst;
+
+    test('aea', () {
+      ProjDefStore().register('EPSG:3005',
+          '+proj=aea +lat_1=50 +lat_2=58.5 +lat_0=45 +lon_0=-126 +x_0=1000000 +y_0=0 +ellps=GRS80 +datum=NAD83 +units=m +no_defs');
+      projDst = Projection('EPSG:3005');
+      pointDst =
+          projDst.transform(projSrc, projSrc.transform(projDst, pointSrc));
+      print(pointDst);
+      expect(pointSrc.x, closeTo(pointDst.x, 0.000001));
+      expect(pointSrc.y, closeTo(pointDst.y, 0.000001));
+    });
+
+    test('merc', () {
+      projDst = Projection('EPSG:3857');
+      pointDst =
+          projDst.transform(projSrc, projSrc.transform(projDst, pointSrc));
+      print(pointDst);
+      expect(pointSrc.x, closeTo(pointDst.x, 0.000001));
+      expect(pointSrc.y, closeTo(pointDst.y, 0.000001));
     });
   });
 }

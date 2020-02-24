@@ -5,6 +5,7 @@ import 'package:proj4dart/src/common/datum_transform.dart' as dt;
 import 'package:proj4dart/src/constants/values.dart' as consts;
 import 'package:proj4dart/src/globals/defs.dart';
 import 'package:proj4dart/src/globals/projs.dart';
+import 'package:proj4dart/src/projections/aea.dart';
 import 'package:proj4dart/src/projections/longlat.dart';
 import 'package:proj4dart/src/projections/merc.dart';
 import 'package:proj4dart/src/projections/somerc.dart';
@@ -48,13 +49,16 @@ abstract class Projection {
   factory Projection.register(String code, ProjParams params) {
     var projName = params.proj;
 
-    if (MercProjection.names.contains(projName)) {
-      ProjStore().add(MercProjection.names, MercProjection.init(params));
+    if (PseudoMercatorProjection.names.contains(projName)) {
+      ProjStore().add(PseudoMercatorProjection.names,
+          PseudoMercatorProjection.init(params));
     } else if (LongLat.names.contains(projName)) {
       ProjStore().add(LongLat.names, LongLat.init(params));
     } else if (SwissObliqueMercatorProjection.names.contains(projName)) {
       ProjStore().add(SwissObliqueMercatorProjection.names,
           SwissObliqueMercatorProjection.init(params));
+    } else if (AlbersProjection.names.contains(projName)) {
+      ProjStore().add(AlbersProjection.names, AlbersProjection.init(params));
     }
     var projection = ProjStore().get(code);
     if (projection == null) {
@@ -67,6 +71,9 @@ abstract class Projection {
     var params = ProjDefStore().get(code);
     if (params == null) {
       throw Exception('Proj def not yet registered: $code');
+    }
+    if (ProjStore().getProjections().isEmpty) {
+      ProjStore().start();
     }
     var projection = ProjStore().get(code);
     projection ??= Projection.register(code, params);

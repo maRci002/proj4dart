@@ -6,7 +6,7 @@ import 'package:proj4dart/src/classes/projection.dart';
 import 'package:proj4dart/src/common/utils.dart' as utils;
 import 'package:proj4dart/src/constants/values.dart' as consts;
 
-class MercProjection extends Projection {
+class PseudoMercatorProjection extends Projection {
   static final List<String> names = [
     'Mercator',
     'Popular Visualisation Pseudo Mercator',
@@ -21,7 +21,7 @@ class MercProjection extends Projection {
   double k;
   double lat_ts;
 
-  MercProjection.init(ProjParams params)
+  PseudoMercatorProjection.init(ProjParams params)
       : lat_ts = params.lat_ts,
         k = params.k,
         long0 = params.long0,
