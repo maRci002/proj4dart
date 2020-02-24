@@ -187,7 +187,6 @@ class ProjParams {
       map['ellps'] = datumDef.ellipse;
       map['datumName'] = datumDef.datumName ?? datumCode;
     }
-    print(ellps);
     map['k0'] = k0 ?? 1.0;
     map['axis'] = axis ?? 'enu';
     map['ellps'] = ellps ?? 'wgs84';
@@ -203,15 +202,6 @@ class ProjParams {
     if (datum == null) {
       map['datum'] = Datum(datumCode, datum_params, a, b, es, ep2);
     }
-    if (ellps == 'GRS67') {
-      print(datumCode);
-      print(datum_params);
-      print(a);
-      print(b);
-      print(es);
-      print(ep2);
-    }
-    //
   }
 
   List<double> _getDatumParamsFromString(String towgs84) {
