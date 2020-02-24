@@ -64,7 +64,6 @@ class RobinsonProjection extends Projection {
   double long0;
   @override
   double es;
-  @override
   String title;
 
   RobinsonProjection.init(ProjParams params)

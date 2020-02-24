@@ -37,7 +37,6 @@ abstract class Projection {
   double e;
   double ep2;
   Datum datum;
-  String title;
 
   Point forward(Point p);
 
