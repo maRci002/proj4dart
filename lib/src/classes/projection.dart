@@ -6,6 +6,7 @@ import 'package:proj4dart/src/constants/values.dart' as consts;
 import 'package:proj4dart/src/globals/defs.dart';
 import 'package:proj4dart/src/globals/projs.dart';
 import 'package:proj4dart/src/projections/aea.dart';
+import 'package:proj4dart/src/projections/aeqd.dart';
 import 'package:proj4dart/src/projections/longlat.dart';
 import 'package:proj4dart/src/projections/merc.dart';
 import 'package:proj4dart/src/projections/somerc.dart';
@@ -59,6 +60,9 @@ abstract class Projection {
           SwissObliqueMercatorProjection.init(params));
     } else if (AlbersProjection.names.contains(projName)) {
       ProjStore().add(AlbersProjection.names, AlbersProjection.init(params));
+    } else if (AzimuthalEquidistantProjection.names.contains(projName)) {
+      ProjStore().add(AzimuthalEquidistantProjection.names,
+          AzimuthalEquidistantProjection.init(params));
     }
     var projection = ProjStore().get(code);
     if (projection == null) {

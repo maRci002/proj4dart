@@ -6,7 +6,7 @@ import 'package:proj4dart/src/classes/projection.dart';
 import 'package:proj4dart/src/constants/values.dart' as consts;
 import 'package:proj4dart/src/common/utils.dart' as utils;
 
-class AzimuthalProjection extends Projection {
+class AzimuthalEquidistantProjection extends Projection {
   static final List<String> names = [
     'Azimuthal_Equidistant',
     'aeqd',
@@ -19,7 +19,7 @@ class AzimuthalProjection extends Projection {
   double x0;
   double y0;
 
-  AzimuthalProjection.init(ProjParams params) : super.init(params) {
+  AzimuthalEquidistantProjection.init(ProjParams params) : super.init(params) {
     lat0 = params.lat0;
     long0 = params.long0;
     x0 = params.x0;
@@ -59,7 +59,7 @@ class AzimuthalProjection extends Projection {
         s3,
         s4,
         s5;
-    if (sphere) {
+    if (sphere != null) {
       if ((sin_p12 - 1).abs() <= consts.EPSLN) {
         //North Pole case
         p.x = x0 + a * (consts.HALF_PI - lat) * math.sin(dlon);
@@ -163,7 +163,7 @@ class AzimuthalProjection extends Projection {
         D,
         Ee,
         F;
-    if (sphere) {
+    if (sphere != null) {
       rh = math.sqrt(p.x * p.x + p.y * p.y);
       if (rh > (2 * consts.HALF_PI * a)) {
         return p; // TODO: check

@@ -31,7 +31,6 @@ class SwissObliqueMercatorProjection extends Projection {
     var sinPhy0 = math.sin(phy0);
     var semiMajorAxis = a;
     var invF = rf;
-    print(rf);
     var flattening = 1 / invF;
     var e2 = 2 * flattening - math.pow(flattening, 2);
     e = math.sqrt(e2);
