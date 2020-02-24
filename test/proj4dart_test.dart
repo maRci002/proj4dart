@@ -128,6 +128,20 @@ void main() {
       expect(pointDst.y, equals(241213.69197525256));
     });
 
+    test('stere', () {
+      code = 'EPSG:3995';
+      ProjDefStore().register(code,
+          '+proj=stere +lat_0=90 +lat_ts=71 +lon_0=0 +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs');
+      projDst = Projection(code);
+      pointDst = projSrc.transform(projDst, pointSrc);
+      expect(pointDst.x, equals(1576419.7638628334));
+      expect(pointDst.y, equals(-4566976.061209708));
+      // inverse
+      var pointInverse = projDst.transform(projSrc, pointDst);
+      expect(pointInverse.x, equals(19.04354885725613));
+      expect(pointInverse.y, equals(47.51484887727112));
+    });
+
     test('sterea', () {
       code = 'EPSG:3844';
       ProjDefStore().register(code,

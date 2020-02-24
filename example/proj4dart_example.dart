@@ -21,9 +21,9 @@ void main() {
   print('EPSG:23700 -> EPSG:3857 -> EPSG:23700: $point4');
 
   // var pointSrc = Point(x: 19.043548857256127, y: 47.51484887728807);
-  // var code = 'EPSG:32633';
+  // var code = 'EPSG:3995';
   // ProjDefStore().register(code,
-  //     '+proj=sterea +lat_0=46 +lon_0=25 +k=0.99975 +x_0=500000 +y_0=500000 +ellps=krass +towgs84=33.4,-146.6,-76.3,-0.359,-0.053,0.844,-0.84 +units=m +no_defs');
+  //     '+proj=stere +lat_0=90 +lat_ts=71 +lon_0=0 +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs');
 
   // var projSrc = Projection('EPSG:4326');
   // var projDst = Projection(code);

@@ -5,7 +5,7 @@ import 'package:proj4dart/src/classes/proj_params.dart';
 import 'package:proj4dart/src/common/utils.dart' as utils;
 import 'package:proj4dart/src/projections/gauss.dart';
 
-class PolarStereographicProjection extends GaussProjection {
+class StereographicNorthProjection extends GaussProjection {
   static final List<String> names = [
     'Stereographic_North_Pole',
     'Oblique_Stereographic',
@@ -19,7 +19,7 @@ class PolarStereographicProjection extends GaussProjection {
   double cosc0;
   double R2;
 
-  PolarStereographicProjection.init(ProjParams params) : super.init(params) {
+  StereographicNorthProjection.init(ProjParams params) : super.init(params) {
     if (rc == null) {
       return;
     }
