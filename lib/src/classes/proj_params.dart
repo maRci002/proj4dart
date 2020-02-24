@@ -8,6 +8,7 @@ import 'package:proj4dart/src/constants/values.dart' as consts;
 class ProjParams {
   Map<String, dynamic> map = {};
 
+  String get title => map['title'];
   String get datumCode => map['datumCode'];
   String get proj => map['proj'];
   double get rf => map['rf'];
@@ -46,7 +47,6 @@ class ProjParams {
   double get ep2 => map['ep2'];
 
   // Datum properties
-  String get title => map['title'];
   Datum get datum => map['datum'];
 
   ProjParams(String defData) {
@@ -65,6 +65,9 @@ class ProjParams {
     });
     paramObj.forEach((key, v) {
       switch (key) {
+        case 'title':
+          map['title'] = v;
+          break;
         case 'rf':
           map['rf'] = double.parse(v);
           break;
@@ -167,6 +170,7 @@ class ProjParams {
           }
           break;
         default:
+          // Add all other properties as well
           map[key] = v;
           // print('extra key: $key');
           break;
