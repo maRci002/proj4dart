@@ -12,9 +12,11 @@ import 'package:proj4dart/src/projections/cea.dart';
 import 'package:proj4dart/src/projections/eqc.dart';
 import 'package:proj4dart/src/projections/eqdc.dart';
 import 'package:proj4dart/src/projections/etmerc.dart';
+import 'package:proj4dart/src/projections/gauss.dart';
 import 'package:proj4dart/src/projections/longlat.dart';
 import 'package:proj4dart/src/projections/merc.dart';
 import 'package:proj4dart/src/projections/somerc.dart';
+import 'package:proj4dart/src/projections/sterea.dart';
 import 'package:proj4dart/src/projections/utm.dart';
 import 'package:proj4dart/src/projections/vandg.dart';
 
@@ -88,6 +90,11 @@ abstract class Projection {
     } else if (VanDerGrintenProjection.names.contains(projName)) {
       ProjStore().add(
           VanDerGrintenProjection.names, VanDerGrintenProjection.init(params));
+    } else if (GaussProjection.names.contains(projName)) {
+      ProjStore().add(GaussProjection.names, GaussProjection.init(params));
+    } else if (PolarStereographicProjection.names.contains(projName)) {
+      ProjStore().add(PolarStereographicProjection.names,
+          PolarStereographicProjection.init(params));
     }
     var projection = ProjStore().get(code);
     if (projection == null) {

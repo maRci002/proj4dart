@@ -452,7 +452,7 @@ double sinh(double x) {
   return r;
 }
 
-double srat(double esinp, int exp) {
+double srat(double esinp, double exp) {
   return (math.pow((1 - esinp) / (1 + esinp), exp));
 }
 
