@@ -23,6 +23,7 @@ dynamic sphere(double a, double b, double rf, String ellps, sphere) {
   if (a == null || a.isNaN) {
     // do we have an ellipsoid?
     var ellipse = ellipsoids.match(ellps);
+
     ellipse ??= ellipsoids.WGS84;
     a = ellipse.a;
     b = ellipse.b;
