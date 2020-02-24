@@ -15,6 +15,7 @@ import 'package:proj4dart/src/projections/etmerc.dart';
 import 'package:proj4dart/src/projections/gauss.dart';
 import 'package:proj4dart/src/projections/longlat.dart';
 import 'package:proj4dart/src/projections/merc.dart';
+import 'package:proj4dart/src/projections/robin.dart';
 import 'package:proj4dart/src/projections/sinu.dart';
 import 'package:proj4dart/src/projections/somerc.dart';
 import 'package:proj4dart/src/projections/stere.dart';
@@ -36,6 +37,7 @@ abstract class Projection {
   double e;
   double ep2;
   Datum datum;
+  String title;
 
   Point forward(Point p);
 
@@ -103,6 +105,9 @@ abstract class Projection {
     } else if (SinusoidalProjection.names.contains(projName)) {
       ProjStore()
           .add(SinusoidalProjection.names, SinusoidalProjection.init(params));
+    } else if (RobinsonProjection.names.contains(projName)) {
+      ProjStore()
+          .add(RobinsonProjection.names, RobinsonProjection.init(params));
     }
     var projection = ProjStore().get(code);
     if (projection == null) {

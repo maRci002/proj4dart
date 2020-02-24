@@ -118,6 +118,20 @@ void main() {
       expect(pointDst.y, equals(6026519.169750551));
     });
 
+    test('robin', () {
+      code = 'ESRI:54030';
+      ProjDefStore().register(code,
+          '+proj=robin +lon_0=0 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs');
+      projDst = Projection(code);
+      pointDst = projSrc.transform(projDst, pointSrc);
+      expect(pointDst.x, equals(1587634.0111816782));
+      expect(pointDst.y, equals(5068600.79388094));
+      // inverse
+      var pointInverse = projDst.transform(projSrc, pointDst);
+      expect(pointInverse.x, equals(19.043548857256127));
+      expect(pointInverse.y, equals(47.51484887728808));
+    });
+
     test('sinu', () {
       code = 'ESRI:54008';
       ProjDefStore().register(code,

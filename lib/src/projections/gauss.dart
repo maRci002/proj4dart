@@ -6,9 +6,10 @@ import 'package:proj4dart/src/classes/projection.dart';
 import 'package:proj4dart/src/common/utils.dart' as utils;
 import 'package:proj4dart/src/constants/values.dart' as consts;
 
+var MAX_ITER = 20;
+
 class GaussProjection extends Projection {
   static final List<String> names = ['gauss'];
-  static final int MAX_ITER = 20;
 
   double lat0;
   double long0;
