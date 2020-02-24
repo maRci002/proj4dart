@@ -48,36 +48,61 @@ void main() {
     var projSrc = Projection('EPSG:4326');
     Projection projDst;
     Point pointDst;
+    String code;
 
     test('aea', () {
-      ProjDefStore().register('EPSG:3005',
+      code = 'EPSG:3005';
+      ProjDefStore().register(code,
           '+proj=aea +lat_1=50 +lat_2=58.5 +lat_0=45 +lon_0=-126 +x_0=1000000 +y_0=0 +ellps=GRS80 +datum=NAD83 +units=m +no_defs');
-      projDst = Projection('EPSG:3005');
+      projDst = Projection(code);
       pointDst = projSrc.transform(projDst, pointSrc);
       expect(pointDst.x, equals(5751378.282186188));
       expect(pointDst.y, equals(8091280.535021808));
     });
 
     test('aeqd', () {
-      ProjDefStore().register('EPSG:54032',
+      code = 'EPSG:54032';
+      ProjDefStore().register(code,
           '+proj=aeqd +lat_0=0 +lon_0=0 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs');
-      projDst = Projection('EPSG:54032');
+      projDst = Projection(code);
       pointDst = projSrc.transform(projDst, pointSrc);
       expect(pointDst.x, equals(1607282.0134987913));
       expect(pointDst.y, equals(5342556.029608966));
     });
 
+    test('cass', () {
+      code = 'ESRI:54028';
+      ProjDefStore().register(code,
+          '+proj=cass +lat_0=0 +lon_0=0 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs');
+      projDst = Projection(code);
+      pointDst = projSrc.transform(projDst, pointSrc);
+      expect(pointDst.x, equals(1420288.7703307027));
+      expect(pointDst.y, equals(5443103.122591051));
+    });
+
+    test('cea', () {
+      code = 'EPSG:3410';
+      ProjDefStore().register(code,
+          '+proj=cea +lon_0=0 +lat_ts=30 +x_0=0 +y_0=0 +a=6371228 +b=6371228 +units=m +no_defs');
+      projDst = Projection(code);
+      pointDst = projSrc.transform(projDst, pointSrc);
+      expect(pointDst.x, equals(1833914.2737097454));
+      expect(pointDst.y, equals(5425334.354003232));
+    });
+
     test('somerc', () {
-      ProjDefStore().register('EPSG:23700',
+      code = 'EPSG:23700';
+      ProjDefStore().register(code,
           '+proj=somerc +lat_0=47.14439372222222 +lon_0=19.04857177777778 +k_0=0.99993 +x_0=650000 +y_0=200000 +ellps=GRS67 +towgs84=52.17,-71.82,-14.9,0,0,0,0 +units=m +no_defs');
-      projDst = Projection('EPSG:23700');
+      projDst = Projection(code);
       pointDst = projSrc.transform(projDst, pointSrc);
       expect(pointDst.x, equals(649706.5890497895));
       expect(pointDst.y, equals(241213.69197525256));
     });
 
     test('merc', () {
-      projDst = Projection('EPSG:3857');
+      code = 'EPSG:3857';
+      projDst = Projection(code);
       pointDst = projSrc.transform(projDst, pointSrc);
       expect(pointDst.x, equals(2119918.1616865788));
       expect(pointDst.y, equals(6026519.169750551));

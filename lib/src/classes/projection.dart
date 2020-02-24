@@ -7,6 +7,8 @@ import 'package:proj4dart/src/globals/defs.dart';
 import 'package:proj4dart/src/globals/projs.dart';
 import 'package:proj4dart/src/projections/aea.dart';
 import 'package:proj4dart/src/projections/aeqd.dart';
+import 'package:proj4dart/src/projections/cass.dart';
+import 'package:proj4dart/src/projections/cea.dart';
 import 'package:proj4dart/src/projections/longlat.dart';
 import 'package:proj4dart/src/projections/merc.dart';
 import 'package:proj4dart/src/projections/somerc.dart';
@@ -63,6 +65,11 @@ abstract class Projection {
     } else if (AzimuthalEquidistantProjection.names.contains(projName)) {
       ProjStore().add(AzimuthalEquidistantProjection.names,
           AzimuthalEquidistantProjection.init(params));
+    } else if (CassiniProjection.names.contains(projName)) {
+      ProjStore().add(CassiniProjection.names, CassiniProjection.init(params));
+    } else if (CentralCylindricalProjection.names.contains(projName)) {
+      ProjStore().add(CentralCylindricalProjection.names,
+          CentralCylindricalProjection.init(params));
     }
     var projection = ProjStore().get(code);
     if (projection == null) {

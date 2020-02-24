@@ -100,7 +100,7 @@ class AlbersProjection extends Projection {
       theta = math.atan2(con * p.x, con * p.y);
     }
     con = rh1 * ns0 / a;
-    if (sphere != null && sphere) {
+    if (sphere != null) {
       lat = math.asin((c - con * con) / (2 * ns0));
     } else {
       qs = (c - con * con) / ns0;

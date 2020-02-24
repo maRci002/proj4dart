@@ -29,7 +29,7 @@ class CassiniProjection extends Projection {
     x0 = params.x0;
     y0 = params.y0;
 
-    if (!sphere) {
+    if (sphere == null) {
       e0 = utils.e0fn(es);
       e1 = utils.e1fn(es);
       e2 = utils.e2fn(es);
@@ -48,7 +48,7 @@ class CassiniProjection extends Projection {
     var phi = p.y;
     lam = utils.adjust_lon(lam - long0);
 
-    if (sphere) {
+    if (sphere != null) {
       x = a * math.asin(math.cos(phi) * math.sin(lam));
       y = a * (math.atan2(math.tan(phi), math.cos(lam)) - lat0);
     } else {
@@ -82,7 +82,7 @@ class CassiniProjection extends Projection {
     var y = p.y / a;
     var phi, lam;
 
-    if (sphere) {
+    if (sphere != null) {
       var dd = y + lat0;
       phi = math.asin(math.sin(dd) * math.cos(x));
       lam = math.atan2(math.tan(x), math.cos(dd));
