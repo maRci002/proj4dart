@@ -18,16 +18,14 @@ class PseudoMercatorProjection extends Projection {
   double long0;
   double x0;
   double y0;
-  double k;
-  double lat_ts;
 
   PseudoMercatorProjection.init(ProjParams params)
-      : lat_ts = params.lat_ts,
-        k = params.k,
-        long0 = params.long0,
+      : long0 = params.long0,
         x0 = params.x0,
         y0 = params.y0,
         super.init(params) {
+    var k = params.k;
+    var lat_ts = params.lat_ts;
     var con = b / a;
     es = 1 - con * con;
     x0 ??= 0.0;
