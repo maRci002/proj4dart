@@ -27,6 +27,7 @@ import 'package:proj4dart/src/projections/moll.dart';
 import 'package:proj4dart/src/projections/nzmg.dart';
 import 'package:proj4dart/src/projections/omerc.dart';
 import 'package:proj4dart/src/projections/ortho.dart';
+import 'package:proj4dart/src/projections/poly.dart';
 import 'package:proj4dart/src/projections/robin.dart';
 import 'package:proj4dart/src/projections/sinu.dart';
 import 'package:proj4dart/src/projections/somerc.dart';
@@ -155,6 +156,9 @@ abstract class Projection {
     } else if (OrthographicProjection.names.contains(projName)) {
       ProjStore().add(
           OrthographicProjection.names, OrthographicProjection.init(params));
+    } else if (PolyconicProjection.names.contains(projName)) {
+      ProjStore()
+          .add(PolyconicProjection.names, PolyconicProjection.init(params));
     }
     var projection = ProjStore().get(code);
     if (projection == null) {

@@ -266,6 +266,21 @@ void main() {
       expect(pointInverse.y, closeTo(47.51484887937237, 0.000001));
     });
 
+    test('poly', () {
+      code = 'EPSG:5880';
+      ProjDefStore().register(code,
+          '+proj=poly +lat_0=0 +lon_0=-54 +x_0=5000000 +y_0=10000000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs');
+      projDst = Projection(code);
+      // forward
+      pointDst = projSrc.transform(projDst, pointSrc);
+      expect(pointDst.x, equals(9726405.590576228));
+      expect(pointDst.y, equals(17665759.337315112));
+      // inverse
+      var pointInverse = projDst.transform(projSrc, pointDst);
+      expect(pointInverse.x, equals(19.043548857256095));
+      expect(pointInverse.y, equals(47.51484887728806));
+    });
+
     test('robin', () {
       code = 'ESRI:54030';
       ProjDefStore().register(code,
