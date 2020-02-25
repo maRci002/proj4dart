@@ -40,6 +40,10 @@ class Point {
     return Mgrs.forward([x, y], accuracy);
   }
 
+  factory Point.copy(Point p) {
+    return Point.withM(x: p.x, y: p.y, z: p.z, m: p.m);
+  }
+
   @override
   String toString() {
     return '{ x: $x, y: $y, z: $z, m: $m }';

@@ -204,6 +204,7 @@ abstract class Projection {
 
   Point transform(Projection dest, Point point) {
     var source = this;
+    point = Point.copy(point); // make sure we don't mutate incoming point
     var shouldRemoveZ = point.z == null;
 
     utils.checkSanity(point);
