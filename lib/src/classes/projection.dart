@@ -22,6 +22,7 @@ import 'package:proj4dart/src/projections/lcc.dart';
 import 'package:proj4dart/src/projections/longlat.dart';
 import 'package:proj4dart/src/projections/merc.dart';
 import 'package:proj4dart/src/projections/mill.dart';
+import 'package:proj4dart/src/projections/moll.dart';
 import 'package:proj4dart/src/projections/robin.dart';
 import 'package:proj4dart/src/projections/sinu.dart';
 import 'package:proj4dart/src/projections/somerc.dart';
@@ -134,6 +135,9 @@ abstract class Projection {
     } else if (MillerCylindricalProjection.names.contains(projName)) {
       ProjStore().add(MillerCylindricalProjection.names,
           MillerCylindricalProjection.init(params));
+    } else if (MollweideProjection.names.contains(projName)) {
+      ProjStore()
+          .add(MollweideProjection.names, MollweideProjection.init(params));
     }
     var projection = ProjStore().get(code);
     if (projection == null) {

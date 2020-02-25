@@ -194,6 +194,19 @@ void main() {
       expect(pointInverse.x, closeTo(19.04354885725613, 0.000001));
       expect(pointInverse.y, closeTo(47.51450080384157, 0.000001));
     });
+    test('moll', () {
+      code = 'EPSG:53009';
+      ProjDefStore().register(code,
+          '+proj=moll +lon_0=0 +x_0=0 +y_0=0 +a=6371000 +b=6371000 +units=m +no_defs');
+      projDst = Projection(code);
+      pointDst = projSrc.transform(projDst, pointSrc);
+      expect(pointDst.x, equals(1492737.4163506601));
+      expect(pointDst.y, equals(5604516.569123491));
+      // inverse
+      var pointInverse = projDst.transform(projSrc, pointDst);
+      expect(pointInverse.x, equals(19.043548857256123));
+      expect(pointInverse.y, equals(47.51484887728807));
+    });
 
     test('merc', () {
       code = 'EPSG:3857';
