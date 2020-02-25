@@ -28,6 +28,7 @@ import 'package:proj4dart/src/projections/nzmg.dart';
 import 'package:proj4dart/src/projections/omerc.dart';
 import 'package:proj4dart/src/projections/ortho.dart';
 import 'package:proj4dart/src/projections/poly.dart';
+import 'package:proj4dart/src/projections/qsc.dart';
 import 'package:proj4dart/src/projections/robin.dart';
 import 'package:proj4dart/src/projections/sinu.dart';
 import 'package:proj4dart/src/projections/somerc.dart';
@@ -159,10 +160,14 @@ abstract class Projection {
     } else if (PolyconicProjection.names.contains(projName)) {
       ProjStore()
           .add(PolyconicProjection.names, PolyconicProjection.init(params));
+    } else if (QuadrilateralizedSphericalCubeProjection.names
+        .contains(projName)) {
+      ProjStore().add(QuadrilateralizedSphericalCubeProjection.names,
+          QuadrilateralizedSphericalCubeProjection.init(params));
     }
     var projection = ProjStore().get(code);
     if (projection == null) {
-      throw Exception('An error occured while registering $code, $params');
+      throw Exception('Projection not found: $code, $params');
     }
     return projection;
   }

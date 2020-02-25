@@ -281,6 +281,21 @@ void main() {
       expect(pointInverse.y, equals(47.51484887728806));
     });
 
+    test('qsc', () {
+      code = 'EPSG:qsc';
+      ProjDefStore()
+          .register(code, '+proj=qsc +lat_0=0 +lon_0=0 +units=m +datum=WGS84');
+      projDst = Projection(code);
+      // forward
+      pointDst = projSrc.transform(projDst, pointSrc);
+      expect(pointDst.x, equals(2289944.202733204));
+      expect(pointDst.y, equals(6884110.562573651));
+      // inverse
+      var pointInverse = projDst.transform(projSrc, pointDst);
+      expect(pointInverse.x, equals(19.043548857256116));
+      expect(pointInverse.y, equals(47.51484887728806));
+    });
+
     test('robin', () {
       code = 'ESRI:54030';
       ProjDefStore().register(code,
