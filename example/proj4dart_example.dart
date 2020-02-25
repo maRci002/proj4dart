@@ -23,7 +23,7 @@ void main() {
   var pointSrc = Point(x: 19.043548857256127, y: 47.51484887728807);
   var code = 'EPSG:test';
   ProjDefStore().register(code,
-      '+proj=moll +lon_0=0 +x_0=0 +y_0=0 +a=6371000 +b=6371000 +units=m +no_defs');
+      '+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs');
 
   var projSrc = Projection('EPSG:4326');
   var projDst = Projection(code);
