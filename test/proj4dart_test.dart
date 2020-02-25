@@ -167,6 +167,20 @@ void main() {
       expect(pointInverse.y, equals(47.51484887950526));
     });
 
+    test('lcc', () {
+      code = 'EPSG:3034';
+      ProjDefStore().register(code,
+          '+proj=lcc +lat_1=35 +lat_2=65 +lat_0=52 +lon_0=10 +x_0=4000000 +y_0=2800000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs');
+      projDst = Projection(code);
+      pointDst = projSrc.transform(projDst, pointSrc);
+      expect(pointDst.x, equals(4657201.005260742));
+      expect(pointDst.y, equals(2358353.0358781572));
+      // inverse
+      var pointInverse = projDst.transform(projSrc, pointDst);
+      expect(pointInverse.x, equals(19.04354885725613));
+      expect(pointInverse.y, equals(47.51484887727113));
+    });
+
     test('merc', () {
       code = 'EPSG:3857';
       projDst = Projection(code);

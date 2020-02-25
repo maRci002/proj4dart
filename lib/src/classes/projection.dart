@@ -18,6 +18,7 @@ import 'package:proj4dart/src/projections/gnom.dart';
 import 'package:proj4dart/src/projections/gstmerc.dart';
 import 'package:proj4dart/src/projections/krovak.dart';
 import 'package:proj4dart/src/projections/laea.dart';
+import 'package:proj4dart/src/projections/lcc.dart';
 import 'package:proj4dart/src/projections/longlat.dart';
 import 'package:proj4dart/src/projections/merc.dart';
 import 'package:proj4dart/src/projections/robin.dart';
@@ -126,6 +127,9 @@ abstract class Projection {
     } else if (LambertAzimuthalEqualAreaProjection.names.contains(projName)) {
       ProjStore().add(LambertAzimuthalEqualAreaProjection.names,
           LambertAzimuthalEqualAreaProjection.init(params));
+    } else if (LambertConformalConicProjection.names.contains(projName)) {
+      ProjStore().add(LambertConformalConicProjection.names,
+          LambertConformalConicProjection.init(params));
     }
     var projection = ProjStore().get(code);
     if (projection == null) {
