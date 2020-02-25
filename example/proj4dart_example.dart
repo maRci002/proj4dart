@@ -23,7 +23,7 @@ void main() {
   var pointSrc = Point(x: 19.043548857256127, y: 47.51484887728807);
   var code = 'EPSG:3995';
   ProjDefStore().register(code,
-      '+proj=gnom +lat_0=90 +lon_0=0 +x_0=6300000 +y_0=6300000 +ellps=WGS84 +datum=WGS84 +units=m +no_defs');
+      '+proj=krovak +lat_0=49.5 +lon_0=24.83333333333333 +alpha=30.28813972222222 +k=0.9999 +x_0=0 +y_0=0 +ellps=bessel +towgs84=589,76,480,0,0,0,0 +units=m +no_defs');
 
   var projSrc = Projection('EPSG:4326');
   var projDst = Projection(code);

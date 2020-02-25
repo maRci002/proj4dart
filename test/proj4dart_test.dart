@@ -139,6 +139,20 @@ void main() {
       expect(pointInverse.y, equals(47.51484887728807));
     });
 
+    test('krovak', () {
+      code = 'EPSG:5514';
+      ProjDefStore().register(code,
+          '+proj=krovak +lat_0=49.5 +lon_0=24.83333333333333 +alpha=30.28813972222222 +k=0.9999 +x_0=0 +y_0=0 +ellps=bessel +towgs84=589,76,480,0,0,0,0 +units=m +no_defs');
+      projDst = Projection(code);
+      pointDst = projSrc.transform(projDst, pointSrc);
+      expect(pointDst.x, closeTo(-435519.15848986834, 0.000001));
+      expect(pointDst.y, closeTo(-1363291.3954732278, 0.000001));
+      // inverse
+      var pointInverse = projDst.transform(projSrc, pointDst);
+      expect(pointInverse.x, closeTo(19.04354886801534, 0.000001));
+      expect(pointInverse.y, closeTo(47.51484887961953, 0.000001));
+    });
+
     test('merc', () {
       code = 'EPSG:3857';
       projDst = Projection(code);

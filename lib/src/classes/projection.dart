@@ -16,6 +16,7 @@ import 'package:proj4dart/src/projections/gauss.dart';
 import 'package:proj4dart/src/projections/geocent.dart';
 import 'package:proj4dart/src/projections/gnom.dart';
 import 'package:proj4dart/src/projections/gstmerc.dart';
+import 'package:proj4dart/src/projections/krovak.dart';
 import 'package:proj4dart/src/projections/longlat.dart';
 import 'package:proj4dart/src/projections/merc.dart';
 import 'package:proj4dart/src/projections/robin.dart';
@@ -119,6 +120,8 @@ abstract class Projection {
         .contains(projName)) {
       ProjStore().add(GaussSchreiberTransverseMercatorProjection.names,
           GaussSchreiberTransverseMercatorProjection.init(params));
+    } else if (KrovakProjection.names.contains(projName)) {
+      ProjStore().add(KrovakProjection.names, KrovakProjection.init(params));
     }
     var projection = ProjStore().get(code);
     if (projection == null) {
