@@ -21,9 +21,9 @@ void main() {
   // print('EPSG:23700 -> EPSG:3857 -> EPSG:23700: $point4');
 
   var pointSrc = Point(x: 19.043548857256127, y: 47.51484887728807);
-  var code = 'EPSG:3995';
+  var code = 'EPSG:test';
   ProjDefStore().register(code,
-      '+proj=lcc +lat_1=35 +lat_2=65 +lat_0=52 +lon_0=10 +x_0=4000000 +y_0=2800000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs');
+      '+proj=mill +lat_0=0 +lon_0=0 +x_0=0 +y_0=0 +R_A +datum=WGS84 +units=m +no_defs ');
 
   var projSrc = Projection('EPSG:4326');
   var projDst = Projection(code);

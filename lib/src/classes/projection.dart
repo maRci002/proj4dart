@@ -21,6 +21,7 @@ import 'package:proj4dart/src/projections/laea.dart';
 import 'package:proj4dart/src/projections/lcc.dart';
 import 'package:proj4dart/src/projections/longlat.dart';
 import 'package:proj4dart/src/projections/merc.dart';
+import 'package:proj4dart/src/projections/mill.dart';
 import 'package:proj4dart/src/projections/robin.dart';
 import 'package:proj4dart/src/projections/sinu.dart';
 import 'package:proj4dart/src/projections/somerc.dart';
@@ -130,6 +131,9 @@ abstract class Projection {
     } else if (LambertConformalConicProjection.names.contains(projName)) {
       ProjStore().add(LambertConformalConicProjection.names,
           LambertConformalConicProjection.init(params));
+    } else if (MillerCylindricalProjection.names.contains(projName)) {
+      ProjStore().add(MillerCylindricalProjection.names,
+          MillerCylindricalProjection.init(params));
     }
     var projection = ProjStore().get(code);
     if (projection == null) {

@@ -181,6 +181,20 @@ void main() {
       expect(pointInverse.y, equals(47.51484887727113));
     });
 
+    test('mill', () {
+      code = 'ESRI:54003';
+      ProjDefStore().register(code,
+          '+proj=mill +lat_0=0 +lon_0=0 +x_0=0 +y_0=0 +R_A +datum=WGS84 +units=m +no_defs');
+      projDst = Projection(code);
+      pointDst = projSrc.transform(projDst, pointSrc);
+      expect(pointDst.x, closeTo(2119918.161686579, 0.000001));
+      expect(pointDst.y, closeTo(5699317.715932648, 0.000001));
+      // inverse
+      var pointInverse = projDst.transform(projSrc, pointDst);
+      expect(pointInverse.x, closeTo(19.04354885725613, 0.000001));
+      expect(pointInverse.y, closeTo(47.51450080384157, 0.000001));
+    });
+
     test('merc', () {
       code = 'EPSG:3857';
       projDst = Projection(code);
