@@ -34,6 +34,7 @@ import 'package:proj4dart/src/projections/sinu.dart';
 import 'package:proj4dart/src/projections/somerc.dart';
 import 'package:proj4dart/src/projections/stere.dart';
 import 'package:proj4dart/src/projections/sterea.dart';
+import 'package:proj4dart/src/projections/tmerc.dart';
 import 'package:proj4dart/src/projections/utm.dart';
 import 'package:proj4dart/src/projections/vandg.dart';
 
@@ -164,6 +165,9 @@ abstract class Projection {
         .contains(projName)) {
       ProjStore().add(QuadrilateralizedSphericalCubeProjection.names,
           QuadrilateralizedSphericalCubeProjection.init(params));
+    } else if (TransverseMercatorProjection.names.contains(projName)) {
+      ProjStore().add(TransverseMercatorProjection.names,
+          TransverseMercatorProjection.init(params));
     }
     var projection = ProjStore().get(code);
     if (projection == null) {

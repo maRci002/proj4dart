@@ -371,6 +371,21 @@ void main() {
       expect(pointInverse.y, equals(47.51484887877625));
     });
 
+    test('tmerc', () {
+      code = 'ESRI:31491';
+      ProjDefStore().register(code,
+          '+proj=tmerc +lat_0=0 +lon_0=3 +k=1 +x_0=1500000 +y_0=0 +ellps=bessel +units=m +no_defs');
+      projDst = Projection(code);
+      // forward
+      pointDst = projSrc.transform(projDst, pointSrc);
+      expect(pointDst.x, equals(2706729.615899314));
+      expect(pointDst.y, equals(5390125.655406518));
+      // inverse
+      var pointInverse = projDst.transform(projSrc, pointDst);
+      expect(pointInverse.x, equals(19.043515103790405));
+      expect(pointInverse.y, equals(47.51484931168959));
+    });
+
     test('utm', () {
       code = 'EPSG:32633';
       ProjDefStore()
