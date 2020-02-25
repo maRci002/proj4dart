@@ -111,14 +111,6 @@ void main() {
       expect(pointDst.y, equals(1986437.6933547938));
     });
 
-    test('merc', () {
-      code = 'EPSG:3857';
-      projDst = Projection(code);
-      pointDst = projSrc.transform(projDst, pointSrc);
-      expect(pointDst.x, equals(2119918.1616865788));
-      expect(pointDst.y, equals(6026519.169750551));
-    });
-
     test('geocent', () {
       code = 'EPSG:4328 (deprecated)';
       ProjDefStore()
@@ -131,6 +123,28 @@ void main() {
       var pointInverse = projDst.transform(projSrc, pointDst);
       expect(pointInverse.x, equals(19.043548857256127));
       expect(pointInverse.y, equals(0.0));
+    });
+
+    test('gnom', () {
+      code = 'EPSG:102018';
+      ProjDefStore().register(code,
+          '+proj=gnom +lat_0=90 +lon_0=0 +x_0=6300000 +y_0=6300000 +ellps=WGS84 +datum=WGS84 +units=m +no_defs');
+      projDst = Projection(code);
+      pointDst = projSrc.transform(projDst, pointSrc);
+      expect(pointDst.x, equals(8205986.12760191));
+      expect(pointDst.y, equals(778251.7846476855));
+      // inverse
+      var pointInverse = projDst.transform(projSrc, pointDst);
+      expect(pointInverse.x, equals(19.04354885725613));
+      expect(pointInverse.y, equals(47.51484887728807));
+    });
+
+    test('merc', () {
+      code = 'EPSG:3857';
+      projDst = Projection(code);
+      pointDst = projSrc.transform(projDst, pointSrc);
+      expect(pointDst.x, equals(2119918.1616865788));
+      expect(pointDst.y, equals(6026519.169750551));
     });
 
     test('robin', () {

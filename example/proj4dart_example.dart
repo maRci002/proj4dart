@@ -22,7 +22,8 @@ void main() {
 
   var pointSrc = Point(x: 19.043548857256127, y: 47.51484887728807);
   var code = 'EPSG:3995';
-  ProjDefStore().register(code, '+proj=geocent +datum=WGS84 +units=m +no_defs');
+  ProjDefStore().register(code,
+      '+proj=gnom +lat_0=90 +lon_0=0 +x_0=6300000 +y_0=6300000 +ellps=WGS84 +datum=WGS84 +units=m +no_defs');
 
   var projSrc = Projection('EPSG:4326');
   var projDst = Projection(code);

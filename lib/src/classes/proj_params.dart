@@ -37,6 +37,7 @@ class ProjParams {
   String get nadgrids => map['nadgrids'];
   String get axis => map['axis'];
   bool get no_defs => map['no_defs'];
+  double get phic0 => map['phic0'];
 
   // Extra properties
   String get ellps => map['ellps'];
