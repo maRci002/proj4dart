@@ -153,6 +153,20 @@ void main() {
       expect(pointInverse.y, closeTo(47.51484887961953, 0.000001));
     });
 
+    test('laea', () {
+      code = 'EPSG:3575';
+      ProjDefStore().register(code,
+          '+proj=laea +lat_0=90 +lon_0=10 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs');
+      projDst = Projection(code);
+      pointDst = projSrc.transform(projDst, pointSrc);
+      expect(pointDst.x, equals(727750.9169808805));
+      expect(pointDst.y, equals(-4572343.094675259));
+      // inverse
+      var pointInverse = projDst.transform(projSrc, pointDst);
+      expect(pointInverse.x, equals(19.043548857256127));
+      expect(pointInverse.y, equals(47.51484887950526));
+    });
+
     test('merc', () {
       code = 'EPSG:3857';
       projDst = Projection(code);

@@ -231,7 +231,7 @@ class LambertAzimuthalEqualAreaProjection extends Projection {
         y *= dd;
         rho = math.sqrt(x * x + y * y);
         if (rho < consts.EPSLN) {
-          p.x = 0;
+          p.x = 0.0;
           p.y = phi0;
           return p;
         }
@@ -252,8 +252,8 @@ class LambertAzimuthalEqualAreaProjection extends Projection {
           y = -y;
         }
         q = (x * x + y * y);
-        if (q != null) {
-          p.x = 0;
+        if (q == null) {
+          p.x = 0.0;
           p.y = phi0;
           return p;
         }
