@@ -27,7 +27,7 @@ class SinusoidalProjection extends Projection {
         x0 = params.x0,
         y0 = params.y0,
         super.init(params) {
-    if (sphere == null) {
+    if (sphere == null || (sphere != null && !sphere)) {
       en = utils.pj_enfn(es);
     } else {
       n = 1.0;
@@ -47,7 +47,7 @@ class SinusoidalProjection extends Projection {
     -----------------*/
     lon = utils.adjust_lon(lon - long0);
 
-    if (sphere != null) {
+    if (sphere != null && sphere) {
       if (m == null) {
         lat = n != 1 ? math.asin(n * math.sin(lat)) : lat;
       } else {
@@ -83,7 +83,7 @@ class SinusoidalProjection extends Projection {
     p.y -= y0;
     lat = p.y / a;
 
-    if (sphere != null) {
+    if (sphere != null && sphere) {
       lat /= C_y;
       lon = lon / (C_x * (m + math.cos(lat)));
       if (m != null) {

@@ -59,7 +59,7 @@ class AzimuthalEquidistantProjection extends Projection {
         s3,
         s4,
         s5;
-    if (sphere != null) {
+    if (sphere != null && sphere) {
       if ((sin_p12 - 1).abs() <= consts.EPSLN) {
         //North Pole case
         p.x = x0 + a * (consts.HALF_PI - lat) * math.sin(dlon);
@@ -163,7 +163,7 @@ class AzimuthalEquidistantProjection extends Projection {
         D,
         Ee,
         F;
-    if (sphere != null) {
+    if (sphere != null && sphere) {
       rh = math.sqrt(p.x * p.x + p.y * p.y);
       if (rh > (2 * consts.HALF_PI * a)) {
         return p; // TODO: check

@@ -73,7 +73,7 @@ class EquidistantConicProjection extends Projection {
 
     /* Forward equations
       -----------------*/
-    if (sphere != null) {
+    if (sphere != null && sphere) {
       rh1 = a * (g - lat);
     } else {
       var ml = utils.mlfn(e0, e1, e2, e3, lat);
@@ -105,7 +105,7 @@ class EquidistantConicProjection extends Projection {
       theta = math.atan2(con * p.x, con * p.y);
     }
 
-    if (sphere != null) {
+    if (sphere != null && sphere) {
       lon = utils.adjust_lon(long0 + theta / ns);
       lat = utils.adjust_lat(g - rh1 / a);
       p.x = lon;

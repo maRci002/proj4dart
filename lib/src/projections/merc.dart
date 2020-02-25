@@ -32,7 +32,7 @@ class PseudoMercatorProjection extends Projection {
     y0 ??= 0.0;
     e = math.sqrt(es);
     if (lat_ts != null) {
-      if (sphere != null) {
+      if (sphere != null && sphere) {
         k0 = math.cos(lat_ts);
       } else {
         k0 = utils.msfnz(e, math.sin(lat_ts), math.cos(lat_ts));
@@ -62,7 +62,7 @@ class PseudoMercatorProjection extends Projection {
     if ((lat.abs() - consts.HALF_PI).abs() <= consts.EPSLN) {
       return null;
     } else {
-      if (sphere != null) {
+      if (sphere != null && sphere) {
         x = x0 + a * k0 * utils.adjust_lon(lon - long0);
         y = y0 + a * k0 * math.log(math.tan(consts.FORTPI + 0.5 * lat));
       } else {
@@ -82,7 +82,7 @@ class PseudoMercatorProjection extends Projection {
     var x = p.x - x0;
     var y = p.y - y0;
     double lon, lat;
-    if (sphere != null) {
+    if (sphere != null && sphere) {
       lat = consts.HALF_PI - 2 * math.atan(math.exp(-y / (a * k0)));
     } else {
       var ts = math.exp(-y / (a * k0));

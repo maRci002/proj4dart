@@ -13,6 +13,7 @@ import 'package:proj4dart/src/projections/eqc.dart';
 import 'package:proj4dart/src/projections/eqdc.dart';
 import 'package:proj4dart/src/projections/etmerc.dart';
 import 'package:proj4dart/src/projections/gauss.dart';
+import 'package:proj4dart/src/projections/geocent.dart';
 import 'package:proj4dart/src/projections/longlat.dart';
 import 'package:proj4dart/src/projections/merc.dart';
 import 'package:proj4dart/src/projections/robin.dart';
@@ -107,6 +108,9 @@ abstract class Projection {
     } else if (RobinsonProjection.names.contains(projName)) {
       ProjStore()
           .add(RobinsonProjection.names, RobinsonProjection.init(params));
+    } else if (GeocentricProjection.names.contains(projName)) {
+      ProjStore()
+          .add(GeocentricProjection.names, GeocentricProjection.init(params));
     }
     var projection = ProjStore().get(code);
     if (projection == null) {

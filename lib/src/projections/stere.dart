@@ -44,7 +44,7 @@ class StereographicSouthProjection extends Projection {
         super.init(params) {
     coslat0 = math.cos(lat0);
     sinlat0 = math.sin(lat0);
-    if (sphere != null) {
+    if (sphere != null && sphere) {
       if (k0 == 1.0 && !lat_ts.isNaN && coslat0.abs() <= consts.EPSLN) {
         k0 = 0.5 * (1 + utils.sign(lat0) * math.sin(lat_ts));
       }
@@ -91,7 +91,7 @@ class StereographicSouthProjection extends Projection {
       p.y = double.nan;
       return p;
     }
-    if (sphere != null) {
+    if (sphere != null && sphere) {
       //trace('stere:sphere case');
       A = 2 * k0 / (1 + sinlat0 * sinlat + coslat0 * coslat * math.cos(dlon));
       p.x = a * A * coslat * math.sin(dlon) + x0;
@@ -135,7 +135,7 @@ class StereographicSouthProjection extends Projection {
     p.y -= y0;
     double lon, lat, ts, ce, Chi;
     var rh = math.sqrt(p.x * p.x + p.y * p.y);
-    if (sphere != null) {
+    if (sphere != null && sphere) {
       var c = 2 * math.atan(rh / (2 * a * k0));
       lon = long0;
       lat = lat0;

@@ -119,6 +119,20 @@ void main() {
       expect(pointDst.y, equals(6026519.169750551));
     });
 
+    test('geocent', () {
+      code = 'EPSG:4328 (deprecated)';
+      ProjDefStore()
+          .register(code, '+proj=geocent +datum=WGS84 +units=m +no_defs');
+      projDst = Projection(code);
+      pointDst = projSrc.transform(projDst, pointSrc);
+      expect(pointDst.x, equals(4079459.1719848895));
+      expect(pointDst.y, equals(1408139.648291708));
+      // inverse
+      var pointInverse = projDst.transform(projSrc, pointDst);
+      expect(pointInverse.x, equals(19.043548857256127));
+      expect(pointInverse.y, equals(0.0));
+    });
+
     test('robin', () {
       code = 'ESRI:54030';
       ProjDefStore().register(code,

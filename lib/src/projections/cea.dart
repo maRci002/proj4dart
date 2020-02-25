@@ -40,7 +40,7 @@ class CentralCylindricalProjection extends Projection {
     /* Forward equations
       -----------------*/
     var dlon = utils.adjust_lon(lon - long0);
-    if (sphere != null) {
+    if (sphere != null && sphere) {
       x = x0 + a * dlon * math.cos(lat_ts);
       y = y0 + a * math.sin(lat) / math.cos(lat_ts);
     } else {
@@ -61,7 +61,7 @@ class CentralCylindricalProjection extends Projection {
     p.y -= y0;
     var lon, lat;
 
-    if (sphere != null) {
+    if (sphere != null && sphere) {
       lon = utils.adjust_lon(long0 + (p.x / a) / math.cos(lat_ts));
       lat = math.asin((p.y / a) * math.cos(lat_ts));
     } else {
