@@ -41,6 +41,7 @@ class ProjParams {
   // Uncommon properties
   double get phic0 => map['phic0'];
   bool get czech => map['czech'];
+  double get phi0 => map['phi0'];
 
   // Extra properties
   String get ellps => map['ellps'];

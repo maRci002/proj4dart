@@ -17,6 +17,7 @@ import 'package:proj4dart/src/projections/geocent.dart';
 import 'package:proj4dart/src/projections/gnom.dart';
 import 'package:proj4dart/src/projections/gstmerc.dart';
 import 'package:proj4dart/src/projections/krovak.dart';
+import 'package:proj4dart/src/projections/laea.dart';
 import 'package:proj4dart/src/projections/longlat.dart';
 import 'package:proj4dart/src/projections/merc.dart';
 import 'package:proj4dart/src/projections/robin.dart';
@@ -122,6 +123,9 @@ abstract class Projection {
           GaussSchreiberTransverseMercatorProjection.init(params));
     } else if (KrovakProjection.names.contains(projName)) {
       ProjStore().add(KrovakProjection.names, KrovakProjection.init(params));
+    } else if (LambertAzimuthalEqualAreaProjection.names.contains(projName)) {
+      ProjStore().add(LambertAzimuthalEqualAreaProjection.names,
+          LambertAzimuthalEqualAreaProjection.init(params));
     }
     var projection = ProjStore().get(code);
     if (projection == null) {
@@ -188,7 +192,7 @@ abstract class Projection {
       point = Point.withZ(
         x: point.x * consts.R2D,
         y: point.y * consts.R2D,
-        z: point.z ?? 0,
+        z: point.z ?? 0.0,
       );
     } else {
       // else project
