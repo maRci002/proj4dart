@@ -2,7 +2,9 @@ import 'package:proj4dart/src/classes/datum.dart';
 import 'package:proj4dart/src/classes/point.dart';
 import 'package:proj4dart/src/classes/proj_params.dart';
 import 'package:proj4dart/src/common/datum_transform.dart' as dt;
+import 'package:proj4dart/src/common/utils.dart' as utils;
 import 'package:proj4dart/src/constants/values.dart' as consts;
+
 import 'package:proj4dart/src/globals/defs.dart';
 import 'package:proj4dart/src/globals/projs.dart';
 import 'package:proj4dart/src/projections/aea.dart';
@@ -24,6 +26,7 @@ import 'package:proj4dart/src/projections/merc.dart';
 import 'package:proj4dart/src/projections/mill.dart';
 import 'package:proj4dart/src/projections/moll.dart';
 import 'package:proj4dart/src/projections/nzmg.dart';
+import 'package:proj4dart/src/projections/omerc.dart';
 import 'package:proj4dart/src/projections/robin.dart';
 import 'package:proj4dart/src/projections/sinu.dart';
 import 'package:proj4dart/src/projections/somerc.dart';
@@ -46,6 +49,8 @@ abstract class Projection {
   double e;
   double ep2;
   Datum datum;
+  double from_greenwich;
+  double to_meter;
 
   Point forward(Point p);
 
@@ -64,7 +69,9 @@ abstract class Projection {
         es = params.es,
         e = params.e,
         ep2 = params.ep2,
-        datum = params.datum;
+        datum = params.datum,
+        from_greenwich = params.from_greenwich,
+        to_meter = params.to_meter;
 
   factory Projection.register(String code, ProjParams params) {
     var projName = params.proj;
@@ -142,6 +149,9 @@ abstract class Projection {
     } else if (NewZealandMapGridProjection.names.contains(projName)) {
       ProjStore().add(NewZealandMapGridProjection.names,
           NewZealandMapGridProjection.init(params));
+    } else if (HotlineObliqueMercatorProjection.names.contains(projName)) {
+      ProjStore().add(HotlineObliqueMercatorProjection.names,
+          HotlineObliqueMercatorProjection.init(params));
     }
     var projection = ProjStore().get(code);
     if (projection == null) {
@@ -180,6 +190,8 @@ abstract class Projection {
     var source = this;
     var shouldRemoveZ = point.z == null;
 
+    utils.checkSanity(point);
+
     // Workaround for datum shifts towgs84, if either source or destination projection is not wgs84
     if (source.datum != null &&
         dest.datum != null &&
@@ -188,7 +200,10 @@ abstract class Projection {
       point = source.transform(wgs84, point);
       source = wgs84;
     }
-
+    // DGR, 2010/11/12
+    if (source.axis != 'enu') {
+      point = utils.adjust_axis(source, false, point);
+    }
     // Transform source points to long/lat, if they aren't already.
     if (source.projName == 'longlat') {
       point = Point.withZ(
@@ -197,11 +212,25 @@ abstract class Projection {
         z: point.z ?? 0,
       );
     } else {
+      if (source.to_meter != null) {
+        point = Point.withZ(
+            x: point.x * source.to_meter,
+            y: point.y * source.to_meter,
+            z: point.z ?? 0.0);
+      }
       point = source.inverse(point); // Convert Cartesian to longlat
+    }
+    if (source.from_greenwich != null) {
+      point.x += source.from_greenwich;
     }
 
     // Convert datums if needed, and if possible.
     point = dt.transform(source.datum, dest.datum, point);
+    // Adjust for the prime meridian if necessary
+    if (dest.from_greenwich != null) {
+      point = Point.withZ(
+          x: point.x - dest.from_greenwich, y: point.y, z: point.z ?? 0.0);
+    }
 
     if (dest.projName == 'longlat') {
       // convert radians to decimal degrees
@@ -213,6 +242,17 @@ abstract class Projection {
     } else {
       // else project
       point = dest.forward(point);
+      if (dest.to_meter != null) {
+        point = Point.withZ(
+            x: point.x / dest.to_meter,
+            y: point.y / dest.to_meter,
+            z: point.z ?? 0.0);
+      }
+    }
+
+    // DGR, 2010/11/12
+    if (dest.axis != 'enu') {
+      return utils.adjust_axis(dest, true, point);
     }
 
     if (shouldRemoveZ && point.z != null) {

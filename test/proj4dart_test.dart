@@ -227,9 +227,9 @@ void main() {
       ProjDefStore().register(code,
           '+proj=nzmg +lat_0=-41 +lon_0=173 +x_0=2510000 +y_0=6023150 +ellps=intl +towgs84=59.47,-5.04,187.44,0.47,-0.1,1.024,-4.5993 +units=m +no_defs');
       projDst = Projection(code);
-      pointSrc = Point(x: 171.80, y: -43.06);
+      var pSrc = Point(x: 171.80, y: -43.06);
       // forward
-      pointDst = projSrc.transform(projDst, pointSrc);
+      pointDst = projSrc.transform(projDst, pSrc);
       expect(pointDst.x, equals(2412264.402162615));
       expect(pointDst.y, equals(5793452.345673523));
       // inverse
@@ -249,6 +249,21 @@ void main() {
       var pointInverse = projDst.transform(projSrc, pointDst);
       expect(pointInverse.x, equals(19.043548857256127));
       expect(pointInverse.y, equals(47.514848877288046));
+    });
+
+    test('omerc', () {
+      code = 'EPSG:29702';
+      ProjDefStore().register(code,
+          '+proj=omerc +lat_0=-18.9 +lonc=44.10000000000001 +alpha=18.9 +k=0.9995000000000001 +x_0=400000 +y_0=800000 +gamma=18.9 +ellps=intl +towgs84=-189,-242,-91,0,0,0,0 +pm=paris +units=m +no_defs');
+      projDst = Projection(code);
+      // forward
+      pointDst = projSrc.transform(projDst, pointSrc);
+      expect(pointDst.x, closeTo(-1247973.4166138354, 0.000001));
+      expect(pointDst.y, closeTo(9103629.638676804, 0.000001));
+      // inverse
+      var pointInverse = projDst.transform(projSrc, pointDst);
+      expect(pointInverse.x, closeTo(19.043548843468, 0.000001));
+      expect(pointInverse.y, closeTo(47.51484887937237, 0.000001));
     });
 
     test('robin', () {
