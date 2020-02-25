@@ -51,7 +51,9 @@ class TransverseMercatorProjection extends Projection {
       var b = cos_phi * math.sin(delta_lon);
 
       if (((b.abs() - 1).abs()) < consts.EPSLN) {
-        // return (93); //TODO: commented out because return a number is weird.
+        throw Exception(
+            'Dont know what to do, I should return 93 but it makes no sense');
+        // return (93); //TODO: commented out because returning a number is weird.
       } else {
         x = 0.5 * a * k0 * math.log((1 + b) / (1 - b)) + x0;
         y = cos_phi * math.cos(delta_lon) / math.sqrt(1 - math.pow(b, 2));
@@ -59,7 +61,9 @@ class TransverseMercatorProjection extends Projection {
 
         if (b >= 1) {
           if ((b - 1) > consts.EPSLN) {
-            // return (93); //TODO: commented out because return a number is weird.
+            throw Exception(
+                'Dont know what to do, I should return 93 but it makes no sense');
+            // return (93); //TODO: commented out because returning a number is weird.
           } else {
             y = 0;
           }
