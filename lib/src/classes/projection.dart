@@ -4,7 +4,6 @@ import 'package:proj4dart/src/classes/proj_params.dart';
 import 'package:proj4dart/src/common/datum_transform.dart' as dt;
 import 'package:proj4dart/src/common/utils.dart' as utils;
 import 'package:proj4dart/src/constants/values.dart' as consts;
-
 import 'package:proj4dart/src/globals/defs.dart';
 import 'package:proj4dart/src/globals/projs.dart';
 import 'package:proj4dart/src/projections/aea.dart';
@@ -27,6 +26,7 @@ import 'package:proj4dart/src/projections/mill.dart';
 import 'package:proj4dart/src/projections/moll.dart';
 import 'package:proj4dart/src/projections/nzmg.dart';
 import 'package:proj4dart/src/projections/omerc.dart';
+import 'package:proj4dart/src/projections/ortho.dart';
 import 'package:proj4dart/src/projections/robin.dart';
 import 'package:proj4dart/src/projections/sinu.dart';
 import 'package:proj4dart/src/projections/somerc.dart';
@@ -152,6 +152,9 @@ abstract class Projection {
     } else if (HotlineObliqueMercatorProjection.names.contains(projName)) {
       ProjStore().add(HotlineObliqueMercatorProjection.names,
           HotlineObliqueMercatorProjection.init(params));
+    } else if (OrthographicProjection.names.contains(projName)) {
+      ProjStore().add(
+          OrthographicProjection.names, OrthographicProjection.init(params));
     }
     var projection = ProjStore().get(code);
     if (projection == null) {
