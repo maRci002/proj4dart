@@ -212,10 +212,6 @@ class ProjParams {
   }
 
   List<double> _getDatumParamsFromString(String towgs84) {
-    List<double> params = [];
-    towgs84.split(',').forEach((element) {
-      params.add(double.parse(element));
-    });
-    return params;
+    return towgs84.split(',').map(double.parse).toList();
   }
 }
