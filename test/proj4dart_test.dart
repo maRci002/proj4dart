@@ -1,4 +1,5 @@
 import 'package:proj4dart/proj4dart.dart';
+import 'package:proj4dart/src/globals/defs.dart';
 import 'package:test/test.dart';
 
 import './classes/project_and_unproject_result.dart';

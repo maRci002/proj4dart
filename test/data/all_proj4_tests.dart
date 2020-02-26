@@ -1,4 +1,4 @@
-import 'package:proj4dart/proj4dart.dart';
+import 'package:proj4dart/src/classes/point.dart';
 import '../classes/project_and_unproject_result.dart';
 
 // We converted this point [17.888058560281515, 46.89226406700879] with proj4js this will give us wgsToCustom

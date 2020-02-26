@@ -1,4 +1,4 @@
-import 'package:proj4dart/proj4dart.dart';
+import 'package:proj4dart/src/classes/point.dart';
 
 class ProjectAndUnProjectResult {
   final Point wgsToCustom;
