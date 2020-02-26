@@ -26,7 +26,7 @@ void main() {
 
     test('Project / UnProject test for all projections', () {
       all_proj4_defs.testDefs
-          .forEach((key, value) => ProjDefStore().register(key, value));
+          .forEach((key, value) => Projection.add(key, value));
       var wgs = Projection('EPSG:4326');
       all_proj4_tests.testResults.forEach((key, value) {
         var testPoint = Point(x: 17.888058560281515, y: 46.89226406700879);

@@ -182,6 +182,25 @@ abstract class Projection {
     return projection;
   }
 
+  factory Projection.add(String code, String defCode) {
+    if (ProjStore().getProjections().isEmpty) {
+      ProjStore().start();
+    }
+    ProjParams params;
+    if (ProjDefStore().codes().contains(code)) {
+      params = ProjDefStore().get(code);
+      var existingProjection = ProjStore().get(code);
+      if (existingProjection != null) {
+        return existingProjection;
+      } else {
+        return Projection.register(code, params);
+      }
+    }
+    params = ProjParams(defCode);
+    ProjDefStore().register(code, defCode);
+    return Projection.register(code, params);
+  }
+
   static bool _checkNotWGS(Projection source, Projection dest) {
     return ((source.datum.datumType == consts.PJD_3PARAM ||
                 source.datum.datumType == consts.PJD_7PARAM) &&
