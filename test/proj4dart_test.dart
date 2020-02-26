@@ -428,8 +428,11 @@ void main() {
       all_proj4_defs.testDefs
           .forEach((key, value) => ProjDefStore().register(key, value));
       var wgs = Projection('EPSG:4326');
-      var testPoint = Point(x: 17.888058560281515, y: 46.89226406700879);
       all_proj4_tests.testResults.forEach((key, value) {
+        var testPoint = Point(x: 17.888058560281515, y: 46.89226406700879);
+        if (key == 'EPSG:3117') {
+          testPoint = Point(x: -72.62, y: 3.81);
+        }
         var custom = Projection(key);
         var projectResult = wgs.transform(custom, testPoint);
         var unProjectResult = custom.transform(wgs, value.wgsToCustom);
