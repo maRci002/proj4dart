@@ -543,12 +543,12 @@ Point adjust_axis(crs, bool denorm, Point point) {
         break;
       case 'u':
         if (pointObj[t] != null) {
-          out.z = v;
+          out['z'] = v;
         }
         break;
       case 'd':
         if (pointObj[t] != null) {
-          out.z = -v;
+          out['z'] = -v;
         }
         break;
       default:
@@ -556,7 +556,7 @@ Point adjust_axis(crs, bool denorm, Point point) {
         return null;
     }
   }
-  return Point.withZ(x: out.x, y: out.y, z: out.z);
+  return Point.withZ(x: out['x'], y: out['y'], z: out['z']);
 }
 
 void extend(dynamic destination, dynamic source) {

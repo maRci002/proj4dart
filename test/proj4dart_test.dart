@@ -434,10 +434,26 @@ void main() {
         var projectResult = wgs.transform(custom, testPoint);
         var unProjectResult = custom.transform(wgs, value.wgsToCustom);
         var result = ProjectAndUnProjectResult(projectResult, unProjectResult);
-        expect(result.customToWgs.x, closeTo(value.customToWgs.x, 0.000001));
-        expect(result.customToWgs.y, closeTo(value.customToWgs.y, 0.000001));
-        expect(result.wgsToCustom.x, closeTo(value.wgsToCustom.x, 0.000001));
-        expect(result.wgsToCustom.y, closeTo(value.wgsToCustom.y, 0.000001));
+        if (value.customToWgs.x.isNaN) {
+          expect(result.customToWgs.x, isNaN);
+        } else {
+          expect(result.customToWgs.x, closeTo(value.customToWgs.x, 0.000001));
+        }
+        if (value.customToWgs.y.isNaN) {
+          expect(result.customToWgs.y, isNaN);
+        } else {
+          expect(result.customToWgs.y, closeTo(value.customToWgs.y, 0.000001));
+        }
+        if (value.wgsToCustom.x.isNaN) {
+          expect(result.wgsToCustom.x, isNaN);
+        } else {
+          expect(result.wgsToCustom.x, closeTo(value.wgsToCustom.x, 0.000001));
+        }
+        if (value.wgsToCustom.y.isNaN) {
+          expect(result.wgsToCustom.y, isNaN);
+        } else {
+          expect(result.wgsToCustom.y, closeTo(value.wgsToCustom.y, 0.000001));
+        }
       });
     });
 

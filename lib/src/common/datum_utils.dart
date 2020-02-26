@@ -189,7 +189,7 @@ Point geocentricToWgs84(Point p, int datumType, List<double> datumParams) {
     return Point.withZ(
         x: p.x + datumParams[0],
         y: p.y + datumParams[1],
-        z: p.z != null ? p.z + datumParams[2] : null);
+        z: p.z != null ? p.z + datumParams[2] : 0.0);
   } else if (datumType == consts.PJD_7PARAM) {
     var Dx_BF = datumParams[0];
     var Dy_BF = datumParams[1];
@@ -200,6 +200,7 @@ Point geocentricToWgs84(Point p, int datumType, List<double> datumParams) {
     var M_BF = datumParams[6];
     // if( x[io] === HUGE_VAL )
     //    continue;
+    p.z = p.z ?? 0.0;
     return Point.withZ(
         x: M_BF * (p.x - Rz_BF * p.y + Ry_BF * p.z) + Dx_BF,
         y: M_BF * (Rz_BF * p.x + p.y - Rx_BF * p.z) + Dy_BF,
