@@ -47,8 +47,6 @@ class ProjDefStore {
   }
 
   List<String> codes() {
-    List<String> codes = [];
-    _defs.forEach((key, value) => codes.add(key));
-    return codes;
+    return _defs.keys.toList();
   }
 }

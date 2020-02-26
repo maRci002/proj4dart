@@ -1,5 +1,3 @@
-import 'dart:math' as math;
-
 import 'package:proj4dart/src/classes/point.dart';
 import 'package:proj4dart/src/classes/proj_params.dart';
 import 'package:proj4dart/src/classes/projection.dart';
@@ -114,7 +112,6 @@ class RobinsonProjection extends Projection {
       } else if (i >= NODES) {
         i = NODES - 1;
       }
-      // TODO: this for loop is only valid in javascript
       for (;;) {
         if (COEFS_Y[i][0] > ll.y) {
           --i;

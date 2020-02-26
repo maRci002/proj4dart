@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:math' as math;
 
 import 'package:proj4dart/src/classes/point.dart';
+import 'package:proj4dart/src/classes/projection.dart';
 import 'package:proj4dart/src/constants/values.dart' as consts;
 
 double acosh(double x) {
@@ -184,10 +185,7 @@ Point inverseNadCvt(Point t, Point val, tb, ct) {
     dif = Point(x: t.x - del.x - tb.x, y: t.y + del.y - tb.y);
     t.x -= dif.x;
     t.y -= dif.y;
-    i = i - 1;
-  } while (i > 0 &&
-      (dif.x).abs() > tol &&
-      (dif.y).abs() > tol); // TODO: not sure if this while loop works correctly
+  } while (i-- != 0 && (dif.x).abs() > tol && (dif.y).abs() > tol);
   if (i < 0) {
     return val;
   }
@@ -494,8 +492,7 @@ void checkSanity(Point point) {
   checkCoord(point.y);
 }
 
-// TODO crs type?
-Point adjust_axis(crs, bool denorm, Point point) {
+Point adjust_axis(Projection crs, bool denorm, Point point) {
   var xin = point.x, yin = point.y, zin = point.z ?? 0.0;
   var v, t, i;
   var pointString = '''

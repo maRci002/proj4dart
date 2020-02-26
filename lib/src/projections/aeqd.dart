@@ -166,7 +166,8 @@ class AzimuthalEquidistantProjection extends Projection {
     if (sphere != null && sphere) {
       rh = math.sqrt(p.x * p.x + p.y * p.y);
       if (rh > (2 * consts.HALF_PI * a)) {
-        return p; // TODO: check
+        //...reportError("aeqdInvDataError");
+        return p;
       }
       z = rh / a;
 

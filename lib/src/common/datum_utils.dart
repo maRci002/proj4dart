@@ -177,11 +177,10 @@ Point geocentricToGeodetic(Point p, double es, double a, double b) {
 // pj_geocentic_to_wgs84( p )
 //  p = point to transform in geocentric coordinates (x,y,z)
 
-/** point object, nothing fancy, just allows values to be
-    passed back and forth by reference rather than by value.
-    Other point classes may be used as long as they have
-    x and y properties, which will get modified in the transform method.
-*/
+/// point object, nothing fancy, just allows values to be
+/// passed back and forth by reference rather than by value.
+/// Other point classes may be used as long as they have
+/// x and y properties, which will get modified in the transform method.
 Point geocentricToWgs84(Point p, int datumType, List<double> datumParams) {
   if (datumType == consts.PJD_3PARAM) {
     // if( x[io] === HUGE_VAL )
@@ -209,7 +208,6 @@ Point geocentricToWgs84(Point p, int datumType, List<double> datumParams) {
   return null;
 } // cs_geocentric_to_wgs84
 
-/****************************************************************/
 // pj_geocentic_from_wgs84()
 //  coordinate system definition,
 //  point to transform in geocentric coordinates (x,y,z)
