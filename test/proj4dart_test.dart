@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:proj4dart/proj4dart.dart';
 import 'package:proj4dart/src/common/parse_code.dart' as parser;
 import 'package:proj4dart/src/projections/merc.dart';
@@ -450,13 +452,14 @@ void main() {
         if (value.wgsToCustom.x.isNaN) {
           expect(result.wgsToCustom.x, isNaN);
         } else {
-          expect(result.wgsToCustom.x, closeTo(value.wgsToCustom.x, 0.000001));
+          expect(result.wgsToCustom.x, closeTo(value.wgsToCustom.x, 0.00001));
         }
         if (value.wgsToCustom.y.isNaN) {
           expect(result.wgsToCustom.y, isNaN);
         } else {
-          expect(result.wgsToCustom.y, closeTo(value.wgsToCustom.y, 0.000001));
+          expect(result.wgsToCustom.y, closeTo(value.wgsToCustom.y, 0.00001));
         }
+        print('Projection passed: $key');
       });
     });
 

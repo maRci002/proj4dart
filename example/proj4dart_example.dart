@@ -5,7 +5,7 @@ void main() {
   var code = 'EPSG:3819';
   var projSrc = Projection('EPSG:4326');
   ProjDefStore().register(code,
-      '+proj=tmerc +lat_0=4.596200416666666 +lon_0=-71.07750791666666 +k=1 +x_0=1000000 +y_0=1000000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs');
+      '+proj=laea +lat_0=90 +lon_0=0 +x_0=0 +y_0=0 +a=6371228 +b=6371228 +units=m +no_defs');
 
   var projDst = Projection(code);
 

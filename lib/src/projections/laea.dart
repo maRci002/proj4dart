@@ -115,7 +115,8 @@ class LambertAzimuthalEqualAreaProjection extends Projection {
         if (mode == N_POLE) {
           coslam = -coslam;
         }
-        if ((phi + phi0).abs() < consts.EPSLN) {
+
+        if (phi0 != null && (phi + phi0).abs() < consts.EPSLN) {
           return null;
         }
         y = consts.FORTPI - phi * 0.5;
