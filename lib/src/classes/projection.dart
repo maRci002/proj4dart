@@ -76,6 +76,23 @@ abstract class Projection {
         from_greenwich = params.from_greenwich,
         to_meter = params.to_meter;
 
+  factory Projection(String code) {
+    var params = ProjDefStore().get(code);
+    if (params == null) {
+      throw Exception('Proj def not yet registered: $code');
+    }
+    if (ProjStore().getProjections().isEmpty) {
+      ProjStore().start();
+    }
+    var projection = ProjStore().get(params.srsCode);
+    projection ??= Projection.register(code, params);
+    if (projection == null) {
+      throw Exception(
+          "$code projection isn't defined, make sure you defined it by 'Projection.register(String, String)'");
+    }
+    return projection;
+  }
+
   factory Projection.register(String code, ProjParams params) {
     var projName = params.proj;
 
@@ -161,23 +178,6 @@ abstract class Projection {
     var projection = ProjStore().get(params.srsCode);
     if (projection == null) {
       throw Exception('Projection not found: $code, $params');
-    }
-    return projection;
-  }
-
-  factory Projection(String code) {
-    var params = ProjDefStore().get(code);
-    if (params == null) {
-      throw Exception('Proj def not yet registered: $code');
-    }
-    if (ProjStore().getProjections().isEmpty) {
-      ProjStore().start();
-    }
-    var projection = ProjStore().get(params.srsCode);
-    projection ??= Projection.register(code, params);
-    if (projection == null) {
-      throw Exception(
-          "$code projection isn't defined, make sure you defined it by 'Projection.register(String, String)'");
     }
     return projection;
   }
