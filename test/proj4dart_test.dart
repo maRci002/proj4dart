@@ -15,7 +15,6 @@ void main() {
       expect(defsArray.length, all_proj4_defs.testDefs.length);
     });
 
-    // WARNING: This should pass only if all projection algorithm are implemented
     test('Create all projections without exception', () {
       all_proj4_defs.testDefs
           .forEach((key, value) => ProjDefStore().register(key, value));
