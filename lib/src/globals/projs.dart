@@ -3,7 +3,7 @@ import 'package:proj4dart/src/globals/defs.dart';
 
 class ProjStore {
   final List<Projection> _projections = [];
-  final _names = {};
+  final _srsCodes = {};
 
   static final ProjStore _projStore = ProjStore._internal();
 
@@ -13,36 +13,28 @@ class ProjStore {
 
   ProjStore._internal();
 
-  void add(List<String> names, Projection proj) {
+  void add(Projection proj, String defCode) {
     var length = _projections.length;
-    if (names == null) {
+    if (defCode == null) {
       return;
     }
     _projections.add(proj);
-    names.forEach((n) => _names[n.toLowerCase()] = length);
+    _srsCodes[defCode] = length;
   }
 
-  Projection getByName(String projName) {
-    if (projName == null) {
+  Projection get(String srsCode) {
+    if (srsCode == null) {
       return null;
     }
-    var n = projName.toLowerCase();
-    if (_names[n] != null && _projections[_names[n]] != null) {
-      return _projections[_names[n]];
+    if (_srsCodes[srsCode] != null &&
+        _projections[_srsCodes[srsCode]] != null) {
+      return _projections[_srsCodes[srsCode]];
     }
     return null;
   }
 
-  Projection get(String epsg) {
-    var params = ProjDefStore().get(epsg);
-    if (params == null) {
-      return null;
-    }
-    return getByName(params.proj);
-  }
-
   void start() {
-    ProjDefStore().names().forEach((n) {
+    ProjDefStore().codes().forEach((n) {
       Projection.register(n, ProjDefStore().get(n));
     });
   }

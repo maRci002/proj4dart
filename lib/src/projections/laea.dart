@@ -39,7 +39,7 @@ class LambertAzimuthalEqualAreaProjection extends Projection {
         long0 = params.long0,
         x0 = params.x0,
         y0 = params.y0,
-        phi0 = params.phi0,
+        phi0 = params.map['phi0'],
         super.init(params) {
     var t = lat0.abs();
     if ((t - consts.HALF_PI).abs() < consts.EPSLN) {

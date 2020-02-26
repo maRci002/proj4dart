@@ -80,96 +80,85 @@ abstract class Projection {
     var projName = params.proj;
 
     if (PseudoMercatorProjection.names.contains(projName)) {
-      ProjStore().add(PseudoMercatorProjection.names,
-          PseudoMercatorProjection.init(params));
+      ProjStore().add(PseudoMercatorProjection.init(params), params.srsCode);
     } else if (LongLat.names.contains(projName)) {
-      ProjStore().add(LongLat.names, LongLat.init(params));
+      ProjStore().add(LongLat.init(params), params.srsCode);
     } else if (SwissObliqueMercatorProjection.names.contains(projName)) {
-      ProjStore().add(SwissObliqueMercatorProjection.names,
-          SwissObliqueMercatorProjection.init(params));
+      ProjStore()
+          .add(SwissObliqueMercatorProjection.init(params), params.srsCode);
     } else if (AlbersProjection.names.contains(projName)) {
-      ProjStore().add(AlbersProjection.names, AlbersProjection.init(params));
+      ProjStore().add(AlbersProjection.init(params), params.srsCode);
     } else if (AzimuthalEquidistantProjection.names.contains(projName)) {
-      ProjStore().add(AzimuthalEquidistantProjection.names,
-          AzimuthalEquidistantProjection.init(params));
+      ProjStore()
+          .add(AzimuthalEquidistantProjection.init(params), params.srsCode);
     } else if (CassiniProjection.names.contains(projName)) {
-      ProjStore().add(CassiniProjection.names, CassiniProjection.init(params));
+      ProjStore().add(CassiniProjection.init(params), params.srsCode);
     } else if (CentralCylindricalProjection.names.contains(projName)) {
-      ProjStore().add(CentralCylindricalProjection.names,
-          CentralCylindricalProjection.init(params));
+      ProjStore()
+          .add(CentralCylindricalProjection.init(params), params.srsCode);
     } else if (EquidistantCylindricalProjection.names.contains(projName)) {
-      ProjStore().add(EquidistantCylindricalProjection.names,
-          EquidistantCylindricalProjection.init(params));
+      ProjStore()
+          .add(EquidistantCylindricalProjection.init(params), params.srsCode);
     } else if (EquidistantConicProjection.names.contains(projName)) {
-      ProjStore().add(EquidistantConicProjection.names,
-          EquidistantConicProjection.init(params));
+      ProjStore().add(EquidistantConicProjection.init(params), params.srsCode);
     } else if (ExtendedTransverseMercatorProjection.names.contains(projName)) {
-      ProjStore().add(ExtendedTransverseMercatorProjection.names,
-          ExtendedTransverseMercatorProjection.init(params));
-    } else if (UniversalTransverseMercatorProjection.names.contains(projName)) {
-      ProjStore().add(UniversalTransverseMercatorProjection.names,
-          UniversalTransverseMercatorProjection.init(params));
-    } else if (VanDerGrintenProjection.names.contains(projName)) {
       ProjStore().add(
-          VanDerGrintenProjection.names, VanDerGrintenProjection.init(params));
+          ExtendedTransverseMercatorProjection.init(params), params.srsCode);
+    } else if (UniversalTransverseMercatorProjection.names.contains(projName)) {
+      ProjStore().add(
+          UniversalTransverseMercatorProjection.init(params), params.srsCode);
+    } else if (VanDerGrintenProjection.names.contains(projName)) {
+      ProjStore().add(VanDerGrintenProjection.init(params), params.srsCode);
     } else if (GaussProjection.names.contains(projName)) {
-      ProjStore().add(GaussProjection.names, GaussProjection.init(params));
+      ProjStore().add(GaussProjection.init(params), params.srsCode);
     } else if (StereographicNorthProjection.names.contains(projName)) {
-      ProjStore().add(StereographicNorthProjection.names,
-          StereographicNorthProjection.init(params));
+      ProjStore()
+          .add(StereographicNorthProjection.init(params), params.srsCode);
     } else if (StereographicSouthProjection.names.contains(projName)) {
-      ProjStore().add(StereographicSouthProjection.names,
-          StereographicSouthProjection.init(params));
+      ProjStore()
+          .add(StereographicSouthProjection.init(params), params.srsCode);
     } else if (SinusoidalProjection.names.contains(projName)) {
-      ProjStore()
-          .add(SinusoidalProjection.names, SinusoidalProjection.init(params));
+      ProjStore().add(SinusoidalProjection.init(params), params.srsCode);
     } else if (RobinsonProjection.names.contains(projName)) {
-      ProjStore()
-          .add(RobinsonProjection.names, RobinsonProjection.init(params));
+      ProjStore().add(RobinsonProjection.init(params), params.srsCode);
     } else if (GeocentricProjection.names.contains(projName)) {
-      ProjStore()
-          .add(GeocentricProjection.names, GeocentricProjection.init(params));
+      ProjStore().add(GeocentricProjection.init(params), params.srsCode);
     } else if (GnomicProjection.names.contains(projName)) {
-      ProjStore().add(GnomicProjection.names, GnomicProjection.init(params));
+      ProjStore().add(GnomicProjection.init(params), params.srsCode);
     } else if (GaussSchreiberTransverseMercatorProjection.names
         .contains(projName)) {
-      ProjStore().add(GaussSchreiberTransverseMercatorProjection.names,
-          GaussSchreiberTransverseMercatorProjection.init(params));
+      ProjStore().add(GaussSchreiberTransverseMercatorProjection.init(params),
+          params.srsCode);
     } else if (KrovakProjection.names.contains(projName)) {
-      ProjStore().add(KrovakProjection.names, KrovakProjection.init(params));
+      ProjStore().add(KrovakProjection.init(params), params.srsCode);
     } else if (LambertAzimuthalEqualAreaProjection.names.contains(projName)) {
-      ProjStore().add(LambertAzimuthalEqualAreaProjection.names,
-          LambertAzimuthalEqualAreaProjection.init(params));
-    } else if (LambertConformalConicProjection.names.contains(projName)) {
-      ProjStore().add(LambertConformalConicProjection.names,
-          LambertConformalConicProjection.init(params));
-    } else if (MillerCylindricalProjection.names.contains(projName)) {
-      ProjStore().add(MillerCylindricalProjection.names,
-          MillerCylindricalProjection.init(params));
-    } else if (MollweideProjection.names.contains(projName)) {
-      ProjStore()
-          .add(MollweideProjection.names, MollweideProjection.init(params));
-    } else if (NewZealandMapGridProjection.names.contains(projName)) {
-      ProjStore().add(NewZealandMapGridProjection.names,
-          NewZealandMapGridProjection.init(params));
-    } else if (HotlineObliqueMercatorProjection.names.contains(projName)) {
-      ProjStore().add(HotlineObliqueMercatorProjection.names,
-          HotlineObliqueMercatorProjection.init(params));
-    } else if (OrthographicProjection.names.contains(projName)) {
       ProjStore().add(
-          OrthographicProjection.names, OrthographicProjection.init(params));
-    } else if (PolyconicProjection.names.contains(projName)) {
+          LambertAzimuthalEqualAreaProjection.init(params), params.srsCode);
+    } else if (LambertConformalConicProjection.names.contains(projName)) {
       ProjStore()
-          .add(PolyconicProjection.names, PolyconicProjection.init(params));
+          .add(LambertConformalConicProjection.init(params), params.srsCode);
+    } else if (MillerCylindricalProjection.names.contains(projName)) {
+      ProjStore().add(MillerCylindricalProjection.init(params), params.srsCode);
+    } else if (MollweideProjection.names.contains(projName)) {
+      ProjStore().add(MollweideProjection.init(params), params.srsCode);
+    } else if (NewZealandMapGridProjection.names.contains(projName)) {
+      ProjStore().add(NewZealandMapGridProjection.init(params), params.srsCode);
+    } else if (HotlineObliqueMercatorProjection.names.contains(projName)) {
+      ProjStore()
+          .add(HotlineObliqueMercatorProjection.init(params), params.srsCode);
+    } else if (OrthographicProjection.names.contains(projName)) {
+      ProjStore().add(OrthographicProjection.init(params), params.srsCode);
+    } else if (PolyconicProjection.names.contains(projName)) {
+      ProjStore().add(PolyconicProjection.init(params), params.srsCode);
     } else if (QuadrilateralizedSphericalCubeProjection.names
         .contains(projName)) {
-      ProjStore().add(QuadrilateralizedSphericalCubeProjection.names,
-          QuadrilateralizedSphericalCubeProjection.init(params));
+      ProjStore().add(QuadrilateralizedSphericalCubeProjection.init(params),
+          params.srsCode);
     } else if (TransverseMercatorProjection.names.contains(projName)) {
-      ProjStore().add(TransverseMercatorProjection.names,
-          TransverseMercatorProjection.init(params));
+      ProjStore()
+          .add(TransverseMercatorProjection.init(params), params.srsCode);
     }
-    var projection = ProjStore().get(code);
+    var projection = ProjStore().get(params.srsCode);
     if (projection == null) {
       throw Exception('Projection not found: $code, $params');
     }
@@ -184,7 +173,7 @@ abstract class Projection {
     if (ProjStore().getProjections().isEmpty) {
       ProjStore().start();
     }
-    var projection = ProjStore().get(code);
+    var projection = ProjStore().get(params.srsCode);
     projection ??= Projection.register(code, params);
     if (projection == null) {
       throw Exception(
@@ -196,10 +185,10 @@ abstract class Projection {
   static bool _checkNotWGS(Projection source, Projection dest) {
     return ((source.datum.datumType == consts.PJD_3PARAM ||
                 source.datum.datumType == consts.PJD_7PARAM) &&
-            (dest is LongLat && dest.datumCode != 'WGS84')) ||
+            dest.projName != 'longlat') ||
         ((dest.datum.datumType == consts.PJD_3PARAM ||
                 dest.datum.datumType == consts.PJD_7PARAM) &&
-            (source is LongLat && source.datumCode != 'WGS84'));
+            source.projName != 'longlat');
   }
 
   Point transform(Projection dest, Point point) {

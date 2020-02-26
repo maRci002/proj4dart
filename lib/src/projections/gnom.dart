@@ -24,7 +24,7 @@ class GnomicProjection extends Projection {
         long0 = params.long0,
         x0 = params.x0,
         y0 = params.y0,
-        phic0 = params.phic0,
+        phic0 = params.map['phic0'],
         super.init(params) {
     sin_p14 = math.sin(lat0);
     cos_p14 = math.cos(lat0);

@@ -6,7 +6,7 @@ bool _testObj(dynamic code) {
 }
 
 bool _testDef(String name) {
-  return ProjDefStore().names().contains(name);
+  return ProjDefStore().codes().contains(name);
 }
 
 bool _testWKT(String code) {

@@ -30,7 +30,7 @@ class KrovakProjection extends Projection {
   KrovakProjection.init(ProjParams params)
       : lat0 = params.lat0,
         long0 = params.long0,
-        czech = params.czech,
+        czech = params.map['czech'],
         super.init(params) {
     a = 6377397.155;
     es = 0.006674372230614;

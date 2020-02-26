@@ -2,7 +2,10 @@ import 'package:proj4dart/proj4dart.dart';
 import 'package:proj4dart/src/common/parse_code.dart' as parser;
 import 'package:proj4dart/src/projections/merc.dart';
 import 'package:test/test.dart';
-import './all_proj4_defs.dart';
+
+import './classes/project_and_unproject_result.dart';
+import './data/all_proj4_defs.dart' as all_proj4_defs;
+import './data/all_proj4_tests.dart' as all_proj4_tests;
 
 void main() {
   group('Parse and add projections', () {
@@ -414,63 +417,39 @@ void main() {
   });
 
   group('Bulk tests', () {
-    var store;
-    setUp(() {
-      ProjStore().start();
-      store = ProjDefStore();
-    });
-
     test('Register all defs without exception', () {
       var defsArray = [];
-      allDefs
-          .forEach((key, value) => defsArray.add(store.register(key, value)));
-      expect(defsArray.length, allDefs.length);
+      all_proj4_defs.testDefs.forEach(
+          (key, value) => defsArray.add(ProjDefStore().register(key, value)));
+      expect(defsArray.length, all_proj4_defs.testDefs.length);
     });
 
-    bool _compareProjectAndUnProjectResults(
-        String projName,
-        ProjectAndUnProjectResult proj4js,
-        ProjectAndUnProjectResult proj4dart) {
-      // FIXME: need closeTo or substring compare
-      if (proj4js.wgsToCustom.x == proj4dart.wgsToCustom.x &&
-          proj4js.wgsToCustom.y == proj4dart.wgsToCustom.y) {
-        return true;
-      }
-
-      print('$projName: $proj4js <> $proj4dart');
-      return false;
-    }
-
     test('Project / UnProject test for all projections', () {
-      var correctCounter = 0;
-
-      allDefs.forEach((key, value) => store.register(key, value));
-
+      all_proj4_defs.testDefs
+          .forEach((key, value) => ProjDefStore().register(key, value));
       var wgs = Projection('EPSG:4326');
-      var testPoint = Point.fromArray([17.888058560281515, 46.89226406700879]);
-
-      projectUnProjectTests.forEach((key, value) {
+      var testPoint = Point(x: 17.888058560281515, y: 46.89226406700879);
+      all_proj4_tests.testResults.forEach((key, value) {
         var custom = Projection(key);
         var projectResult = wgs.transform(custom, testPoint);
         var unProjectResult = custom.transform(wgs, value.wgsToCustom);
-
         var result = ProjectAndUnProjectResult(projectResult, unProjectResult);
-
-        if (_compareProjectAndUnProjectResults(key, value, result)) {
-          correctCounter++;
-        }
+        expect(result.customToWgs.x, closeTo(value.customToWgs.x, 0.000001));
+        expect(result.customToWgs.y, closeTo(value.customToWgs.y, 0.000001));
+        expect(result.wgsToCustom.x, closeTo(value.wgsToCustom.x, 0.000001));
+        expect(result.wgsToCustom.y, closeTo(value.wgsToCustom.y, 0.000001));
       });
-
-      expect(correctCounter, projectUnProjectTests.length);
     });
 
     // WARNING: This should pass only if all projection algorithm are implemented
     test('Create all projections without exception', () {
-      allDefs.forEach((key, value) => store.register(key, value));
+      all_proj4_defs.testDefs
+          .forEach((key, value) => ProjDefStore().register(key, value));
 
       var projectionArray = [];
-      allDefs.keys.forEach((key) => projectionArray.add(Projection(key)));
-      expect(projectionArray.length, allDefs.length);
+      all_proj4_defs.testDefs.keys
+          .forEach((key) => projectionArray.add(Projection(key)));
+      expect(projectionArray.length, all_proj4_defs.testDefs.length);
     });
   });
 }

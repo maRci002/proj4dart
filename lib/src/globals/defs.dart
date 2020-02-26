@@ -38,17 +38,17 @@ class ProjDefStore {
   }
 
   // Return a cached proj parameter object by its name
-  ProjParams get(String name) {
-    var def = _defs[name];
+  ProjParams get(String code) {
+    var def = _defs[code];
     if (def == null) {
       throw Exception('Projection not yet defined');
     }
     return def;
   }
 
-  List<String> names() {
-    List<String> names = [];
-    _defs.forEach((key, value) => names.add(key));
-    return names;
+  List<String> codes() {
+    List<String> codes = [];
+    _defs.forEach((key, value) => codes.add(key));
+    return codes;
   }
 }

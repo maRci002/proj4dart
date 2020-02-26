@@ -7,6 +7,7 @@ import 'package:proj4dart/src/constants/values.dart' as consts;
 
 class ProjParams {
   Map<String, dynamic> map = {};
+  String srsCode;
 
   String get title => map['title'];
   String get datumCode => map['datumCode'];
@@ -38,11 +39,6 @@ class ProjParams {
   String get axis => map['axis'];
   bool get no_defs => map['no_defs'];
 
-  // Uncommon properties
-  double get phic0 => map['phic0'];
-  bool get czech => map['czech'];
-  double get phi0 => map['phi0'];
-
   // Extra properties
   String get ellps => map['ellps'];
   String get datumName => map['datumName'];
@@ -55,6 +51,7 @@ class ProjParams {
   Datum get datum => map['datum'];
 
   ProjParams(String defData) {
+    srsCode = defData;
     var paramObj = {} as dynamic;
     defData
         .split('+')
@@ -185,6 +182,7 @@ class ProjParams {
       map['datumCode'] = datumCode.toLowerCase();
     }
     _addExtraProps();
+    //
   }
 
   void _addExtraProps() {
