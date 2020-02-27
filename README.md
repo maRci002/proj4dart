@@ -91,7 +91,7 @@ Acceptance criteria was:
 - precision delta of 0.000001 in case of LonLat
 - precision delta of 0.00001 in case of projected CRS.
 
-Example (using EPSG:4326 point of `[17.888058560281515, 46.89226406700879]` and projected to EPSG:23700):
+Example (using [EPSG:4326](http://epsg.io/4326.proj4) point of `[17.888058560281515, 46.89226406700879]` and transformed to [EPSG:23700](http://epsg.io/23700.proj4)):
 
 | LIBRARY       | forward_x         | forward_y          | inverse_x           | inverse_y         |
 | :------------ | :---------------- | :----------------- | :------------------ | :---------------- |
@@ -99,7 +99,7 @@ Example (using EPSG:4326 point of `[17.888058560281515, 46.89226406700879]` and 
 | **proj4dart** | 561651.8408065987 | 172658.61998377228 | 17.888058565574845  | 46.89226406698969 |
 | *delta*       | *0.0000000002*    | *0.0*              | *0.000000000000007* | *0.0*             |
 
-In some cases also manual PostGIS testing (PostgreSQL 12.1, PostGIS 3.0.0 r17983) was performed such as the following (using EPSG:4326 point of `[17.888058560281515, 46.89226406700879]` and transformed to EPSG:23700):
+In some cases also manual PostGIS testing (PostgreSQL 12.1, PostGIS 3.0.0 r17983) was performed such as the following (using [EPSG:4326](http://epsg.io/4326.proj4) point of `[17.888058560281515, 46.89226406700879]` and transformed to [EPSG:23700](http://epsg.io/23700.proj4)):
 
 ```sql
 SELECT
