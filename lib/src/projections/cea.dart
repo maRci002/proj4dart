@@ -26,7 +26,7 @@ class CentralCylindricalProjection extends Projection {
     lat_ts = params.lat_ts;
 
     //no-op
-    if (sphere == null || sphere != null && !sphere) {
+    if (sphere == null || !sphere) {
       k0 = utils.msfnz(e, math.sin(lat_ts), math.cos(lat_ts));
     }
   }
