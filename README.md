@@ -83,3 +83,7 @@ void main() {
 }
 
 ```
+
+## Authors
+
+Proj4dart was ported from proj4js by @maRci002 and [Gergely Padányi-Gulyás](https://twitter.com/fegyi001) (@fegyi001) at [Ulyssys Ltd](https://www.ulyssys.hu/index_en.html), Budapest, Hungary.
