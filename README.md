@@ -8,7 +8,7 @@ Add proj4dart to `pubspec.yml` (dependencies section), then run `pub get` to dow
 
 ```yml
 dependencies:
-  proj4dart: latest
+  proj4dart: any
 ```
 
 ## Using
