@@ -1,4 +1,5 @@
 import 'package:proj4dart/src/classes/point.dart';
+
 import '../classes/project_and_unproject_result.dart';
 
 // We converted this point [17.888058560281515, 46.89226406700879] with proj4js this will give us wgsToCustom
@@ -11260,5 +11261,5 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 17.888058560281515, y: 46.89226406700878)),
   'EPSG:900914': ProjectAndUnProjectResult(
       Point(x: 1991289.5702107965, y: 5924506.521570054),
-      Point(x: 17.888058560281515, y: 46.89226406700878)),
+      Point(x: 17.888058560281515, y: 46.89226406700878))
 };
