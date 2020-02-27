@@ -22,8 +22,6 @@ class MillerCylindricalProjection extends Projection {
   Point forward(Point p) {
     var lon = p.x;
     var lat = p.y;
-    /* Forward equations
-      -----------------*/
     var dlon = utils.adjust_lon(lon - long0);
     var x = x0 + a * dlon;
     var y = y0 + a * math.log(math.tan((math.pi / 4) + (lat / 2.5))) * 1.25;

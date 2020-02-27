@@ -29,45 +29,41 @@ bool compareDatums(Datum source, Datum dest) {
   }
 }
 
-/*
- * The function Convert_Geodetic_To_Geocentric converts geodetic coordinates
- * (latitude, longitude, and height) to geocentric coordinates (X, Y, Z),
- * according to the current ellipsoid parameters.
- *
- *    Latitude  : Geodetic latitude in radians                     (input)
- *    Longitude : Geodetic longitude in radians                    (input)
- *    Height    : Geodetic height, in meters                       (input)
- *    X         : Calculated Geocentric X coordinate, in meters    (output)
- *    Y         : Calculated Geocentric Y coordinate, in meters    (output)
- *    Z         : Calculated Geocentric Z coordinate, in meters    (output)
- *
- */
+/// The function Convert_Geodetic_To_Geocentric converts geodetic coordinates
+/// (latitude, longitude, and height) to geocentric coordinates (X, Y, Z),
+/// according to the current ellipsoid parameters.
+///
+/// Latitude : Geodetic latitude in radians      (input)
+/// Longitude : Geodetic longitude in radians     (input)
+/// Height : Geodetic height, in meters      (input)
+/// X   : Calculated Geocentric X coordinate, in meters (output)
+/// Y   : Calculated Geocentric Y coordinate, in meters (output)
+/// Z   : Calculated Geocentric Z coordinate, in meters (output)
+///
 Point geodeticToGeocentric(Point p, es, a) {
   var Longitude = p.x;
   var Latitude = p.y;
-  var Height = p.z ?? 0; //Z value not always supplied
+  var Height = p.z ?? 0; // Z value not always supplied
 
-  var Rn; /*  Earth radius at location  */
-  var Sin_Lat; /*  math.sin(Latitude)  */
-  var Sin2_Lat; /*  Square of math.sin(Latitude)  */
-  var Cos_Lat; /*  math.cos(Latitude)  */
+  var Rn; // Earth radius at location
+  var Sin_Lat; // math.sin(Latitude)
+  var Sin2_Lat; // Square of math.sin(Latitude)
+  var Cos_Lat; // math.cos(Latitude)
 
-  /*
-   ** Don't blow up if Latitude is just a little out of the value
-   ** range as it may just be a rounding issue.  Also removed longitude
-   ** test, it should be wrapped by math.cos() and math.sin().  NFW for PROJ.4, Sep/2001.
-   */
+  /// Don't blow up if Latitude is just a little out of the value
+  /// range as it may just be a rounding issue. Also removed longitude
+  /// test, it should be wrapped by math.cos() and math.sin(). NFW for PROJ.4, Sep/2001.
   if (Latitude < -consts.HALF_PI && Latitude > -1.001 * consts.HALF_PI) {
     Latitude = -consts.HALF_PI;
   } else if (Latitude > consts.HALF_PI && Latitude < 1.001 * consts.HALF_PI) {
     Latitude = consts.HALF_PI;
   } else if (Latitude < -consts.HALF_PI) {
-    /* Latitude out of range */
+    // Latitude out of range
     //..reportError('geocent:lat out of range:' + Latitude);
 
     return Point.withZ(x: -double.infinity, y: -double.infinity, z: p.z);
   } else if (Latitude > consts.HALF_PI) {
-    /* Latitude out of range */
+    // Latitude out of range
     return Point.withZ(x: double.infinity, y: double.infinity, z: p.z);
   }
 
@@ -85,26 +81,26 @@ Point geodeticToGeocentric(Point p, es, a) {
 } // cs_ge
 
 Point geocentricToGeodetic(Point p, double es, double a, double b) {
-  /* local defintions and variables */
-  /* end-criterium of loop, accuracy of sin(Latitude) */
+  // local defintions and variables
+  // end-criterium of loop, accuracy of sin(Latitude)
   var genau = 1e-12;
   var genau2 = (genau * genau);
   var maxiter = 30;
 
-  double P; /* distance between semi-minor axis and location */
-  double RR; /* distance between center and location */
-  double CT; /* sin of geocentric latitude */
-  double ST; /* cos of geocentric latitude */
+  double P; // distance between semi-minor axis and location
+  double RR; // distance between center and location
+  double CT; // sin of geocentric latitude
+  double ST; // cos of geocentric latitude
   double RX;
   double RK;
-  double RN; /* Earth radius at location */
-  double CPHI0; /* cos of start or old geodetic latitude in iterations */
-  double SPHI0; /* sin of start or old geodetic latitude in iterations */
-  double CPHI; /* cos of searched geodetic latitude */
-  double SPHI; /* sin of searched geodetic latitude */
+  double RN; // Earth radius at location
+  double CPHI0; // cos of start or old geodetic latitude in iterations
+  double SPHI0; // sin of start or old geodetic latitude in iterations
+  double CPHI; // cos of searched geodetic latitude
+  double SPHI; // sin of searched geodetic latitude
   double
-      SDPHI; /* end-criterium: addition-theorem of sin(Latitude(iter)-Latitude(iter-1)) */
-  var iter; /* # of continous iteration, max. 30 is always enough (s.a.) */
+      SDPHI; // end-criterium: addition-theorem of sin(Latitude(iter)-Latitude(iter-1))
+  var iter; // # of continous iteration, max. 30 is always enough (s.a.)
 
   var X = p.x;
   var Y = p.y;
@@ -116,33 +112,31 @@ Point geocentricToGeodetic(Point p, double es, double a, double b) {
   P = math.sqrt(X * X + Y * Y);
   RR = math.sqrt(X * X + Y * Y + Z * Z);
 
-  /*      special cases for latitude and longitude */
+  //  special cases for latitude and longitude
   if (P / a < genau) {
-    /*  special case, if P=0. (X=0., Y=0.) */
+    // special case, if P=0. (X=0., Y=0.)
     Longitude = 0.0;
 
-    /*  if (X,Y,Z)=(0.,0.,0.) then Height becomes semi-minor axis
-     *  of ellipsoid (=center of mass), Latitude becomes PI/2 */
+    // if (X,Y,Z)=(0.,0.,0.) then Height becomes semi-minor axis
+    // of ellipsoid (=center of mass), Latitude becomes PI/2
     if (RR / a < genau) {
       Latitude = consts.HALF_PI;
       Height = -b;
       return Point.withZ(x: p.x, y: p.y, z: p.z);
     }
   } else {
-    /*  ellipsoidal (geodetic) longitude
-     *  interval: -PI < Longitude <= +PI */
+    // ellipsoidal (geodetic) longitude
+    // interval: -PI < Longitude <= +PI
     Longitude = math.atan2(Y, X);
   }
 
-  /* --------------------------------------------------------------
-   * Following iterative algorithm was developped by
-   * "Institut for Erdmessung", University of Hannover, July 1988.
-   * Internet: www.ife.uni-hannover.de
-   * Iterative computation of CPHI,SPHI and Height.
-   * Iteration of CPHI and SPHI to 10**-12 radian resp.
-   * 2*10**-7 arcsec.
-   * --------------------------------------------------------------
-   */
+  /// Following iterative algorithm was developped by
+  /// "Institut for Erdmessung", University of Hannover, July 1988.
+  /// Internet: www.ife.uni-hannover.de
+  /// Iterative computation of CPHI,SPHI and Height.
+  /// Iteration of CPHI and SPHI to 10**-12 radian resp.
+  /// 2*10**-7 arcsec.
+
   CT = Z / RR;
   ST = P / RR;
   RX = 1.0 / math.sqrt(1.0 - es * (2.0 - es) * ST * ST);
@@ -150,13 +144,13 @@ Point geocentricToGeodetic(Point p, double es, double a, double b) {
   SPHI0 = CT * RX;
   iter = 0;
 
-  /* loop to find sin(Latitude) resp. Latitude
-   * until |sin(Latitude(iter)-Latitude(iter-1))| < genau */
+  // loop to find sin(Latitude) resp. Latitude
+  // until |sin(Latitude(iter)-Latitude(iter-1))| < genau
   do {
     iter++;
     RN = a / math.sqrt(1.0 - es * SPHI0 * SPHI0);
 
-    /*  ellipsoidal (geodetic) height */
+    // ellipsoidal (geodetic) height
     Height = P * CPHI0 + Z * SPHI0 - RN * (1.0 - es * SPHI0 * SPHI0);
 
     RK = es * RN / (RN + Height);
@@ -168,15 +162,13 @@ Point geocentricToGeodetic(Point p, double es, double a, double b) {
     SPHI0 = SPHI;
   } while (SDPHI * SDPHI > genau2 && iter < maxiter);
 
-  /*      ellipsoidal (geodetic) latitude */
+  // ellipsoidal (geodetic) latitude
   Latitude = math.atan(SPHI / CPHI.abs());
   return Point.withZ(x: Longitude, y: Latitude, z: Height);
 } // cs_geocentric_to_geodetic()
 
-/****************************************************************/
-// pj_geocentic_to_wgs84( p )
-//  p = point to transform in geocentric coordinates (x,y,z)
-
+/// pj_geocentic_to_wgs84( p )
+/// p = point to transform in geocentric coordinates (x,y,z)
 /// point object, nothing fancy, just allows values to be
 /// passed back and forth by reference rather than by value.
 /// Other point classes may be used as long as they have
@@ -184,7 +176,7 @@ Point geocentricToGeodetic(Point p, double es, double a, double b) {
 Point geocentricToWgs84(Point p, int datumType, List<double> datumParams) {
   if (datumType == consts.PJD_3PARAM) {
     // if( x[io] === HUGE_VAL )
-    //    continue;
+    // continue;
     return Point.withZ(
         x: p.x + datumParams[0],
         y: p.y + datumParams[1],
@@ -198,7 +190,7 @@ Point geocentricToWgs84(Point p, int datumType, List<double> datumParams) {
     var Rz_BF = datumParams[5];
     var M_BF = datumParams[6];
     // if( x[io] === HUGE_VAL )
-    //    continue;
+    // continue;
     p.z = p.z ?? 0.0;
     return Point.withZ(
         x: M_BF * (p.x - Rz_BF * p.y + Ry_BF * p.z) + Dx_BF,
@@ -208,13 +200,13 @@ Point geocentricToWgs84(Point p, int datumType, List<double> datumParams) {
   return null;
 } // cs_geocentric_to_wgs84
 
-// pj_geocentic_from_wgs84()
-//  coordinate system definition,
-//  point to transform in geocentric coordinates (x,y,z)
+/// pj_geocentic_from_wgs84()
+/// coordinate system definition,
+/// point to transform in geocentric coordinates (x,y,z)
 Point geocentricFromWgs84(Point p, int datumType, List<double> datumParams) {
   if (datumType == consts.PJD_3PARAM) {
     //if( x[io] === HUGE_VAL )
-    //    continue;
+    // continue;
     return Point.withZ(
       x: p.x - datumParams[0],
       y: p.y - datumParams[1],
@@ -232,7 +224,7 @@ Point geocentricFromWgs84(Point p, int datumType, List<double> datumParams) {
     var y_tmp = (p.y - Dy_BF) / M_BF;
     var z_tmp = (p.z - Dz_BF) / M_BF;
     //if( x[io] === HUGE_VAL )
-    //    continue;
+    // continue;
 
     return Point.withZ(
         x: x_tmp + Rz_BF * y_tmp - Ry_BF * z_tmp,

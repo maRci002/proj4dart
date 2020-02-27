@@ -32,7 +32,7 @@ class QuadrilateralizedSphericalCubeProjection extends Projection {
         lat_ts = params.lat_ts ?? 0.0,
         title = params.title ?? 'Quadrilateralized Spherical Cube',
         super.init(params) {
-    /* Determine the cube face from the center of projection. */
+    // Determine the cube face from the center of projection.
     if (lat0 >= consts.HALF_PI - consts.FORTPI / 2.0) {
       face = face_enum.TOP;
     } else if (lat0 <= -(consts.HALF_PI - consts.FORTPI / 2.0)) {
@@ -45,8 +45,8 @@ class QuadrilateralizedSphericalCubeProjection extends Projection {
       face = face_enum.BACK;
     }
 
-    /* Fill in useful values for the ellipsoid <-> sphere shift
-   * described in [LK12]. */
+    // Fill in useful values for the ellipsoid <-> sphere shift
+    // described in [LK12].
     if (es != 0) {
       one_minus_f = 1 - (a - b) / a;
       one_minus_f_squared = one_minus_f * one_minus_f;
@@ -59,27 +59,27 @@ class QuadrilateralizedSphericalCubeProjection extends Projection {
     double lat, lon;
     double theta, phi;
     double t, mu;
-    /* nu; */
+    // nu;
     var area = {'value': 0};
 
     // move lon according to projection's lon
     p.x -= long0;
 
-    /* Convert the geodetic latitude to a geocentric latitude.
-   * This corresponds to the shift from the ellipsoid to the sphere
-   * described in [LK12]. */
+    // Convert the geodetic latitude to a geocentric latitude.
+    // This corresponds to the shift from the ellipsoid to the sphere
+    // described in [LK12].
     if (es != 0) {
-      //if (P->es != 0) {
+      // if (P->es != 0) {
       lat = math.atan(one_minus_f_squared * math.tan(p.y));
     } else {
       lat = p.y;
     }
 
-    /* Convert the input lat, lon into theta, phi as used by QSC.
-   * This depends on the cube face and the area on it.
-   * For the top and bottom face, we can compute theta and phi
-   * directly from phi, lam. For the other faces, we must use
-   * unit sphere cartesian coordinates as an intermediate step. */
+    // Convert the input lat, lon into theta, phi as used by QSC.
+    // This depends on the cube face and the area on it.
+    //For the top and bottom face, we can compute theta and phi
+    // directly from phi, lam. For the other faces, we must use
+    // unit sphere cartesian coordinates as an intermediate step.
     lon = p.x; //lon = lp['lam'];
     if (face == face_enum.TOP) {
       phi = consts.HALF_PI - lat;
@@ -147,15 +147,15 @@ class QuadrilateralizedSphericalCubeProjection extends Projection {
         phi = math.acos(-r);
         theta = _qsc_fwd_equat_face_theta(phi, s, q, area);
       } else {
-        /* Impossible */
+        // Impossible
         phi = theta = 0;
         area['value'] = area_enum.AREA_0;
       }
     }
 
-    /* Compute mu and nu for the area of definition.
-   * For mu, see Eq. (3-21) in [OL76], but note the typos:
-   * compare with Eq. (3-14). For nu, see Eq. (3-38). */
+    // Compute mu and nu for the area of definition.
+    // For mu, see Eq. (3-21) in [OL76], but note the typos:
+    // compare with Eq. (3-14). For nu, see Eq. (3-38).
     mu = math.atan((12 / consts.SPI) *
         (theta +
             math.acos(math.sin(theta) * math.cos(consts.FORTPI)) -
@@ -164,7 +164,7 @@ class QuadrilateralizedSphericalCubeProjection extends Projection {
         (math.cos(mu) * math.cos(mu)) /
         (1 - math.cos(math.atan(1 / math.cos(theta)))));
 
-    /* Apply the result to the real area. */
+    // Apply the result to the real area.
     if (area['value'] == area_enum.AREA_1) {
       mu += consts.HALF_PI;
     } else if (area['value'] == area_enum.AREA_2) {
@@ -173,7 +173,7 @@ class QuadrilateralizedSphericalCubeProjection extends Projection {
       mu += 1.5 * consts.SPI;
     }
 
-    /* Now compute x, y from mu and nu */
+    // Now compute x, y from mu and nu
     xy.x = t * math.cos(mu);
     xy.y = t * math.sin(mu);
     xy.x = xy.x * a + x0;
@@ -192,12 +192,12 @@ class QuadrilateralizedSphericalCubeProjection extends Projection {
     double t;
     var area = {'value': 0};
 
-    /* de-offset */
+    // de-offset
     p.x = (p.x - x0) / a;
     p.y = (p.y - y0) / a;
 
-    /* Convert the input x, y to the mu and nu angles as used by QSC.
-   * This depends on the area of the cube face. */
+    // Convert the input x, y to the mu and nu angles as used by QSC.
+    // This depends on the area of the cube face.
     nu = math.atan(math.sqrt(p.x * p.x + p.y * p.y));
     mu = math.atan2(p.y, p.x);
     if (p.x >= 0.0 && p.x >= p.y.abs()) {
@@ -213,11 +213,11 @@ class QuadrilateralizedSphericalCubeProjection extends Projection {
       mu += consts.HALF_PI;
     }
 
-    /* Compute phi and theta for the area of definition.
-   * The inverse projection is not described in the original paper, but some
-   * good hints can be found here (as of 2011-12-14):
-   * http://fits.gsfc.nasa.gov/fitsbits/saf.93/saf.9302
-   * (search for "Message-Id: <9302181759.AA25477 at fits.cv.nrao.edu>") */
+    // Compute phi and theta for the area of definition.
+    // The inverse projection is not described in the original paper, but some
+    // good hints can be found here (as of 2011-12-14):
+    // http://fits.gsfc.nasa.gov/fitsbits/saf.93/saf.9302
+    // (search for "Message-Id: <9302181759.AA25477 at fits.cv.nrao.edu>")
     t = (consts.SPI / 12) * math.tan(mu);
     tantheta = math.sin(t) / (math.cos(t) - (1 / math.sqrt(2)));
     theta = math.atan(tantheta);
@@ -235,10 +235,10 @@ class QuadrilateralizedSphericalCubeProjection extends Projection {
       cosphi = 1;
     }
 
-    /* Apply the result to the real area on the cube face.
-   * For the top and bottom face, we can compute phi and lam directly.
-   * For the other faces, we must use unit sphere cartesian coordinates
-   * as an intermediate step. */
+    // Apply the result to the real area on the cube face.
+    // For the top and bottom face, we can compute phi and lam directly.
+    // For the other faces, we must use unit sphere cartesian coordinates
+    // as an intermediate step.
     if (face == face_enum.TOP) {
       phi = math.acos(cosphi);
       lp['phi'] = consts.HALF_PI - phi;
@@ -248,7 +248,7 @@ class QuadrilateralizedSphericalCubeProjection extends Projection {
         lp['lam'] = (theta < 0.0 ? theta + consts.SPI : theta - consts.SPI);
       } else if (area['value'] == area_enum.AREA_2) {
         lp['lam'] = theta - consts.HALF_PI;
-      } else /* area['value'] == area_enum.AREA_3 */ {
+      } else {
         lp['lam'] = theta;
       }
     } else if (face == face_enum.BOTTOM) {
@@ -260,11 +260,11 @@ class QuadrilateralizedSphericalCubeProjection extends Projection {
         lp['lam'] = -theta;
       } else if (area['value'] == area_enum.AREA_2) {
         lp['lam'] = -theta - consts.HALF_PI;
-      } else /* area['value'] == area_enum.AREA_3 */ {
+      } else {
         lp['lam'] = (theta < 0.0 ? -theta - consts.SPI : -theta + consts.SPI);
       }
     } else {
-      /* Compute phi and lam via cartesian unit sphere coordinates. */
+      // Compute phi and lam via cartesian unit sphere coordinates.
       double q, r, s;
       q = cosphi;
       t = q * q;
@@ -279,7 +279,7 @@ class QuadrilateralizedSphericalCubeProjection extends Projection {
       } else {
         r = math.sqrt(1 - t);
       }
-      /* Rotate q,r,s into the correct area. */
+      // Rotate q,r,s into the correct area.
       if (area['value'] == area_enum.AREA_1) {
         t = r;
         r = -s;
@@ -292,7 +292,7 @@ class QuadrilateralizedSphericalCubeProjection extends Projection {
         r = s;
         s = -t;
       }
-      /* Rotate q,r,s into the correct cube face. */
+      // Rotate q,r,s into the correct cube face.
       if (face == face_enum.RIGHT) {
         t = q;
         q = -r;
@@ -305,7 +305,7 @@ class QuadrilateralizedSphericalCubeProjection extends Projection {
         q = r;
         r = -t;
       }
-      /* Now compute phi and lam from the unit sphere coordinates. */
+      // Now compute phi and lam from the unit sphere coordinates.
       lp['phi'] = math.acos(-s) - consts.HALF_PI;
       lp['lam'] = math.atan2(r, q);
       if (face == face_enum.RIGHT) {
@@ -317,8 +317,8 @@ class QuadrilateralizedSphericalCubeProjection extends Projection {
       }
     }
 
-    /* Apply the shift from the sphere to the ellipsoid as described
-   * in [LK12]. */
+    // Apply the shift from the sphere to the ellipsoid as described
+    // in [LK12].
     if (es != 0) {
       int invert_sign;
       double tanphi, xa;

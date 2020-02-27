@@ -88,8 +88,6 @@ class LambertAzimuthalEqualAreaProjection extends Projection {
 
   @override
   Point forward(Point p) {
-    /* Forward equations
-      -----------------*/
     double x, y, coslam, sinlam, sinphi, q, sinb, cosb, b, cosphi;
     var lam = p.x;
     var phi = p.y;

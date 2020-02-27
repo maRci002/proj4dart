@@ -43,8 +43,6 @@ class SinusoidalProjection extends Projection {
     double x, y;
     var lon = p.x;
     var lat = p.y;
-    /* Forward equations
-    -----------------*/
     lon = utils.adjust_lon(lon - long0);
 
     if (sphere != null && sphere) {

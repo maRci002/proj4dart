@@ -4438,7 +4438,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 828646.8766494016, y: 913215.0489469176),
       Point(
           x: -72.61999999999692,
-          y: 3.809999999999964)), // FIXME: original: Point(x: -1996834624482254000, y: 433536265239297600) but cannot represent as 64 bit double without overflow, therefore used Point(x: -72.62, y: 3.81)
+          y: 3.809999999999964)), // original: Point(x: -1996834624482254000, y: 433536265239297600) but cannot represent as 64 bit double without overflow, therefore used Point(x: -72.62, y: 3.81)
   'EPSG:3118': ProjectAndUnProjectResult(
       Point(x: 6139873.062745825, y: 10148520.923470223),
       Point(x: -1319338140.740411, y: 289535161.569949)),

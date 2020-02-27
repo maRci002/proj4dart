@@ -21,8 +21,6 @@ class MollweideProjection extends Projection {
 
   @override
   Point forward(Point p) {
-    /* Forward equations
-      -----------------*/
     var lon = p.x;
     var lat = p.y;
 
@@ -30,8 +28,7 @@ class MollweideProjection extends Projection {
     var theta = lat;
     var con = math.pi * math.sin(lat);
 
-    /* Iterate using the Newton-Raphson method to find theta
-      -----------------------------------------------------*/
+    // Iterate using the Newton-Raphson method to find theta
     while (true) {
       var delta_theta =
           -(theta + math.sin(theta) - con) / (1 + math.cos(theta));
@@ -42,9 +39,8 @@ class MollweideProjection extends Projection {
     }
     theta /= 2;
 
-    /* If the latitude is 90 deg, force the x coordinate to be "0 + false easting"
-       this is done here because of precision problems with "cos(theta)"
-       --------------------------------------------------------------------------*/
+    // If the latitude is 90 deg, force the x coordinate to be "0 + false easting"
+    // this is done here because of precision problems with "cos(theta)"
     if (math.pi / 2 - lat.abs() < consts.EPSLN) {
       delta_lon = 0;
     }
@@ -60,16 +56,12 @@ class MollweideProjection extends Projection {
   Point inverse(Point p) {
     double theta;
     double arg;
-
-    /* Inverse equations
-      -----------------*/
     p.x -= x0;
     p.y -= y0;
     arg = p.y / (1.4142135623731 * a);
 
-    /* Because of division by zero problems, 'arg' can not be 1.  Therefore
-       a number very close to one is used instead.
-       -------------------------------------------------------------------*/
+    // Because of division by zero problems, 'arg' can not be 1.  Therefore
+    // a number very close to one is used instead.
     if (arg.abs() > 0.999999999999) {
       arg = 0.999999999999;
     }

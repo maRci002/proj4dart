@@ -187,13 +187,13 @@ class AzimuthalEquidistantProjection extends Projection {
             lon = utils.adjust_lon(long0 - math.atan2(-p.x, p.y));
           }
         } else {
-          /*con = cosz - sin_p12 * math.sin(lat);
-        if ((math.abs(con) < consts.EPSLN) && (math.abs(p.x) < consts.EPSLN)) {
-          //no-op, just keep the lon value as is
-        } else {
-          var temp = math.atan2((p.x * sinz * cos_p12), (con * rh));
-          lon = adjust_lon(long0 + math.atan2((p.x * sinz * cos_p12), (con * rh)));
-        }*/
+          //   con = cosz - sin_p12 * math.sin(lat);
+          // if ((math.abs(con) < consts.EPSLN) && (math.abs(p.x) < consts.EPSLN)) {
+          //   //no-op, just keep the lon value as is
+          // } else {
+          //   var temp = math.atan2((p.x * sinz * cos_p12), (con * rh));
+          //   lon = adjust_lon(long0 + math.atan2((p.x * sinz * cos_p12), (con * rh)));
+          // }
           lon = utils.adjust_lon(long0 +
               math.atan2(
                   p.x * sinz, rh * cos_p12 * cosz - p.y * sin_p12 * sinz));

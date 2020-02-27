@@ -51,7 +51,7 @@ abstract class Projection {
     if (params == null) {
       throw Exception('Proj def not yet registered: $code');
     }
-    if (ProjStore().getProjections().isEmpty) {
+    if (ProjStore().isEmpty) {
       ProjStore().start();
     }
     var projection = ProjStore().get(params.srsCode);
@@ -79,11 +79,11 @@ abstract class Projection {
   }
 
   factory Projection.add(String code, String defCode) {
-    if (ProjStore().getProjections().isEmpty) {
+    if (ProjStore().isEmpty) {
       ProjStore().start();
     }
     ProjParams params;
-    if (ProjDefStore().codes().contains(code)) {
+    if (ProjDefStore().codes.contains(code)) {
       params = ProjDefStore().get(code);
       var existingProjection = ProjStore().get(code);
       if (existingProjection != null) {

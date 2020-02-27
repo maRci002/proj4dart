@@ -37,9 +37,9 @@ class KrovakProjection extends Projection {
     e = math.sqrt(es);
     lat0 ??= 0.863937979737193;
     long0 ??= 0.7417649320975901 - 0.308341501185665;
-    /* if scale not set default to 0.9999 */
+    // if scale not set default to 0.9999
     k0 ??= 0.9999;
-    s45 = 0.785398163397448; /* 45 */
+    s45 = 0.785398163397448; // 45
     s90 = 2 * s45;
     fi0 = lat0;
     e2 = es;
@@ -64,7 +64,6 @@ class KrovakProjection extends Projection {
     var lon = p.x;
     var lat = p.y;
     var delta_lon = utils.adjust_lon(lon - long0);
-    /* Transformation */
     gfi = math.pow(
         ((1 + e * math.sin(lat)) / (1 - e * math.sin(lat))), (alfa * e / 2));
     u = 2 *
@@ -91,9 +90,7 @@ class KrovakProjection extends Projection {
   Point inverse(Point p) {
     double u, deltav, s, d, eps, ro, fi1;
     var ok;
-
-    /* Transformation */
-    /* revert y, x*/
+    // revert y, x
     var tmp = p.x;
     p.x = p.y;
     p.y = tmp;

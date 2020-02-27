@@ -30,8 +30,6 @@ class VanDerGrintenProjection extends Projection {
     var lon = p.x;
     var lat = p.y;
 
-    /* Forward equations
-    -----------------*/
     var dlon = utils.adjust_lon(lon - long0);
     var x, y;
 
@@ -97,8 +95,6 @@ class VanDerGrintenProjection extends Projection {
     double th1;
     double d;
 
-    /* inverse equations
-    -----------------*/
     p.x -= x0;
     p.y -= y0;
     con = math.pi * R;

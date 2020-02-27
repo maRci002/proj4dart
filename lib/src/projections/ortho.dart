@@ -26,15 +26,13 @@ class OrthographicProjection extends Projection {
   }
   @override
   Point forward(Point p) {
-    double sinphi, cosphi; /* sin and cos value        */
-    double dlon; /* delta longitude value      */
-    double coslon; /* cos of longitude        */
-    double ksp; /* scale factor          */
+    double sinphi, cosphi; // sin and cos value
+    double dlon; // delta longitude value
+    double coslon; // cos of longitude
+    double ksp; // scale factor
     double g, x, y;
     var lon = p.x;
     var lat = p.y;
-    /* Forward equations
-      -----------------*/
     dlon = utils.adjust_lon(lon - long0);
 
     sinphi = math.sin(lat);
@@ -54,13 +52,11 @@ class OrthographicProjection extends Projection {
 
   @override
   Point inverse(Point p) {
-    double rh; /* height above ellipsoid      */
-    double z; /* angle          */
-    double sinz, cosz; /* sin of z and cos of z      */
+    double rh; // height above ellipsoid
+    double z; // angle
+    double sinz, cosz; // sin of z and cos of z
     double con;
     double lon, lat;
-    /* Inverse equations
-      -----------------*/
     p.x -= x0;
     p.y -= y0;
     rh = math.sqrt(p.x * p.x + p.y * p.y);

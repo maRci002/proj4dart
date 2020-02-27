@@ -67,7 +67,7 @@ class GaussProjection extends Projection {
       }
       p.y = lat;
     }
-    /* convergence failed */
+    // convergence failed
     // if (!i) {
     //   return null;
     // }

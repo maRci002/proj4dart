@@ -172,9 +172,8 @@ class ProjParams {
           }
           break;
         default:
-          // Add all other properties as well
+          // Add all other properties as well (those will not have a getter but still can be accessed via map['myKey'])
           map[key] = v;
-          // print('extra key: $key');
           break;
       }
     });
@@ -182,9 +181,9 @@ class ProjParams {
       map['datumCode'] = datumCode.toLowerCase();
     }
     _addExtraProps();
-    //
   }
 
+  /// Get datum, sphere and eccentricity parameters
   void _addExtraProps() {
     if (datumCode != null && datumCode != 'none') {
       var datumDef = datums.match(datumCode);
@@ -211,6 +210,7 @@ class ProjParams {
     }
   }
 
+  /// Get datum parameters from towgs84 parameter as double list
   List<double> _getDatumParamsFromString(String towgs84) {
     return towgs84.split(',').map(double.parse).toList();
   }

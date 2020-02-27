@@ -38,11 +38,9 @@ class CassiniProjection extends Projection {
     }
   }
 
-  /// Cassini forward equations--mapping lat,long to x,y
+  /// Forward equations
   @override
   Point forward(Point p) {
-    /* Forward equations
-      -----------------*/
     var x, y;
     var lam = p.x;
     var phi = p.y;
@@ -52,7 +50,7 @@ class CassiniProjection extends Projection {
       x = a * math.asin(math.cos(phi) * math.sin(lam));
       y = a * (math.atan2(math.tan(phi), math.cos(lam)) - lat0);
     } else {
-      //ellipsoid
+      // ellipsoid
       var sinphi = math.sin(phi);
       var cosphi = math.cos(phi);
       var nl = utils.gN(a, e, sinphi);
@@ -87,7 +85,7 @@ class CassiniProjection extends Projection {
       phi = math.asin(math.sin(dd) * math.cos(x));
       lam = math.atan2(math.tan(x), math.cos(dd));
     } else {
-      /* ellipsoid */
+      // ellipsoid
       var ml1 = ml0 / a + y;
       var phi1 = utils.imlfn(ml1, e0, e1, e2, e3);
       if ((phi1.abs() - consts.HALF_PI).abs() <= consts.EPSLN) {

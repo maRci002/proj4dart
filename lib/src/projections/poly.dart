@@ -23,18 +23,15 @@ class PolyconicProjection extends Projection {
         x0 = params.x0,
         y0 = params.y0,
         super.init(params) {
-    /* Place parameters in static storage for common use
-      -------------------------------------------------*/
+    // Place parameters in static storage for common use
     temp = b / a;
-    es = 1 -
-        math.pow(temp,
-            2); // devait etre dans tmerc.js mais n y est pas donc je commente sinon retour de valeurs nulles
+    es = 1 - math.pow(temp, 2);
     e = math.sqrt(es);
     e0 = utils.e0fn(es);
     e1 = utils.e1fn(es);
     e2 = utils.e2fn(es);
     e3 = utils.e3fn(es);
-    ml0 = a * utils.mlfn(e0, e1, e2, e3, lat0); //
+    ml0 = a * utils.mlfn(e0, e1, e2, e3, lat0);
   }
 
   @override
@@ -134,7 +131,7 @@ class PolyconicProjection extends Projection {
           }
         }
 
-        //lat=phi4z(e,e0,e1,e2,e3,al,bl,0,0);
+        // lat=phi4z(e,e0,e1,e2,e3,al,bl,0,0);
         cl = math.sqrt(1 - es * math.pow(math.sin(lat), 2)) * math.tan(lat);
         lon = utils.adjust_lon(long0 + math.asin(x * cl / a) / math.sin(lat));
       }

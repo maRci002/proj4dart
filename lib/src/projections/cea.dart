@@ -37,8 +37,6 @@ class CentralCylindricalProjection extends Projection {
     var lon = p.x;
     var lat = p.y;
     var x, y;
-    /* Forward equations
-      -----------------*/
     var dlon = utils.adjust_lon(lon - long0);
     if (sphere != null && sphere) {
       x = x0 + a * dlon * math.cos(lat_ts);

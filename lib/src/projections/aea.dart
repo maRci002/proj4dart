@@ -40,18 +40,18 @@ class AlbersProjection extends Projection {
     // var t1 = sin_po;
     var con = sin_po;
     var ms1 = utils.msfnz(e3, sin_po, cos_po);
-    var qs1 = utils.qsfnz(e3, sin_po /*, cos_po*/);
+    var qs1 = utils.qsfnz(e3, sin_po);
 
     sin_po = math.sin(lat2);
     cos_po = math.cos(lat2);
     // var t2 = sin_po;
     var ms2 = utils.msfnz(e3, sin_po, cos_po);
-    var qs2 = utils.qsfnz(e3, sin_po /*, cos_po*/);
+    var qs2 = utils.qsfnz(e3, sin_po);
 
     sin_po = math.sin(params.lat0);
     cos_po = math.cos(params.lat0);
     // var t3 = sin_po;
-    var qs0 = utils.qsfnz(e3, sin_po /*, cos_po*/);
+    var qs0 = utils.qsfnz(e3, sin_po);
 
     if ((lat1 - lat2).abs() > consts.EPSLN) {
       ns0 = (ms1 * ms1 - ms2 * ms2) / (qs2 - qs1);
@@ -71,7 +71,7 @@ class AlbersProjection extends Projection {
     var sin_phi = math.sin(lat);
     // var cos_phi = math.cos(lat);
 
-    var qs = utils.qsfnz(e3, sin_phi /*, cos_phi*/);
+    var qs = utils.qsfnz(e3, sin_phi);
     var rh1 = a * math.sqrt(c - ns0 * qs) / ns0;
     var theta = ns0 * utils.adjust_lon(lon - long0);
     var x = rh1 * math.sin(theta) + x0;

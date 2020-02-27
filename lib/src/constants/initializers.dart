@@ -1,6 +1,5 @@
 import 'package:proj4dart/src/classes/proj_params.dart';
 import 'package:proj4dart/src/classes/projection.dart';
-
 import 'package:proj4dart/src/projections/aea.dart';
 import 'package:proj4dart/src/projections/aeqd.dart';
 import 'package:proj4dart/src/projections/cass.dart';
@@ -33,10 +32,10 @@ import 'package:proj4dart/src/projections/tmerc.dart';
 import 'package:proj4dart/src/projections/utm.dart';
 import 'package:proj4dart/src/projections/vandg.dart';
 
-/// defines a function structure which returns a projection based on ProjParams
+/// Defines a function structure which returns a projection based on ProjParams
 typedef ProjectionInitializer = Projection Function(ProjParams params);
 
-/// Explicit closure initilizers
+/// Explicit closure initializers
 final initializers = <String, ProjectionInitializer>{
   ...{
     for (var name in PseudoMercatorProjection.names)

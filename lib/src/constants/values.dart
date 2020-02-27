@@ -8,9 +8,9 @@ final SEC_TO_RAD = 4.84813681109535993589914102357e-6;
 final HALF_PI = math.pi / 2;
 // ellipoid pj_set_ell.c
 final SIXTH = 0.1666666666666666667;
-/* 1/6 */
+// 1/6
 final RA4 = 0.04722222222222222222;
-/* 17/360 */
+// 17/360
 final RA6 = 0.02215608465608465608;
 final EPSLN = 1.0e-10;
 // you'd think you could use Number.EPSILON above but that makes

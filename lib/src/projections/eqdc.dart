@@ -71,8 +71,6 @@ class EquidistantConicProjection extends Projection {
     var lat = p.y;
     var rh1;
 
-    /* Forward equations
-      -----------------*/
     if (sphere != null && sphere) {
       rh1 = a * (g - lat);
     } else {
