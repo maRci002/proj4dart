@@ -84,14 +84,22 @@ void main() {
 
 ## Accuracy
 
-Proj4dart was tested with almost 4000 different Proj4 definitions. Forward and inverse transformations were both performed and checked in each case. All the tested Proj4 definitions can be found in [all_proj4_defs.dart](test/data/all_proj4_defs.dart). The expected forward and inverse results were pre-calculated using proj4js and can be found in [all_proj_tests.dart](test/data/all_proj4_tests.dart). 
+Proj4dart was tested with almost 4000 different Proj4 definitions. Forward and inverse transformations were both performed and checked in each case. All the tested Proj4 definitions can be found in [all_proj4_defs.dart](test/data/all_proj4_defs.dart). The expected forward and inverse expected results were pre-calculated using proj4js and ([all_proj_tests.dart](test/data/all_proj4_tests.dart)).
 
 Acceptance criteria was:
 
 - precision delta of 0.000001 in case of LonLat
 - precision delta of 0.00001 in case of projected CRS.
 
-In some cases also manual PostGIS testing (PostgreSQL 12.1, PostGIS 3.0.0 r17983) was performed such as the following:
+Example (using EPSG:4326 point of `[17.888058560281515, 46.89226406700879]` and projected to EPSG:23700):
+
+| LIBRARY       | forward_x         | forward_y          | inverse_x           | inverse_y         |
+| :------------ | :---------------- | :----------------- | :------------------ | :---------------- |
+| **proj4js**   | 561651.8408065989 | 172658.61998377228 | 17.888058565574852  | 46.89226406698969 |
+| **proj4dart** | 561651.8408065987 | 172658.61998377228 | 17.888058565574845  | 46.89226406698969 |
+| *delta*       | *0.0000000002*    | *0.0*              | *0.000000000000007* | *0.0*             |
+
+In some cases also manual PostGIS testing (PostgreSQL 12.1, PostGIS 3.0.0 r17983) was performed such as the following (using EPSG:4326 point of `[17.888058560281515, 46.89226406700879]` and transformed to EPSG:23700):
 
 ```sql
 SELECT
