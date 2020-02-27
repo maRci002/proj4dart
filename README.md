@@ -84,7 +84,7 @@ void main() {
 
 ## Accuracy
 
-Proj4dart was tested with almost 4000 different Proj4 definitions. Forward and inverse transformations were both performed and checked in each case. All the tested Proj4 definitions can be found in [all_proj4_defs.dart](test/data/all_proj4_defs.dart). The expected forward and inverse expected results were pre-calculated using proj4js and ([all_proj_tests.dart](test/data/all_proj4_tests.dart)).
+Proj4dart was tested with almost 4000 different Proj4 definitions. Forward and inverse transformations were both performed and checked in each case. All the tested Proj4 definitions can be found in [all_proj4_defs.dart](test/data/all_proj4_defs.dart). The expected forward and inverse results were pre-calculated using proj4js and ([all_proj_tests.dart](test/data/all_proj4_tests.dart)).
 
 Acceptance criteria was:
 
