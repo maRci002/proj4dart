@@ -97,20 +97,20 @@ In some cases also manual PostGIS testing (PostgreSQL 12.1, PostGIS 3.0.0 r17983
 SELECT
   ST_X(
     ST_Transform(
-      ST_GeomFromText('point(17.888058560281515 46.89226406700879)', 4326),
+      ST_GeomFromText('POINT(17.888058560281515 46.89226406700879)', 4326),
       23700
     )
   ) AS forward_x,
   ST_Y(
     ST_Transform(
-      ST_GeomFromText('point(17.888058560281515 46.89226406700879)', 4326),
+      ST_GeomFromText('POINT(17.888058560281515 46.89226406700879)', 4326),
       23700
     )
   ) AS forward_y,
   ST_X(
     ST_Transform(
       ST_Transform(
-        ST_GeomFromText('point(17.888058560281515 46.89226406700879)', 4326),
+        ST_GeomFromText('POINT(17.888058560281515 46.89226406700879)', 4326),
         23700
       ),
       4326
@@ -119,7 +119,7 @@ SELECT
   ST_Y(
     ST_Transform(
       ST_Transform(
-        ST_GeomFromText('point(17.888058560281515 46.89226406700879)', 4326),
+        ST_GeomFromText('POINT(17.888058560281515 46.89226406700879)', 4326),
         23700
       ),
       4326
