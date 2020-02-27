@@ -3,8 +3,8 @@ import 'dart:math' as math;
 import 'package:proj4dart/src/classes/point.dart';
 import 'package:proj4dart/src/classes/proj_params.dart';
 import 'package:proj4dart/src/classes/projection.dart';
-import 'package:proj4dart/src/constants/area_enum.dart' as area_enum;
-import 'package:proj4dart/src/constants/face_enum.dart' as face_enum;
+import 'package:proj4dart/src/constants/areas.dart' as areas;
+import 'package:proj4dart/src/constants/faces.dart' as faces;
 import 'package:proj4dart/src/constants/values.dart' as consts;
 
 class QuadrilateralizedSphericalCubeProjection extends Projection {
@@ -34,15 +34,15 @@ class QuadrilateralizedSphericalCubeProjection extends Projection {
         super.init(params) {
     // Determine the cube face from the center of projection.
     if (lat0 >= consts.HALF_PI - consts.FORTPI / 2.0) {
-      face = face_enum.TOP;
+      face = faces.TOP;
     } else if (lat0 <= -(consts.HALF_PI - consts.FORTPI / 2.0)) {
-      face = face_enum.BOTTOM;
+      face = faces.BOTTOM;
     } else if (long0.abs() <= consts.FORTPI) {
-      face = face_enum.FRONT;
+      face = faces.FRONT;
     } else if (long0.abs() <= consts.HALF_PI + consts.FORTPI) {
-      face = long0 > 0.0 ? face_enum.RIGHT : face_enum.LEFT;
+      face = long0 > 0.0 ? faces.RIGHT : faces.LEFT;
     } else {
-      face = face_enum.BACK;
+      face = faces.BACK;
     }
 
     // Fill in useful values for the ellipsoid <-> sphere shift
@@ -81,37 +81,37 @@ class QuadrilateralizedSphericalCubeProjection extends Projection {
     // directly from phi, lam. For the other faces, we must use
     // unit sphere cartesian coordinates as an intermediate step.
     lon = p.x; //lon = lp['lam'];
-    if (face == face_enum.TOP) {
+    if (face == faces.TOP) {
       phi = consts.HALF_PI - lat;
       if (lon >= consts.FORTPI && lon <= consts.HALF_PI + consts.FORTPI) {
-        area['value'] = area_enum.AREA_0;
+        area['value'] = areas.AREA_0;
         theta = lon - consts.HALF_PI;
       } else if (lon > consts.HALF_PI + consts.FORTPI ||
           lon <= -(consts.HALF_PI + consts.FORTPI)) {
-        area['value'] = area_enum.AREA_1;
+        area['value'] = areas.AREA_1;
         theta = (lon > 0.0 ? lon - consts.SPI : lon + consts.SPI);
       } else if (lon > -(consts.HALF_PI + consts.FORTPI) &&
           lon <= -consts.FORTPI) {
-        area['value'] = area_enum.AREA_2;
+        area['value'] = areas.AREA_2;
         theta = lon + consts.HALF_PI;
       } else {
-        area['value'] = area_enum.AREA_3;
+        area['value'] = areas.AREA_3;
         theta = lon;
       }
-    } else if (face == face_enum.BOTTOM) {
+    } else if (face == faces.BOTTOM) {
       phi = consts.HALF_PI + lat;
       if (lon >= consts.FORTPI && lon <= consts.HALF_PI + consts.FORTPI) {
-        area['value'] = area_enum.AREA_0;
+        area['value'] = areas.AREA_0;
         theta = -lon + consts.HALF_PI;
       } else if (lon < consts.FORTPI && lon >= -consts.FORTPI) {
-        area['value'] = area_enum.AREA_1;
+        area['value'] = areas.AREA_1;
         theta = -lon;
       } else if (lon < -consts.FORTPI &&
           lon >= -(consts.HALF_PI + consts.FORTPI)) {
-        area['value'] = area_enum.AREA_2;
+        area['value'] = areas.AREA_2;
         theta = -lon - consts.HALF_PI;
       } else {
-        area['value'] = area_enum.AREA_3;
+        area['value'] = areas.AREA_3;
         theta = (lon > 0.0 ? -lon + consts.SPI : -lon - consts.SPI);
       }
     } else {
@@ -119,11 +119,11 @@ class QuadrilateralizedSphericalCubeProjection extends Projection {
       double sinlat, coslat;
       double sinlon, coslon;
 
-      if (face == face_enum.RIGHT) {
+      if (face == faces.RIGHT) {
         lon = _qsc_shift_lon_origin(lon, consts.HALF_PI);
-      } else if (face == face_enum.BACK) {
+      } else if (face == faces.BACK) {
         lon = _qsc_shift_lon_origin(lon, consts.SPI);
-      } else if (face == face_enum.LEFT) {
+      } else if (face == faces.LEFT) {
         lon = _qsc_shift_lon_origin(lon, -consts.HALF_PI);
       }
       sinlat = math.sin(lat);
@@ -134,22 +134,22 @@ class QuadrilateralizedSphericalCubeProjection extends Projection {
       r = coslat * sinlon;
       s = sinlat;
 
-      if (face == face_enum.FRONT) {
+      if (face == faces.FRONT) {
         phi = math.acos(q);
         theta = _qsc_fwd_equat_face_theta(phi, s, r, area);
-      } else if (face == face_enum.RIGHT) {
+      } else if (face == faces.RIGHT) {
         phi = math.acos(r);
         theta = _qsc_fwd_equat_face_theta(phi, s, -q, area);
-      } else if (face == face_enum.BACK) {
+      } else if (face == faces.BACK) {
         phi = math.acos(-q);
         theta = _qsc_fwd_equat_face_theta(phi, s, -r, area);
-      } else if (face == face_enum.LEFT) {
+      } else if (face == faces.LEFT) {
         phi = math.acos(-r);
         theta = _qsc_fwd_equat_face_theta(phi, s, q, area);
       } else {
         // Impossible
         phi = theta = 0;
-        area['value'] = area_enum.AREA_0;
+        area['value'] = areas.AREA_0;
       }
     }
 
@@ -165,11 +165,11 @@ class QuadrilateralizedSphericalCubeProjection extends Projection {
         (1 - math.cos(math.atan(1 / math.cos(theta)))));
 
     // Apply the result to the real area.
-    if (area['value'] == area_enum.AREA_1) {
+    if (area['value'] == areas.AREA_1) {
       mu += consts.HALF_PI;
-    } else if (area['value'] == area_enum.AREA_2) {
+    } else if (area['value'] == areas.AREA_2) {
       mu += consts.SPI;
-    } else if (area['value'] == area_enum.AREA_3) {
+    } else if (area['value'] == areas.AREA_3) {
       mu += 1.5 * consts.SPI;
     }
 
@@ -201,15 +201,15 @@ class QuadrilateralizedSphericalCubeProjection extends Projection {
     nu = math.atan(math.sqrt(p.x * p.x + p.y * p.y));
     mu = math.atan2(p.y, p.x);
     if (p.x >= 0.0 && p.x >= p.y.abs()) {
-      area['value'] = area_enum.AREA_0;
+      area['value'] = areas.AREA_0;
     } else if (p.y >= 0.0 && p.y >= p.x.abs()) {
-      area['value'] = area_enum.AREA_1;
+      area['value'] = areas.AREA_1;
       mu -= consts.HALF_PI;
     } else if (p.x < 0.0 && -p.x >= p.y.abs()) {
-      area['value'] = area_enum.AREA_2;
+      area['value'] = areas.AREA_2;
       mu = (mu < 0.0 ? mu + consts.SPI : mu - consts.SPI);
     } else {
-      area['value'] = area_enum.AREA_3;
+      area['value'] = areas.AREA_3;
       mu += consts.HALF_PI;
     }
 
@@ -239,26 +239,26 @@ class QuadrilateralizedSphericalCubeProjection extends Projection {
     // For the top and bottom face, we can compute phi and lam directly.
     // For the other faces, we must use unit sphere cartesian coordinates
     // as an intermediate step.
-    if (face == face_enum.TOP) {
+    if (face == faces.TOP) {
       phi = math.acos(cosphi);
       lp['phi'] = consts.HALF_PI - phi;
-      if (area['value'] == area_enum.AREA_0) {
+      if (area['value'] == areas.AREA_0) {
         lp['lam'] = theta + consts.HALF_PI;
-      } else if (area['value'] == area_enum.AREA_1) {
+      } else if (area['value'] == areas.AREA_1) {
         lp['lam'] = (theta < 0.0 ? theta + consts.SPI : theta - consts.SPI);
-      } else if (area['value'] == area_enum.AREA_2) {
+      } else if (area['value'] == areas.AREA_2) {
         lp['lam'] = theta - consts.HALF_PI;
       } else {
         lp['lam'] = theta;
       }
-    } else if (face == face_enum.BOTTOM) {
+    } else if (face == faces.BOTTOM) {
       phi = math.acos(cosphi);
       lp['phi'] = phi - consts.HALF_PI;
-      if (area['value'] == area_enum.AREA_0) {
+      if (area['value'] == areas.AREA_0) {
         lp['lam'] = -theta + consts.HALF_PI;
-      } else if (area['value'] == area_enum.AREA_1) {
+      } else if (area['value'] == areas.AREA_1) {
         lp['lam'] = -theta;
-      } else if (area['value'] == area_enum.AREA_2) {
+      } else if (area['value'] == areas.AREA_2) {
         lp['lam'] = -theta - consts.HALF_PI;
       } else {
         lp['lam'] = (theta < 0.0 ? -theta - consts.SPI : -theta + consts.SPI);
@@ -280,27 +280,27 @@ class QuadrilateralizedSphericalCubeProjection extends Projection {
         r = math.sqrt(1 - t);
       }
       // Rotate q,r,s into the correct area.
-      if (area['value'] == area_enum.AREA_1) {
+      if (area['value'] == areas.AREA_1) {
         t = r;
         r = -s;
         s = t;
-      } else if (area['value'] == area_enum.AREA_2) {
+      } else if (area['value'] == areas.AREA_2) {
         r = -r;
         s = -s;
-      } else if (area['value'] == area_enum.AREA_3) {
+      } else if (area['value'] == areas.AREA_3) {
         t = r;
         r = s;
         s = -t;
       }
       // Rotate q,r,s into the correct cube face.
-      if (face == face_enum.RIGHT) {
+      if (face == faces.RIGHT) {
         t = q;
         q = -r;
         r = t;
-      } else if (face == face_enum.BACK) {
+      } else if (face == faces.BACK) {
         q = -q;
         r = -r;
-      } else if (face == face_enum.LEFT) {
+      } else if (face == faces.LEFT) {
         t = q;
         q = r;
         r = -t;
@@ -308,11 +308,11 @@ class QuadrilateralizedSphericalCubeProjection extends Projection {
       // Now compute phi and lam from the unit sphere coordinates.
       lp['phi'] = math.acos(-s) - consts.HALF_PI;
       lp['lam'] = math.atan2(r, q);
-      if (face == face_enum.RIGHT) {
+      if (face == faces.RIGHT) {
         lp['lam'] = _qsc_shift_lon_origin(lp['lam'], -consts.HALF_PI);
-      } else if (face == face_enum.BACK) {
+      } else if (face == faces.BACK) {
         lp['lam'] = _qsc_shift_lon_origin(lp['lam'], -consts.SPI);
-      } else if (face == face_enum.LEFT) {
+      } else if (face == faces.LEFT) {
         lp['lam'] = _qsc_shift_lon_origin(lp['lam'], consts.HALF_PI);
       }
     }
@@ -341,22 +341,22 @@ class QuadrilateralizedSphericalCubeProjection extends Projection {
       double phi, double y, double x, Map<String, int> area) {
     double theta;
     if (phi < consts.EPSLN) {
-      area['value'] = area_enum.AREA_0;
+      area['value'] = areas.AREA_0;
       theta = 0.0;
     } else {
       theta = math.atan2(y, x);
       if (theta.abs() <= consts.FORTPI) {
-        area['value'] = area_enum.AREA_0;
+        area['value'] = areas.AREA_0;
       } else if (theta > consts.FORTPI &&
           theta <= consts.HALF_PI + consts.FORTPI) {
-        area['value'] = area_enum.AREA_1;
+        area['value'] = areas.AREA_1;
         theta -= consts.HALF_PI;
       } else if (theta > consts.HALF_PI + consts.FORTPI ||
           theta <= -(consts.HALF_PI + consts.FORTPI)) {
-        area['value'] = area_enum.AREA_2;
+        area['value'] = areas.AREA_2;
         theta = (theta >= 0.0 ? theta - consts.SPI : theta + consts.SPI);
       } else {
-        area['value'] = area_enum.AREA_3;
+        area['value'] = areas.AREA_3;
         theta += consts.HALF_PI;
       }
     }
