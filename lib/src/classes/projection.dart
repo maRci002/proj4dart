@@ -1,4 +1,5 @@
 import 'package:proj4dart/src/classes/datum.dart';
+import 'package:proj4dart/src/classes/initializers.dart';
 import 'package:proj4dart/src/classes/point.dart';
 import 'package:proj4dart/src/classes/proj_params.dart';
 import 'package:proj4dart/src/common/datum_transform.dart' as dt;
@@ -6,37 +7,6 @@ import 'package:proj4dart/src/common/utils.dart' as utils;
 import 'package:proj4dart/src/constants/values.dart' as consts;
 import 'package:proj4dart/src/globals/defs.dart';
 import 'package:proj4dart/src/globals/projs.dart';
-import 'package:proj4dart/src/projections/aea.dart';
-import 'package:proj4dart/src/projections/aeqd.dart';
-import 'package:proj4dart/src/projections/cass.dart';
-import 'package:proj4dart/src/projections/cea.dart';
-import 'package:proj4dart/src/projections/eqc.dart';
-import 'package:proj4dart/src/projections/eqdc.dart';
-import 'package:proj4dart/src/projections/etmerc.dart';
-import 'package:proj4dart/src/projections/gauss.dart';
-import 'package:proj4dart/src/projections/geocent.dart';
-import 'package:proj4dart/src/projections/gnom.dart';
-import 'package:proj4dart/src/projections/gstmerc.dart';
-import 'package:proj4dart/src/projections/krovak.dart';
-import 'package:proj4dart/src/projections/laea.dart';
-import 'package:proj4dart/src/projections/lcc.dart';
-import 'package:proj4dart/src/projections/longlat.dart';
-import 'package:proj4dart/src/projections/merc.dart';
-import 'package:proj4dart/src/projections/mill.dart';
-import 'package:proj4dart/src/projections/moll.dart';
-import 'package:proj4dart/src/projections/nzmg.dart';
-import 'package:proj4dart/src/projections/omerc.dart';
-import 'package:proj4dart/src/projections/ortho.dart';
-import 'package:proj4dart/src/projections/poly.dart';
-import 'package:proj4dart/src/projections/qsc.dart';
-import 'package:proj4dart/src/projections/robin.dart';
-import 'package:proj4dart/src/projections/sinu.dart';
-import 'package:proj4dart/src/projections/somerc.dart';
-import 'package:proj4dart/src/projections/stere.dart';
-import 'package:proj4dart/src/projections/sterea.dart';
-import 'package:proj4dart/src/projections/tmerc.dart';
-import 'package:proj4dart/src/projections/utm.dart';
-import 'package:proj4dart/src/projections/vandg.dart';
 
 abstract class Projection {
   String projName;
@@ -93,92 +63,18 @@ abstract class Projection {
     return projection;
   }
 
+  // TODO: register and other function like forward should be private
   factory Projection.register(String code, ProjParams params) {
     var projName = params.proj;
+    var initializer = initializers[projName];
 
-    if (PseudoMercatorProjection.names.contains(projName)) {
-      ProjStore().add(PseudoMercatorProjection.init(params), params.srsCode);
-    } else if (LongLat.names.contains(projName)) {
-      ProjStore().add(LongLat.init(params), params.srsCode);
-    } else if (SwissObliqueMercatorProjection.names.contains(projName)) {
-      ProjStore()
-          .add(SwissObliqueMercatorProjection.init(params), params.srsCode);
-    } else if (AlbersProjection.names.contains(projName)) {
-      ProjStore().add(AlbersProjection.init(params), params.srsCode);
-    } else if (AzimuthalEquidistantProjection.names.contains(projName)) {
-      ProjStore()
-          .add(AzimuthalEquidistantProjection.init(params), params.srsCode);
-    } else if (CassiniProjection.names.contains(projName)) {
-      ProjStore().add(CassiniProjection.init(params), params.srsCode);
-    } else if (CentralCylindricalProjection.names.contains(projName)) {
-      ProjStore()
-          .add(CentralCylindricalProjection.init(params), params.srsCode);
-    } else if (EquidistantCylindricalProjection.names.contains(projName)) {
-      ProjStore()
-          .add(EquidistantCylindricalProjection.init(params), params.srsCode);
-    } else if (EquidistantConicProjection.names.contains(projName)) {
-      ProjStore().add(EquidistantConicProjection.init(params), params.srsCode);
-    } else if (ExtendedTransverseMercatorProjection.names.contains(projName)) {
-      ProjStore().add(
-          ExtendedTransverseMercatorProjection.init(params), params.srsCode);
-    } else if (UniversalTransverseMercatorProjection.names.contains(projName)) {
-      ProjStore().add(
-          UniversalTransverseMercatorProjection.init(params), params.srsCode);
-    } else if (VanDerGrintenProjection.names.contains(projName)) {
-      ProjStore().add(VanDerGrintenProjection.init(params), params.srsCode);
-    } else if (GaussProjection.names.contains(projName)) {
-      ProjStore().add(GaussProjection.init(params), params.srsCode);
-    } else if (StereographicNorthProjection.names.contains(projName)) {
-      ProjStore()
-          .add(StereographicNorthProjection.init(params), params.srsCode);
-    } else if (StereographicSouthProjection.names.contains(projName)) {
-      ProjStore()
-          .add(StereographicSouthProjection.init(params), params.srsCode);
-    } else if (SinusoidalProjection.names.contains(projName)) {
-      ProjStore().add(SinusoidalProjection.init(params), params.srsCode);
-    } else if (RobinsonProjection.names.contains(projName)) {
-      ProjStore().add(RobinsonProjection.init(params), params.srsCode);
-    } else if (GeocentricProjection.names.contains(projName)) {
-      ProjStore().add(GeocentricProjection.init(params), params.srsCode);
-    } else if (GnomicProjection.names.contains(projName)) {
-      ProjStore().add(GnomicProjection.init(params), params.srsCode);
-    } else if (GaussSchreiberTransverseMercatorProjection.names
-        .contains(projName)) {
-      ProjStore().add(GaussSchreiberTransverseMercatorProjection.init(params),
-          params.srsCode);
-    } else if (KrovakProjection.names.contains(projName)) {
-      ProjStore().add(KrovakProjection.init(params), params.srsCode);
-    } else if (LambertAzimuthalEqualAreaProjection.names.contains(projName)) {
-      ProjStore().add(
-          LambertAzimuthalEqualAreaProjection.init(params), params.srsCode);
-    } else if (LambertConformalConicProjection.names.contains(projName)) {
-      ProjStore()
-          .add(LambertConformalConicProjection.init(params), params.srsCode);
-    } else if (MillerCylindricalProjection.names.contains(projName)) {
-      ProjStore().add(MillerCylindricalProjection.init(params), params.srsCode);
-    } else if (MollweideProjection.names.contains(projName)) {
-      ProjStore().add(MollweideProjection.init(params), params.srsCode);
-    } else if (NewZealandMapGridProjection.names.contains(projName)) {
-      ProjStore().add(NewZealandMapGridProjection.init(params), params.srsCode);
-    } else if (HotlineObliqueMercatorProjection.names.contains(projName)) {
-      ProjStore()
-          .add(HotlineObliqueMercatorProjection.init(params), params.srsCode);
-    } else if (OrthographicProjection.names.contains(projName)) {
-      ProjStore().add(OrthographicProjection.init(params), params.srsCode);
-    } else if (PolyconicProjection.names.contains(projName)) {
-      ProjStore().add(PolyconicProjection.init(params), params.srsCode);
-    } else if (QuadrilateralizedSphericalCubeProjection.names
-        .contains(projName)) {
-      ProjStore().add(QuadrilateralizedSphericalCubeProjection.init(params),
-          params.srsCode);
-    } else if (TransverseMercatorProjection.names.contains(projName)) {
-      ProjStore()
-          .add(TransverseMercatorProjection.init(params), params.srsCode);
-    }
-    var projection = ProjStore().get(params.srsCode);
-    if (projection == null) {
+    if (initializer == null) {
       throw Exception('Projection not found: $code, $params');
     }
+
+    ProjStore().add(initializer(params), params.srsCode);
+    var projection = ProjStore().get(params.srsCode);
+
     return projection;
   }
 
