@@ -2,8 +2,6 @@
 
 > Proj4dart is a Dart library to transform point coordinates from one coordinate system to another, including datum transformations (Dart version of [proj4js/proj4js](https://github.com/proj4js/proj4js)).
 
-Tested with almost 4000 different Proj4 definitions with a precision delta of 0.000001 in case of LonLat and 0.00001 in case of projected CRS. Forward and inverse transformations were both performed and checked in each case.
-
 ## Installing
 
 Add proj4dart to `pubspec.yml` (dependencies section), then run `pub get` to download the new dependencies.
@@ -83,6 +81,60 @@ void main() {
 }
 
 ```
+
+## Accuracy
+
+Proj4dart was tested with almost 4000 different Proj4 definitions. Forward and inverse transformations were both performed and checked in each case. All the tested Proj4 definitions can be found in [all_proj4_defs.dart](test/data/all_proj4_defs.dart). The expected forward and inverse results were pre-calculated using proj4js and can be found in [all_proj_tests.dart](test/data/all_proj4_tests.dart). 
+
+Acceptance criteria was:
+
+- precision delta of 0.000001 in case of LonLat
+- precision delta of 0.00001 in case of projected CRS.
+
+In some cases also manual PostGIS testing (PostgreSQL 12.1, PostGIS 3.0.0 r17983) was performed such as the following:
+
+```sql
+SELECT
+  ST_X(
+    ST_Transform(
+      ST_GeomFromText('point(17.888058560281515 46.89226406700879)', 4326),
+      23700
+    )
+  ) AS forward_x,
+  ST_Y(
+    ST_Transform(
+      ST_GeomFromText('point(17.888058560281515 46.89226406700879)', 4326),
+      23700
+    )
+  ) AS forward_y,
+  ST_X(
+    ST_Transform(
+      ST_Transform(
+        ST_GeomFromText('point(17.888058560281515 46.89226406700879)', 4326),
+        23700
+      ),
+      4326
+    )
+  ) AS inverse_x,
+  ST_Y(
+    ST_Transform(
+      ST_Transform(
+        ST_GeomFromText('point(17.888058560281515 46.89226406700879)', 4326),
+        23700
+      ),
+      4326
+    )
+  ) AS inverse_y
+;
+```
+
+which results compared to proj4dart results:
+
+| LIBRARY       | forward_x         | forward_y          | inverse_x          | inverse_y          |
+| :------------ | :---------------- | :----------------- | :----------------- | :----------------- |
+| **PostGIS**   | 561651.8408065987 | 172658.6199837724  | 17.88805856557482  | 46.8922640683514   |
+| **proj4dart** | 561651.8408065987 | 172658.61998377228 | 17.888058565574845 | 46.89226406698969  |
+| *delta*       | *0.0*             | *0.00000000012*    | *0.0*              | *0.00000000136171* |
 
 ## Authors
 
