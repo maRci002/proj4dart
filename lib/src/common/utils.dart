@@ -334,7 +334,7 @@ Point nad_intr(pin, ct) {
   return val;
 }
 
-nadInterBreakout(indx, frct, String letter, int number, ct) {
+dynamic nadInterBreakout(indx, frct, String letter, int number, ct) {
   var inx;
   if (indx[letter] < 0) {
     if (!(indx[letter] == -1 && frct[letter] > 0.99999999999)) {
