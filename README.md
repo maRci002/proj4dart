@@ -8,7 +8,7 @@ Add proj4dart to `pubspec.yml` (dependencies section), then run `pub get` to dow
 
 ```yml
 dependencies:
-  proj4dart: any
+  proj4dart: any # or the latest version on Pub
 ```
 
 ## Using
@@ -99,50 +99,13 @@ Example (using [EPSG:4326](http://epsg.io/4326.proj4) point of `[17.888058560281
 | **proj4dart** | 561651.8408065987 | 172658.61998377228 | 17.888058565574845  | 46.89226406698969 |
 | *delta*       | *0.0000000002*    | *0.0*              | *0.000000000000007* | *0.0*             |
 
-In some cases also manual PostGIS testing (PostgreSQL 12.1, PostGIS 3.0.0 r17983) was performed such as the following (using [EPSG:4326](http://epsg.io/4326.proj4) point of `[17.888058560281515, 46.89226406700879]` and transformed to [EPSG:23700](http://epsg.io/23700.proj4)):
+In some cases also manual PostGIS testing (PostgreSQL 12.1, PostGIS 3.0.0 r17983) was performed such as the following (using [EPSG:4326](http://epsg.io/4326.proj4) point of `[17.888058560281515, 46.89226406700879]` and transformed to [EPSG:23700](http://epsg.io/23700.proj4)): which results compared to proj4dart results:
 
-```sql
-SELECT
-  ST_X(
-    ST_Transform(
-      ST_GeomFromText('POINT(17.888058560281515 46.89226406700879)', 4326),
-      23700
-    )
-  ) AS forward_x,
-  ST_Y(
-    ST_Transform(
-      ST_GeomFromText('POINT(17.888058560281515 46.89226406700879)', 4326),
-      23700
-    )
-  ) AS forward_y,
-  ST_X(
-    ST_Transform(
-      ST_Transform(
-        ST_GeomFromText('POINT(17.888058560281515 46.89226406700879)', 4326),
-        23700
-      ),
-      4326
-    )
-  ) AS inverse_x,
-  ST_Y(
-    ST_Transform(
-      ST_Transform(
-        ST_GeomFromText('POINT(17.888058560281515 46.89226406700879)', 4326),
-        23700
-      ),
-      4326
-    )
-  ) AS inverse_y
-;
-```
-
-which results compared to proj4dart results:
-
-| LIBRARY       | forward_x         | forward_y          | inverse_x          | inverse_y          |
-| :------------ | :---------------- | :----------------- | :----------------- | :----------------- |
-| **PostGIS**   | 561651.8408065987 | 172658.6199837724  | 17.88805856557482  | 46.8922640683514   |
-| **proj4dart** | 561651.8408065987 | 172658.61998377228 | 17.888058565574845 | 46.89226406698969  |
-| *delta*       | *0.0*             | *0.00000000012*    | *0.0*              | *0.00000000136171* |
+| LIBRARY       | forward_x         | forward_y          | inverse_x           | inverse_y          |
+| :------------ | :---------------- | :----------------- | :------------------ | :----------------- |
+| **PostGIS**   | 561651.8408065987 | 172658.6199837724  | 17.88805856557482   | 46.8922640683514   |
+| **proj4dart** | 561651.8408065987 | 172658.61998377228 | 17.888058565574845  | 46.89226406698969  |
+| *delta*       | *0.0*             | *0.00000000012*    | *0.000000000000025* | *0.00000000136171* |
 
 ## Authors
 
