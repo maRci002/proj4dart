@@ -3,9 +3,7 @@ import 'package:proj4dart/src/classes/point.dart';
 import 'package:proj4dart/src/classes/proj_params.dart';
 import 'package:proj4dart/src/common/datum_transform.dart' as dt;
 import 'package:proj4dart/src/common/utils.dart' as utils;
-import 'package:proj4dart/src/constants/initializers.dart';
 import 'package:proj4dart/src/constants/values.dart' as consts;
-import 'package:proj4dart/src/globals/defs.dart';
 import 'package:proj4dart/src/globals/projs.dart';
 
 abstract class Projection {
@@ -47,54 +45,23 @@ abstract class Projection {
         to_meter = params.to_meter;
 
   factory Projection(String code) {
-    var params = ProjDefStore().get(code);
-    if (params == null) {
-      throw Exception('Proj def not yet registered: $code');
-    }
-    if (ProjStore().isEmpty) {
-      ProjStore().start();
-    }
-    var projection = ProjStore().get(params.srsCode);
-    projection ??= Projection.register(code, params);
-    if (projection == null) {
+    var result = ProjStore().get(code);
+
+    if (result == null) {
       throw Exception(
-          "$code projection isn't defined, make sure you defined it by 'Projection.register(String, String)'");
-    }
-    return projection;
-  }
-
-  // TODO: register and other function like forward should be private
-  factory Projection.register(String code, ProjParams params) {
-    var projName = params.proj;
-    var initializer = initializers[projName];
-
-    if (initializer == null) {
-      throw Exception('Projection not found: $code, $params');
+          'There is no Projection registered with the following alias: $code');
     }
 
-    ProjStore().add(initializer(params), params.srsCode);
-    var projection = ProjStore().get(params.srsCode);
-
-    return projection;
+    return result;
   }
 
   factory Projection.add(String code, String defCode) {
-    if (ProjStore().isEmpty) {
-      ProjStore().start();
+    if (defCode[0] != '+') {
+      throw Exception('WKT parser not yet implemented');
     }
-    ProjParams params;
-    if (ProjDefStore().codes.contains(code)) {
-      params = ProjDefStore().get(code);
-      var existingProjection = ProjStore().get(code);
-      if (existingProjection != null) {
-        return existingProjection;
-      } else {
-        return Projection.register(code, params);
-      }
-    }
-    params = ProjParams(defCode);
-    ProjDefStore().register(code, defCode);
-    return Projection.register(code, params);
+
+    var params = ProjParams(defCode);
+    return ProjStore().register(code, params);
   }
 
   static bool _checkNotWGS(Projection source, Projection dest) {
