@@ -1,4 +1,5 @@
 import 'package:proj4dart/src/classes/proj_params.dart';
+import 'package:wkt_parser/wkt_parser.dart';
 
 /// Global class for storing predefined and user-defined Projection definitions
 class ProjDefStore {
@@ -32,12 +33,15 @@ class ProjDefStore {
 
   /// Add new param to store
   ProjParams register(String name, String def) {
-    if (def[0] != '+') {
+    if (def[0] == '+') {
+      var defObj = ProjParams(def);
+      _defs[name] = defObj;
+      return _defs[name];
+    } else {
       throw Exception('WKT parser not yet implemented');
+      // var wkt = WKT.parse(def);
+      // print(wkt);
     }
-    var defObj = ProjParams(def);
-    _defs[name] = defObj;
-    return _defs[name];
   }
 
   // Return param from store
