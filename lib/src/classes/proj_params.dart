@@ -4,6 +4,7 @@ import 'package:proj4dart/src/constants/datums.dart' as datums;
 import 'package:proj4dart/src/constants/prime_meridians.dart' as consts_pm;
 import 'package:proj4dart/src/constants/units.dart' as consts_units;
 import 'package:proj4dart/src/constants/values.dart' as consts;
+import 'package:wkt_parser/wkt_parser.dart';
 
 class ProjParams {
   Map<String, dynamic> map = {};
@@ -49,6 +50,20 @@ class ProjParams {
 
   // Datum properties
   Datum get datum => map['datum'];
+
+  ProjParams.fromProjWKT(ProjWKT wkt) {
+    wkt.map.forEach((key, value) {
+      if (key == 'projName') {
+        map['proj'] = value;
+      } else {
+        map[key] = value;
+      }
+    });
+    if (datumCode != null && datumCode != 'WGS84') {
+      map['datumCode'] = datumCode.toLowerCase();
+    }
+    _addExtraProps();
+  }
 
   ProjParams(String defData) {
     srsCode = defData;

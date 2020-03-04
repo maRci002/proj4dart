@@ -64,7 +64,8 @@ abstract class Projection {
     }
     // In case of WKT CRS string
     var projWKT = wkt_parser.parseWKT(defString);
-    throw Exception('ProjWKT is not yet implemented');
+    var params = ProjParams.fromProjWKT(projWKT);
+    return ProjStore().register(code, params);
   }
 
   static bool _checkNotWGS(Projection source, Projection dest) {
