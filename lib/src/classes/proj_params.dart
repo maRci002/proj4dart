@@ -32,7 +32,9 @@ class ProjParams {
   bool get R_A => map['R_A'];
   int get zone => map['zone'];
   bool get utmSouth => map['utmSouth'];
-  List<double> get datum_params => map['datum_params'];
+  List<double> get datum_params => map['datum_params'] is List<double>
+      ? map['datum_params']
+      : _parseDatumParams(map['datum_params']);
   double get to_meter => map['to_meter'];
   String get units => map['units'];
   double get from_greenwich => map['from_greenwich'];
@@ -51,24 +53,7 @@ class ProjParams {
   // Datum properties
   Datum get datum => map['datum'];
 
-  ProjParams.fromProjWKT(ProjWKT wkt) {
-    if (wkt.EXTENSION != null && wkt.EXTENSION.containsKey('PROJ4')) {
-      var projDef = wkt.EXTENSION['PROJ4'];
-      var params = ProjParams(projDef);
-    }
-    // wkt.map.forEach((key, value) {
-    //   if (key == 'projName') {
-    //     map['proj'] = value;
-    //   } else {
-    //     map[key] = value;
-    //   }
-    // });
-    // if (datumCode != null && datumCode != 'WGS84') {
-    //   map['datumCode'] = datumCode.toLowerCase();
-    // }
-    _addExtraProps();
-  }
-
+  /// Default constructor
   ProjParams(String defData) {
     srsCode = defData;
     var paramObj = {} as dynamic;
@@ -84,64 +69,76 @@ class ProjParams {
         paramObj[split[0]] = true;
       }
     });
+    _iterateProps(paramObj);
+    _addExtraProps();
+  }
+
+  /// Construct from ProjWKT
+  ProjParams.fromProjWKT(ProjWKT wkt) {
+    _iterateProps(wkt.map);
+    _addExtraProps();
+  }
+
+  /// Populate map object with parameters
+  void _iterateProps(Map<dynamic, dynamic> paramObj) {
     paramObj.forEach((key, v) {
       switch (key) {
         case 'title':
           map['title'] = v;
           break;
         case 'rf':
-          map['rf'] = double.parse(v);
+          map['rf'] = v is double ? v : double.parse(v);
           break;
         case 'lat_0':
-          map['lat0'] = double.parse(v) * consts.D2R;
+          map['lat0'] = v is double ? v : double.parse(v) * consts.D2R;
           break;
         case 'lat_1':
-          map['lat1'] = double.parse(v) * consts.D2R;
+          map['lat1'] = v is double ? v : double.parse(v) * consts.D2R;
           break;
         case 'lat_2':
-          map['lat2'] = double.parse(v) * consts.D2R;
+          map['lat2'] = v is double ? v : double.parse(v) * consts.D2R;
           break;
         case 'lat_ts':
-          map['lat_ts'] = double.parse(v) * consts.D2R;
+          map['lat_ts'] = v is double ? v : double.parse(v) * consts.D2R;
           break;
         case 'lon_0':
-          map['long0'] = double.parse(v) * consts.D2R;
+          map['long0'] = v is double ? v : double.parse(v) * consts.D2R;
           break;
         case 'lon_1':
-          map['long1'] = double.parse(v) * consts.D2R;
+          map['long1'] = v is double ? v : double.parse(v) * consts.D2R;
           break;
         case 'lon_2':
-          map['long2'] = double.parse(v) * consts.D2R;
+          map['long2'] = v is double ? v : double.parse(v) * consts.D2R;
           break;
         case 'alpha':
-          map['alpha'] = double.parse(v) * consts.D2R;
+          map['alpha'] = v is double ? v : double.parse(v) * consts.D2R;
           break;
         case 'lonc':
-          map['longc'] = double.parse(v) * consts.D2R;
+          map['longc'] = v is double ? v : double.parse(v) * consts.D2R;
           break;
         case 'x_0':
-          map['x0'] = double.parse(v);
+          map['x0'] = v is double ? v : double.parse(v);
           break;
         case 'y_0':
-          map['y0'] = double.parse(v);
+          map['y0'] = v is double ? v : double.parse(v);
           break;
         case 'k_0':
-          map['k0'] = double.parse(v);
+          map['k0'] = v is double ? v : double.parse(v);
           break;
         case 'k':
-          map['k0'] = double.parse(v);
+          map['k0'] = v is double ? v : double.parse(v);
           break;
         case 'a':
-          map['a'] = double.parse(v);
+          map['a'] = v is double ? v : double.parse(v);
           break;
         case 'b':
-          map['b'] = double.parse(v);
+          map['b'] = v is double ? v : double.parse(v);
           break;
         case 'r_a':
           map['R_A'] = true;
           break;
         case 'zone':
-          map['zone'] = int.parse(v);
+          map['zone'] = v is int ? v : int.parse(v);
           break;
         case 'south':
           map['utmSouth'] = true;
@@ -150,7 +147,7 @@ class ProjParams {
           map['datum_params'] = _getDatumParamsFromString(v.toString());
           break;
         case 'to_meter':
-          map['to_meter'] = double.parse(v);
+          map['to_meter'] = v is double ? v : double.parse(v);
           break;
         case 'units':
           map['units'] = v;
@@ -160,15 +157,19 @@ class ProjParams {
           }
           break;
         case 'from_greenwich':
-          map['from_greenwich'] = double.parse(v) * consts.D2R;
+          map['from_greenwich'] =
+              v is double ? v : double.parse(v) * consts.D2R;
           break;
         case 'pm':
           var primeMeridian = consts_pm.match(v);
           map['from_greenwich'] =
-              (primeMeridian ?? double.parse(v)) * consts.D2R;
+              (primeMeridian ?? v is double ? v : double.parse(v)) * consts.D2R;
           break;
         case 'datum':
           map['datumCode'] = v;
+          break;
+        case 'projName':
+          map['proj'] = v;
           break;
         case 'proj':
           map['proj'] = v;
@@ -179,6 +180,9 @@ class ProjParams {
           } else {
             map['nadgrids'] = v;
           }
+          break;
+        case 'datum_params':
+          map['datum_params'] = v;
           break;
         case 'axis': //e.g. 'enu'
           var legalAxis = 'ewnsud';
@@ -199,18 +203,19 @@ class ProjParams {
     if (datumCode != null && datumCode != 'WGS84') {
       map['datumCode'] = datumCode.toLowerCase();
     }
-    _addExtraProps();
   }
 
   /// Get datum, sphere and eccentricity parameters
   void _addExtraProps() {
     if (datumCode != null && datumCode != 'none') {
       var datumDef = datums.match(datumCode);
-      map['datum_params'] = datumDef.towgs84 != null
-          ? _getDatumParamsFromString(datumDef.towgs84)
-          : null;
-      map['ellps'] = datumDef.ellipse;
-      map['datumName'] = datumDef.datumName ?? datumCode;
+      if (datumDef != null) {
+        map['datum_params'] = datumDef.towgs84 != null
+            ? _getDatumParamsFromString(datumDef.towgs84)
+            : null;
+        map['ellps'] = datumDef.ellipse;
+        map['datumName'] = datumDef.datumName ?? datumCode;
+      }
     }
     map['k0'] = k0 ?? 1.0;
     map['axis'] = axis ?? 'enu';
@@ -232,5 +237,12 @@ class ProjParams {
   /// Get datum parameters from towgs84 parameter as double list
   List<double> _getDatumParamsFromString(String towgs84) {
     return towgs84.split(',').map(double.parse).toList();
+  }
+
+  /// Parse to List<double> if possible for the getter function to work
+  List<double> _parseDatumParams(List<dynamic> paramsList) {
+    return paramsList != null
+        ? paramsList.map((e) => double.parse(e.toString())).toList()
+        : null;
   }
 }

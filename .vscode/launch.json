@@ -1,7 +1,12 @@
 {
   "version": "0.2.0",
   "configurations": [{
-    "name": "Dart",
+    "name": "Dart-proj4",
+    "program": "example/proj4dart_example.dart",
+    "request": "launch",
+    "type": "dart"
+  }, {
+    "name": "Dart-wkt",
     "program": "example/proj4dart_wkt_example.dart",
     "request": "launch",
     "type": "dart"
