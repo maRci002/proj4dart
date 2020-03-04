@@ -52,16 +52,20 @@ class ProjParams {
   Datum get datum => map['datum'];
 
   ProjParams.fromProjWKT(ProjWKT wkt) {
-    wkt.map.forEach((key, value) {
-      if (key == 'projName') {
-        map['proj'] = value;
-      } else {
-        map[key] = value;
-      }
-    });
-    if (datumCode != null && datumCode != 'WGS84') {
-      map['datumCode'] = datumCode.toLowerCase();
+    if (wkt.EXTENSION != null && wkt.EXTENSION.containsKey('PROJ4')) {
+      var projDef = wkt.EXTENSION['PROJ4'];
+      var params = ProjParams(projDef);
     }
+    // wkt.map.forEach((key, value) {
+    //   if (key == 'projName') {
+    //     map['proj'] = value;
+    //   } else {
+    //     map[key] = value;
+    //   }
+    // });
+    // if (datumCode != null && datumCode != 'WGS84') {
+    //   map['datumCode'] = datumCode.toLowerCase();
+    // }
     _addExtraProps();
   }
 
