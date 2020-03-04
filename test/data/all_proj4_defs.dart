@@ -1,6 +1,6 @@
 /// proj4 defs based on: https://github.com/yuletide/node-proj4js-defs/blob/master/epsg.js
 /// warning we are skipping EPSG:22300 and EPSG:29701
-final testDefs = {
+const testDefs = {
   'EPSG:3819':
       '+proj=longlat +ellps=bessel +towgs84=595.48,121.69,515.35,4.115,-2.9383,0.853,-3.408 +no_defs',
   'EPSG:3821': '+proj=longlat +ellps=aust_SA +no_defs',

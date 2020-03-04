@@ -5,11 +5,14 @@ import 'package:test/test.dart';
 
 import './classes/project_and_unproject_result.dart';
 import './data/all_proj4_defs.dart' as all_proj4_defs;
+import './data/all_proj4_ogc_wkt_defs.dart' as all_proj4_ogc_defs;
+import './data/all_proj4_esri_wkt_defs.dart' as all_proj4_esri_defs;
 import './data/all_proj4_tests.dart' as all_proj4_tests;
 
 void main() {
   group('Bulk tests', () {
-    test('Create all projections without exception and find all of them', () {
+    test('Create all projections via proj4 def strings and find all of them',
+        () {
       all_proj4_defs.testDefs
           .forEach((key, value) => Projection.add(key, value));
 
@@ -17,6 +20,64 @@ void main() {
           all_proj4_defs.testDefs.keys.map((key) => Projection(key));
 
       expect(projectionArray.length, all_proj4_defs.testDefs.length);
+    });
+
+    test('Create all projections via ogc wkt strings and find all of them', () {
+      all_proj4_ogc_defs.OGCWktTestDefs.forEach(
+          (key, value) => Projection.add(key, value));
+
+      var projectionArray =
+          all_proj4_ogc_defs.OGCWktTestDefs.keys.map((key) => Projection(key));
+
+      expect(projectionArray.length, all_proj4_ogc_defs.OGCWktTestDefs.length);
+    });
+
+    test('Create all projections via esri wkt strings and find all of them',
+        () {
+      all_proj4_esri_defs.ESRIWktTestDefs.forEach(
+          (key, value) => Projection.add(key, value));
+
+      var projectionArray = all_proj4_esri_defs.ESRIWktTestDefs.keys
+          .map((key) => Projection(key));
+
+      expect(
+          projectionArray.length, all_proj4_esri_defs.ESRIWktTestDefs.length);
+    });
+
+    test('Compare proj4 string vs ogc wkt vs esri wkt results', () {
+      var wgs = Projection('EPSG:4326');
+
+      all_proj4_defs.testDefs.forEach((key, value) {
+        var testPoint = Point(x: 17.888058560281515, y: 46.89226406700879);
+
+        var proj4StrProj = Projection.add(key, value);
+        var proj4OGCProj =
+            Projection.add(key, all_proj4_ogc_defs.OGCWktTestDefs[key]);
+        var proj4ESRIProj =
+            Projection.add(key, all_proj4_esri_defs.ESRIWktTestDefs[key]);
+
+        var proj4StrProjectResult = wgs.transform(proj4StrProj, testPoint);
+        var proj4StrUnProjectResult =
+            proj4StrProj.transform(wgs, proj4StrProjectResult);
+
+        var proj4OGCProjectResult = wgs.transform(proj4OGCProj, testPoint);
+        var proj4OGCUnProjectResult =
+            proj4OGCProj.transform(wgs, proj4OGCProjectResult);
+
+        var proj4ESRIProjectResult = wgs.transform(proj4ESRIProj, testPoint);
+        var proj4ESRIUnProjectResult =
+            proj4ESRIProj.transform(wgs, proj4ESRIProjectResult);
+
+        expect(proj4StrProjectResult.x, proj4OGCUnProjectResult.x);
+        expect(proj4StrProjectResult.x, proj4ESRIUnProjectResult.x);
+        expect(proj4StrProjectResult.y, proj4OGCUnProjectResult.y);
+        expect(proj4StrProjectResult.y, proj4ESRIUnProjectResult.y);
+
+        expect(proj4StrUnProjectResult.x, proj4OGCUnProjectResult.x);
+        expect(proj4StrUnProjectResult.x, proj4ESRIUnProjectResult.x);
+        expect(proj4StrUnProjectResult.y, proj4OGCUnProjectResult.y);
+        expect(proj4StrUnProjectResult.y, proj4ESRIUnProjectResult.y);
+      });
     });
 
     test('Project / UnProject test for all projections', () {
