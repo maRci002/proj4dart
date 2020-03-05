@@ -144,33 +144,28 @@ void main() {
   });
 
   group('Internal operation tests', () {
-    test('should create two different instance', () {
+    test('Should create two different instances', () {
       var code = 'EPSG:20348';
       var projStr =
           '+proj=utm +zone=48 +south +ellps=aust_SA +towgs84=-134,-48,149,0,0,0,0 +units=m +no_defs';
-
       expect(
           identical(
               Projection.add(code, projStr), Projection.add(code, projStr)),
           false);
     });
 
-    test('should return same instance', () {
+    test('Should return same instance', () {
       var code = 'EPSG:20348';
       var projStr =
           '+proj=utm +zone=48 +south +ellps=aust_SA +towgs84=-134,-48,149,0,0,0,0 +units=m +no_defs';
-
       Projection.add(code, projStr);
-
       expect(identical(Projection(code), Projection(code)), true);
     });
 
-    test('should able to override predifined projection', () {
+    test('Should be able to override predifined projection', () {
       expect(Projection('GOOGLE').runtimeType, PseudoMercatorProjection);
-
       var projStr =
           '+proj=utm +zone=48 +south +ellps=aust_SA +towgs84=-134,-48,149,0,0,0,0 +units=m +no_defs';
-
       var proj = Projection.add('GOOGLE', projStr);
       expect(proj.runtimeType, UniversalTransverseMercatorProjection);
     });
