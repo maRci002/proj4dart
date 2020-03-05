@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.1
+
+- Support OGC WKT definitions
+- Support ESRI WKT definitions
+- Simplify globals logic
+
 ## 1.0.0
 
 - Initial version

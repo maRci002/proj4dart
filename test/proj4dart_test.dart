@@ -41,9 +41,6 @@ void main() {
     });
 
     test('Project / unproject test for all Proj4 def projections', () {
-      List<String> items = [];
-      all_proj4_defs.testDefs.forEach((key, value) => items.add(key));
-      print(items.length);
       all_proj4_defs.testDefs
           .forEach((key, value) => Projection.add(key, value));
       var wgs = Projection('EPSG:4326');
