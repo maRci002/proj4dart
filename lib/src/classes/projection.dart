@@ -64,12 +64,6 @@ abstract class Projection {
     }
     // In case of WKT CRS string
     var projWKT = wkt_parser.parseWKT(defString);
-    if (projWKT.EXTENSION != null && projWKT.EXTENSION.containsKey('PROJ4')) {
-      // If it has Proj4 definition included use that
-      var projDef = projWKT.EXTENSION['PROJ4'];
-      var params = ProjParams(projDef);
-      return ProjStore().register(code, params);
-    }
     var params = ProjParams.fromProjWKT(projWKT);
     return ProjStore().register(code, params);
   }

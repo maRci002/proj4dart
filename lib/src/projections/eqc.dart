@@ -7,7 +7,9 @@ import 'package:proj4dart/src/common/utils.dart' as utils;
 
 class EquidistantCylindricalProjection extends Projection {
   static final List<String> names = [
-    'eqc',
+    'Equirectangular',
+    'Equidistant_Cylindrical',
+    'eqc'
   ];
 
   double long0;
