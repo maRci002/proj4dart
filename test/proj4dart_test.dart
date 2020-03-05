@@ -40,7 +40,7 @@ void main() {
           projectionArray.length, all_proj4_esri_defs.ESRIWktTestDefs.length);
     });
 
-    test('Project / UnProject test for all Proj4 def projections', () {
+    test('Project / unproject test for all Proj4 def projections', () {
       all_proj4_defs.testDefs
           .forEach((key, value) => Projection.add(key, value));
       var wgs = Projection('EPSG:4326');
@@ -49,12 +49,10 @@ void main() {
         if (key == 'EPSG:3117') {
           testPoint = Point(x: -72.62, y: 3.81);
         }
-
         var custom = Projection(key);
         var projectResult = wgs.transform(custom, testPoint);
         var unProjectResult = custom.transform(wgs, value.wgsToCustom);
         var result = ProjectAndUnProjectResult(projectResult, unProjectResult);
-
         if (value.customToWgs.x.isNaN) {
           expect(result.customToWgs.x, isNaN);
         } else {
@@ -79,7 +77,7 @@ void main() {
     });
   });
 
-  test('Project / UnProject test for all OGC WKT projections', () {
+  test('Project / unproject test for all OGC WKT projections', () {
     all_proj4_ogc_defs.OGCWktTestDefs.forEach(
         (key, value) => Projection.add(key, value));
     var wgs = Projection('EPSG:4326');
@@ -112,7 +110,7 @@ void main() {
     });
   });
 
-  test('Project / UnProject test for all ESRI WKT projections', () {
+  test('Project / unproject test for all ESRI WKT projections', () {
     all_proj4_esri_defs.ESRIWktTestDefs.forEach(
         (key, value) => Projection.add(key, value));
     var wgs = Projection('EPSG:4326');
