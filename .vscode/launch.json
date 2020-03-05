@@ -6,13 +6,13 @@
     "request": "launch",
     "type": "dart"
   }, {
-    "name": "Dart-wkt",
-    "program": "example/proj4dart_wkt_example.dart",
+    "name": "Dart-ogc-wkt",
+    "program": "example/proj4dart_ogc_wkt_example.dart",
     "request": "launch",
     "type": "dart"
   }, {
-    "name": "Dart-wkt-sandbox",
-    "program": "example/proj4dart_wkt_sandbox.dart",
+    "name": "Dart-esri-wkt",
+    "program": "example/proj4dart_esri_wkt_example.dart",
     "request": "launch",
     "type": "dart"
   }]

@@ -34,6 +34,10 @@ If you wish to use one of the predefined ones the signature is:
 
 ### User-defined Projection
 
+Proj4dart supports `Proj4 definition strings`, `OGC WKT definitions` and `ESRI WKT definitions`. They can be obtained from [epsg.io](https://epsg.io).
+
+#### With Proj4 string definition
+
 If you wish to define your own projection you can create it with a valid Proj4 string (here for [EPSG:23700](http://epsg.io/23700)):
 
 ```dart
@@ -47,7 +51,41 @@ var projection = Projection.add('EPSG:23700',
       '+proj=somerc +lat_0=47.14439372222222 +lon_0=19.04857177777778 +k_0=0.99993 +x_0=650000 +y_0=200000 +ellps=GRS67 +towgs84=52.17,-71.82,-14.9,0,0,0,0 +units=m +no_defs');
 ```
 
-At the moment proj4dart cannot consume WKT definitions (which is on the roadmap though).
+For full example visit [example/proj4dart_example.dart](example/proj4dart_example.dart)
+
+#### With OGC WKT definition
+
+If you wish to define your own projection you can create it with a valid OGC WKT string (here for [EPSG:23700](http://epsg.io/23700)):
+
+```dart
+PROJCS["HD72 / EOV",GEOGCS["HD72",DATUM["Hungarian_Datum_1972",SPHEROID["GRS 1967",6378160,298.247167427,AUTHORITY["EPSG","7036"]],TOWGS84[52.17,-71.82,-14.9,0,0,0,0],AUTHORITY["EPSG","6237"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4237"]],PROJECTION["Hotine_Oblique_Mercator_Azimuth_Center"],PARAMETER["latitude_of_center",47.14439372222222],PARAMETER["longitude_of_center",19.04857177777778],PARAMETER["azimuth",90],PARAMETER["rectified_grid_angle",90],PARAMETER["scale_factor",0.99993],PARAMETER["false_easting",650000],PARAMETER["false_northing",200000],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AXIS["Y",EAST],AXIS["X",NORTH],AUTHORITY["EPSG","23700"]]
+```
+
+The signature is:
+
+```dart
+var projection = Projection.add('EPSG:23700',
+      'PROJCS["HD72 / EOV",GEOGCS["HD72",DATUM["Hungarian_Datum_1972",SPHEROID["GRS 1967",6378160,298.247167427,AUTHORITY["EPSG","7036"]],TOWGS84[52.17,-71.82,-14.9,0,0,0,0],AUTHORITY["EPSG","6237"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4237"]],PROJECTION["Hotine_Oblique_Mercator_Azimuth_Center"],PARAMETER["latitude_of_center",47.14439372222222],PARAMETER["longitude_of_center",19.04857177777778],PARAMETER["azimuth",90],PARAMETER["rectified_grid_angle",90],PARAMETER["scale_factor",0.99993],PARAMETER["false_easting",650000],PARAMETER["false_northing",200000],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AXIS["Y",EAST],AXIS["X",NORTH],AUTHORITY["EPSG","23700"]]');
+```
+
+For full example visit [example/proj4dart_ogc_wkt_example.dart](example/proj4dart_ogc_wkt_example.dart)
+
+#### With ESRI WKT definition
+
+If you wish to define your own projection you can create it with a valid ESRI WKT string (here for [EPSG:23700](http://epsg.io/23700)):
+
+```dart
+PROJCS["HD72_EOV",GEOGCS["GCS_HD72",DATUM["D_Hungarian_1972",SPHEROID["GRS_1967",6378160,298.247167427]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Hotine_Oblique_Mercator_Azimuth_Center"],PARAMETER["latitude_of_center",47.14439372222222],PARAMETER["longitude_of_center",19.04857177777778],PARAMETER["azimuth",90],PARAMETER["scale_factor",0.99993],PARAMETER["false_easting",650000],PARAMETER["false_northing",200000],UNIT["Meter",1]]
+```
+
+The signature is:
+
+```dart
+var projection = Projection.add('EPSG:23700',
+      'PROJCS["HD72_EOV",GEOGCS["GCS_HD72",DATUM["D_Hungarian_1972",SPHEROID["GRS_1967",6378160,298.247167427]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Hotine_Oblique_Mercator_Azimuth_Center"],PARAMETER["latitude_of_center",47.14439372222222],PARAMETER["longitude_of_center",19.04857177777778],PARAMETER["azimuth",90],PARAMETER["scale_factor",0.99993],PARAMETER["false_easting",650000],PARAMETER["false_northing",200000],UNIT["Meter",1]]');
+```
+
+For full example visit [example/proj4dart_esri_wkt_example.dart](example/proj4dart_esri_wkt_example.dart)
 
 ### Transform between Projections
 
@@ -84,14 +122,20 @@ void main() {
 
 ## Accuracy
 
-Proj4dart was tested with almost 4000 different Proj4 definitions. Forward and inverse transformations were both performed and checked in each case. All the tested Proj4 definitions can be found in [all_proj4_defs.dart](test/data/all_proj4_defs.dart). The expected forward and inverse results were pre-calculated using proj4js ([all_proj_tests.dart](test/data/all_proj4_tests.dart)).
+Proj4dart was tested with
+
+- **3910** Proj4 definitions ([test/data/all_proj4_defs.dart](test/data/all_proj4_defs.dart))
+- **3805** OGC WKT definitions ([test/data/all_proj4_ogc_wkt_defs.dart](test/data/all_proj4_ogc_wkt_defs.dart))
+- **3872** ESRI WKT definitions ([test/data/all_proj4_esri_wkt_defs.dart](test/data/all_proj4_esri_wkt_defs.dart))
+
+Forward and inverse transformations were both performed and checked in each case. The expected forward and inverse results were pre-calculated using proj4js ([test/results/all_proj4_results.dart](test/results/all_proj4_results.dart), [test/results/all_proj4_ogc_wkt_results.dart](test/results/all_proj4_ogc_wkt_results.dart), [test/results/all_proj4_esri_wkt_results.dart](test/results/all_proj4_esri_wkt_results.dart)).
 
 Acceptance criteria was:
 
 - precision delta of 0.000001 in case of LonLat
 - precision delta of 0.00001 in case of projected CRS.
 
-Example (using [EPSG:4326](http://epsg.io/4326.proj4) point of `[17.888058560281515, 46.89226406700879]` and transformed to [EPSG:23700](http://epsg.io/23700.proj4)):
+Example (using [EPSG:4326](http://epsg.io/4326.proj4) point of `[17.888058560281515, 46.89226406700879]` and transformed to [EPSG:23700](http://epsg.io/23700.proj4) defined with Proj4 definition string):
 
 | LIBRARY       | forward_x         | forward_y          | inverse_x           | inverse_y         |
 | :------------ | :---------------- | :----------------- | :------------------ | :---------------- |
@@ -99,7 +143,7 @@ Example (using [EPSG:4326](http://epsg.io/4326.proj4) point of `[17.888058560281
 | **proj4js**   | 561651.8408065989 | 172658.61998377228 | 17.888058565574852  | 46.89226406698969 |
 | *delta*       | *0.0000000002*    | *0.0*              | *0.000000000000007* | *0.0*             |
 
-In some cases also manual PostGIS testing (PostgreSQL 12.1, PostGIS 3.0.0 r17983) was performed such as the following (using [EPSG:4326](http://epsg.io/4326.proj4) point of `[17.888058560281515, 46.89226406700879]` and transformed to [EPSG:23700](http://epsg.io/23700.proj4)): which results compared to proj4dart results:
+In some cases also manual PostGIS testing (PostgreSQL 12.1, PostGIS 3.0.0 r17983) was performed such as the following (using [EPSG:4326](http://epsg.io/4326.proj4) point of `[17.888058560281515, 46.89226406700879]` and transformed to [EPSG:23700](http://epsg.io/23700.proj4) defined with Proj4 definition string):
 
 | LIBRARY       | forward_x         | forward_y          | inverse_x           | inverse_y          |
 | :------------ | :---------------- | :----------------- | :------------------ | :----------------- |
