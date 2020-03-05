@@ -163,7 +163,8 @@ class ProjParams {
         case 'pm':
           var primeMeridian = consts_pm.match(v);
           map['from_greenwich'] =
-              (primeMeridian ?? v is double ? v : double.parse(v)) * consts.D2R;
+              (primeMeridian ?? (v is double ? v : double.parse(v))) *
+                  consts.D2R;
           break;
         case 'datum':
           map['datumCode'] = v;
