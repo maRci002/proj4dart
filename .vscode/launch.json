@@ -10,5 +10,10 @@
     "program": "example/proj4dart_wkt_example.dart",
     "request": "launch",
     "type": "dart"
+  }, {
+    "name": "Dart-wkt-sandbox",
+    "program": "example/proj4dart_wkt_sandbox.dart",
+    "request": "launch",
+    "type": "dart"
   }]
 }

@@ -1,0 +1,11624 @@
+import 'package:proj4dart/src/classes/point.dart';
+
+import '../classes/project_and_unproject_result.dart';
+
+// We converted this point [17.888058560281515, 46.89226406700879] with proj4js this will give us wgsToCustom
+// Then we transformed back the wgsToCustom to calculate customToWgs
+final Map<String, ProjectAndUnProjectResult> testResults = {
+'EPSG:3819': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891667111272),
+        Point(x: 17.888058560281515, y: 46.89226413303865)),
+'EPSG:3821': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226940909668),
+        Point(x: 17.888058560281515, y: 46.89226406702781)),
+'EPSG:3824': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:3889': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:3906': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891667111272),
+        Point(x: 17.888058560281515, y: 46.89226413303865)),
+'EPSG:4001': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89156202307832),
+        Point(x: 17.888058560281515, y: 46.8922641256493)),
+'EPSG:4002': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891555329121985),
+        Point(x: 17.888058560281515, y: 46.89226415100563)),
+'EPSG:4003': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226940909668),
+        Point(x: 17.888058560281515, y: 46.89226406702781)),
+'EPSG:4004': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891667111272),
+        Point(x: 17.888058560281515, y: 46.89226413303865)),
+'EPSG:4005': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891669957840094),
+        Point(x: 17.888058560281515, y: 46.89226412388948)),
+'EPSG:4006': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891669713200216),
+        Point(x: 17.888058560281515, y: 46.89226412467244)),
+'EPSG:4007': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.894876304001876),
+        Point(x: 17.888058560281515, y: 46.892264067744904)),
+'EPSG:4008': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89439997508733),
+        Point(x: 17.888058560281515, y: 46.89226404782313)),
+'EPSG:4009': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89440739031153),
+        Point(x: 17.888058560281515, y: 46.892264129593705)),
+'EPSG:4010': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.895403256441554),
+        Point(x: 17.888058560281515, y: 46.8922640560184)),
+'EPSG:4011': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.895401874928865),
+        Point(x: 17.888058560281515, y: 46.892264030648946)),
+'EPSG:4012': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4013': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540168196001),
+        Point(x: 17.888058560281515, y: 46.8922640306297)),
+'EPSG:4014': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540190152416),
+        Point(x: 17.888058560281515, y: 46.89226403064783)),
+'EPSG:4015': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.890614382797786),
+        Point(x: 17.888058560281515, y: 46.892264264613424)),
+'EPSG:4016': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89061504563593),
+        Point(x: 17.888058560281515, y: 46.892264258792565)),
+'EPSG:4018': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89061520998017),
+        Point(x: 17.888058560281515, y: 46.892264257350064)),
+'EPSG:4019': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4020': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89223843211186),
+        Point(x: 17.888058560281515, y: 46.89226406674914)),
+'EPSG:4021': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89227134028165),
+        Point(x: 17.888058560281515, y: 46.892264067034574)),
+'EPSG:4022': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4023': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4024': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89223978629081),
+        Point(x: 17.888058560281515, y: 46.892264066591615)),
+'EPSG:4025': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.892268957628076),
+        Point(x: 17.888058560281515, y: 46.89226406701472)),
+'EPSG:4027': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.88575860697436),
+        Point(x: 17.888058560281515, y: 46.892265321883364)),
+'EPSG:4028': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89456657513059),
+        Point(x: 17.888058560281515, y: 46.892264075977536)),
+'EPSG:4029': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89373303490688),
+        Point(x: 17.888058560281515, y: 46.89226408451826)),
+'EPSG:4030': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4031': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4032': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226404293105),
+        Point(x: 17.888058560281515, y: 46.8922640670088)),
+'EPSG:4033': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226404594078),
+        Point(x: 17.888058560281515, y: 46.8922640670088)),
+'EPSG:4034': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.895401681983635),
+        Point(x: 17.888058560281515, y: 46.892264030629626)),
+'EPSG:4035': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.7002178889327),
+        Point(x: 17.888058560281515, y: 46.89213702363703)),
+'EPSG:4036': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89227123250313),
+        Point(x: 17.888058560281515, y: 46.8922640670342)),
+'EPSG:4041': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.892264150719406),
+        Point(x: 17.888058560281515, y: 46.89226406700877)),
+'EPSG:4042': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.890615053633574),
+        Point(x: 17.888058560281515, y: 46.89226425858212)),
+'EPSG:4043': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.892262219671444),
+        Point(x: 17.888058560281515, y: 46.89226406700934)),
+'EPSG:4044': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89061510968799),
+        Point(x: 17.888058560281515, y: 46.89226425809032)),
+'EPSG:4045': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89061504725688),
+        Point(x: 17.888058560281515, y: 46.89226425863833)),
+'EPSG:4046': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4047': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.7002178889327),
+        Point(x: 17.888058560281515, y: 46.89213681286046)),
+'EPSG:4052': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.7002178889327),
+        Point(x: 17.888058560281515, y: 46.89213711396999)),
+'EPSG:4053': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.7002178889327),
+        Point(x: 17.888058560281515, y: 46.892130158581075)),
+'EPSG:4054': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89225387910864),
+        Point(x: 17.888058560281515, y: 46.892264066790325)),
+'EPSG:4055': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.7002178889327),
+        Point(x: 17.888058560281515, y: 46.891922361995945)),
+'EPSG:4075': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4081': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4120': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891667111272),
+        Point(x: 17.888058560281515, y: 46.89226413303865)),
+'EPSG:4121': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4122': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.892264150719406),
+        Point(x: 17.888058560281515, y: 46.89226406700877)),
+'EPSG:4123': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4124': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891667111272),
+        Point(x: 17.888058560281515, y: 46.89226413303865)),
+'EPSG:4125': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891667111272),
+        Point(x: 17.888058560281515, y: 46.89226413303865)),
+'EPSG:4126': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4127': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89439997508733),
+        Point(x: 17.888058560281515, y: 46.89226404782313)),
+'EPSG:4128': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89439997508733),
+        Point(x: 17.888058560281515, y: 46.89226404782313)),
+'EPSG:4129': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89439997508733),
+        Point(x: 17.888058560281515, y: 46.89226404782313)),
+'EPSG:4130': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4131': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.890614382797786),
+        Point(x: 17.888058560281515, y: 46.892264264613424)),
+'EPSG:4132': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4133': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4134': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4135': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89439997508733),
+        Point(x: 17.888058560281515, y: 46.89226404782313)),
+'EPSG:4136': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89439997508733),
+        Point(x: 17.888058560281515, y: 46.89226404782313)),
+'EPSG:4137': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89439997508733),
+        Point(x: 17.888058560281515, y: 46.89226404782313)),
+'EPSG:4138': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89439997508733),
+        Point(x: 17.888058560281515, y: 46.89226404782313)),
+'EPSG:4139': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89439997508733),
+        Point(x: 17.888058560281515, y: 46.89226404782313)),
+'EPSG:4140': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4141': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4142': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4143': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4144': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.890614382797786),
+        Point(x: 17.888058560281515, y: 46.892264264613424)),
+'EPSG:4145': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89061510968799),
+        Point(x: 17.888058560281515, y: 46.89226425809032)),
+'EPSG:4146': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89061504725688),
+        Point(x: 17.888058560281515, y: 46.89226425863833)),
+'EPSG:4147': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89223978629081),
+        Point(x: 17.888058560281515, y: 46.892264066591615)),
+'EPSG:4148': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4149': ProjectAndUnProjectResult(
+        Point(x: 17.89058897773099, y: 46.893420533895046),
+        Point(x: 17.88805857342885, y: 46.89226407303667)),
+'EPSG:4150': ProjectAndUnProjectResult(
+        Point(x: 17.89058897773099, y: 46.893420533895046),
+        Point(x: 17.88805857342885, y: 46.89226407303667)),
+'EPSG:4151': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4152': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4153': ProjectAndUnProjectResult(
+        Point(x: 17.889486693864647, y: 46.89290650862107),
+        Point(x: 17.888058552817974, y: 46.8922640636407)),
+'EPSG:4154': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4155': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.895401874928865),
+        Point(x: 17.888058560281515, y: 46.892264030648946)),
+'EPSG:4156': ProjectAndUnProjectResult(
+        Point(x: 17.889483655386478, y: 46.89255090981592),
+        Point(x: 17.888058570312527, y: 46.89226406903427)),
+'EPSG:4157': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.894876304001876),
+        Point(x: 17.888058560281515, y: 46.892264067744904)),
+'EPSG:4158': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4159': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4160': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4161': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4162': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891667111272),
+        Point(x: 17.888058560281515, y: 46.89226413303865)),
+'EPSG:4163': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4164': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89223978629081),
+        Point(x: 17.888058560281515, y: 46.892264066591615)),
+'EPSG:4165': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4166': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4167': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4168': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89373303490688),
+        Point(x: 17.888058560281515, y: 46.89226408451826)),
+'EPSG:4169': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89439997508733),
+        Point(x: 17.888058560281515, y: 46.89226404782313)),
+'EPSG:4170': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4171': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4172': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4173': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4174': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89373303490688),
+        Point(x: 17.888058560281515, y: 46.89226408451826)),
+'EPSG:4175': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4176': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4178': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89223978629081),
+        Point(x: 17.888058560281515, y: 46.892264066591615)),
+'EPSG:4179': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89223978629081),
+        Point(x: 17.888058560281515, y: 46.892264066591615)),
+'EPSG:4180': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4181': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4182': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4183': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4184': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4185': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4188': ProjectAndUnProjectResult(
+        Point(x: 17.89149816134214, y: 46.89087754271238),
+        Point(x: 17.888058682874288, y: 46.8922640188893)),
+'EPSG:4189': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4190': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4191': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89223978629081),
+        Point(x: 17.888058560281515, y: 46.892264066591615)),
+'EPSG:4192': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4193': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.895401874928865),
+        Point(x: 17.888058560281515, y: 46.892264030648946)),
+'EPSG:4194': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4195': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4196': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4197': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4198': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4199': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4200': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89223978629081),
+        Point(x: 17.888058560281515, y: 46.892264066591615)),
+'EPSG:4201': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4202': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226940909668),
+        Point(x: 17.888058560281515, y: 46.89226406702781)),
+'EPSG:4203': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226940909668),
+        Point(x: 17.888058560281515, y: 46.89226406702781)),
+'EPSG:4204': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4205': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89223978629081),
+        Point(x: 17.888058560281515, y: 46.892264066591615)),
+'EPSG:4206': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.895401874928865),
+        Point(x: 17.888058560281515, y: 46.892264030648946)),
+'EPSG:4207': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4208': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4209': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540168196001),
+        Point(x: 17.888058560281515, y: 46.8922640306297)),
+'EPSG:4210': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4211': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891667111272),
+        Point(x: 17.888058560281515, y: 46.89226413303865)),
+'EPSG:4212': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4213': ProjectAndUnProjectResult(
+        Point(x: 17.88871772398678, y: 46.89340826150818),
+        Point(x: 17.88805855783218, y: 46.8922640627437)),
+'EPSG:4214': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89223978629081),
+        Point(x: 17.888058560281515, y: 46.892264066591615)),
+'EPSG:4215': ProjectAndUnProjectResult(
+        Point(x: 17.88960106454166, y: 46.893158792010986),
+        Point(x: 17.88805862001476, y: 46.892264104890465)),
+'EPSG:4216': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89439997508733),
+        Point(x: 17.888058560281515, y: 46.89226404782313)),
+'EPSG:4218': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4219': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891667111272),
+        Point(x: 17.888058560281515, y: 46.89226413303865)),
+'EPSG:4220': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4221': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4222': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540168196001),
+        Point(x: 17.888058560281515, y: 46.8922640306297)),
+'EPSG:4223': ProjectAndUnProjectResult(
+        Point(x: 17.88692368188675, y: 46.89112086400906),
+        Point(x: 17.888058547656193, y: 46.89226405425118)),
+'EPSG:4224': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4225': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4226': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.895401874928865),
+        Point(x: 17.888058560281515, y: 46.892264030648946)),
+'EPSG:4227': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.895401874928865),
+        Point(x: 17.888058560281515, y: 46.892264030648946)),
+'EPSG:4228': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.895401874928865),
+        Point(x: 17.888058560281515, y: 46.892264030648946)),
+'EPSG:4229': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89223843211186),
+        Point(x: 17.888058560281515, y: 46.89226406674914)),
+'EPSG:4230': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4231': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4232': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4233': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4234': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.895401874928865),
+        Point(x: 17.888058560281515, y: 46.892264030648946)),
+'EPSG:4235': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4236': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4237': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89227123250313),
+        Point(x: 17.888058560281515, y: 46.8922640670342)),
+'EPSG:4238': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89227134028165),
+        Point(x: 17.888058560281515, y: 46.892264067034574)),
+'EPSG:4239': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.890614382797786),
+        Point(x: 17.888058560281515, y: 46.892264264613424)),
+'EPSG:4240': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.890614382797786),
+        Point(x: 17.888058560281515, y: 46.892264264613424)),
+'EPSG:4241': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.895401681983635),
+        Point(x: 17.888058560281515, y: 46.892264030629626)),
+'EPSG:4242': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89439997508733),
+        Point(x: 17.888058560281515, y: 46.89226404782313)),
+'EPSG:4243': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.890615053633574),
+        Point(x: 17.888058560281515, y: 46.89226425858212)),
+'EPSG:4244': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.890614382797786),
+        Point(x: 17.888058560281515, y: 46.892264264613424)),
+'EPSG:4245': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89061520998017),
+        Point(x: 17.888058560281515, y: 46.892264257350064)),
+'EPSG:4246': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4247': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4248': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4249': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4250': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4251': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4252': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.895401874928865),
+        Point(x: 17.888058560281515, y: 46.892264030648946)),
+'EPSG:4253': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89439997508733),
+        Point(x: 17.888058560281515, y: 46.89226404782313)),
+'EPSG:4254': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4255': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4256': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4257': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891667111272),
+        Point(x: 17.888058560281515, y: 46.89226413303865)),
+'EPSG:4258': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4259': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4260': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4261': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.895401874928865),
+        Point(x: 17.888058560281515, y: 46.892264030648946)),
+'EPSG:4262': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891667111272),
+        Point(x: 17.888058560281515, y: 46.89226413303865)),
+'EPSG:4263': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4264': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4265': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4266': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.895401874928865),
+        Point(x: 17.888058560281515, y: 46.892264030648946)),
+'EPSG:4267': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89439997508733),
+        Point(x: 17.888058560281515, y: 46.89226404782313)),
+'EPSG:4268': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89440739031153),
+        Point(x: 17.888058560281515, y: 46.892264129593705)),
+'EPSG:4269': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4270': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4271': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4272': ProjectAndUnProjectResult(
+        Point(x: 17.88819953783656, y: 46.89222622730486),
+        Point(x: 17.888058577183052, y: 46.892264068019884)),
+'EPSG:4273': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891669957840094),
+        Point(x: 17.888058560281515, y: 46.89226412388948)),
+'EPSG:4274': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4275': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.895401874928865),
+        Point(x: 17.888058560281515, y: 46.892264030648946)),
+'EPSG:4276': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.892268957628076),
+        Point(x: 17.888058560281515, y: 46.89226406701472)),
+'EPSG:4277': ProjectAndUnProjectResult(
+        Point(x: 17.89125174421817, y: 46.89081594604395),
+        Point(x: 17.888058558608066, y: 46.892264067200834)),
+'EPSG:4278': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89156202307832),
+        Point(x: 17.888058560281515, y: 46.8922641256493)),
+'EPSG:4279': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89156202307832),
+        Point(x: 17.888058560281515, y: 46.8922641256493)),
+'EPSG:4280': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891667111272),
+        Point(x: 17.888058560281515, y: 46.89226413303865)),
+'EPSG:4281': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.895403256441554),
+        Point(x: 17.888058560281515, y: 46.8922640560184)),
+'EPSG:4282': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.895401874928865),
+        Point(x: 17.888058560281515, y: 46.892264030648946)),
+'EPSG:4283': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4284': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89223978629081),
+        Point(x: 17.888058560281515, y: 46.892264066591615)),
+'EPSG:4285': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4286': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89223843211186),
+        Point(x: 17.888058560281515, y: 46.89226406674914)),
+'EPSG:4287': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4288': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4289': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891667111272),
+        Point(x: 17.888058560281515, y: 46.89226413303865)),
+'EPSG:4291': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89227123250313),
+        Point(x: 17.888058560281515, y: 46.8922640670342)),
+'EPSG:4292': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4293': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891669713200216),
+        Point(x: 17.888058560281515, y: 46.89226412467244)),
+'EPSG:4294': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891667111272),
+        Point(x: 17.888058560281515, y: 46.89226413303865)),
+'EPSG:4295': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891667111272),
+        Point(x: 17.888058560281515, y: 46.89226413303865)),
+'EPSG:4296': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.895401874928865),
+        Point(x: 17.888058560281515, y: 46.892264030648946)),
+'EPSG:4297': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4298': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89061504563593),
+        Point(x: 17.888058560281515, y: 46.892264258792565)),
+'EPSG:4299': ProjectAndUnProjectResult(
+        Point(x: 17.89149816134214, y: 46.890870847956194),
+        Point(x: 17.888058558102674, y: 46.892264068524085)),
+'EPSG:4300': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891555329121985),
+        Point(x: 17.888058560281515, y: 46.89226415100563)),
+'EPSG:4301': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891667111272),
+        Point(x: 17.888058560281515, y: 46.89226413303865)),
+'EPSG:4302': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.894876304001876),
+        Point(x: 17.888058560281515, y: 46.892264067744904)),
+'EPSG:4303': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89223843211186),
+        Point(x: 17.888058560281515, y: 46.89226406674914)),
+'EPSG:4304': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.895401874928865),
+        Point(x: 17.888058560281515, y: 46.892264030648946)),
+'EPSG:4306': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891667111272),
+        Point(x: 17.888058560281515, y: 46.89226413303865)),
+'EPSG:4307': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4308': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891667111272),
+        Point(x: 17.888058560281515, y: 46.89226413303865)),
+'EPSG:4309': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4310': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.895401874928865),
+        Point(x: 17.888058560281515, y: 46.892264030648946)),
+'EPSG:4311': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4312': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891667111272),
+        Point(x: 17.888058560281515, y: 46.89226413303865)),
+'EPSG:4313': ProjectAndUnProjectResult(
+        Point(x: 17.88960106454166, y: 46.893158792010986),
+        Point(x: 17.88805862001476, y: 46.892264104890465)),
+'EPSG:4314': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891667111272),
+        Point(x: 17.888058560281515, y: 46.89226413303865)),
+'EPSG:4315': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.895401874928865),
+        Point(x: 17.888058560281515, y: 46.892264030648946)),
+'EPSG:4605': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4316': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4317': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89223978629081),
+        Point(x: 17.888058560281515, y: 46.892264066591615)),
+'EPSG:4318': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4319': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4322': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.892262219671444),
+        Point(x: 17.888058560281515, y: 46.89226406700934)),
+'EPSG:4324': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.892262219671444),
+        Point(x: 17.888058560281515, y: 46.89226406700934)),
+'EPSG:4326': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4463': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4470': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4475': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4483': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4490': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4555': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89223978629081),
+        Point(x: 17.888058560281515, y: 46.892264066591615)),
+'EPSG:4558': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4600': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4601': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4602': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4603': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4604': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4606': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4607': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4608': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89439997508733),
+        Point(x: 17.888058560281515, y: 46.89226404782313)),
+'EPSG:4609': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89439997508733),
+        Point(x: 17.888058560281515, y: 46.89226404782313)),
+'EPSG:4610': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226430120541),
+        Point(x: 17.888058560281515, y: 46.89226406700891)),
+'EPSG:4611': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4612': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4613': ProjectAndUnProjectResult(
+        Point(x: 17.87789321261279, y: 46.89027575009919),
+        Point(x: 17.888059822235842, y: 46.8922643145557)),
+'EPSG:4614': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4615': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4616': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4617': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4618': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226940909668),
+        Point(x: 17.888058560281515, y: 46.89226406702781)),
+'EPSG:4619': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4620': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4621': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4622': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4623': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4624': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4625': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4626': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4627': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4628': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4629': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4630': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4631': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4632': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4633': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4634': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4635': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4636': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4637': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4638': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89439997508733),
+        Point(x: 17.888058560281515, y: 46.89226404782313)),
+'EPSG:4639': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4640': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4641': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4642': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4672': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4643': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4644': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4645': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4646': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4657': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89111533155928),
+        Point(x: 17.888058560281515, y: 46.89226425634128)),
+'EPSG:4658': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4659': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4660': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4661': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4662': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4663': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4664': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4665': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4666': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891667111272),
+        Point(x: 17.888058560281515, y: 46.89226413303865)),
+'EPSG:4667': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4668': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4669': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4670': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4671': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.895401874928865),
+        Point(x: 17.888058560281515, y: 46.892264030648946)),
+'EPSG:4673': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4674': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4675': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89439997508733),
+        Point(x: 17.888058560281515, y: 46.89226404782313)),
+'EPSG:4676': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89223978629081),
+        Point(x: 17.888058560281515, y: 46.892264066591615)),
+'EPSG:4677': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89223978629081),
+        Point(x: 17.888058560281515, y: 46.892264066591615)),
+'EPSG:4678': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89223978629081),
+        Point(x: 17.888058560281515, y: 46.892264066591615)),
+'EPSG:4679': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4680': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4681': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4682': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.890614382797786),
+        Point(x: 17.888058560281515, y: 46.892264264613424)),
+'EPSG:4683': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89439997508733),
+        Point(x: 17.888058560281515, y: 46.89226404782313)),
+'EPSG:4684': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4685': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4686': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4687': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4688': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4689': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4690': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4691': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4692': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4693': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4694': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4695': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89439997508733),
+        Point(x: 17.888058560281515, y: 46.89226404782313)),
+'EPSG:4696': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4697': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4698': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4699': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4700': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4701': ProjectAndUnProjectResult(
+        Point(x: 17.88960106454166, y: 46.89547705613627),
+        Point(x: 17.88805857313875, y: 46.89226409682905)),
+'EPSG:4702': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4703': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4704': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4705': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4706': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89223843211186),
+        Point(x: 17.888058560281515, y: 46.89226406674914)),
+'EPSG:4707': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4708': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226940909668),
+        Point(x: 17.888058560281515, y: 46.89226406702781)),
+'EPSG:4709': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4710': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4711': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4712': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4713': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4714': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4715': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4716': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4717': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89439997508733),
+        Point(x: 17.888058560281515, y: 46.89226404782313)),
+'EPSG:4718': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4719': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4720': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.892262219671444),
+        Point(x: 17.888058560281515, y: 46.89226406700934)),
+'EPSG:4721': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4722': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4723': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89439997508733),
+        Point(x: 17.888058560281515, y: 46.89226404782313)),
+'EPSG:4724': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4725': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4726': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89439997508733),
+        Point(x: 17.888058560281515, y: 46.89226404782313)),
+'EPSG:4727': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4728': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4729': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4730': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4731': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4732': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308077156372),
+        Point(x: 17.888058560281515, y: 46.8922640778546)),
+'EPSG:4733': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4734': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4735': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4736': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4737': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4738': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.894876304001876),
+        Point(x: 17.888058560281515, y: 46.892264067744904)),
+'EPSG:4739': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4740': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.892263640567826),
+        Point(x: 17.888058560281515, y: 46.89226406700886)),
+'EPSG:4741': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4742': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4743': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4744': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4745': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891667111272),
+        Point(x: 17.888058560281515, y: 46.89226413303865)),
+'EPSG:4746': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891667111272),
+        Point(x: 17.888058560281515, y: 46.89226413303865)),
+'EPSG:4747': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4748': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540343238322),
+        Point(x: 17.888058560281515, y: 46.892264058763196)),
+'EPSG:4823': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4749': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4750': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4751': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.890614959330605),
+        Point(x: 17.888058560281515, y: 46.89226425955022)),
+'EPSG:4752': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540343238322),
+        Point(x: 17.888058560281515, y: 46.892264058763196)),
+'EPSG:4753': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4754': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4755': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4756': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4757': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4758': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4759': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4760': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.892268957628076),
+        Point(x: 17.888058560281515, y: 46.89226406701472)),
+'EPSG:4761': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4762': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4763': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4764': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4765': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89226406700879),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:4801': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891667111272),
+        Point(x: 17.888058560281515, y: 46.89226413303865)),
+'EPSG:4802': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4824': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4803': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4804': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891667111272),
+        Point(x: 17.888058560281515, y: 46.89226413303865)),
+'EPSG:4805': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891667111272),
+        Point(x: 17.888058560281515, y: 46.89226413303865)),
+'EPSG:4806': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4807': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.895401874928865),
+        Point(x: 17.888058560281515, y: 46.892264030648946)),
+'EPSG:4808': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891667111272),
+        Point(x: 17.888058560281515, y: 46.89226413303865)),
+'EPSG:4809': ProjectAndUnProjectResult(
+        Point(x: 17.88960106454166, y: 46.893158792010986),
+        Point(x: 17.88805862001476, y: 46.892264104890465)),
+'EPSG:4810': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89308433805259),
+        Point(x: 17.888058560281515, y: 46.89226409307021)),
+'EPSG:4811': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.895401874928865),
+        Point(x: 17.888058560281515, y: 46.892264030648946)),
+'EPSG:4813': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891667111272),
+        Point(x: 17.888058560281515, y: 46.89226413303865)),
+'EPSG:4814': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891667111272),
+        Point(x: 17.888058560281515, y: 46.89226413303865)),
+'EPSG:4815': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891667111272),
+        Point(x: 17.888058560281515, y: 46.89226413303865)),
+'EPSG:4816': ProjectAndUnProjectResult(
+        Point(x: 17.88692368188675, y: 46.89112086400906),
+        Point(x: 17.888058547656193, y: 46.89226405425118)),
+'EPSG:4817': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891669957840094),
+        Point(x: 17.888058560281515, y: 46.89226412388948)),
+'EPSG:4818': ProjectAndUnProjectResult(
+        Point(x: 17.889483655386478, y: 46.89255090981592),
+        Point(x: 17.888058570312527, y: 46.89226406903427)),
+'EPSG:4819': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89540255142901),
+        Point(x: 17.888058560281515, y: 46.892264030594234)),
+'EPSG:4820': ProjectAndUnProjectResult(
+        Point(x: 17.87789321261279, y: 46.89027575009919),
+        Point(x: 17.888059822235842, y: 46.8922643145557)),
+'EPSG:4821': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.895401874928865),
+        Point(x: 17.888058560281515, y: 46.892264030648946)),
+'EPSG:4901': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.88575860697436),
+        Point(x: 17.888058560281515, y: 46.892265321883364)),
+'EPSG:4902': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.88575860697436),
+        Point(x: 17.888058560281515, y: 46.892265321883364)),
+'EPSG:4903': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.89456657513059),
+        Point(x: 17.888058560281515, y: 46.892264075977536)),
+'EPSG:4904': ProjectAndUnProjectResult(
+        Point(x: 17.888058560281515, y: 46.891667111272),
+        Point(x: 17.888058560281515, y: 46.89226413303865)),
+'EPSG:2000': ProjectAndUnProjectResult(
+        Point(x: 5525945.930258166, y: 9002818.259894714),
+        Point(x: 45, y: double.nan)),
+'EPSG:2001': ProjectAndUnProjectResult(
+        Point(x: 5525945.930258166, y: 9002818.259894714),
+        Point(x: 45, y: double.nan)),
+'EPSG:2002': ProjectAndUnProjectResult(
+        Point(x: 5525945.930258166, y: 9002818.259894714),
+        Point(x: 45, y: double.nan)),
+'EPSG:2003': ProjectAndUnProjectResult(
+        Point(x: 5525945.930258166, y: 9002818.259894714),
+        Point(x: 45, y: double.nan)),
+'EPSG:2004': ProjectAndUnProjectResult(
+        Point(x: 5525945.930258166, y: 9002818.259894714),
+        Point(x: 45, y: double.nan)),
+'EPSG:2005': ProjectAndUnProjectResult(
+        Point(x: 5525945.930258166, y: 9002818.259894714),
+        Point(x: 45, y: double.nan)),
+'EPSG:2006': ProjectAndUnProjectResult(
+        Point(x: 5525945.930258166, y: 9002818.259894714),
+        Point(x: 45, y: double.nan)),
+'EPSG:2007': ProjectAndUnProjectResult(
+        Point(x: 5525945.930258166, y: 9002818.259894714),
+        Point(x: 45, y: double.nan)),
+'EPSG:2008': ProjectAndUnProjectResult(
+        Point(x: 5277366.425897455, y: 8355198.5202454105),
+        Point(x: 45, y: double.nan)),
+'EPSG:2009': ProjectAndUnProjectResult(
+        Point(x: 5364906.447261905, y: 8649042.253562236),
+        Point(x: 45, y: double.nan)),
+'EPSG:2010': ProjectAndUnProjectResult(
+        Point(x: 5425654.034597036, y: 8954486.7099849),
+        Point(x: 45, y: double.nan)),
+'EPSG:2011': ProjectAndUnProjectResult(
+        Point(x: 5455436.685653299, y: 9269841.86024802),
+        Point(x: 45, y: double.nan)),
+'EPSG:2012': ProjectAndUnProjectResult(
+        Point(x: 5449562.187312048, y: 9592891.270384526),
+        Point(x: 45, y: double.nan)),
+'EPSG:2013': ProjectAndUnProjectResult(
+        Point(x: 5402768.90343168, y: 9920802.848189164),
+        Point(x: 45, y: double.nan)),
+'EPSG:2014': ProjectAndUnProjectResult(
+        Point(x: 5309172.716650754, y: 10250029.426226167),
+        Point(x: 0, y: 90)),
+'EPSG:2015': ProjectAndUnProjectResult(
+        Point(x: 5162210.50230845, y: 10576198.432744008),
+        Point(x: 0, y: 90)),
+'EPSG:2016': ProjectAndUnProjectResult(
+        Point(x: 4954580.012642805, y: 10893989.87508756),
+        Point(x: 0, y: 90)),
+'EPSG:2017': ProjectAndUnProjectResult(
+        Point(x: 5309172.716650754, y: 10250029.426226167),
+        Point(x: 0, y: 90)),
+'EPSG:2018': ProjectAndUnProjectResult(
+        Point(x: 5162210.50230845, y: 10576198.432744008),
+        Point(x: 0, y: 90)),
+'EPSG:2019': ProjectAndUnProjectResult(
+        Point(x: 4954580.012642805, y: 10893989.87508756),
+        Point(x: 0, y: 90)),
+'EPSG:2020': ProjectAndUnProjectResult(
+        Point(x: 4678176.0494270865, y: 11197001.833425138),
+        Point(x: 0, y: 90)),
+'EPSG:2021': ProjectAndUnProjectResult(
+        Point(x: 4825514.4787291335, y: 11047789.61984523),
+        Point(x: 0, y: 90)),
+'EPSG:2022': ProjectAndUnProjectResult(
+        Point(x: 4511415.013710878, y: 11340632.974738598),
+        Point(x: 0, y: 90)),
+'EPSG:2023': ProjectAndUnProjectResult(
+        Point(x: 4114729.6595776076, y: 11606738.13356892),
+        Point(x: 0, y: 90)),
+'EPSG:2024': ProjectAndUnProjectResult(
+        Point(x: 3625041.140687892, y: 11836320.377560953),
+        Point(x: 0, y: 90)),
+'EPSG:2025': ProjectAndUnProjectResult(
+        Point(x: 3030874.8475537337, y: 12017931.722915402),
+        Point(x: 0, y: 90)),
+'EPSG:2026': ProjectAndUnProjectResult(
+        Point(x: 2319616.7996833744, y: 12138259.56610183),
+        Point(x: 0, y: 90)),
+'EPSG:2027': ProjectAndUnProjectResult(
+        Point(x: 3225256.943309043, y: 12014325.98282452),
+        Point(x: 0, y: 90)),
+'EPSG:2028': ProjectAndUnProjectResult(
+        Point(x: 4308786.566370415, y: 11603255.763891883),
+        Point(x: 0, y: 90)),
+'EPSG:2029': ProjectAndUnProjectResult(
+        Point(x: 5019358.128750517, y: 11044474.951492442),
+        Point(x: 0, y: 90)),
+'EPSG:2030': ProjectAndUnProjectResult(
+        Point(x: 5436519.152290583, y: 10410680.453105627),
+        Point(x: 0, y: 90)),
+'EPSG:2031': ProjectAndUnProjectResult(
+        Point(x: 5019358.128750517, y: 11044474.951492442),
+        Point(x: 0, y: 90)),
+'EPSG:2032': ProjectAndUnProjectResult(
+        Point(x: 5436519.152290583, y: 10410680.453105627),
+        Point(x: 0, y: 90)),
+'EPSG:2033': ProjectAndUnProjectResult(
+        Point(x: 5625294.712615978, y: 9753515.763325332),
+        Point(x: 45, y: double.nan)),
+'EPSG:2034': ProjectAndUnProjectResult(
+        Point(x: 5638354.3700725, y: 9108317.051243763),
+        Point(x: 45, y: double.nan)),
+'EPSG:2035': ProjectAndUnProjectResult(
+        Point(x: 5517937.734274884, y: 8498032.558621977),
+        Point(x: 45, y: double.nan)),
+'EPSG:2036': ProjectAndUnProjectResult(
+        Point(x: 8016398.141955978, y: 11184245.693301002),
+        Point(x: 17.88805856028151, y: 46.892264067008796)),
+'EPSG:2037': ProjectAndUnProjectResult(
+        Point(x: 5625552.597278097, y: 9753575.672750814),
+        Point(x: -14563147143.452982, y: 3188443837.820243)),
+'EPSG:2038': ProjectAndUnProjectResult(
+        Point(x: 5638571.782971076, y: 9108330.901623307),
+        Point(x: -1685042.2535846238, y: 369929.7983349917)),
+'EPSG:2039': ProjectAndUnProjectResult(
+        Point(x: -1098554.857504982, y: 2457387.7290571346),
+        Point(x: 17.88812602014107, y: 46.892265987645935)),
+'EPSG:2040': ProjectAndUnProjectResult(
+        Point(x: 2088164.6801670862, y: 5409237.98513725),
+        Point(x: 17.8876521804974, y: 46.89228740565478)),
+'EPSG:2041': ProjectAndUnProjectResult(
+        Point(x: 2088164.6801670862, y: 5409237.98513725),
+        Point(x: 17.8876521804974, y: 46.89228740565478)),
+'EPSG:2042': ProjectAndUnProjectResult(
+        Point(x: 2540689.9359594667, y: 5555742.024561414),
+        Point(x: 17.883147068514432, y: 46.8926992677133)),
+'EPSG:2043': ProjectAndUnProjectResult(
+        Point(x: 2540689.9359594667, y: 5555742.024561414),
+        Point(x: 17.883147068514432, y: 46.8926992677133)),
+'EPSG:2044': ProjectAndUnProjectResult(
+        Point(x: 13375900.836793115, y: 9782142.024768146),
+        Point(x: 45, y: double.nan)),
+'EPSG:2045': ProjectAndUnProjectResult(
+        Point(x: 14572222.187872892, y: 10439502.15507849),
+        Point(x: 0, y: 90)),
+'EPSG:2056': ProjectAndUnProjectResult(
+        Point(x: 3393998.8609966785, y: 1246372.8682418307),
+        Point(x: 17.88805857342887, y: 46.892264073036614)),
+'EPSG:2057': ProjectAndUnProjectResult(
+        Point(x: -1967980.2117443858, y: 5814317.985443937),
+        Point(x: 17.888058552817974, y: 46.89226406364063)),
+'EPSG:2058': ProjectAndUnProjectResult(
+        Point(x: -1557599.8094046724, y: 5562157.319282242),
+        Point(x: 17.89339995905174, y: 46.89274289000551)),
+'EPSG:2059': ProjectAndUnProjectResult(
+        Point(x: -2005576.2183771236, y: 5752115.796732064),
+        Point(x: 17.93093671554712, y: 46.89708082073056)),
+'EPSG:2060': ProjectAndUnProjectResult(
+        Point(x: -2446147.8012227453, y: 5987224.778491357),
+        Point(x: 18.163229454911743, y: 46.928551553767626)),
+'EPSG:2061': ProjectAndUnProjectResult(
+        Point(x: -2874953.3904553414, y: 6271044.684463114),
+        Point(x: 19.454776271784763, y: 47.12664556988052)),
+'EPSG:2062': ProjectAndUnProjectResult(
+        Point(x: 1962665.0468946118, y: 1504174.4360626675),
+        Point(x: 17.888058560281515, y: 46.89226407597748)),
+'EPSG:2063': ProjectAndUnProjectResult(
+        Point(x: 2988854.005416896, y: 5744078.72865976),
+        Point(x: 17.84819324729815, y: 46.8967101047849)),
+'EPSG:2064': ProjectAndUnProjectResult(
+        Point(x: 2540689.967838512, y: 5555742.083156228),
+        Point(x: 17.88314706852802, y: 46.89269926787449)),
+'EPSG:2065': ProjectAndUnProjectResult(
+        Point(x: -528533.1922473328, y: -1425019.793700168),
+        Point(x: 17.888058570312516, y: 46.89226406903086)),
+'EPSG:2066': ProjectAndUnProjectResult(
+        Point(x: 26483973.91827763, y: 38951324.389591135),
+        Point(x: 45, y: double.nan)),
+'EPSG:2067': ProjectAndUnProjectResult(
+        Point(x: 5638668.8577555735, y: 9108646.435121816),
+        Point(x: 45, y: double.nan)),
+'EPSG:2068': ProjectAndUnProjectResult(
+        Point(x: 877115.819679609, y: 5233434.540483343),
+        Point(x: 17.888058435548963, y: 46.8922640533178)),
+'EPSG:2069': ProjectAndUnProjectResult(
+        Point(x: 724809.9257324118, y: 5218026.6001503235),
+        Point(x: 17.888058550148468, y: 46.89226408378078)),
+'EPSG:2070': ProjectAndUnProjectResult(
+        Point(x: 572457.6658845616, y: 5206554.319007842),
+        Point(x: 17.888058560164602, y: 46.892264091847856)),
+'EPSG:2071': ProjectAndUnProjectResult(
+        Point(x: 420074.22461421764, y: 5198992.433232817),
+        Point(x: 17.888058560302213, y: 46.892264093017694)),
+'EPSG:2072': ProjectAndUnProjectResult(
+        Point(x: 267673.0286158369, y: 5195324.250706142),
+        Point(x: 17.88805856028157, y: 46.89226409307016)),
+'EPSG:2073': ProjectAndUnProjectResult(
+        Point(x: 115266.47268949494, y: 5195541.663069845),
+        Point(x: 17.888058560281337, y: 46.89226409307002)),
+'EPSG:2074': ProjectAndUnProjectResult(
+        Point(x: -37133.36466877014, y: 5199645.151107399),
+        Point(x: 17.888058560252794, y: 46.89226409298808)),
+'EPSG:2075': ProjectAndUnProjectResult(
+        Point(x: -189514.0088434755, y: 5207643.784433379),
+        Point(x: 17.88805856055896, y: 46.89226409147422)),
+'EPSG:2076': ProjectAndUnProjectResult(
+        Point(x: -341861.87271096907, y: 5219555.2154340055),
+        Point(x: 17.888058574319285, y: 46.892264081878)),
+'EPSG:2077': ProjectAndUnProjectResult(
+        Point(x: 1176912.664618199, y: 5231864.353102461),
+        Point(x: 17.888058435548967, y: 46.8922640533178)),
+'EPSG:2078': ProjectAndUnProjectResult(
+        Point(x: 720008.1957439462, y: 5197432.579517475),
+        Point(x: 17.888058560302213, y: 46.892264093017694)),
+'EPSG:2079': ProjectAndUnProjectResult(
+        Point(x: 262937.7824553429, y: 5198085.101557112),
+        Point(x: 17.888058560252794, y: 46.89226409298809)),
+'EPSG:2080': ProjectAndUnProjectResult(
+        Point(x: -193953.25986767956, y: 5233834.887577642),
+        Point(x: 17.888058718511672, y: 46.892264047520015)),
+'EPSG:2081': ProjectAndUnProjectResult(
+        Point(x: 7627684.830706392, y: 19760087.55839518),
+        Point(x: 45, y: double.nan)),
+'EPSG:2082': ProjectAndUnProjectResult(
+        Point(x: 7627684.830706392, y: 19760087.55839518),
+        Point(x: 45, y: double.nan)),
+'EPSG:2083': ProjectAndUnProjectResult(
+        Point(x: 7627684.830706392, y: 19760087.55839518),
+        Point(x: 45, y: double.nan)),
+'EPSG:2084': ProjectAndUnProjectResult(
+        Point(x: 5625633.756774111, y: 19753896.139701046),
+        Point(x: 45, y: double.nan)),
+'EPSG:2085': ProjectAndUnProjectResult(
+        Point(x: 8252693.54877797, y: 5734198.137040572),
+        Point(x: 17.88805856028151, y: 46.89226404782305)),
+'EPSG:2086': ProjectAndUnProjectResult(
+        Point(x: 8148778.833216054, y: 5547198.979132636),
+        Point(x: 17.888058560281515, y: 46.892264047823026)),
+'EPSG:2087': ProjectAndUnProjectResult(
+        Point(x: 948503.9876715501, y: 5210236.585419886),
+        Point(x: 17.888058558426707, y: 46.8922640893772)),
+'EPSG:2088': ProjectAndUnProjectResult(
+        Point(x: 1024585.2307126026, y: 5215823.111770698),
+        Point(x: 17.88805853761383, y: 46.89226404485497)),
+'EPSG:2089': ProjectAndUnProjectResult(
+        Point(x: -1557536.5212162894, y: 5561950.164033774),
+        Point(x: 17.893399933574567, y: 46.89274299727972)),
+'EPSG:2090': ProjectAndUnProjectResult(
+        Point(x: -2005500.4107896662, y: 5751900.446702114),
+        Point(x: 17.93093567947049, y: 46.89708113439577)),
+'EPSG:2091': ProjectAndUnProjectResult(
+        Point(x: 6441604.82542362, y: 5564270.833365575),
+        Point(x: 17.89339993355319, y: 46.89274300140399)),
+'EPSG:2092': ProjectAndUnProjectResult(
+        Point(x: 6993453.954178276, y: 5754300.314963382),
+        Point(x: 17.93093565100568, y: 46.89708114575195)),
+'EPSG:2093': ProjectAndUnProjectResult(
+        Point(x: -4605004.0094241705, y: 9891738.400588684),
+        Point(x: 45, y: double.nan)),
+'EPSG:2158': ProjectAndUnProjectResult(
+        Point(x: 2540720.5313290567, y: 5555692.513083512),
+        Point(x: 17.883147133968766, y: 46.89269979625903)),
+'EPSG:2094': ProjectAndUnProjectResult(
+        Point(x: -4602870.651983483, y: 9887609.108123625),
+        Point(x: 45, y: double.nan)),
+'EPSG:2095': ProjectAndUnProjectResult(
+        Point(x: 2988971.3749373723, y: 5744238.047397396),
+        Point(x: 17.848195893325798, y: 46.89671111691266)),
+'EPSG:2096': ProjectAndUnProjectResult(
+        Point(x: -2477654.964744781, y: 8322681.944070417),
+        Point(x: 0, y: 90)),
+'EPSG:2097': ProjectAndUnProjectResult(
+        Point(x: -2891594.3076343164, y: 8210304.863080276),
+        Point(x: 0, y: 90)),
+'EPSG:2098': ProjectAndUnProjectResult(
+        Point(x: -3256897.0694959406, y: 8074347.482084176),
+        Point(x: 0, y: 90)),
+'EPSG:2099': ProjectAndUnProjectResult(
+        Point(x: -2335876.019447882, y: 3037642.022973382),
+        Point(x: 18.660390541502206, y: 46.91114923329722)),
+'EPSG:2100': ProjectAndUnProjectResult(
+        Point(x: 34461.49600235146, y: 5211353.267777357),
+        Point(x: 17.888058563129825, y: 46.89226406242482)),
+'EPSG:2101': ProjectAndUnProjectResult(
+        Point(x: 8487685.253373232, y: 5517946.73175748),
+        Point(x: 17.888058560281515, y: 46.89226409307015)),
+'EPSG:2102': ProjectAndUnProjectResult(
+        Point(x: 8687685.253373232, y: 5717946.73175748),
+        Point(x: 17.888058560281515, y: 46.89226409307015)),
+'EPSG:2103': ProjectAndUnProjectResult(
+        Point(x: 8987685.253373232, y: 6017946.73175748),
+        Point(x: 17.888058560281515, y: 46.89226409307015)),
+'EPSG:2104': ProjectAndUnProjectResult(
+        Point(x: 8470641.253373232, y: 5547491.73375748),
+        Point(x: 17.888058560281515, y: 46.89226409307015)),
+'EPSG:2105': ProjectAndUnProjectResult(
+        Point(x: 32850550.065560255, y: -3270535.576852885),
+        Point(x: -4199764943.5286245, y: -5957715656.169244)),
+'EPSG:2106': ProjectAndUnProjectResult(
+        Point(x: 35759476.71623347, y: -5777315.079927069),
+        Point(x: 0, y: -90)),
+'EPSG:2107': ProjectAndUnProjectResult(
+        Point(x: 38318911.48100344, y: -8040181.450261377),
+        Point(x: 0, y: -90)),
+'EPSG:2108': ProjectAndUnProjectResult(
+        Point(x: 36125762.57713887, y: -5901469.767428318),
+        Point(x: 0, y: -90)),
+'EPSG:2109': ProjectAndUnProjectResult(
+        Point(x: 31973641.181411814, y: -2247993.836208177),
+        Point(x: -298884534.2929694, y: -423154071.5673603)),
+'EPSG:2110': ProjectAndUnProjectResult(
+        Point(x: 34327332.79609692, y: -4289279.409817552),
+        Point(x: -32742816039535.246, y: -47525696566486.016)),
+'EPSG:2111': ProjectAndUnProjectResult(
+        Point(x: 34068419.96635581, y: -3976456.4830530314),
+        Point(x: -2519565311616.5806, y: -3636547354206.4497)),
+'EPSG:2112': ProjectAndUnProjectResult(
+        Point(x: 34339673.9589003, y: -4143440.224427971),
+        Point(x: -37973903095663.65, y: -55134268755000.69)),
+'EPSG:2113': ProjectAndUnProjectResult(
+        Point(x: 32874046.41045196, y: -2797958.525036691),
+        Point(x: -4515425166.07598, y: -6406514911.378608)),
+'EPSG:2114': ProjectAndUnProjectResult(
+        Point(x: 29513789.58716431, y: 44107.2351280842),
+        Point(x: -2611936.0038365964, y: -3936120.7101866063)),
+'EPSG:2115': ProjectAndUnProjectResult(
+        Point(x: 30489035.306998402, y: -725324.512856351),
+        Point(x: -12876700.09181123, y: -18658874.29126566)),
+'EPSG:2116': ProjectAndUnProjectResult(
+        Point(x: 28656830.8124914, y: 830153.3168542829),
+        Point(x: -773156.938411585, y: -1228253.689185668)),
+'EPSG:2117': ProjectAndUnProjectResult(
+        Point(x: 27869208.089729458, y: 1544532.5120018146),
+        Point(x: -281811.1669623546, y: -476370.1261903999)),
+'EPSG:2118': ProjectAndUnProjectResult(
+        Point(x: 27822837.02783532, y: 1641064.5844478845),
+        Point(x: -266271.72178309405, y: -451885.84998319583)),
+'EPSG:2119': ProjectAndUnProjectResult(
+        Point(x: 30036695.885839436, y: -181239.37348593108),
+        Point(x: -5943326.577045224, y: -8746687.248570332)),
+'EPSG:2120': ProjectAndUnProjectResult(
+        Point(x: 31286742.00371912, y: -1383042.9101164634),
+        Point(x: -60508707.335342064, y: -86182687.46876109)),
+'EPSG:2121': ProjectAndUnProjectResult(
+        Point(x: 26989884.593294784, y: 2388592.0331349443),
+        Point(x: -100393.16164697426, y: -183187.94481468308)),
+'EPSG:2122': ProjectAndUnProjectResult(
+        Point(x: 25963676.639189754, y: 3247587.8181949467),
+        Point(x: -33322.17233272656, y: -65146.77183461389)),
+'EPSG:2123': ProjectAndUnProjectResult(
+        Point(x: 23701742.26292862, y: 5136799.454106336),
+        Point(x: -4624.2225625370465, y: -4574.04745204502)),
+'EPSG:2124': ProjectAndUnProjectResult(
+        Point(x: 29598432.423587836, y: 291775.43540201656),
+        Point(x: -2970085.785647243, y: -4456765.992337756)),
+'EPSG:2125': ProjectAndUnProjectResult(
+        Point(x: 27544492.860864505, y: 2028444.204376034),
+        Point(x: -190505.2633385869, y: -331203.45893672656)),
+'EPSG:2126': ProjectAndUnProjectResult(
+        Point(x: 27102127.331886742, y: 2465018.3980043815),
+        Point(x: -113982.78651000015, y: -205992.32562848937)),
+'EPSG:2127': ProjectAndUnProjectResult(
+        Point(x: 24862053.484980527, y: 4309331.922602151),
+        Point(x: -11494.224264886332, y: -21364.563567721947)),
+'EPSG:2128': ProjectAndUnProjectResult(
+        Point(x: 23427706.35134291, y: 5477898.539964551),
+        Point(x: -3928.8987458178717, y: -2460.4207688839397)),
+'EPSG:2129': ProjectAndUnProjectResult(
+        Point(x: 22569959.180864595, y: 6185243.87407861),
+        Point(x: -2826.4646871818013, y: 1883.3950870020797)),
+'EPSG:2130': ProjectAndUnProjectResult(
+        Point(x: 26484920.948208235, y: 3126186.532855955),
+        Point(x: -57608.89888369485, y: -109400.7560537086)),
+'EPSG:2131': ProjectAndUnProjectResult(
+        Point(x: 25993190.252229676, y: 3528578.7160891304),
+        Point(x: -34383.531734012, y: -67143.59487000619)),
+'EPSG:2132': ProjectAndUnProjectResult(
+        Point(x: 23354328.47571193, y: 5697778.310615819),
+        Point(x: -3777.7176323807585, y: -1967.9352749532163)),
+'EPSG:2133': ProjectAndUnProjectResult(
+        Point(x: 19321105.829017498, y: 12806678.893239),
+        Point(x: -5175.116548601758, y: 7749.823533021951)),
+'EPSG:2134': ProjectAndUnProjectResult(
+        Point(x: 27108574.549169235, y: 6815768.467481233),
+        Point(x: -103767.21820745953, y: -188871.77584871996)),
+'EPSG:2135': ProjectAndUnProjectResult(
+        Point(x: 36792794.61949032, y: -1620286.792548649),
+        Point(x: 0, y: -90)),
+'EPSG:2136': ProjectAndUnProjectResult(
+        Point(x: 5614423.12088311, y: 15925921.265221294),
+        Point(x: 17.887904196063886, y: 46.892270715052156)),
+'EPSG:2137': ProjectAndUnProjectResult(
+        Point(x: 1936739.2037987586, y: 5369292.99568949),
+        Point(x: 17.887904196063886, y: 46.892270715052156)),
+'EPSG:2138': ProjectAndUnProjectResult(
+        Point(x: 5088215.637831503, y: 3830123.3104011035),
+        Point(x: 17.8880585602815, y: 46.89226404782305)),
+'EPSG:2139': ProjectAndUnProjectResult(
+        Point(x: 5277537.244089515, y: 8355177.8227729015),
+        Point(x: -15979.524499782834, y: 3524.3478798098868)),
+'EPSG:2140': ProjectAndUnProjectResult(
+        Point(x: 5365095.243901447, y: 8649032.835441044),
+        Point(x: -76314.668724916, y: 16624.267920019753)),
+'EPSG:2141': ProjectAndUnProjectResult(
+        Point(x: 5425861.74852327, y: 8954491.865918288),
+        Point(x: -519603.48216074344, y: 113747.10753176517)),
+'EPSG:2142': ProjectAndUnProjectResult(
+        Point(x: 5455664.100526009, y: 9269865.456694849),
+        Point(x: -6859630.010890731, y: 1508686.9880534173)),
+'EPSG:2143': ProjectAndUnProjectResult(
+        Point(x: 5449809.877896608, y: 9592937.814035818),
+        Point(x: -411243275.37217355, y: 90346346.30780989)),
+'EPSG:2144': ProjectAndUnProjectResult(
+        Point(x: 5403037.173898023, y: 9920877.559935424),
+        Point(x: -34661211008946.938, y: 7546306826338.474)),
+'EPSG:2145': ProjectAndUnProjectResult(
+        Point(x: 5309461.530223562, y: 10250138.320860693),
+        Point(x: 0, y: 90)),
+'EPSG:2146': ProjectAndUnProjectResult(
+        Point(x: 5162519.4015817605, y: 10576348.404652024),
+        Point(x: 0, y: 90)),
+'EPSG:2147': ProjectAndUnProjectResult(
+        Point(x: 4954908.029848009, y: 10894188.79017561),
+        Point(x: 0, y: 90)),
+'EPSG:2148': ProjectAndUnProjectResult(
+        Point(x: 5518117.362620078, y: 8498017.126823647),
+        Point(x: -33811.09013364492, y: 7380.196889868285)),
+'EPSG:2149': ProjectAndUnProjectResult(
+        Point(x: 5436818.00586931, y: 10410808.927530395),
+        Point(x: 0, y: 90)),
+'EPSG:2150': ProjectAndUnProjectResult(
+        Point(x: 5019695.054228077, y: 11044701.550210133),
+        Point(x: 0, y: 90)),
+'EPSG:2151': ProjectAndUnProjectResult(
+        Point(x: -465963.8528201919, y: 11963247.506900493),
+        Point(x: 0, y: 90)),
+'EPSG:2152': ProjectAndUnProjectResult(
+        Point(x: -3328981.2161364346, y: 11193210.773121612),
+        Point(x: 0, y: 90)),
+'EPSG:2153': ProjectAndUnProjectResult(
+        Point(x: -7081100.809078519, y: 9644074.035715306),
+        Point(x: 16894389367.285646, y: 5473429537.796183)),
+'EPSG:2154': ProjectAndUnProjectResult(
+        Point(x: 1826843.263640678, y: 6750111.643270713),
+        Point(x: 17.888058560281515, y: 46.89226406700873)),
+'EPSG:2155': ProjectAndUnProjectResult(
+        Point(x: -66397670.00386956, y: 4915449.07341114),
+        Point(x: 17.88805856028151, y: 46.89226404782304)),
+'EPSG:2156': ProjectAndUnProjectResult(
+        Point(x: 27108574.549169235, y: 6815768.467481233),
+        Point(x: -103767.21820745953, y: -188871.77584871996)),
+'EPSG:2157': ProjectAndUnProjectResult(
+        Point(x: 2565971.4726937497, y: 350468.4491314345),
+        Point(x: 17.884705059466434, y: 46.89254697437338)),
+'EPSG:2159': ProjectAndUnProjectResult(
+        Point(x: 7935821.360607181, y: 16107775.865064288),
+        Point(x: 17.873538880077483, y: 46.893725941677246)),
+'EPSG:2160': ProjectAndUnProjectResult(
+        Point(x: 8235821.360607179, y: 16707775.865064288),
+        Point(x: 17.873538880077483, y: 46.893725941677246)),
+'EPSG:2161': ProjectAndUnProjectResult(
+        Point(x: 2988853.9655160126, y: 5744078.669052498),
+        Point(x: 17.848193246526034, y: 46.89671010445272)),
+'EPSG:2162': ProjectAndUnProjectResult(
+        Point(x: 2540689.9359594667, y: 5555742.024561414),
+        Point(x: 17.883147068514432, y: 46.8926992677133)),
+'EPSG:2163': ProjectAndUnProjectResult(
+        Point(x: 4812749.36130746, y: 5886812.970045971),
+        Point(x: 17.88805856028152, y: 46.89213711396999)),
+'EPSG:2164': ProjectAndUnProjectResult(
+        Point(x: 2239356.722422988, y: 5453600.967881822),
+        Point(x: 17.88706879644681, y: 46.89233278558278)),
+'EPSG:2165': ProjectAndUnProjectResult(
+        Point(x: 2239356.722422988, y: 5453600.967881822),
+        Point(x: 17.88706879644681, y: 46.89233278558278)),
+'EPSG:2166': ProjectAndUnProjectResult(
+        Point(x: 4177173.7521509556, y: 5233854.805224848),
+        Point(x: 17.88805843543354, y: 46.89226402703456)),
+'EPSG:2167': ProjectAndUnProjectResult(
+        Point(x: 4948676.953583041, y: 5212218.994202929),
+        Point(x: 17.88805855841666, y: 46.89226406291516)),
+'EPSG:2168': ProjectAndUnProjectResult(
+        Point(x: 5720093.035258308, y: 5199410.227239075),
+        Point(x: 17.888058560302017, y: 46.89226406653935)),
+'EPSG:2169': ProjectAndUnProjectResult(
+        Point(x: 972857.2949115378, y: -159826.6865358441),
+        Point(x: 17.88805685068184, y: 46.8922639380423)),
+'EPSG:2170': ProjectAndUnProjectResult(
+        Point(x: 720042.9950820229, y: 5198206.079571357),
+        Point(x: 17.888058560301882, y: 46.89226413298655)),
+'EPSG:2171': ProjectAndUnProjectResult(
+        Point(x: 4393322.894247529, y: 5236941.151522451),
+        Point(x: 17.888058560281518, y: 46.892264066591615)),
+'EPSG:2172': ProjectAndUnProjectResult(
+        Point(x: 4326864.588452859, y: 5132591.467277129),
+        Point(x: 17.88805856028151, y: 46.89226406659164)),
+'EPSG:2173': ProjectAndUnProjectResult(
+        Point(x: 3568257.9447020437, y: 5254416.038153857),
+        Point(x: 17.888058560281515, y: 46.892264066591615)),
+'EPSG:2174': ProjectAndUnProjectResult(
+        Point(x: 3795798.7416744977, y: 5096085.08764862),
+        Point(x: 17.88805856028151, y: 46.892264066591586)),
+'EPSG:2175': ProjectAndUnProjectResult(
+        Point(x: 155435.99901829852, y: 495826.7264005188),
+        Point(x: 17.888058560281372, y: 46.892264066591466)),
+'EPSG:2176': ProjectAndUnProjectResult(
+        Point(x: 5720072.31867286, y: 5198920.990764878),
+        Point(x: 17.888058560302017, y: 46.89226406695651)),
+'EPSG:2177': ProjectAndUnProjectResult(
+        Point(x: 6491469.740628461, y: 5194876.075589367),
+        Point(x: 17.888058560281518, y: 46.89226406700878)),
+'EPSG:2178': ProjectAndUnProjectResult(
+        Point(x: 7262868.68864916, y: 5199573.694242832),
+        Point(x: 17.88805856025308, y: 46.89226406692701)),
+'EPSG:2179': ProjectAndUnProjectResult(
+        Point(x: 8034311.066893917, y: 5213037.208459122),
+        Point(x: 17.88805856312982, y: 46.89226406242482)),
+'EPSG:2180': ProjectAndUnProjectResult(
+        Point(x: 415319.99980040884, y: -107766.73050999455),
+        Point(x: 17.888058560281344, y: 46.89226406700861)),
+'EPSG:2188': ProjectAndUnProjectResult(
+        Point(x: 4270856.281408513, y: 6593684.3265233915),
+        Point(x: 9.84589431168172, y: 48.22218117699896)),
+'EPSG:2189': ProjectAndUnProjectResult(
+        Point(x: 3859230.857707509, y: 6259536.256453576),
+        Point(x: 16.41805953600252, y: 47.1112421538169)),
+'EPSG:2190': ProjectAndUnProjectResult(
+        Point(x: 3859230.857707509, y: 6259536.256453576),
+        Point(x: 16.41805953600252, y: 47.1112421538169)),
+'EPSG:2191': ProjectAndUnProjectResult(
+        Point(x: 2988971.3749373723, y: 5744238.047397396),
+        Point(x: 17.848195893325798, y: 46.89671111691266)),
+'EPSG:2192': ProjectAndUnProjectResult(
+        Point(x: 1777286.9106367102, y: 2327192.5820853948),
+        Point(x: 17.888058560281518, y: 46.89226409307015)),
+'EPSG:2193': ProjectAndUnProjectResult(
+        Point(x: 31209288.20939178, y: 4306152.547655749),
+        Point(x: -5793696.938596561, y: -8531714.862681149)),
+'EPSG:2311': ProjectAndUnProjectResult(
+        Point(x: 1405147.9833163773, y: 5262228.862753582),
+        Point(x: 17.88805660756604, y: 46.89226390459157)),
+'EPSG:2194': ProjectAndUnProjectResult(
+        Point(x: -73644567.3323965, y: -1154670.6484311372),
+        Point(x: 17.88805856028149, y: 46.89226404782304)),
+'EPSG:2195': ProjectAndUnProjectResult(
+        Point(x: 63333518.09556754, y: -28676678.417839117),
+        Point(x: 0, y: -90)),
+'EPSG:2196': ProjectAndUnProjectResult(
+        Point(x: 839056.3768331184, y: 5229280.974066414),
+        Point(x: 17.888058488739624, y: 46.89226403833658)),
+'EPSG:2197': ProjectAndUnProjectResult(
+        Point(x: 948646.8348811632, y: 5211869.284666118),
+        Point(x: 17.888058558416994, y: 46.89226406333179)),
+'EPSG:2198': ProjectAndUnProjectResult(
+        Point(x: 1120089.2655463072, y: 5199321.338507943),
+        Point(x: 17.888058560302017, y: 46.89226406695651)),
+'EPSG:2199': ProjectAndUnProjectResult(
+        Point(x: 4262846.366199088, y: 5200062.991900588),
+        Point(x: 17.88805856025309, y: 46.89226406650986)),
+'EPSG:2200': ProjectAndUnProjectResult(
+        Point(x: 5816396.409235267, y: 4484244.548855066),
+        Point(x: 17.888058560281525, y: 46.89226406700881)),
+'EPSG:2201': ProjectAndUnProjectResult(
+        Point(x: 5436818.00586931, y: 10410808.927530395),
+        Point(x: 0, y: 90)),
+'EPSG:2202': ProjectAndUnProjectResult(
+        Point(x: 5625552.597278097, y: 9753575.672750814),
+        Point(x: -14563147143.452982, y: 3188443837.820243)),
+'EPSG:2203': ProjectAndUnProjectResult(
+        Point(x: 5638571.782971076, y: 9108330.901623307),
+        Point(x: -1685042.2535846238, y: 369929.7983349917)),
+'EPSG:2204': ProjectAndUnProjectResult(
+        Point(x: 23787400.955927618, y: 17368660.079646576),
+        Point(x: 17.88805856028152, y: 46.89226404782305)),
+'EPSG:2205': ProjectAndUnProjectResult(
+        Point(x: 6854798.276271999, y: 4982007.395728776),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2206': ProjectAndUnProjectResult(
+        Point(x: 8805769.047751421, y: 5235929.259281354),
+        Point(x: 17.888058718511672, y: 46.89226404752003)),
+'EPSG:2207': ProjectAndUnProjectResult(
+        Point(x: 9577427.41705964, y: 5267172.11135213),
+        Point(x: 17.888060886143315, y: 46.892263918512384)),
+'EPSG:2208': ProjectAndUnProjectResult(
+        Point(x: 10349311.392991416, y: 5307512.11048422),
+        Point(x: 17.88807717037943, y: 46.89226408153607)),
+'EPSG:2209': ProjectAndUnProjectResult(
+        Point(x: 11121520.002014376, y: 5357145.142361362),
+        Point(x: 17.888161972992478, y: 46.8922678382437)),
+'EPSG:2210': ProjectAndUnProjectResult(
+        Point(x: 11894182.166310543, y: 5416309.031604195),
+        Point(x: 17.888509172943852, y: 46.89229075729662)),
+'EPSG:2211': ProjectAndUnProjectResult(
+        Point(x: 12667463.996697692, y: 5485282.417189446),
+        Point(x: 17.889711412903996, y: 46.892389659305984)),
+'EPSG:2212': ProjectAndUnProjectResult(
+        Point(x: 13441576.821323857, y: 5564383.072511246),
+        Point(x: 17.89339995905174, y: 46.89274289000551)),
+'EPSG:2213': ProjectAndUnProjectResult(
+        Point(x: -422174.5031304131, y: 5264871.233027248),
+        Point(x: 17.88806088688771, y: 46.89226389365527)),
+'EPSG:2214': ProjectAndUnProjectResult(
+        Point(x: 1562384.735400098, y: 6216808.614645933),
+        Point(x: 17.888058539699244, y: 46.89226407911223)),
+'EPSG:2215': ProjectAndUnProjectResult(
+        Point(x: 1176883.2342184111, y: 5231709.450285565),
+        Point(x: 17.888058435869073, y: 46.89226399035672)),
+'EPSG:2216': ProjectAndUnProjectResult(
+        Point(x: 5297812.557566325, y: 7936677.687824546),
+        Point(x: 45, y: double.nan)),
+'EPSG:2217': ProjectAndUnProjectResult(
+        Point(x: 5003702.71324619, y: 7430840.209902867),
+        Point(x: 45, y: double.nan)),
+'EPSG:2219': ProjectAndUnProjectResult(
+        Point(x: 5625550.978502559, y: 9753572.604345992),
+        Point(x: 45, y: double.nan)),
+'EPSG:2220': ProjectAndUnProjectResult(
+        Point(x: 5638570.162453743, y: 9108328.03697944),
+        Point(x: 45, y: double.nan)),
+'EPSG:2222': ProjectAndUnProjectResult(
+        Point(x: -10399806.518539019, y: 25963983.55181139),
+        Point(x: 0, y: 90)),
+'EPSG:2223': ProjectAndUnProjectResult(
+        Point(x: -13543801.5364406, y: 24888413.49452938),
+        Point(x: 0, y: 90)),
+'EPSG:2224': ProjectAndUnProjectResult(
+        Point(x: -17112193.866983697, y: 23518362.396374583),
+        Point(x: 0, y: 90)),
+'EPSG:2225': ProjectAndUnProjectResult(
+        Point(x: 28587111.61301334, y: 26997662.456949394),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:2226': ProjectAndUnProjectResult(
+        Point(x: 29490928.127553083, y: 27229420.066716954),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:2227': ProjectAndUnProjectResult(
+        Point(x: 30172292.14900213, y: 26973096.865134273),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:2228': ProjectAndUnProjectResult(
+        Point(x: 30723796.796568383, y: 26753014.18956203),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:2229': ProjectAndUnProjectResult(
+        Point(x: 31683048.008086983, y: 26700474.831011876),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:2230': ProjectAndUnProjectResult(
+        Point(x: 32341774.39860955, y: 26377843.57152735),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:2231': ProjectAndUnProjectResult(
+        Point(x: 24966835.570312258, y: 22103331.55055775),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2232': ProjectAndUnProjectResult(
+        Point(x: 25415893.186310228, y: 22403922.59138125),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2233': ProjectAndUnProjectResult(
+        Point(x: 25926473.257043164, y: 22550664.953602456),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2234': ProjectAndUnProjectResult(
+        Point(x: 19813264.61785006, y: 13594950.057344127),
+        Point(x: 17.8880585602815, y: 46.89226406700873)),
+'EPSG:2235': ProjectAndUnProjectResult(
+        Point(x: 16790808.841347355, y: 20514172.842702217),
+        Point(x: 0, y: 90)),
+'EPSG:2236': ProjectAndUnProjectResult(
+        Point(x: 15489593.9793538, y: 27416023.759500574),
+        Point(x: 0, y: 90)),
+'EPSG:2237': ProjectAndUnProjectResult(
+        Point(x: 15174228.042469708, y: 27744330.387298387),
+        Point(x: 0, y: 90)),
+'EPSG:2238': ProjectAndUnProjectResult(
+        Point(x: 25311130.55373748, y: 17855126.62438337),
+        Point(x: 17.8880585602815, y: 46.89226406700873)),
+'EPSG:2239': ProjectAndUnProjectResult(
+        Point(x: 15118403.95784771, y: 25737343.78491879),
+        Point(x: 0, y: 90)),
+'EPSG:2240': ProjectAndUnProjectResult(
+        Point(x: 16034054.297333257, y: 26367116.789685585),
+        Point(x: 0, y: 90)),
+'EPSG:2312': ProjectAndUnProjectResult(
+        Point(x: 719998.6774621322, y: 5197277.81087716),
+        Point(x: 17.888058560302763, y: 46.892264030541085)),
+'EPSG:2241': ProjectAndUnProjectResult(
+        Point(x: -14057937.66792316, y: 20834716.344766933),
+        Point(x: 0, y: 90)),
+'EPSG:2242': ProjectAndUnProjectResult(
+        Point(x: -16681202.27733323, y: 19427882.720026407),
+        Point(x: 0, y: 90)),
+'EPSG:2243': ProjectAndUnProjectResult(
+        Point(x: -19420021.483049184, y: 17825378.802620754),
+        Point(x: 0, y: 90)),
+'EPSG:2244': ProjectAndUnProjectResult(
+        Point(x: 13443875.494497072, y: 24904663.664909653),
+        Point(x: 0, y: 90)),
+'EPSG:2245': ProjectAndUnProjectResult(
+        Point(x: 15414189.905530725, y: 25302765.52991212),
+        Point(x: 0, y: 90)),
+'EPSG:2246': ProjectAndUnProjectResult(
+        Point(x: 22489450.67840238, y: 16345135.930820158),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2247': ProjectAndUnProjectResult(
+        Point(x: 22967474.001053426, y: 18536097.9356242),
+        Point(x: 17.88805856028154, y: 46.89226406700873)),
+'EPSG:2248': ProjectAndUnProjectResult(
+        Point(x: 21190442.58228328, y: 14745735.004731352),
+        Point(x: 17.888058560281525, y: 46.892264067008725)),
+'EPSG:2249': ProjectAndUnProjectResult(
+        Point(x: 19196544.987085447, y: 15324376.324036006),
+        Point(x: 17.8880585602815, y: 46.89226406700874)),
+'EPSG:2250': ProjectAndUnProjectResult(
+        Point(x: 20191338.904867485, y: 12525841.79646704),
+        Point(x: 17.88805856028151, y: 46.89226406700874)),
+'EPSG:2251': ProjectAndUnProjectResult(
+        Point(x: 45461213.70641344, y: 15730349.260780366),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2252': ProjectAndUnProjectResult(
+        Point(x: 39006952.19021326, y: 15402243.62815605),
+        Point(x: 17.88805856028151, y: 46.89226406700874)),
+'EPSG:2253': ProjectAndUnProjectResult(
+        Point(x: 32899589.65714337, y: 15708442.659052998),
+        Point(x: 17.8880585602815, y: 46.892264067008746)),
+'EPSG:2254': ProjectAndUnProjectResult(
+        Point(x: 12542576.309419382, y: 27849501.874450136),
+        Point(x: 0, y: 90)),
+'EPSG:2255': ProjectAndUnProjectResult(
+        Point(x: 12992572.243961737, y: 28200799.426332887),
+        Point(x: 0, y: 90)),
+'EPSG:2256': ProjectAndUnProjectResult(
+        Point(x: 21510163.334050607, y: 21622551.551792037),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2257': ProjectAndUnProjectResult(
+        Point(x: -1740585.9429477456, y: 28162864.26349876),
+        Point(x: 0, y: 90)),
+'EPSG:2258': ProjectAndUnProjectResult(
+        Point(x: -3274517.6394728147, y: 27651211.13930479),
+        Point(x: 0, y: 90)),
+'EPSG:2259': ProjectAndUnProjectResult(
+        Point(x: -4556912.360749825, y: 27080492.584270142),
+        Point(x: 0, y: 90)),
+'EPSG:2260': ProjectAndUnProjectResult(
+        Point(x: 16771473.192916507, y: 19881470.240724),
+        Point(x: 0, y: 90)),
+'EPSG:2261': ProjectAndUnProjectResult(
+        Point(x: 16742057.214225765, y: 20198326.198150817),
+        Point(x: 0, y: 90)),
+'EPSG:2262': ProjectAndUnProjectResult(
+        Point(x: 16635885.195668623, y: 20897177.96286299),
+        Point(x: 0, y: 90)),
+'EPSG:2263': ProjectAndUnProjectResult(
+        Point(x: 20080362.042142663, y: 13503621.269838179),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2264': ProjectAndUnProjectResult(
+        Point(x: 23009024.984398797, y: 15969960.63495237),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:2313': ProjectAndUnProjectResult(
+        Point(x: 719998.6774621322, y: 5197277.81087716),
+        Point(x: 17.888058560302763, y: 46.892264030541085)),
+'EPSG:2265': ProjectAndUnProjectResult(
+        Point(x: 21212141.1777009, y: 18575411.16597377),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2266': ProjectAndUnProjectResult(
+        Point(x: 21568125.75435474, y: 18836205.032457754),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2267': ProjectAndUnProjectResult(
+        Point(x: 24956378.374106493, y: 19976436.595944285),
+        Point(x: 17.888058560281525, y: 46.89226406700874)),
+'EPSG:2268': ProjectAndUnProjectResult(
+        Point(x: 25553996.407476984, y: 20227709.19056246),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:2269': ProjectAndUnProjectResult(
+        Point(x: 28205491.53782647, y: 24245461.29358233),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:2270': ProjectAndUnProjectResult(
+        Point(x: 25833585.615591403, y: 24599246.142841343),
+        Point(x: 17.88805856028154, y: 46.892264067008725)),
+'EPSG:2271': ProjectAndUnProjectResult(
+        Point(x: 21399134.7380474, y: 14424379.654619893),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2272': ProjectAndUnProjectResult(
+        Point(x: 21600173.96859683, y: 14567500.71006338),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:2273': ProjectAndUnProjectResult(
+        Point(x: 23724086.117270596, y: 16795620.69326082),
+        Point(x: 17.88805856028151, y: 46.89226406700871)),
+'EPSG:2274': ProjectAndUnProjectResult(
+        Point(x: 23755941.686326683, y: 17389305.16558998),
+        Point(x: 17.888058560281525, y: 46.892264067008725)),
+'EPSG:2275': ProjectAndUnProjectResult(
+        Point(x: 24255654.445273776, y: 24283641.250200517),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:2276': ProjectAndUnProjectResult(
+        Point(x: 26211047.587591656, y: 27153798.92289697),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2277': ProjectAndUnProjectResult(
+        Point(x: 27620463.41867556, y: 31078601.643709395),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:2278': ProjectAndUnProjectResult(
+        Point(x: 27843540.2806729, y: 34296206.30905827),
+        Point(x: 17.88805856028154, y: 46.89226406700874)),
+'EPSG:2279': ProjectAndUnProjectResult(
+        Point(x: 27835397.22555792, y: 37629307.378124356),
+        Point(x: 17.88805856028151, y: 46.89226406700874)),
+'EPSG:2280': ProjectAndUnProjectResult(
+        Point(x: 23401765.337626535, y: 25725115.05581844),
+        Point(x: 17.888058560281525, y: 46.892264067008746)),
+'EPSG:2281': ProjectAndUnProjectResult(
+        Point(x: 24004536.819161545, y: 29432949.629476044),
+        Point(x: 17.888058560281525, y: 46.892264067008725)),
+'EPSG:2282': ProjectAndUnProjectResult(
+        Point(x: 24918173.066587433, y: 32865585.764436252),
+        Point(x: 17.8880585602815, y: 46.89226406700874)),
+'EPSG:2283': ProjectAndUnProjectResult(
+        Point(x: 31609131.381488744, y: 21591230.948789444),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:2284': ProjectAndUnProjectResult(
+        Point(x: 31900874.224490017, y: 18579489.49767648),
+        Point(x: 17.8880585602815, y: 46.89226406700872)),
+'EPSG:2285': ProjectAndUnProjectResult(
+        Point(x: 20370302.97494372, y: 23626235.953696106),
+        Point(x: 17.88805856028151, y: 46.89226406700871)),
+'EPSG:2286': ProjectAndUnProjectResult(
+        Point(x: 21028688.3365138, y: 23890497.314808477),
+        Point(x: 17.88805856028154, y: 46.892264067008746)),
+'EPSG:2287': ProjectAndUnProjectResult(
+        Point(x: 21381299.1022313, y: 16301056.100981912),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:2288': ProjectAndUnProjectResult(
+        Point(x: 21690411.735605255, y: 16558125.820239397),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:2289': ProjectAndUnProjectResult(
+        Point(x: 22059612.23928928, y: 16959866.733531255),
+        Point(x: 17.88805856028151, y: 46.89226406700871)),
+'EPSG:2290': ProjectAndUnProjectResult(
+        Point(x: 6057388.715196855, y: 3704941.015248521),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2291': ProjectAndUnProjectResult(
+        Point(x: 5757388.715196855, y: 4104941.015248521),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2292': ProjectAndUnProjectResult(
+        Point(x: 5757390.397843242, y: 4104942.040903113),
+        Point(x: 17.88805856028151, y: 46.892264067008796)),
+'EPSG:2294': ProjectAndUnProjectResult(
+        Point(x: 9621060.134025961, y: 8954489.049760353),
+        Point(x: 45, y: double.nan)),
+'EPSG:2295': ProjectAndUnProjectResult(
+        Point(x: 10650862.475597754, y: 9269862.541106977),
+        Point(x: 45, y: double.nan)),
+'EPSG:2308': ProjectAndUnProjectResult(
+        Point(x: -4513408.038980672, y: 20215696.00673072),
+        Point(x: 0, y: 90)),
+'EPSG:2309': ProjectAndUnProjectResult(
+        Point(x: -4088660.7438535104, y: 20965646.197774395),
+        Point(x: 0, y: 90)),
+'EPSG:2310': ProjectAndUnProjectResult(
+        Point(x: -1456461.55427555, y: 22141396.692297444),
+        Point(x: 0, y: 90)),
+'EPSG:2314': ProjectAndUnProjectResult(
+        Point(x: 17761076.197619386, y: 26353531.850158535),
+        Point(x: 45, y: double.nan)),
+'EPSG:2315': ProjectAndUnProjectResult(
+        Point(x: 5625633.756774111, y: 19753896.139701046),
+        Point(x: 45, y: double.nan)),
+'EPSG:2316': ProjectAndUnProjectResult(
+        Point(x: 5638668.8577555735, y: 19108646.435121816),
+        Point(x: 45, y: double.nan)),
+'EPSG:2317': ProjectAndUnProjectResult(
+        Point(x: 9480017.29162878, y: 6627405.660490662),
+        Point(x: 17.88805856028151, y: 46.89226409307016)),
+'EPSG:2318': ProjectAndUnProjectResult(
+        Point(x: -2439992.9910435663, y: 2732052.149272958),
+        Point(x: 17.88805856028151, y: 46.89226409307016)),
+'EPSG:2319': ProjectAndUnProjectResult(
+        Point(x: -194230.9522485789, y: 5235929.259281354),
+        Point(x: 17.888058718511672, y: 46.89226404752003)),
+'EPSG:2320': ProjectAndUnProjectResult(
+        Point(x: -422572.58294036053, y: 5267172.11135213),
+        Point(x: 17.888060886143315, y: 46.892263918512384)),
+'EPSG:2321': ProjectAndUnProjectResult(
+        Point(x: -650688.6070085848, y: 5307512.11048422),
+        Point(x: 17.888077170379418, y: 46.89226408153607)),
+'EPSG:2322': ProjectAndUnProjectResult(
+        Point(x: -878479.9979856231, y: 5357145.142361362),
+        Point(x: 17.888161972992492, y: 46.8922678382437)),
+'EPSG:2323': ProjectAndUnProjectResult(
+        Point(x: -1105817.8336894573, y: 5416309.031604195),
+        Point(x: 17.888509172943845, y: 46.89229075729663)),
+'EPSG:2324': ProjectAndUnProjectResult(
+        Point(x: -1332536.0033023078, y: 5485282.417189446),
+        Point(x: 17.889711412903996, y: 46.892389659305984)),
+'EPSG:2325': ProjectAndUnProjectResult(
+        Point(x: -1558423.1786761428, y: 5564383.072511246),
+        Point(x: 17.89339995905174, y: 46.89274289000551)),
+'EPSG:2326': ProjectAndUnProjectResult(
+        Point(x: -3897417.994616852, y: 9131318.503755674),
+        Point(x: 0, y: 90)),
+'EPSG:2327': ProjectAndUnProjectResult(
+        Point(x: 9328491.478380622, y: 7001530.290950692),
+        Point(x: 66.4697850700211, y: 55.685367319970595)),
+'EPSG:2328': ProjectAndUnProjectResult(
+        Point(x: 9982558.448361719, y: 7451377.650985235),
+        Point(x: 45, y: double.nan)),
+'EPSG:2329': ProjectAndUnProjectResult(
+        Point(x: 10690682.26184419, y: 7959555.287549272),
+        Point(x: 45, y: double.nan)),
+'EPSG:2330': ProjectAndUnProjectResult(
+        Point(x: 11473395.319197614, y: 8523391.635694005),
+        Point(x: 45, y: double.nan)),
+'EPSG:2331': ProjectAndUnProjectResult(
+        Point(x: 12357223.479454573, y: 9135549.480791643),
+        Point(x: 45, y: double.nan)),
+'EPSG:2332': ProjectAndUnProjectResult(
+        Point(x: 13375988.771509204, y: 9781978.871222312),
+        Point(x: 45, y: double.nan)),
+'EPSG:2333': ProjectAndUnProjectResult(
+        Point(x: 14572307.397942493, y: 10439327.334100816),
+        Point(x: 0, y: 90)),
+'EPSG:2334': ProjectAndUnProjectResult(
+        Point(x: 15999298.63160049, y: 11071718.158153336),
+        Point(x: 0, y: 90)),
+'EPSG:2335': ProjectAndUnProjectResult(
+        Point(x: 17722520.20505155, y: 11626800.653391963),
+        Point(x: 0, y: 90)),
+'EPSG:2336': ProjectAndUnProjectResult(
+        Point(x: 19822145.79304871, y: 12030969.44277301),
+        Point(x: 0, y: 90)),
+'EPSG:2337': ProjectAndUnProjectResult(
+        Point(x: 22395400.18812346, y: 12183642.986562943),
+        Point(x: 0, y: 90)),
+'EPSG:2338': ProjectAndUnProjectResult(
+        Point(x: -3671508.521619378, y: 7001530.290950692),
+        Point(x: 66.46978507002119, y: 55.685367319970595)),
+'EPSG:2339': ProjectAndUnProjectResult(
+        Point(x: -4017441.551638281, y: 7451377.650985235),
+        Point(x: 45, y: double.nan)),
+'EPSG:2340': ProjectAndUnProjectResult(
+        Point(x: -4309317.73815581, y: 7959555.287549272),
+        Point(x: 45, y: double.nan)),
+'EPSG:2341': ProjectAndUnProjectResult(
+        Point(x: -4526604.680802387, y: 8523391.635694005),
+        Point(x: 45, y: double.nan)),
+'EPSG:2342': ProjectAndUnProjectResult(
+        Point(x: -4642776.520545427, y: 9135549.480791643),
+        Point(x: 45, y: double.nan)),
+'EPSG:2343': ProjectAndUnProjectResult(
+        Point(x: -4624011.228490796, y: 9781978.871222312),
+        Point(x: 45, y: double.nan)),
+'EPSG:2344': ProjectAndUnProjectResult(
+        Point(x: -4427692.602057507, y: 10439327.334100816),
+        Point(x: 0, y: 90)),
+'EPSG:2345': ProjectAndUnProjectResult(
+        Point(x: -4000701.36839951, y: 11071718.158153336),
+        Point(x: 0, y: 90)),
+'EPSG:2346': ProjectAndUnProjectResult(
+        Point(x: -3277479.794948453, y: 11626800.653391963),
+        Point(x: 0, y: 90)),
+'EPSG:2347': ProjectAndUnProjectResult(
+        Point(x: -2177854.2069512904, y: 12030969.44277301),
+        Point(x: 0, y: 90)),
+'EPSG:2348': ProjectAndUnProjectResult(
+        Point(x: -604599.8118765403, y: 12183642.986562943),
+        Point(x: 0, y: 90)),
+'EPSG:2349': ProjectAndUnProjectResult(
+        Point(x: 21328491.47838062, y: 7001530.290950692),
+        Point(x: 66.46978507002132, y: 55.68536731997062)),
+'EPSG:2350': ProjectAndUnProjectResult(
+        Point(x: 22149848.88083156, y: 7219131.771872754),
+        Point(x: 138.37485485398375, y: 69.53969117644566)),
+'EPSG:2351': ProjectAndUnProjectResult(
+        Point(x: 22982558.448361717, y: 7451377.650985235),
+        Point(x: 45, y: double.nan)),
+'EPSG:2352': ProjectAndUnProjectResult(
+        Point(x: 23828706.44663569, y: 7698253.457248896),
+        Point(x: 45, y: double.nan)),
+'EPSG:2353': ProjectAndUnProjectResult(
+        Point(x: 24690682.261844188, y: 7959555.287549272),
+        Point(x: 45, y: double.nan)),
+'EPSG:2354': ProjectAndUnProjectResult(
+        Point(x: 25571212.091190733, y: 8234843.799559098),
+        Point(x: 45, y: double.nan)),
+'EPSG:2355': ProjectAndUnProjectResult(
+        Point(x: 26473395.319197614, y: 8523391.635694005),
+        Point(x: 45, y: double.nan)),
+'EPSG:2356': ProjectAndUnProjectResult(
+        Point(x: 27400743.7017072, y: 8824123.674719455),
+        Point(x: 45, y: double.nan)),
+'EPSG:2357': ProjectAndUnProjectResult(
+        Point(x: 28357223.479454573, y: 9135549.480791643),
+        Point(x: 45, y: double.nan)),
+'EPSG:2358': ProjectAndUnProjectResult(
+        Point(x: 29347300.543087415, y: 9455687.292939829),
+        Point(x: 45, y: double.nan)),
+'EPSG:2359': ProjectAndUnProjectResult(
+        Point(x: 30375988.771509204, y: 9781978.871222312),
+        Point(x: 45, y: double.nan)),
+'EPSG:2360': ProjectAndUnProjectResult(
+        Point(x: 31448901.665421672, y: 10111194.489013076),
+        Point(x: 0, y: 90)),
+'EPSG:2361': ProjectAndUnProjectResult(
+        Point(x: 32572307.39794249, y: 10439327.334100816),
+        Point(x: 0, y: 90)),
+'EPSG:2362': ProjectAndUnProjectResult(
+        Point(x: 33753187.40417423, y: 10761476.55450688),
+        Point(x: 0, y: 90)),
+'EPSG:2363': ProjectAndUnProjectResult(
+        Point(x: 34999298.63160049, y: 11071718.158153336),
+        Point(x: 0, y: 90)),
+'EPSG:2364': ProjectAndUnProjectResult(
+        Point(x: 36319239.57318527, y: 11362962.948737264),
+        Point(x: 0, y: 90)),
+'EPSG:2365': ProjectAndUnProjectResult(
+        Point(x: 37722520.20505155, y: 11626800.653391963),
+        Point(x: 0, y: 90)),
+'EPSG:2366': ProjectAndUnProjectResult(
+        Point(x: 39219635.95061495, y: 11853329.370940657),
+        Point(x: 0, y: 90)),
+'EPSG:2367': ProjectAndUnProjectResult(
+        Point(x: 40822145.79304871, y: 12030969.44277301),
+        Point(x: 0, y: 90)),
+'EPSG:2368': ProjectAndUnProjectResult(
+        Point(x: 42542754.65795568, y: 12146260.82159941),
+        Point(x: 0, y: 90)),
+'EPSG:2369': ProjectAndUnProjectResult(
+        Point(x: 44395400.18812346, y: 12183642.986562943),
+        Point(x: 0, y: 90)),
+'EPSG:2370': ProjectAndUnProjectResult(
+        Point(x: -3671508.521619378, y: 7001530.290950692),
+        Point(x: 66.46978507002119, y: 55.685367319970595)),
+'EPSG:2371': ProjectAndUnProjectResult(
+        Point(x: -3850151.1191684427, y: 7219131.771872754),
+        Point(x: 138.37485485398398, y: 69.53969117644573)),
+'EPSG:2372': ProjectAndUnProjectResult(
+        Point(x: -4017441.551638281, y: 7451377.650985235),
+        Point(x: 45, y: double.nan)),
+'EPSG:2373': ProjectAndUnProjectResult(
+        Point(x: -4171293.5533643113, y: 7698253.457248896),
+        Point(x: 45, y: double.nan)),
+'EPSG:2374': ProjectAndUnProjectResult(
+        Point(x: -4309317.73815581, y: 7959555.287549272),
+        Point(x: 45, y: double.nan)),
+'EPSG:2375': ProjectAndUnProjectResult(
+        Point(x: -4428787.908809266, y: 8234843.799559098),
+        Point(x: 45, y: double.nan)),
+'EPSG:2376': ProjectAndUnProjectResult(
+        Point(x: -4526604.680802387, y: 8523391.635694005),
+        Point(x: 45, y: double.nan)),
+'EPSG:2377': ProjectAndUnProjectResult(
+        Point(x: -4599256.2982928, y: 8824123.674719455),
+        Point(x: 45, y: double.nan)),
+'EPSG:2378': ProjectAndUnProjectResult(
+        Point(x: -4642776.520545427, y: 9135549.480791643),
+        Point(x: 45, y: double.nan)),
+'EPSG:2379': ProjectAndUnProjectResult(
+        Point(x: -4652699.456912585, y: 9455687.292939829),
+        Point(x: 45, y: double.nan)),
+'EPSG:2380': ProjectAndUnProjectResult(
+        Point(x: -4624011.228490796, y: 9781978.871222312),
+        Point(x: 45, y: double.nan)),
+'EPSG:2381': ProjectAndUnProjectResult(
+        Point(x: -4551098.334578328, y: 10111194.489013076),
+        Point(x: 0, y: 90)),
+'EPSG:2382': ProjectAndUnProjectResult(
+        Point(x: -4427692.602057507, y: 10439327.334100816),
+        Point(x: 0, y: 90)),
+'EPSG:2383': ProjectAndUnProjectResult(
+        Point(x: -4246812.595825768, y: 10761476.55450688),
+        Point(x: 0, y: 90)),
+'EPSG:2384': ProjectAndUnProjectResult(
+        Point(x: -4000701.36839951, y: 11071718.158153336),
+        Point(x: 0, y: 90)),
+'EPSG:2385': ProjectAndUnProjectResult(
+        Point(x: -3680760.4268147284, y: 11362962.948737264),
+        Point(x: 0, y: 90)),
+'EPSG:2386': ProjectAndUnProjectResult(
+        Point(x: -3277479.794948453, y: 11626800.653391963),
+        Point(x: 0, y: 90)),
+'EPSG:2387': ProjectAndUnProjectResult(
+        Point(x: -2780364.0493850503, y: 11853329.370940657),
+        Point(x: 0, y: 90)),
+'EPSG:2388': ProjectAndUnProjectResult(
+        Point(x: -2177854.2069512904, y: 12030969.44277301),
+        Point(x: 0, y: 90)),
+'EPSG:2389': ProjectAndUnProjectResult(
+        Point(x: -1457245.342044324, y: 12146260.82159941),
+        Point(x: 0, y: 90)),
+'EPSG:2390': ProjectAndUnProjectResult(
+        Point(x: -604599.8118765403, y: 12183642.986562943),
+        Point(x: 0, y: 90)),
+'EPSG:2391': ProjectAndUnProjectResult(
+        Point(x: 1262842.9196231922, y: 5200165.167624162),
+        Point(x: 17.888058560252794, y: 46.89226409298808)),
+'EPSG:2392': ProjectAndUnProjectResult(
+        Point(x: 2034260.4752943327, y: 5213630.325016417),
+        Point(x: 17.888058563117774, y: 46.8922640884662)),
+'EPSG:2393': ProjectAndUnProjectResult(
+        Point(x: 2805769.047751421, y: 5235929.259281354),
+        Point(x: 17.888058718511672, y: 46.89226404752003)),
+'EPSG:2394': ProjectAndUnProjectResult(
+        Point(x: 3577427.4170596395, y: 5267172.11135213),
+        Point(x: 17.888060886143315, y: 46.892263918512384)),
+'EPSG:2395': ProjectAndUnProjectResult(
+        Point(x: 6441604.82542362, y: 5564270.833365575),
+        Point(x: 17.89339993355319, y: 46.89274300140399)),
+'EPSG:2396': ProjectAndUnProjectResult(
+        Point(x: 6993453.954178276, y: 5754300.314963382),
+        Point(x: 17.93093565100568, y: 46.89708114575195)),
+'EPSG:2397': ProjectAndUnProjectResult(
+        Point(x: 4177173.7521509556, y: 5233854.805224848),
+        Point(x: 17.88805843543354, y: 46.89226402703456)),
+'EPSG:2398': ProjectAndUnProjectResult(
+        Point(x: 4948676.953583041, y: 5212218.994202929),
+        Point(x: 17.88805855841666, y: 46.89226406291516)),
+'EPSG:2399': ProjectAndUnProjectResult(
+        Point(x: 5720093.035258308, y: 5199410.227239075),
+        Point(x: 17.888058560302017, y: 46.89226406653935)),
+'EPSG:2400': ProjectAndUnProjectResult(
+        Point(x: 1658477.7552794372, y: 5196775.451293881),
+        Point(x: 17.88805856028566, y: 46.89226413303138)),
+'EPSG:2401': ProjectAndUnProjectResult(
+        Point(x: 21328421.340581, y: 7001646.258530278),
+        Point(x: 66.46970363157362, y: 55.685356944014764)),
+'EPSG:2402': ProjectAndUnProjectResult(
+        Point(x: 22149775.645459887, y: 7219251.3477785075),
+        Point(x: 138.37464126753517, y: 69.5396588188438)),
+'EPSG:2403': ProjectAndUnProjectResult(
+        Point(x: 22982482.289308187, y: 7451501.090610668),
+        Point(x: 45, y: double.nan)),
+'EPSG:2404': ProjectAndUnProjectResult(
+        Point(x: 23828627.571863763, y: 7698381.019035124),
+        Point(x: 45, y: double.nan)),
+'EPSG:2405': ProjectAndUnProjectResult(
+        Point(x: 24690600.918627873, y: 7959687.230352008),
+        Point(x: 45, y: double.nan)),
+'EPSG:2406': ProjectAndUnProjectResult(
+        Point(x: 25571128.57196385, y: 8234980.379304201),
+        Point(x: 45, y: double.nan)),
+'EPSG:2407': ProjectAndUnProjectResult(
+        Point(x: 26473309.968065694, y: 8523533.10121544),
+        Point(x: 45, y: double.nan)),
+'EPSG:2408': ProjectAndUnProjectResult(
+        Point(x: 27400656.92167488, y: 8824270.262663634),
+        Point(x: 45, y: double.nan)),
+'EPSG:2409': ProjectAndUnProjectResult(
+        Point(x: 28357135.740423597, y: 9135701.409461653),
+        Point(x: 45, y: double.nan)),
+'EPSG:2410': ProjectAndUnProjectResult(
+        Point(x: 29347212.390682768, y: 9455844.75494226),
+        Point(x: 45, y: double.nan)),
+'EPSG:32602': ProjectAndUnProjectResult(
+        Point(x: 63333518.09363211, y: -38676678.41689138),
+        Point(x: 0, y: -90)),
+'EPSG:2411': ProjectAndUnProjectResult(
+        Point(x: 30375900.836793117, y: 9782142.024768146),
+        Point(x: 45, y: double.nan)),
+'EPSG:2412': ProjectAndUnProjectResult(
+        Point(x: 31448814.675557498, y: 10111363.447712325),
+        Point(x: 0, y: 90)),
+'EPSG:2413': ProjectAndUnProjectResult(
+        Point(x: 32572222.187872894, y: 10439502.15507849),
+        Point(x: 0, y: 90)),
+'EPSG:2414': ProjectAndUnProjectResult(
+        Point(x: 33753104.92938021, y: 10761657.224655224),
+        Point(x: 0, y: 90)),
+'EPSG:2415': ProjectAndUnProjectResult(
+        Point(x: 34999219.9820103, y: 11071904.578322321),
+        Point(x: 0, y: 90)),
+'EPSG:2416': ProjectAndUnProjectResult(
+        Point(x: 36319165.98830434, y: 11363154.915651683),
+        Point(x: 0, y: 90)),
+'EPSG:2417': ProjectAndUnProjectResult(
+        Point(x: 37722453.090387024, y: 11626997.839069745),
+        Point(x: 0, y: 90)),
+'EPSG:2418': ProjectAndUnProjectResult(
+        Point(x: 39219576.895470664, y: 11853531.29937249),
+        Point(x: 0, y: 90)),
+'EPSG:2419': ProjectAndUnProjectResult(
+        Point(x: 40822096.5897686, y: 12031175.463608662),
+        Point(x: 0, y: 90)),
+'EPSG:32603': ProjectAndUnProjectResult(
+        Point(x: 81069695.48161745, y: -59099747.137833305),
+        Point(x: 0, y: -90)),
+'EPSG:2420': ProjectAndUnProjectResult(
+        Point(x: 42542717.322696224, y: 12146470.080570836),
+        Point(x: 0, y: 90)),
+'EPSG:2421': ProjectAndUnProjectResult(
+        Point(x: 44395376.983237706, y: 12183854.3923586),
+        Point(x: 0, y: 90)),
+'EPSG:2422': ProjectAndUnProjectResult(
+        Point(x: -3671578.659419, y: 7001646.258530278),
+        Point(x: 66.46970363157362, y: 55.685356944014764)),
+'EPSG:2423': ProjectAndUnProjectResult(
+        Point(x: -3850224.3545401134, y: 7219251.3477785075),
+        Point(x: 138.37464126753517, y: 69.5396588188438)),
+'EPSG:2424': ProjectAndUnProjectResult(
+        Point(x: -4017517.7106918134, y: 7451501.090610668),
+        Point(x: 45, y: double.nan)),
+'EPSG:2425': ProjectAndUnProjectResult(
+        Point(x: -4171372.428136235, y: 7698381.019035124),
+        Point(x: 45, y: double.nan)),
+'EPSG:2426': ProjectAndUnProjectResult(
+        Point(x: -4309399.081372126, y: 7959687.230352008),
+        Point(x: 45, y: double.nan)),
+'EPSG:2427': ProjectAndUnProjectResult(
+        Point(x: -4428871.4280361505, y: 8234980.379304201),
+        Point(x: 45, y: double.nan)),
+'EPSG:2428': ProjectAndUnProjectResult(
+        Point(x: -4526690.031934304, y: 8523533.10121544),
+        Point(x: 45, y: double.nan)),
+'EPSG:2988': ProjectAndUnProjectResult(
+        Point(x: 48731573.509643055, y: -13181767.564816851),
+        Point(x: 0, y: -90)),
+'EPSG:2429': ProjectAndUnProjectResult(
+        Point(x: -4599343.078325118, y: 8824270.262663634),
+        Point(x: 45, y: double.nan)),
+'EPSG:2430': ProjectAndUnProjectResult(
+        Point(x: -4642864.259576404, y: 9135701.409461653),
+        Point(x: 45, y: double.nan)),
+'EPSG:2431': ProjectAndUnProjectResult(
+        Point(x: -4652787.609317232, y: 9455844.75494226),
+        Point(x: 45, y: double.nan)),
+'EPSG:2432': ProjectAndUnProjectResult(
+        Point(x: -4624099.163206885, y: 9782142.024768146),
+        Point(x: 45, y: double.nan)),
+'EPSG:2433': ProjectAndUnProjectResult(
+        Point(x: -4551185.324442502, y: 10111363.447712325),
+        Point(x: 0, y: 90)),
+'EPSG:2434': ProjectAndUnProjectResult(
+        Point(x: -4427777.812127108, y: 10439502.15507849),
+        Point(x: 0, y: 90)),
+'EPSG:2435': ProjectAndUnProjectResult(
+        Point(x: -4246895.070619788, y: 10761657.224655224),
+        Point(x: 0, y: 90)),
+'EPSG:2436': ProjectAndUnProjectResult(
+        Point(x: -4000780.0179897044, y: 11071904.578322321),
+        Point(x: 0, y: 90)),
+'EPSG:2437': ProjectAndUnProjectResult(
+        Point(x: -3680834.011695663, y: 11363154.915651683),
+        Point(x: 0, y: 90)),
+'EPSG:3008': ProjectAndUnProjectResult(
+        Point(x: 484387.03616155894, y: 5204627.243488797),
+        Point(x: 17.888058560316225, y: 46.89226406636951)),
+'EPSG:2438': ProjectAndUnProjectResult(
+        Point(x: -3277546.9096129737, y: 11626997.839069745),
+        Point(x: 0, y: 90)),
+'EPSG:2439': ProjectAndUnProjectResult(
+        Point(x: -2780423.104529338, y: 11853531.29937249),
+        Point(x: 0, y: 90)),
+'EPSG:2440': ProjectAndUnProjectResult(
+        Point(x: -2177903.4102313956, y: 12031175.463608662),
+        Point(x: 0, y: 90)),
+'EPSG:2441': ProjectAndUnProjectResult(
+        Point(x: -1457282.6773037752, y: 12146470.080570836),
+        Point(x: 0, y: 90)),
+'EPSG:2442': ProjectAndUnProjectResult(
+        Point(x: -604623.0167622955, y: 12183854.3923586),
+        Point(x: 0, y: 90)),
+'EPSG:2443': ProjectAndUnProjectResult(
+        Point(x: -2566056.9116173303, y: 8401313.58870162),
+        Point(x: 0, y: 90)),
+'EPSG:2444': ProjectAndUnProjectResult(
+        Point(x: -2211182.2634812854, y: 8462072.812029004),
+        Point(x: 0, y: 90)),
+'EPSG:2445': ProjectAndUnProjectResult(
+        Point(x: -1913282.6153144585, y: 8164170.9970185),
+        Point(x: 0, y: 90)),
+'EPSG:2446': ProjectAndUnProjectResult(
+        Point(x: -1548193.3456383753, y: 8522145.552706772),
+        Point(x: 0, y: 90)),
+'EPSG:2955': ProjectAndUnProjectResult(
+        Point(x: -7081100.809078519, y: 9644074.035715306),
+        Point(x: 16894389367.285646, y: 5473429537.796183)),
+'EPSG:2447': ProjectAndUnProjectResult(
+        Point(x: -1306115.9982166318, y: 8196578.576068864),
+        Point(x: 0, y: 90)),
+'EPSG:2448': ProjectAndUnProjectResult(
+        Point(x: -788366.1033867978, y: 8189401.718133621),
+        Point(x: 0, y: 90)),
+'EPSG:2449': ProjectAndUnProjectResult(
+        Point(x: -398086.9536182322, y: 8165821.33190225),
+        Point(x: 0, y: 90)),
+'EPSG:2450': ProjectAndUnProjectResult(
+        Point(x: 77463.83204888566, y: 8118405.0916535165),
+        Point(x: 0, y: 90)),
+'EPSG:2451': ProjectAndUnProjectResult(
+        Point(x: 585959.9308690846, y: 8047327.498372015),
+        Point(x: 0, y: 90)),
+'EPSG:2452': ProjectAndUnProjectResult(
+        Point(x: 989901.510910523, y: 7533339.024756886),
+        Point(x: 0, y: 90)),
+'EPSG:2453': ProjectAndUnProjectResult(
+        Point(x: 751869.6886925661, y: 7131756.363145234),
+        Point(x: 0, y: 90)),
+'EPSG:2454': ProjectAndUnProjectResult(
+        Point(x: 1596744.7812366635, y: 6963379.403117015),
+        Point(x: 0, y: 90)),
+'EPSG:2455': ProjectAndUnProjectResult(
+        Point(x: 2526128.1328379745, y: 6728261.832241865),
+        Point(x: 0, y: 90)),
+'EPSG:3009': ProjectAndUnProjectResult(
+        Point(x: 370089.2655463072, y: 5199321.338507943),
+        Point(x: 17.888058560302017, y: 46.89226406695651)),
+'EPSG:2456': ProjectAndUnProjectResult(
+        Point(x: 1486633.193392855, y: 8984705.502253164),
+        Point(x: 0, y: 90)),
+'EPSG:2457': ProjectAndUnProjectResult(
+        Point(x: -2992748.9178998745, y: 9071307.830204587),
+        Point(x: 0, y: 90)),
+'EPSG:2458': ProjectAndUnProjectResult(
+        Point(x: -3622384.886812397, y: 8829268.069555495),
+        Point(x: 0, y: 90)),
+'EPSG:2459': ProjectAndUnProjectResult(
+        Point(x: -2211182.2634812854, y: 9237908.69123874),
+        Point(x: 0, y: 90)),
+'EPSG:2460': ProjectAndUnProjectResult(
+        Point(x: -788366.1033867978, y: 9962400.81668543),
+        Point(x: 0, y: 90)),
+'EPSG:2461': ProjectAndUnProjectResult(
+        Point(x: 8475126.70697138, y: 6334051.65944307),
+        Point(x: -131825587.42186226, y: 47833306.95865751)),
+'EPSG:2462': ProjectAndUnProjectResult(
+        Point(x: 4262846.366199088, y: 5200062.991900588),
+        Point(x: 17.88805856025309, y: 46.89226406650986)),
+'EPSG:2463': ProjectAndUnProjectResult(
+        Point(x: 262846.3661990886, y: 5200062.991900588),
+        Point(x: 17.88805856025309, y: 46.89226406650986)),
+'EPSG:2464': ProjectAndUnProjectResult(
+        Point(x: -194220.9233581887, y: 5235826.072617986),
+        Point(x: 17.88805871864596, y: 46.892264021268176)),
+'EPSG:2465': ProjectAndUnProjectResult(
+        Point(x: -650672.1876254713, y: 5307406.913783019),
+        Point(x: 17.888077173334445, y: 46.892264059719786)),
+'EPSG:2466': ProjectAndUnProjectResult(
+        Point(x: -1105795.3633154412, y: 5416200.817466673),
+        Point(x: 17.888509189955833, y: 46.89229076437375)),
+'EPSG:2467': ProjectAndUnProjectResult(
+        Point(x: -1558395.1745763805, y: 5564270.833365575),
+        Point(x: 17.893399933553184, y: 46.89274300140399)),
+'EPSG:2468': ProjectAndUnProjectResult(
+        Point(x: -2006546.045821725, y: 5754300.314963382),
+        Point(x: 17.93093565100567, y: 46.89708114575195)),
+'EPSG:2469': ProjectAndUnProjectResult(
+        Point(x: -2447290.12203443, y: 5989497.450296735),
+        Point(x: 18.163219497381576, y: 46.928551732515096)),
+'EPSG:2470': ProjectAndUnProjectResult(
+        Point(x: -2876264.7961262385, y: 6273424.221140283),
+        Point(x: 19.454707772562468, y: 47.12664112954269)),
+'EPSG:2471': ProjectAndUnProjectResult(
+        Point(x: -3287244.1429319805, y: 6609715.389850158),
+        Point(x: 26.457526171544988, y: 48.3144402829855)),
+'EPSG:2472': ProjectAndUnProjectResult(
+        Point(x: -3671578.659419, y: 7001646.258530278),
+        Point(x: 66.46970363157362, y: 55.685356944014764)),
+'EPSG:2473': ProjectAndUnProjectResult(
+        Point(x: -4017517.7106918134, y: 7451501.090610668),
+        Point(x: 45, y: double.nan)),
+'EPSG:2474': ProjectAndUnProjectResult(
+        Point(x: -4309399.081372126, y: 7959687.230352008),
+        Point(x: 45, y: double.nan)),
+'EPSG:2475': ProjectAndUnProjectResult(
+        Point(x: -4526690.031934304, y: 8523533.10121544),
+        Point(x: 45, y: double.nan)),
+'EPSG:2476': ProjectAndUnProjectResult(
+        Point(x: -4642864.259576404, y: 9135701.409461653),
+        Point(x: 45, y: double.nan)),
+'EPSG:2477': ProjectAndUnProjectResult(
+        Point(x: -4624099.163206885, y: 9782142.024768146),
+        Point(x: 45, y: double.nan)),
+'EPSG:2478': ProjectAndUnProjectResult(
+        Point(x: -4427777.812127108, y: 10439502.15507849),
+        Point(x: 0, y: 90)),
+'EPSG:2479': ProjectAndUnProjectResult(
+        Point(x: -4000780.0179897044, y: 11071904.578322321),
+        Point(x: 0, y: 90)),
+'EPSG:2480': ProjectAndUnProjectResult(
+        Point(x: -3277546.9096129737, y: 11626997.839069745),
+        Point(x: 0, y: 90)),
+'EPSG:2481': ProjectAndUnProjectResult(
+        Point(x: -2177903.4102313956, y: 12031175.463608662),
+        Point(x: 0, y: 90)),
+'EPSG:2482': ProjectAndUnProjectResult(
+        Point(x: -604623.0167622955, y: 12183854.3923586),
+        Point(x: 0, y: 90)),
+'EPSG:2483': ProjectAndUnProjectResult(
+        Point(x: 1559280.7193310524, y: 11950695.97395934),
+        Point(x: 0, y: 90)),
+'EPSG:2484': ProjectAndUnProjectResult(
+        Point(x: 4453551.610000001, y: 11155646.010797745),
+        Point(x: 0, y: 90)),
+'EPSG:2485': ProjectAndUnProjectResult(
+        Point(x: 8243992.74781446, y: 9571663.49116099),
+        Point(x: 45, y: double.nan)),
+'EPSG:2486': ProjectAndUnProjectResult(
+        Point(x: 13126088.52283026, y: 6910000.788629317),
+        Point(x: 45, y: double.nan)),
+'EPSG:2487': ProjectAndUnProjectResult(
+        Point(x: 19328962.339539673, y: 2807891.254746426),
+        Point(x: 45, y: double.nan)),
+'EPSG:2488': ProjectAndUnProjectResult(
+        Point(x: 27119685.634325188, y: -3185506.723569556),
+        Point(x: -135, y: double.nan)),
+'EPSG:2489': ProjectAndUnProjectResult(
+        Point(x: 36807953.793836035, y: -11625066.984986547),
+        Point(x: 0, y: -90)),
+'EPSG:2490': ProjectAndUnProjectResult(
+        Point(x: 48751144.57470795, y: -23187718.81077772),
+        Point(x: 0, y: -90)),
+'EPSG:2491': ProjectAndUnProjectResult(
+        Point(x: 63359774.6250457, y: -38692707.59016192),
+        Point(x: 0, y: -90)),
+'EPSG:2492': ProjectAndUnProjectResult(
+        Point(x: 1177173.7521509558, y: 5233854.805224848),
+        Point(x: 17.888058435433543, y: 46.89226402703456)),
+'EPSG:2493': ProjectAndUnProjectResult(
+        Point(x: 720093.0352583079, y: 5199410.227239075),
+        Point(x: 17.888058560302014, y: 46.89226406653935)),
+'EPSG:2494': ProjectAndUnProjectResult(
+        Point(x: 262846.3661990886, y: 5200062.991900588),
+        Point(x: 17.88805856025309, y: 46.89226406650986)),
+'EPSG:2495': ProjectAndUnProjectResult(
+        Point(x: -194220.9233581887, y: 5235826.072617986),
+        Point(x: 17.88805871864596, y: 46.892264021268176)),
+'EPSG:2496': ProjectAndUnProjectResult(
+        Point(x: -650672.1876254713, y: 5307406.913783019),
+        Point(x: 17.888077173334445, y: 46.892264059719786)),
+'EPSG:2497': ProjectAndUnProjectResult(
+        Point(x: -1105795.3633154412, y: 5416200.817466673),
+        Point(x: 17.888509189955833, y: 46.89229076437375)),
+'EPSG:2498': ProjectAndUnProjectResult(
+        Point(x: -1558395.1745763805, y: 5564270.833365575),
+        Point(x: 17.893399933553184, y: 46.89274300140399)),
+'EPSG:2499': ProjectAndUnProjectResult(
+        Point(x: -2006546.045821725, y: 5754300.314963382),
+        Point(x: 17.93093565100567, y: 46.89708114575195)),
+'EPSG:2500': ProjectAndUnProjectResult(
+        Point(x: -2447290.12203443, y: 5989497.450296735),
+        Point(x: 18.163219497381576, y: 46.928551732515096)),
+'EPSG:2501': ProjectAndUnProjectResult(
+        Point(x: -2876264.7961262385, y: 6273424.221140283),
+        Point(x: 19.454707772562468, y: 47.12664112954269)),
+'EPSG:2502': ProjectAndUnProjectResult(
+        Point(x: -3287244.1429319805, y: 6609715.389850158),
+        Point(x: 26.457526171544988, y: 48.3144402829855)),
+'EPSG:2503': ProjectAndUnProjectResult(
+        Point(x: -3671578.659419, y: 7001646.258530278),
+        Point(x: 66.46970363157362, y: 55.685356944014764)),
+'EPSG:2504': ProjectAndUnProjectResult(
+        Point(x: -4017517.7106918134, y: 7451501.090610668),
+        Point(x: 45, y: double.nan)),
+'EPSG:2505': ProjectAndUnProjectResult(
+        Point(x: -4309399.081372126, y: 7959687.230352008),
+        Point(x: 45, y: double.nan)),
+'EPSG:2506': ProjectAndUnProjectResult(
+        Point(x: -4526690.031934304, y: 8523533.10121544),
+        Point(x: 45, y: double.nan)),
+'EPSG:2507': ProjectAndUnProjectResult(
+        Point(x: -4642864.259576404, y: 9135701.409461653),
+        Point(x: 45, y: double.nan)),
+'EPSG:2508': ProjectAndUnProjectResult(
+        Point(x: -4624099.163206885, y: 9782142.024768146),
+        Point(x: 45, y: double.nan)),
+'EPSG:2509': ProjectAndUnProjectResult(
+        Point(x: -4427777.812127108, y: 10439502.15507849),
+        Point(x: 0, y: 90)),
+'EPSG:2510': ProjectAndUnProjectResult(
+        Point(x: -4000780.0179897044, y: 11071904.578322321),
+        Point(x: 0, y: 90)),
+'EPSG:2511': ProjectAndUnProjectResult(
+        Point(x: -3277546.9096129737, y: 11626997.839069745),
+        Point(x: 0, y: 90)),
+'EPSG:2512': ProjectAndUnProjectResult(
+        Point(x: -2177903.4102313956, y: 12031175.463608662),
+        Point(x: 0, y: 90)),
+'EPSG:2513': ProjectAndUnProjectResult(
+        Point(x: -604623.0167622955, y: 12183854.3923586),
+        Point(x: 0, y: 90)),
+'EPSG:2514': ProjectAndUnProjectResult(
+        Point(x: 1559280.7193310524, y: 11950695.97395934),
+        Point(x: 0, y: 90)),
+'EPSG:2515': ProjectAndUnProjectResult(
+        Point(x: 4453551.610000001, y: 11155646.010797745),
+        Point(x: 0, y: 90)),
+'EPSG:2516': ProjectAndUnProjectResult(
+        Point(x: 8243992.74781446, y: 9571663.49116099),
+        Point(x: 45, y: double.nan)),
+'EPSG:2517': ProjectAndUnProjectResult(
+        Point(x: 13126088.52283026, y: 6910000.788629317),
+        Point(x: 45, y: double.nan)),
+'EPSG:2518': ProjectAndUnProjectResult(
+        Point(x: 19328962.339539673, y: 2807891.254746426),
+        Point(x: 45, y: double.nan)),
+'EPSG:2519': ProjectAndUnProjectResult(
+        Point(x: 27119685.634325188, y: -3185506.723569556),
+        Point(x: -135, y: double.nan)),
+'EPSG:2520': ProjectAndUnProjectResult(
+        Point(x: 36807953.793836035, y: -11625066.984986547),
+        Point(x: 0, y: -90)),
+'EPSG:2521': ProjectAndUnProjectResult(
+        Point(x: 48751144.57470795, y: -23187718.81077772),
+        Point(x: 0, y: -90)),
+'EPSG:2522': ProjectAndUnProjectResult(
+        Point(x: 63359774.6250457, y: -38692707.59016192),
+        Point(x: 0, y: -90)),
+'EPSG:2523': ProjectAndUnProjectResult(
+        Point(x: 7262846.366199088, y: 5200062.991900588),
+        Point(x: 17.88805856025309, y: 46.89226406650986)),
+'EPSG:2524': ProjectAndUnProjectResult(
+        Point(x: 8034267.228662017, y: 5213527.768175429),
+        Point(x: 17.888058563130237, y: 46.892264062008316)),
+'EPSG:2525': ProjectAndUnProjectResult(
+        Point(x: 8805779.076641811, y: 5235826.072617986),
+        Point(x: 17.888058718645958, y: 46.892264021268176)),
+'EPSG:2526': ProjectAndUnProjectResult(
+        Point(x: 9577440.673818503, y: 5267068.045127224),
+        Point(x: 17.88806088691339, y: 46.89226389327887)),
+'EPSG:2527': ProjectAndUnProjectResult(
+        Point(x: 10349327.812374528, y: 5307406.913783019),
+        Point(x: 17.888077173334445, y: 46.892264059719786)),
+'EPSG:2528': ProjectAndUnProjectResult(
+        Point(x: 11121539.49962096, y: 5357038.56321737),
+        Point(x: 17.888161981294775, y: 46.89226782541496)),
+'EPSG:2529': ProjectAndUnProjectResult(
+        Point(x: 11894204.63668456, y: 5416200.817466673),
+        Point(x: 17.88850918995584, y: 46.89229076437375)),
+'EPSG:2530': ProjectAndUnProjectResult(
+        Point(x: 12667489.311134024, y: 5485172.315815368),
+        Point(x: 17.88971143278467, y: 46.89238970488411)),
+'EPSG:2531': ProjectAndUnProjectResult(
+        Point(x: 13441604.825423619, y: 5564270.833365575),
+        Point(x: 17.893399933553173, y: 46.892743001403986)),
+'EPSG:2532': ProjectAndUnProjectResult(
+        Point(x: 14216816.583032547, y: 5653850.871291727),
+        Point(x: 17.903750614368704, y: 46.8938576772831)),
+'EPSG:2533': ProjectAndUnProjectResult(
+        Point(x: 14993453.954178276, y: 5754300.314963382),
+        Point(x: 17.93093565100568, y: 46.89708114575195)),
+'EPSG:2534': ProjectAndUnProjectResult(
+        Point(x: 15771921.242982153, y: 5866035.931343889),
+        Point(x: 17.99893740943696, y: 46.905834368070956)),
+'EPSG:2535': ProjectAndUnProjectResult(
+        Point(x: 16552709.87796557, y: 5989497.450296735),
+        Point(x: 18.163219497381576, y: 46.928551732515096)),
+'EPSG:2536': ProjectAndUnProjectResult(
+        Point(x: 17336411.947754934, y: 6125139.947655839),
+        Point(x: 18.551016267255388, y: 46.985693248678174)),
+'EPSG:2537': ProjectAndUnProjectResult(
+        Point(x: 18123735.20387376, y: 6273424.221140283),
+        Point(x: 19.45470777256246, y: 47.12664112954269)),
+'EPSG:2538': ProjectAndUnProjectResult(
+        Point(x: 18915519.65250017, y: 6434804.823418373),
+        Point(x: 21.55354594579424, y: 47.4712010256066)),
+'EPSG:2539': ProjectAndUnProjectResult(
+        Point(x: 19712755.85706802, y: 6609715.389850158),
+        Point(x: 26.45752617154498, y: 48.3144402829855)),
+'EPSG:2540': ProjectAndUnProjectResult(
+        Point(x: 20516605.073590003, y: 6798550.871661895),
+        Point(x: 38.097803805976106, y: 50.40166772433958)),
+'EPSG:2541': ProjectAndUnProjectResult(
+        Point(x: 21328421.340581, y: 7001646.258530278),
+        Point(x: 66.46970363157362, y: 55.685356944014764)),
+'EPSG:2542': ProjectAndUnProjectResult(
+        Point(x: 22149775.645459887, y: 7219251.3477785075),
+        Point(x: 138.37464126753517, y: 69.5396588188438)),
+'EPSG:2543': ProjectAndUnProjectResult(
+        Point(x: 22982482.289308187, y: 7451501.090610668),
+        Point(x: 45, y: double.nan)),
+'EPSG:2544': ProjectAndUnProjectResult(
+        Point(x: 23828627.571863763, y: 7698381.019035124),
+        Point(x: 45, y: double.nan)),
+'EPSG:2545': ProjectAndUnProjectResult(
+        Point(x: 24690600.918627873, y: 7959687.230352008),
+        Point(x: 45, y: double.nan)),
+'EPSG:2546': ProjectAndUnProjectResult(
+        Point(x: 25571128.57196385, y: 8234980.379304201),
+        Point(x: 45, y: double.nan)),
+'EPSG:2547': ProjectAndUnProjectResult(
+        Point(x: 26473309.968065694, y: 8523533.10121544),
+        Point(x: 45, y: double.nan)),
+'EPSG:2548': ProjectAndUnProjectResult(
+        Point(x: 27400656.92167488, y: 8824270.262663634),
+        Point(x: 45, y: double.nan)),
+'EPSG:2549': ProjectAndUnProjectResult(
+        Point(x: 28357135.740423597, y: 9135701.409461653),
+        Point(x: 45, y: double.nan)),
+'EPSG:2550': ProjectAndUnProjectResult(
+        Point(x: -3998484.608120339, y: 21066097.90877619),
+        Point(x: 0, y: 90)),
+'EPSG:2551': ProjectAndUnProjectResult(
+        Point(x: 29347212.390682768, y: 9455844.75494226),
+        Point(x: 45, y: double.nan)),
+'EPSG:2552': ProjectAndUnProjectResult(
+        Point(x: 30375900.836793117, y: 9782142.024768146),
+        Point(x: 45, y: double.nan)),
+'EPSG:2553': ProjectAndUnProjectResult(
+        Point(x: 31448814.675557498, y: 10111363.447712325),
+        Point(x: 0, y: 90)),
+'EPSG:2554': ProjectAndUnProjectResult(
+        Point(x: 32572222.187872894, y: 10439502.15507849),
+        Point(x: 0, y: 90)),
+'EPSG:2555': ProjectAndUnProjectResult(
+        Point(x: 33753104.92938021, y: 10761657.224655224),
+        Point(x: 0, y: 90)),
+'EPSG:2556': ProjectAndUnProjectResult(
+        Point(x: 34999219.9820103, y: 11071904.578322321),
+        Point(x: 0, y: 90)),
+'EPSG:2557': ProjectAndUnProjectResult(
+        Point(x: 36319165.98830434, y: 11363154.915651683),
+        Point(x: 0, y: 90)),
+'EPSG:2558': ProjectAndUnProjectResult(
+        Point(x: 37722453.090387024, y: 11626997.839069745),
+        Point(x: 0, y: 90)),
+'EPSG:2559': ProjectAndUnProjectResult(
+        Point(x: 39219576.895470664, y: 11853531.29937249),
+        Point(x: 0, y: 90)),
+'EPSG:2560': ProjectAndUnProjectResult(
+        Point(x: 40822096.5897686, y: 12031175.463608662),
+        Point(x: 0, y: 90)),
+'EPSG:2561': ProjectAndUnProjectResult(
+        Point(x: 42542717.322696224, y: 12146470.080570836),
+        Point(x: 0, y: 90)),
+'EPSG:2562': ProjectAndUnProjectResult(
+        Point(x: 44395376.983237706, y: 12183854.3923586),
+        Point(x: 0, y: 90)),
+'EPSG:2563': ProjectAndUnProjectResult(
+        Point(x: 46395337.490356974, y: 12125428.613702182),
+        Point(x: 0, y: 90)),
+'EPSG:2564': ProjectAndUnProjectResult(
+        Point(x: 48559280.719331056, y: 11950695.97395934),
+        Point(x: 0, y: 90)),
+'EPSG:2565': ProjectAndUnProjectResult(
+        Point(x: 50905409.18588402, y: 11636284.289922524),
+        Point(x: 0, y: 90)),
+'EPSG:2566': ProjectAndUnProjectResult(
+        Point(x: 53453551.61, y: 11155646.010797745),
+        Point(x: 0, y: 90)),
+'EPSG:2567': ProjectAndUnProjectResult(
+        Point(x: 56225273.48129337, y: 10478735.649940815),
+        Point(x: 0, y: 90)),
+'EPSG:2568': ProjectAndUnProjectResult(
+        Point(x: 59243992.74781446, y: 9571663.49116099),
+        Point(x: 45, y: double.nan)),
+'EPSG:2569': ProjectAndUnProjectResult(
+        Point(x: 62535100.75016911, y: 8396324.430626305),
+        Point(x: 45, y: double.nan)),
+'EPSG:2570': ProjectAndUnProjectResult(
+        Point(x: 66126088.52283026, y: 6910000.788629317),
+        Point(x: 45, y: double.nan)),
+'EPSG:2571': ProjectAndUnProjectResult(
+        Point(x: 70046678.5845199, y: 5064937.898696213),
+        Point(x: 45, y: double.nan)),
+'EPSG:2572': ProjectAndUnProjectResult(
+        Point(x: 74328962.33953968, y: 2807891.254746426),
+        Point(x: 45, y: double.nan)),
+'EPSG:2573': ProjectAndUnProjectResult(
+        Point(x: 79007543.21192855, y: 79643.97023455595),
+        Point(x: 45, y: double.nan)),
+'EPSG:2574': ProjectAndUnProjectResult(
+        Point(x: 84119685.63432519, y: -3185506.723569556),
+        Point(x: -135, y: double.nan)),
+'EPSG:2575': ProjectAndUnProjectResult(
+        Point(x: 89705470.01341465, y: -7060295.2397826165),
+        Point(x: -135, y: double.nan)),
+'EPSG:2576': ProjectAndUnProjectResult(
+        Point(x: 95807953.79383603, y: -11625066.984986547),
+        Point(x: 0, y: -90)),
+'EPSG:2577': ProjectAndUnProjectResult(
+        Point(x: 101973338.74243054, y: -16968392.648355428),
+        Point(x: 0, y: -90)),
+'EPSG:2578': ProjectAndUnProjectResult(
+        Point(x: 109751144.57470796, y: -23187718.81077772),
+        Point(x: 0, y: -90)),
+'EPSG:2579': ProjectAndUnProjectResult(
+        Point(x: 117694389.04540958, y: -30390056.280696),
+        Point(x: 0, y: -90)),
+'EPSG:2580': ProjectAndUnProjectResult(
+        Point(x: 126359774.6250457, y: -38692707.59016192),
+        Point(x: 0, y: -90)),
+'EPSG:2581': ProjectAndUnProjectResult(
+        Point(x: 135807881.88428736, y: -48224035.11138207),
+        Point(x: 0, y: -90)),
+'EPSG:2582': ProjectAndUnProjectResult(
+        Point(x: 262846.3661990886, y: 5200062.991900588),
+        Point(x: 17.88805856025309, y: 46.89226406650986)),
+'EPSG:2583': ProjectAndUnProjectResult(
+        Point(x: 34267.22866201651, y: 5213527.768175429),
+        Point(x: 17.88805856313023, y: 46.892264062008316)),
+'EPSG:2584': ProjectAndUnProjectResult(
+        Point(x: -194220.9233581887, y: 5235826.072617986),
+        Point(x: 17.88805871864596, y: 46.892264021268176)),
+'EPSG:2585': ProjectAndUnProjectResult(
+        Point(x: -422559.32618149836, y: 5267068.045127224),
+        Point(x: 17.888060886913372, y: 46.89226389327887)),
+'EPSG:2586': ProjectAndUnProjectResult(
+        Point(x: -650672.1876254713, y: 5307406.913783019),
+        Point(x: 17.888077173334445, y: 46.892264059719786)),
+'EPSG:2587': ProjectAndUnProjectResult(
+        Point(x: -878460.5003790415, y: 5357038.56321737),
+        Point(x: 17.888161981294772, y: 46.89226782541496)),
+'EPSG:2588': ProjectAndUnProjectResult(
+        Point(x: -1105795.3633154412, y: 5416200.817466673),
+        Point(x: 17.888509189955833, y: 46.89229076437375)),
+'EPSG:2589': ProjectAndUnProjectResult(
+        Point(x: -1332510.6888659769, y: 5485172.315815368),
+        Point(x: 17.889711432784654, y: 46.89238970488411)),
+'EPSG:2590': ProjectAndUnProjectResult(
+        Point(x: -1558395.1745763805, y: 5564270.833365575),
+        Point(x: 17.893399933553184, y: 46.89274300140399)),
+'EPSG:2591': ProjectAndUnProjectResult(
+        Point(x: -1783183.4169674534, y: 5653850.871291727),
+        Point(x: 17.903750614368704, y: 46.8938576772831)),
+'EPSG:2592': ProjectAndUnProjectResult(
+        Point(x: -2006546.045821725, y: 5754300.314963382),
+        Point(x: 17.93093565100567, y: 46.89708114575195)),
+'EPSG:2593': ProjectAndUnProjectResult(
+        Point(x: -2228078.7570178467, y: 5866035.931343889),
+        Point(x: 17.99893740943696, y: 46.90583436807098)),
+'EPSG:2594': ProjectAndUnProjectResult(
+        Point(x: -2447290.12203443, y: 5989497.450296735),
+        Point(x: 18.163219497381576, y: 46.928551732515096)),
+'EPSG:2595': ProjectAndUnProjectResult(
+        Point(x: -2663588.052245067, y: 6125139.947655839),
+        Point(x: 18.55101626725538, y: 46.98569324867816)),
+'EPSG:2596': ProjectAndUnProjectResult(
+        Point(x: -2876264.7961262385, y: 6273424.221140283),
+        Point(x: 19.454707772562468, y: 47.12664112954269)),
+'EPSG:2597': ProjectAndUnProjectResult(
+        Point(x: -3084480.3474998293, y: 6434804.823418373),
+        Point(x: 21.553545945794234, y: 47.4712010256066)),
+'EPSG:2598': ProjectAndUnProjectResult(
+        Point(x: -3287244.1429319805, y: 6609715.389850158),
+        Point(x: 26.457526171544988, y: 48.3144402829855)),
+'EPSG:2599': ProjectAndUnProjectResult(
+        Point(x: -3483394.9264099956, y: 6798550.871661895),
+        Point(x: 38.097803805976056, y: 50.40166772433958)),
+'EPSG:2600': ProjectAndUnProjectResult(
+        Point(x: 34368.35104356846, y: 5212395.955506003),
+        Point(x: 17.888058563129828, y: 46.892264062424815)),
+'EPSG:2601': ProjectAndUnProjectResult(
+        Point(x: -3671578.659419, y: 7001646.258530278),
+        Point(x: 66.46970363157362, y: 55.685356944014764)),
+'EPSG:2602': ProjectAndUnProjectResult(
+        Point(x: -3850224.3545401134, y: 7219251.3477785075),
+        Point(x: 138.37464126753517, y: 69.5396588188438)),
+'EPSG:2603': ProjectAndUnProjectResult(
+        Point(x: -4017517.7106918134, y: 7451501.090610668),
+        Point(x: 45, y: double.nan)),
+'EPSG:2604': ProjectAndUnProjectResult(
+        Point(x: -4171372.428136235, y: 7698381.019035124),
+        Point(x: 45, y: double.nan)),
+'EPSG:2605': ProjectAndUnProjectResult(
+        Point(x: -4309399.081372126, y: 7959687.230352008),
+        Point(x: 45, y: double.nan)),
+'EPSG:2606': ProjectAndUnProjectResult(
+        Point(x: -4428871.4280361505, y: 8234980.379304201),
+        Point(x: 45, y: double.nan)),
+'EPSG:2607': ProjectAndUnProjectResult(
+        Point(x: -4526690.031934304, y: 8523533.10121544),
+        Point(x: 45, y: double.nan)),
+'EPSG:2608': ProjectAndUnProjectResult(
+        Point(x: -4599343.078325118, y: 8824270.262663634),
+        Point(x: 45, y: double.nan)),
+'EPSG:2609': ProjectAndUnProjectResult(
+        Point(x: -4642864.259576404, y: 9135701.409461653),
+        Point(x: 45, y: double.nan)),
+'EPSG:2610': ProjectAndUnProjectResult(
+        Point(x: -4652787.609317232, y: 9455844.75494226),
+        Point(x: 45, y: double.nan)),
+'EPSG:2611': ProjectAndUnProjectResult(
+        Point(x: -4624099.163206885, y: 9782142.024768146),
+        Point(x: 45, y: double.nan)),
+'EPSG:2612': ProjectAndUnProjectResult(
+        Point(x: -4551185.324442502, y: 10111363.447712325),
+        Point(x: 0, y: 90)),
+'EPSG:2613': ProjectAndUnProjectResult(
+        Point(x: -4427777.812127108, y: 10439502.15507849),
+        Point(x: 0, y: 90)),
+'EPSG:2614': ProjectAndUnProjectResult(
+        Point(x: -4246895.070619788, y: 10761657.224655224),
+        Point(x: 0, y: 90)),
+'EPSG:2615': ProjectAndUnProjectResult(
+        Point(x: -4000780.0179897044, y: 11071904.578322321),
+        Point(x: 0, y: 90)),
+'EPSG:2616': ProjectAndUnProjectResult(
+        Point(x: -3680834.011695663, y: 11363154.915651683),
+        Point(x: 0, y: 90)),
+'EPSG:2617': ProjectAndUnProjectResult(
+        Point(x: -3277546.9096129737, y: 11626997.839069745),
+        Point(x: 0, y: 90)),
+'EPSG:2618': ProjectAndUnProjectResult(
+        Point(x: -2780423.104529338, y: 11853531.29937249),
+        Point(x: 0, y: 90)),
+'EPSG:2619': ProjectAndUnProjectResult(
+        Point(x: -2177903.4102313956, y: 12031175.463608662),
+        Point(x: 0, y: 90)),
+'EPSG:2620': ProjectAndUnProjectResult(
+        Point(x: -1457282.6773037752, y: 12146470.080570836),
+        Point(x: 0, y: 90)),
+'EPSG:2621': ProjectAndUnProjectResult(
+        Point(x: -604623.0167622955, y: 12183854.3923586),
+        Point(x: 0, y: 90)),
+'EPSG:2622': ProjectAndUnProjectResult(
+        Point(x: 395337.49035697174, y: 12125428.613702182),
+        Point(x: 0, y: 90)),
+'EPSG:2623': ProjectAndUnProjectResult(
+        Point(x: 1559280.7193310524, y: 11950695.97395934),
+        Point(x: 0, y: 90)),
+'EPSG:2624': ProjectAndUnProjectResult(
+        Point(x: 2905409.18588402, y: 11636284.289922524),
+        Point(x: 0, y: 90)),
+'EPSG:2625': ProjectAndUnProjectResult(
+        Point(x: 4453551.610000001, y: 11155646.010797745),
+        Point(x: 0, y: 90)),
+'EPSG:2626': ProjectAndUnProjectResult(
+        Point(x: 6225273.481293371, y: 10478735.649940815),
+        Point(x: 0, y: 90)),
+'EPSG:2627': ProjectAndUnProjectResult(
+        Point(x: 8243992.74781446, y: 9571663.49116099),
+        Point(x: 45, y: double.nan)),
+'EPSG:2628': ProjectAndUnProjectResult(
+        Point(x: 10535100.750169115, y: 8396324.430626305),
+        Point(x: 45, y: double.nan)),
+'EPSG:2629': ProjectAndUnProjectResult(
+        Point(x: 13126088.52283026, y: 6910000.788629317),
+        Point(x: 45, y: double.nan)),
+'EPSG:2630': ProjectAndUnProjectResult(
+        Point(x: 16046678.584519895, y: 5064937.898696213),
+        Point(x: 45, y: double.nan)),
+'EPSG:2631': ProjectAndUnProjectResult(
+        Point(x: 19328962.339539673, y: 2807891.254746426),
+        Point(x: 45, y: double.nan)),
+'EPSG:2632': ProjectAndUnProjectResult(
+        Point(x: 23007543.21192854, y: 79643.97023455595),
+        Point(x: 45, y: double.nan)),
+'EPSG:2633': ProjectAndUnProjectResult(
+        Point(x: 27119685.634325188, y: -3185506.723569556),
+        Point(x: -135, y: double.nan)),
+'EPSG:2634': ProjectAndUnProjectResult(
+        Point(x: 31705470.013414644, y: -7060295.2397826165),
+        Point(x: -135, y: double.nan)),
+'EPSG:2635': ProjectAndUnProjectResult(
+        Point(x: 36807953.793836035, y: -11625066.984986547),
+        Point(x: 0, y: -90)),
+'EPSG:2636': ProjectAndUnProjectResult(
+        Point(x: 42473338.74243054, y: -16968392.648355428),
+        Point(x: 0, y: -90)),
+'EPSG:2637': ProjectAndUnProjectResult(
+        Point(x: 48751144.57470795, y: -23187718.81077772),
+        Point(x: 0, y: -90)),
+'EPSG:2638': ProjectAndUnProjectResult(
+        Point(x: 55694389.045409575, y: -30390056.280696),
+        Point(x: 0, y: -90)),
+'EPSG:2639': ProjectAndUnProjectResult(
+        Point(x: 63359774.6250457, y: -38692707.59016192),
+        Point(x: 0, y: -90)),
+'EPSG:2640': ProjectAndUnProjectResult(
+        Point(x: 71807881.88428734, y: -48224035.11138207),
+        Point(x: 0, y: -90)),
+'EPSG:2641': ProjectAndUnProjectResult(
+        Point(x: 7262846.366199088, y: 5200062.991900588),
+        Point(x: 17.88805856025309, y: 46.89226406650986)),
+'EPSG:2642': ProjectAndUnProjectResult(
+        Point(x: 8034267.228662017, y: 5213527.768175429),
+        Point(x: 17.888058563130237, y: 46.892264062008316)),
+'EPSG:2643': ProjectAndUnProjectResult(
+        Point(x: 8805779.076641811, y: 5235826.072617986),
+        Point(x: 17.888058718645958, y: 46.892264021268176)),
+'EPSG:2644': ProjectAndUnProjectResult(
+        Point(x: 9577440.673818503, y: 5267068.045127224),
+        Point(x: 17.88806088691339, y: 46.89226389327887)),
+'EPSG:2645': ProjectAndUnProjectResult(
+        Point(x: 10349327.812374528, y: 5307406.913783019),
+        Point(x: 17.888077173334445, y: 46.892264059719786)),
+'EPSG:2646': ProjectAndUnProjectResult(
+        Point(x: 11121539.49962096, y: 5357038.56321737),
+        Point(x: 17.888161981294775, y: 46.89226782541496)),
+'EPSG:2647': ProjectAndUnProjectResult(
+        Point(x: 11894204.63668456, y: 5416200.817466673),
+        Point(x: 17.88850918995584, y: 46.89229076437375)),
+'EPSG:2648': ProjectAndUnProjectResult(
+        Point(x: 12667489.311134024, y: 5485172.315815368),
+        Point(x: 17.88971143278467, y: 46.89238970488411)),
+'EPSG:2649': ProjectAndUnProjectResult(
+        Point(x: 13441604.825423619, y: 5564270.833365575),
+        Point(x: 17.893399933553173, y: 46.892743001403986)),
+'EPSG:2650': ProjectAndUnProjectResult(
+        Point(x: 14216816.583032547, y: 5653850.871291727),
+        Point(x: 17.903750614368704, y: 46.8938576772831)),
+'EPSG:2651': ProjectAndUnProjectResult(
+        Point(x: 14993453.954178276, y: 5754300.314963382),
+        Point(x: 17.93093565100568, y: 46.89708114575195)),
+'EPSG:2652': ProjectAndUnProjectResult(
+        Point(x: 15771921.242982153, y: 5866035.931343889),
+        Point(x: 17.99893740943696, y: 46.905834368070956)),
+'EPSG:2653': ProjectAndUnProjectResult(
+        Point(x: 16552709.87796557, y: 5989497.450296735),
+        Point(x: 18.163219497381576, y: 46.928551732515096)),
+'EPSG:2654': ProjectAndUnProjectResult(
+        Point(x: 17336411.947754934, y: 6125139.947655839),
+        Point(x: 18.551016267255388, y: 46.985693248678174)),
+'EPSG:2655': ProjectAndUnProjectResult(
+        Point(x: 18123735.20387376, y: 6273424.221140283),
+        Point(x: 19.45470777256246, y: 47.12664112954269)),
+'EPSG:2656': ProjectAndUnProjectResult(
+        Point(x: 18915519.65250017, y: 6434804.823418373),
+        Point(x: 21.55354594579424, y: 47.4712010256066)),
+'EPSG:2657': ProjectAndUnProjectResult(
+        Point(x: 19712755.85706802, y: 6609715.389850158),
+        Point(x: 26.45752617154498, y: 48.3144402829855)),
+'EPSG:2658': ProjectAndUnProjectResult(
+        Point(x: 20516605.073590003, y: 6798550.871661895),
+        Point(x: 38.097803805976106, y: 50.40166772433958)),
+'EPSG:2659': ProjectAndUnProjectResult(
+        Point(x: 21328421.340581, y: 7001646.258530278),
+        Point(x: 66.46970363157362, y: 55.685356944014764)),
+'EPSG:2660': ProjectAndUnProjectResult(
+        Point(x: 22149775.645459887, y: 7219251.3477785075),
+        Point(x: 138.37464126753517, y: 69.5396588188438)),
+'EPSG:2661': ProjectAndUnProjectResult(
+        Point(x: 22982482.289308187, y: 7451501.090610668),
+        Point(x: 45, y: double.nan)),
+'EPSG:2662': ProjectAndUnProjectResult(
+        Point(x: 23828627.571863763, y: 7698381.019035124),
+        Point(x: 45, y: double.nan)),
+'EPSG:2663': ProjectAndUnProjectResult(
+        Point(x: 24690600.918627873, y: 7959687.230352008),
+        Point(x: 45, y: double.nan)),
+'EPSG:2664': ProjectAndUnProjectResult(
+        Point(x: 25571128.57196385, y: 8234980.379304201),
+        Point(x: 45, y: double.nan)),
+'EPSG:2665': ProjectAndUnProjectResult(
+        Point(x: 26473309.968065694, y: 8523533.10121544),
+        Point(x: 45, y: double.nan)),
+'EPSG:2666': ProjectAndUnProjectResult(
+        Point(x: 27400656.92167488, y: 8824270.262663634),
+        Point(x: 45, y: double.nan)),
+'EPSG:2667': ProjectAndUnProjectResult(
+        Point(x: 28357135.740423597, y: 9135701.409461653),
+        Point(x: 45, y: double.nan)),
+'EPSG:2668': ProjectAndUnProjectResult(
+        Point(x: 29347212.390682768, y: 9455844.75494226),
+        Point(x: 45, y: double.nan)),
+'EPSG:2669': ProjectAndUnProjectResult(
+        Point(x: 30375900.836793117, y: 9782142.024768146),
+        Point(x: 45, y: double.nan)),
+'EPSG:2670': ProjectAndUnProjectResult(
+        Point(x: 31448814.675557498, y: 10111363.447712325),
+        Point(x: 0, y: 90)),
+'EPSG:2671': ProjectAndUnProjectResult(
+        Point(x: 32572222.187872894, y: 10439502.15507849),
+        Point(x: 0, y: 90)),
+'EPSG:2672': ProjectAndUnProjectResult(
+        Point(x: 33753104.92938021, y: 10761657.224655224),
+        Point(x: 0, y: 90)),
+'EPSG:2673': ProjectAndUnProjectResult(
+        Point(x: 34999219.9820103, y: 11071904.578322321),
+        Point(x: 0, y: 90)),
+'EPSG:2674': ProjectAndUnProjectResult(
+        Point(x: 36319165.98830434, y: 11363154.915651683),
+        Point(x: 0, y: 90)),
+'EPSG:2675': ProjectAndUnProjectResult(
+        Point(x: 37722453.090387024, y: 11626997.839069745),
+        Point(x: 0, y: 90)),
+'EPSG:2676': ProjectAndUnProjectResult(
+        Point(x: 39219576.895470664, y: 11853531.29937249),
+        Point(x: 0, y: 90)),
+'EPSG:2677': ProjectAndUnProjectResult(
+        Point(x: 40822096.5897686, y: 12031175.463608662),
+        Point(x: 0, y: 90)),
+'EPSG:2678': ProjectAndUnProjectResult(
+        Point(x: 42542717.322696224, y: 12146470.080570836),
+        Point(x: 0, y: 90)),
+'EPSG:2679': ProjectAndUnProjectResult(
+        Point(x: 44395376.983237706, y: 12183854.3923586),
+        Point(x: 0, y: 90)),
+'EPSG:2680': ProjectAndUnProjectResult(
+        Point(x: 46395337.490356974, y: 12125428.613702182),
+        Point(x: 0, y: 90)),
+'EPSG:2681': ProjectAndUnProjectResult(
+        Point(x: 48559280.719331056, y: 11950695.97395934),
+        Point(x: 0, y: 90)),
+'EPSG:2682': ProjectAndUnProjectResult(
+        Point(x: 50905409.18588402, y: 11636284.289922524),
+        Point(x: 0, y: 90)),
+'EPSG:2683': ProjectAndUnProjectResult(
+        Point(x: 53453551.61, y: 11155646.010797745),
+        Point(x: 0, y: 90)),
+'EPSG:2684': ProjectAndUnProjectResult(
+        Point(x: 56225273.48129337, y: 10478735.649940815),
+        Point(x: 0, y: 90)),
+'EPSG:2685': ProjectAndUnProjectResult(
+        Point(x: 59243992.74781446, y: 9571663.49116099),
+        Point(x: 45, y: double.nan)),
+'EPSG:2686': ProjectAndUnProjectResult(
+        Point(x: 62535100.75016911, y: 8396324.430626305),
+        Point(x: 45, y: double.nan)),
+'EPSG:2687': ProjectAndUnProjectResult(
+        Point(x: 66126088.52283026, y: 6910000.788629317),
+        Point(x: 45, y: double.nan)),
+'EPSG:2688': ProjectAndUnProjectResult(
+        Point(x: 70046678.5845199, y: 5064937.898696213),
+        Point(x: 45, y: double.nan)),
+'EPSG:2689': ProjectAndUnProjectResult(
+        Point(x: 74328962.33953968, y: 2807891.254746426),
+        Point(x: 45, y: double.nan)),
+'EPSG:2690': ProjectAndUnProjectResult(
+        Point(x: 79007543.21192855, y: 79643.97023455595),
+        Point(x: 45, y: double.nan)),
+'EPSG:2691': ProjectAndUnProjectResult(
+        Point(x: 84119685.63432519, y: -3185506.723569556),
+        Point(x: -135, y: double.nan)),
+'EPSG:2692': ProjectAndUnProjectResult(
+        Point(x: 89705470.01341465, y: -7060295.2397826165),
+        Point(x: -135, y: double.nan)),
+'EPSG:2693': ProjectAndUnProjectResult(
+        Point(x: 95807953.79383603, y: -11625066.984986547),
+        Point(x: 0, y: -90)),
+'EPSG:2694': ProjectAndUnProjectResult(
+        Point(x: 101973338.74243054, y: -16968392.648355428),
+        Point(x: 0, y: -90)),
+'EPSG:2695': ProjectAndUnProjectResult(
+        Point(x: 109751144.57470796, y: -23187718.81077772),
+        Point(x: 0, y: -90)),
+'EPSG:2696': ProjectAndUnProjectResult(
+        Point(x: 117694389.04540958, y: -30390056.280696),
+        Point(x: 0, y: -90)),
+'EPSG:2697': ProjectAndUnProjectResult(
+        Point(x: 126359774.6250457, y: -38692707.59016192),
+        Point(x: 0, y: -90)),
+'EPSG:2698': ProjectAndUnProjectResult(
+        Point(x: 135807881.88428736, y: -48224035.11138207),
+        Point(x: 0, y: -90)),
+'EPSG:2699': ProjectAndUnProjectResult(
+        Point(x: 262846.3661990886, y: 5200062.991900588),
+        Point(x: 17.88805856025309, y: 46.89226406650986)),
+'EPSG:2700': ProjectAndUnProjectResult(
+        Point(x: 34267.22866201651, y: 5213527.768175429),
+        Point(x: 17.88805856313023, y: 46.892264062008316)),
+'EPSG:2701': ProjectAndUnProjectResult(
+        Point(x: -194220.9233581887, y: 5235826.072617986),
+        Point(x: 17.88805871864596, y: 46.892264021268176)),
+'EPSG:2702': ProjectAndUnProjectResult(
+        Point(x: -422559.32618149836, y: 5267068.045127224),
+        Point(x: 17.888060886913372, y: 46.89226389327887)),
+'EPSG:2703': ProjectAndUnProjectResult(
+        Point(x: -650672.1876254713, y: 5307406.913783019),
+        Point(x: 17.888077173334445, y: 46.892264059719786)),
+'EPSG:2704': ProjectAndUnProjectResult(
+        Point(x: -878460.5003790415, y: 5357038.56321737),
+        Point(x: 17.888161981294772, y: 46.89226782541496)),
+'EPSG:2705': ProjectAndUnProjectResult(
+        Point(x: -1105795.3633154412, y: 5416200.817466673),
+        Point(x: 17.888509189955833, y: 46.89229076437375)),
+'EPSG:2706': ProjectAndUnProjectResult(
+        Point(x: -1332510.6888659769, y: 5485172.315815368),
+        Point(x: 17.889711432784654, y: 46.89238970488411)),
+'EPSG:2707': ProjectAndUnProjectResult(
+        Point(x: -1558395.1745763805, y: 5564270.833365575),
+        Point(x: 17.893399933553184, y: 46.89274300140399)),
+'EPSG:2708': ProjectAndUnProjectResult(
+        Point(x: -1783183.4169674534, y: 5653850.871291727),
+        Point(x: 17.903750614368704, y: 46.8938576772831)),
+'EPSG:2709': ProjectAndUnProjectResult(
+        Point(x: -2006546.045821725, y: 5754300.314963382),
+        Point(x: 17.93093565100567, y: 46.89708114575195)),
+'EPSG:2710': ProjectAndUnProjectResult(
+        Point(x: -2228078.7570178467, y: 5866035.931343889),
+        Point(x: 17.99893740943696, y: 46.90583436807098)),
+'EPSG:2711': ProjectAndUnProjectResult(
+        Point(x: -2447290.12203443, y: 5989497.450296735),
+        Point(x: 18.163219497381576, y: 46.928551732515096)),
+'EPSG:2712': ProjectAndUnProjectResult(
+        Point(x: -2663588.052245067, y: 6125139.947655839),
+        Point(x: 18.55101626725538, y: 46.98569324867816)),
+'EPSG:2713': ProjectAndUnProjectResult(
+        Point(x: -2876264.7961262385, y: 6273424.221140283),
+        Point(x: 19.454707772562468, y: 47.12664112954269)),
+'EPSG:2714': ProjectAndUnProjectResult(
+        Point(x: -3084480.3474998293, y: 6434804.823418373),
+        Point(x: 21.553545945794234, y: 47.4712010256066)),
+'EPSG:2715': ProjectAndUnProjectResult(
+        Point(x: -3287244.1429319805, y: 6609715.389850158),
+        Point(x: 26.457526171544988, y: 48.3144402829855)),
+'EPSG:2716': ProjectAndUnProjectResult(
+        Point(x: -3483394.9264099956, y: 6798550.871661895),
+        Point(x: 38.097803805976056, y: 50.40166772433958)),
+'EPSG:2717': ProjectAndUnProjectResult(
+        Point(x: -3671578.659419, y: 7001646.258530278),
+        Point(x: 66.46970363157362, y: 55.685356944014764)),
+'EPSG:2718': ProjectAndUnProjectResult(
+        Point(x: -3850224.3545401134, y: 7219251.3477785075),
+        Point(x: 138.37464126753517, y: 69.5396588188438)),
+'EPSG:2719': ProjectAndUnProjectResult(
+        Point(x: -4017517.7106918134, y: 7451501.090610668),
+        Point(x: 45, y: double.nan)),
+'EPSG:2720': ProjectAndUnProjectResult(
+        Point(x: -4171372.428136235, y: 7698381.019035124),
+        Point(x: 45, y: double.nan)),
+'EPSG:2721': ProjectAndUnProjectResult(
+        Point(x: -4309399.081372126, y: 7959687.230352008),
+        Point(x: 45, y: double.nan)),
+'EPSG:2722': ProjectAndUnProjectResult(
+        Point(x: -4428871.4280361505, y: 8234980.379304201),
+        Point(x: 45, y: double.nan)),
+'EPSG:2723': ProjectAndUnProjectResult(
+        Point(x: -4526690.031934304, y: 8523533.10121544),
+        Point(x: 45, y: double.nan)),
+'EPSG:2724': ProjectAndUnProjectResult(
+        Point(x: -4599343.078325118, y: 8824270.262663634),
+        Point(x: 45, y: double.nan)),
+'EPSG:2725': ProjectAndUnProjectResult(
+        Point(x: -4642864.259576404, y: 9135701.409461653),
+        Point(x: 45, y: double.nan)),
+'EPSG:2726': ProjectAndUnProjectResult(
+        Point(x: -4652787.609317232, y: 9455844.75494226),
+        Point(x: 45, y: double.nan)),
+'EPSG:2727': ProjectAndUnProjectResult(
+        Point(x: -4624099.163206885, y: 9782142.024768146),
+        Point(x: 45, y: double.nan)),
+'EPSG:2728': ProjectAndUnProjectResult(
+        Point(x: -4551185.324442502, y: 10111363.447712325),
+        Point(x: 0, y: 90)),
+'EPSG:2729': ProjectAndUnProjectResult(
+        Point(x: -4427777.812127108, y: 10439502.15507849),
+        Point(x: 0, y: 90)),
+'EPSG:2730': ProjectAndUnProjectResult(
+        Point(x: -4246895.070619788, y: 10761657.224655224),
+        Point(x: 0, y: 90)),
+'EPSG:2731': ProjectAndUnProjectResult(
+        Point(x: -4000780.0179897044, y: 11071904.578322321),
+        Point(x: 0, y: 90)),
+'EPSG:2732': ProjectAndUnProjectResult(
+        Point(x: -3680834.011695663, y: 11363154.915651683),
+        Point(x: 0, y: 90)),
+'EPSG:2733': ProjectAndUnProjectResult(
+        Point(x: -3277546.9096129737, y: 11626997.839069745),
+        Point(x: 0, y: 90)),
+'EPSG:2734': ProjectAndUnProjectResult(
+        Point(x: -2780423.104529338, y: 11853531.29937249),
+        Point(x: 0, y: 90)),
+'EPSG:2735': ProjectAndUnProjectResult(
+        Point(x: -2177903.4102313956, y: 12031175.463608662),
+        Point(x: 0, y: 90)),
+'EPSG:2736': ProjectAndUnProjectResult(
+        Point(x: -650181.1117810078, y: 15305215.008759003),
+        Point(x: 17.888077165716567, y: 46.89226402895771)),
+'EPSG:2737': ProjectAndUnProjectResult(
+        Point(x: -1105108.9209568542, y: 15413966.229008384),
+        Point(x: 17.888509145916633, y: 46.89229065928013)),
+'EPSG:2738': ProjectAndUnProjectResult(
+        Point(x: -1457282.6773037752, y: 12146470.080570836),
+        Point(x: 0, y: 90)),
+'EPSG:2739': ProjectAndUnProjectResult(
+        Point(x: -604623.0167622955, y: 12183854.3923586),
+        Point(x: 0, y: 90)),
+'EPSG:2740': ProjectAndUnProjectResult(
+        Point(x: 395337.49035697174, y: 12125428.613702182),
+        Point(x: 0, y: 90)),
+'EPSG:2741': ProjectAndUnProjectResult(
+        Point(x: 1559280.7193310524, y: 11950695.97395934),
+        Point(x: 0, y: 90)),
+'EPSG:2742': ProjectAndUnProjectResult(
+        Point(x: 2905409.18588402, y: 11636284.289922524),
+        Point(x: 0, y: 90)),
+'EPSG:2743': ProjectAndUnProjectResult(
+        Point(x: 4453551.610000001, y: 11155646.010797745),
+        Point(x: 0, y: 90)),
+'EPSG:2744': ProjectAndUnProjectResult(
+        Point(x: 6225273.481293371, y: 10478735.649940815),
+        Point(x: 0, y: 90)),
+'EPSG:2745': ProjectAndUnProjectResult(
+        Point(x: 8243992.74781446, y: 9571663.49116099),
+        Point(x: 45, y: double.nan)),
+'EPSG:2746': ProjectAndUnProjectResult(
+        Point(x: 10535100.750169115, y: 8396324.430626305),
+        Point(x: 45, y: double.nan)),
+'EPSG:2747': ProjectAndUnProjectResult(
+        Point(x: 13126088.52283026, y: 6910000.788629317),
+        Point(x: 45, y: double.nan)),
+'EPSG:2748': ProjectAndUnProjectResult(
+        Point(x: 16046678.584519895, y: 5064937.898696213),
+        Point(x: 45, y: double.nan)),
+'EPSG:2749': ProjectAndUnProjectResult(
+        Point(x: 19328962.339539673, y: 2807891.254746426),
+        Point(x: 45, y: double.nan)),
+'EPSG:2750': ProjectAndUnProjectResult(
+        Point(x: 23007543.21192854, y: 79643.97023455595),
+        Point(x: 45, y: double.nan)),
+'EPSG:2751': ProjectAndUnProjectResult(
+        Point(x: 27119685.634325188, y: -3185506.723569556),
+        Point(x: -135, y: double.nan)),
+'EPSG:2752': ProjectAndUnProjectResult(
+        Point(x: 31705470.013414644, y: -7060295.2397826165),
+        Point(x: -135, y: double.nan)),
+'EPSG:2753': ProjectAndUnProjectResult(
+        Point(x: 36807953.793836035, y: -11625066.984986547),
+        Point(x: 0, y: -90)),
+'EPSG:2754': ProjectAndUnProjectResult(
+        Point(x: 42473338.74243054, y: -16968392.648355428),
+        Point(x: 0, y: -90)),
+'EPSG:2755': ProjectAndUnProjectResult(
+        Point(x: 48751144.57470795, y: -23187718.81077772),
+        Point(x: 0, y: -90)),
+'EPSG:2756': ProjectAndUnProjectResult(
+        Point(x: 55694389.045409575, y: -30390056.280696),
+        Point(x: 0, y: -90)),
+'EPSG:2757': ProjectAndUnProjectResult(
+        Point(x: 63359774.6250457, y: -38692707.59016192),
+        Point(x: 0, y: -90)),
+'EPSG:2758': ProjectAndUnProjectResult(
+        Point(x: 71807881.88428734, y: -48224035.11138207),
+        Point(x: 0, y: -90)),
+'EPSG:2759': ProjectAndUnProjectResult(
+        Point(x: 4175252.6559100477, y: 8132636.419234506),
+        Point(x: 0, y: 90)),
+'EPSG:2760': ProjectAndUnProjectResult(
+        Point(x: 4335563.615183162, y: 8328698.3072116645),
+        Point(x: 0, y: 90)),
+'EPSG:2761': ProjectAndUnProjectResult(
+        Point(x: -3169861.026850693, y: 7913822.186592112),
+        Point(x: 0, y: 90)),
+'EPSG:2762': ProjectAndUnProjectResult(
+        Point(x: -4128150.708307095, y: 7585988.433132556),
+        Point(x: 0, y: 90)),
+'EPSG:2763': ProjectAndUnProjectResult(
+        Point(x: -5215796.690656631, y: 7168396.858414973),
+        Point(x: 0, y: 90)),
+'EPSG:2764': ProjectAndUnProjectResult(
+        Point(x: 7280845.10476574, y: 5698018.880729793),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:2765': ProjectAndUnProjectResult(
+        Point(x: 7441828.743390062, y: 6181711.961229637),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:2766': ProjectAndUnProjectResult(
+        Point(x: 8713369.04628296, y: 8228903.974584526),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2767': ProjectAndUnProjectResult(
+        Point(x: 8988852.870882323, y: 8299543.835321399),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:2768': ProjectAndUnProjectResult(
+        Point(x: 9196533.03998033, y: 8221416.367224062),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2769': ProjectAndUnProjectResult(
+        Point(x: 9364631.99275643, y: 8154335.033546976),
+        Point(x: 17.88805856028151, y: 46.89226406700871)),
+'EPSG:2770': ProjectAndUnProjectResult(
+        Point(x: 9657012.346788008, y: 8138321.005032831),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2771': ProjectAndUnProjectResult(
+        Point(x: 9857792.552179694, y: 8039982.800465539),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:2772': ProjectAndUnProjectResult(
+        Point(x: 7609906.701740923, y: 6737108.930826646),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2773': ProjectAndUnProjectResult(
+        Point(x: 7746779.736843174, y: 6828729.263310314),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2774': ProjectAndUnProjectResult(
+        Point(x: 7902404.853652807, y: 6873456.4247696595),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2775': ProjectAndUnProjectResult(
+        Point(x: 6039095.133709748, y: 4143749.064976011),
+        Point(x: 17.8880585602815, y: 46.89226406700873)),
+'EPSG:2776': ProjectAndUnProjectResult(
+        Point(x: 5117848.770438616, y: 6252732.387920412),
+        Point(x: 0, y: 90)),
+'EPSG:2777': ProjectAndUnProjectResult(
+        Point(x: 4721237.687280814, y: 8356420.754737286),
+        Point(x: 0, y: 90)),
+'EPSG:2778': ProjectAndUnProjectResult(
+        Point(x: 4625113.957471083, y: 8456488.815026179),
+        Point(x: 0, y: 90)),
+'EPSG:2779': ProjectAndUnProjectResult(
+        Point(x: 7714848.02247523, y: 5442253.479619011),
+        Point(x: 17.8880585602815, y: 46.89226406700873)),
+'EPSG:2780': ProjectAndUnProjectResult(
+        Point(x: 4608098.742447868, y: 7844758.075159398),
+        Point(x: 0, y: 90)),
+'EPSG:2781': ProjectAndUnProjectResult(
+        Point(x: 4887189.5243078265, y: 8036713.270922709),
+        Point(x: 0, y: 90)),
+'EPSG:2782': ProjectAndUnProjectResult(
+        Point(x: -68690821.23140611, y: -47885351.84872058),
+        Point(x: 0, y: -90)),
+'EPSG:2783': ProjectAndUnProjectResult(
+        Point(x: -72121220.72359695, y: -51990013.836311065),
+        Point(x: 0, y: -90)),
+'EPSG:2784': ProjectAndUnProjectResult(
+        Point(x: -76202390.86573209, y: -56842739.61567939),
+        Point(x: 0, y: -90)),
+'EPSG:2785': ProjectAndUnProjectResult(
+        Point(x: -81001618.96536075, y: -62615395.648396604),
+        Point(x: 0, y: -90)),
+'EPSG:2786': ProjectAndUnProjectResult(
+        Point(x: -83208947.34861997, y: -65252448.177499056),
+        Point(x: 0, y: -90)),
+'EPSG:2787': ProjectAndUnProjectResult(
+        Point(x: -4284867.971020522, y: 6350434.242753448),
+        Point(x: 0, y: 90)),
+'EPSG:2788': ProjectAndUnProjectResult(
+        Point(x: -5084440.623114015, y: 5921630.496325042),
+        Point(x: 0, y: 90)),
+'EPSG:2789': ProjectAndUnProjectResult(
+        Point(x: -5919234.386603765, y: 5433186.325411458),
+        Point(x: 0, y: 90)),
+'EPSG:2790': ProjectAndUnProjectResult(
+        Point(x: 3905071.6147695784, y: 7655783.660641345),
+        Point(x: 0, y: 90)),
+'EPSG:2791': ProjectAndUnProjectResult(
+        Point(x: 3990597.385999085, y: 7789443.487367855),
+        Point(x: 0, y: 90)),
+'EPSG:2792': ProjectAndUnProjectResult(
+        Point(x: 4097701.446227201, y: 7591591.6682478),
+        Point(x: 0, y: 90)),
+'EPSG:2793': ProjectAndUnProjectResult(
+        Point(x: 4698254.479714725, y: 7712933.359383934),
+        Point(x: 0, y: 90)),
+'EPSG:2794': ProjectAndUnProjectResult(
+        Point(x: 7754185.385967116, y: 6441441.897699313),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:2795': ProjectAndUnProjectResult(
+        Point(x: 6883654.037123509, y: 5522527.676852138),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:2796': ProjectAndUnProjectResult(
+        Point(x: 7071987.862697571, y: 5919601.754797991),
+        Point(x: 17.888058560281525, y: 46.89226406700874)),
+'EPSG:2797': ProjectAndUnProjectResult(
+        Point(x: 7225695.016863069, y: 6455856.986343259),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:2798': ProjectAndUnProjectResult(
+        Point(x: 6854798.276271999, y: 4982007.395728776),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2799': ProjectAndUnProjectResult(
+        Point(x: 7000500.0764196385, y: 5649813.9503045585),
+        Point(x: 17.88805856028154, y: 46.89226406700873)),
+'EPSG:2800': ProjectAndUnProjectResult(
+        Point(x: 8293004.335917232, y: 5912444.595764324),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:2801': ProjectAndUnProjectResult(
+        Point(x: 8460640.04761491, y: 5922044.6080015665),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2802': ProjectAndUnProjectResult(
+        Point(x: 5434242.727510438, y: 4865567.286727372),
+        Point(x: -3577911303.5949883, y: 784422263.488511)),
+'EPSG:2803': ProjectAndUnProjectResult(
+        Point(x: 6005972.529556511, y: 5140915.469168544),
+        Point(x: -2514978608650.738, y: 548342325600.6209)),
+'EPSG:2804': ProjectAndUnProjectResult(
+        Point(x: 6458859.816901178, y: 4494509.018460154),
+        Point(x: 17.888058560281525, y: 46.892264067008725)),
+'EPSG:32604': ProjectAndUnProjectResult(
+        Point(x: -79345537.23046954, y: -58236069.63121628),
+        Point(x: 0, y: -90)),
+'EPSG:2805': ProjectAndUnProjectResult(
+        Point(x: 5851118.614199274, y: 4670879.245324666),
+        Point(x: 17.8880585602815, y: 46.89226406700874)),
+'EPSG:2806': ProjectAndUnProjectResult(
+        Point(x: 6154332.406766824, y: 3817884.2153315847),
+        Point(x: 17.88805856028151, y: 46.89226406700874)),
+'EPSG:2807': ProjectAndUnProjectResult(
+        Point(x: 13856577.937746815, y: 4794610.454685856),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2808': ProjectAndUnProjectResult(
+        Point(x: 11889319.027601004, y: 4694603.857861964),
+        Point(x: 17.88805856028151, y: 46.89226406700871)),
+'EPSG:2809': ProjectAndUnProjectResult(
+        Point(x: 10027794.9275133, y: 4787933.322479354),
+        Point(x: 17.8880585602815, y: 46.892264067008746)),
+'EPSG:2810': ProjectAndUnProjectResult(
+        Point(x: 6637522.089340442, y: 5241976.733282339),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:2811': ProjectAndUnProjectResult(
+        Point(x: 6763552.011142525, y: 5414428.169782657),
+        Point(x: 17.88805856028151, y: 46.89226406700874)),
+'EPSG:2812': ProjectAndUnProjectResult(
+        Point(x: 6907731.6671998175, y: 5516216.609642071),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:2813': ProjectAndUnProjectResult(
+        Point(x: 3822984.905080838, y: 8488545.1484227),
+        Point(x: 0, y: 90)),
+'EPSG:2814': ProjectAndUnProjectResult(
+        Point(x: 3960143.9403490187, y: 8595620.856387978),
+        Point(x: 0, y: 90)),
+'EPSG:2815': ProjectAndUnProjectResult(
+        Point(x: 3479281.287680031, y: 7904330.11893151),
+        Point(x: 0, y: 90)),
+'EPSG:2816': ProjectAndUnProjectResult(
+        Point(x: 3333355.4118026467, y: 8025679.559234873),
+        Point(x: 0, y: 90)),
+'EPSG:2817': ProjectAndUnProjectResult(
+        Point(x: 3236399.2997552953, y: 8083966.915915788),
+        Point(x: 0, y: 90)),
+'EPSG:2818': ProjectAndUnProjectResult(
+        Point(x: 6556297.784221025, y: 6590553.712986213),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2819': ProjectAndUnProjectResult(
+        Point(x: 6975000.373432801, y: 6039872.843451777),
+        Point(x: 17.888058560281525, y: 46.89226406700874)),
+'EPSG:2820': ProjectAndUnProjectResult(
+        Point(x: -6407205.481935473, y: 14250720.322452161),
+        Point(x: 0, y: 90)),
+'EPSG:2821': ProjectAndUnProjectResult(
+        Point(x: -6848369.235542074, y: 11911589.980849914),
+        Point(x: 189531435637.07315, y: 59487357072.499916)),
+'EPSG:2822': ProjectAndUnProjectResult(
+        Point(x: -7945837.346430153, y: 9227187.99242025),
+        Point(x: 53494776.36427391, y: 20053499.392547227)),
+'EPSG:2823': ProjectAndUnProjectResult(
+        Point(x: 5368091.402649273, y: 5342638.370730873),
+        Point(x: 0, y: 90)),
+'EPSG:2824': ProjectAndUnProjectResult(
+        Point(x: 5111955.253111458, y: 6059884.249141174),
+        Point(x: 0, y: 90)),
+'EPSG:2825': ProjectAndUnProjectResult(
+        Point(x: -530531.6564737859, y: 8584058.195630815),
+        Point(x: 0, y: 90)),
+'EPSG:2826': ProjectAndUnProjectResult(
+        Point(x: -998074.9727628597, y: 8428106.011472125),
+        Point(x: 0, y: 90)),
+'EPSG:2827': ProjectAndUnProjectResult(
+        Point(x: -1388949.665557478, y: 8254150.647986836),
+        Point(x: 0, y: 90)),
+'EPSG:2828': ProjectAndUnProjectResult(
+        Point(x: 5111955.253111458, y: 6059884.249141174),
+        Point(x: 0, y: 90)),
+'EPSG:2829': ProjectAndUnProjectResult(
+        Point(x: 5102989.244976103, y: 6156462.138120647),
+        Point(x: 0, y: 90)),
+'EPSG:2830': ProjectAndUnProjectResult(
+        Point(x: 5070627.948794095, y: 6369472.582025805),
+        Point(x: 0, y: 90)),
+'EPSG:2831': ProjectAndUnProjectResult(
+        Point(x: 6120506.5914582675, y: 4115911.994870667),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2832': ProjectAndUnProjectResult(
+        Point(x: 6465460.630965634, y: 5661785.323388806),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2833': ProjectAndUnProjectResult(
+        Point(x: 6573964.729929726, y: 5741275.293893124),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2834': ProjectAndUnProjectResult(
+        Point(x: 6701563.894453452, y: 4762473.447759279),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:2835': ProjectAndUnProjectResult(
+        Point(x: 6823927.076346041, y: 4856567.2808180135),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:2836': ProjectAndUnProjectResult(
+        Point(x: 7606719.341866343, y: 6088830.052103923),
+        Point(x: 17.888058560281525, y: 46.89226406700874)),
+'EPSG:2837': ProjectAndUnProjectResult(
+        Point(x: 7788873.682746351, y: 6165418.092119623),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:2838': ProjectAndUnProjectResult(
+        Point(x: 8597033.820587108, y: 7390016.602283895),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2839': ProjectAndUnProjectResult(
+        Point(x: 7874076.89548586, y: 7497850.224338042),
+        Point(x: 17.88805856028154, y: 46.892264067008725)),
+'EPSG:2840': ProjectAndUnProjectResult(
+        Point(x: 5173030.8098551845, y: 5481823.207905864),
+        Point(x: 0, y: 90)),
+'EPSG:2841': ProjectAndUnProjectResult(
+        Point(x: 6731916.633515107, y: 5806582.369900572),
+        Point(x: 17.888058560281525, y: 46.89226406700874)),
+'EPSG:2842': ProjectAndUnProjectResult(
+        Point(x: 6870716.757738419, y: 5915239.061073107),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:2843': ProjectAndUnProjectResult(
+        Point(x: 7240825.507643389, y: 5300270.815013457),
+        Point(x: 17.888058560281525, y: 46.89226406700874)),
+'EPSG:2844': ProjectAndUnProjectResult(
+        Point(x: 7393138.261094371, y: 7401668.656500031),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2845': ProjectAndUnProjectResult(
+        Point(x: 7989143.282984504, y: 8276494.464586326),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2846': ProjectAndUnProjectResult(
+        Point(x: 8418734.087582087, y: 9472776.726556078),
+        Point(x: 17.88805856028155, y: 46.892264067008746)),
+'EPSG:2847': ProjectAndUnProjectResult(
+        Point(x: 8486728.051005203, y: 10453504.590111742),
+        Point(x: 17.88805856028154, y: 46.89226406700874)),
+'EPSG:2848': ProjectAndUnProjectResult(
+        Point(x: 8484246.042842139, y: 11469435.827622361),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:2849': ProjectAndUnProjectResult(
+        Point(x: 7132858.074758168, y: 7841015.069017461),
+        Point(x: 17.888058560281525, y: 46.892264067008746)),
+'EPSG:2850': ProjectAndUnProjectResult(
+        Point(x: 7316582.822330039, y: 8971163.047072299),
+        Point(x: 17.888058560281525, y: 46.892264067008725)),
+'EPSG:2851': ProjectAndUnProjectResult(
+        Point(x: 7595059.15054545, y: 10017430.541012172),
+        Point(x: 17.888058560281525, y: 46.89226406700874)),
+'EPSG:2852': ProjectAndUnProjectResult(
+        Point(x: 5541768.404689928, y: 5434133.661562179),
+        Point(x: 0, y: 90)),
+'EPSG:2853': ProjectAndUnProjectResult(
+        Point(x: 9634482.513941199, y: 6581020.355130133),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:2854': ProjectAndUnProjectResult(
+        Point(x: 9723405.910334777, y: 5663039.725072842),
+        Point(x: 17.888058560281486, y: 46.892264067008746)),
+'EPSG:2855': ProjectAndUnProjectResult(
+        Point(x: 6208880.764422776, y: 7201291.121268816),
+        Point(x: 17.88805856028151, y: 46.89226406700871)),
+'EPSG:2856': ProjectAndUnProjectResult(
+        Point(x: 6409557.023981855, y: 7281838.145229915),
+        Point(x: 17.88805856028154, y: 46.892264067008746)),
+'EPSG:2857': ProjectAndUnProjectResult(
+        Point(x: 6701578.612677592, y: 4608732.256874052),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2858': ProjectAndUnProjectResult(
+        Point(x: 6860107.275988375, y: 4799756.489364472),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2859': ProjectAndUnProjectResult(
+        Point(x: 6517033.000426102, y: 4968571.836722961),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:2860': ProjectAndUnProjectResult(
+        Point(x: 6611250.719513921, y: 5046926.8438626565),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:2861': ProjectAndUnProjectResult(
+        Point(x: 6723783.25810189, y: 5169377.719135766),
+        Point(x: 17.88805856028151, y: 46.89226406700871)),
+'EPSG:2862': ProjectAndUnProjectResult(
+        Point(x: -835360.288822798, y: 7469523.565254046),
+        Point(x: 0, y: 90)),
+'EPSG:32605': ProjectAndUnProjectResult(
+        Point(x: -61735465.00836595, y: -38016576.898993805),
+        Point(x: 0, y: -90)),
+'EPSG:2863': ProjectAndUnProjectResult(
+        Point(x: -1585501.348464507, y: 7359986.274514455),
+        Point(x: 0, y: 90)),
+'EPSG:2864': ProjectAndUnProjectResult(
+        Point(x: -2061507.894929119, y: 7079113.201731387),
+        Point(x: 0, y: 90)),
+'EPSG:2865': ProjectAndUnProjectResult(
+        Point(x: -2539578.0552160507, y: 6974103.5782705145),
+        Point(x: 0, y: 90)),
+'EPSG:2866': ProjectAndUnProjectResult(
+        Point(x: 7328037.617013937, y: 5241769.00316173),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:2867': ProjectAndUnProjectResult(
+        Point(x: -10399806.518539019, y: 25963983.55181139),
+        Point(x: 0, y: 90)),
+'EPSG:2868': ProjectAndUnProjectResult(
+        Point(x: -13543801.5364406, y: 24888413.49452938),
+        Point(x: 0, y: 90)),
+'EPSG:2869': ProjectAndUnProjectResult(
+        Point(x: -17112193.866983697, y: 23518362.396374583),
+        Point(x: 0, y: 90)),
+'EPSG:2870': ProjectAndUnProjectResult(
+        Point(x: 28587111.61301334, y: 26997662.456949394),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:2887': ProjectAndUnProjectResult(
+        Point(x: -16681202.27733323, y: 19427882.720026407),
+        Point(x: 0, y: 90)),
+'EPSG:2871': ProjectAndUnProjectResult(
+        Point(x: 29490928.127553083, y: 27229420.066716954),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:2872': ProjectAndUnProjectResult(
+        Point(x: 30172292.14900213, y: 26973096.865134273),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:2873': ProjectAndUnProjectResult(
+        Point(x: 30723796.796568383, y: 26753014.18956203),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:2874': ProjectAndUnProjectResult(
+        Point(x: 31683048.008086983, y: 26700474.831011876),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:2875': ProjectAndUnProjectResult(
+        Point(x: 32341774.39860955, y: 26377843.57152735),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:2876': ProjectAndUnProjectResult(
+        Point(x: 24966835.570312258, y: 22103331.55055775),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2877': ProjectAndUnProjectResult(
+        Point(x: 25415893.186310228, y: 22403922.59138125),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2886': ProjectAndUnProjectResult(
+        Point(x: -14057937.66792316, y: 20834716.344766933),
+        Point(x: 0, y: 90)),
+'EPSG:2878': ProjectAndUnProjectResult(
+        Point(x: 25926473.257043164, y: 22550664.953602456),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2879': ProjectAndUnProjectResult(
+        Point(x: 19813264.61785006, y: 13594950.057344127),
+        Point(x: 17.8880585602815, y: 46.89226406700873)),
+'EPSG:2880': ProjectAndUnProjectResult(
+        Point(x: 16790808.841347355, y: 20514172.842702217),
+        Point(x: 0, y: 90)),
+'EPSG:2881': ProjectAndUnProjectResult(
+        Point(x: 15489593.9793538, y: 27416023.759500574),
+        Point(x: 0, y: 90)),
+'EPSG:2882': ProjectAndUnProjectResult(
+        Point(x: 15174228.042469708, y: 27744330.387298387),
+        Point(x: 0, y: 90)),
+'EPSG:2883': ProjectAndUnProjectResult(
+        Point(x: 25311130.55373748, y: 17855126.62438337),
+        Point(x: 17.8880585602815, y: 46.89226406700873)),
+'EPSG:2884': ProjectAndUnProjectResult(
+        Point(x: 15118403.95784771, y: 25737343.78491879),
+        Point(x: 0, y: 90)),
+'EPSG:2885': ProjectAndUnProjectResult(
+        Point(x: 16034054.297333257, y: 26367116.789685585),
+        Point(x: 0, y: 90)),
+'EPSG:2888': ProjectAndUnProjectResult(
+        Point(x: -19420021.483049184, y: 17825378.802620754),
+        Point(x: 0, y: 90)),
+'EPSG:2889': ProjectAndUnProjectResult(
+        Point(x: 13443875.494497072, y: 24904663.664909653),
+        Point(x: 0, y: 90)),
+'EPSG:2890': ProjectAndUnProjectResult(
+        Point(x: 15414189.905530725, y: 25302765.52991212),
+        Point(x: 0, y: 90)),
+'EPSG:2891': ProjectAndUnProjectResult(
+        Point(x: 22489450.67840238, y: 16345135.930820158),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2892': ProjectAndUnProjectResult(
+        Point(x: 22967474.001053426, y: 18536097.9356242),
+        Point(x: 17.88805856028154, y: 46.89226406700873)),
+'EPSG:2893': ProjectAndUnProjectResult(
+        Point(x: 21190442.58228328, y: 14745735.004731352),
+        Point(x: 17.888058560281525, y: 46.892264067008725)),
+'EPSG:2894': ProjectAndUnProjectResult(
+        Point(x: 19196544.987085447, y: 15324376.324036006),
+        Point(x: 17.8880585602815, y: 46.89226406700874)),
+'EPSG:2895': ProjectAndUnProjectResult(
+        Point(x: 20191338.904867485, y: 12525841.79646704),
+        Point(x: 17.88805856028151, y: 46.89226406700874)),
+'EPSG:2896': ProjectAndUnProjectResult(
+        Point(x: 45461213.70641344, y: 15730349.260780366),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2897': ProjectAndUnProjectResult(
+        Point(x: 39006952.19021326, y: 15402243.62815605),
+        Point(x: 17.88805856028151, y: 46.89226406700874)),
+'EPSG:2898': ProjectAndUnProjectResult(
+        Point(x: 32899589.65714337, y: 15708442.659052998),
+        Point(x: 17.8880585602815, y: 46.892264067008746)),
+'EPSG:2899': ProjectAndUnProjectResult(
+        Point(x: 12542576.309419382, y: 27849501.874450136),
+        Point(x: 0, y: 90)),
+'EPSG:2900': ProjectAndUnProjectResult(
+        Point(x: 12992572.243961737, y: 28200799.426332887),
+        Point(x: 0, y: 90)),
+'EPSG:2901': ProjectAndUnProjectResult(
+        Point(x: 21510163.334050607, y: 21622551.551792037),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2902': ProjectAndUnProjectResult(
+        Point(x: -1740585.9429477456, y: 28162864.26349876),
+        Point(x: 0, y: 90)),
+'EPSG:2903': ProjectAndUnProjectResult(
+        Point(x: -3274517.6394728147, y: 27651211.13930479),
+        Point(x: 0, y: 90)),
+'EPSG:2904': ProjectAndUnProjectResult(
+        Point(x: -4556912.360749825, y: 27080492.584270142),
+        Point(x: 0, y: 90)),
+'EPSG:2905': ProjectAndUnProjectResult(
+        Point(x: 16771473.192916507, y: 19881470.240724),
+        Point(x: 0, y: 90)),
+'EPSG:2906': ProjectAndUnProjectResult(
+        Point(x: 16742057.214225765, y: 20198326.198150817),
+        Point(x: 0, y: 90)),
+'EPSG:2907': ProjectAndUnProjectResult(
+        Point(x: 16635885.195668623, y: 20897177.96286299),
+        Point(x: 0, y: 90)),
+'EPSG:2908': ProjectAndUnProjectResult(
+        Point(x: 20080362.042142663, y: 13503621.269838179),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2909': ProjectAndUnProjectResult(
+        Point(x: 21212141.1777009, y: 18575411.16597377),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2910': ProjectAndUnProjectResult(
+        Point(x: 21568125.75435474, y: 18836205.032457754),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2911': ProjectAndUnProjectResult(
+        Point(x: 24956378.374106493, y: 19976436.595944285),
+        Point(x: 17.888058560281525, y: 46.89226406700874)),
+'EPSG:2912': ProjectAndUnProjectResult(
+        Point(x: 25553996.407476984, y: 20227709.19056246),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:2913': ProjectAndUnProjectResult(
+        Point(x: 28205491.53782647, y: 24245461.29358233),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:2914': ProjectAndUnProjectResult(
+        Point(x: 25833585.615591403, y: 24599246.142841343),
+        Point(x: 17.88805856028154, y: 46.892264067008725)),
+'EPSG:2915': ProjectAndUnProjectResult(
+        Point(x: 23755941.686326683, y: 17389305.16558998),
+        Point(x: 17.888058560281525, y: 46.892264067008725)),
+'EPSG:2916': ProjectAndUnProjectResult(
+        Point(x: 24255654.445273776, y: 24283641.250200517),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:2917': ProjectAndUnProjectResult(
+        Point(x: 26211047.587591656, y: 27153798.92289697),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:2918': ProjectAndUnProjectResult(
+        Point(x: 27620463.41867556, y: 31078601.643709395),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:2919': ProjectAndUnProjectResult(
+        Point(x: 27843540.2806729, y: 34296206.30905827),
+        Point(x: 17.88805856028154, y: 46.89226406700874)),
+'EPSG:2920': ProjectAndUnProjectResult(
+        Point(x: 27835397.22555792, y: 37629307.378124356),
+        Point(x: 17.88805856028151, y: 46.89226406700874)),
+'EPSG:2921': ProjectAndUnProjectResult(
+        Point(x: 23401765.337626535, y: 25725115.05581844),
+        Point(x: 17.888058560281525, y: 46.892264067008746)),
+'EPSG:2922': ProjectAndUnProjectResult(
+        Point(x: 24004536.819161545, y: 29432949.629476044),
+        Point(x: 17.888058560281525, y: 46.892264067008725)),
+'EPSG:2923': ProjectAndUnProjectResult(
+        Point(x: 24918173.066587433, y: 32865585.764436252),
+        Point(x: 17.8880585602815, y: 46.89226406700874)),
+'EPSG:2924': ProjectAndUnProjectResult(
+        Point(x: 31609131.381488744, y: 21591230.948789444),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:2925': ProjectAndUnProjectResult(
+        Point(x: 31900874.224490017, y: 18579489.49767648),
+        Point(x: 17.8880585602815, y: 46.89226406700872)),
+'EPSG:2926': ProjectAndUnProjectResult(
+        Point(x: 20370302.97494372, y: 23626235.953696106),
+        Point(x: 17.88805856028151, y: 46.89226406700871)),
+'EPSG:2927': ProjectAndUnProjectResult(
+        Point(x: 21028688.3365138, y: 23890497.314808477),
+        Point(x: 17.88805856028154, y: 46.892264067008746)),
+'EPSG:2928': ProjectAndUnProjectResult(
+        Point(x: 21381299.1022313, y: 16301056.100981912),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:2929': ProjectAndUnProjectResult(
+        Point(x: 21690411.735605255, y: 16558125.820239397),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:2930': ProjectAndUnProjectResult(
+        Point(x: 22059612.23928928, y: 16959866.733531255),
+        Point(x: 17.88805856028151, y: 46.89226406700871)),
+'EPSG:2931': ProjectAndUnProjectResult(
+        Point(x: 872393.8276685191, y: 5204619.09431755),
+        Point(x: 17.88805855772476, y: 46.89226406150545)),
+'EPSG:2932': ProjectAndUnProjectResult(
+        Point(x: -2322620.023449666, y: 3356906.260496193),
+        Point(x: 17.93405866447349, y: 46.89746591853616)),
+'EPSG:2933': ProjectAndUnProjectResult(
+        Point(x: -3997734.585355228, y: 21067298.242641147),
+        Point(x: 120.50579613101817, y: 89.9928915527733)),
+'EPSG:2934': ProjectAndUnProjectResult(
+        Point(x: -6353796.470372586, y: 6792384.01315299),
+        Point(x: 17.888059822235842, y: 46.89226431455566)),
+'EPSG:2935': ProjectAndUnProjectResult(
+        Point(x: -497292.49931517383, y: 5460886.2020053575),
+        Point(x: 17.88942146518864, y: 46.892364454996226)),
+'EPSG:2936': ProjectAndUnProjectResult(
+        Point(x: 276677.8203334685, y: 5538387.017507603),
+        Point(x: 17.8925400392322, y: 46.89265700460467)),
+'EPSG:2937': ProjectAndUnProjectResult(
+        Point(x: 1051699.1588681643, y: 5626311.919246014),
+        Point(x: 17.901398728182716, y: 46.89359528013745)),
+'EPSG:2938': ProjectAndUnProjectResult(
+        Point(x: 1828090.2450992167, y: 5725043.863010534),
+        Point(x: 17.924876512302987, y: 46.89634067346006)),
+'EPSG:2939': ProjectAndUnProjectResult(
+        Point(x: -189233.30969781615, y: 5731344.839242272),
+        Point(x: 17.927797477448554, y: 46.89669642907012)),
+'EPSG:2940': ProjectAndUnProjectResult(
+        Point(x: 589075.2302413797, y: 5842187.125077611),
+        Point(x: 17.991208209473342, y: 46.90481007555686)),
+'EPSG:2941': ProjectAndUnProjectResult(
+        Point(x: 1369663.4672195222, y: 5964720.452162718),
+        Point(x: 18.144746674159794, y: 46.92593045177248)),
+'EPSG:2942': ProjectAndUnProjectResult(
+        Point(x: 2988971.3749373723, y: 5744238.047397396),
+        Point(x: 17.848195893325798, y: 46.89671111691266)),
+'EPSG:2943': ProjectAndUnProjectResult(
+        Point(x: 2988971.3749373723, y: 5744238.047397396),
+        Point(x: 17.848195893325798, y: 46.89671111691266)),
+'EPSG:2944': ProjectAndUnProjectResult(
+        Point(x: 5277537.244089515, y: 8355177.8227729015),
+        Point(x: -15979.524499782834, y: 3524.3478798098868)),
+'EPSG:2945': ProjectAndUnProjectResult(
+        Point(x: 5365095.243901447, y: 8649032.835441044),
+        Point(x: -76314.668724916, y: 16624.267920019753)),
+'EPSG:2946': ProjectAndUnProjectResult(
+        Point(x: 5425861.74852327, y: 8954491.865918288),
+        Point(x: -519603.48216074344, y: 113747.10753176517)),
+'EPSG:2947': ProjectAndUnProjectResult(
+        Point(x: 5455664.100526009, y: 9269865.456694849),
+        Point(x: -6859630.010890731, y: 1508686.9880534173)),
+'EPSG:2948': ProjectAndUnProjectResult(
+        Point(x: 5449809.877896608, y: 9592937.814035818),
+        Point(x: -411243275.37217355, y: 90346346.30780989)),
+'EPSG:2949': ProjectAndUnProjectResult(
+        Point(x: 5403037.173898023, y: 9920877.559935424),
+        Point(x: -34661211008946.938, y: 7546306826338.474)),
+'EPSG:2950': ProjectAndUnProjectResult(
+        Point(x: 5309461.530223562, y: 10250138.320860693),
+        Point(x: 0, y: 90)),
+'EPSG:2951': ProjectAndUnProjectResult(
+        Point(x: 5162519.4015817605, y: 10576348.404652024),
+        Point(x: 0, y: 90)),
+'EPSG:2952': ProjectAndUnProjectResult(
+        Point(x: 4954908.029848009, y: 10894188.79017561),
+        Point(x: 0, y: 90)),
+'EPSG:2953': ProjectAndUnProjectResult(
+        Point(x: 8016398.141955978, y: 11184245.693301002),
+        Point(x: 17.88805856028151, y: 46.892264067008796)),
+'EPSG:2954': ProjectAndUnProjectResult(
+        Point(x: 5757390.397843242, y: 4104942.040903113),
+        Point(x: 17.88805856028151, y: 46.892264067008796)),
+'EPSG:2956': ProjectAndUnProjectResult(
+        Point(x: -3328981.2161364346, y: 11193210.773121612),
+        Point(x: 0, y: 90)),
+'EPSG:2957': ProjectAndUnProjectResult(
+        Point(x: -465963.8528201919, y: 11963247.506900493),
+        Point(x: 0, y: 90)),
+'EPSG:2958': ProjectAndUnProjectResult(
+        Point(x: 5019695.054228077, y: 11044701.550210133),
+        Point(x: 0, y: 90)),
+'EPSG:2959': ProjectAndUnProjectResult(
+        Point(x: 5436818.00586931, y: 10410808.927530395),
+        Point(x: 0, y: 90)),
+'EPSG:2960': ProjectAndUnProjectResult(
+        Point(x: 5625552.597278097, y: 9753575.672750814),
+        Point(x: -14563147143.452982, y: 3188443837.820243)),
+'EPSG:2961': ProjectAndUnProjectResult(
+        Point(x: 5638571.782971076, y: 9108330.901623307),
+        Point(x: -1685042.2535846238, y: 369929.7983349917)),
+'EPSG:2962': ProjectAndUnProjectResult(
+        Point(x: 5518117.362620078, y: 8498017.126823647),
+        Point(x: -33811.09013364492, y: 7380.196889868285)),
+'EPSG:2964': ProjectAndUnProjectResult(
+        Point(x: 8871383.233962419, y: 30123220.645564433),
+        Point(x: 17.888058560281515, y: 46.89226404782312)),
+'EPSG:2965': ProjectAndUnProjectResult(
+        Point(x: 13443875.494497072, y: 24906746.997909658),
+        Point(x: 0, y: 90)),
+'EPSG:2976': ProjectAndUnProjectResult(
+        Point(x: -47240980.2225275, y: -12685239.74300871),
+        Point(x: 0, y: -90)),
+'EPSG:2966': ProjectAndUnProjectResult(
+        Point(x: 15414189.905530725, y: 25304848.862912122),
+        Point(x: 0, y: 90)),
+'EPSG:2967': ProjectAndUnProjectResult(
+        Point(x: 13443875.494497072, y: 24906746.997909658),
+        Point(x: 0, y: 90)),
+'EPSG:2968': ProjectAndUnProjectResult(
+        Point(x: 15414189.905530725, y: 25304848.862912122),
+        Point(x: 0, y: 90)),
+'EPSG:2969': ProjectAndUnProjectResult(
+        Point(x: 5638668.8577555735, y: 9108646.435121816),
+        Point(x: 45, y: double.nan)),
+'EPSG:2970': ProjectAndUnProjectResult(
+        Point(x: 5638668.8577555735, y: 9108646.435121816),
+        Point(x: 45, y: double.nan)),
+'EPSG:2971': ProjectAndUnProjectResult(
+        Point(x: 5297812.557566325, y: 7936677.687824546),
+        Point(x: 45, y: double.nan)),
+'EPSG:2972': ProjectAndUnProjectResult(
+        Point(x: 5297700.047163907, y: 7936385.43186829),
+        Point(x: -2039.797629755838, y: 544.0590624611513)),
+'EPSG:2973': ProjectAndUnProjectResult(
+        Point(x: 5638668.8577555735, y: 9108646.435121816),
+        Point(x: 45, y: double.nan)),
+'EPSG:2975': ProjectAndUnProjectResult(
+        Point(x: -2446060.569136869, y: 15986999.55129112),
+        Point(x: 18.163219782904886, y: 46.928551724201576)),
+'EPSG:2977': ProjectAndUnProjectResult(
+        Point(x: -61736052.21200808, y: -28021402.362990454),
+        Point(x: 0, y: -90)),
+'EPSG:2978': ProjectAndUnProjectResult(
+        Point(x: -35393873.50720666, y: -1256659.0033259355),
+        Point(x: 0, y: -90)),
+'EPSG:2979': ProjectAndUnProjectResult(
+        Point(x: -3285769.2048876383, y: 16607208.581882231),
+        Point(x: 26.4579513418676, y: 48.314481992385716)),
+'EPSG:2980': ProjectAndUnProjectResult(
+        Point(x: -1557599.8094046724, y: 15562157.319282241),
+        Point(x: 17.89339995905174, y: 46.89274289000551)),
+'EPSG:2981': ProjectAndUnProjectResult(
+        Point(x: 19321537.129078377, y: 12805409.041390616),
+        Point(x: 45, y: double.nan)),
+'EPSG:2982': ProjectAndUnProjectResult(
+        Point(x: 19321537.129078377, y: 12805409.041390616),
+        Point(x: 45, y: double.nan)),
+'EPSG:2983': ProjectAndUnProjectResult(
+        Point(x: 19321537.129078377, y: 12805409.041390616),
+        Point(x: 45, y: double.nan)),
+'EPSG:2984': ProjectAndUnProjectResult(
+        Point(x: -20824342.277973093, y: -637938.8069908209),
+        Point(x: 17.888058560281515, y: 46.89226409307015)),
+'EPSG:2987': ProjectAndUnProjectResult(
+        Point(x: 5517937.734274884, y: 8498032.558621977),
+        Point(x: 45, y: double.nan)),
+'EPSG:2989': ProjectAndUnProjectResult(
+        Point(x: 5638571.782947235, y: 9108330.90168845),
+        Point(x: -1685042.2533001453, y: 369929.7982766386)),
+'EPSG:2990': ProjectAndUnProjectResult(
+        Point(x: -2790480.667777969, y: 8423790.449624673),
+        Point(x: 18.06528036348279, y: 46.91482316362574)),
+'EPSG:2991': ProjectAndUnProjectResult(
+        Point(x: 6621080.326600361, y: 7550611.109639786),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:2992': ProjectAndUnProjectResult(
+        Point(x: 21722704.48359173, y: 24772346.160235517),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:2993': ProjectAndUnProjectResult(
+        Point(x: 6621080.326600361, y: 7550611.109639786),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:2994': ProjectAndUnProjectResult(
+        Point(x: 21722704.48359173, y: 24772346.160235517),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:2995': ProjectAndUnProjectResult(
+        Point(x: 19321537.129078377, y: 12805409.041390616),
+        Point(x: 45, y: double.nan)),
+'EPSG:2996': ProjectAndUnProjectResult(
+        Point(x: 19321537.129078377, y: 12805409.041390616),
+        Point(x: 45, y: double.nan)),
+'EPSG:2997': ProjectAndUnProjectResult(
+        Point(x: 19321537.129078377, y: 12805409.041390616),
+        Point(x: 45, y: double.nan)),
+'EPSG:2998': ProjectAndUnProjectResult(
+        Point(x: 19321537.129078377, y: 12805409.041390616),
+        Point(x: 45, y: double.nan)),
+'EPSG:2999': ProjectAndUnProjectResult(
+        Point(x: -1557599.8094046724, y: 15562157.319282241),
+        Point(x: 17.89339995905174, y: 46.89274289000551)),
+'EPSG:3000': ProjectAndUnProjectResult(
+        Point(x: -6353796.470372586, y: 6792384.01315299),
+        Point(x: 17.888059822235842, y: 46.89226431455566)),
+'EPSG:3001': ProjectAndUnProjectResult(
+        Point(x: -6352665.000308769, y: 6792609.921434772),
+        Point(x: 17.88805856028151, y: 46.89226413303861)),
+'EPSG:3002': ProjectAndUnProjectResult(
+        Point(x: -6352665.000308769, y: 6792609.921434772),
+        Point(x: 17.88805856028151, y: 46.89226413303861)),
+'EPSG:3003': ProjectAndUnProjectResult(
+        Point(x: 2176912.6646181988, y: 5231864.353102461),
+        Point(x: 17.888058435548963, y: 46.8922640533178)),
+'EPSG:3004': ProjectAndUnProjectResult(
+        Point(x: 2740008.1957439464, y: 5197432.579517475),
+        Point(x: 17.888058560302213, y: 46.892264093017694)),
+'EPSG:3005': ProjectAndUnProjectResult(
+        Point(x: 5852641.094495805, y: 8044112.188266415),
+        Point(x: 17.88805856028151, y: 46.89226406700877)),
+'EPSG:3006': ProjectAndUnProjectResult(
+        Point(x: 720001.2298400886, y: 5197241.60997254),
+        Point(x: 17.888058560302017, y: 46.89226406695651)),
+'EPSG:3007': ProjectAndUnProjectResult(
+        Point(x: 598669.2683445803, y: 5212129.891160676),
+        Point(x: 17.888058558416994, y: 46.89226406333179)),
+'EPSG:3010': ProjectAndUnProjectResult(
+        Point(x: 255781.53174686513, y: 5196205.585950036),
+        Point(x: 17.88805856028205, y: 46.892264067008135)),
+'EPSG:3011': ProjectAndUnProjectResult(
+        Point(x: 141469.08374790964, y: 5195276.111849979),
+        Point(x: 17.888058560281515, y: 46.892264067008774)),
+'EPSG:3012': ProjectAndUnProjectResult(
+        Point(x: 427239.7350572513, y: 5201700.173692855),
+        Point(x: 17.888058560331274, y: 46.89226406680042)),
+'EPSG:3013': ProjectAndUnProjectResult(
+        Point(x: 312936.3103335998, y: 5197489.998984287),
+        Point(x: 17.8880585602863, y: 46.89226406700016)),
+'EPSG:3014': ProjectAndUnProjectResult(
+        Point(x: 198625.57705212594, y: 5195467.700063693),
+        Point(x: 17.888058560281525, y: 46.89226406700878)),
+'EPSG:3015': ProjectAndUnProjectResult(
+        Point(x: 84312.6848457014, y: 5195630.7617201),
+        Point(x: 17.88805856028147, y: 46.89226406700875)),
+'EPSG:3016': ProjectAndUnProjectResult(
+        Point(x: -29997.2884961167, y: 5197979.386805543),
+        Point(x: 17.88805856027366, y: 46.892264066993114)),
+'EPSG:3017': ProjectAndUnProjectResult(
+        Point(x: -144299.16811836342, y: 5202516.496162767),
+        Point(x: 17.88805856022543, y: 46.892264066710894)),
+'EPSG:3018': ProjectAndUnProjectResult(
+        Point(x: -258587.512644806, y: 5209247.727562542),
+        Point(x: 17.88805856085824, y: 46.892264064897844)),
+'EPSG:3019': ProjectAndUnProjectResult(
+        Point(x: 2001308.1589802196, y: 5215734.855545628),
+        Point(x: 17.888058553952913, y: 46.89226412598594)),
+'EPSG:3020': ProjectAndUnProjectResult(
+        Point(x: 1829910.2364057195, y: 5203784.14132612),
+        Point(x: 17.88805856032184, y: 46.89226413245026)),
+'EPSG:3021': ProjectAndUnProjectResult(
+        Point(x: 1658477.7552794372, y: 5196775.451293881),
+        Point(x: 17.88805856028566, y: 46.89226413303138)),
+'EPSG:3022': ProjectAndUnProjectResult(
+        Point(x: 1487029.2385625124, y: 5194689.193910075),
+        Point(x: 17.888058560281515, y: 46.89226413303865)),
+'EPSG:3023': ProjectAndUnProjectResult(
+        Point(x: 1315582.0205458421, y: 5197519.530895611),
+        Point(x: 17.88805856027271, y: 46.89226413302058)),
+'EPSG:3024': ProjectAndUnProjectResult(
+        Point(x: 1144153.5326327079, y: 5205274.382075083),
+        Point(x: 17.888058560309865, y: 46.89226413211409)),
+'EPSG:3025': ProjectAndUnProjectResult(
+        Point(x: 2001308.1589802196, y: 5215734.855545628),
+        Point(x: 17.888058553952913, y: 46.89226412598594)),
+'EPSG:3026': ProjectAndUnProjectResult(
+        Point(x: 1829910.2364057195, y: 5203784.14132612),
+        Point(x: 17.88805856032184, y: 46.89226413245026)),
+'EPSG:3027': ProjectAndUnProjectResult(
+        Point(x: 1658477.7552794372, y: 5196775.451293881),
+        Point(x: 17.88805856028566, y: 46.89226413303138)),
+'EPSG:3028': ProjectAndUnProjectResult(
+        Point(x: 1487029.2385625124, y: 5194689.193910075),
+        Point(x: 17.888058560281515, y: 46.89226413303865)),
+'EPSG:3029': ProjectAndUnProjectResult(
+        Point(x: 1315582.0205458421, y: 5197519.530895611),
+        Point(x: 17.88805856027271, y: 46.89226413302058)),
+'EPSG:3030': ProjectAndUnProjectResult(
+        Point(x: 1144153.5326327079, y: 5205274.382075083),
+        Point(x: 17.888058560309865, y: 46.89226413211409)),
+'EPSG:3031': ProjectAndUnProjectResult(
+        Point(x: 9570214.988964928, y: 29651083.52658238),
+        Point(x: 17.888058560281515, y: 46.89226406700872)),
+'EPSG:3032': ProjectAndUnProjectResult(
+        Point(x: -18589698.086052824, y: 25134328.24198812),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:3033': ProjectAndUnProjectResult(
+        Point(x: -15691757.104784992, y: 19987677.563023202),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3034': ProjectAndUnProjectResult(
+        Point(x: 4580708.59132307, y: 2282143.4053414315),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3035': ProjectAndUnProjectResult(
+        Point(x: 4921381.502448138, y: 2674052.203833336),
+        Point(x: 17.888058560281518, y: 46.89226406911223)),
+'EPSG:3036': ProjectAndUnProjectResult(
+        Point(x: -650192.2096599129, y: 15305193.291340299),
+        Point(x: 17.88807717323444, y: 46.892264059984264)),
+'EPSG:3037': ProjectAndUnProjectResult(
+        Point(x: -1105125.5281863362, y: 15413941.856486619),
+        Point(x: 17.888509189327262, y: 46.89229076369042)),
+'EPSG:3038': ProjectAndUnProjectResult(
+        Point(x: 3859134.0088134822, y: 6259299.996916991),
+        Point(x: 16.418121572269165, y: 47.11123824637778)),
+'EPSG:3039': ProjectAndUnProjectResult(
+        Point(x: 3429800.759174801, y: 5977375.01459784),
+        Point(x: 17.630645767876164, y: 46.92603298659015)),
+'EPSG:3040': ProjectAndUnProjectResult(
+        Point(x: 2988896.0169453374, y: 5744023.033448553),
+        Point(x: 17.848196835452992, y: 46.89671142260442)),
+'EPSG:3041': ProjectAndUnProjectResult(
+        Point(x: 2540720.5313290567, y: 5555692.513083512),
+        Point(x: 17.883147133968766, y: 46.89269979625903)),
+'EPSG:3042': ProjectAndUnProjectResult(
+        Point(x: 2088186.225893158, y: 5409193.676598077),
+        Point(x: 17.88765211923516, y: 46.89228755974916)),
+'EPSG:3043': ProjectAndUnProjectResult(
+        Point(x: 1633185.6064171265, y: 5301866.087016829),
+        Point(x: 17.88804238865636, y: 46.892264000337974)),
+'EPSG:3044': ProjectAndUnProjectResult(
+        Point(x: 1176891.287219305, y: 5231671.834018296),
+        Point(x: 17.88805843543735, y: 46.892264027445336)),
+'EPSG:3045': ProjectAndUnProjectResult(
+        Point(x: 720001.2298400886, y: 5197241.60997254),
+        Point(x: 17.888058560302017, y: 46.89226406695651)),
+'EPSG:3046': ProjectAndUnProjectResult(
+        Point(x: 262945.2879608735, y: 5197894.102611037),
+        Point(x: 17.888058560253082, y: 46.89226406692702)),
+'EPSG:3047': ProjectAndUnProjectResult(
+        Point(x: -193931.3475621267, y: 5233642.279931091),
+        Point(x: 17.88805871864152, y: 46.89226402167793)),
+'EPSG:3048': ProjectAndUnProjectResult(
+        Point(x: -650192.2096700789, y: 5305193.291220044),
+        Point(x: 17.888077173234436, y: 46.89226405998426)),
+'EPSG:3049': ProjectAndUnProjectResult(
+        Point(x: -1105125.5282006196, y: 5413941.856367431),
+        Point(x: 17.888509189327227, y: 46.89229076369037)),
+'EPSG:3050': ProjectAndUnProjectResult(
+        Point(x: -1557536.5212347228, y: 5561950.163916144),
+        Point(x: 17.89339993357438, y: 46.89274299727956)),
+'EPSG:3051': ProjectAndUnProjectResult(
+        Point(x: -2005500.4108122215, y: 5751900.446586641),
+        Point(x: 17.930935679469886, y: 46.897081134395314)),
+'EPSG:3054': ProjectAndUnProjectResult(
+        Point(x: 3859230.857707509, y: 6259536.256453576),
+        Point(x: 16.41805953600252, y: 47.1112421538169)),
+'EPSG:3055': ProjectAndUnProjectResult(
+        Point(x: 3429887.588794524, y: 5977599.8436151445),
+        Point(x: 17.63063680350018, y: 46.926032782350006)),
+'EPSG:3056': ProjectAndUnProjectResult(
+        Point(x: 2988971.3749373723, y: 5744238.047397396),
+        Point(x: 17.848195893325798, y: 46.89671111691266)),
+'EPSG:3057': ProjectAndUnProjectResult(
+        Point(x: 3270199.377220549, y: -713939.791333823),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3058': ProjectAndUnProjectResult(
+        Point(x: 2054007.2134230281, y: -2255648.9091204116),
+        Point(x: 17.883994464908916, y: 46.89261579235793)),
+'EPSG:3059': ProjectAndUnProjectResult(
+        Point(x: 34461.49600235146, y: -788646.7322226427),
+        Point(x: 17.888058563129825, y: 46.89226406242482)),
+'EPSG:3060': ProjectAndUnProjectResult(
+        Point(x: 19321537.129078377, y: 12805409.041390616),
+        Point(x: 45, y: double.nan)),
+'EPSG:3061': ProjectAndUnProjectResult(
+        Point(x: 2988971.3749373723, y: 5744238.047397396),
+        Point(x: 17.848195893325798, y: 46.89671111691266)),
+'EPSG:3062': ProjectAndUnProjectResult(
+        Point(x: 3859230.857707509, y: 6259536.256453576),
+        Point(x: 16.41805953600252, y: 47.1112421538169)),
+'EPSG:3063': ProjectAndUnProjectResult(
+        Point(x: 3859230.857707509, y: 6259536.256453576),
+        Point(x: 16.41805953600252, y: 47.1112421538169)),
+'EPSG:3064': ProjectAndUnProjectResult(
+        Point(x: 1176891.2872133553, y: 5231671.834139232),
+        Point(x: 17.88805843543735, y: 46.89226402744535)),
+'EPSG:3065': ProjectAndUnProjectResult(
+        Point(x: 720001.2298381603, y: 5197241.610093783),
+        Point(x: 17.888058560302017, y: 46.89226406695652)),
+'EPSG:3066': ProjectAndUnProjectResult(
+        Point(x: -954026.1722764634, y: 2374719.362141542),
+        Point(x: 17.888231365222943, y: 46.89227184722173)),
+'EPSG:3067': ProjectAndUnProjectResult(
+        Point(x: -193931.3475621267, y: 5233642.279931091),
+        Point(x: 17.88805871864152, y: 46.89226402167793)),
+'EPSG:3068': ProjectAndUnProjectResult(
+        Point(x: 364519.2400474906, y: -595832.702079257),
+        Point(x: 17.888042997260023, y: 46.892264690411345)),
+'EPSG:3069': ProjectAndUnProjectResult(
+        Point(x: 3819244.9687284892, y: 7332769.126322562),
+        Point(x: 0, y: 90)),
+'EPSG:3070': ProjectAndUnProjectResult(
+        Point(x: 3839622.300083163, y: 7353217.56768338),
+        Point(x: 0, y: 90)),
+'EPSG:3071': ProjectAndUnProjectResult(
+        Point(x: 3839622.300083163, y: 7353217.56768338),
+        Point(x: 0, y: 90)),
+'EPSG:3072': ProjectAndUnProjectResult(
+        Point(x: 5841926.85039724, y: 4779293.471123142),
+        Point(x: -856956604.9425999, y: 188140569.70074788)),
+'EPSG:3073': ProjectAndUnProjectResult(
+        Point(x: 5625524.243963247, y: 5008333.052615764),
+        Point(x: -21737319794.916904, y: 4757338589.639994)),
+'EPSG:3074': ProjectAndUnProjectResult(
+        Point(x: 5401485.579875652, y: 5163842.641810937),
+        Point(x: -11503948981851.02, y: 2505985965549.347)),
+'EPSG:3075': ProjectAndUnProjectResult(
+        Point(x: 5841926.85039724, y: 4779293.471123142),
+        Point(x: -856956604.9425999, y: 188140569.70074788)),
+'EPSG:3076': ProjectAndUnProjectResult(
+        Point(x: 5625524.243963247, y: 5008333.052615764),
+        Point(x: -21737319794.916904, y: 4757338589.639994)),
+'EPSG:3077': ProjectAndUnProjectResult(
+        Point(x: 5401485.579875652, y: 5163842.641810937),
+        Point(x: -11503948981851.02, y: 2505985965549.347)),
+'EPSG:3078': ProjectAndUnProjectResult(
+        Point(x: 8386430.7898983145, y: 2796245.837725366),
+        Point(x: 17.88805856028151, y: 46.89226406700874)),
+'EPSG:3079': ProjectAndUnProjectResult(
+        Point(x: 8386430.7898983145, y: 2796245.837725366),
+        Point(x: 17.88805856028151, y: 46.89226406700874)),
+'EPSG:3080': ProjectAndUnProjectResult(
+        Point(x: 28148468.04749735, y: 23622097.92894413),
+        Point(x: 17.8880585602815, y: 46.89226404782305)),
+'EPSG:3081': ProjectAndUnProjectResult(
+        Point(x: 8665245.955593321, y: 7285398.725447465),
+        Point(x: 17.888058560281525, y: 46.89226406700872)),
+'EPSG:3082': ProjectAndUnProjectResult(
+        Point(x: 9154307.075487461, y: 12759946.896370977),
+        Point(x: 17.88805856028155, y: 46.892264067008725)),
+'EPSG:3083': ProjectAndUnProjectResult(
+        Point(x: 9202342.771606717, y: 13714424.334539425),
+        Point(x: 17.88805856028155, y: 46.89226406700876)),
+'EPSG:3084': ProjectAndUnProjectResult(
+        Point(x: 9154307.075487461, y: 12759946.896370977),
+        Point(x: 17.88805856028155, y: 46.892264067008725)),
+'EPSG:3085': ProjectAndUnProjectResult(
+        Point(x: 9202342.771606717, y: 13714424.334539425),
+        Point(x: 17.88805856028155, y: 46.89226406700876)),
+'EPSG:3086': ProjectAndUnProjectResult(
+        Point(x: 7788718.898020689, y: 5738991.145189423),
+        Point(x: 17.88805856028151, y: 46.892264067008796)),
+'EPSG:3087': ProjectAndUnProjectResult(
+        Point(x: 7788718.898020689, y: 5738991.145189423),
+        Point(x: 17.88805856028151, y: 46.892264067008796)),
+'EPSG:3088': ProjectAndUnProjectResult(
+        Point(x: 7954314.818287251, y: 6181092.986200401),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3098': ProjectAndUnProjectResult(
+        Point(x: -2176781.840373538, y: 12026151.471395677),
+        Point(x: 0, y: 90)),
+'EPSG:3089': ProjectAndUnProjectResult(
+        Point(x: 26096781.199664086, y: 20279135.905225813),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3090': ProjectAndUnProjectResult(
+        Point(x: 7954314.818287251, y: 6181092.986200401),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3091': ProjectAndUnProjectResult(
+        Point(x: 26096781.199664086, y: 20279135.905225813),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3092': ProjectAndUnProjectResult(
+        Point(x: -3275641.8609203375, y: 11620934.150254922),
+        Point(x: 0, y: 90)),
+'EPSG:3093': ProjectAndUnProjectResult(
+        Point(x: -2176583.9027588833, y: 12024947.74795484),
+        Point(x: 0, y: 90)),
+'EPSG:3094': ProjectAndUnProjectResult(
+        Point(x: -604133.2198818212, y: 12177612.213822527),
+        Point(x: 0, y: 90)),
+'EPSG:3095': ProjectAndUnProjectResult(
+        Point(x: 1558637.9374573864, y: 11944663.942841321),
+        Point(x: 0, y: 90)),
+'EPSG:3096': ProjectAndUnProjectResult(
+        Point(x: 4451403.528502634, y: 11150146.547297414),
+        Point(x: 0, y: 90)),
+'EPSG:3097': ProjectAndUnProjectResult(
+        Point(x: -3275967.0652893055, y: 11622144.51821889),
+        Point(x: 0, y: 90)),
+'EPSG:3099': ProjectAndUnProjectResult(
+        Point(x: -604157.4780445739, y: 12178763.901223246),
+        Point(x: 0, y: 90)),
+'EPSG:3100': ProjectAndUnProjectResult(
+        Point(x: 1558843.5538291563, y: 11945699.00761955),
+        Point(x: 0, y: 90)),
+'EPSG:3101': ProjectAndUnProjectResult(
+        Point(x: 4451906.623195637, y: 11150975.810983855),
+        Point(x: 0, y: 90)),
+'EPSG:3102': ProjectAndUnProjectResult(
+        Point(x: -73644567.3323965, y: -842435.9984311373),
+        Point(x: 17.88805856028149, y: 46.89226404782304)),
+'EPSG:3103': ProjectAndUnProjectResult(
+        Point(x: 2988853.9655160126, y: 5744078.669052498),
+        Point(x: 17.848193246526034, y: 46.89671010445272)),
+'EPSG:3104': ProjectAndUnProjectResult(
+        Point(x: 2540689.9359594667, y: 5555742.024561414),
+        Point(x: 17.883147068514432, y: 46.8926992677133)),
+'EPSG:3105': ProjectAndUnProjectResult(
+        Point(x: 2088164.6801670862, y: 5409237.98513725),
+        Point(x: 17.8876521804974, y: 46.89228740565478)),
+'EPSG:3106': ProjectAndUnProjectResult(
+        Point(x: -4426317.7584174685, y: 8230483.354478804),
+        Point(x: 45, y: double.nan)),
+'EPSG:3107': ProjectAndUnProjectResult(
+        Point(x: -19053509.31088796, y: 2429151.340795912),
+        Point(x: 17.88805856028151, y: 46.89226406700874)),
+'EPSG:3126': ProjectAndUnProjectResult(
+        Point(x: 415260.6822780034, y: 5195870.378755134),
+        Point(x: 17.888058560281344, y: 46.892264067008604)),
+'EPSG:3108': ProjectAndUnProjectResult(
+        Point(x: 1591648.0571654972, y: -35997.282725631696),
+        Point(x: 17.88774938384045, y: 46.89228072495099)),
+'EPSG:3109': ProjectAndUnProjectResult(
+        Point(x: 1563317.4333017708, y: 8866.23042817536),
+        Point(x: 17.887788309575704, y: 46.89227809050608)),
+'EPSG:3110': ProjectAndUnProjectResult(
+        Point(x: -19288461.05324479, y: 1257550.615114091),
+        Point(x: 17.88805856028151, y: 46.89226406702777)),
+'EPSG:3111': ProjectAndUnProjectResult(
+        Point(x: -19288382.890973657, y: -742437.3449551277),
+        Point(x: 17.88805856028151, y: 46.89226406700871)),
+'EPSG:3112': ProjectAndUnProjectResult(
+        Point(x: -18704187.61509478, y: -1254790.7080928627),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:3113': ProjectAndUnProjectResult(
+        Point(x: 7793785.573916676, y: 12769791.385874765),
+        Point(x: -4967267525.63053, y: 1643558557.1708627)),
+'EPSG:3114': ProjectAndUnProjectResult(
+        Point(x: 5602973.338735154, y: 11446759.200280566),
+        Point(x: 0, y: 90)),
+'EPSG:3115': ProjectAndUnProjectResult(
+        Point(x: 5823190.1736905165, y: 11131197.294986518),
+        Point(x: 0, y: 90)),
+'EPSG:3116': ProjectAndUnProjectResult(
+        Point(x: 5981235.610502521, y: 10806121.017854199),
+        Point(x: 0, y: 90)),
+'EPSG:3118': ProjectAndUnProjectResult(
+        Point(x: 6139873.062745825, y: 10148520.923470223),
+        Point(x: -1319338140.740411, y: 289535161.569949)),
+'EPSG:3119': ProjectAndUnProjectResult(
+        Point(x: 1562384.735400098, y: 6216808.614645933),
+        Point(x: 17.888058539699244, y: 46.89226407911223)),
+'EPSG:3120': ProjectAndUnProjectResult(
+        Point(x: 4393322.894247529, y: 5056941.151522451),
+        Point(x: 17.888058560281518, y: 46.892264066591615)),
+'EPSG:3121': ProjectAndUnProjectResult(
+        Point(x: -4000135.906516161, y: 11070928.379475888),
+        Point(x: 0, y: 90)),
+'EPSG:3122': ProjectAndUnProjectResult(
+        Point(x: -3795611.9138338612, y: 11267641.347024886),
+        Point(x: 0, y: 90)),
+'EPSG:3123': ProjectAndUnProjectResult(
+        Point(x: -3555526.5980821257, y: 11453514.505240787),
+        Point(x: 0, y: 90)),
+'EPSG:3124': ProjectAndUnProjectResult(
+        Point(x: -3276920.978709336, y: 11625844.955654154),
+        Point(x: 0, y: 90)),
+'EPSG:3125': ProjectAndUnProjectResult(
+        Point(x: -2956636.481527558, y: 11781623.534961285),
+        Point(x: 0, y: 90)),
+'EPSG:3127': ProjectAndUnProjectResult(
+        Point(x: 339053.9538040216, y: 5197436.0837356355),
+        Point(x: 17.888058560277017, y: 46.892264067000774)),
+'EPSG:3128': ProjectAndUnProjectResult(
+        Point(x: 262850.42813212634, y: 5199974.092247936),
+        Point(x: 17.888058560253082, y: 46.89226406692702)),
+'EPSG:3129': ProjectAndUnProjectResult(
+        Point(x: 186651.6820958571, y: 5203485.806494309),
+        Point(x: 17.888058560226206, y: 46.892264066575265)),
+'EPSG:3130': ProjectAndUnProjectResult(
+        Point(x: 110459.36197448388, y: 5207973.165191365),
+        Point(x: 17.888058560563294, y: 46.89226406541965)),
+'EPSG:3131': ProjectAndUnProjectResult(
+        Point(x: 34275.2060847854, y: 5213438.643234651),
+        Point(x: 17.888058563129828, y: 46.892264062424815)),
+'EPSG:3132': ProjectAndUnProjectResult(
+        Point(x: -41898.93239802774, y: 5219885.251244588),
+        Point(x: 17.888058574348563, y: 46.89226405586626)),
+'EPSG:3133': ProjectAndUnProjectResult(
+        Point(x: -118061.06233451399, y: 5227316.534974944),
+        Point(x: 17.888058612001338, y: 46.89226404327183)),
+'EPSG:3134': ProjectAndUnProjectResult(
+        Point(x: -194209.03117459663, y: 5235736.574560914),
+        Point(x: 17.88805871864152, y: 46.892264021677924)),
+'EPSG:3135': ProjectAndUnProjectResult(
+        Point(x: -270340.5011148328, y: 5245149.983579845),
+        Point(x: 17.8880589858763, y: 46.89226398852624)),
+'EPSG:3136': ProjectAndUnProjectResult(
+        Point(x: -346452.9248036217, y: 5255561.907893532),
+        Point(x: 17.888059595624604, y: 46.892263943722426)),
+'EPSG:3137': ProjectAndUnProjectResult(
+        Point(x: -422543.52053862845, y: 5266978.024236943),
+        Point(x: 17.88806088688771, y: 46.892263893655276)),
+'EPSG:3138': ProjectAndUnProjectResult(
+        Point(x: -498609.24690069736, y: 5279404.538514145),
+        Point(x: 17.88806345975466, y: 46.892263858362384)),
+'EPSG:3140': ProjectAndUnProjectResult(
+        Point(x: -70846140.01977795, y: 171210775.78133655),
+        Point(x: -135, y: double.nan)),
+'EPSG:3141': ProjectAndUnProjectResult(
+        Point(x: 36793340.15774258, y: -1622933.4674809016),
+        Point(x: 0, y: -90)),
+'EPSG:3142': ProjectAndUnProjectResult(
+        Point(x: 48731573.509643055, y: -13181767.564816851),
+        Point(x: 0, y: -90)),
+'EPSG:3143': ProjectAndUnProjectResult(
+        Point(x: 41534619.56121887, y: -8758942.931392394),
+        Point(x: 0, y: -90)),
+'EPSG:3146': ProjectAndUnProjectResult(
+        Point(x: 6491468.937631781, y: 5195364.932899235),
+        Point(x: 17.888058560281515, y: 46.89226406659161)),
+'EPSG:3147': ProjectAndUnProjectResult(
+        Point(x: 491468.93763178115, y: 5195364.932899235),
+        Point(x: 17.888058560281515, y: 46.89226406659161)),
+'EPSG:3148': ProjectAndUnProjectResult(
+        Point(x: -4621511.783465718, y: 9776870.702394767),
+        Point(x: 45, y: double.nan)),
+'EPSG:3149': ProjectAndUnProjectResult(
+        Point(x: -4425327.760418835, y: 10433926.73726126),
+        Point(x: 0, y: 90)),
+'EPSG:3150': ProjectAndUnProjectResult(
+        Point(x: 6491468.937631781, y: 5195364.932899235),
+        Point(x: 17.888058560281515, y: 46.89226406659161)),
+'EPSG:3151': ProjectAndUnProjectResult(
+        Point(x: 491468.93763178115, y: 5195364.932899235),
+        Point(x: 17.888058560281515, y: 46.89226406659161)),
+'EPSG:3152': ProjectAndUnProjectResult(
+        Point(x: 87243.23643798723, y: -1305360.6412097253),
+        Point(x: 17.888058560281515, y: 46.892264067008774)),
+'EPSG:3153': ProjectAndUnProjectResult(
+        Point(x: 5852641.094495805, y: 8044112.188266415),
+        Point(x: 17.88805856028151, y: 46.89226406700877)),
+'EPSG:3154': ProjectAndUnProjectResult(
+        Point(x: -35393329.62055659, y: -11254044.783678558),
+        Point(x: 0, y: -90)),
+'EPSG:3155': ProjectAndUnProjectResult(
+        Point(x: -25785988.545412734, y: -2920563.7794431755),
+        Point(x: 72517.82979839807, y: -135482.78856909208)),
+'EPSG:3156': ProjectAndUnProjectResult(
+        Point(x: -18063024.2834307, y: 2990541.0425813603),
+        Point(x: 5728.679566272616, y: 8118.480468517206)),
+'EPSG:3157': ProjectAndUnProjectResult(
+        Point(x: -11916549.256324729, y: 7029722.072663035),
+        Point(x: 169423.46825792477, y: 95274.64648021963)),
+'EPSG:3158': ProjectAndUnProjectResult(
+        Point(x: 1672650.061907484, y: 12179046.047871836),
+        Point(x: 0, y: 90)),
+'EPSG:3159': ProjectAndUnProjectResult(
+        Point(x: 3225639.745211993, y: 12014873.557768293),
+        Point(x: 0, y: 90)),
+'EPSG:3160': ProjectAndUnProjectResult(
+        Point(x: 4309153.746567462, y: 11603618.623518256),
+        Point(x: 0, y: 90)),
+'EPSG:3161': ProjectAndUnProjectResult(
+        Point(x: 6564186.411249067, y: 16793420.77755385),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3162': ProjectAndUnProjectResult(
+        Point(x: 6564186.411249067, y: 16793420.77755385),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3163': ProjectAndUnProjectResult(
+        Point(x: -20823545.932266816, y: -637843.0603015926),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3164': ProjectAndUnProjectResult(
+        Point(x: 19321105.82822534, y: 12806678.89346136),
+        Point(x: -5175.116547763912, y: 7749.823531212802)),
+'EPSG:3165': ProjectAndUnProjectResult(
+        Point(x: -21381399.55518569, y: -1321948.1919650133),
+        Point(x: 17.88805856028154, y: 46.89226409307013)),
+'EPSG:3166': ProjectAndUnProjectResult(
+        Point(x: -21381403.22969089, y: -1321974.9927254335),
+        Point(x: 17.888058560281515, y: 46.89226409307015)),
+'EPSG:3167': ProjectAndUnProjectResult(
+        Point(x: -302285.34430120606, y: 346447.6805758034),
+        Point(x: 17.888058560281515, y: 46.89226425953235)),
+'EPSG:3168': ProjectAndUnProjectResult(
+        Point(x: -5316330.273683353, y: 6969403.456909375),
+        Point(x: 17.888058560281515, y: 46.89226425953235)),
+'EPSG:3169': ProjectAndUnProjectResult(
+        Point(x: 13120822.691871341, y: 16907087.333848983),
+        Point(x: -142413.85807935635, y: 81938.05169573172)),
+'EPSG:3170': ProjectAndUnProjectResult(
+        Point(x: 19321105.829017498, y: 12806678.893239),
+        Point(x: -5175.116548601758, y: 7749.823533021951)),
+'EPSG:3171': ProjectAndUnProjectResult(
+        Point(x: 27108574.549169235, y: 6815768.467481233),
+        Point(x: -103767.21820745953, y: -188871.77584871996)),
+'EPSG:3172': ProjectAndUnProjectResult(
+        Point(x: 27109068.49350498, y: 6813896.677835045),
+        Point(x: -135, y: double.nan)),
+'EPSG:3174': ProjectAndUnProjectResult(
+        Point(x: 6847270.573878591, y: 5470326.95949224),
+        Point(x: 17.8880585602815, y: 46.89226406700877)),
+'EPSG:3175': ProjectAndUnProjectResult(
+        Point(x: 6819680.24281576, y: 5382704.742806314),
+        Point(x: 17.88805856028151, y: 46.89226406700877)),
+'EPSG:3176': ProjectAndUnProjectResult(
+        Point(x: -4602432.162348762, y: 9886415.0420066),
+        Point(x: 45, y: double.nan)),
+'EPSG:3177': ProjectAndUnProjectResult(
+        Point(x: 1067442.9173074123, y: 5177658.381666837),
+        Point(x: 17.88805856028157, y: 46.89226409307016)),
+'EPSG:3178': ProjectAndUnProjectResult(
+        Point(x: 5436818.00586931, y: 10410808.927530395),
+        Point(x: 0, y: 90)),
+'EPSG:3179': ProjectAndUnProjectResult(
+        Point(x: 5625552.597278097, y: 9753575.672750814),
+        Point(x: -14563147143.452982, y: 3188443837.820243)),
+'EPSG:3180': ProjectAndUnProjectResult(
+        Point(x: 5638571.782971076, y: 9108330.901623307),
+        Point(x: -1685042.2535846238, y: 369929.7983349917)),
+'EPSG:3181': ProjectAndUnProjectResult(
+        Point(x: 5518117.362620078, y: 8498017.126823647),
+        Point(x: -33811.09013364492, y: 7380.196889868285)),
+'EPSG:3182': ProjectAndUnProjectResult(
+        Point(x: 5297700.047163907, y: 7936385.43186829),
+        Point(x: -2039.797629755838, y: 544.0590624611513)),
+'EPSG:3183': ProjectAndUnProjectResult(
+        Point(x: 5003589.298485577, y: 7430562.416711468),
+        Point(x: 87.06844226328268, y: 103.32192587414212)),
+'EPSG:3184': ProjectAndUnProjectResult(
+        Point(x: 4656108.536534103, y: 6983077.859512636),
+        Point(x: -27.574000095106953, y: 55.09636167021371)),
+'EPSG:3185': ProjectAndUnProjectResult(
+        Point(x: 4270751.307769986, y: 6593435.187347272),
+        Point(x: 9.84627979268085, y: 48.22214374762894)),
+'EPSG:3186': ProjectAndUnProjectResult(
+        Point(x: 3859134.0088134822, y: 6259299.996916991),
+        Point(x: 16.418121572269165, y: 47.11123824637778)),
+'EPSG:3187': ProjectAndUnProjectResult(
+        Point(x: 3429800.759174801, y: 5977375.01459784),
+        Point(x: 17.630645767876164, y: 46.92603298659015)),
+'EPSG:3188': ProjectAndUnProjectResult(
+        Point(x: 2988896.0169453374, y: 5744023.033448553),
+        Point(x: 17.848196835452992, y: 46.89671142260442)),
+'EPSG:3189': ProjectAndUnProjectResult(
+        Point(x: 2540720.5313290567, y: 5555692.513083512),
+        Point(x: 17.883147133968766, y: 46.89269979625903)),
+'EPSG:3190': ProjectAndUnProjectResult(
+        Point(x: 877149.6788565107, y: 5233696.238380157),
+        Point(x: 17.888058435548967, y: 46.8922640533178)),
+'EPSG:3191': ProjectAndUnProjectResult(
+        Point(x: 724836.1688530105, y: 5218287.527573072),
+        Point(x: 17.88805855014847, y: 46.89226408378077)),
+'EPSG:3192': ProjectAndUnProjectResult(
+        Point(x: 572476.2906303303, y: 5206814.672759168),
+        Point(x: 17.8880585601646, y: 46.892264091847856)),
+'EPSG:3193': ProjectAndUnProjectResult(
+        Point(x: 420085.2294259295, y: 5199252.408852041),
+        Point(x: 17.888058560302213, y: 46.892264093017694)),
+'EPSG:3194': ProjectAndUnProjectResult(
+        Point(x: 267676.4126056667, y: 5195584.042897897),
+        Point(x: 17.88805856028157, y: 46.89226409307016)),
+'EPSG:3195': ProjectAndUnProjectResult(
+        Point(x: 115262.23558941942, y: 5195801.466133304),
+        Point(x: 17.888058560281337, y: 46.89226409307002)),
+'EPSG:3196': ProjectAndUnProjectResult(
+        Point(x: -37145.222522789, y: 5199905.159365781),
+        Point(x: 17.888058560252794, y: 46.89226409298809)),
+'EPSG:4570': ProjectAndUnProjectResult(
+        Point(x: 10690600.918627873, y: 7959687.230352008),
+        Point(x: 45, y: double.nan)),
+'EPSG:3197': ProjectAndUnProjectResult(
+        Point(x: -189533.48649168247, y: 5207904.192663425),
+        Point(x: 17.88805856055896, y: 46.89226409147422)),
+'EPSG:3198': ProjectAndUnProjectResult(
+        Point(x: -341888.96851418493, y: 5219816.219295164),
+        Point(x: 17.888058574319285, y: 46.892264081878)),
+'EPSG:3199': ProjectAndUnProjectResult(
+        Point(x: 1176912.664618199, y: 5231864.353102461),
+        Point(x: 17.888058435548967, y: 46.8922640533178)),
+'EPSG:3200': ProjectAndUnProjectResult(
+        Point(x: -611578.169247048, y: 3050210.7636024714),
+        Point(x: 17.88805856028152, y: 46.89226403059418)),
+'EPSG:3201': ProjectAndUnProjectResult(
+        Point(x: 720008.1957439462, y: 5197432.579517475),
+        Point(x: 17.888058560302213, y: 46.892264093017694)),
+'EPSG:3202': ProjectAndUnProjectResult(
+        Point(x: 262937.7824553429, y: 5198085.101557112),
+        Point(x: 17.888058560252794, y: 46.89226409298809)),
+'EPSG:3203': ProjectAndUnProjectResult(
+        Point(x: -193953.25986767956, y: 5233834.887577642),
+        Point(x: 17.888058718511672, y: 46.892264047520015)),
+'EPSG:3204': ProjectAndUnProjectResult(
+        Point(x: 25066432.253421612, y: 7151955.946894791),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3205': ProjectAndUnProjectResult(
+        Point(x: 23323815.20985978, y: 11639421.971816815),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3206': ProjectAndUnProjectResult(
+        Point(x: 20785721.617491703, y: 15729916.612043316),
+        Point(x: 17.888058560281518, y: 46.89226406700873)),
+'EPSG:3207': ProjectAndUnProjectResult(
+        Point(x: -12052973.866507681, y: -24271874.65087082),
+        Point(x: 17.888058560281486, y: 46.89226406700873)),
+'EPSG:3208': ProjectAndUnProjectResult(
+        Point(x: 26366664.576902073, y: 6260756.917772714),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3209': ProjectAndUnProjectResult(
+        Point(x: 24694733.172770705, y: 11161013.915409265),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3210': ProjectAndUnProjectResult(
+        Point(x: -10164627.588845657, y: 25121274.33221449),
+        Point(x: 17.888058560281518, y: 46.89226406700873)),
+'EPSG:3211': ProjectAndUnProjectResult(
+        Point(x: -14756779.039045539, y: 22729618.353309125),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3212': ProjectAndUnProjectResult(
+        Point(x: -18810260.96647724, y: 19508258.775896005),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3213': ProjectAndUnProjectResult(
+        Point(x: -22177108.346414044, y: 15574785.50368234),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3214': ProjectAndUnProjectResult(
+        Point(x: -24734420.506115302, y: 11072782.862540206),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3215': ProjectAndUnProjectResult(
+        Point(x: -26388847.39154885, y: 6166588.314444775),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3216': ProjectAndUnProjectResult(
+        Point(x: -27079997.14223665, y: 1035293.6157229327),
+        Point(x: 17.88805856028151, y: 46.89226406700874)),
+'EPSG:3217': ProjectAndUnProjectResult(
+        Point(x: -26782640.58686839, y: -4133792.6035218327),
+        Point(x: 17.8880585602815, y: 46.89226406700873)),
+'EPSG:3218': ProjectAndUnProjectResult(
+        Point(x: -25507632.188558858, y: -9151982.20209688),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3219': ProjectAndUnProjectResult(
+        Point(x: -23301513.822308376, y: -13836095.246964507),
+        Point(x: 17.88805856028146, y: 46.89226406700873)),
+'EPSG:3220': ProjectAndUnProjectResult(
+        Point(x: -20244815.848053504, y: -18015146.66531206),
+        Point(x: 17.88805856028151, y: 46.89226406700874)),
+'EPSG:3221': ProjectAndUnProjectResult(
+        Point(x: 25990281.16802446, y: -10854991.565167855),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:3222': ProjectAndUnProjectResult(
+        Point(x: 27611245.951654006, y: -5562791.93122503),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3223': ProjectAndUnProjectResult(
+        Point(x: 28165980.28820513, y: -55780.617352245325),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3224': ProjectAndUnProjectResult(
+        Point(x: 27633062.66556257, y: 5453384.7098773355),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3225': ProjectAndUnProjectResult(
+        Point(x: 15638727.285663286, y: 23425536.6204807),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3226': ProjectAndUnProjectResult(
+        Point(x: 10755720.571876656, y: 26031519.971998196),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3227': ProjectAndUnProjectResult(
+        Point(x: 5457373.066367603, y: 27632275.264395382),
+        Point(x: 17.888058560281518, y: 46.89226406700871)),
+'EPSG:3228': ProjectAndUnProjectResult(
+        Point(x: -51715.284904636, y: 28165988.04590634),
+        Point(x: 17.888058560281515, y: 46.892264067008725)),
+'EPSG:3229': ProjectAndUnProjectResult(
+        Point(x: -5558806.608898887, y: 27612048.568653747),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3230': ProjectAndUnProjectResult(
+        Point(x: -10851240.149386862, y: 25991847.65062242),
+        Point(x: 17.888058560281515, y: 46.892264067008725)),
+'EPSG:3231': ProjectAndUnProjectResult(
+        Point(x: -15724644.332920264, y: 23367950.65203601),
+        Point(x: 17.888058560281518, y: 46.892264067008725)),
+'EPSG:3232': ProjectAndUnProjectResult(
+        Point(x: -19990828.74134481, y: 19841681.46370297),
+        Point(x: 17.888058560281518, y: 46.892264067008725)),
+'EPSG:3233': ProjectAndUnProjectResult(
+        Point(x: -23485051.23600155, y: 15549209.803562805),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3234': ProjectAndUnProjectResult(
+        Point(x: -26072379.607775677, y: 10656292.913620332),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3235': ProjectAndUnProjectResult(
+        Point(x: -27652902.09276468, y: 5351874.710865592),
+        Point(x: 17.8880585602815, y: 46.892264067008725)),
+'EPSG:3236': ProjectAndUnProjectResult(
+        Point(x: -28165585.545317043, y: -159210.43389043925),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3237': ProjectAndUnProjectResult(
+        Point(x: -27590632.281989515, y: -5664147.539821861),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3238': ProjectAndUnProjectResult(
+        Point(x: -25950244.585000012, y: -10950359.03756172),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3239': ProjectAndUnProjectResult(
+        Point(x: -23307767.34326102, y: -15813713.622841641),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3240': ProjectAndUnProjectResult(
+        Point(x: -19765241.938598897, y: -20066408.950818367),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3241': ProjectAndUnProjectResult(
+        Point(x: -15459465.835807992, y: -23544223.77451246),
+        Point(x: 17.88805856028151, y: 46.89226406700871)),
+'EPSG:3242': ProjectAndUnProjectResult(
+        Point(x: 7915976.904349618, y: -28130001.131981343),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3243': ProjectAndUnProjectResult(
+        Point(x: 15924849.697899364, y: -24502220.63680724),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3244': ProjectAndUnProjectResult(
+        Point(x: 22492160.213056713, y: -18656430.070773367),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3245': ProjectAndUnProjectResult(
+        Point(x: 27023416.992210645, y: -11121806.872112503),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3246': ProjectAndUnProjectResult(
+        Point(x: 29108437.900493056, y: -2580406.3688898585),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3247': ProjectAndUnProjectResult(
+        Point(x: 28558480.96871375, y: 6194579.791647082),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3248': ProjectAndUnProjectResult(
+        Point(x: 19986787.255225956, y: 21318723.912321888),
+        Point(x: 17.888058560281507, y: 46.892264067008725)),
+'EPSG:3249': ProjectAndUnProjectResult(
+        Point(x: 12740984.347538726, y: 26298801.719683748),
+        Point(x: 17.888058560281518, y: 46.89226406700872)),
+'EPSG:3250': ProjectAndUnProjectResult(
+        Point(x: 4341831.6266081985, y: 28898237.872950878),
+        Point(x: 17.888058560281518, y: 46.892264067008725)),
+'EPSG:3251': ProjectAndUnProjectResult(
+        Point(x: -4450355.930492564, y: 28881724.085092243),
+        Point(x: 17.888058560281515, y: 46.892264067008725)),
+'EPSG:3252': ProjectAndUnProjectResult(
+        Point(x: -12839684.7255628, y: 26250755.23072845),
+        Point(x: 17.888058560281515, y: 46.892264067008725)),
+'EPSG:3253': ProjectAndUnProjectResult(
+        Point(x: -20066729.070986774, y: 21243494.025867827),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3254': ProjectAndUnProjectResult(
+        Point(x: -25477276.543396596, y: 14313211.867598465),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3255': ProjectAndUnProjectResult(
+        Point(x: -28581549.136114668, y: 6087257.429691194),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:3256': ProjectAndUnProjectResult(
+        Point(x: -29098539.344743643, y: -2689732.707514648),
+        Point(x: 17.8880585602815, y: 46.89226406700872)),
+'EPSG:3257': ProjectAndUnProjectResult(
+        Point(x: -26981447.758476138, y: -11223240.659100695),
+        Point(x: 17.888058560281486, y: 46.892264067008725)),
+'EPSG:3258': ProjectAndUnProjectResult(
+        Point(x: -22421919.474663854, y: -18740789.23383852),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3259': ProjectAndUnProjectResult(
+        Point(x: -15832695.844459012, y: -24561868.74674479),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3260': ProjectAndUnProjectResult(
+        Point(x: -5079505.619102587, y: -29787133.712741956),
+        Point(x: 17.888058560281486, y: 46.892264067008725)),
+'EPSG:3261': ProjectAndUnProjectResult(
+        Point(x: 11140937.19215027, y: -28088329.08230438),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3262': ProjectAndUnProjectResult(
+        Point(x: 21408794.86977613, y: -21324591.77520429),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3263': ProjectAndUnProjectResult(
+        Point(x: 28132015.648163404, y: -11030159.007319545),
+        Point(x: 17.8880585602815, y: 46.892264067008725)),
+'EPSG:3264': ProjectAndUnProjectResult(
+        Point(x: 30197441.285675492, y: 1090528.2909876592),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3265': ProjectAndUnProjectResult(
+        Point(x: 27263100.925386924, y: 13030657.699726043),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:3266': ProjectAndUnProjectResult(
+        Point(x: 19814830.93404658, y: 22813311.623050563),
+        Point(x: 17.888058560281518, y: 46.892264067008725)),
+'EPSG:3267': ProjectAndUnProjectResult(
+        Point(x: 9085835.366688324, y: 28818783.94111554),
+        Point(x: 17.888058560281515, y: 46.892264067008725)),
+'EPSG:3268': ProjectAndUnProjectResult(
+        Point(x: -3147494.634115184, y: 30052753.445956983),
+        Point(x: 17.888058560281515, y: 46.892264067008725)),
+'EPSG:3269': ProjectAndUnProjectResult(
+        Point(x: -14859696.486972794, y: 26310912.8019214),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3270': ProjectAndUnProjectResult(
+        Point(x: -24111590.377630733, y: 18212795.54644504),
+        Point(x: 17.888058560281507, y: 46.892264067008725)),
+'EPSG:3271': ProjectAndUnProjectResult(
+        Point(x: -29371347.69676528, y: 7099200.421947815),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3272': ProjectAndUnProjectResult(
+        Point(x: -29768114.667325903, y: -5189803.590522423),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:3273': ProjectAndUnProjectResult(
+        Point(x: -25236198.902010895, y: -16619536.008367002),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3274': ProjectAndUnProjectResult(
+        Point(x: -16525946.03884843, y: -25297585.25386036),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3275': ProjectAndUnProjectResult(
+        Point(x: -1602117.1613092974, y: -31757249.151661653),
+        Point(x: 17.888058560281486, y: 46.89226406700872)),
+'EPSG:3276': ProjectAndUnProjectResult(
+        Point(x: 14491150.414297959, y: -28303643.100305457),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:3277': ProjectAndUnProjectResult(
+        Point(x: 26701525.93899615, y: -17266098.7373637),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:3278': ProjectAndUnProjectResult(
+        Point(x: 31757249.151661653, y: -1602117.1613093065),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:3279': ProjectAndUnProjectResult(
+        Point(x: 28303643.100305457, y: 14491150.414297957),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:3280': ProjectAndUnProjectResult(
+        Point(x: 17266098.7373637, y: 26701525.938996155),
+        Point(x: 17.888058560281515, y: 46.892264067008746)),
+'EPSG:3281': ProjectAndUnProjectResult(
+        Point(x: 1602117.1613093081, y: 31757249.151661653),
+        Point(x: 17.888058560281515, y: 46.89226406700872)),
+'EPSG:3282': ProjectAndUnProjectResult(
+        Point(x: -14491150.414297955, y: 28303643.100305457),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:3283': ProjectAndUnProjectResult(
+        Point(x: -26701525.938996155, y: 17266098.737363696),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:3284': ProjectAndUnProjectResult(
+        Point(x: -31757249.151661653, y: 1602117.161309303),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:3285': ProjectAndUnProjectResult(
+        Point(x: -28303643.100305457, y: -14491150.414297955),
+        Point(x: 17.888058560281486, y: 46.89226406700872)),
+'EPSG:3286': ProjectAndUnProjectResult(
+        Point(x: -17266098.737363704, y: -26701525.93899615),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:3287': ProjectAndUnProjectResult(
+        Point(x: 6671854.5576663185, y: -31089805.56131903),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:3288': ProjectAndUnProjectResult(
+        Point(x: 30260488.693654157, y: -9766907.243365493),
+        Point(x: 17.888058560281525, y: 46.89226406700872)),
+'EPSG:3289': ProjectAndUnProjectResult(
+        Point(x: 23588634.135987844, y: 21322898.317953534),
+        Point(x: 17.888058560281525, y: 46.892264067008746)),
+'EPSG:3290': ProjectAndUnProjectResult(
+        Point(x: -6671854.557666316, y: 31089805.56131903),
+        Point(x: 17.888058560281515, y: 46.89226406700872)),
+'EPSG:3291': ProjectAndUnProjectResult(
+        Point(x: -30260488.693654157, y: 9766907.243365496),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:3292': ProjectAndUnProjectResult(
+        Point(x: -23588634.13598784, y: -21322898.31795354),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:3293': ProjectAndUnProjectResult(
+        Point(x: 9766907.243365496, y: 30260488.693654157),
+        Point(x: 17.888058560281515, y: 46.89226406700872)),
+'EPSG:3294': ProjectAndUnProjectResult(
+        Point(x: -19026280.71559294, y: -24834579.9604708),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:3296': ProjectAndUnProjectResult(
+        Point(x: -61735465.01028672, y: -28016576.899930514),
+        Point(x: 0, y: -90)),
+'EPSG:3297': ProjectAndUnProjectResult(
+        Point(x: -47240401.76333124, y: -12681647.638609204),
+        Point(x: 0, y: -90)),
+'EPSG:3298': ProjectAndUnProjectResult(
+        Point(x: -35393329.62055659, y: -1254044.7836785577),
+        Point(x: 0, y: -90)),
+'EPSG:3299': ProjectAndUnProjectResult(
+        Point(x: -25785988.545412734, y: 7079436.2205568245),
+        Point(x: 72517.82979839807, y: -135482.78856909208)),
+'EPSG:3300': ProjectAndUnProjectResult(
+        Point(x: 25838.491262051102, y: 5205792.771843453),
+        Point(x: 17.888058560281515, y: 46.89226406700873)),
+'EPSG:3301': ProjectAndUnProjectResult(
+        Point(x: 25838.491262051102, y: 5205792.771843453),
+        Point(x: 17.888058560281515, y: 46.89226406700873)),
+'EPSG:3302': ProjectAndUnProjectResult(
+        Point(x: -35393873.50720666, y: -1256659.0033259355),
+        Point(x: 0, y: -90)),
+'EPSG:3303': ProjectAndUnProjectResult(
+        Point(x: -35393873.50720666, y: -1256659.0033259355),
+        Point(x: 0, y: -90)),
+'EPSG:3304': ProjectAndUnProjectResult(
+        Point(x: -47240980.2225275, y: -12685239.74300871),
+        Point(x: 0, y: -90)),
+'EPSG:3305': ProjectAndUnProjectResult(
+        Point(x: -47240980.2225275, y: -12685239.74300871),
+        Point(x: 0, y: -90)),
+'EPSG:3306': ProjectAndUnProjectResult(
+        Point(x: -61736052.21200808, y: -28021402.362990454),
+        Point(x: 0, y: -90)),
+'EPSG:3307': ProjectAndUnProjectResult(
+        Point(x: -2005500.4107896662, y: 5751900.446702114),
+        Point(x: 17.93093567947049, y: 46.89708113439577)),
+'EPSG:3308': ProjectAndUnProjectResult(
+        Point(x: -12032145.999217626, y: 2197042.8317936016),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:3309': ProjectAndUnProjectResult(
+        Point(x: 7280996.84159367, y: 7461281.7510659415),
+        Point(x: 17.888058560281515, y: 46.89226404782312)),
+'EPSG:3310': ProjectAndUnProjectResult(
+        Point(x: 7281011.174753069, y: 7461253.495639747),
+        Point(x: 17.88805856028151, y: 46.89226406700877)),
+'EPSG:3311': ProjectAndUnProjectResult(
+        Point(x: 7281011.174753069, y: 7461253.495639747),
+        Point(x: 17.88805856028151, y: 46.89226406700877)),
+'EPSG:3312': ProjectAndUnProjectResult(
+        Point(x: 5518224.65906046, y: 8498322.508853763),
+        Point(x: 45, y: double.nan)),
+'EPSG:3313': ProjectAndUnProjectResult(
+        Point(x: 5518117.362620078, y: 8498017.126823647),
+        Point(x: -33811.09013364492, y: 7380.196889868285)),
+'EPSG:3314': ProjectAndUnProjectResult(
+        Point(x: -1055242.855388163, y: 6400866.198349588),
+        Point(x: 17.888058560281515, y: 46.89226404782309)),
+'EPSG:3315': ProjectAndUnProjectResult(
+        Point(x: -617931.7960080478, y: 6221279.320813943),
+        Point(x: 17.88805861183238, y: 46.8922640237992)),
+'EPSG:3316': ProjectAndUnProjectResult(
+        Point(x: 186686.6636181362, y: 15203001.834715065),
+        Point(x: 17.888058560221207, y: 46.89226403015354)),
+'EPSG:3317': ProjectAndUnProjectResult(
+        Point(x: 34327.24022968224, y: 15212954.069742147),
+        Point(x: 17.888058563083174, y: 46.89226402593301)),
+'EPSG:3318': ProjectAndUnProjectResult(
+        Point(x: 948619.1450499085, y: 15211645.39685935),
+        Point(x: 17.888058558454585, y: 46.89226402685545)),
+'EPSG:3319': ProjectAndUnProjectResult(
+        Point(x: 796256.1471057797, y: 15202130.988102555),
+        Point(x: 17.88805856034169, y: 46.89226403027896)),
+'EPSG:3320': ProjectAndUnProjectResult(
+        Point(x: 643868.8332100438, y: 15196517.53453229),
+        Point(x: 17.88805856028415, y: 46.89226403059007)),
+'EPSG:3321': ProjectAndUnProjectResult(
+        Point(x: 491470.03549351613, y: 15194792.635503057),
+        Point(x: 17.888058560281515, y: 46.89226403059423)),
+'EPSG:3322': ProjectAndUnProjectResult(
+        Point(x: 339071.9127455106, y: 15196952.477118291),
+        Point(x: 17.888058560276875, y: 46.89226403058609)),
+'EPSG:3323': ProjectAndUnProjectResult(
+        Point(x: 186686.6636181362, y: 15203001.834715065),
+        Point(x: 17.888058560221207, y: 46.89226403015354)),
+'EPSG:3324': ProjectAndUnProjectResult(
+        Point(x: 34327.24022968224, y: 15212954.069742147),
+        Point(x: 17.888058563083174, y: 46.89226402593301)),
+'EPSG:3325': ProjectAndUnProjectResult(
+        Point(x: -117991.93070256803, y: 15226831.120450601),
+        Point(x: 17.88805861175282, y: 46.89226400643564)),
+'EPSG:3326': ProjectAndUnProjectResult(
+        Point(x: -270254.2120697646, y: 15244663.484771553),
+        Point(x: 17.888058984926975, y: 46.892263950533305)),
+'EPSG:3327': ProjectAndUnProjectResult(
+        Point(x: -422439.99878881604, y: 15266490.192710988),
+        Point(x: 17.888060884008283, y: 46.89226385259459)),
+'EPSG:3328': ProjectAndUnProjectResult(
+        Point(x: 402381.9505981152, y: -86047.06519418897),
+        Point(x: 17.888058560281515, y: 46.892264066591586)),
+'EPSG:3329': ProjectAndUnProjectResult(
+        Point(x: 5720093.035258308, y: 5199410.227239075),
+        Point(x: 17.888058560302017, y: 46.89226406653935)),
+'EPSG:3330': ProjectAndUnProjectResult(
+        Point(x: 6491468.937631781, y: 5195364.932899235),
+        Point(x: 17.888058560281515, y: 46.89226406659161)),
+'EPSG:3331': ProjectAndUnProjectResult(
+        Point(x: 7262846.366199088, y: 5200062.991900588),
+        Point(x: 17.88805856025309, y: 46.89226406650986)),
+'EPSG:3332': ProjectAndUnProjectResult(
+        Point(x: 8034267.228662017, y: 5213527.768175429),
+        Point(x: 17.888058563130237, y: 46.892264062008316)),
+'EPSG:3333': ProjectAndUnProjectResult(
+        Point(x: 3720093.035258308, y: 5199410.227239075),
+        Point(x: 17.888058560302017, y: 46.89226406653935)),
+'EPSG:3334': ProjectAndUnProjectResult(
+        Point(x: 4262846.366199088, y: 5200062.991900588),
+        Point(x: 17.88805856025309, y: 46.89226406650986)),
+'EPSG:3335': ProjectAndUnProjectResult(
+        Point(x: 4805779.076641811, y: 5235826.072617986),
+        Point(x: 17.888058718645958, y: 46.892264021268176)),
+'EPSG:3336': ProjectAndUnProjectResult(
+        Point(x: -3285769.2048876383, y: 16607208.581882231),
+        Point(x: 26.4579513418676, y: 48.314481992385716)),
+'EPSG:3337': ProjectAndUnProjectResult(
+        Point(x: -5386760.258756506, y: 9887613.834833495),
+        Point(x: 17.88805856028151, y: 46.8922640305942)),
+'EPSG:3338': ProjectAndUnProjectResult(
+        Point(x: 2704046.3736966117, y: 9181485.899239805),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:3339': ProjectAndUnProjectResult(
+        Point(x: 948736.018879219, y: 15211662.523968946),
+        Point(x: 17.888058571306285, y: 46.892264093084535)),
+'EPSG:3340': ProjectAndUnProjectResult(
+        Point(x: 796373.2574316089, y: 15202145.101290386),
+        Point(x: 17.88805857319896, y: 46.89226409651302)),
+'EPSG:3341': ProjectAndUnProjectResult(
+        Point(x: 643986.1687837165, y: 15196528.645945756),
+        Point(x: 17.888058573141397, y: 46.892264096824874)),
+'EPSG:3342': ProjectAndUnProjectResult(
+        Point(x: 720115.8665552917, y: 15197290.418284832),
+        Point(x: 17.888058573160055, y: 46.892264096775754)),
+'EPSG:3343': ProjectAndUnProjectResult(
+        Point(x: 2988896.0169453374, y: 5744023.033448553),
+        Point(x: 17.848196835452992, y: 46.89671142260442)),
+'EPSG:3344': ProjectAndUnProjectResult(
+        Point(x: 2540720.5313290567, y: 5555692.513083512),
+        Point(x: 17.883147133968766, y: 46.89269979625903)),
+'EPSG:3345': ProjectAndUnProjectResult(
+        Point(x: 2088186.225893158, y: 5409193.676598077),
+        Point(x: 17.88765211923516, y: 46.89228755974916)),
+'EPSG:3346': ProjectAndUnProjectResult(
+        Point(x: 34368.35104356846, y: 5212395.955506003),
+        Point(x: 17.888058563129828, y: 46.892264062424815)),
+'EPSG:3347': ProjectAndUnProjectResult(
+        Point(x: 11031109.518585373, y: 6836755.258922908),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3348': ProjectAndUnProjectResult(
+        Point(x: 11031109.518585373, y: 6836755.258922908),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3349': ProjectAndUnProjectResult(
+        Point(x: 18689213.18920183, y: 5893297.075909311),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3350': ProjectAndUnProjectResult(
+        Point(x: -59543.82108795375, y: 5192318.397002037),
+        Point(x: 17.888058560225097, y: 46.89226406618873)),
+'EPSG:3351': ProjectAndUnProjectResult(
+        Point(x: 711900.2892904547, y: 5208571.167864743),
+        Point(x: 17.888058573379602, y: 46.89226405589863)),
+'EPSG:3352': ProjectAndUnProjectResult(
+        Point(x: 1483452.5104965703, y: 5233687.665034381),
+        Point(x: 17.888058966400234, y: 46.89226399007357)),
+'EPSG:3353': ProjectAndUnProjectResult(
+        Point(x: 1176912.664618199, y: 15231864.35310246),
+        Point(x: 17.888058435548967, y: 46.8922640533178)),
+'EPSG:3354': ProjectAndUnProjectResult(
+        Point(x: 1176912.664618199, y: 15231864.35310246),
+        Point(x: 17.888058435548967, y: 46.8922640533178)),
+'EPSG:3355': ProjectAndUnProjectResult(
+        Point(x: -383619.336614965, y: 2769308.3869573455),
+        Point(x: 17.888063459796225, y: 46.89226385816824)),
+'EPSG:3356': ProjectAndUnProjectResult(
+        Point(x: 5019358.128750517, y: 11044474.951492442),
+        Point(x: 0, y: 90)),
+'EPSG:3357': ProjectAndUnProjectResult(
+        Point(x: 5019358.128750517, y: 11044474.951492442),
+        Point(x: 0, y: 90)),
+'EPSG:3358': ProjectAndUnProjectResult(
+        Point(x: 7013164.842371999, y: 4867653.736840957),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:3359': ProjectAndUnProjectResult(
+        Point(x: 23009071.002540804, y: 15969992.574937522),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:3360': ProjectAndUnProjectResult(
+        Point(x: 7231101.448544078, y: 5119305.1873058975),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3361': ProjectAndUnProjectResult(
+        Point(x: 23724086.117270596, y: 16795620.69326082),
+        Point(x: 17.88805856028151, y: 46.89226406700871)),
+'EPSG:3362': ProjectAndUnProjectResult(
+        Point(x: 6522469.313095474, y: 4396559.711847568),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3372': ProjectAndUnProjectResult(
+        Point(x: 27108574.549169235, y: -3184231.5325187673),
+        Point(x: -103767.21820745963, y: -188871.77584872008)),
+'EPSG:3363': ProjectAndUnProjectResult(
+        Point(x: 21399134.7380474, y: 14424379.654619893),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3364': ProjectAndUnProjectResult(
+        Point(x: 6583746.193120701, y: 4440183.096793512),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:3365': ProjectAndUnProjectResult(
+        Point(x: 21600173.96859683, y: 14567500.71006338),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:3366': ProjectAndUnProjectResult(
+        Point(x: -6292484.848644223, y: 9166740.961036524),
+        Point(x: -78.49319663914245, y: -17.124395706761387)),
+'EPSG:3367': ProjectAndUnProjectResult(
+        Point(x: 2988853.9655160126, y: 5744078.669052498),
+        Point(x: 17.848193246526034, y: 46.89671010445272)),
+'EPSG:3368': ProjectAndUnProjectResult(
+        Point(x: 2540689.9359594667, y: 5555742.024561414),
+        Point(x: 17.883147068514432, y: 46.8926992677133)),
+'EPSG:3369': ProjectAndUnProjectResult(
+        Point(x: 2088164.6801670862, y: 5409237.98513725),
+        Point(x: 17.8876521804974, y: 46.89228740565478)),
+'EPSG:3370': ProjectAndUnProjectResult(
+        Point(x: 27107442.378671594, y: -3188819.666936382),
+        Point(x: -135, y: double.nan)),
+'EPSG:3371': ProjectAndUnProjectResult(
+        Point(x: 36790914.62390729, y: -11626122.648727527),
+        Point(x: 0, y: -90)),
+'EPSG:3373': ProjectAndUnProjectResult(
+        Point(x: 36792794.61949032, y: -11620286.792548649),
+        Point(x: 0, y: -90)),
+'EPSG:3374': ProjectAndUnProjectResult(
+        Point(x: 2540783.335368116, y: 5555899.395479769),
+        Point(x: 17.883147115494637, y: 46.89269969480191)),
+'EPSG:3375': ProjectAndUnProjectResult(
+        Point(x: -5316992.27272053, y: 6970349.875876519),
+        Point(x: 17.8880585602815, y: 46.89226406700872)),
+'EPSG:3376': ProjectAndUnProjectResult(
+        Point(x: -20667926.15717817, y: 7397843.038706061),
+        Point(x: 17.888058560281486, y: 46.89226406700866)),
+'EPSG:3377': ProjectAndUnProjectResult(
+        Point(x: -5705379.234758854, y: 9716999.979202269),
+        Point(x: 94692083409.60115, y: 5676562.371421338)),
+'EPSG:3378': ProjectAndUnProjectResult(
+        Point(x: -5602862.580164545, y: 9443189.715987837),
+        Point(x: 55719602.863625646, y: 63729.94375745346)),
+'EPSG:3379': ProjectAndUnProjectResult(
+        Point(x: -5636618.162312897, y: 9386937.853361819),
+        Point(x: 180421399.4631877, y: 130124.96319345839)),
+'EPSG:3380': ProjectAndUnProjectResult(
+        Point(x: -5607595.484272222, y: 9314627.423811605),
+        Point(x: 14355450.81207967, y: 27803.04191092491)),
+'EPSG:3381': ProjectAndUnProjectResult(
+        Point(x: -5650253.512894152, y: 9346448.277887724),
+        Point(x: 4441144281.598458, y: 900733.2604377113)),
+'EPSG:3382': ProjectAndUnProjectResult(
+        Point(x: -5512661.1732170805, y: 8928688.985765466),
+        Point(x: 2460159.551547343, y: 9298.755975760438)),
+'EPSG:3383': ProjectAndUnProjectResult(
+        Point(x: -5529427.544852741, y: 8906674.954400184),
+        Point(x: 3794590.2338328245, y: 12200.08423819763)),
+'EPSG:3384': ProjectAndUnProjectResult(
+        Point(x: -5539729.187695043, y: 9185880.408929028),
+        Point(x: 5049506.595575011, y: 14577.275165292263)),
+'EPSG:3385': ProjectAndUnProjectResult(
+        Point(x: -5611801.979102653, y: 9135643.677975701),
+        Point(x: 141899987.77163473, y: 112487.87681589273)),
+'EPSG:3386': ProjectAndUnProjectResult(
+        Point(x: 491468.8135524017, y: 5195466.975506458),
+        Point(x: 17.888058560281515, y: 46.892264093070196)),
+'EPSG:3387': ProjectAndUnProjectResult(
+        Point(x: 4349311.392991415, y: 5307512.11048422),
+        Point(x: 17.888077170379418, y: 46.89226408153607)),
+'EPSG:3389': ProjectAndUnProjectResult(
+        Point(x: 102473338.74243054, y: -16968392.648355428),
+        Point(x: 0, y: -90)),
+'EPSG:3390': ProjectAndUnProjectResult(
+        Point(x: 102473338.74243054, y: -16968392.648355428),
+        Point(x: 0, y: -90)),
+'EPSG:3391': ProjectAndUnProjectResult(
+        Point(x: -1105103.6797874472, y: 5413986.339062028),
+        Point(x: 17.888509125531673, y: 46.89229060205596)),
+'EPSG:4571': ProjectAndUnProjectResult(
+        Point(x: 11473309.968065696, y: 8523533.10121544),
+        Point(x: 45, y: double.nan)),
+'EPSG:3392': ProjectAndUnProjectResult(
+        Point(x: -1557505.546123053, y: 5561999.889457148),
+        Point(x: 17.893400025549788, y: 46.89274244627494)),
+'EPSG:3393': ProjectAndUnProjectResult(
+        Point(x: -2005457.8754873872, y: 5751956.32341547),
+        Point(x: 17.930939627421356, y: 46.89707978532681)),
+'EPSG:3394': ProjectAndUnProjectResult(
+        Point(x: -611578.169247048, y: 3050210.7636024714),
+        Point(x: 17.88805856028152, y: 46.89226403059418)),
+'EPSG:3395': ProjectAndUnProjectResult(
+        Point(x: 1991289.5702107965, y: 5893297.075909311),
+        Point(x: 17.888058560281515, y: 46.892264067008725)),
+'EPSG:3396': ProjectAndUnProjectResult(
+        Point(x: 4177087.538008534, y: 5233165.822182404),
+        Point(x: 17.88805843535868, y: 46.892264093608865)),
+'EPSG:3397': ProjectAndUnProjectResult(
+        Point(x: 4948619.814255216, y: 5211532.968062555),
+        Point(x: 17.888058558410155, y: 46.892264129373)),
+'EPSG:3398': ProjectAndUnProjectResult(
+        Point(x: 4948619.814255216, y: 5211532.968062555),
+        Point(x: 17.888058558410155, y: 46.892264129373)),
+'EPSG:3399': ProjectAndUnProjectResult(
+        Point(x: 5720065.001582181, y: 5198725.952166574),
+        Point(x: 17.888058560301882, y: 46.89226413298655)),
+'EPSG:3400': ProjectAndUnProjectResult(
+        Point(x: -5717776.119356243, y: 10259186.452845959),
+        Point(x: 0, y: 90)),
+'EPSG:3401': ProjectAndUnProjectResult(
+        Point(x: -6217776.119356243, y: 10259186.452845959),
+        Point(x: 0, y: 90)),
+'EPSG:3402': ProjectAndUnProjectResult(
+        Point(x: -5717776.119356243, y: 10259186.452845959),
+        Point(x: 0, y: 90)),
+'EPSG:3403': ProjectAndUnProjectResult(
+        Point(x: -6217776.119356243, y: 10259186.452845959),
+        Point(x: 0, y: 90)),
+'EPSG:3404': ProjectAndUnProjectResult(
+        Point(x: 23009024.984398797, y: 15969960.63495237),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:3405': ProjectAndUnProjectResult(
+        Point(x: -4621959.250482938, y: 9778061.493749313),
+        Point(x: 30362279592.18099, y: 6642887093.450607)),
+'EPSG:3406': ProjectAndUnProjectResult(
+        Point(x: -4425719.24631206, y: 10435146.71756466),
+        Point(x: 0, y: 90)),
+'EPSG:3407': ProjectAndUnProjectResult(
+        Point(x: -20644820.551084325, y: 30074879.277563635),
+        Point(x: -78.49319663914245, y: -17.124395706761387)),
+'EPSG:3408': ProjectAndUnProjectResult(
+        Point(x: 1443989.670318814, y: -4473865.882377223),
+        Point(x: 17.888058560281515, y: 46.892130158581075)),
+'EPSG:3409': ProjectAndUnProjectResult(
+        Point(x: 3637843.5169242946, y: 11271011.372402279),
+        Point(x: 17.888058560281515, y: 46.89213015858108)),
+'EPSG:3411': ProjectAndUnProjectResult(
+        Point(x: 4335988.0113786, y: -302806.5645456136),
+        Point(x: 17.888058560281515, y: 46.89226406679031)),
+'EPSG:3412': ProjectAndUnProjectResult(
+        Point(x: 9541784.795346085, y: 29562999.18922515),
+        Point(x: 17.888058560281515, y: 46.89226406679027)),
+'EPSG:3413': ProjectAndUnProjectResult(
+        Point(x: 4335895.047095751, y: -302799.18728261034),
+        Point(x: 17.88805856028151, y: 46.89226406700877)),
+'EPSG:3414': ProjectAndUnProjectResult(
+        Point(x: -5112096.108141312, y: 9542168.098918451),
+        Point(x: 1261949784.1230948, y: 276952866.8896538)),
+'EPSG:3415': ProjectAndUnProjectResult(
+        Point(x: -7204336.589820541, y: 5865495.425332058),
+        Point(x: 17.888058560281515, y: 46.89226406700927)),
+'EPSG:3416': ProjectAndUnProjectResult(
+        Point(x: 746812.466775743, y: 342624.3366221152),
+        Point(x: 17.888058560281515, y: 46.892264067008746)),
+'EPSG:3417': ProjectAndUnProjectResult(
+        Point(x: 25440189.88712711, y: 21133297.292668495),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3418': ProjectAndUnProjectResult(
+        Point(x: 22584121.620162707, y: 18118492.886472385),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:3419': ProjectAndUnProjectResult(
+        Point(x: 23202013.51283361, y: 19421226.757199742),
+        Point(x: 17.888058560281525, y: 46.89226406700874)),
+'EPSG:3436': ProjectAndUnProjectResult(
+        Point(x: 13092484.92386533, y: 25555865.841472704),
+        Point(x: 0, y: 90)),
+'EPSG:3420': ProjectAndUnProjectResult(
+        Point(x: 23706301.06779158, y: 21180590.795994505),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3421': ProjectAndUnProjectResult(
+        Point(x: -21020973.31861663, y: 46754238.25794514),
+        Point(x: 0, y: 90)),
+'EPSG:3422': ProjectAndUnProjectResult(
+        Point(x: -22468358.06690762, y: 39079941.462171756),
+        Point(x: 189531435637.05768, y: 59487357072.495026)),
+'EPSG:3423': ProjectAndUnProjectResult(
+        Point(x: -26068968.02737959, y: 30272865.938432105),
+        Point(x: 53494776.36427391, y: 20053499.392547227)),
+'EPSG:3424': ProjectAndUnProjectResult(
+        Point(x: 16771473.192916507, y: 19881470.240724),
+        Point(x: 0, y: 90)),
+'EPSG:3425': ProjectAndUnProjectResult(
+        Point(x: 25440189.88712711, y: 21133297.292668495),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3426': ProjectAndUnProjectResult(
+        Point(x: 22584121.620162707, y: 18118492.886472385),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:3427': ProjectAndUnProjectResult(
+        Point(x: 23202013.51283361, y: 19421226.757199742),
+        Point(x: 17.888058560281525, y: 46.89226406700874)),
+'EPSG:3428': ProjectAndUnProjectResult(
+        Point(x: 23706301.06779158, y: 21180590.795994505),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3429': ProjectAndUnProjectResult(
+        Point(x: -21020973.31861663, y: 46754238.25794514),
+        Point(x: 0, y: 90)),
+'EPSG:3430': ProjectAndUnProjectResult(
+        Point(x: -22468358.06690762, y: 39079941.462171756),
+        Point(x: 189531435637.05768, y: 59487357072.495026)),
+'EPSG:3431': ProjectAndUnProjectResult(
+        Point(x: -26068968.02737959, y: 30272865.938432105),
+        Point(x: 53494776.36427391, y: 20053499.392547227)),
+'EPSG:3432': ProjectAndUnProjectResult(
+        Point(x: 16771473.192916507, y: 19881470.240724),
+        Point(x: 0, y: 90)),
+'EPSG:3433': ProjectAndUnProjectResult(
+        Point(x: 23887239.314518932, y: 18694250.27786099),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:3434': ProjectAndUnProjectResult(
+        Point(x: 24415399.802238893, y: 20281166.659434233),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:3435': ProjectAndUnProjectResult(
+        Point(x: 12811889.122789858, y: 25117350.226620812),
+        Point(x: 0, y: 90)),
+'EPSG:3437': ProjectAndUnProjectResult(
+        Point(x: 17611813.21019182, y: 17528306.054639537),
+        Point(x: 0, y: 90)),
+'EPSG:3438': ProjectAndUnProjectResult(
+        Point(x: 16971851.91529988, y: 17984948.30793782),
+        Point(x: 0, y: 90)),
+'EPSG:3439': ProjectAndUnProjectResult(
+        Point(x: -2005457.8754873872, y: 5751956.32341547),
+        Point(x: 17.930939627421356, y: 46.89707978532681)),
+'EPSG:3440': ProjectAndUnProjectResult(
+        Point(x: -2446003.2653781604, y: 5987062.031091227),
+        Point(x: 18.16325678464276, y: 46.928550913950104)),
+'EPSG:3441': ProjectAndUnProjectResult(
+        Point(x: 23887239.314518932, y: 18694250.27786099),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:3442': ProjectAndUnProjectResult(
+        Point(x: 24415399.802238893, y: 20281166.659434233),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:3443': ProjectAndUnProjectResult(
+        Point(x: 12811889.122789858, y: 25117350.226620812),
+        Point(x: 0, y: 90)),
+'EPSG:3444': ProjectAndUnProjectResult(
+        Point(x: 13092484.92386533, y: 25555865.841472704),
+        Point(x: 0, y: 90)),
+'EPSG:4572': ProjectAndUnProjectResult(
+        Point(x: 12357135.740423597, y: 9135701.409461653),
+        Point(x: 45, y: double.nan)),
+'EPSG:3445': ProjectAndUnProjectResult(
+        Point(x: 17611813.21019182, y: 17528306.054639537),
+        Point(x: 0, y: 90)),
+'EPSG:3446': ProjectAndUnProjectResult(
+        Point(x: 16971851.91529988, y: 17984948.30793782),
+        Point(x: 0, y: 90)),
+'EPSG:3447': ProjectAndUnProjectResult(
+        Point(x: 1177562.2460995112, y: -174450.21423480567),
+        Point(x: 17.888058560281515, y: 46.892264067008725)),
+'EPSG:3448': ProjectAndUnProjectResult(
+        Point(x: 8722502.953889899, y: 6092117.725645116),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:3449': ProjectAndUnProjectResult(
+        Point(x: 5019695.054259717, y: 11044701.550245335),
+        Point(x: 0, y: 90)),
+'EPSG:3450': ProjectAndUnProjectResult(
+        Point(x: 5436818.00587551, y: 10410808.927574996),
+        Point(x: 0, y: 90)),
+'EPSG:3451': ProjectAndUnProjectResult(
+        Point(x: 27207965.05872178, y: 19397745.311270118),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3452': ProjectAndUnProjectResult(
+        Point(x: 27757949.889516585, y: 19429241.35141847),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3453': ProjectAndUnProjectResult(
+        Point(x: 28933630.503382377, y: 19794529.60175414),
+        Point(x: 17.888058560281525, y: 46.89226406700872)),
+'EPSG:3454': ProjectAndUnProjectResult(
+        Point(x: 22541676.562680125, y: 19406913.486204017),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:3455': ProjectAndUnProjectResult(
+        Point(x: 22541676.562680125, y: 19406913.486204017),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:3456': ProjectAndUnProjectResult(
+        Point(x: 27207965.05872178, y: 19397745.311270118),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3457': ProjectAndUnProjectResult(
+        Point(x: 27757949.889516585, y: 19429241.35141847),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3458': ProjectAndUnProjectResult(
+        Point(x: 22086296.48845748, y: 19050428.991915457),
+        Point(x: 17.888058560281525, y: 46.89226406700874)),
+'EPSG:3459': ProjectAndUnProjectResult(
+        Point(x: 22541676.562680125, y: 19406913.486204017),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:3460': ProjectAndUnProjectResult(
+        Point(x: 41534619.56121887, y: -8758942.931392394),
+        Point(x: 0, y: -90)),
+'EPSG:3461': ProjectAndUnProjectResult(
+        Point(x: 2988854.005416896, y: 5744078.72865976),
+        Point(x: 17.84819324729815, y: 46.8967101047849)),
+'EPSG:3462': ProjectAndUnProjectResult(
+        Point(x: 2540689.967838512, y: 5555742.083156228),
+        Point(x: 17.88314706852802, y: 46.89269926787449)),
+'EPSG:3463': ProjectAndUnProjectResult(
+        Point(x: 5625524.243963247, y: 4952785.35904863),
+        Point(x: -21737319794.91784, y: 4757338589.640197)),
+'EPSG:3464': ProjectAndUnProjectResult(
+        Point(x: 5625524.243963247, y: 4952785.35904863),
+        Point(x: -21737319794.91784, y: 4757338589.640197)),
+'EPSG:3465': ProjectAndUnProjectResult(
+        Point(x: 4175252.6559100477, y: 8132636.419234506),
+        Point(x: 0, y: 90)),
+'EPSG:3466': ProjectAndUnProjectResult(
+        Point(x: 4335563.615183162, y: 8328698.3072116645),
+        Point(x: 0, y: 90)),
+'EPSG:3467': ProjectAndUnProjectResult(
+        Point(x: 2704046.3736966117, y: 9181485.899239805),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:3468': ProjectAndUnProjectResult(
+        Point(x: 6508725.5759530235, y: 4717646.787048834),
+        Point(x: 17.88805856028155, y: 46.89226406700871)),
+'EPSG:3469': ProjectAndUnProjectResult(
+        Point(x: -37213279.522647545, y: -18912875.961270504),
+        Point(x: 0, y: -90)),
+'EPSG:3470': ProjectAndUnProjectResult(
+        Point(x: -45107405.43757957, y: -26521048.301904406),
+        Point(x: 0, y: -90)),
+'EPSG:3471': ProjectAndUnProjectResult(
+        Point(x: -54145589.80520173, y: -35798007.60070698),
+        Point(x: 0, y: -90)),
+'EPSG:3472': ProjectAndUnProjectResult(
+        Point(x: -64460118.121024735, y: -47015897.944632985),
+        Point(x: 0, y: -90)),
+'EPSG:3473': ProjectAndUnProjectResult(
+        Point(x: -76195487.58152132, y: -60481645.41980923),
+        Point(x: 0, y: -90)),
+'EPSG:3474': ProjectAndUnProjectResult(
+        Point(x: -89509253.44187886, y: -76540389.67400539),
+        Point(x: 0, y: -90)),
+'EPSG:3475': ProjectAndUnProjectResult(
+        Point(x: 77897438.88146861, y: -61308557.825420626),
+        Point(x: 0, y: -90)),
+'EPSG:3476': ProjectAndUnProjectResult(
+        Point(x: 66078013.4794075, y: -47707169.16826724),
+        Point(x: 0, y: -90)),
+'EPSG:3477': ProjectAndUnProjectResult(
+        Point(x: -3067782.7230528235, y: 8760315.521445647),
+        Point(x: 17.888058560281486, y: 46.89226406700873)),
+'EPSG:3478': ProjectAndUnProjectResult(
+        Point(x: -4128150.708307095, y: 7585988.433132556),
+        Point(x: 0, y: 90)),
+'EPSG:3479': ProjectAndUnProjectResult(
+        Point(x: -13543801.5364406, y: 24888413.49452938),
+        Point(x: 0, y: 90)),
+'EPSG:3480': ProjectAndUnProjectResult(
+        Point(x: -3169861.026850693, y: 7913822.186592112),
+        Point(x: 0, y: 90)),
+'EPSG:3481': ProjectAndUnProjectResult(
+        Point(x: -10399806.518539019, y: 25963983.55181139),
+        Point(x: 0, y: 90)),
+'EPSG:3482': ProjectAndUnProjectResult(
+        Point(x: -5215796.690656631, y: 7168396.858414973),
+        Point(x: 0, y: 90)),
+'EPSG:3483': ProjectAndUnProjectResult(
+        Point(x: -17112193.866983697, y: 23518362.396374583),
+        Point(x: 0, y: 90)),
+'EPSG:3484': ProjectAndUnProjectResult(
+        Point(x: 7280845.10476574, y: 5698018.880729793),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:3485': ProjectAndUnProjectResult(
+        Point(x: 23887239.314518932, y: 18694250.27786099),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:3486': ProjectAndUnProjectResult(
+        Point(x: 7441828.743390062, y: 6181711.961229637),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:3487': ProjectAndUnProjectResult(
+        Point(x: 24415399.802238893, y: 20281166.659434233),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:3488': ProjectAndUnProjectResult(
+        Point(x: 7281011.174753069, y: 7461253.495639747),
+        Point(x: 17.88805856028151, y: 46.89226406700877)),
+'EPSG:3489': ProjectAndUnProjectResult(
+        Point(x: 8713369.04628296, y: 8228903.974584526),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3490': ProjectAndUnProjectResult(
+        Point(x: 28587111.61301334, y: 26997662.456949394),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:3491': ProjectAndUnProjectResult(
+        Point(x: 8988852.870882323, y: 8299543.835321399),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:3492': ProjectAndUnProjectResult(
+        Point(x: 29490928.127553083, y: 27229420.066716954),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:3493': ProjectAndUnProjectResult(
+        Point(x: 9196533.03998033, y: 8221416.367224062),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3494': ProjectAndUnProjectResult(
+        Point(x: 30172292.14900213, y: 26973096.865134273),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:3495': ProjectAndUnProjectResult(
+        Point(x: 9364631.99275643, y: 8154335.033546976),
+        Point(x: 17.88805856028151, y: 46.89226406700871)),
+'EPSG:3496': ProjectAndUnProjectResult(
+        Point(x: 30723796.796568383, y: 26753014.18956203),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3497': ProjectAndUnProjectResult(
+        Point(x: 9657012.346788008, y: 8138321.005032831),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3498': ProjectAndUnProjectResult(
+        Point(x: 31683048.008086983, y: 26700474.831011876),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:3499': ProjectAndUnProjectResult(
+        Point(x: 9857792.552179694, y: 8039982.800465539),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:3500': ProjectAndUnProjectResult(
+        Point(x: 32341774.39860955, y: 26377843.57152735),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:3501': ProjectAndUnProjectResult(
+        Point(x: 7746779.736843174, y: 6828729.263310314),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3502': ProjectAndUnProjectResult(
+        Point(x: 25415893.186310228, y: 22403922.59138125),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3503': ProjectAndUnProjectResult(
+        Point(x: 7609906.701740923, y: 6737108.930826646),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3504': ProjectAndUnProjectResult(
+        Point(x: 24966835.570312258, y: 22103331.55055775),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3505': ProjectAndUnProjectResult(
+        Point(x: 7902404.853652807, y: 6873456.4247696595),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3506': ProjectAndUnProjectResult(
+        Point(x: 25926473.257043164, y: 22550664.953602456),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3507': ProjectAndUnProjectResult(
+        Point(x: 6039095.133709748, y: 4143749.064976011),
+        Point(x: 17.8880585602815, y: 46.89226406700873)),
+'EPSG:3508': ProjectAndUnProjectResult(
+        Point(x: 19813264.61785006, y: 13594950.057344127),
+        Point(x: 17.8880585602815, y: 46.89226406700873)),
+'EPSG:3509': ProjectAndUnProjectResult(
+        Point(x: 5117848.770438616, y: 6252732.387920412),
+        Point(x: 0, y: 90)),
+'EPSG:3510': ProjectAndUnProjectResult(
+        Point(x: 16790808.841347355, y: 20514172.842702217),
+        Point(x: 0, y: 90)),
+'EPSG:3511': ProjectAndUnProjectResult(
+        Point(x: 4721237.687280814, y: 8356420.754737286),
+        Point(x: 0, y: 90)),
+'EPSG:3512': ProjectAndUnProjectResult(
+        Point(x: 15489593.9793538, y: 27416023.759500574),
+        Point(x: 0, y: 90)),
+'EPSG:3513': ProjectAndUnProjectResult(
+        Point(x: 7788718.898020689, y: 5738991.145189423),
+        Point(x: 17.88805856028151, y: 46.892264067008796)),
+'EPSG:3514': ProjectAndUnProjectResult(
+        Point(x: 7714848.02247523, y: 5442253.479619011),
+        Point(x: 17.8880585602815, y: 46.89226406700873)),
+'EPSG:3515': ProjectAndUnProjectResult(
+        Point(x: 25311130.55373748, y: 17855126.62438337),
+        Point(x: 17.8880585602815, y: 46.89226406700873)),
+'EPSG:3516': ProjectAndUnProjectResult(
+        Point(x: 4625113.957471083, y: 8456488.815026179),
+        Point(x: 0, y: 90)),
+'EPSG:3517': ProjectAndUnProjectResult(
+        Point(x: 15174228.042469708, y: 27744330.387298387),
+        Point(x: 0, y: 90)),
+'EPSG:3518': ProjectAndUnProjectResult(
+        Point(x: 4608098.742447868, y: 7844758.075159398),
+        Point(x: 0, y: 90)),
+'EPSG:3519': ProjectAndUnProjectResult(
+        Point(x: 15118403.95784771, y: 25737343.78491879),
+        Point(x: 0, y: 90)),
+'EPSG:3709': ProjectAndUnProjectResult(
+        Point(x: 63333518.09556754, y: -38676678.41783912),
+        Point(x: 0, y: -90)),
+'EPSG:3520': ProjectAndUnProjectResult(
+        Point(x: 4887189.5243078265, y: 8036713.270922709),
+        Point(x: 0, y: 90)),
+'EPSG:3521': ProjectAndUnProjectResult(
+        Point(x: 16034054.297333257, y: 26367116.789685585),
+        Point(x: 0, y: 90)),
+'EPSG:3522': ProjectAndUnProjectResult(
+        Point(x: -5084440.623114015, y: 5921630.496325042),
+        Point(x: 0, y: 90)),
+'EPSG:3523': ProjectAndUnProjectResult(
+        Point(x: -16681202.27733323, y: 19427882.720026407),
+        Point(x: 0, y: 90)),
+'EPSG:3524': ProjectAndUnProjectResult(
+        Point(x: -4284867.971020522, y: 6350434.242753448),
+        Point(x: 0, y: 90)),
+'EPSG:3525': ProjectAndUnProjectResult(
+        Point(x: -14057937.66792316, y: 20834716.344766933),
+        Point(x: 0, y: 90)),
+'EPSG:3526': ProjectAndUnProjectResult(
+        Point(x: -5919234.386603765, y: 5433186.325411458),
+        Point(x: 0, y: 90)),
+'EPSG:3527': ProjectAndUnProjectResult(
+        Point(x: -19420021.483049184, y: 17825378.802620754),
+        Point(x: 0, y: 90)),
+'EPSG:3710': ProjectAndUnProjectResult(
+        Point(x: 81069695.4839798, y: -59099747.1391181),
+        Point(x: 0, y: -90)),
+'EPSG:3528': ProjectAndUnProjectResult(
+        Point(x: 3905071.6147695784, y: 7655783.660641345),
+        Point(x: 0, y: 90)),
+'EPSG:3529': ProjectAndUnProjectResult(
+        Point(x: 12811889.122789858, y: 25117350.226620812),
+        Point(x: 0, y: 90)),
+'EPSG:3530': ProjectAndUnProjectResult(
+        Point(x: 3990597.385999085, y: 7789443.487367855),
+        Point(x: 0, y: 90)),
+'EPSG:3531': ProjectAndUnProjectResult(
+        Point(x: 13092484.92386533, y: 25555865.841472704),
+        Point(x: 0, y: 90)),
+'EPSG:3532': ProjectAndUnProjectResult(
+        Point(x: 4097701.446227201, y: 7591591.6682478),
+        Point(x: 0, y: 90)),
+'EPSG:3533': ProjectAndUnProjectResult(
+        Point(x: 13443875.494497072, y: 24906746.997909658),
+        Point(x: 0, y: 90)),
+'EPSG:3534': ProjectAndUnProjectResult(
+        Point(x: 4698254.479714725, y: 7712933.359383934),
+        Point(x: 0, y: 90)),
+'EPSG:3535': ProjectAndUnProjectResult(
+        Point(x: 15414189.905530725, y: 25304848.862912122),
+        Point(x: 0, y: 90)),
+'EPSG:32606': ProjectAndUnProjectResult(
+        Point(x: -47240401.76177123, y: -22681647.63793224),
+        Point(x: 0, y: -90)),
+'EPSG:3536': ProjectAndUnProjectResult(
+        Point(x: 7754185.385967116, y: 6441441.897699313),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3537': ProjectAndUnProjectResult(
+        Point(x: 25440189.88712711, y: 21133297.292668495),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3538': ProjectAndUnProjectResult(
+        Point(x: 6883654.037123509, y: 5522527.676852138),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:3539': ProjectAndUnProjectResult(
+        Point(x: 22584121.620162707, y: 18118492.886472385),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:3540': ProjectAndUnProjectResult(
+        Point(x: 7071987.862697571, y: 5919601.754797991),
+        Point(x: 17.888058560281525, y: 46.89226406700874)),
+'EPSG:3541': ProjectAndUnProjectResult(
+        Point(x: 23202013.51283361, y: 19421226.757199742),
+        Point(x: 17.888058560281525, y: 46.89226406700874)),
+'EPSG:3542': ProjectAndUnProjectResult(
+        Point(x: 7225695.016863069, y: 6455856.986343259),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3543': ProjectAndUnProjectResult(
+        Point(x: 23706301.06779158, y: 21180590.795994505),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3544': ProjectAndUnProjectResult(
+        Point(x: 6854798.276271999, y: 4982007.395728776),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3545': ProjectAndUnProjectResult(
+        Point(x: 22489450.67840238, y: 16345135.930820158),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3546': ProjectAndUnProjectResult(
+        Point(x: 7954314.818287251, y: 6181092.986200401),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3547': ProjectAndUnProjectResult(
+        Point(x: 26096781.199664086, y: 20279135.905225813),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3548': ProjectAndUnProjectResult(
+        Point(x: 7000500.0764196385, y: 5649813.9503045585),
+        Point(x: 17.88805856028154, y: 46.89226406700873)),
+'EPSG:3549': ProjectAndUnProjectResult(
+        Point(x: 22967474.001053426, y: 18536097.9356242),
+        Point(x: 17.88805856028154, y: 46.89226406700873)),
+'EPSG:3550': ProjectAndUnProjectResult(
+        Point(x: 8293004.335917232, y: 5912444.595764324),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3551': ProjectAndUnProjectResult(
+        Point(x: 27207965.05872178, y: 19397745.311270118),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3552': ProjectAndUnProjectResult(
+        Point(x: 8460640.04761491, y: 5922044.6080015665),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3553': ProjectAndUnProjectResult(
+        Point(x: 27757949.889516585, y: 19429241.35141847),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3554': ProjectAndUnProjectResult(
+        Point(x: 5625524.243963247, y: 4952785.35904863),
+        Point(x: -21737319794.91784, y: 4757338589.640197)),
+'EPSG:3555': ProjectAndUnProjectResult(
+        Point(x: 5841926.85039724, y: 4779293.471123142),
+        Point(x: -856956604.9425999, y: 188140569.70074788)),
+'EPSG:3556': ProjectAndUnProjectResult(
+        Point(x: 5401485.579875652, y: 5163842.641810937),
+        Point(x: -11503948981851.02, y: 2505985965549.347)),
+'EPSG:3557': ProjectAndUnProjectResult(
+        Point(x: 5434242.727510438, y: 4865567.286727372),
+        Point(x: -3577911303.5949883, y: 784422263.488511)),
+'EPSG:3558': ProjectAndUnProjectResult(
+        Point(x: 6005972.529556511, y: 5140915.469168544),
+        Point(x: -2514978608650.738, y: 548342325600.6209)),
+'EPSG:3559': ProjectAndUnProjectResult(
+        Point(x: 6458859.816901178, y: 4494509.018460154),
+        Point(x: 17.888058560281525, y: 46.892264067008725)),
+'EPSG:3602': ProjectAndUnProjectResult(
+        Point(x: 3479281.287680031, y: 7904330.11893151),
+        Point(x: 0, y: 90)),
+'EPSG:3560': ProjectAndUnProjectResult(
+        Point(x: 23401718.533635754, y: 25725063.605568115),
+        Point(x: 17.888058560281525, y: 46.892264067008746)),
+'EPSG:3561': ProjectAndUnProjectResult(
+        Point(x: -226487853.4545681, y: -157136127.5538192),
+        Point(x: 0, y: -90)),
+'EPSG:3562': ProjectAndUnProjectResult(
+        Point(x: -237741351.434693, y: -170604197.83093876),
+        Point(x: 0, y: -90)),
+'EPSG:3563': ProjectAndUnProjectResult(
+        Point(x: -251129701.4743317, y: -186526811.86204344),
+        Point(x: 0, y: -90)),
+'EPSG:3564': ProjectAndUnProjectResult(
+        Point(x: -266873633.43949637, y: -205467849.8286271),
+        Point(x: 0, y: -90)),
+'EPSG:3565': ProjectAndUnProjectResult(
+        Point(x: -274114797.0292507, y: -214120466.94630894),
+        Point(x: 0, y: -90)),
+'EPSG:3566': ProjectAndUnProjectResult(
+        Point(x: 24004488.809627797, y: 29432890.763636366),
+        Point(x: 17.888058560281525, y: 46.892264067008746)),
+'EPSG:3567': ProjectAndUnProjectResult(
+        Point(x: 24918123.22978119, y: 32865520.033304095),
+        Point(x: 17.888058560281525, y: 46.89226406700874)),
+'EPSG:3568': ProjectAndUnProjectResult(
+        Point(x: 23401718.533635754, y: 25725063.605568115),
+        Point(x: 17.888058560281525, y: 46.892264067008746)),
+'EPSG:3569': ProjectAndUnProjectResult(
+        Point(x: 24004488.809627797, y: 29432890.763636366),
+        Point(x: 17.888058560281525, y: 46.892264067008746)),
+'EPSG:3570': ProjectAndUnProjectResult(
+        Point(x: 24918123.22978119, y: 32865520.033304095),
+        Point(x: 17.888058560281525, y: 46.89226406700874)),
+'EPSG:3571': ProjectAndUnProjectResult(
+        Point(x: -1441907.3090332334, y: 4467414.170635901),
+        Point(x: 17.88805856028151, y: 46.892264069112215)),
+'EPSG:3572': ProjectAndUnProjectResult(
+        Point(x: 984978.7257927118, y: 4589847.815513896),
+        Point(x: 17.88805856028151, y: 46.89226406911223)),
+'EPSG:3573': ProjectAndUnProjectResult(
+        Point(x: 4149159.5345805907, y: 2195759.8266752437),
+        Point(x: 17.888058560281525, y: 46.892264069112215)),
+'EPSG:3574': ProjectAndUnProjectResult(
+        Point(x: 3976163.557800372, y: -2495397.6479635886),
+        Point(x: 17.888058560281518, y: 46.892264069112215)),
+'EPSG:3575': ProjectAndUnProjectResult(
+        Point(x: 644243.1674465525, y: -4649928.687737088),
+        Point(x: 17.88805856028151, y: 46.89226406911223)),
+'EPSG:3576': ProjectAndUnProjectResult(
+        Point(x: -4467414.170635901, y: -1441907.3090332332),
+        Point(x: 17.88805856028151, y: 46.89226406911223)),
+'EPSG:3577': ProjectAndUnProjectResult(
+        Point(x: -14998999.735860841, y: -3382655.442324089),
+        Point(x: 17.888058560281525, y: 46.89226406700871)),
+'EPSG:3578': ProjectAndUnProjectResult(
+        Point(x: 3966851.041648818, y: 7733236.104704684),
+        Point(x: 17.88805856028151, y: 46.89226406700877)),
+'EPSG:3579': ProjectAndUnProjectResult(
+        Point(x: 3966851.041648818, y: 7733236.104704684),
+        Point(x: 17.88805856028151, y: 46.89226406700877)),
+'EPSG:3580': ProjectAndUnProjectResult(
+        Point(x: 4380052.028530439, y: 14032309.962545056),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:3581': ProjectAndUnProjectResult(
+        Point(x: 4380052.028530439, y: 14032309.962545056),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:3582': ProjectAndUnProjectResult(
+        Point(x: 21190442.58228328, y: 14745735.004731352),
+        Point(x: 17.888058560281525, y: 46.892264067008725)),
+'EPSG:3583': ProjectAndUnProjectResult(
+        Point(x: 6154332.406766824, y: 3817884.2153315847),
+        Point(x: 17.88805856028151, y: 46.89226406700874)),
+'EPSG:3584': ProjectAndUnProjectResult(
+        Point(x: 20191338.904867485, y: 12525841.79646704),
+        Point(x: 17.88805856028151, y: 46.89226406700874)),
+'EPSG:3585': ProjectAndUnProjectResult(
+        Point(x: 5851118.614199274, y: 4670879.245324666),
+        Point(x: 17.8880585602815, y: 46.89226406700874)),
+'EPSG:3586': ProjectAndUnProjectResult(
+        Point(x: 19196544.987085447, y: 15324376.324036006),
+        Point(x: 17.8880585602815, y: 46.89226406700874)),
+'EPSG:3587': ProjectAndUnProjectResult(
+        Point(x: 11889319.027601004, y: 4694603.857861964),
+        Point(x: 17.88805856028151, y: 46.89226406700871)),
+'EPSG:3588': ProjectAndUnProjectResult(
+        Point(x: 39006952.19021326, y: 15402243.62815605),
+        Point(x: 17.88805856028151, y: 46.89226406700874)),
+'EPSG:3589': ProjectAndUnProjectResult(
+        Point(x: 13856577.937746815, y: 4794610.454685856),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3590': ProjectAndUnProjectResult(
+        Point(x: 45461213.70641344, y: 15730349.260780366),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3591': ProjectAndUnProjectResult(
+        Point(x: 8386430.7898983145, y: 2796245.837725366),
+        Point(x: 17.88805856028151, y: 46.89226406700874)),
+'EPSG:3592': ProjectAndUnProjectResult(
+        Point(x: 10027794.9275133, y: 4787933.322479354),
+        Point(x: 17.8880585602815, y: 46.892264067008746)),
+'EPSG:3593': ProjectAndUnProjectResult(
+        Point(x: 32899589.65714337, y: 15708442.659052998),
+        Point(x: 17.8880585602815, y: 46.892264067008746)),
+'EPSG:3594': ProjectAndUnProjectResult(
+        Point(x: 6763552.011142525, y: 5414428.169782657),
+        Point(x: 17.88805856028151, y: 46.89226406700874)),
+'EPSG:3595': ProjectAndUnProjectResult(
+        Point(x: 6637522.089340442, y: 5241976.733282339),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:3596': ProjectAndUnProjectResult(
+        Point(x: 6907731.6671998175, y: 5516216.609642071),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:3597': ProjectAndUnProjectResult(
+        Point(x: 3822984.905080838, y: 8488545.1484227),
+        Point(x: 0, y: 90)),
+'EPSG:3598': ProjectAndUnProjectResult(
+        Point(x: 12542576.309419382, y: 27849501.874450136),
+        Point(x: 0, y: 90)),
+'EPSG:3599': ProjectAndUnProjectResult(
+        Point(x: 3960143.9403490187, y: 8595620.856387978),
+        Point(x: 0, y: 90)),
+'EPSG:3600': ProjectAndUnProjectResult(
+        Point(x: 12992572.243961737, y: 28200799.426332887),
+        Point(x: 0, y: 90)),
+'EPSG:3601': ProjectAndUnProjectResult(
+        Point(x: 3333355.4118026467, y: 8025679.559234873),
+        Point(x: 0, y: 90)),
+'EPSG:4583': ProjectAndUnProjectResult(
+        Point(x: -4642864.259576404, y: 9135701.409461653),
+        Point(x: 45, y: double.nan)),
+'EPSG:3603': ProjectAndUnProjectResult(
+        Point(x: 3236399.2997552953, y: 8083966.915915788),
+        Point(x: 0, y: 90)),
+'EPSG:3604': ProjectAndUnProjectResult(
+        Point(x: 6556297.784221025, y: 6590553.712986213),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3605': ProjectAndUnProjectResult(
+        Point(x: 21510163.334050607, y: 21622551.551792037),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3606': ProjectAndUnProjectResult(
+        Point(x: 6975000.373432801, y: 6039872.843451777),
+        Point(x: 17.888058560281525, y: 46.89226406700874)),
+'EPSG:3607': ProjectAndUnProjectResult(
+        Point(x: -6848369.235542074, y: 11911589.980849914),
+        Point(x: 189531435637.07315, y: 59487357072.499916)),
+'EPSG:3608': ProjectAndUnProjectResult(
+        Point(x: -22468358.06690762, y: 39079941.462171756),
+        Point(x: 189531435637.05768, y: 59487357072.495026)),
+'EPSG:3609': ProjectAndUnProjectResult(
+        Point(x: -6407205.481935473, y: 14250720.322452161),
+        Point(x: 0, y: 90)),
+'EPSG:3610': ProjectAndUnProjectResult(
+        Point(x: -21020973.31861663, y: 46754238.25794514),
+        Point(x: 0, y: 90)),
+'EPSG:3711': ProjectAndUnProjectResult(
+        Point(x: -79345537.23281473, y: -58236069.63248695),
+        Point(x: 0, y: -90)),
+'EPSG:3611': ProjectAndUnProjectResult(
+        Point(x: -7945837.346430153, y: 9227187.99242025),
+        Point(x: 53494776.36427391, y: 20053499.392547227)),
+'EPSG:3612': ProjectAndUnProjectResult(
+        Point(x: -26068968.02737959, y: 30272865.938432105),
+        Point(x: 53494776.36427391, y: 20053499.392547227)),
+'EPSG:3613': ProjectAndUnProjectResult(
+        Point(x: 5368091.402649273, y: 5342638.370730873),
+        Point(x: 0, y: 90)),
+'EPSG:3614': ProjectAndUnProjectResult(
+        Point(x: 17611813.21019182, y: 17528306.054639537),
+        Point(x: 0, y: 90)),
+'EPSG:3615': ProjectAndUnProjectResult(
+        Point(x: 5111955.253111458, y: 6059884.249141174),
+        Point(x: 0, y: 90)),
+'EPSG:3616': ProjectAndUnProjectResult(
+        Point(x: 16771473.192916507, y: 19881470.240724),
+        Point(x: 0, y: 90)),
+'EPSG:3617': ProjectAndUnProjectResult(
+        Point(x: -998074.9727628597, y: 8428106.011472125),
+        Point(x: 0, y: 90)),
+'EPSG:3618': ProjectAndUnProjectResult(
+        Point(x: -3274517.6394728147, y: 27651211.13930479),
+        Point(x: 0, y: 90)),
+'EPSG:3619': ProjectAndUnProjectResult(
+        Point(x: -530531.6564737859, y: 8584058.195630815),
+        Point(x: 0, y: 90)),
+'EPSG:3620': ProjectAndUnProjectResult(
+        Point(x: -1740585.9429477456, y: 28162864.26349876),
+        Point(x: 0, y: 90)),
+'EPSG:3621': ProjectAndUnProjectResult(
+        Point(x: -1388949.665557478, y: 8254150.647986836),
+        Point(x: 0, y: 90)),
+'EPSG:3622': ProjectAndUnProjectResult(
+        Point(x: -4556912.360749825, y: 27080492.584270142),
+        Point(x: 0, y: 90)),
+'EPSG:3623': ProjectAndUnProjectResult(
+        Point(x: 5102989.244976103, y: 6156462.138120647),
+        Point(x: 0, y: 90)),
+'EPSG:3624': ProjectAndUnProjectResult(
+        Point(x: 16742057.214225765, y: 20198326.198150817),
+        Point(x: 0, y: 90)),
+'EPSG:3625': ProjectAndUnProjectResult(
+        Point(x: 5111955.253111458, y: 6059884.249141174),
+        Point(x: 0, y: 90)),
+'EPSG:3626': ProjectAndUnProjectResult(
+        Point(x: 16771473.192916507, y: 19881470.240724),
+        Point(x: 0, y: 90)),
+'EPSG:3627': ProjectAndUnProjectResult(
+        Point(x: 6120506.5914582675, y: 4115911.994870667),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3712': ProjectAndUnProjectResult(
+        Point(x: -61735465.01028672, y: -38016576.899930514),
+        Point(x: 0, y: -90)),
+'EPSG:3628': ProjectAndUnProjectResult(
+        Point(x: 20080362.042142663, y: 13503621.269838179),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3629': ProjectAndUnProjectResult(
+        Point(x: 5070627.948794095, y: 6369472.582025805),
+        Point(x: 0, y: 90)),
+'EPSG:3630': ProjectAndUnProjectResult(
+        Point(x: 16635885.195668623, y: 20897177.96286299),
+        Point(x: 0, y: 90)),
+'EPSG:3631': ProjectAndUnProjectResult(
+        Point(x: 7013164.842371999, y: 4867653.736840957),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:3632': ProjectAndUnProjectResult(
+        Point(x: 23009024.984398797, y: 15969960.63495237),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:3633': ProjectAndUnProjectResult(
+        Point(x: 6465460.630965634, y: 5661785.323388806),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3634': ProjectAndUnProjectResult(
+        Point(x: 21212141.1777009, y: 18575411.16597377),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3635': ProjectAndUnProjectResult(
+        Point(x: 6573964.729929726, y: 5741275.293893124),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3636': ProjectAndUnProjectResult(
+        Point(x: 21568125.75435474, y: 18836205.032457754),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3637': ProjectAndUnProjectResult(
+        Point(x: 6701563.894453452, y: 4762473.447759279),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3638': ProjectAndUnProjectResult(
+        Point(x: 6823927.076346041, y: 4856567.2808180135),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:3639': ProjectAndUnProjectResult(
+        Point(x: 7606719.341866343, y: 6088830.052103923),
+        Point(x: 17.888058560281525, y: 46.89226406700874)),
+'EPSG:3640': ProjectAndUnProjectResult(
+        Point(x: 24956378.374106493, y: 19976436.595944285),
+        Point(x: 17.888058560281525, y: 46.89226406700874)),
+'EPSG:3641': ProjectAndUnProjectResult(
+        Point(x: 7788873.682746351, y: 6165418.092119623),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:3642': ProjectAndUnProjectResult(
+        Point(x: 25553996.407476984, y: 20227709.19056246),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:3643': ProjectAndUnProjectResult(
+        Point(x: 6621080.326600361, y: 7550611.109639786),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:3644': ProjectAndUnProjectResult(
+        Point(x: 21722704.48359173, y: 24772346.160235517),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:3645': ProjectAndUnProjectResult(
+        Point(x: 8597033.820587108, y: 7390016.602283895),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3646': ProjectAndUnProjectResult(
+        Point(x: 28205491.53782647, y: 24245461.29358233),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:3647': ProjectAndUnProjectResult(
+        Point(x: 7874076.89548586, y: 7497850.224338042),
+        Point(x: 17.88805856028154, y: 46.892264067008725)),
+'EPSG:3648': ProjectAndUnProjectResult(
+        Point(x: 25833585.615591403, y: 24599246.142841343),
+        Point(x: 17.88805856028154, y: 46.892264067008725)),
+'EPSG:3649': ProjectAndUnProjectResult(
+        Point(x: 6522469.313095474, y: 4396559.711847568),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3650': ProjectAndUnProjectResult(
+        Point(x: 21399134.7380474, y: 14424379.654619893),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3651': ProjectAndUnProjectResult(
+        Point(x: 6583746.193120701, y: 4440183.096793512),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:3652': ProjectAndUnProjectResult(
+        Point(x: 21600173.96859683, y: 14567500.71006338),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:3653': ProjectAndUnProjectResult(
+        Point(x: 5173030.8098551845, y: 5481823.207905864),
+        Point(x: 0, y: 90)),
+'EPSG:3654': ProjectAndUnProjectResult(
+        Point(x: 16971851.91529988, y: 17984948.30793782),
+        Point(x: 0, y: 90)),
+'EPSG:3655': ProjectAndUnProjectResult(
+        Point(x: 7231101.448544078, y: 5119305.1873058975),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3656': ProjectAndUnProjectResult(
+        Point(x: 23724086.117270596, y: 16795620.69326082),
+        Point(x: 17.88805856028151, y: 46.89226406700871)),
+'EPSG:3657': ProjectAndUnProjectResult(
+        Point(x: 6731916.633515107, y: 5806582.369900572),
+        Point(x: 17.888058560281525, y: 46.89226406700874)),
+'EPSG:3658': ProjectAndUnProjectResult(
+        Point(x: 22086296.48845748, y: 19050428.991915457),
+        Point(x: 17.888058560281525, y: 46.89226406700874)),
+'EPSG:3659': ProjectAndUnProjectResult(
+        Point(x: 6870716.757738419, y: 5915239.061073107),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:3660': ProjectAndUnProjectResult(
+        Point(x: 22541676.562680125, y: 19406913.486204017),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:3661': ProjectAndUnProjectResult(
+        Point(x: 7240825.507643389, y: 5300270.815013457),
+        Point(x: 17.888058560281525, y: 46.89226406700874)),
+'EPSG:3662': ProjectAndUnProjectResult(
+        Point(x: 23755941.686326683, y: 17389305.16558998),
+        Point(x: 17.888058560281525, y: 46.892264067008725)),
+'EPSG:3663': ProjectAndUnProjectResult(
+        Point(x: 8418734.087582087, y: 9472776.726556078),
+        Point(x: 17.88805856028155, y: 46.892264067008746)),
+'EPSG:3664': ProjectAndUnProjectResult(
+        Point(x: 27620463.41867556, y: 31078601.643709395),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:3665': ProjectAndUnProjectResult(
+        Point(x: 9202342.771606717, y: 13714424.334539425),
+        Point(x: 17.88805856028155, y: 46.89226406700876)),
+'EPSG:3666': ProjectAndUnProjectResult(
+        Point(x: 9154307.075487461, y: 12759946.896370977),
+        Point(x: 17.88805856028155, y: 46.892264067008725)),
+'EPSG:3667': ProjectAndUnProjectResult(
+        Point(x: 7393138.261094371, y: 7401668.656500031),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3668': ProjectAndUnProjectResult(
+        Point(x: 24255654.445273776, y: 24283641.250200517),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:3669': ProjectAndUnProjectResult(
+        Point(x: 7989143.282984504, y: 8276494.464586326),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3670': ProjectAndUnProjectResult(
+        Point(x: 26211047.587591656, y: 27153798.92289697),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3671': ProjectAndUnProjectResult(
+        Point(x: 8484246.042842139, y: 11469435.827622361),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:3672': ProjectAndUnProjectResult(
+        Point(x: 27835397.22555792, y: 37629307.378124356),
+        Point(x: 17.88805856028151, y: 46.89226406700874)),
+'EPSG:3673': ProjectAndUnProjectResult(
+        Point(x: 8486728.051005203, y: 10453504.590111742),
+        Point(x: 17.88805856028154, y: 46.89226406700874)),
+'EPSG:3674': ProjectAndUnProjectResult(
+        Point(x: 27843540.2806729, y: 34296206.30905827),
+        Point(x: 17.88805856028154, y: 46.89226406700874)),
+'EPSG:3699': ProjectAndUnProjectResult(
+        Point(x: 6723783.25810189, y: 5169377.719135766),
+        Point(x: 17.88805856028151, y: 46.89226406700871)),
+'EPSG:3675': ProjectAndUnProjectResult(
+        Point(x: 7316582.822330039, y: 8971163.047072299),
+        Point(x: 17.888058560281525, y: 46.892264067008725)),
+'EPSG:3676': ProjectAndUnProjectResult(
+        Point(x: 24004536.819161545, y: 29432949.629476044),
+        Point(x: 17.888058560281525, y: 46.892264067008725)),
+'EPSG:3677': ProjectAndUnProjectResult(
+        Point(x: 24004488.809627797, y: 29432890.763636366),
+        Point(x: 17.888058560281525, y: 46.892264067008746)),
+'EPSG:3678': ProjectAndUnProjectResult(
+        Point(x: 7132858.074758168, y: 7841015.069017461),
+        Point(x: 17.888058560281525, y: 46.892264067008746)),
+'EPSG:3679': ProjectAndUnProjectResult(
+        Point(x: 23401765.337626535, y: 25725115.05581844),
+        Point(x: 17.888058560281525, y: 46.892264067008746)),
+'EPSG:3680': ProjectAndUnProjectResult(
+        Point(x: 23401718.533635754, y: 25725063.605568115),
+        Point(x: 17.888058560281525, y: 46.892264067008746)),
+'EPSG:3681': ProjectAndUnProjectResult(
+        Point(x: 7595059.15054545, y: 10017430.541012172),
+        Point(x: 17.888058560281525, y: 46.89226406700874)),
+'EPSG:3682': ProjectAndUnProjectResult(
+        Point(x: 24918173.066587433, y: 32865585.764436252),
+        Point(x: 17.8880585602815, y: 46.89226406700874)),
+'EPSG:3683': ProjectAndUnProjectResult(
+        Point(x: 24918123.22978119, y: 32865520.033304095),
+        Point(x: 17.888058560281525, y: 46.89226406700874)),
+'EPSG:3684': ProjectAndUnProjectResult(
+        Point(x: 5541768.404689928, y: 5434133.661562179),
+        Point(x: 0, y: 90)),
+'EPSG:3685': ProjectAndUnProjectResult(
+        Point(x: 9634482.513941199, y: 6581020.355130133),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:3686': ProjectAndUnProjectResult(
+        Point(x: 31609131.381488744, y: 21591230.948789444),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:3687': ProjectAndUnProjectResult(
+        Point(x: 9723405.910334777, y: 5663039.725072842),
+        Point(x: 17.888058560281486, y: 46.892264067008746)),
+'EPSG:3688': ProjectAndUnProjectResult(
+        Point(x: 31900874.224490017, y: 18579489.49767648),
+        Point(x: 17.8880585602815, y: 46.89226406700872)),
+'EPSG:3689': ProjectAndUnProjectResult(
+        Point(x: 6208880.764422776, y: 7201291.121268816),
+        Point(x: 17.88805856028151, y: 46.89226406700871)),
+'EPSG:3690': ProjectAndUnProjectResult(
+        Point(x: 20370302.97494372, y: 23626235.953696106),
+        Point(x: 17.88805856028151, y: 46.89226406700871)),
+'EPSG:3691': ProjectAndUnProjectResult(
+        Point(x: 6409557.023981855, y: 7281838.145229915),
+        Point(x: 17.88805856028154, y: 46.892264067008746)),
+'EPSG:3692': ProjectAndUnProjectResult(
+        Point(x: 21028688.3365138, y: 23890497.314808477),
+        Point(x: 17.88805856028154, y: 46.892264067008746)),
+'EPSG:3693': ProjectAndUnProjectResult(
+        Point(x: 6701578.612677592, y: 4608732.256874052),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3694': ProjectAndUnProjectResult(
+        Point(x: 6860107.275988375, y: 4799756.489364472),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3695': ProjectAndUnProjectResult(
+        Point(x: 6611250.719513921, y: 5046926.8438626565),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3696': ProjectAndUnProjectResult(
+        Point(x: 21690411.735605255, y: 16558125.820239397),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3697': ProjectAndUnProjectResult(
+        Point(x: 6517033.000426102, y: 4968571.836722961),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:3698': ProjectAndUnProjectResult(
+        Point(x: 21381299.1022313, y: 16301056.100981912),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:3700': ProjectAndUnProjectResult(
+        Point(x: 22059612.23928928, y: 16959866.733531255),
+        Point(x: 17.88805856028151, y: 46.89226406700871)),
+'EPSG:3701': ProjectAndUnProjectResult(
+        Point(x: 3839622.300083163, y: 7353217.56768338),
+        Point(x: 0, y: 90)),
+'EPSG:3702': ProjectAndUnProjectResult(
+        Point(x: -835360.288822798, y: 7469523.565254046),
+        Point(x: 0, y: 90)),
+'EPSG:3703': ProjectAndUnProjectResult(
+        Point(x: -1585501.348464507, y: 7359986.274514455),
+        Point(x: 0, y: 90)),
+'EPSG:3704': ProjectAndUnProjectResult(
+        Point(x: -2061507.894929119, y: 7079113.201731387),
+        Point(x: 0, y: 90)),
+'EPSG:3705': ProjectAndUnProjectResult(
+        Point(x: -2539578.0552160507, y: 6974103.5782705145),
+        Point(x: 0, y: 90)),
+'EPSG:3706': ProjectAndUnProjectResult(
+        Point(x: 27108574.549169235, y: -3184231.5325187673),
+        Point(x: -103767.21820745963, y: -188871.77584872008)),
+'EPSG:3707': ProjectAndUnProjectResult(
+        Point(x: 36792794.61949032, y: -11620286.792548649),
+        Point(x: 0, y: -90)),
+'EPSG:3708': ProjectAndUnProjectResult(
+        Point(x: 48730994.20351042, y: -23178134.332903616),
+        Point(x: 0, y: -90)),
+'EPSG:3713': ProjectAndUnProjectResult(
+        Point(x: -47240401.76333124, y: -22681647.638609204),
+        Point(x: 0, y: -90)),
+'EPSG:3714': ProjectAndUnProjectResult(
+        Point(x: -35393329.62055659, y: -11254044.783678558),
+        Point(x: 0, y: -90)),
+'EPSG:3715': ProjectAndUnProjectResult(
+        Point(x: -25785988.545412734, y: -2920563.7794431755),
+        Point(x: 72517.82979839807, y: -135482.78856909208)),
+'EPSG:3716': ProjectAndUnProjectResult(
+        Point(x: -18063024.2834307, y: 2990541.0425813603),
+        Point(x: 5728.679566272616, y: 8118.480468517206)),
+'EPSG:3717': ProjectAndUnProjectResult(
+        Point(x: -11916549.256324729, y: 7029722.072663035),
+        Point(x: 169423.46825792477, y: 95274.64648021963)),
+'EPSG:3718': ProjectAndUnProjectResult(
+        Point(x: -7081100.809078519, y: 9644074.035715306),
+        Point(x: 16894389367.285646, y: 5473429537.796183)),
+'EPSG:3719': ProjectAndUnProjectResult(
+        Point(x: -3328981.2161364346, y: 11193210.773121612),
+        Point(x: 0, y: 90)),
+'EPSG:3720': ProjectAndUnProjectResult(
+        Point(x: -465963.8528201919, y: 11963247.506900493),
+        Point(x: 0, y: 90)),
+'EPSG:3721': ProjectAndUnProjectResult(
+        Point(x: 1672650.061907484, y: 12179046.047871836),
+        Point(x: 0, y: 90)),
+'EPSG:3722': ProjectAndUnProjectResult(
+        Point(x: 3225639.745211993, y: 12014873.557768293),
+        Point(x: 0, y: 90)),
+'EPSG:3723': ProjectAndUnProjectResult(
+        Point(x: 4309153.746567462, y: 11603618.623518256),
+        Point(x: 0, y: 90)),
+'EPSG:3724': ProjectAndUnProjectResult(
+        Point(x: 5019695.054228077, y: 11044701.550210133),
+        Point(x: 0, y: 90)),
+'EPSG:3725': ProjectAndUnProjectResult(
+        Point(x: 5436818.00586931, y: 10410808.927530395),
+        Point(x: 0, y: 90)),
+'EPSG:3726': ProjectAndUnProjectResult(
+        Point(x: 5625552.597278097, y: 9753575.672750814),
+        Point(x: -14563147143.452982, y: 3188443837.820243)),
+'EPSG:3727': ProjectAndUnProjectResult(
+        Point(x: -2680480.667777969, y: 8313790.449624672),
+        Point(x: 18.06528036348279, y: 46.914823163625734)),
+'EPSG:3728': ProjectAndUnProjectResult(
+        Point(x: 21986714.21038603, y: 15624881.636523565),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3729': ProjectAndUnProjectResult(
+        Point(x: 22388167.416311964, y: 15933587.820483765),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:3730': ProjectAndUnProjectResult(
+        Point(x: -2740677.8808794627, y: 24506261.89700431),
+        Point(x: 0, y: 90)),
+'EPSG:3731': ProjectAndUnProjectResult(
+        Point(x: -5201765.674120636, y: 24146888.302269507),
+        Point(x: 0, y: 90)),
+'EPSG:3732': ProjectAndUnProjectResult(
+        Point(x: -6763463.818613283, y: 23225390.56268039),
+        Point(x: 0, y: 90)),
+'EPSG:3733': ProjectAndUnProjectResult(
+        Point(x: -8331932.336121324, y: 22880871.489675846),
+        Point(x: 0, y: 90)),
+'EPSG:3734': ProjectAndUnProjectResult(
+        Point(x: 21986714.21038603, y: 15624881.636523565),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3735': ProjectAndUnProjectResult(
+        Point(x: 22388167.416311964, y: 15933587.820483765),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:3736': ProjectAndUnProjectResult(
+        Point(x: -2740677.8808794627, y: 24506261.89700431),
+        Point(x: 0, y: 90)),
+'EPSG:3737': ProjectAndUnProjectResult(
+        Point(x: -5201765.674120636, y: 24146888.302269507),
+        Point(x: 0, y: 90)),
+'EPSG:3738': ProjectAndUnProjectResult(
+        Point(x: -6763463.818613283, y: 23225390.56268039),
+        Point(x: 0, y: 90)),
+'EPSG:3739': ProjectAndUnProjectResult(
+        Point(x: -8331932.336121324, y: 22880871.489675846),
+        Point(x: 0, y: 90)),
+'EPSG:3740': ProjectAndUnProjectResult(
+        Point(x: -11916549.256324729, y: 7029722.072663035),
+        Point(x: 169423.46825792477, y: 95274.64648021963)),
+'EPSG:3741': ProjectAndUnProjectResult(
+        Point(x: -7081100.809078519, y: 9644074.035715306),
+        Point(x: 16894389367.285646, y: 5473429537.796183)),
+'EPSG:3742': ProjectAndUnProjectResult(
+        Point(x: -3328981.2161364346, y: 11193210.773121612),
+        Point(x: 0, y: 90)),
+'EPSG:3743': ProjectAndUnProjectResult(
+        Point(x: -465963.8528201919, y: 11963247.506900493),
+        Point(x: 0, y: 90)),
+'EPSG:3744': ProjectAndUnProjectResult(
+        Point(x: 1672650.061907484, y: 12179046.047871836),
+        Point(x: 0, y: 90)),
+'EPSG:3745': ProjectAndUnProjectResult(
+        Point(x: 3225639.745211993, y: 12014873.557768293),
+        Point(x: 0, y: 90)),
+'EPSG:3746': ProjectAndUnProjectResult(
+        Point(x: 4309153.746567462, y: 11603618.623518256),
+        Point(x: 0, y: 90)),
+'EPSG:3747': ProjectAndUnProjectResult(
+        Point(x: 5019695.054228077, y: 11044701.550210133),
+        Point(x: 0, y: 90)),
+'EPSG:3748': ProjectAndUnProjectResult(
+        Point(x: 5436818.00586931, y: 10410808.927530395),
+        Point(x: 0, y: 90)),
+'EPSG:3749': ProjectAndUnProjectResult(
+        Point(x: 5625552.597278097, y: 9753575.672750814),
+        Point(x: -14563147143.452982, y: 3188443837.820243)),
+'EPSG:3750': ProjectAndUnProjectResult(
+        Point(x: -79345537.23281473, y: -58236069.63248695),
+        Point(x: 0, y: -90)),
+'EPSG:3751': ProjectAndUnProjectResult(
+        Point(x: -61735465.01028672, y: -38016576.899930514),
+        Point(x: 0, y: -90)),
+'EPSG:3752': ProjectAndUnProjectResult(
+        Point(x: -9140659.50911656, y: 5893297.075909311),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3753': ProjectAndUnProjectResult(
+        Point(x: 21986714.21038603, y: 15624881.636523565),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3754': ProjectAndUnProjectResult(
+        Point(x: 22388167.416311964, y: 15933587.820483765),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:3755': ProjectAndUnProjectResult(
+        Point(x: -2740677.8808794627, y: 24506261.89700431),
+        Point(x: 0, y: 90)),
+'EPSG:3756': ProjectAndUnProjectResult(
+        Point(x: -5201765.674120636, y: 24146888.302269507),
+        Point(x: 0, y: 90)),
+'EPSG:3757': ProjectAndUnProjectResult(
+        Point(x: -6763463.818613283, y: 23225390.56268039),
+        Point(x: 0, y: 90)),
+'EPSG:3758': ProjectAndUnProjectResult(
+        Point(x: -8331932.336121324, y: 22880871.489675846),
+        Point(x: 0, y: 90)),
+'EPSG:3759': ProjectAndUnProjectResult(
+        Point(x: -250007344.031956, y: -186491554.88910812),
+        Point(x: 0, y: -90)),
+'EPSG:3760': ProjectAndUnProjectResult(
+        Point(x: -250007344.031956, y: -186491554.88910812),
+        Point(x: 0, y: -90)),
+'EPSG:3761': ProjectAndUnProjectResult(
+        Point(x: 5297700.047163907, y: 7936385.43186829),
+        Point(x: -2039.797629755838, y: 544.0590624611513)),
+'EPSG:3762': ProjectAndUnProjectResult(
+        Point(x: 17081659.805985913, y: 12801289.11576897),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3763': ProjectAndUnProjectResult(
+        Point(x: 1976343.1973906928, y: 1141528.2391083618),
+        Point(x: 17.88452802467779, y: 46.8925640012033)),
+'EPSG:3764': ProjectAndUnProjectResult(
+        Point(x: 49759786.10502441, y: -18642657.73954776),
+        Point(x: 0, y: -90)),
+'EPSG:3765': ProjectAndUnProjectResult(
+        Point(x: 605770.9535936904, y: 5195685.96539144),
+        Point(x: 17.88805856028205, y: 46.89226406700813)),
+'EPSG:3766': ProjectAndUnProjectResult(
+        Point(x: 105837.67697366881, y: 5679623.375791372),
+        Point(x: 17.888058560281515, y: 46.89226406700873)),
+'EPSG:3767': ProjectAndUnProjectResult(
+        Point(x: 720001.2298400886, y: 5197241.60997254),
+        Point(x: 17.888058560302017, y: 46.89226406695651)),
+'EPSG:3768': ProjectAndUnProjectResult(
+        Point(x: 262945.2879608735, y: 5197894.102611037),
+        Point(x: 17.888058560253082, y: 46.89226406692702)),
+'EPSG:3769': ProjectAndUnProjectResult(
+        Point(x: 5638354.3700725, y: 9108317.051243763),
+        Point(x: 45, y: double.nan)),
+'EPSG:3770': ProjectAndUnProjectResult(
+        Point(x: 5702322.033172766, y: 5855606.138266369),
+        Point(x: -8926004.214320635, y: 1963487.1834776804)),
+'EPSG:3771': ProjectAndUnProjectResult(
+        Point(x: -3830366.503490951, y: 11195042.849605728),
+        Point(x: 0, y: 90)),
+'EPSG:3772': ProjectAndUnProjectResult(
+        Point(x: -5584339.8977341885, y: 10533727.568589231),
+        Point(x: 0, y: 90)),
+'EPSG:3773': ProjectAndUnProjectResult(
+        Point(x: -7583447.275791626, y: 9644915.93418463),
+        Point(x: 45, y: double.nan)),
+'EPSG:3774': ProjectAndUnProjectResult(
+        Point(x: -9852922.311730321, y: 8490832.235656874),
+        Point(x: 45, y: double.nan)),
+'EPSG:3775': ProjectAndUnProjectResult(
+        Point(x: -3830130.3701628856, y: 11196570.080076331),
+        Point(x: 0, y: 90)),
+'EPSG:3776': ProjectAndUnProjectResult(
+        Point(x: -5584176.085407431, y: 10535502.054303104),
+        Point(x: 0, y: 90)),
+'EPSG:3777': ProjectAndUnProjectResult(
+        Point(x: -7583376.049417379, y: 9646968.415678004),
+        Point(x: 16894389367.28522, y: 5473429537.796048)),
+'EPSG:3778': ProjectAndUnProjectResult(
+        Point(x: -9852967.05118569, y: 8493196.416506361),
+        Point(x: 4033210.384574377, y: 1716529.2179819506)),
+'EPSG:3779': ProjectAndUnProjectResult(
+        Point(x: -3830130.3701628856, y: 11196570.080076331),
+        Point(x: 0, y: 90)),
+'EPSG:3780': ProjectAndUnProjectResult(
+        Point(x: -5584176.085407431, y: 10535502.054303104),
+        Point(x: 0, y: 90)),
+'EPSG:3781': ProjectAndUnProjectResult(
+        Point(x: -7583376.049417379, y: 9646968.415678004),
+        Point(x: 16894389367.28522, y: 5473429537.796048)),
+'EPSG:3782': ProjectAndUnProjectResult(
+        Point(x: -9852967.05118569, y: 8493196.416506361),
+        Point(x: 4033210.384574377, y: 1716529.2179819506)),
+'EPSG:3783': ProjectAndUnProjectResult(
+        Point(x: -19861661.407229125, y: 4840375.223816268),
+        Point(x: 3672.385536278773, y: 6427.295982975643)),
+'EPSG:3784': ProjectAndUnProjectResult(
+        Point(x: -18063453.10715209, y: 12989290.751354488),
+        Point(x: 45, y: double.nan)),
+'EPSG:3785': ProjectAndUnProjectResult(
+        Point(x: 1991289.5702107965, y: 5893278.543519946),
+        Point(x: 17.888058560281515, y: 46.89192236199592)),
+'EPSG:3786': ProjectAndUnProjectResult(
+        Point(x: 1989063.5448627048, y: 5192833.0079527255),
+        Point(x: 17.888058560281515, y: 46.89213681286046)),
+'EPSG:3787': ProjectAndUnProjectResult(
+        Point(x: 720042.9950820229, y: 198206.079571357),
+        Point(x: 17.888058560301882, y: 46.89226413298655)),
+'EPSG:3788': ProjectAndUnProjectResult(
+        Point(x: 23508992.97721879, y: 11953860.642492454),
+        Point(x: -3495.2654541591555, y: 6261.852299637183)),
+'EPSG:3789': ProjectAndUnProjectResult(
+        Point(x: 27327750.28054091, y: 9054325.12605308),
+        Point(x: -6731.8090189592995, y: -10215.908700804841)),
+'EPSG:3790': ProjectAndUnProjectResult(
+        Point(x: 43518643.3112175, y: -5094769.094075678),
+        Point(x: 0, y: -90)),
+'EPSG:3791': ProjectAndUnProjectResult(
+        Point(x: 49586485.74482371, y: -11010600.087366953),
+        Point(x: 0, y: -90)),
+'EPSG:3793': ProjectAndUnProjectResult(
+        Point(x: 52859786.10502441, y: -14316480.109144565),
+        Point(x: 0, y: -90)),
+'EPSG:3794': ProjectAndUnProjectResult(
+        Point(x: 720067.2566197526, y: 198801.4063740922),
+        Point(x: 17.888058560302017, y: 46.8922640669565)),
+'EPSG:3795': ProjectAndUnProjectResult(
+        Point(x: 8252634.36171799, y: 5734234.331423857),
+        Point(x: 17.888058560281515, y: 46.89226404782306)),
+'EPSG:3796': ProjectAndUnProjectResult(
+        Point(x: 8148736.411561253, y: 5547224.271027795),
+        Point(x: 17.88805856028151, y: 46.89226404782305)),
+'EPSG:3797': ProjectAndUnProjectResult(
+        Point(x: 6135826.57996405, y: 3742577.6135541815),
+        Point(x: 17.88805856028151, y: 46.89226404782305)),
+'EPSG:3798': ProjectAndUnProjectResult(
+        Point(x: 6135878.182828185, y: 3742375.532173249),
+        Point(x: 17.88805856028151, y: 46.89226406700874)),
+'EPSG:3799': ProjectAndUnProjectResult(
+        Point(x: 6135878.182828185, y: 3742375.532173249),
+        Point(x: 17.88805856028151, y: 46.89226406700874)),
+'EPSG:3800': ProjectAndUnProjectResult(
+        Point(x: -9852922.311730321, y: 8490832.235656874),
+        Point(x: 45, y: double.nan)),
+'EPSG:3801': ProjectAndUnProjectResult(
+        Point(x: -9852967.05118569, y: 8493196.416506361),
+        Point(x: 4033210.384574377, y: 1716529.2179819506)),
+'EPSG:3802': ProjectAndUnProjectResult(
+        Point(x: -9852967.05118569, y: 8493196.416506361),
+        Point(x: 4033210.384574377, y: 1716529.2179819506)),
+'EPSG:3812': ProjectAndUnProjectResult(
+        Point(x: 1676562.2460995112, y: 324549.78576519433),
+        Point(x: 17.888058560281515, y: 46.892264067008725)),
+'EPSG:3814': ProjectAndUnProjectResult(
+        Point(x: 3865026.376812202, y: 9521806.905574037),
+        Point(x: 0, y: 90)),
+'EPSG:3815': ProjectAndUnProjectResult(
+        Point(x: 3865026.376812202, y: 9521806.905574037),
+        Point(x: 0, y: 90)),
+'EPSG:3816': ProjectAndUnProjectResult(
+        Point(x: 3865026.376812202, y: 9521806.905574037),
+        Point(x: 0, y: 90)),
+'EPSG:3825': ProjectAndUnProjectResult(
+        Point(x: -4045746.5963645335, y: 11267350.164167067),
+        Point(x: 0, y: 90)),
+'EPSG:3826': ProjectAndUnProjectResult(
+        Point(x: -3805683.3210804434, y: 11453259.871461695),
+        Point(x: 0, y: 90)),
+'EPSG:3827': ProjectAndUnProjectResult(
+        Point(x: -4045761.1277527884, y: 11267389.831065152),
+        Point(x: 0, y: 90)),
+'EPSG:3828': ProjectAndUnProjectResult(
+        Point(x: -3805696.976732799, y: 11453300.087234417),
+        Point(x: 0, y: 90)),
+'EPSG:3829': ProjectAndUnProjectResult(
+        Point(x: -3275959.003075745, y: 11622411.879954766),
+        Point(x: 0, y: 90)),
+'EPSG:3832': ProjectAndUnProjectResult(
+        Point(x: -14706634.04878024, y: 5893297.075909311),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3833': ProjectAndUnProjectResult(
+        Point(x: 3177173.7521509556, y: 5233854.805224848),
+        Point(x: 17.88805843543354, y: 46.89226402703456)),
+'EPSG:3834': ProjectAndUnProjectResult(
+        Point(x: 3177173.7521509556, y: 5233854.805224848),
+        Point(x: 17.88805843543354, y: 46.89226402703456)),
+'EPSG:3835': ProjectAndUnProjectResult(
+        Point(x: 3720093.035258308, y: 5199410.227239075),
+        Point(x: 17.888058560302017, y: 46.89226406653935)),
+'EPSG:3836': ProjectAndUnProjectResult(
+        Point(x: 4262846.366199088, y: 5200062.991900588),
+        Point(x: 17.88805856025309, y: 46.89226406650986)),
+'EPSG:3837': ProjectAndUnProjectResult(
+        Point(x: 4177173.7521509556, y: 5233854.805224848),
+        Point(x: 17.88805843543354, y: 46.89226402703456)),
+'EPSG:3838': ProjectAndUnProjectResult(
+        Point(x: 4948676.953583041, y: 5212218.994202929),
+        Point(x: 17.88805855841666, y: 46.89226406291516)),
+'EPSG:3839': ProjectAndUnProjectResult(
+        Point(x: 8805779.076641811, y: 5235826.072617986),
+        Point(x: 17.888058718645958, y: 46.892264021268176)),
+'EPSG:3840': ProjectAndUnProjectResult(
+        Point(x: 9577440.673818503, y: 5267068.045127224),
+        Point(x: 17.88806088691339, y: 46.89226389327887)),
+'EPSG:3841': ProjectAndUnProjectResult(
+        Point(x: 6491468.937631781, y: 5195364.932899235),
+        Point(x: 17.888058560281515, y: 46.89226406659161)),
+'EPSG:3842': ProjectAndUnProjectResult(
+        Point(x: 6491468.937631781, y: 5195364.932899235),
+        Point(x: 17.888058560281515, y: 46.89226406659161)),
+'EPSG:3843': ProjectAndUnProjectResult(
+        Point(x: 6491468.937631781, y: 5195364.932899235),
+        Point(x: 17.888058560281515, y: 46.89226406659161)),
+'EPSG:3844': ProjectAndUnProjectResult(
+        Point(x: -41498.19877323811, y: 623548.4760109524),
+        Point(x: 17.888058560281515, y: 46.892264066591586)),
+'EPSG:3845': ProjectAndUnProjectResult(
+        Point(x: 2001546.03277511, y: 5215709.308746594),
+        Point(x: 17.888058553945477, y: 46.892264059921224)),
+'EPSG:3846': ProjectAndUnProjectResult(
+        Point(x: 1830146.453751276, y: 5203751.662381472),
+        Point(x: 17.888058560322833, y: 46.89226406641694)),
+'EPSG:3847': ProjectAndUnProjectResult(
+        Point(x: 1658712.2897811641, y: 5196736.080162084),
+        Point(x: 17.8880585602857, y: 46.892264067001435)),
+'EPSG:3848': ProjectAndUnProjectResult(
+        Point(x: 1487261.984023453, y: 5194642.981301733),
+        Point(x: 17.888058560281515, y: 46.89226406700878)),
+'EPSG:3849': ProjectAndUnProjectResult(
+        Point(x: 1315812.9384282234, y: 5197466.4870422),
+        Point(x: 17.888058560272697, y: 46.89226406699075)),
+'EPSG:3850': ProjectAndUnProjectResult(
+        Point(x: 1144382.5556121343, y: 5205214.671890977),
+        Point(x: 17.888058560307403, y: 46.89226406608369)),
+'EPSG:3851': ProjectAndUnProjectResult(
+        Point(x: -18977849.49411334, y: -4931722.017871851),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3852': ProjectAndUnProjectResult(
+        Point(x: -20458557.0628475, y: -21767259.770745546),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3854': ProjectAndUnProjectResult(
+        Point(x: 87241.68909288984, y: -1305361.7569410224),
+        Point(x: 17.888058560281515, y: 46.892264067008796)),
+'EPSG:3857': ProjectAndUnProjectResult(
+        Point(x: 1991289.5702107965, y: 5924506.521570054),
+        Point(x: 17.888058560281515, y: 46.89226406700878)),
+'EPSG:3890': ProjectAndUnProjectResult(
+        Point(x: -1105125.5282006196, y: 5413941.856367431),
+        Point(x: 17.888509189327227, y: 46.89229076369037)),
+'EPSG:3891': ProjectAndUnProjectResult(
+        Point(x: -1557536.5212347228, y: 5561950.163916144),
+        Point(x: 17.89339993357438, y: 46.89274299727956)),
+'EPSG:3892': ProjectAndUnProjectResult(
+        Point(x: -2005500.4108122215, y: 5751900.446586641),
+        Point(x: 17.930935679469886, y: 46.897081134395314)),
+'EPSG:3893': ProjectAndUnProjectResult(
+        Point(x: -1369671.9872999713, y: 2394176.3721184623),
+        Point(x: 17.89730890560701, y: 46.89314988829386)),
+'EPSG:3907': ProjectAndUnProjectResult(
+        Point(x: 5720042.995082023, y: 5198206.079571357),
+        Point(x: 17.888058560301882, y: 46.89226413298655)),
+'EPSG:3908': ProjectAndUnProjectResult(
+        Point(x: 6491470.877304326, y: 5194161.742812607),
+        Point(x: 17.888058560281515, y: 46.892264133038665)),
+'EPSG:3909': ProjectAndUnProjectResult(
+        Point(x: 7262900.285003362, y: 5198858.689717412),
+        Point(x: 17.88805856025328, y: 46.89226413295715)),
+'EPSG:3910': ProjectAndUnProjectResult(
+        Point(x: 8034373.106393925, y: 5212320.278980214),
+        Point(x: 17.888058563138316, y: 46.89226412846885)),
+'EPSG:3911': ProjectAndUnProjectResult(
+        Point(x: 720042.9950820229, y: 5198206.079571357),
+        Point(x: 17.888058560301882, y: 46.89226413298655)),
+'EPSG:3912': ProjectAndUnProjectResult(
+        Point(x: 720042.9950820229, y: 198206.079571357),
+        Point(x: 17.888058560301882, y: 46.89226413298655)),
+'EPSG:3920': ProjectAndUnProjectResult(
+        Point(x: 5638354.3700725, y: 9108317.051243763),
+        Point(x: 45, y: double.nan)),
+'EPSG:3942': ProjectAndUnProjectResult(
+        Point(x: 2833019.020964736, y: 1843010.238864202),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:3943': ProjectAndUnProjectResult(
+        Point(x: 2831230.4452139637, y: 2733351.460029819),
+        Point(x: 17.888058560281515, y: 46.892264067008725)),
+'EPSG:3944': ProjectAndUnProjectResult(
+        Point(x: 2829809.467316524, y: 3623806.128266886),
+        Point(x: 17.888058560281515, y: 46.89226406700873)),
+'EPSG:3945': ProjectAndUnProjectResult(
+        Point(x: 2828749.7083356986, y: 4514339.235565409),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:3946': ProjectAndUnProjectResult(
+        Point(x: 2828044.8465021546, y: 5404916.276155287),
+        Point(x: 17.888058560281515, y: 46.89226406700872)),
+'EPSG:3947': ProjectAndUnProjectResult(
+        Point(x: 2827688.5944718597, y: 6295503.259692606),
+        Point(x: 17.888058560281518, y: 46.89226406700873)),
+'EPSG:3948': ProjectAndUnProjectResult(
+        Point(x: 2827674.6755720135, y: 7186066.727791753),
+        Point(x: 17.888058560281515, y: 46.89226406700873)),
+'EPSG:3949': ProjectAndUnProjectResult(
+        Point(x: 2827996.798953069, y: 8076573.774209488),
+        Point(x: 17.888058560281515, y: 46.89226406700874)),
+'EPSG:3950': ProjectAndUnProjectResult(
+        Point(x: 2828648.6335579734, y: 8966992.069017563),
+        Point(x: 17.888058560281515, y: 46.892264067008725)),
+'EPSG:3968': ProjectAndUnProjectResult(
+        Point(x: 6197425.928759272, y: 4812816.468950871),
+        Point(x: 17.88805856028151, y: 46.89226406700874)),
+'EPSG:3969': ProjectAndUnProjectResult(
+        Point(x: 6197425.928759272, y: 4812816.468950871),
+        Point(x: 17.88805856028151, y: 46.89226406700874)),
+'EPSG:3970': ProjectAndUnProjectResult(
+        Point(x: 6197425.928759272, y: 4812816.468950871),
+        Point(x: 17.88805856028151, y: 46.89226406700874)),
+'EPSG:3976': ProjectAndUnProjectResult(
+        Point(x: 9541577.97711848, y: 29562358.411087077),
+        Point(x: 17.888058560281515, y: 46.89226406700872)),
+'EPSG:3978': ProjectAndUnProjectResult(
+        Point(x: 4788140.837784415, y: 5644744.4698402),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:3979': ProjectAndUnProjectResult(
+        Point(x: 4788140.837784415, y: 5644744.4698402),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:3985': ProjectAndUnProjectResult(
+        Point(x: -555242.8553881629, y: 5877777.002111666),
+        Point(x: 17.888058560281515, y: 46.89226404782309)),
+'EPSG:3986': ProjectAndUnProjectResult(
+        Point(x: -722534.8526363077, y: 6762186.326294301),
+        Point(x: 17.888060884929164, y: 46.89226387130746)),
+'EPSG:3987': ProjectAndUnProjectResult(
+        Point(x: -570333.3677220652, y: 6740357.730676427),
+        Point(x: 17.88805898523071, y: 46.89226396826632)),
+'EPSG:3988': ProjectAndUnProjectResult(
+        Point(x: -418055.40708946565, y: 6722523.825579058),
+        Point(x: 17.88805861183238, y: 46.89226402379921)),
+'EPSG:3989': ProjectAndUnProjectResult(
+        Point(x: -265720.57222600776, y: 6708645.5767262755),
+        Point(x: 17.888058563098124, y: 46.892264043186564)),
+'EPSG:3991': ProjectAndUnProjectResult(
+        Point(x: 23886072.682106398, y: 16541777.42883588),
+        Point(x: 17.88805856028151, y: 46.89226404782304)),
+'EPSG:3992': ProjectAndUnProjectResult(
+        Point(x: 23886072.682106398, y: 16641777.428835882),
+        Point(x: 17.88805856028151, y: 46.89226404782304)),
+'EPSG:3995': ProjectAndUnProjectResult(
+        Point(x: 1410164.281460657, y: -2531074.364577075),
+        Point(x: 17.88805856028151, y: 46.892264067008796)),
+'EPSG:3996': ProjectAndUnProjectResult(
+        Point(x: 1431589.0683036793, y: -2992813.9170321603),
+        Point(x: 17.888058560281518, y: 46.892264067008796)),
+'EPSG:3997': ProjectAndUnProjectResult(
+        Point(x: -2325776.769166882, y: 5919332.318772699),
+        Point(x: 18.05485171379697, y: 46.913391088377765)),
+'EPSG:4026': ProjectAndUnProjectResult(
+        Point(x: -600739.8591220279, y: 248879.67376995925),
+        Point(x: 17.8880591741222, y: 46.89226397184953)),
+'EPSG:4037': ProjectAndUnProjectResult(
+        Point(x: -193931.3475560262, y: 5233642.280052007),
+        Point(x: 17.88805871864152, y: 46.89226402167793)),
+'EPSG:4038': ProjectAndUnProjectResult(
+        Point(x: -650192.2096599129, y: 5305193.291340299),
+        Point(x: 17.88807717323444, y: 46.892264059984264)),
+'EPSG:4048': ProjectAndUnProjectResult(
+        Point(x: 948624.4014177459, y: 15211608.67817156),
+        Point(x: 17.888058558416994, y: 46.89226406333179)),
+'EPSG:4049': ProjectAndUnProjectResult(
+        Point(x: 796259.5929516172, y: 15202094.645796508),
+        Point(x: 17.88805856033801, y: 46.892264066698644)),
+'EPSG:4050': ProjectAndUnProjectResult(
+        Point(x: 643870.49935693, y: 15196481.41480021),
+        Point(x: 17.88805856028407, y: 46.892264067004696)),
+'EPSG:4051': ProjectAndUnProjectResult(
+        Point(x: 491469.93683953484, y: 15194756.584238794),
+        Point(x: 17.888058560281515, y: 46.89226406700878)),
+'EPSG:4056': ProjectAndUnProjectResult(
+        Point(x: 339070.0484086412, y: 15196916.340127263),
+        Point(x: 17.888058560277017, y: 46.89226406700078)),
+'EPSG:4057': ProjectAndUnProjectResult(
+        Point(x: 186683.01692764752, y: 15202965.45791366),
+        Point(x: 17.888058560226206, y: 46.89226406657527)),
+'EPSG:4058': ProjectAndUnProjectResult(
+        Point(x: 34321.77856417687, y: 15212917.299370328),
+        Point(x: 17.888058563129825, y: 46.89226406242482)),
+'EPSG:4059': ProjectAndUnProjectResult(
+        Point(x: -117999.2562282806, y: 15226793.803321447),
+        Point(x: 17.888058612001338, y: 46.89226404327183)),
+'EPSG:4060': ProjectAndUnProjectResult(
+        Point(x: -270263.4670647214, y: 15244625.468581486),
+        Point(x: 17.8880589858763, y: 46.89226398852623)),
+'EPSG:4061': ProjectAndUnProjectResult(
+        Point(x: 720001.2298400886, y: 15197241.60997254),
+        Point(x: 17.888058560302017, y: 46.89226406695651)),
+'EPSG:4062': ProjectAndUnProjectResult(
+        Point(x: 262945.2879608735, y: 15197894.102611037),
+        Point(x: 17.888058560253082, y: 46.89226406692702)),
+'EPSG:4063': ProjectAndUnProjectResult(
+        Point(x: -193931.3475621267, y: 15233642.27993109),
+        Point(x: 17.88805871864152, y: 46.89226402167793)),
+'EPSG:4071': ProjectAndUnProjectResult(
+        Point(x: 5003702.71324619, y: 17430840.209902868),
+        Point(x: 45, y: double.nan)),
+'EPSG:4082': ProjectAndUnProjectResult(
+        Point(x: 3429800.759174801, y: 5977375.01459784),
+        Point(x: 17.630645767876164, y: 46.92603298659015)),
+'EPSG:4083': ProjectAndUnProjectResult(
+        Point(x: 2988896.0169453374, y: 5744023.033448553),
+        Point(x: 17.848196835452992, y: 46.89671142260442)),
+'EPSG:4093': ProjectAndUnProjectResult(
+        Point(x: 877148.6088370954, y: 233660.6648475537),
+        Point(x: 17.88805843543735, y: 46.892264027445336)),
+'EPSG:4094': ProjectAndUnProjectResult(
+        Point(x: 1000998.7964341316, y: 225462.53667102847),
+        Point(x: 17.88805852091921, y: 46.89226404676562)),
+'EPSG:4095': ProjectAndUnProjectResult(
+        Point(x: 1067705.024527477, y: 213490.246378907),
+        Point(x: 17.88805855729504, y: 46.89226406230804)),
+'EPSG:4096': ProjectAndUnProjectResult(
+        Point(x: 1020089.2655463072, y: 199321.33850794286),
+        Point(x: 17.888058560302017, y: 46.89226406695651)),
+'EPSG:4414': ProjectAndUnProjectResult(
+        Point(x: 2872651.044108846, y: 10239580.122362612),
+        Point(x: 0, y: 90)),
+'EPSG:4415': ProjectAndUnProjectResult(
+        Point(x: -555242.8553881629, y: 7899177.6144896895),
+        Point(x: 17.888058560281515, y: 46.89226404782309)),
+'EPSG:4417': ProjectAndUnProjectResult(
+        Point(x: 7262846.366199088, y: 5200062.991900588),
+        Point(x: 17.88805856025309, y: 46.89226406650986)),
+'EPSG:4434': ProjectAndUnProjectResult(
+        Point(x: 8034267.228662017, y: 5213527.768175429),
+        Point(x: 17.888058563130237, y: 46.892264062008316)),
+'EPSG:4437': ProjectAndUnProjectResult(
+        Point(x: 7328037.617013937, y: 5241769.00316173),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:4455': ProjectAndUnProjectResult(
+        Point(x: 21631580.131798327, y: 14568195.981306886),
+        Point(x: 17.888058560281525, y: 46.89226404782306)),
+'EPSG:4456': ProjectAndUnProjectResult(
+        Point(x: 21096015.85821386, y: 13482884.173491456),
+        Point(x: 17.88805856028151, y: 46.89226404782305)),
+'EPSG:4457': ProjectAndUnProjectResult(
+        Point(x: 22086296.48845748, y: 19050428.991915457),
+        Point(x: 17.888058560281525, y: 46.89226406700874)),
+'EPSG:4462': ProjectAndUnProjectResult(
+        Point(x: -18477009.85363386, y: 2101847.384202445),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:4467': ProjectAndUnProjectResult(
+        Point(x: 5518117.362620078, y: 8498017.126823647),
+        Point(x: -33811.09013364492, y: 7380.196889868285)),
+'EPSG:4471': ProjectAndUnProjectResult(
+        Point(x: -1557536.5212347228, y: 15561950.163916145),
+        Point(x: 17.893399933574372, y: 46.89274299727957)),
+'EPSG:4474': ProjectAndUnProjectResult(
+        Point(x: -1557599.8094046724, y: 15562157.319282241),
+        Point(x: 17.89339995905174, y: 46.89274289000551)),
+'EPSG:4484': ProjectAndUnProjectResult(
+        Point(x: -7081100.809078519, y: 9644074.035715306),
+        Point(x: 16894389367.285646, y: 5473429537.796183)),
+'EPSG:4485': ProjectAndUnProjectResult(
+        Point(x: -3328981.2161364346, y: 11193210.773121612),
+        Point(x: 0, y: 90)),
+'EPSG:4486': ProjectAndUnProjectResult(
+        Point(x: -465963.8528201919, y: 11963247.506900493),
+        Point(x: 0, y: 90)),
+'EPSG:4487': ProjectAndUnProjectResult(
+        Point(x: 1672650.061907484, y: 12179046.047871836),
+        Point(x: 0, y: 90)),
+'EPSG:4488': ProjectAndUnProjectResult(
+        Point(x: 3225639.745211993, y: 12014873.557768293),
+        Point(x: 0, y: 90)),
+'EPSG:4489': ProjectAndUnProjectResult(
+        Point(x: 4309153.746567462, y: 11603618.623518256),
+        Point(x: 0, y: 90)),
+'EPSG:4491': ProjectAndUnProjectResult(
+        Point(x: 9328493.421913693, y: 7001526.991761912),
+        Point(x: 66.46978443301275, y: 55.68536724688989)),
+'EPSG:4492': ProjectAndUnProjectResult(
+        Point(x: 9982560.551391073, y: 7451374.141728269),
+        Point(x: -29.203552236066788, y: 107.75568998077281)),
+'EPSG:4493': ProjectAndUnProjectResult(
+        Point(x: 10690684.498695083, y: 7959551.541609481),
+        Point(x: 2295.099359534543, y: 590.2186928219294)),
+'EPSG:4494': ProjectAndUnProjectResult(
+        Point(x: 11473397.65464337, y: 8523387.62801148),
+        Point(x: 38040.256750950364, y: 8289.769436944347)),
+'EPSG:4495': ProjectAndUnProjectResult(
+        Point(x: 12357225.865975516, y: 9135545.190129392),
+        Point(x: 2043698.7544900102, y: 448818.1175920101)),
+'EPSG:4496': ProjectAndUnProjectResult(
+        Point(x: 13375991.145964216, y: 9781974.28340822),
+        Point(x: 30362279619.50587, y: 6642887099.33437)),
+'EPSG:4497': ProjectAndUnProjectResult(
+        Point(x: 14572309.67756597, y: 10439322.446499031),
+        Point(x: 0, y: 90)),
+'EPSG:4498': ProjectAndUnProjectResult(
+        Point(x: 15999300.709230509, y: 11071712.985662593),
+        Point(x: 0, y: 90)),
+'EPSG:4499': ProjectAndUnProjectResult(
+        Point(x: 17722521.94348809, y: 11626795.236313414),
+        Point(x: 0, y: 90)),
+'EPSG:4500': ProjectAndUnProjectResult(
+        Point(x: 19822147.018433835, y: 12030963.856938452),
+        Point(x: 0, y: 90)),
+'EPSG:4501': ProjectAndUnProjectResult(
+        Point(x: 22395400.682228316, y: 12183637.356165713),
+        Point(x: 0, y: 90)),
+'EPSG:4502': ProjectAndUnProjectResult(
+        Point(x: -3671506.5780863077, y: 7001526.991761912),
+        Point(x: 66.4697844330128, y: 55.685367246889896)),
+'EPSG:4503': ProjectAndUnProjectResult(
+        Point(x: -4017439.4486089284, y: 7451374.141728269),
+        Point(x: -29.203552236066432, y: 107.75568998077289)),
+'EPSG:4504': ProjectAndUnProjectResult(
+        Point(x: -4309315.501304916, y: 7959551.541609481),
+        Point(x: 2295.09935953454, y: 590.2186928219286)),
+'EPSG:4505': ProjectAndUnProjectResult(
+        Point(x: -4526602.34535663, y: 8523387.62801148),
+        Point(x: 38040.256750950364, y: 8289.769436944347)),
+'EPSG:4506': ProjectAndUnProjectResult(
+        Point(x: -4642774.134024484, y: 9135545.190129392),
+        Point(x: 2043698.7544900102, y: 448818.1175920101)),
+'EPSG:4507': ProjectAndUnProjectResult(
+        Point(x: -4624008.8540357845, y: 9781974.28340822),
+        Point(x: 30362279619.50589, y: 6642887099.334377)),
+'EPSG:4508': ProjectAndUnProjectResult(
+        Point(x: -4427690.32243403, y: 10439322.446499031),
+        Point(x: 0, y: 90)),
+'EPSG:4509': ProjectAndUnProjectResult(
+        Point(x: -4000699.2907694904, y: 11071712.985662593),
+        Point(x: 0, y: 90)),
+'EPSG:4510': ProjectAndUnProjectResult(
+        Point(x: -3277478.0565119097, y: 11626795.236313414),
+        Point(x: 0, y: 90)),
+'EPSG:4511': ProjectAndUnProjectResult(
+        Point(x: -2177852.9815661646, y: 12030963.856938452),
+        Point(x: 0, y: 90)),
+'EPSG:4512': ProjectAndUnProjectResult(
+        Point(x: -604599.3177716827, y: 12183637.356165713),
+        Point(x: 0, y: 90)),
+'EPSG:4513': ProjectAndUnProjectResult(
+        Point(x: 21328493.42191369, y: 7001526.991761912),
+        Point(x: 66.46978443301293, y: 55.68536724688992)),
+'EPSG:4514': ProjectAndUnProjectResult(
+        Point(x: 22149850.9068178, y: 7219128.371007296),
+        Point(x: 138.3748532318848, y: 69.53969094405605)),
+'EPSG:4515': ProjectAndUnProjectResult(
+        Point(x: 22982560.551391073, y: 7451374.141728269),
+        Point(x: -29.203552236066788, y: 107.75568998077281)),
+'EPSG:4516': ProjectAndUnProjectResult(
+        Point(x: 23828708.620324224, y: 7698249.8329235),
+        Point(x: 525.4502355842208, y: 220.8876600242989)),
+'EPSG:4517': ProjectAndUnProjectResult(
+        Point(x: 24690684.498695083, y: 7959551.541609481),
+        Point(x: 2295.099359534543, y: 590.2186928219294)),
+'EPSG:4518': ProjectAndUnProjectResult(
+        Point(x: 25571214.38243999, y: 8234839.92570492),
+        Point(x: 8796.331693915801, y: 1973.2780739093816)),
+'EPSG:4519': ProjectAndUnProjectResult(
+        Point(x: 26473397.65464337, y: 8523387.62801148),
+        Point(x: 38040.25675095029, y: 8289.769436944327)),
+'EPSG:4520': ProjectAndUnProjectResult(
+        Point(x: 27400746.069521375, y: 8824119.52784918),
+        Point(x: 216927.18580758735, y: 47354.206459627494)),
+'EPSG:4521': ProjectAndUnProjectResult(
+        Point(x: 28357225.865975514, y: 9135545.190129392),
+        Point(x: 2043698.7544900167, y: 448818.1175920118)),
+'EPSG:4522': ProjectAndUnProjectResult(
+        Point(x: 29347302.932592206, y: 9455682.854873288),
+        Point(x: 53527735.06390822, y: 11775410.229742318)),
+'EPSG:4523': ProjectAndUnProjectResult(
+        Point(x: 30375991.145964216, y: 9781974.28340822),
+        Point(x: 30362279619.50587, y: 6642887099.33437)),
+'EPSG:4524': ProjectAndUnProjectResult(
+        Point(x: 31448904.00420986, y: 10111189.750699412),
+        Point(x: 0, y: 90)),
+'EPSG:4525': ProjectAndUnProjectResult(
+        Point(x: 32572309.67756597, y: 10439322.446499031),
+        Point(x: 0, y: 90)),
+'EPSG:4526': ProjectAndUnProjectResult(
+        Point(x: 33753189.59793045, y: 10761471.521219483),
+        Point(x: 0, y: 90)),
+'EPSG:4527': ProjectAndUnProjectResult(
+        Point(x: 34999300.70923051, y: 11071712.985662593),
+        Point(x: 0, y: 90)),
+'EPSG:4528': ProjectAndUnProjectResult(
+        Point(x: 36319241.50049229, y: 11362957.64696107),
+        Point(x: 0, y: 90)),
+'EPSG:4529': ProjectAndUnProjectResult(
+        Point(x: 37722521.94348809, y: 11626795.236313414),
+        Point(x: 0, y: 90)),
+'EPSG:4530': ProjectAndUnProjectResult(
+        Point(x: 39219637.456836805, y: 11853323.85731819),
+        Point(x: 0, y: 90)),
+'EPSG:4531': ProjectAndUnProjectResult(
+        Point(x: 40822147.01843384, y: 12030963.856938452),
+        Point(x: 0, y: 90)),
+'EPSG:4532': ProjectAndUnProjectResult(
+        Point(x: 42542755.54808611, y: 12146255.194351697),
+        Point(x: 0, y: 90)),
+'EPSG:4533': ProjectAndUnProjectResult(
+        Point(x: 44395400.68222832, y: 12183637.356165713),
+        Point(x: 0, y: 90)),
+'EPSG:4534': ProjectAndUnProjectResult(
+        Point(x: -3671506.5780863077, y: 7001526.991761912),
+        Point(x: 66.4697844330128, y: 55.685367246889896)),
+'EPSG:4535': ProjectAndUnProjectResult(
+        Point(x: -3850149.093182198, y: 7219128.371007296),
+        Point(x: 138.37485323188466, y: 69.53969094405603)),
+'EPSG:4536': ProjectAndUnProjectResult(
+        Point(x: -4017439.4486089284, y: 7451374.141728269),
+        Point(x: -29.203552236066432, y: 107.75568998077289)),
+'EPSG:4537': ProjectAndUnProjectResult(
+        Point(x: -4171291.379675775, y: 7698249.8329235),
+        Point(x: 525.4502355842197, y: 220.88766002429873)),
+'EPSG:4538': ProjectAndUnProjectResult(
+        Point(x: -4309315.501304916, y: 7959551.541609481),
+        Point(x: 2295.09935953454, y: 590.2186928219286)),
+'EPSG:4539': ProjectAndUnProjectResult(
+        Point(x: -4428785.617560011, y: 8234839.92570492),
+        Point(x: 8796.331693915807, y: 1973.2780739093832)),
+'EPSG:4540': ProjectAndUnProjectResult(
+        Point(x: -4526602.34535663, y: 8523387.62801148),
+        Point(x: 38040.256750950364, y: 8289.769436944347)),
+'EPSG:4541': ProjectAndUnProjectResult(
+        Point(x: -4599253.930478623, y: 8824119.52784918),
+        Point(x: 216927.18580758662, y: 47354.20645962731)),
+'EPSG:4542': ProjectAndUnProjectResult(
+        Point(x: -4642774.134024484, y: 9135545.190129392),
+        Point(x: 2043698.7544900102, y: 448818.1175920101)),
+'EPSG:4543': ProjectAndUnProjectResult(
+        Point(x: -4652697.067407792, y: 9455682.854873288),
+        Point(x: 53527735.06390806, y: 11775410.22974228)),
+'EPSG:4544': ProjectAndUnProjectResult(
+        Point(x: -4624008.8540357845, y: 9781974.28340822),
+        Point(x: 30362279619.50589, y: 6642887099.334377)),
+'EPSG:4545': ProjectAndUnProjectResult(
+        Point(x: -4551095.995790138, y: 10111189.750699412),
+        Point(x: 0, y: 90)),
+'EPSG:4546': ProjectAndUnProjectResult(
+        Point(x: -4427690.32243403, y: 10439322.446499031),
+        Point(x: 0, y: 90)),
+'EPSG:4547': ProjectAndUnProjectResult(
+        Point(x: -4246810.402069545, y: 10761471.521219483),
+        Point(x: 0, y: 90)),
+'EPSG:4548': ProjectAndUnProjectResult(
+        Point(x: -4000699.2907694904, y: 11071712.985662593),
+        Point(x: 0, y: 90)),
+'EPSG:4549': ProjectAndUnProjectResult(
+        Point(x: -3680758.499507707, y: 11362957.64696107),
+        Point(x: 0, y: 90)),
+'EPSG:4550': ProjectAndUnProjectResult(
+        Point(x: -3277478.0565119097, y: 11626795.236313414),
+        Point(x: 0, y: 90)),
+'EPSG:4551': ProjectAndUnProjectResult(
+        Point(x: -2780362.5431631915, y: 11853323.85731819),
+        Point(x: 0, y: 90)),
+'EPSG:4552': ProjectAndUnProjectResult(
+        Point(x: -2177852.9815661646, y: 12030963.856938452),
+        Point(x: 0, y: 90)),
+'EPSG:4553': ProjectAndUnProjectResult(
+        Point(x: -1457244.451913892, y: 12146255.194351697),
+        Point(x: 0, y: 90)),
+'EPSG:4554': ProjectAndUnProjectResult(
+        Point(x: -604599.3177716827, y: 12183637.356165713),
+        Point(x: 0, y: 90)),
+'EPSG:4559': ProjectAndUnProjectResult(
+        Point(x: 5638571.782971076, y: 9108330.901623307),
+        Point(x: -1685042.2535846238, y: 369929.7983349917)),
+'EPSG:4568': ProjectAndUnProjectResult(
+        Point(x: 9328421.340581, y: 7001646.258530278),
+        Point(x: 66.46970363157362, y: 55.685356944014764)),
+'EPSG:4569': ProjectAndUnProjectResult(
+        Point(x: 9982482.289308187, y: 7451501.090610668),
+        Point(x: 45, y: double.nan)),
+'EPSG:4573': ProjectAndUnProjectResult(
+        Point(x: 13375900.836793115, y: 9782142.024768146),
+        Point(x: 45, y: double.nan)),
+'EPSG:4574': ProjectAndUnProjectResult(
+        Point(x: 14572222.187872892, y: 10439502.15507849),
+        Point(x: 0, y: 90)),
+'EPSG:4575': ProjectAndUnProjectResult(
+        Point(x: 15999219.982010296, y: 11071904.578322321),
+        Point(x: 0, y: 90)),
+'EPSG:4576': ProjectAndUnProjectResult(
+        Point(x: 17722453.090387028, y: 11626997.839069745),
+        Point(x: 0, y: 90)),
+'EPSG:4577': ProjectAndUnProjectResult(
+        Point(x: 19822096.589768603, y: 12031175.463608662),
+        Point(x: 0, y: 90)),
+'EPSG:4578': ProjectAndUnProjectResult(
+        Point(x: 22395376.983237706, y: 12183854.3923586),
+        Point(x: 0, y: 90)),
+'EPSG:4579': ProjectAndUnProjectResult(
+        Point(x: -3671578.659419, y: 7001646.258530278),
+        Point(x: 66.46970363157362, y: 55.685356944014764)),
+'EPSG:4580': ProjectAndUnProjectResult(
+        Point(x: -4017517.7106918134, y: 7451501.090610668),
+        Point(x: 45, y: double.nan)),
+'EPSG:4581': ProjectAndUnProjectResult(
+        Point(x: -4309399.081372126, y: 7959687.230352008),
+        Point(x: 45, y: double.nan)),
+'EPSG:4582': ProjectAndUnProjectResult(
+        Point(x: -4526690.031934304, y: 8523533.10121544),
+        Point(x: 45, y: double.nan)),
+'EPSG:32607': ProjectAndUnProjectResult(
+        Point(x: -35393329.619301565, y: -11254044.783200482),
+        Point(x: 0, y: -90)),
+'EPSG:4584': ProjectAndUnProjectResult(
+        Point(x: -4624099.163206885, y: 9782142.024768146),
+        Point(x: 45, y: double.nan)),
+'EPSG:4585': ProjectAndUnProjectResult(
+        Point(x: -4427777.812127108, y: 10439502.15507849),
+        Point(x: 0, y: 90)),
+'EPSG:4586': ProjectAndUnProjectResult(
+        Point(x: -4000780.0179897044, y: 11071904.578322321),
+        Point(x: 0, y: 90)),
+'EPSG:4587': ProjectAndUnProjectResult(
+        Point(x: -3277546.9096129737, y: 11626997.839069745),
+        Point(x: 0, y: 90)),
+'EPSG:4588': ProjectAndUnProjectResult(
+        Point(x: -2177903.4102313956, y: 12031175.463608662),
+        Point(x: 0, y: 90)),
+'EPSG:4589': ProjectAndUnProjectResult(
+        Point(x: -604623.0167622955, y: 12183854.3923586),
+        Point(x: 0, y: 90)),
+'EPSG:4647': ProjectAndUnProjectResult(
+        Point(x: 33176891.287219305, y: 5231671.834018296),
+        Point(x: 17.888058435437348, y: 46.892264027445336)),
+'EPSG:4652': ProjectAndUnProjectResult(
+        Point(x: 21328421.340581, y: 7001646.258530278),
+        Point(x: 66.46970363157362, y: 55.685356944014764)),
+'EPSG:4653': ProjectAndUnProjectResult(
+        Point(x: 22149775.645459887, y: 7219251.3477785075),
+        Point(x: 138.37464126753517, y: 69.5396588188438)),
+'EPSG:4654': ProjectAndUnProjectResult(
+        Point(x: 22982482.289308187, y: 7451501.090610668),
+        Point(x: 45, y: double.nan)),
+'EPSG:4655': ProjectAndUnProjectResult(
+        Point(x: 23828627.571863763, y: 7698381.019035124),
+        Point(x: 45, y: double.nan)),
+'EPSG:4656': ProjectAndUnProjectResult(
+        Point(x: 24690600.918627873, y: 7959687.230352008),
+        Point(x: 45, y: double.nan)),
+'EPSG:4766': ProjectAndUnProjectResult(
+        Point(x: 25571128.57196385, y: 8234980.379304201),
+        Point(x: 45, y: double.nan)),
+'EPSG:4767': ProjectAndUnProjectResult(
+        Point(x: 26473309.968065694, y: 8523533.10121544),
+        Point(x: 45, y: double.nan)),
+'EPSG:4768': ProjectAndUnProjectResult(
+        Point(x: 27400656.92167488, y: 8824270.262663634),
+        Point(x: 45, y: double.nan)),
+'EPSG:4769': ProjectAndUnProjectResult(
+        Point(x: 28357135.740423597, y: 9135701.409461653),
+        Point(x: 45, y: double.nan)),
+'EPSG:4770': ProjectAndUnProjectResult(
+        Point(x: 29347212.390682768, y: 9455844.75494226),
+        Point(x: 45, y: double.nan)),
+'EPSG:4771': ProjectAndUnProjectResult(
+        Point(x: 30375900.836793117, y: 9782142.024768146),
+        Point(x: 45, y: double.nan)),
+'EPSG:4772': ProjectAndUnProjectResult(
+        Point(x: 31448814.675557498, y: 10111363.447712325),
+        Point(x: 0, y: 90)),
+'EPSG:4773': ProjectAndUnProjectResult(
+        Point(x: 32572222.187872894, y: 10439502.15507849),
+        Point(x: 0, y: 90)),
+'EPSG:4774': ProjectAndUnProjectResult(
+        Point(x: 33753104.92938021, y: 10761657.224655224),
+        Point(x: 0, y: 90)),
+'EPSG:4775': ProjectAndUnProjectResult(
+        Point(x: 34999219.9820103, y: 11071904.578322321),
+        Point(x: 0, y: 90)),
+'EPSG:4776': ProjectAndUnProjectResult(
+        Point(x: 36319165.98830434, y: 11363154.915651683),
+        Point(x: 0, y: 90)),
+'EPSG:4777': ProjectAndUnProjectResult(
+        Point(x: 37722453.090387024, y: 11626997.839069745),
+        Point(x: 0, y: 90)),
+'EPSG:4778': ProjectAndUnProjectResult(
+        Point(x: 39219576.895470664, y: 11853531.29937249),
+        Point(x: 0, y: 90)),
+'EPSG:4779': ProjectAndUnProjectResult(
+        Point(x: 40822096.5897686, y: 12031175.463608662),
+        Point(x: 0, y: 90)),
+'EPSG:4780': ProjectAndUnProjectResult(
+        Point(x: 42542717.322696224, y: 12146470.080570836),
+        Point(x: 0, y: 90)),
+'EPSG:4781': ProjectAndUnProjectResult(
+        Point(x: 44395376.983237706, y: 12183854.3923586),
+        Point(x: 0, y: 90)),
+'EPSG:4782': ProjectAndUnProjectResult(
+        Point(x: -3671578.659419, y: 7001646.258530278),
+        Point(x: 66.46970363157362, y: 55.685356944014764)),
+'EPSG:4783': ProjectAndUnProjectResult(
+        Point(x: -3850224.3545401134, y: 7219251.3477785075),
+        Point(x: 138.37464126753517, y: 69.5396588188438)),
+'EPSG:4784': ProjectAndUnProjectResult(
+        Point(x: -4017517.7106918134, y: 7451501.090610668),
+        Point(x: 45, y: double.nan)),
+'EPSG:4785': ProjectAndUnProjectResult(
+        Point(x: -4171372.428136235, y: 7698381.019035124),
+        Point(x: 45, y: double.nan)),
+'EPSG:4786': ProjectAndUnProjectResult(
+        Point(x: -4309399.081372126, y: 7959687.230352008),
+        Point(x: 45, y: double.nan)),
+'EPSG:4787': ProjectAndUnProjectResult(
+        Point(x: -4428871.4280361505, y: 8234980.379304201),
+        Point(x: 45, y: double.nan)),
+'EPSG:4788': ProjectAndUnProjectResult(
+        Point(x: -4526690.031934304, y: 8523533.10121544),
+        Point(x: 45, y: double.nan)),
+'EPSG:4789': ProjectAndUnProjectResult(
+        Point(x: -4599343.078325118, y: 8824270.262663634),
+        Point(x: 45, y: double.nan)),
+'EPSG:4790': ProjectAndUnProjectResult(
+        Point(x: -4642864.259576404, y: 9135701.409461653),
+        Point(x: 45, y: double.nan)),
+'EPSG:4791': ProjectAndUnProjectResult(
+        Point(x: -4652787.609317232, y: 9455844.75494226),
+        Point(x: 45, y: double.nan)),
+'EPSG:4792': ProjectAndUnProjectResult(
+        Point(x: -4624099.163206885, y: 9782142.024768146),
+        Point(x: 45, y: double.nan)),
+'EPSG:4793': ProjectAndUnProjectResult(
+        Point(x: -4551185.324442502, y: 10111363.447712325),
+        Point(x: 0, y: 90)),
+'EPSG:4794': ProjectAndUnProjectResult(
+        Point(x: -4427777.812127108, y: 10439502.15507849),
+        Point(x: 0, y: 90)),
+'EPSG:4795': ProjectAndUnProjectResult(
+        Point(x: -4246895.070619788, y: 10761657.224655224),
+        Point(x: 0, y: 90)),
+'EPSG:4796': ProjectAndUnProjectResult(
+        Point(x: -4000780.0179897044, y: 11071904.578322321),
+        Point(x: 0, y: 90)),
+'EPSG:4797': ProjectAndUnProjectResult(
+        Point(x: -3680834.011695663, y: 11363154.915651683),
+        Point(x: 0, y: 90)),
+'EPSG:4798': ProjectAndUnProjectResult(
+        Point(x: -3277546.9096129737, y: 11626997.839069745),
+        Point(x: 0, y: 90)),
+'EPSG:4799': ProjectAndUnProjectResult(
+        Point(x: -2780423.104529338, y: 11853531.29937249),
+        Point(x: 0, y: 90)),
+'EPSG:4800': ProjectAndUnProjectResult(
+        Point(x: -2177903.4102313956, y: 12031175.463608662),
+        Point(x: 0, y: 90)),
+'EPSG:4812': ProjectAndUnProjectResult(
+        Point(x: -1457282.6773037752, y: 12146470.080570836),
+        Point(x: 0, y: 90)),
+'EPSG:4822': ProjectAndUnProjectResult(
+        Point(x: -604623.0167622955, y: 12183854.3923586),
+        Point(x: 0, y: 90)),
+'EPSG:4826': ProjectAndUnProjectResult(
+        Point(x: 3898447.9405131047, y: 4136629.738735613),
+        Point(x: 17.888058560281518, y: 46.89226406700872)),
+'EPSG:20004': ProjectAndUnProjectResult(
+        Point(x: 4262846.366199088, y: 5200062.991900588),
+        Point(x: 17.88805856025309, y: 46.89226406650986)),
+'EPSG:20005': ProjectAndUnProjectResult(
+        Point(x: 4805779.076641811, y: 5235826.072617986),
+        Point(x: 17.888058718645958, y: 46.892264021268176)),
+'EPSG:20006': ProjectAndUnProjectResult(
+        Point(x: 5349327.8123745285, y: 5307406.913783019),
+        Point(x: 17.888077173334445, y: 46.892264059719786)),
+'EPSG:20007': ProjectAndUnProjectResult(
+        Point(x: 5894204.636684559, y: 5416200.817466673),
+        Point(x: 17.88850918995584, y: 46.89229076437375)),
+'EPSG:20008': ProjectAndUnProjectResult(
+        Point(x: 6441604.82542362, y: 5564270.833365575),
+        Point(x: 17.89339993355319, y: 46.89274300140399)),
+'EPSG:20009': ProjectAndUnProjectResult(
+        Point(x: 6993453.954178276, y: 5754300.314963382),
+        Point(x: 17.93093565100568, y: 46.89708114575195)),
+'EPSG:20010': ProjectAndUnProjectResult(
+        Point(x: 7552709.8779655695, y: 5989497.450296735),
+        Point(x: 18.163219497381576, y: 46.928551732515096)),
+'EPSG:20011': ProjectAndUnProjectResult(
+        Point(x: 8123735.203873761, y: 6273424.221140283),
+        Point(x: 19.45470777256246, y: 47.12664112954269)),
+'EPSG:20012': ProjectAndUnProjectResult(
+        Point(x: 8712755.857068019, y: 6609715.389850158),
+        Point(x: 26.45752617154501, y: 48.3144402829855)),
+'EPSG:20013': ProjectAndUnProjectResult(
+        Point(x: 9328421.340581, y: 7001646.258530278),
+        Point(x: 66.46970363157362, y: 55.685356944014764)),
+'EPSG:20014': ProjectAndUnProjectResult(
+        Point(x: 9982482.289308187, y: 7451501.090610668),
+        Point(x: 45, y: double.nan)),
+'EPSG:20015': ProjectAndUnProjectResult(
+        Point(x: 10690600.918627873, y: 7959687.230352008),
+        Point(x: 45, y: double.nan)),
+'EPSG:20016': ProjectAndUnProjectResult(
+        Point(x: 11473309.968065696, y: 8523533.10121544),
+        Point(x: 45, y: double.nan)),
+'EPSG:20017': ProjectAndUnProjectResult(
+        Point(x: 12357135.740423597, y: 9135701.409461653),
+        Point(x: 45, y: double.nan)),
+'EPSG:20018': ProjectAndUnProjectResult(
+        Point(x: 13375900.836793115, y: 9782142.024768146),
+        Point(x: 45, y: double.nan)),
+'EPSG:20019': ProjectAndUnProjectResult(
+        Point(x: 14572222.187872892, y: 10439502.15507849),
+        Point(x: 0, y: 90)),
+'EPSG:20020': ProjectAndUnProjectResult(
+        Point(x: 15999219.982010296, y: 11071904.578322321),
+        Point(x: 0, y: 90)),
+'EPSG:20021': ProjectAndUnProjectResult(
+        Point(x: 17722453.090387028, y: 11626997.839069745),
+        Point(x: 0, y: 90)),
+'EPSG:20022': ProjectAndUnProjectResult(
+        Point(x: 19822096.589768603, y: 12031175.463608662),
+        Point(x: 0, y: 90)),
+'EPSG:20023': ProjectAndUnProjectResult(
+        Point(x: 22395376.983237706, y: 12183854.3923586),
+        Point(x: 0, y: 90)),
+'EPSG:20024': ProjectAndUnProjectResult(
+        Point(x: 25559280.719331052, y: 11950695.97395934),
+        Point(x: 0, y: 90)),
+'EPSG:20025': ProjectAndUnProjectResult(
+        Point(x: 29453551.61, y: 11155646.010797745),
+        Point(x: 0, y: 90)),
+'EPSG:20026': ProjectAndUnProjectResult(
+        Point(x: 34243992.74781446, y: 9571663.49116099),
+        Point(x: 45, y: double.nan)),
+'EPSG:20027': ProjectAndUnProjectResult(
+        Point(x: 40126088.52283026, y: 6910000.788629317),
+        Point(x: 45, y: double.nan)),
+'EPSG:20028': ProjectAndUnProjectResult(
+        Point(x: 47328962.33953968, y: 2807891.254746426),
+        Point(x: 45, y: double.nan)),
+'EPSG:20029': ProjectAndUnProjectResult(
+        Point(x: 56119685.63432519, y: -3185506.723569556),
+        Point(x: -135, y: double.nan)),
+'EPSG:20030': ProjectAndUnProjectResult(
+        Point(x: 66807953.793836035, y: -11625066.984986547),
+        Point(x: 0, y: -90)),
+'EPSG:20031': ProjectAndUnProjectResult(
+        Point(x: 79751144.57470796, y: -23187718.81077772),
+        Point(x: 0, y: -90)),
+'EPSG:20032': ProjectAndUnProjectResult(
+        Point(x: 95359774.6250457, y: -38692707.59016192),
+        Point(x: 0, y: -90)),
+'EPSG:20064': ProjectAndUnProjectResult(
+        Point(x: 262846.3661990886, y: 5200062.991900588),
+        Point(x: 17.88805856025309, y: 46.89226406650986)),
+'EPSG:20065': ProjectAndUnProjectResult(
+        Point(x: -194220.9233581887, y: 5235826.072617986),
+        Point(x: 17.88805871864596, y: 46.892264021268176)),
+'EPSG:20066': ProjectAndUnProjectResult(
+        Point(x: -650672.1876254713, y: 5307406.913783019),
+        Point(x: 17.888077173334445, y: 46.892264059719786)),
+'EPSG:20067': ProjectAndUnProjectResult(
+        Point(x: -1105795.3633154412, y: 5416200.817466673),
+        Point(x: 17.888509189955833, y: 46.89229076437375)),
+'EPSG:20068': ProjectAndUnProjectResult(
+        Point(x: -1558395.1745763805, y: 5564270.833365575),
+        Point(x: 17.893399933553184, y: 46.89274300140399)),
+'EPSG:20069': ProjectAndUnProjectResult(
+        Point(x: -2006546.045821725, y: 5754300.314963382),
+        Point(x: 17.93093565100567, y: 46.89708114575195)),
+'EPSG:20070': ProjectAndUnProjectResult(
+        Point(x: -2447290.12203443, y: 5989497.450296735),
+        Point(x: 18.163219497381576, y: 46.928551732515096)),
+'EPSG:20071': ProjectAndUnProjectResult(
+        Point(x: -2876264.7961262385, y: 6273424.221140283),
+        Point(x: 19.454707772562468, y: 47.12664112954269)),
+'EPSG:20072': ProjectAndUnProjectResult(
+        Point(x: -3287244.1429319805, y: 6609715.389850158),
+        Point(x: 26.457526171544988, y: 48.3144402829855)),
+'EPSG:20073': ProjectAndUnProjectResult(
+        Point(x: -3671578.659419, y: 7001646.258530278),
+        Point(x: 66.46970363157362, y: 55.685356944014764)),
+'EPSG:20074': ProjectAndUnProjectResult(
+        Point(x: -4017517.7106918134, y: 7451501.090610668),
+        Point(x: 45, y: double.nan)),
+'EPSG:20075': ProjectAndUnProjectResult(
+        Point(x: -4309399.081372126, y: 7959687.230352008),
+        Point(x: 45, y: double.nan)),
+'EPSG:20076': ProjectAndUnProjectResult(
+        Point(x: -4526690.031934304, y: 8523533.10121544),
+        Point(x: 45, y: double.nan)),
+'EPSG:20077': ProjectAndUnProjectResult(
+        Point(x: -4642864.259576404, y: 9135701.409461653),
+        Point(x: 45, y: double.nan)),
+'EPSG:20078': ProjectAndUnProjectResult(
+        Point(x: -4624099.163206885, y: 9782142.024768146),
+        Point(x: 45, y: double.nan)),
+'EPSG:20079': ProjectAndUnProjectResult(
+        Point(x: -4427777.812127108, y: 10439502.15507849),
+        Point(x: 0, y: 90)),
+'EPSG:20080': ProjectAndUnProjectResult(
+        Point(x: -4000780.0179897044, y: 11071904.578322321),
+        Point(x: 0, y: 90)),
+'EPSG:20081': ProjectAndUnProjectResult(
+        Point(x: -3277546.9096129737, y: 11626997.839069745),
+        Point(x: 0, y: 90)),
+'EPSG:20082': ProjectAndUnProjectResult(
+        Point(x: -2177903.4102313956, y: 12031175.463608662),
+        Point(x: 0, y: 90)),
+'EPSG:20083': ProjectAndUnProjectResult(
+        Point(x: -604623.0167622955, y: 12183854.3923586),
+        Point(x: 0, y: 90)),
+'EPSG:20084': ProjectAndUnProjectResult(
+        Point(x: 1559280.7193310524, y: 11950695.97395934),
+        Point(x: 0, y: 90)),
+'EPSG:20085': ProjectAndUnProjectResult(
+        Point(x: 4453551.610000001, y: 11155646.010797745),
+        Point(x: 0, y: 90)),
+'EPSG:20086': ProjectAndUnProjectResult(
+        Point(x: 8243992.74781446, y: 9571663.49116099),
+        Point(x: 45, y: double.nan)),
+'EPSG:20087': ProjectAndUnProjectResult(
+        Point(x: 13126088.52283026, y: 6910000.788629317),
+        Point(x: 45, y: double.nan)),
+'EPSG:20088': ProjectAndUnProjectResult(
+        Point(x: 19328962.339539673, y: 2807891.254746426),
+        Point(x: 45, y: double.nan)),
+'EPSG:20089': ProjectAndUnProjectResult(
+        Point(x: 27119685.634325188, y: -3185506.723569556),
+        Point(x: -135, y: double.nan)),
+'EPSG:20090': ProjectAndUnProjectResult(
+        Point(x: 36807953.793836035, y: -11625066.984986547),
+        Point(x: 0, y: -90)),
+'EPSG:20091': ProjectAndUnProjectResult(
+        Point(x: 48751144.57470795, y: -23187718.81077772),
+        Point(x: 0, y: -90)),
+'EPSG:20092': ProjectAndUnProjectResult(
+        Point(x: 63359774.6250457, y: -38692707.59016192),
+        Point(x: 0, y: -90)),
+'EPSG:20135': ProjectAndUnProjectResult(
+        Point(x: -193923.06905457645, y: 5233679.916326793),
+        Point(x: 17.888058718139185, y: 46.8922639844173)),
+'EPSG:20136': ProjectAndUnProjectResult(
+        Point(x: -650177.7327812151, y: 5305233.69960578),
+        Point(x: 17.888077162183887, y: 46.89226400617194)),
+'EPSG:20137': ProjectAndUnProjectResult(
+        Point(x: -1105103.6797874472, y: 5413986.339062028),
+        Point(x: 17.888509125531673, y: 46.89229060205596)),
+'EPSG:20138': ProjectAndUnProjectResult(
+        Point(x: -1557505.546123053, y: 5561999.889457148),
+        Point(x: 17.893400025549788, y: 46.89274244627494)),
+'EPSG:20248': ProjectAndUnProjectResult(
+        Point(x: -4621976.924166335, y: 19778096.37268254),
+        Point(x: 45, y: double.nan)),
+'EPSG:20539': ProjectAndUnProjectResult(
+        Point(x: -2005543.427403396, y: 5751998.594837397),
+        Point(x: 17.93093565100568, y: 46.89708114575196)),
+'EPSG:20249': ProjectAndUnProjectResult(
+        Point(x: -4425736.128610873, y: 20435183.766742818),
+        Point(x: 0, y: 90)),
+'EPSG:20250': ProjectAndUnProjectResult(
+        Point(x: -3998914.2898975797, y: 21067323.356621172),
+        Point(x: 0, y: 90)),
+'EPSG:20251': ProjectAndUnProjectResult(
+        Point(x: -3275979.707817541, y: 21622185.20991264),
+        Point(x: 0, y: 90)),
+'EPSG:20252': ProjectAndUnProjectResult(
+        Point(x: -2176790.5456724516, y: 22026193.139012232),
+        Point(x: 0, y: 90)),
+'EPSG:20253': ProjectAndUnProjectResult(
+        Point(x: -604160.6222115885, y: 22178805.495773017),
+        Point(x: 0, y: 90)),
+'EPSG:20254': ProjectAndUnProjectResult(
+        Point(x: 1558847.9810898681, y: 21945738.964778338),
+        Point(x: 0, y: 90)),
+'EPSG:20255': ProjectAndUnProjectResult(
+        Point(x: 4451921.091338443, y: 21151011.896046184),
+        Point(x: 0, y: 90)),
+'EPSG:20256': ProjectAndUnProjectResult(
+        Point(x: 8240792.988043046, y: 19567676.866241813),
+        Point(x: 45, y: double.nan)),
+'EPSG:20257': ProjectAndUnProjectResult(
+        Point(x: 13120866.913375486, y: 16907105.30573358),
+        Point(x: 45, y: double.nan)),
+'EPSG:20258': ProjectAndUnProjectResult(
+        Point(x: 19321171.142798368, y: 12806680.177084496),
+        Point(x: 45, y: double.nan)),
+'EPSG:20348': ProjectAndUnProjectResult(
+        Point(x: -4621976.924166335, y: 19778096.37268254),
+        Point(x: 45, y: double.nan)),
+'EPSG:20349': ProjectAndUnProjectResult(
+        Point(x: -4425736.128610873, y: 20435183.766742818),
+        Point(x: 0, y: 90)),
+'EPSG:20350': ProjectAndUnProjectResult(
+        Point(x: -3998914.2898975797, y: 21067323.356621172),
+        Point(x: 0, y: 90)),
+'EPSG:20351': ProjectAndUnProjectResult(
+        Point(x: -3275979.707817541, y: 21622185.20991264),
+        Point(x: 0, y: 90)),
+'EPSG:20352': ProjectAndUnProjectResult(
+        Point(x: -2176790.5456724516, y: 22026193.139012232),
+        Point(x: 0, y: 90)),
+'EPSG:20353': ProjectAndUnProjectResult(
+        Point(x: -604160.6222115885, y: 22178805.495773017),
+        Point(x: 0, y: 90)),
+'EPSG:20354': ProjectAndUnProjectResult(
+        Point(x: 1558847.9810898681, y: 21945738.964778338),
+        Point(x: 0, y: 90)),
+'EPSG:20355': ProjectAndUnProjectResult(
+        Point(x: 4451921.091338443, y: 21151011.896046184),
+        Point(x: 0, y: 90)),
+'EPSG:21037': ProjectAndUnProjectResult(
+        Point(x: -1105103.6797874472, y: 15413986.339062028),
+        Point(x: 17.888509125531673, y: 46.89229060205596)),
+'EPSG:20356': ProjectAndUnProjectResult(
+        Point(x: 8240792.988043046, y: 19567676.866241813),
+        Point(x: 45, y: double.nan)),
+'EPSG:20357': ProjectAndUnProjectResult(
+        Point(x: 13120866.913375486, y: 16907105.30573358),
+        Point(x: 45, y: double.nan)),
+'EPSG:20358': ProjectAndUnProjectResult(
+        Point(x: 19321171.142798368, y: 12806680.177084496),
+        Point(x: 45, y: double.nan)),
+'EPSG:20436': ProjectAndUnProjectResult(
+        Point(x: -650228.3315657813, y: 5305389.105640027),
+        Point(x: 17.88807717037942, y: 46.89226408153607)),
+'EPSG:20437': ProjectAndUnProjectResult(
+        Point(x: -1105175.5065559817, y: 5414142.507991554),
+        Point(x: 17.88850917294384, y: 46.892290757296635)),
+'EPSG:20438': ProjectAndUnProjectResult(
+        Point(x: -1557599.8094046724, y: 5562157.319282242),
+        Point(x: 17.89339995905174, y: 46.89274289000551)),
+'EPSG:20439': ProjectAndUnProjectResult(
+        Point(x: -2005576.2183771236, y: 5752115.796732064),
+        Point(x: 17.93093671554712, y: 46.89708082073056)),
+'EPSG:20440': ProjectAndUnProjectResult(
+        Point(x: -2446147.8012227453, y: 5987224.778491357),
+        Point(x: 18.163229454911743, y: 46.928551553767626)),
+'EPSG:20499': ProjectAndUnProjectResult(
+        Point(x: -2005576.2183771236, y: 5752115.796732064),
+        Point(x: 17.93093671554712, y: 46.89708082073056)),
+'EPSG:20538': ProjectAndUnProjectResult(
+        Point(x: -1557571.8165065502, y: 5562045.12503223),
+        Point(x: 17.893399933553184, y: 46.892743001404)),
+'EPSG:20790': ProjectAndUnProjectResult(
+        Point(x: 1485596.713371889, y: 1243166.7959223338),
+        Point(x: 17.888005376854935, y: 46.89226534901513)),
+'EPSG:20791': ProjectAndUnProjectResult(
+        Point(x: 1285596.713371889, y: 943166.7959223338),
+        Point(x: 17.888005376854935, y: 46.89226534901513)),
+'EPSG:20822': ProjectAndUnProjectResult(
+        Point(x: 5297812.557566325, y: 17936677.687824547),
+        Point(x: 45, y: double.nan)),
+'EPSG:20823': ProjectAndUnProjectResult(
+        Point(x: 5003702.71324619, y: 17430840.209902868),
+        Point(x: 45, y: double.nan)),
+'EPSG:20824': ProjectAndUnProjectResult(
+        Point(x: 4656219.226044899, y: 16983341.015504878),
+        Point(x: -27.57641794586292, y: 55.09665946884065)),
+'EPSG:20934': ProjectAndUnProjectResult(
+        Point(x: 262948.03765866545, y: 15197930.344795452),
+        Point(x: 17.888058560251967, y: 46.892264030546585)),
+'EPSG:20935': ProjectAndUnProjectResult(
+        Point(x: -193923.0747220209, y: 15233679.93151623),
+        Point(x: 17.888058718139327, y: 46.89226398445301)),
+'EPSG:20936': ProjectAndUnProjectResult(
+        Point(x: -650177.7423841895, y: 15305233.714375202),
+        Point(x: 17.888077162186956, y: 46.892264006212265)),
+'EPSG:21035': ProjectAndUnProjectResult(
+        Point(x: -193923.06905457645, y: 15233679.916326793),
+        Point(x: 17.888058718139185, y: 46.8922639844173)),
+'EPSG:21036': ProjectAndUnProjectResult(
+        Point(x: -650177.7327812151, y: 15305233.69960578),
+        Point(x: 17.888077162183887, y: 46.89226400617194)),
+'EPSG:21095': ProjectAndUnProjectResult(
+        Point(x: -193923.06905457645, y: 5233679.916326793),
+        Point(x: 17.888058718139185, y: 46.8922639844173)),
+'EPSG:21096': ProjectAndUnProjectResult(
+        Point(x: -650177.7327812151, y: 5305233.69960578),
+        Point(x: 17.888077162183887, y: 46.89226400617194)),
+'EPSG:21097': ProjectAndUnProjectResult(
+        Point(x: -1105103.6797874472, y: 5413986.339062028),
+        Point(x: 17.888509125531673, y: 46.89229060205596)),
+'EPSG:21100': ProjectAndUnProjectResult(
+        Point(x: -6352665.000308769, y: 6792609.921434772),
+        Point(x: 17.88805856028151, y: 46.89226413303861)),
+'EPSG:21148': ProjectAndUnProjectResult(
+        Point(x: -4621453.450894646, y: 19776973.075306088),
+        Point(x: 45, y: double.nan)),
+'EPSG:21149': ProjectAndUnProjectResult(
+        Point(x: -4425246.634509966, y: 20434003.74240204),
+        Point(x: 0, y: 90)),
+'EPSG:21150': ProjectAndUnProjectResult(
+        Point(x: -3998484.608120339, y: 21066097.90877619),
+        Point(x: 0, y: 90)),
+'EPSG:21291': ProjectAndUnProjectResult(
+        Point(x: 5525945.930258166, y: 9002818.259894714),
+        Point(x: 45, y: double.nan)),
+'EPSG:21292': ProjectAndUnProjectResult(
+        Point(x: 5115247.799333611, y: 7374476.36896069),
+        Point(x: 45, y: double.nan)),
+'EPSG:21413': ProjectAndUnProjectResult(
+        Point(x: 9328421.340581, y: 7001646.258530278),
+        Point(x: 66.46970363157362, y: 55.685356944014764)),
+'EPSG:21414': ProjectAndUnProjectResult(
+        Point(x: 9982482.289308187, y: 7451501.090610668),
+        Point(x: 45, y: double.nan)),
+'EPSG:21415': ProjectAndUnProjectResult(
+        Point(x: 10690600.918627873, y: 7959687.230352008),
+        Point(x: 45, y: double.nan)),
+'EPSG:21416': ProjectAndUnProjectResult(
+        Point(x: 11473309.968065696, y: 8523533.10121544),
+        Point(x: 45, y: double.nan)),
+'EPSG:21417': ProjectAndUnProjectResult(
+        Point(x: 12357135.740423597, y: 9135701.409461653),
+        Point(x: 45, y: double.nan)),
+'EPSG:21418': ProjectAndUnProjectResult(
+        Point(x: 13375900.836793115, y: 9782142.024768146),
+        Point(x: 45, y: double.nan)),
+'EPSG:21419': ProjectAndUnProjectResult(
+        Point(x: 14572222.187872892, y: 10439502.15507849),
+        Point(x: 0, y: 90)),
+'EPSG:21420': ProjectAndUnProjectResult(
+        Point(x: 15999219.982010296, y: 11071904.578322321),
+        Point(x: 0, y: 90)),
+'EPSG:21421': ProjectAndUnProjectResult(
+        Point(x: 17722453.090387028, y: 11626997.839069745),
+        Point(x: 0, y: 90)),
+'EPSG:21422': ProjectAndUnProjectResult(
+        Point(x: 19822096.589768603, y: 12031175.463608662),
+        Point(x: 0, y: 90)),
+'EPSG:21818': ProjectAndUnProjectResult(
+        Point(x: 5436876.920869923, y: 10411126.1064739),
+        Point(x: 0, y: 90)),
+'EPSG:21423': ProjectAndUnProjectResult(
+        Point(x: 22395376.983237706, y: 12183854.3923586),
+        Point(x: 0, y: 90)),
+'EPSG:21453': ProjectAndUnProjectResult(
+        Point(x: -3671578.659419, y: 7001646.258530278),
+        Point(x: 66.46970363157362, y: 55.685356944014764)),
+'EPSG:21454': ProjectAndUnProjectResult(
+        Point(x: -4017517.7106918134, y: 7451501.090610668),
+        Point(x: 45, y: double.nan)),
+'EPSG:21455': ProjectAndUnProjectResult(
+        Point(x: -4309399.081372126, y: 7959687.230352008),
+        Point(x: 45, y: double.nan)),
+'EPSG:21456': ProjectAndUnProjectResult(
+        Point(x: -4526690.031934304, y: 8523533.10121544),
+        Point(x: 45, y: double.nan)),
+'EPSG:21457': ProjectAndUnProjectResult(
+        Point(x: -4642864.259576404, y: 9135701.409461653),
+        Point(x: 45, y: double.nan)),
+'EPSG:21458': ProjectAndUnProjectResult(
+        Point(x: -4624099.163206885, y: 9782142.024768146),
+        Point(x: 45, y: double.nan)),
+'EPSG:21459': ProjectAndUnProjectResult(
+        Point(x: -4427777.812127108, y: 10439502.15507849),
+        Point(x: 0, y: 90)),
+'EPSG:21460': ProjectAndUnProjectResult(
+        Point(x: -4000780.0179897044, y: 11071904.578322321),
+        Point(x: 0, y: 90)),
+'EPSG:21461': ProjectAndUnProjectResult(
+        Point(x: -3277546.9096129737, y: 11626997.839069745),
+        Point(x: 0, y: 90)),
+'EPSG:21462': ProjectAndUnProjectResult(
+        Point(x: -2177903.4102313956, y: 12031175.463608662),
+        Point(x: 0, y: 90)),
+'EPSG:21463': ProjectAndUnProjectResult(
+        Point(x: -604623.0167622955, y: 12183854.3923586),
+        Point(x: 0, y: 90)),
+'EPSG:21473': ProjectAndUnProjectResult(
+        Point(x: -3671578.659419, y: 7001646.258530278),
+        Point(x: 66.46970363157362, y: 55.685356944014764)),
+'EPSG:21474': ProjectAndUnProjectResult(
+        Point(x: -4017517.7106918134, y: 7451501.090610668),
+        Point(x: 45, y: double.nan)),
+'EPSG:21475': ProjectAndUnProjectResult(
+        Point(x: -4309399.081372126, y: 7959687.230352008),
+        Point(x: 45, y: double.nan)),
+'EPSG:21476': ProjectAndUnProjectResult(
+        Point(x: -4526690.031934304, y: 8523533.10121544),
+        Point(x: 45, y: double.nan)),
+'EPSG:21477': ProjectAndUnProjectResult(
+        Point(x: -4642864.259576404, y: 9135701.409461653),
+        Point(x: 45, y: double.nan)),
+'EPSG:21478': ProjectAndUnProjectResult(
+        Point(x: -4624099.163206885, y: 9782142.024768146),
+        Point(x: 45, y: double.nan)),
+'EPSG:21479': ProjectAndUnProjectResult(
+        Point(x: -4427777.812127108, y: 10439502.15507849),
+        Point(x: 0, y: 90)),
+'EPSG:22033': ProjectAndUnProjectResult(
+        Point(x: 719998.6774621322, y: 15197277.81087716),
+        Point(x: 17.888058560302763, y: 46.892264030541085)),
+'EPSG:21480': ProjectAndUnProjectResult(
+        Point(x: -4000780.0179897044, y: 11071904.578322321),
+        Point(x: 0, y: 90)),
+'EPSG:21481': ProjectAndUnProjectResult(
+        Point(x: -3277546.9096129737, y: 11626997.839069745),
+        Point(x: 0, y: 90)),
+'EPSG:21482': ProjectAndUnProjectResult(
+        Point(x: -2177903.4102313956, y: 12031175.463608662),
+        Point(x: 0, y: 90)),
+'EPSG:21483': ProjectAndUnProjectResult(
+        Point(x: -604623.0167622955, y: 12183854.3923586),
+        Point(x: 0, y: 90)),
+'EPSG:21500': ProjectAndUnProjectResult(
+        Point(x: 1502751.4328927896, y: -105604.1524077002),
+        Point(x: 17.88805862001476, y: 46.892264104890415)),
+'EPSG:21780': ProjectAndUnProjectResult(
+        Point(x: 1351454.510084549, y: 147510.79641409422),
+        Point(x: 17.88805856028154, y: 46.892264133038616)),
+'EPSG:21781': ProjectAndUnProjectResult(
+        Point(x: 1393998.8609966785, y: 246372.86824183067),
+        Point(x: 17.88805857342887, y: 46.892264073036614)),
+'EPSG:21782': ProjectAndUnProjectResult(
+        Point(x: 793998.8609966785, y: 46372.86824183066),
+        Point(x: 17.88805857342887, y: 46.892264073036614)),
+'EPSG:21817': ProjectAndUnProjectResult(
+        Point(x: 5019724.857135794, y: 11045003.273656465),
+        Point(x: 0, y: 90)),
+'EPSG:21891': ProjectAndUnProjectResult(
+        Point(x: 5823026.359000108, y: 11131555.572316643),
+        Point(x: 0, y: 90)),
+'EPSG:21892': ProjectAndUnProjectResult(
+        Point(x: 5981151.201873886, y: 10806491.711952321),
+        Point(x: 0, y: 90)),
+'EPSG:21893': ProjectAndUnProjectResult(
+        Point(x: 6084547.929456255, y: 10477421.904764842),
+        Point(x: 45, y: double.nan)),
+'EPSG:21894': ProjectAndUnProjectResult(
+        Point(x: 6139919.1563912975, y: 10148892.338823231),
+        Point(x: 45, y: double.nan)),
+'EPSG:21896': ProjectAndUnProjectResult(
+        Point(x: 5823026.359000108, y: 11131555.572316643),
+        Point(x: 0, y: 90)),
+'EPSG:21897': ProjectAndUnProjectResult(
+        Point(x: 5981151.201873886, y: 10806491.711952321),
+        Point(x: 0, y: 90)),
+'EPSG:21898': ProjectAndUnProjectResult(
+        Point(x: 6084547.929456255, y: 10477421.904764842),
+        Point(x: 45, y: double.nan)),
+'EPSG:21899': ProjectAndUnProjectResult(
+        Point(x: 6139919.1563912975, y: 10148892.338823231),
+        Point(x: 45, y: double.nan)),
+'EPSG:22032': ProjectAndUnProjectResult(
+        Point(x: 1176883.224093516, y: 15231709.393128522),
+        Point(x: 17.88805843586916, y: 46.892263990301856)),
+'EPSG:22091': ProjectAndUnProjectResult(
+        Point(x: 986558.4432036584, y: 15213071.246269017),
+        Point(x: 17.888058555727735, y: 46.89226402454668)),
+'EPSG:22092': ProjectAndUnProjectResult(
+        Point(x: 948484.5458464733, y: 15210081.746875294),
+        Point(x: 17.888058558454585, y: 46.89226402685545)),
+'EPSG:22171': ProjectAndUnProjectResult(
+        Point(x: 6558199.158144748, y: 20088569.71969266),
+        Point(x: 0, y: 90)),
+'EPSG:22172': ProjectAndUnProjectResult(
+        Point(x: 7627603.63873359, y: 19759444.393447872),
+        Point(x: -14563147143.451214, y: 3188443837.8198547)),
+'EPSG:22173': ProjectAndUnProjectResult(
+        Point(x: 8653224.300104942, y: 19433509.59298006),
+        Point(x: -39521738.61122337, y: 8695128.741618276)),
+'EPSG:22174': ProjectAndUnProjectResult(
+        Point(x: 9640628.03418475, y: 19113941.421131436),
+        Point(x: -1685042.2535845686, y: 369929.7983349795)),
+'EPSG:22175': ProjectAndUnProjectResult(
+        Point(x: 10594786.08114166, y: 18803251.941004626),
+        Point(x: -187879.9335986475, y: 41002.61340262109)),
+'EPSG:22176': ProjectAndUnProjectResult(
+        Point(x: 11520125.412785191, y: 18503383.42313258),
+        Point(x: -33811.090133644844, y: 7380.196889868265)),
+'EPSG:22177': ProjectAndUnProjectResult(
+        Point(x: 12420576.82986139, y: 18215792.792734504),
+        Point(x: -7903.831319008155, y: 1789.9479071178757)),
+'EPSG:22181': ProjectAndUnProjectResult(
+        Point(x: 6558199.15814112, y: 20088569.719824612),
+        Point(x: 0, y: 90)),
+'EPSG:22182': ProjectAndUnProjectResult(
+        Point(x: 7627603.638721798, y: 19759444.393584996),
+        Point(x: -14563147131.784145, y: 3188443835.3104944)),
+'EPSG:22183': ProjectAndUnProjectResult(
+        Point(x: 8653224.300086465, y: 19433509.593122367),
+        Point(x: -39521738.5994028, y: 8695128.739126878)),
+'EPSG:22184': ProjectAndUnProjectResult(
+        Point(x: 9640628.034160899, y: 19113941.421278868),
+        Point(x: -1685042.253300147, y: 369929.79827663914)),
+'EPSG:22185': ProjectAndUnProjectResult(
+        Point(x: 10594786.0811136, y: 18803251.941157054),
+        Point(x: -187879.9335777107, y: 41002.613398455236)),
+'EPSG:22186': ProjectAndUnProjectResult(
+        Point(x: 11520125.41275394, y: 18503383.423289828),
+        Point(x: -33811.090130915225, y: 7380.196889341112)),
+'EPSG:22187': ProjectAndUnProjectResult(
+        Point(x: 12420576.829827838, y: 18215792.79289636),
+        Point(x: -7903.831318506849, y: 1789.947907023519)),
+'EPSG:22191': ProjectAndUnProjectResult(
+        Point(x: 6558270.051438698, y: 20089212.490349874),
+        Point(x: 0, y: 90)),
+'EPSG:22192': ProjectAndUnProjectResult(
+        Point(x: 7627684.830706392, y: 19760087.55839518),
+        Point(x: 45, y: double.nan)),
+'EPSG:22193': ProjectAndUnProjectResult(
+        Point(x: 8653314.206320655, y: 19434151.110702552),
+        Point(x: 45, y: double.nan)),
+'EPSG:22194': ProjectAndUnProjectResult(
+        Point(x: 9640725.147814699, y: 19114579.65065286),
+        Point(x: 45, y: double.nan)),
+'EPSG:22195': ProjectAndUnProjectResult(
+        Point(x: 10594888.977437664, y: 18803885.589124337),
+        Point(x: 45, y: double.nan)),
+'EPSG:22196': ProjectAndUnProjectResult(
+        Point(x: 11520232.752161324, y: 18504011.497123394),
+        Point(x: 45, y: double.nan)),
+'EPSG:22197': ProjectAndUnProjectResult(
+        Point(x: 12420687.359718848, y: 18216414.558063973),
+        Point(x: 45, y: double.nan)),
+'EPSG:22234': ProjectAndUnProjectResult(
+        Point(x: 262948.03765866545, y: 15197930.344795452),
+        Point(x: 17.888058560251967, y: 46.892264030546585)),
+'EPSG:22235': ProjectAndUnProjectResult(
+        Point(x: -193923.0747220209, y: 15233679.93151623),
+        Point(x: 17.888058718139327, y: 46.89226398445301)),
+'EPSG:22236': ProjectAndUnProjectResult(
+        Point(x: -650177.7423841895, y: 15305233.714375202),
+        Point(x: 17.888077162186956, y: 46.892264006212265)),
+'EPSG:22332': ProjectAndUnProjectResult(
+        Point(x: 1176851.1186519158, y: 5231224.271838593),
+        Point(x: 17.888058423427236, y: 46.892264013994)),
+'EPSG:22391': ProjectAndUnProjectResult(
+        Point(x: 1119499.4623371204, y: 1542120.7694173998),
+        Point(x: 17.888058547656193, y: 46.89226405425111)),
+'EPSG:22392': ProjectAndUnProjectResult(
+        Point(x: 1126408.3128499314, y: 1847436.682189419),
+        Point(x: 17.88805854765619, y: 46.89226405425111)),
+'EPSG:22521': ProjectAndUnProjectResult(
+        Point(x: 5518224.65906046, y: 18498322.508853763),
+        Point(x: 45, y: double.nan)),
+'EPSG:22522': ProjectAndUnProjectResult(
+        Point(x: 5297812.557566325, y: 17936677.687824547),
+        Point(x: 45, y: double.nan)),
+'EPSG:22523': ProjectAndUnProjectResult(
+        Point(x: 5003702.71324619, y: 17430840.209902868),
+        Point(x: 45, y: double.nan)),
+'EPSG:22524': ProjectAndUnProjectResult(
+        Point(x: 4656219.226044899, y: 16983341.015504878),
+        Point(x: -27.57641794586292, y: 55.09665946884065)),
+'EPSG:22525': ProjectAndUnProjectResult(
+        Point(x: 4270856.281408513, y: 16593684.326523392),
+        Point(x: 9.84589431168172, y: 48.22218117699896)),
+'EPSG:22700': ProjectAndUnProjectResult(
+        Point(x: -1209529.3521098823, y: 1816399.7146594338),
+        Point(x: 17.888058560281515, y: 46.892264030648896)),
+'EPSG:22770': ProjectAndUnProjectResult(
+        Point(x: -1209529.3521098823, y: 1816399.7146594338),
+        Point(x: 17.888058560281515, y: 46.892264030648896)),
+'EPSG:22780': ProjectAndUnProjectResult(
+        Point(x: -1634022.8283796587, y: 1615510.5010015187),
+        Point(x: 17.888058560281515, y: 46.89226403064893)),
+'EPSG:22832': ProjectAndUnProjectResult(
+        Point(x: 1176883.2342184111, y: 5231709.450285565),
+        Point(x: 17.888058435869073, y: 46.89226399035672)),
+'EPSG:23034': ProjectAndUnProjectResult(
+        Point(x: 262937.7824553429, y: 5198085.101557112),
+        Point(x: 17.888058560252794, y: 46.89226409298809)),
+'EPSG:22991': ProjectAndUnProjectResult(
+        Point(x: -1002565.232127602, y: 3119261.5179058993),
+        Point(x: 17.888118825601957, y: 46.8922656504676)),
+'EPSG:22992': ProjectAndUnProjectResult(
+        Point(x: -383619.336614965, y: 2769308.3869573455),
+        Point(x: 17.888063459796225, y: 46.89226385816824)),
+'EPSG:22993': ProjectAndUnProjectResult(
+        Point(x: 5783.956919062184, y: 2115640.0001078565),
+        Point(x: 17.88805871864594, y: 46.89226402142569)),
+'EPSG:22994': ProjectAndUnProjectResult(
+        Point(x: 5783.956919062184, y: 3115640.0001078565),
+        Point(x: 17.88805871864594, y: 46.89226402142569)),
+'EPSG:23028': ProjectAndUnProjectResult(
+        Point(x: 2988971.3749373723, y: 5744238.047397396),
+        Point(x: 17.848195893325798, y: 46.89671111691266)),
+'EPSG:23029': ProjectAndUnProjectResult(
+        Point(x: 2540783.335368116, y: 5555899.395479769),
+        Point(x: 17.883147115494637, y: 46.89269969480191)),
+'EPSG:23030': ProjectAndUnProjectResult(
+        Point(x: 2088235.6956889061, y: 5409394.118006959),
+        Point(x: 17.887652134975923, y: 46.89228755530952)),
+'EPSG:23031': ProjectAndUnProjectResult(
+        Point(x: 1633221.2033753574, y: 5302061.752723917),
+        Point(x: 17.88804239126835, y: 46.89226402227323)),
+'EPSG:23032': ProjectAndUnProjectResult(
+        Point(x: 1176912.664618199, y: 5231864.353102461),
+        Point(x: 17.888058435548967, y: 46.8922640533178)),
+'EPSG:23033': ProjectAndUnProjectResult(
+        Point(x: 720008.1957439462, y: 5197432.579517475),
+        Point(x: 17.888058560302213, y: 46.892264093017694)),
+'EPSG:23035': ProjectAndUnProjectResult(
+        Point(x: -193953.25986767956, y: 5233834.887577642),
+        Point(x: 17.888058718511672, y: 46.892264047520015)),
+'EPSG:23036': ProjectAndUnProjectResult(
+        Point(x: -650228.3315657813, y: 5305389.105640027),
+        Point(x: 17.88807717037942, y: 46.89226408153607)),
+'EPSG:23037': ProjectAndUnProjectResult(
+        Point(x: -1105175.5065559817, y: 5414142.507991554),
+        Point(x: 17.88850917294384, y: 46.892290757296635)),
+'EPSG:23038': ProjectAndUnProjectResult(
+        Point(x: -1557599.8094046724, y: 5562157.319282242),
+        Point(x: 17.89339995905174, y: 46.89274289000551)),
+'EPSG:23090': ProjectAndUnProjectResult(
+        Point(x: 1860949.7331368215, y: 5350973.996214332),
+        Point(x: 17.88796670217901, y: 46.89226722501835)),
+'EPSG:23095': ProjectAndUnProjectResult(
+        Point(x: 1481220.0147573638, y: 5274618.157506243),
+        Point(x: 17.888054393321468, y: 46.892263887489065)),
+'EPSG:23239': ProjectAndUnProjectResult(
+        Point(x: -2005457.8754873872, y: 5751956.32341547),
+        Point(x: 17.930939627421356, y: 46.89707978532681)),
+'EPSG:23240': ProjectAndUnProjectResult(
+        Point(x: -2446003.2653781604, y: 5987062.031091227),
+        Point(x: 18.16325678464276, y: 46.928550913950104)),
+'EPSG:23433': ProjectAndUnProjectResult(
+        Point(x: 719998.6807381939, y: 5197277.867900335),
+        Point(x: 17.888058560302763, y: 46.89226403059581)),
+'EPSG:23700': ProjectAndUnProjectResult(
+        Point(x: 561566.9401485138, y: 172629.5556637255),
+        Point(x: 17.88805856028151, y: 46.89226406703413)),
+'EPSG:23830': ProjectAndUnProjectResult(
+        Point(x: -4865803.87353834, y: 10171445.892459726),
+        Point(x: 86801.12439229246, y: 18902.901110545685)),
+'EPSG:23831': ProjectAndUnProjectResult(
+        Point(x: -4924409.819516362, y: 10477709.171074785),
+        Point(x: 612358.6101960705, y: 134106.8769964249)),
+'EPSG:23832': ProjectAndUnProjectResult(
+        Point(x: -4951719.971071311, y: 10793740.870434482),
+        Point(x: 8679839.573799483, y: 1909300.050652217)),
+'EPSG:23833': ProjectAndUnProjectResult(
+        Point(x: -4943001.164361036, y: 11117282.460213631),
+        Point(x: 631489570.7011461, y: 138679560.43961534)),
+'EPSG:23834': ProjectAndUnProjectResult(
+        Point(x: -4892946.907632945, y: 11445452.767017543),
+        Point(x: 447699232839297.1, y: 97370524608020.88)),
+'EPSG:23835': ProjectAndUnProjectResult(
+        Point(x: -4795624.059735097, y: 11774647.774981525),
+        Point(x: 0, y: 90)),
+'EPSG:23836': ProjectAndUnProjectResult(
+        Point(x: -4644416.030963411, y: 12100429.457585078),
+        Point(x: 0, y: 90)),
+'EPSG:23837': ProjectAndUnProjectResult(
+        Point(x: -4431962.384381246, y: 12417402.863277849),
+        Point(x: 0, y: 90)),
+'EPSG:23838': ProjectAndUnProjectResult(
+        Point(x: -4150094.7157475958, y: 12719080.650741648),
+        Point(x: 0, y: 90)),
+'EPSG:23871': ProjectAndUnProjectResult(
+        Point(x: -3275967.065357107, y: 11622144.5182464),
+        Point(x: 0, y: 90)),
+'EPSG:23839': ProjectAndUnProjectResult(
+        Point(x: -3789768.690190188, y: 12997734.242840523),
+        Point(x: 0, y: 90)),
+'EPSG:23840': ProjectAndUnProjectResult(
+        Point(x: -3340992.1137596876, y: 13244230.741538242),
+        Point(x: 0, y: 90)),
+'EPSG:23841': ProjectAndUnProjectResult(
+        Point(x: -2792748.9180013267, y: 13447854.719289873),
+        Point(x: 0, y: 90)),
+'EPSG:23842': ProjectAndUnProjectResult(
+        Point(x: -2132918.9356801813, y: 13596113.975641776),
+        Point(x: 0, y: 90)),
+'EPSG:23843': ProjectAndUnProjectResult(
+        Point(x: -1348193.3457963404, y: 13674528.321001673),
+        Point(x: 0, y: 90)),
+'EPSG:23844': ProjectAndUnProjectResult(
+        Point(x: -423985.6660262288, y: 13666400.4227679),
+        Point(x: 0, y: 90)),
+'EPSG:23845': ProjectAndUnProjectResult(
+        Point(x: 655661.8292735498, y: 13552567.722234422),
+        Point(x: 0, y: 90)),
+'EPSG:23846': ProjectAndUnProjectResult(
+        Point(x: -4524608.998375088, y: 8520008.784996646),
+        Point(x: 45, y: double.nan)),
+'EPSG:23847': ProjectAndUnProjectResult(
+        Point(x: -4640734.609175409, y: 9131923.559311148),
+        Point(x: 45, y: double.nan)),
+'EPSG:23848': ProjectAndUnProjectResult(
+        Point(x: -4621976.639232379, y: 9778096.22031418),
+        Point(x: 45, y: double.nan)),
+'EPSG:23849': ProjectAndUnProjectResult(
+        Point(x: -4425735.808558736, y: 10435183.545064533),
+        Point(x: 0, y: 90)),
+'EPSG:23850': ProjectAndUnProjectResult(
+        Point(x: -3998913.9397374317, y: 11067323.038885932),
+        Point(x: 0, y: 90)),
+'EPSG:23851': ProjectAndUnProjectResult(
+        Point(x: -3275979.337706431, y: 11622184.76207469),
+        Point(x: 0, y: 90)),
+'EPSG:23852': ProjectAndUnProjectResult(
+        Point(x: -2176790.172784678, y: 12026192.518353676),
+        Point(x: 0, y: 90)),
+'EPSG:23853': ProjectAndUnProjectResult(
+        Point(x: -604160.2730149955, y: 12178804.649374267),
+        Point(x: 0, y: 90)),
+'EPSG:23866': ProjectAndUnProjectResult(
+        Point(x: -4524591.704387454, y: 8519978.27303488),
+        Point(x: 38040.25674781569, y: 8289.769436337667)),
+'EPSG:23867': ProjectAndUnProjectResult(
+        Point(x: -4640717.024347393, y: 9131890.972118106),
+        Point(x: 2043698.7541324345, y: 448818.11751850427)),
+'EPSG:23868': ProjectAndUnProjectResult(
+        Point(x: -4621959.250482938, y: 9778061.493749313),
+        Point(x: 30362279592.18099, y: 6642887093.450607)),
+'EPSG:23869': ProjectAndUnProjectResult(
+        Point(x: -4425719.24631206, y: 10435146.71756466),
+        Point(x: 0, y: 90)),
+'EPSG:23870': ProjectAndUnProjectResult(
+        Point(x: -3998899.0110859387, y: 11067284.300503207),
+        Point(x: 0, y: 90)),
+'EPSG:23872': ProjectAndUnProjectResult(
+        Point(x: -2176781.8404877554, y: 12026151.471419258),
+        Point(x: 0, y: 90)),
+'EPSG:23877': ProjectAndUnProjectResult(
+        Point(x: -4640717.024347393, y: 19131890.972118106),
+        Point(x: 2043698.7541324345, y: 448818.11751850427)),
+'EPSG:23878': ProjectAndUnProjectResult(
+        Point(x: -4621959.250482938, y: 19778061.493749313),
+        Point(x: 30362279592.18099, y: 6642887093.450607)),
+'EPSG:23879': ProjectAndUnProjectResult(
+        Point(x: -4425719.24631206, y: 20435146.717564657),
+        Point(x: 0, y: 90)),
+'EPSG:23880': ProjectAndUnProjectResult(
+        Point(x: -3998899.0110859387, y: 21067284.30050321),
+        Point(x: 0, y: 90)),
+'EPSG:23881': ProjectAndUnProjectResult(
+        Point(x: -3275967.065357107, y: 21622144.518246397),
+        Point(x: 0, y: 90)),
+'EPSG:23882': ProjectAndUnProjectResult(
+        Point(x: -2176781.8404877554, y: 22026151.47141926),
+        Point(x: 0, y: 90)),
+'EPSG:23883': ProjectAndUnProjectResult(
+        Point(x: -604157.4782189683, y: 22178763.901248254),
+        Point(x: 0, y: 90)),
+'EPSG:23884': ProjectAndUnProjectResult(
+        Point(x: 1558843.5535780834, y: 21945699.007653777),
+        Point(x: 0, y: 90)),
+'EPSG:23886': ProjectAndUnProjectResult(
+        Point(x: -4524608.998375088, y: 18520008.784996644),
+        Point(x: 45, y: double.nan)),
+'EPSG:23887': ProjectAndUnProjectResult(
+        Point(x: -4640734.609175409, y: 19131923.559311148),
+        Point(x: 45, y: double.nan)),
+'EPSG:23888': ProjectAndUnProjectResult(
+        Point(x: -4621976.639232379, y: 19778096.220314182),
+        Point(x: 45, y: double.nan)),
+'EPSG:23889': ProjectAndUnProjectResult(
+        Point(x: -4425735.808558736, y: 20435183.54506453),
+        Point(x: 0, y: 90)),
+'EPSG:23890': ProjectAndUnProjectResult(
+        Point(x: -3998913.9397374317, y: 21067323.038885932),
+        Point(x: 0, y: 90)),
+'EPSG:23891': ProjectAndUnProjectResult(
+        Point(x: -3275979.337706431, y: 21622184.76207469),
+        Point(x: 0, y: 90)),
+'EPSG:23892': ProjectAndUnProjectResult(
+        Point(x: -2176790.172784678, y: 22026192.51835368),
+        Point(x: 0, y: 90)),
+'EPSG:23893': ProjectAndUnProjectResult(
+        Point(x: -604160.2730149955, y: 22178804.64937427),
+        Point(x: 0, y: 90)),
+'EPSG:23894': ProjectAndUnProjectResult(
+        Point(x: 1558848.2681001134, y: 21945737.827826403),
+        Point(x: 0, y: 90)),
+'EPSG:23946': ProjectAndUnProjectResult(
+        Point(x: -4524096.472389065, y: 8518887.005045107),
+        Point(x: 45, y: double.nan)),
+'EPSG:23947': ProjectAndUnProjectResult(
+        Point(x: -4640236.187242406, y: 9130745.551575733),
+        Point(x: 45, y: double.nan)),
+'EPSG:23948': ProjectAndUnProjectResult(
+        Point(x: -4621511.783465718, y: 9776870.702394767),
+        Point(x: 45, y: double.nan)),
+'EPSG:24047': ProjectAndUnProjectResult(
+        Point(x: -4640236.187242406, y: 9130745.551575733),
+        Point(x: 45, y: double.nan)),
+'EPSG:24048': ProjectAndUnProjectResult(
+        Point(x: -4621511.783465718, y: 9776870.702394767),
+        Point(x: 45, y: double.nan)),
+'EPSG:24100': ProjectAndUnProjectResult(
+        Point(x: 26707063.738401845, y: 18255770.077053186),
+        Point(x: 17.888058560281486, y: 46.89226403062954)),
+'EPSG:24200': ProjectAndUnProjectResult(
+        Point(x: 8222561.370509072, y: 5592297.066215832),
+        Point(x: 17.888058560281515, y: 46.892264047823076)),
+'EPSG:24305': ProjectAndUnProjectResult(
+        Point(x: -4306897.871391054, y: 7955334.045128609),
+        Point(x: 45, y: double.nan)),
+'EPSG:24306': ProjectAndUnProjectResult(
+        Point(x: -4524096.472389065, y: 8518887.005045107),
+        Point(x: 45, y: double.nan)),
+'EPSG:24311': ProjectAndUnProjectResult(
+        Point(x: -2874485.887770881, y: 6270005.370543344),
+        Point(x: 19.454576265969074, y: 47.126632854389406)),
+'EPSG:24312': ProjectAndUnProjectResult(
+        Point(x: -3285256.18439591, y: 6606112.941838555),
+        Point(x: 26.456710997642322, y: 48.31436077105351)),
+'EPSG:24313': ProjectAndUnProjectResult(
+        Point(x: -3669398.972155374, y: 6997831.854790833),
+        Point(x: 66.46458229516176, y: 55.684720421882126)),
+'EPSG:24342': ProjectAndUnProjectResult(
+        Point(x: -3285254.948202379, y: 6606110.7687197365),
+        Point(x: 26.456710974765727, y: 48.31436077005657)),
+'EPSG:24343': ProjectAndUnProjectResult(
+        Point(x: -3669397.610812941, y: 6997829.55365446),
+        Point(x: 66.46458216959788, y: 55.684720411082)),
+'EPSG:24344': ProjectAndUnProjectResult(
+        Point(x: -4015168.8154868297, y: 7447443.893237013),
+        Point(x: 45, y: double.nan)),
+'EPSG:24345': ProjectAndUnProjectResult(
+        Point(x: -4306914.974251269, y: 7955362.537933535),
+        Point(x: 45, y: double.nan)),
+'EPSG:24346': ProjectAndUnProjectResult(
+        Point(x: -4524114.343514361, y: 8518917.499338211),
+        Point(x: 45, y: double.nan)),
+'EPSG:24347': ProjectAndUnProjectResult(
+        Point(x: -4640254.466966106, y: 9130778.215504413),
+        Point(x: 45, y: double.nan)),
+'EPSG:24370': ProjectAndUnProjectResult(
+        Point(x: -1636627.9005654329, y: 4629030.244596064),
+        Point(x: 17.88805856028151, y: 46.89226425856426)),
+'EPSG:24371': ProjectAndUnProjectResult(
+        Point(x: -1157029.7147419683, y: 3759625.6879688986),
+        Point(x: 17.888058560281515, y: 46.89226425856426)),
+'EPSG:24372': ProjectAndUnProjectResult(
+        Point(x: -1869407.2172994358, y: 4654460.591099689),
+        Point(x: 17.88805856028152, y: 46.89226425856426)),
+'EPSG:24373': ProjectAndUnProjectResult(
+        Point(x: -2775860.89248334, y: 5557380.874393795),
+        Point(x: 17.88805856028151, y: 46.89226425856426)),
+'EPSG:24374': ProjectAndUnProjectResult(
+        Point(x: -3314010.7490626397, y: 6238493.70723097),
+        Point(x: 17.888058560281515, y: 46.89226425856424)),
+'EPSG:24375': ProjectAndUnProjectResult(
+        Point(x: -2863730.4934758064, y: 4872508.750713457),
+        Point(x: 17.8880585602815, y: 46.89226426459557)),
+'EPSG:24376': ProjectAndUnProjectResult(
+        Point(x: -1057986.5795320491, y: 3437797.223081655),
+        Point(x: 17.888058560281504, y: 46.89226425807245)),
+'EPSG:24377': ProjectAndUnProjectResult(
+        Point(x: -1709383.71309906, y: 4256033.184987962),
+        Point(x: 17.888058560281518, y: 46.89226425807244)),
+'EPSG:24378': ProjectAndUnProjectResult(
+        Point(x: -1057986.2358441916, y: 3437796.0889180815),
+        Point(x: 17.888058560281507, y: 46.89226425862046)),
+'EPSG:24379': ProjectAndUnProjectResult(
+        Point(x: -1709383.1555840634, y: 4256031.78202635),
+        Point(x: 17.888058560281525, y: 46.89226425862046)),
+'EPSG:26705': ProjectAndUnProjectResult(
+        Point(x: -61731329.631061815, y: -38025676.41738077),
+        Point(x: 0, y: -90)),
+'EPSG:24380': ProjectAndUnProjectResult(
+        Point(x: -2863740.6922758957, y: 4872526.243461413),
+        Point(x: 17.888058560281497, y: 46.89226425862046)),
+'EPSG:24381': ProjectAndUnProjectResult(
+        Point(x: -2538243.0364313303, y: 5081660.734601175),
+        Point(x: 17.888058560281515, y: 46.89226425862046)),
+'EPSG:24382': ProjectAndUnProjectResult(
+        Point(x: -3131830.0413099146, y: 5328668.238430569),
+        Point(x: 17.8880585602815, y: 46.89226425856426)),
+'EPSG:24383': ProjectAndUnProjectResult(
+        Point(x: -3030326.457964735, y: 5704469.28716819),
+        Point(x: 17.888058560281515, y: 46.89226425862046)),
+'EPSG:24500': ProjectAndUnProjectResult(
+        Point(x: -5684639.990872046, y: 9888531.186551495),
+        Point(x: -135, y: double.nan)),
+'EPSG:24547': ProjectAndUnProjectResult(
+        Point(x: -4640258.401565355, y: 9130785.249670828),
+        Point(x: 45, y: double.nan)),
+'EPSG:24548': ProjectAndUnProjectResult(
+        Point(x: -4621533.911537555, y: 9776913.178897632),
+        Point(x: 45, y: double.nan)),
+'EPSG:24571': ProjectAndUnProjectResult(
+        Point(x: -264273.7353770309, y: 346447.68144481326),
+        Point(x: 17.88805856028151, y: 46.89226425733222)),
+'EPSG:24600': ProjectAndUnProjectResult(
+        Point(x: -611578.169247048, y: 3050210.7636024714),
+        Point(x: 17.88805856028152, y: 46.89226403059418)),
+'EPSG:24718': ProjectAndUnProjectResult(
+        Point(x: 5436876.920869923, y: 10411126.1064739),
+        Point(x: 0, y: 90)),
+'EPSG:24719': ProjectAndUnProjectResult(
+        Point(x: 5625633.756774111, y: 9753896.139701044),
+        Point(x: 45, y: double.nan)),
+'EPSG:24720': ProjectAndUnProjectResult(
+        Point(x: 5638668.8577555735, y: 9108646.435121816),
+        Point(x: 45, y: double.nan)),
+'EPSG:24817': ProjectAndUnProjectResult(
+        Point(x: 5019724.857135794, y: 11045003.273656465),
+        Point(x: 0, y: 90)),
+'EPSG:24818': ProjectAndUnProjectResult(
+        Point(x: 5436876.920869923, y: 10411126.1064739),
+        Point(x: 0, y: 90)),
+'EPSG:24819': ProjectAndUnProjectResult(
+        Point(x: 5625633.756774111, y: 9753896.139701044),
+        Point(x: 45, y: double.nan)),
+'EPSG:24820': ProjectAndUnProjectResult(
+        Point(x: 5638668.8577555735, y: 9108646.435121816),
+        Point(x: 45, y: double.nan)),
+'EPSG:24821': ProjectAndUnProjectResult(
+        Point(x: 5518224.65906046, y: 8498322.508853763),
+        Point(x: 45, y: double.nan)),
+'EPSG:24877': ProjectAndUnProjectResult(
+        Point(x: 5019724.857135794, y: 21045003.273656465),
+        Point(x: 0, y: 90)),
+'EPSG:24878': ProjectAndUnProjectResult(
+        Point(x: 5436876.920869923, y: 20411126.1064739),
+        Point(x: 0, y: 90)),
+'EPSG:24879': ProjectAndUnProjectResult(
+        Point(x: 5625633.756774111, y: 19753896.139701046),
+        Point(x: 45, y: double.nan)),
+'EPSG:24880': ProjectAndUnProjectResult(
+        Point(x: 5638668.8577555735, y: 19108646.435121816),
+        Point(x: 45, y: double.nan)),
+'EPSG:24881': ProjectAndUnProjectResult(
+        Point(x: 5518224.65906046, y: 18498322.508853763),
+        Point(x: 45, y: double.nan)),
+'EPSG:24882': ProjectAndUnProjectResult(
+        Point(x: 5297812.557566325, y: 17936677.687824547),
+        Point(x: 45, y: double.nan)),
+'EPSG:24891': ProjectAndUnProjectResult(
+        Point(x: 4787758.812627551, y: 13086937.197840076),
+        Point(x: 0, y: 90)),
+'EPSG:24892': ProjectAndUnProjectResult(
+        Point(x: 5603484.913516131, y: 12606560.298363026),
+        Point(x: 0, y: 90)),
+'EPSG:24893': ProjectAndUnProjectResult(
+        Point(x: 6420426.439071576, y: 12007680.506814554),
+        Point(x: 45, y: double.nan)),
+'EPSG:25000': ProjectAndUnProjectResult(
+        Point(x: 1711239.3803952532, y: 4854179.726884618),
+        Point(x: 17.887904216715373, y: 46.89227062635383)),
+'EPSG:25231': ProjectAndUnProjectResult(
+        Point(x: 1633171.3956589848, y: 5301906.425475094),
+        Point(x: 17.88804239876332, y: 46.892263948063096)),
+'EPSG:26706': ProjectAndUnProjectResult(
+        Point(x: -47237564.49458683, y: -22688935.572197996),
+        Point(x: 0, y: -90)),
+'EPSG:25391': ProjectAndUnProjectResult(
+        Point(x: -4000135.906516161, y: 11070928.379475888),
+        Point(x: 0, y: 90)),
+'EPSG:25392': ProjectAndUnProjectResult(
+        Point(x: -3795611.9138338612, y: 11267641.347024886),
+        Point(x: 0, y: 90)),
+'EPSG:25393': ProjectAndUnProjectResult(
+        Point(x: -3555526.5980821257, y: 11453514.505240787),
+        Point(x: 0, y: 90)),
+'EPSG:25394': ProjectAndUnProjectResult(
+        Point(x: -3276920.978709336, y: 11625844.955654154),
+        Point(x: 0, y: 90)),
+'EPSG:25395': ProjectAndUnProjectResult(
+        Point(x: -2956636.481527558, y: 11781623.534961285),
+        Point(x: 0, y: 90)),
+'EPSG:25700': ProjectAndUnProjectResult(
+        Point(x: -6352665.000308769, y: 6792609.921434772),
+        Point(x: 17.88805856028151, y: 46.89226413303861)),
+'EPSG:25828': ProjectAndUnProjectResult(
+        Point(x: 2988896.0169453374, y: 5744023.033448553),
+        Point(x: 17.848196835452992, y: 46.89671142260442)),
+'EPSG:25829': ProjectAndUnProjectResult(
+        Point(x: 2540720.5313290567, y: 5555692.513083512),
+        Point(x: 17.883147133968766, y: 46.89269979625903)),
+'EPSG:25830': ProjectAndUnProjectResult(
+        Point(x: 2088186.225893158, y: 5409193.676598077),
+        Point(x: 17.88765211923516, y: 46.89228755974916)),
+'EPSG:25831': ProjectAndUnProjectResult(
+        Point(x: 1633185.6064171265, y: 5301866.087016829),
+        Point(x: 17.88804238865636, y: 46.892264000337974)),
+'EPSG:25832': ProjectAndUnProjectResult(
+        Point(x: 1176891.287219305, y: 5231671.834018296),
+        Point(x: 17.88805843543735, y: 46.892264027445336)),
+'EPSG:25833': ProjectAndUnProjectResult(
+        Point(x: 720001.2298400886, y: 5197241.60997254),
+        Point(x: 17.888058560302017, y: 46.89226406695651)),
+'EPSG:25834': ProjectAndUnProjectResult(
+        Point(x: 262945.2879608735, y: 5197894.102611037),
+        Point(x: 17.888058560253082, y: 46.89226406692702)),
+'EPSG:25835': ProjectAndUnProjectResult(
+        Point(x: -193931.3475621267, y: 5233642.279931091),
+        Point(x: 17.88805871864152, y: 46.89226402167793)),
+'EPSG:25836': ProjectAndUnProjectResult(
+        Point(x: -650192.2096700789, y: 5305193.291220044),
+        Point(x: 17.888077173234436, y: 46.89226405998426)),
+'EPSG:25837': ProjectAndUnProjectResult(
+        Point(x: -1105125.5282006196, y: 5413941.856367431),
+        Point(x: 17.888509189327227, y: 46.89229076369037)),
+'EPSG:25838': ProjectAndUnProjectResult(
+        Point(x: -1557536.5212347228, y: 5561950.163916144),
+        Point(x: 17.89339993357438, y: 46.89274299727956)),
+'EPSG:25884': ProjectAndUnProjectResult(
+        Point(x: 34461.49600235146, y: 5211353.267777357),
+        Point(x: 17.888058563129825, y: 46.89226406242482)),
+'EPSG:25932': ProjectAndUnProjectResult(
+        Point(x: 1176912.664618199, y: 15231864.35310246),
+        Point(x: 17.888058435548967, y: 46.8922640533178)),
+'EPSG:26191': ProjectAndUnProjectResult(
+        Point(x: 2313004.577231187, y: 2027076.394898113),
+        Point(x: 17.888058560281518, y: 46.89226403064887)),
+'EPSG:26192': ProjectAndUnProjectResult(
+        Point(x: 2349942.692458395, y: 2425535.853813148),
+        Point(x: 17.888058560281515, y: 46.89226403064887)),
+'EPSG:26193': ProjectAndUnProjectResult(
+        Point(x: 3096257.6727721905, y: 2931669.1377428747),
+        Point(x: 17.888058560281515, y: 46.89226403064886)),
+'EPSG:26194': ProjectAndUnProjectResult(
+        Point(x: 3096288.60172887, y: 2931710.430593637),
+        Point(x: 17.888058560281515, y: 46.89226403064886)),
+'EPSG:26195': ProjectAndUnProjectResult(
+        Point(x: 3452715.2164705703, y: 3347443.581416428),
+        Point(x: 17.88805856028151, y: 46.892264030648896)),
+'EPSG:26237': ProjectAndUnProjectResult(
+        Point(x: -1104949.188009873, y: 5413320.768077258),
+        Point(x: 17.88850920055473, y: 46.8922908526671)),
+'EPSG:26331': ProjectAndUnProjectResult(
+        Point(x: 1633171.3785517958, y: 5301906.368035032),
+        Point(x: 17.888042398765506, y: 46.89226394800493)),
+'EPSG:26332': ProjectAndUnProjectResult(
+        Point(x: 1176883.224093516, y: 5231709.393128521),
+        Point(x: 17.88805843586916, y: 46.892263990301835)),
+'EPSG:26391': ProjectAndUnProjectResult(
+        Point(x: 1250078.2343684887, y: 4839580.292065794),
+        Point(x: 17.888052607186133, y: 46.89226381157913)),
+'EPSG:26392': ProjectAndUnProjectResult(
+        Point(x: 1385598.6118552773, y: 4794811.429188567),
+        Point(x: 17.88805835042202, y: 46.89226397632649)),
+'EPSG:26707': ProjectAndUnProjectResult(
+        Point(x: -35391481.71634546, y: -11259829.559921555),
+        Point(x: 0, y: -90)),
+'EPSG:26393': ProjectAndUnProjectResult(
+        Point(x: 1520839.536618544, y: 4765965.62107729),
+        Point(x: 17.88805855968759, y: 46.89226402838517)),
+'EPSG:26432': ProjectAndUnProjectResult(
+        Point(x: 1176912.664618199, y: 15231864.35310246),
+        Point(x: 17.888058435548967, y: 46.8922640533178)),
+'EPSG:26591': ProjectAndUnProjectResult(
+        Point(x: 3122457.381985157, y: 5419044.047630924),
+        Point(x: 17.88755839208703, y: 46.892294410386484)),
+'EPSG:26592': ProjectAndUnProjectResult(
+        Point(x: 3687580.583717904, y: 5308837.651428177),
+        Point(x: 17.88803712287506, y: 46.892264157894715)),
+'EPSG:26632': ProjectAndUnProjectResult(
+        Point(x: 1176883.2342184111, y: 5231709.450285565),
+        Point(x: 17.888058435869073, y: 46.89226399035672)),
+'EPSG:26692': ProjectAndUnProjectResult(
+        Point(x: 1176883.2342184111, y: 15231709.450285565),
+        Point(x: 17.888058435869073, y: 46.89226399035672)),
+'EPSG:26701': ProjectAndUnProjectResult(
+        Point(x: 48728114.438189074, y: -23185484.03507516),
+        Point(x: 0, y: -90)),
+'EPSG:26702': ProjectAndUnProjectResult(
+        Point(x: 63329327.432940826, y: -38685852.13110857),
+        Point(x: 0, y: -90)),
+'EPSG:26703': ProjectAndUnProjectResult(
+        Point(x: 81063813.57047701, y: -59111104.534940064),
+        Point(x: 0, y: -90)),
+'EPSG:26704': ProjectAndUnProjectResult(
+        Point(x: -79339726.16669452, y: -58247338.454235926),
+        Point(x: 0, y: -90)),
+'EPSG:26708': ProjectAndUnProjectResult(
+        Point(x: -25784880.089809682, y: -2925109.978949025),
+        Point(x: -135, y: double.nan)),
+'EPSG:26709': ProjectAndUnProjectResult(
+        Point(x: -18062455.289425608, y: 2987007.6909948783),
+        Point(x: 45, y: double.nan)),
+'EPSG:26710': ProjectAndUnProjectResult(
+        Point(x: -11916361.782282753, y: 7027010.125388208),
+        Point(x: 45, y: double.nan)),
+'EPSG:26711': ProjectAndUnProjectResult(
+        Point(x: -7081172.014082718, y: 9642022.170027958),
+        Point(x: 45, y: double.nan)),
+'EPSG:26712': ProjectAndUnProjectResult(
+        Point(x: -3329217.2786174165, y: 11191684.000865974),
+        Point(x: 0, y: 90)),
+'EPSG:26713': ProjectAndUnProjectResult(
+        Point(x: -466294.67996387824, y: 11962133.742940916),
+        Point(x: 0, y: 90)),
+'EPSG:26714': ProjectAndUnProjectResult(
+        Point(x: 1672275.4033939962, y: 12178253.011022218),
+        Point(x: 0, y: 90)),
+'EPSG:26715': ProjectAndUnProjectResult(
+        Point(x: 3225256.943309043, y: 12014325.98282452),
+        Point(x: 0, y: 90)),
+'EPSG:26716': ProjectAndUnProjectResult(
+        Point(x: 4308786.566370415, y: 11603255.763891883),
+        Point(x: 0, y: 90)),
+'EPSG:26717': ProjectAndUnProjectResult(
+        Point(x: 5019358.128750517, y: 11044474.951492442),
+        Point(x: 0, y: 90)),
+'EPSG:26718': ProjectAndUnProjectResult(
+        Point(x: 5436519.152290583, y: 10410680.453105627),
+        Point(x: 0, y: 90)),
+'EPSG:26719': ProjectAndUnProjectResult(
+        Point(x: 5625294.712615978, y: 9753515.763325332),
+        Point(x: 45, y: double.nan)),
+'EPSG:26720': ProjectAndUnProjectResult(
+        Point(x: 5638354.3700725, y: 9108317.051243763),
+        Point(x: 45, y: double.nan)),
+'EPSG:26721': ProjectAndUnProjectResult(
+        Point(x: 5517937.734274884, y: 8498032.558621977),
+        Point(x: 45, y: double.nan)),
+'EPSG:26722': ProjectAndUnProjectResult(
+        Point(x: 5297554.253058708, y: 7936417.95739456),
+        Point(x: 45, y: double.nan)),
+'EPSG:26729': ProjectAndUnProjectResult(
+        Point(x: 13540952.672923548, y: 26681329.33086202),
+        Point(x: 0, y: 90)),
+'EPSG:26730': ProjectAndUnProjectResult(
+        Point(x: 12754550.102940878, y: 27324427.051885176),
+        Point(x: 0, y: 90)),
+'EPSG:26731': ProjectAndUnProjectResult(
+        Point(x: 21353858.81447053, y: 15477559.308340106),
+        Point(x: 17.88805856028151, y: 46.89226404782305)),
+'EPSG:26732': ProjectAndUnProjectResult(
+        Point(x: -123224440.72024696, y: -62069026.32871761),
+        Point(x: 0, y: -90)),
+'EPSG:26733': ProjectAndUnProjectResult(
+        Point(x: -149121590.52346015, y: -87033458.25734736),
+        Point(x: 0, y: -90)),
+'EPSG:26734': ProjectAndUnProjectResult(
+        Point(x: -178771771.03253686, y: -117473340.3763575),
+        Point(x: 0, y: -90)),
+'EPSG:26735': ProjectAndUnProjectResult(
+        Point(x: -212608925.42383116, y: -154281578.1622382),
+        Point(x: 0, y: -90)),
+'EPSG:26736': ProjectAndUnProjectResult(
+        Point(x: -251107054.57473, y: -198465194.71756682),
+        Point(x: 0, y: -90)),
+'EPSG:26737': ProjectAndUnProjectResult(
+        Point(x: -294582993.29823595, y: -251156589.36760166),
+        Point(x: 0, y: -90)),
+'EPSG:26738': ProjectAndUnProjectResult(
+        Point(x: 254409816.49524775, y: -201178438.8451282),
+        Point(x: 0, y: -90)),
+'EPSG:26739': ProjectAndUnProjectResult(
+        Point(x: 215735947.83916295, y: -156549774.73241124),
+        Point(x: 0, y: -90)),
+'EPSG:26740': ProjectAndUnProjectResult(
+        Point(x: -10345546.75113972, y: 28741533.04196102),
+        Point(x: 17.88805856028149, y: 46.89226404782306)),
+'EPSG:26741': ProjectAndUnProjectResult(
+        Point(x: 24025334.166639414, y: 25357883.419754576),
+        Point(x: 17.88805856028154, y: 46.89226404782306)),
+'EPSG:26742': ProjectAndUnProjectResult(
+        Point(x: 24929171.820201162, y: 25589658.10920663),
+        Point(x: 17.888058560281515, y: 46.892264047823076)),
+'EPSG:26743': ProjectAndUnProjectResult(
+        Point(x: 25610553.106272407, y: 25333348.44499157),
+        Point(x: 17.888058560281515, y: 46.89226404782306)),
+'EPSG:26744': ProjectAndUnProjectResult(
+        Point(x: 26162073.07887651, y: 25113274.117991123),
+        Point(x: 17.88805856028154, y: 46.89226404782305)),
+'EPSG:26745': ProjectAndUnProjectResult(
+        Point(x: 27121351.011771206, y: 25060745.646289825),
+        Point(x: 17.88805856028151, y: 46.89226404782305)),
+'EPSG:26746': ProjectAndUnProjectResult(
+        Point(x: 27780098.627669644, y: 24738120.783686444),
+        Point(x: 17.888058560281515, y: 46.89226404782306)),
+'EPSG:26747': ProjectAndUnProjectResult(
+        Point(x: 29662768.91755318, y: 25173180.301896114),
+        Point(x: 17.888058560281515, y: 46.89226404782307)),
+'EPSG:26748': ProjectAndUnProjectResult(
+        Point(x: -10600614.407628171, y: 25959733.303918768),
+        Point(x: 0, y: 90)),
+'EPSG:26749': ProjectAndUnProjectResult(
+        Point(x: -13744481.745722525, y: 24883719.00398099),
+        Point(x: 0, y: 90)),
+'EPSG:26750': ProjectAndUnProjectResult(
+        Point(x: -17312717.880839217, y: 23513168.316893667),
+        Point(x: 0, y: 90)),
+'EPSG:26751': ProjectAndUnProjectResult(
+        Point(x: 24574867.249828566, y: 18694944.493997894),
+        Point(x: 17.888058560281525, y: 46.89226404782306)),
+'EPSG:26766': ProjectAndUnProjectResult(
+        Point(x: 14961109.645168949, y: 25737114.764640212),
+        Point(x: 0, y: 90)),
+'EPSG:26752': ProjectAndUnProjectResult(
+        Point(x: 25103048.634994898, y: 18969527.16456345),
+        Point(x: 17.88805856028151, y: 46.89226404782305)),
+'EPSG:26753': ProjectAndUnProjectResult(
+        Point(x: 23966733.37093439, y: 21103998.255420055),
+        Point(x: 17.88805856028151, y: 46.89226404782304)),
+'EPSG:26754': ProjectAndUnProjectResult(
+        Point(x: 24415805.350479703, y: 21404594.503999073),
+        Point(x: 17.88805856028151, y: 46.89226404782305)),
+'EPSG:26755': ProjectAndUnProjectResult(
+        Point(x: 24926401.801482182, y: 21551344.940344684),
+        Point(x: 17.88805856028151, y: 46.89226404782305)),
+'EPSG:26756': ProjectAndUnProjectResult(
+        Point(x: 19413161.580502108, y: 13095650.267544422),
+        Point(x: 17.88805856028152, y: 46.89226404782305)),
+'EPSG:26757': ProjectAndUnProjectResult(
+        Point(x: 16633652.157777548, y: 20514407.293675065),
+        Point(x: 0, y: 90)),
+'EPSG:26758': ProjectAndUnProjectResult(
+        Point(x: 15332321.538729452, y: 27415787.30733511),
+        Point(x: 0, y: 90)),
+'EPSG:26759': ProjectAndUnProjectResult(
+        Point(x: 15016936.75098005, y: 27744028.933149237),
+        Point(x: 0, y: 90)),
+'EPSG:26760': ProjectAndUnProjectResult(
+        Point(x: 25342665.2732492, y: 17855814.011672016),
+        Point(x: 17.888058560281515, y: 46.89226404782306)),
+'EPSG:26767': ProjectAndUnProjectResult(
+        Point(x: 14236308.377268309, y: 26366745.53833818),
+        Point(x: 0, y: 90)),
+'EPSG:26768': ProjectAndUnProjectResult(
+        Point(x: -14214794.099805856, y: 20830100.56089738),
+        Point(x: 0, y: 90)),
+'EPSG:26769': ProjectAndUnProjectResult(
+        Point(x: -17822156.410735317, y: 19422759.784664776),
+        Point(x: 0, y: 90)),
+'EPSG:26770': ProjectAndUnProjectResult(
+        Point(x: -21545057.122097522, y: 17819736.75268727),
+        Point(x: 0, y: 90)),
+'EPSG:26771': ProjectAndUnProjectResult(
+        Point(x: 12326417.543687718, y: 25116703.59725677),
+        Point(x: 0, y: 90)),
+'EPSG:26772': ProjectAndUnProjectResult(
+        Point(x: 11294661.771847345, y: 25555041.157742918),
+        Point(x: 0, y: 90)),
+'EPSG:26773': ProjectAndUnProjectResult(
+        Point(x: 13614605.87460134, y: 24086130.607445262),
+        Point(x: 0, y: 90)),
+'EPSG:26774': ProjectAndUnProjectResult(
+        Point(x: 12960233.70568548, y: 24484113.391136758),
+        Point(x: 0, y: 90)),
+'EPSG:26775': ProjectAndUnProjectResult(
+        Point(x: 22518812.462923933, y: 17853127.638238434),
+        Point(x: 17.88805856028151, y: 46.89226404782304)),
+'EPSG:26776': ProjectAndUnProjectResult(
+        Point(x: 22943594.73689545, y: 18119165.90649145),
+        Point(x: 17.888058560281515, y: 46.89226404782306)),
+'EPSG:26777': ProjectAndUnProjectResult(
+        Point(x: 23889592.328331165, y: 19421907.780757833),
+        Point(x: 17.88805856028152, y: 46.89226404782305)),
+'EPSG:26778': ProjectAndUnProjectResult(
+        Point(x: 24393896.768238526, y: 19868941.672641862),
+        Point(x: 17.88805856028149, y: 46.89226404782304)),
+'EPSG:26779': ProjectAndUnProjectResult(
+        Point(x: 22848960.71211056, y: 16345831.798599057),
+        Point(x: 17.88805856028151, y: 46.89226404782305)),
+'EPSG:26780': ProjectAndUnProjectResult(
+        Point(x: 23326997.575705227, y: 16896378.32838063),
+        Point(x: 17.88805856028151, y: 46.89226404782305)),
+'EPSG:26781': ProjectAndUnProjectResult(
+        Point(x: 25927143.290204663, y: 19337807.27168137),
+        Point(x: 17.8880585602815, y: 46.89226404782305)),
+'EPSG:26782': ProjectAndUnProjectResult(
+        Point(x: 26477155.263752513, y: 19369312.245983172),
+        Point(x: 17.8880585602815, y: 46.89226404782307)),
+'EPSG:26783': ProjectAndUnProjectResult(
+        Point(x: 17343759.604602814, y: 15902894.703350637),
+        Point(x: 45, y: double.nan)),
+'EPSG:32608': ProjectAndUnProjectResult(
+        Point(x: -25785988.54441397, y: -2920563.7791145765),
+        Point(x: 72517.8297499813, y: -135482.78847814907)),
+'EPSG:26784': ProjectAndUnProjectResult(
+        Point(x: 17250972.183955394, y: 16866957.728676423),
+        Point(x: 45, y: double.nan)),
+'EPSG:26785': ProjectAndUnProjectResult(
+        Point(x: 20678034.222575, y: 14685735.761568476),
+        Point(x: 17.88805856028152, y: 46.89226404782305)),
+'EPSG:26786': ProjectAndUnProjectResult(
+        Point(x: 19140268.795506094, y: 12864448.033512913),
+        Point(x: 17.88805856028151, y: 46.89226404782305)),
+'EPSG:26787': ProjectAndUnProjectResult(
+        Point(x: 18750822.43048126, y: 12526546.95507509),
+        Point(x: 17.88805856028151, y: 46.89226404782305)),
+'EPSG:26791': ProjectAndUnProjectResult(
+        Point(x: 21151753.88082339, y: 16870587.16790603),
+        Point(x: 17.88805856028151, y: 46.89226404782305)),
+'EPSG:26792': ProjectAndUnProjectResult(
+        Point(x: 21565252.124953855, y: 17436384.053432662),
+        Point(x: 17.88805856028152, y: 46.89226404782305)),
+'EPSG:26793': ProjectAndUnProjectResult(
+        Point(x: 22038301.35556895, y: 17770351.21581793),
+        Point(x: 17.8880585602815, y: 46.892264047823076)),
+'EPSG:26794': ProjectAndUnProjectResult(
+        Point(x: 12057214.824382745, y: 27788400.802652016),
+        Point(x: 0, y: 90)),
+'EPSG:26795': ProjectAndUnProjectResult(
+        Point(x: 11194653.329835257, y: 27835975.239068516),
+        Point(x: 0, y: 90)),
+'EPSG:26796': ProjectAndUnProjectResult(
+        Point(x: 11093491.156965304, y: 25931923.377606403),
+        Point(x: 0, y: 90)),
+'EPSG:26797': ProjectAndUnProjectResult(
+        Point(x: 9794512.314999368, y: 26329833.847849052),
+        Point(x: 0, y: 90)),
+'EPSG:26798': ProjectAndUnProjectResult(
+        Point(x: 8328120.041558407, y: 26520829.50456611),
+        Point(x: 0, y: 90)),
+'EPSG:26799': ProjectAndUnProjectResult(
+        Point(x: 29662768.91755318, y: 28917180.301896114),
+        Point(x: 17.888058560281515, y: 46.89226404782307)),
+'EPSG:26801': ProjectAndUnProjectResult(
+        Point(x: 14429616.480477974, y: 22028709.3152396),
+        Point(x: 0, y: 90)),
+'EPSG:26802': ProjectAndUnProjectResult(
+        Point(x: 13577678.151461592, y: 22652832.826277483),
+        Point(x: 0, y: 90)),
+'EPSG:26803': ProjectAndUnProjectResult(
+        Point(x: 12102529.072132636, y: 23460255.289536107),
+        Point(x: 0, y: 90)),
+'EPSG:26811': ProjectAndUnProjectResult(
+        Point(x: 21215023.027044673, y: 15731565.521262052),
+        Point(x: 17.88805856028151, y: 46.892264129593656)),
+'EPSG:26823': ProjectAndUnProjectResult(
+        Point(x: 8070078.612677592, y: 4608732.256874052),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:26812': ProjectAndUnProjectResult(
+        Point(x: 21319915.086223356, y: 15395522.531160453),
+        Point(x: 17.888058560281515, y: 46.892264129593634)),
+'EPSG:26813': ProjectAndUnProjectResult(
+        Point(x: 21773902.39016905, y: 15701857.74869519),
+        Point(x: 17.88805856028151, y: 46.892264129593656)),
+'EPSG:26814': ProjectAndUnProjectResult(
+        Point(x: 5434242.727510438, y: 4865567.286727372),
+        Point(x: -3577911303.5949883, y: 784422263.488511)),
+'EPSG:26815': ProjectAndUnProjectResult(
+        Point(x: 6005972.529556511, y: 5140915.469168544),
+        Point(x: -2514978608650.738, y: 548342325600.6209)),
+'EPSG:26819': ProjectAndUnProjectResult(
+        Point(x: 6637522.089350602, y: 5241976.733272179),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:26820': ProjectAndUnProjectResult(
+        Point(x: 6763552.011152685, y: 5414428.169772497),
+        Point(x: 17.88805856028151, y: 46.89226406700874)),
+'EPSG:26821': ProjectAndUnProjectResult(
+        Point(x: 6907731.667209977, y: 5516216.609631911),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:26822': ProjectAndUnProjectResult(
+        Point(x: 6975000.373442961, y: 6039872.843451777),
+        Point(x: 17.888058560281525, y: 46.89226406700874)),
+'EPSG:26824': ProjectAndUnProjectResult(
+        Point(x: 8228607.275988375, y: 4799756.489364472),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:26825': ProjectAndUnProjectResult(
+        Point(x: 5434242.727510438, y: 4865567.286727372),
+        Point(x: -3577911303.5949883, y: 784422263.488511)),
+'EPSG:26826': ProjectAndUnProjectResult(
+        Point(x: 6005972.529556511, y: 5140915.469168544),
+        Point(x: -2514978608650.738, y: 548342325600.6209)),
+'EPSG:26830': ProjectAndUnProjectResult(
+        Point(x: 6637522.089350602, y: 5241976.733272179),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:26831': ProjectAndUnProjectResult(
+        Point(x: 6763552.011152685, y: 5414428.169772497),
+        Point(x: 17.88805856028151, y: 46.89226406700874)),
+'EPSG:26832': ProjectAndUnProjectResult(
+        Point(x: 6907731.667209977, y: 5516216.609631911),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:26833': ProjectAndUnProjectResult(
+        Point(x: 6975000.373442961, y: 6039872.843451777),
+        Point(x: 17.888058560281525, y: 46.89226406700874)),
+'EPSG:26834': ProjectAndUnProjectResult(
+        Point(x: 8070078.612677592, y: 4608732.256874052),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:26835': ProjectAndUnProjectResult(
+        Point(x: 8228607.275988375, y: 4799756.489364472),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:26836': ProjectAndUnProjectResult(
+        Point(x: 5434242.727510438, y: 4865567.286727372),
+        Point(x: -3577911303.5949883, y: 784422263.488511)),
+'EPSG:26837': ProjectAndUnProjectResult(
+        Point(x: 6005972.529556511, y: 5140915.469168544),
+        Point(x: -2514978608650.738, y: 548342325600.6209)),
+'EPSG:26841': ProjectAndUnProjectResult(
+        Point(x: 6637522.089350602, y: 5241976.733272179),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:26842': ProjectAndUnProjectResult(
+        Point(x: 6763552.011152685, y: 5414428.169772497),
+        Point(x: 17.88805856028151, y: 46.89226406700874)),
+'EPSG:26843': ProjectAndUnProjectResult(
+        Point(x: 6907731.667209977, y: 5516216.609631911),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:26844': ProjectAndUnProjectResult(
+        Point(x: 6975000.373442961, y: 6039872.843451777),
+        Point(x: 17.888058560281525, y: 46.89226406700874)),
+'EPSG:26845': ProjectAndUnProjectResult(
+        Point(x: 8070078.612677592, y: 4608732.256874052),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:26846': ProjectAndUnProjectResult(
+        Point(x: 8228607.275988375, y: 4799756.489364472),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:26847': ProjectAndUnProjectResult(
+        Point(x: 17828844.681840494, y: 15963115.339871382),
+        Point(x: -3577911303.5949883, y: 784422263.488511)),
+'EPSG:26848': ProjectAndUnProjectResult(
+        Point(x: 19704594.874053318, y: 16866486.83509713),
+        Point(x: -2514978608650.9517, y: 548342325600.6676)),
+'EPSG:26849': ProjectAndUnProjectResult(
+        Point(x: 21776603.721477762, y: 17198051.999077138),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:26850': ProjectAndUnProjectResult(
+        Point(x: 22190086.88992343, y: 17763836.4203286),
+        Point(x: 17.88805856028151, y: 46.89226406700874)),
+'EPSG:26851': ProjectAndUnProjectResult(
+        Point(x: 22663116.31150473, y: 18097787.32676736),
+        Point(x: 17.888058560281525, y: 46.892264067008746)),
+'EPSG:26852': ProjectAndUnProjectResult(
+        Point(x: 22883813.72520411, y: 19815816.153891366),
+        Point(x: 17.8880585602815, y: 46.89226406700874)),
+'EPSG:26853': ProjectAndUnProjectResult(
+        Point(x: 21986762.498426396, y: 15120482.41276095),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:26854': ProjectAndUnProjectResult(
+        Point(x: 22506868.62130519, y: 15747201.082189938),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:26855': ProjectAndUnProjectResult(
+        Point(x: 17828844.681840494, y: 15963115.339871382),
+        Point(x: -3577911303.5949883, y: 784422263.488511)),
+'EPSG:26856': ProjectAndUnProjectResult(
+        Point(x: 19704594.874053318, y: 16866486.83509713),
+        Point(x: -2514978608650.9517, y: 548342325600.6676)),
+'EPSG:26857': ProjectAndUnProjectResult(
+        Point(x: 21776603.721477762, y: 17198051.999077138),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:26858': ProjectAndUnProjectResult(
+        Point(x: 22190086.88992343, y: 17763836.4203286),
+        Point(x: 17.88805856028151, y: 46.89226406700874)),
+'EPSG:26859': ProjectAndUnProjectResult(
+        Point(x: 22663116.31150473, y: 18097787.32676736),
+        Point(x: 17.888058560281525, y: 46.892264067008746)),
+'EPSG:26860': ProjectAndUnProjectResult(
+        Point(x: 22883813.72520411, y: 19815816.153891366),
+        Point(x: 17.8880585602815, y: 46.89226406700874)),
+'EPSG:26861': ProjectAndUnProjectResult(
+        Point(x: 21986762.498426396, y: 15120482.41276095),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:26862': ProjectAndUnProjectResult(
+        Point(x: 22506868.62130519, y: 15747201.082189938),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:26863': ProjectAndUnProjectResult(
+        Point(x: 17828844.681840494, y: 15963115.339871382),
+        Point(x: -3577911303.5949883, y: 784422263.488511)),
+'EPSG:26864': ProjectAndUnProjectResult(
+        Point(x: 19704594.874053318, y: 16866486.83509713),
+        Point(x: -2514978608650.9517, y: 548342325600.6676)),
+'EPSG:26865': ProjectAndUnProjectResult(
+        Point(x: 21776603.721477762, y: 17198051.999077138),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:26866': ProjectAndUnProjectResult(
+        Point(x: 22190086.88992343, y: 17763836.4203286),
+        Point(x: 17.88805856028151, y: 46.89226406700874)),
+'EPSG:26867': ProjectAndUnProjectResult(
+        Point(x: 22663116.31150473, y: 18097787.32676736),
+        Point(x: 17.888058560281525, y: 46.892264067008746)),
+'EPSG:26868': ProjectAndUnProjectResult(
+        Point(x: 22883813.72520411, y: 19815816.153891366),
+        Point(x: 17.8880585602815, y: 46.89226406700874)),
+'EPSG:26869': ProjectAndUnProjectResult(
+        Point(x: 21986762.498426396, y: 15120482.41276095),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:26870': ProjectAndUnProjectResult(
+        Point(x: 22506868.62130519, y: 15747201.082189938),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:26891': ProjectAndUnProjectResult(
+        Point(x: 4678521.605919208, y: 11197258.627550166),
+        Point(x: 0, y: 90)),
+'EPSG:26892': ProjectAndUnProjectResult(
+        Point(x: 4825851.505324784, y: 11048016.28656974),
+        Point(x: 0, y: 90)),
+'EPSG:26893': ProjectAndUnProjectResult(
+        Point(x: 4511768.526647326, y: 11340922.422261257),
+        Point(x: 0, y: 90)),
+'EPSG:26894': ProjectAndUnProjectResult(
+        Point(x: 4115096.9499727935, y: 11607101.102096744),
+        Point(x: 0, y: 90)),
+'EPSG:26895': ProjectAndUnProjectResult(
+        Point(x: 3625418.58528727, y: 11836768.953508014),
+        Point(x: 0, y: 90)),
+'EPSG:26896': ProjectAndUnProjectResult(
+        Point(x: 3031257.7643432096, y: 12018479.462197395),
+        Point(x: 0, y: 90)),
+'EPSG:26897': ProjectAndUnProjectResult(
+        Point(x: 2319999.2891139016, y: 12138921.625162058),
+        Point(x: 0, y: 90)),
+'EPSG:26898': ProjectAndUnProjectResult(
+        Point(x: 5186788.657734889, y: 8120071.285067176),
+        Point(x: -5022.218661072394, y: 1175.203638907414)),
+'EPSG:26899': ProjectAndUnProjectResult(
+        Point(x: 5293828.222920929, y: 8403290.068502737),
+        Point(x: -20392.421758802197, y: 4476.186579255094)),
+'EPSG:26901': ProjectAndUnProjectResult(
+        Point(x: 48730994.20351042, y: -23178134.332903616),
+        Point(x: 0, y: -90)),
+'EPSG:26902': ProjectAndUnProjectResult(
+        Point(x: 63333518.09556754, y: -38676678.41783912),
+        Point(x: 0, y: -90)),
+'EPSG:26903': ProjectAndUnProjectResult(
+        Point(x: 81069695.4839798, y: -59099747.1391181),
+        Point(x: 0, y: -90)),
+'EPSG:26904': ProjectAndUnProjectResult(
+        Point(x: -79345537.23281473, y: -58236069.63248695),
+        Point(x: 0, y: -90)),
+'EPSG:26905': ProjectAndUnProjectResult(
+        Point(x: -61735465.01028672, y: -38016576.899930514),
+        Point(x: 0, y: -90)),
+'EPSG:26906': ProjectAndUnProjectResult(
+        Point(x: -47240401.76333124, y: -22681647.638609204),
+        Point(x: 0, y: -90)),
+'EPSG:26907': ProjectAndUnProjectResult(
+        Point(x: -35393329.62055659, y: -11254044.783678558),
+        Point(x: 0, y: -90)),
+'EPSG:26908': ProjectAndUnProjectResult(
+        Point(x: -25785988.545412734, y: -2920563.7794431755),
+        Point(x: 72517.82979839807, y: -135482.78856909208)),
+'EPSG:26909': ProjectAndUnProjectResult(
+        Point(x: -18063024.2834307, y: 2990541.0425813603),
+        Point(x: 5728.679566272616, y: 8118.480468517206)),
+'EPSG:26910': ProjectAndUnProjectResult(
+        Point(x: -11916549.256324729, y: 7029722.072663035),
+        Point(x: 169423.46825792477, y: 95274.64648021963)),
+'EPSG:26911': ProjectAndUnProjectResult(
+        Point(x: -7081100.809078519, y: 9644074.035715306),
+        Point(x: 16894389367.285646, y: 5473429537.796183)),
+'EPSG:26912': ProjectAndUnProjectResult(
+        Point(x: -3328981.2161364346, y: 11193210.773121612),
+        Point(x: 0, y: 90)),
+'EPSG:26913': ProjectAndUnProjectResult(
+        Point(x: -465963.8528201919, y: 11963247.506900493),
+        Point(x: 0, y: 90)),
+'EPSG:26914': ProjectAndUnProjectResult(
+        Point(x: 1672650.061907484, y: 12179046.047871836),
+        Point(x: 0, y: 90)),
+'EPSG:26915': ProjectAndUnProjectResult(
+        Point(x: 3225639.745211993, y: 12014873.557768293),
+        Point(x: 0, y: 90)),
+'EPSG:26916': ProjectAndUnProjectResult(
+        Point(x: 4309153.746567462, y: 11603618.623518256),
+        Point(x: 0, y: 90)),
+'EPSG:26917': ProjectAndUnProjectResult(
+        Point(x: 5019695.054228077, y: 11044701.550210133),
+        Point(x: 0, y: 90)),
+'EPSG:26918': ProjectAndUnProjectResult(
+        Point(x: 5436818.00586931, y: 10410808.927530395),
+        Point(x: 0, y: 90)),
+'EPSG:26919': ProjectAndUnProjectResult(
+        Point(x: 5625552.597278097, y: 9753575.672750814),
+        Point(x: -14563147143.452982, y: 3188443837.820243)),
+'EPSG:26920': ProjectAndUnProjectResult(
+        Point(x: 5638571.782971076, y: 9108330.901623307),
+        Point(x: -1685042.2535846238, y: 369929.7983349917)),
+'EPSG:26921': ProjectAndUnProjectResult(
+        Point(x: 5518117.362620078, y: 8498017.126823647),
+        Point(x: -33811.09013364492, y: 7380.196889868285)),
+'EPSG:26922': ProjectAndUnProjectResult(
+        Point(x: 5297700.047163907, y: 7936385.43186829),
+        Point(x: -2039.797629755838, y: 544.0590624611513)),
+'EPSG:26923': ProjectAndUnProjectResult(
+        Point(x: 5003589.298485577, y: 7430562.416711468),
+        Point(x: 87.06844226328268, y: 103.32192587414212)),
+'EPSG:26929': ProjectAndUnProjectResult(
+        Point(x: 4175252.6559100477, y: 8132636.419234506),
+        Point(x: 0, y: 90)),
+'EPSG:26930': ProjectAndUnProjectResult(
+        Point(x: 4335563.615183162, y: 8328698.3072116645),
+        Point(x: 0, y: 90)),
+'EPSG:26931': ProjectAndUnProjectResult(
+        Point(x: 6508725.5759530235, y: 4717646.787048834),
+        Point(x: 17.88805856028155, y: 46.89226406700871)),
+'EPSG:26932': ProjectAndUnProjectResult(
+        Point(x: -37213279.522647545, y: -18912875.961270504),
+        Point(x: 0, y: -90)),
+'EPSG:26933': ProjectAndUnProjectResult(
+        Point(x: -45107405.43757957, y: -26521048.301904406),
+        Point(x: 0, y: -90)),
+'EPSG:26934': ProjectAndUnProjectResult(
+        Point(x: -54145589.80520173, y: -35798007.60070698),
+        Point(x: 0, y: -90)),
+'EPSG:26935': ProjectAndUnProjectResult(
+        Point(x: -64460118.121024735, y: -47015897.944632985),
+        Point(x: 0, y: -90)),
+'EPSG:26936': ProjectAndUnProjectResult(
+        Point(x: -76195487.58152132, y: -60481645.41980923),
+        Point(x: 0, y: -90)),
+'EPSG:26937': ProjectAndUnProjectResult(
+        Point(x: -89509253.44187886, y: -76540389.67400539),
+        Point(x: 0, y: -90)),
+'EPSG:26938': ProjectAndUnProjectResult(
+        Point(x: 77897438.88146861, y: -61308557.825420626),
+        Point(x: 0, y: -90)),
+'EPSG:26939': ProjectAndUnProjectResult(
+        Point(x: 66078013.4794075, y: -47707169.16826724),
+        Point(x: 0, y: -90)),
+'EPSG:26940': ProjectAndUnProjectResult(
+        Point(x: -3067782.7230528235, y: 8760315.521445647),
+        Point(x: 17.888058560281486, y: 46.89226406700873)),
+'EPSG:26941': ProjectAndUnProjectResult(
+        Point(x: 8713369.04628296, y: 8228903.974584526),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:26942': ProjectAndUnProjectResult(
+        Point(x: 8988852.870882323, y: 8299543.835321399),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:26943': ProjectAndUnProjectResult(
+        Point(x: 9196533.03998033, y: 8221416.367224062),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:26944': ProjectAndUnProjectResult(
+        Point(x: 9364631.99275643, y: 8154335.033546976),
+        Point(x: 17.88805856028151, y: 46.89226406700871)),
+'EPSG:26945': ProjectAndUnProjectResult(
+        Point(x: 9657012.346788008, y: 8138321.005032831),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:26946': ProjectAndUnProjectResult(
+        Point(x: 9857792.552179694, y: 8039982.800465539),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:26948': ProjectAndUnProjectResult(
+        Point(x: -3169861.026850693, y: 7913822.186592112),
+        Point(x: 0, y: 90)),
+'EPSG:26949': ProjectAndUnProjectResult(
+        Point(x: -4128150.708307095, y: 7585988.433132556),
+        Point(x: 0, y: 90)),
+'EPSG:26950': ProjectAndUnProjectResult(
+        Point(x: -5215796.690656631, y: 7168396.858414973),
+        Point(x: 0, y: 90)),
+'EPSG:26951': ProjectAndUnProjectResult(
+        Point(x: 7280845.10476574, y: 5698018.880729793),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:26952': ProjectAndUnProjectResult(
+        Point(x: 7441828.743390062, y: 6181711.961229637),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:26953': ProjectAndUnProjectResult(
+        Point(x: 7609906.701740923, y: 6737108.930826646),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:26954': ProjectAndUnProjectResult(
+        Point(x: 7746779.736843174, y: 6828729.263310314),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:26955': ProjectAndUnProjectResult(
+        Point(x: 7902404.853652807, y: 6873456.4247696595),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:26956': ProjectAndUnProjectResult(
+        Point(x: 6039095.133709748, y: 4143749.064976011),
+        Point(x: 17.8880585602815, y: 46.89226406700873)),
+'EPSG:26957': ProjectAndUnProjectResult(
+        Point(x: 5117848.770438616, y: 6252732.387920412),
+        Point(x: 0, y: 90)),
+'EPSG:26958': ProjectAndUnProjectResult(
+        Point(x: 4721237.687280814, y: 8356420.754737286),
+        Point(x: 0, y: 90)),
+'EPSG:26959': ProjectAndUnProjectResult(
+        Point(x: 4625113.957471083, y: 8456488.815026179),
+        Point(x: 0, y: 90)),
+'EPSG:26960': ProjectAndUnProjectResult(
+        Point(x: 7714848.02247523, y: 5442253.479619011),
+        Point(x: 17.8880585602815, y: 46.89226406700873)),
+'EPSG:26961': ProjectAndUnProjectResult(
+        Point(x: -68690821.23140611, y: -47885351.84872058),
+        Point(x: 0, y: -90)),
+'EPSG:26962': ProjectAndUnProjectResult(
+        Point(x: -72121220.72359695, y: -51990013.836311065),
+        Point(x: 0, y: -90)),
+'EPSG:26963': ProjectAndUnProjectResult(
+        Point(x: -76202390.86573209, y: -56842739.61567939),
+        Point(x: 0, y: -90)),
+'EPSG:26964': ProjectAndUnProjectResult(
+        Point(x: -81001618.96536075, y: -62615395.648396604),
+        Point(x: 0, y: -90)),
+'EPSG:26965': ProjectAndUnProjectResult(
+        Point(x: -83208947.34861997, y: -65252448.177499056),
+        Point(x: 0, y: -90)),
+'EPSG:26966': ProjectAndUnProjectResult(
+        Point(x: 4608098.742447868, y: 7844758.075159398),
+        Point(x: 0, y: 90)),
+'EPSG:26967': ProjectAndUnProjectResult(
+        Point(x: 4887189.5243078265, y: 8036713.270922709),
+        Point(x: 0, y: 90)),
+'EPSG:26968': ProjectAndUnProjectResult(
+        Point(x: -4284867.971020522, y: 6350434.242753448),
+        Point(x: 0, y: 90)),
+'EPSG:26969': ProjectAndUnProjectResult(
+        Point(x: -5084440.623114015, y: 5921630.496325042),
+        Point(x: 0, y: 90)),
+'EPSG:26970': ProjectAndUnProjectResult(
+        Point(x: -5919234.386603765, y: 5433186.325411458),
+        Point(x: 0, y: 90)),
+'EPSG:26971': ProjectAndUnProjectResult(
+        Point(x: 3905071.6147695784, y: 7655783.660641345),
+        Point(x: 0, y: 90)),
+'EPSG:26972': ProjectAndUnProjectResult(
+        Point(x: 3990597.385999085, y: 7789443.487367855),
+        Point(x: 0, y: 90)),
+'EPSG:26973': ProjectAndUnProjectResult(
+        Point(x: 4097701.446227201, y: 7591591.6682478),
+        Point(x: 0, y: 90)),
+'EPSG:26974': ProjectAndUnProjectResult(
+        Point(x: 4698254.479714725, y: 7712933.359383934),
+        Point(x: 0, y: 90)),
+'EPSG:26975': ProjectAndUnProjectResult(
+        Point(x: 7754185.385967116, y: 6441441.897699313),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:26976': ProjectAndUnProjectResult(
+        Point(x: 6883654.037123509, y: 5522527.676852138),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:26977': ProjectAndUnProjectResult(
+        Point(x: 7071987.862697571, y: 5919601.754797991),
+        Point(x: 17.888058560281525, y: 46.89226406700874)),
+'EPSG:26978': ProjectAndUnProjectResult(
+        Point(x: 7225695.016863069, y: 6455856.986343259),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:26979': ProjectAndUnProjectResult(
+        Point(x: 6895333.619676103, y: 4953881.754771346),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:26997': ProjectAndUnProjectResult(
+        Point(x: 3333355.4118026467, y: 8025679.559234873),
+        Point(x: 0, y: 90)),
+'EPSG:26980': ProjectAndUnProjectResult(
+        Point(x: 7000500.0764196385, y: 5649813.9503045585),
+        Point(x: 17.88805856028154, y: 46.89226406700873)),
+'EPSG:26981': ProjectAndUnProjectResult(
+        Point(x: 8293004.335917232, y: 5912444.595764324),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:26982': ProjectAndUnProjectResult(
+        Point(x: 8460640.04761491, y: 5922044.6080015665),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:26983': ProjectAndUnProjectResult(
+        Point(x: 5434242.727510438, y: 4865567.286727372),
+        Point(x: -3577911303.5949883, y: 784422263.488511)),
+'EPSG:26984': ProjectAndUnProjectResult(
+        Point(x: 6005972.529556511, y: 5140915.469168544),
+        Point(x: -2514978608650.738, y: 548342325600.6209)),
+'EPSG:26985': ProjectAndUnProjectResult(
+        Point(x: 6458859.816901178, y: 4494509.018460154),
+        Point(x: 17.888058560281525, y: 46.892264067008725)),
+'EPSG:26986': ProjectAndUnProjectResult(
+        Point(x: 5851118.614199274, y: 4670879.245324666),
+        Point(x: 17.8880585602815, y: 46.89226406700874)),
+'EPSG:26987': ProjectAndUnProjectResult(
+        Point(x: 6154332.406766824, y: 3817884.2153315847),
+        Point(x: 17.88805856028151, y: 46.89226406700874)),
+'EPSG:26998': ProjectAndUnProjectResult(
+        Point(x: 3236399.2997552953, y: 8083966.915915788),
+        Point(x: 0, y: 90)),
+'EPSG:26988': ProjectAndUnProjectResult(
+        Point(x: 13856577.937746815, y: 4794610.454685856),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:26989': ProjectAndUnProjectResult(
+        Point(x: 11889319.027601004, y: 4694603.857861964),
+        Point(x: 17.88805856028151, y: 46.89226406700871)),
+'EPSG:26990': ProjectAndUnProjectResult(
+        Point(x: 10027794.9275133, y: 4787933.322479354),
+        Point(x: 17.8880585602815, y: 46.892264067008746)),
+'EPSG:26991': ProjectAndUnProjectResult(
+        Point(x: 6637522.089340442, y: 5241976.733282339),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:26992': ProjectAndUnProjectResult(
+        Point(x: 6763552.011142525, y: 5414428.169782657),
+        Point(x: 17.88805856028151, y: 46.89226406700874)),
+'EPSG:26993': ProjectAndUnProjectResult(
+        Point(x: 6907731.6671998175, y: 5516216.609642071),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:26994': ProjectAndUnProjectResult(
+        Point(x: 3822984.905080838, y: 8488545.1484227),
+        Point(x: 0, y: 90)),
+'EPSG:26995': ProjectAndUnProjectResult(
+        Point(x: 3960143.9403490187, y: 8595620.856387978),
+        Point(x: 0, y: 90)),
+'EPSG:26996': ProjectAndUnProjectResult(
+        Point(x: 3479281.287680031, y: 7904330.11893151),
+        Point(x: 0, y: 90)),
+'EPSG:27037': ProjectAndUnProjectResult(
+        Point(x: -1105103.6797874472, y: 5413986.339062028),
+        Point(x: 17.888509125531673, y: 46.89229060205596)),
+'EPSG:27038': ProjectAndUnProjectResult(
+        Point(x: -1557505.546123053, y: 5561999.889457148),
+        Point(x: 17.893400025549788, y: 46.89274244627494)),
+'EPSG:27039': ProjectAndUnProjectResult(
+        Point(x: -2005457.8754873872, y: 5751956.32341547),
+        Point(x: 17.930939627421356, y: 46.89707978532681)),
+'EPSG:27040': ProjectAndUnProjectResult(
+        Point(x: -2446003.2653781604, y: 5987062.031091227),
+        Point(x: 18.16325678464276, y: 46.928550913950104)),
+'EPSG:27120': ProjectAndUnProjectResult(
+        Point(x: 5638668.8577555735, y: 9108646.435121816),
+        Point(x: 45, y: double.nan)),
+'EPSG:27205': ProjectAndUnProjectResult(
+        Point(x: 32752966.138749998, y: -3371109.7126332065),
+        Point(x: double.nan, y: double.nan)),
+'EPSG:27206': ProjectAndUnProjectResult(
+        Point(x: 35661932.30867676, y: -5877891.2530352175),
+        Point(x: 8.586443064075317, y: -89.99943361752067)),
+'EPSG:27207': ProjectAndUnProjectResult(
+        Point(x: 38221517.530041166, y: -8140850.70342716),
+        Point(x: 8.586443064075317, y: -89.99943361752067)),
+'EPSG:27208': ProjectAndUnProjectResult(
+        Point(x: 36028211.530873895, y: -6002034.59526986),
+        Point(x: 8.586443064075317, y: -89.99943361752067)),
+'EPSG:27209': ProjectAndUnProjectResult(
+        Point(x: 31876098.954083707, y: -2348599.2591612106),
+        Point(x: double.nan, y: double.nan)),
+'EPSG:27210': ProjectAndUnProjectResult(
+        Point(x: 34229614.12892453, y: -4389697.6416421635),
+        Point(x: double.nan, y: double.nan)),
+'EPSG:27211': ProjectAndUnProjectResult(
+        Point(x: 33970697.79220577, y: -4076899.675460361),
+        Point(x: double.nan, y: double.nan)),
+'EPSG:27212': ProjectAndUnProjectResult(
+        Point(x: 34242110.9571065, y: -4243992.639892085),
+        Point(x: double.nan, y: double.nan)),
+'EPSG:27213': ProjectAndUnProjectResult(
+        Point(x: 32776566.036459737, y: -2898602.7486160733),
+        Point(x: double.nan, y: double.nan)),
+'EPSG:27214': ProjectAndUnProjectResult(
+        Point(x: 29415876.30092016, y: -56216.4287707248),
+        Point(x: double.nan, y: double.nan)),
+'EPSG:27215': ProjectAndUnProjectResult(
+        Point(x: 30391259.787342537, y: -825746.5887205349),
+        Point(x: double.nan, y: double.nan)),
+'EPSG:27216': ProjectAndUnProjectResult(
+        Point(x: 28558918.972914487, y: 729838.2461928133),
+        Point(x: double.nan, y: double.nan)),
+'EPSG:27217': ProjectAndUnProjectResult(
+        Point(x: 27771259.13318199, y: 1444248.6388693207),
+        Point(x: double.nan, y: double.nan)),
+'EPSG:27218': ProjectAndUnProjectResult(
+        Point(x: 27724737.578027647, y: 1540888.4560405558),
+        Point(x: double.nan, y: double.nan)),
+'EPSG:27219': ProjectAndUnProjectResult(
+        Point(x: 29938864.699345432, y: -281599.5912726079),
+        Point(x: double.nan, y: double.nan)),
+'EPSG:27220': ProjectAndUnProjectResult(
+        Point(x: 31188985.865262844, y: -1483479.0449241777),
+        Point(x: double.nan, y: double.nan)),
+'EPSG:27221': ProjectAndUnProjectResult(
+        Point(x: 26892054.855501864, y: 2288201.747129887),
+        Point(x: double.nan, y: double.nan)),
+'EPSG:27222': ProjectAndUnProjectResult(
+        Point(x: 25865522.98551159, y: 3147442.878888669),
+        Point(x: double.nan, y: double.nan)),
+'EPSG:27223': ProjectAndUnProjectResult(
+        Point(x: 23603528.30360759, y: 5036671.048549576),
+        Point(x: double.nan, y: double.nan)),
+'EPSG:27224': ProjectAndUnProjectResult(
+        Point(x: 29500751.12892391, y: 191270.50092785468),
+        Point(x: double.nan, y: double.nan)),
+'EPSG:27225': ProjectAndUnProjectResult(
+        Point(x: 27446587.082927264, y: 1928111.7779986237),
+        Point(x: double.nan, y: double.nan)),
+'EPSG:27226': ProjectAndUnProjectResult(
+        Point(x: 27003953.49389428, y: 2364923.664651798),
+        Point(x: double.nan, y: double.nan)),
+'EPSG:27227': ProjectAndUnProjectResult(
+        Point(x: 24764052.09763393, y: 4209076.159203182),
+        Point(x: double.nan, y: double.nan)),
+'EPSG:27228': ProjectAndUnProjectResult(
+        Point(x: 23329308.710230745, y: 5377925.025070474),
+        Point(x: double.nan, y: double.nan)),
+'EPSG:27229': ProjectAndUnProjectResult(
+        Point(x: 22471791.834583294, y: 6085085.508028565),
+        Point(x: double.nan, y: double.nan)),
+'EPSG:27230': ProjectAndUnProjectResult(
+        Point(x: 26387042.29765395, y: 3025828.555928605),
+        Point(x: double.nan, y: double.nan)),
+'EPSG:27231': ProjectAndUnProjectResult(
+        Point(x: 25895033.691918638, y: 3428445.71100931),
+        Point(x: double.nan, y: double.nan)),
+'EPSG:27232': ProjectAndUnProjectResult(
+        Point(x: 23256013.183239985, y: 5597734.430803449),
+        Point(x: double.nan, y: double.nan)),
+'EPSG:27258': ProjectAndUnProjectResult(
+        Point(x: 19322413.243512526, y: 12806768.741632633),
+        Point(x: double.nan, y: double.nan)),
+'EPSG:27259': ProjectAndUnProjectResult(
+        Point(x: 27110353.50515705, y: 6815589.614981266),
+        Point(x: double.nan, y: double.nan)),
+'EPSG:27260': ProjectAndUnProjectResult(
+        Point(x: 36795154.37310264, y: -1620848.854066819),
+        Point(x: 8.586443064075317, y: -89.99943361752067)),
+'EPSG:27291': ProjectAndUnProjectResult(
+        Point(x: 37144909.98928231, y: -4994674.004096187),
+        Point(x: double.nan, y: double.nan)),
+'EPSG:27292': ProjectAndUnProjectResult(
+        Point(x: 30411811.92702717, y: 1688561.978554066),
+        Point(x: double.nan, y: double.nan)),
+'EPSG:27391': ProjectAndUnProjectResult(
+        Point(x: 1714725.997511397, y: -983216.6981573565),
+        Point(x: 17.887201122107257, y: 46.89232231525221)),
+'EPSG:27392': ProjectAndUnProjectResult(
+        Point(x: 1538194.784209117, y: -1033710.5429391875),
+        Point(x: 17.88776138983769, y: 46.89227997953627)),
+'EPSG:32609': ProjectAndUnProjectResult(
+        Point(x: -18063024.28264584, y: 2990541.0428002356),
+        Point(x: 5728.679565344176, y: 8118.4804666046575)),
+'EPSG:27393': ProjectAndUnProjectResult(
+        Point(x: 1361322.1748794368, y: -1078324.4606159278),
+        Point(x: 17.887966689447335, y: 46.892267276779826)),
+'EPSG:27394': ProjectAndUnProjectResult(
+        Point(x: 1171521.2368061391, y: -1119744.843138446),
+        Point(x: 17.88803648102262, y: 46.89226421548681)),
+'EPSG:27395': ProjectAndUnProjectResult(
+        Point(x: 892744.0572182782, y: -1168832.714137421),
+        Point(x: 17.888056849644748, y: 46.8922639705518)),
+'EPSG:27396': ProjectAndUnProjectResult(
+        Point(x: 588261.424381375, y: -1206931.468825649),
+        Point(x: 17.888058528327576, y: 46.892264106031845)),
+'EPSG:27397': ProjectAndUnProjectResult(
+        Point(x: 283562.54391574103, y: -1229227.625454977),
+        Point(x: 17.88805856033357, y: 46.892264123651564)),
+'EPSG:27398': ProjectAndUnProjectResult(
+        Point(x: -33930.57107207637, y: -1235858.948851324),
+        Point(x: 17.88805856028151, y: 46.892264123889454)),
+'EPSG:27429': ProjectAndUnProjectResult(
+        Point(x: 2540783.335368116, y: 5555899.395479769),
+        Point(x: 17.883147115494637, y: 46.89269969480191)),
+'EPSG:27492': ProjectAndUnProjectResult(
+        Point(x: 1976494.2654785814, y: 1141716.7625317026),
+        Point(x: 17.884529662973264, y: 46.89256376274837)),
+'EPSG:27493': ProjectAndUnProjectResult(
+        Point(x: 1976494.2654785814, y: 1141716.7625317026),
+        Point(x: 17.884529662973264, y: 46.89256376274837)),
+'EPSG:27500': ProjectAndUnProjectResult(
+        Point(x: 1409550.30788559, y: -527434.8624990102),
+        Point(x: 17.888058560281515, y: 46.89226532186765)),
+'EPSG:27561': ProjectAndUnProjectResult(
+        Point(x: 1960992.7487849754, y: -529394.6577516814),
+        Point(x: 17.888058560281515, y: 46.89226403064888)),
+'EPSG:27562': ProjectAndUnProjectResult(
+        Point(x: 1954503.393894864, y: -200922.71348761418),
+        Point(x: 17.88805856028151, y: 46.89226403064889)),
+'EPSG:27563': ProjectAndUnProjectResult(
+        Point(x: 1951362.586806893, y: 125916.11602183574),
+        Point(x: 17.888058560281515, y: 46.89226403064889)),
+'EPSG:27564': ProjectAndUnProjectResult(
+        Point(x: 1351613.8399405696, y: 345482.0431943973),
+        Point(x: 17.888058560281515, y: 46.89226403064889)),
+'EPSG:27571': ProjectAndUnProjectResult(
+        Point(x: 1960992.7487849754, y: 470605.3422483186),
+        Point(x: 17.888058560281515, y: 46.89226403064888)),
+'EPSG:27572': ProjectAndUnProjectResult(
+        Point(x: 1954503.393894864, y: 1799077.2865123858),
+        Point(x: 17.88805856028151, y: 46.89226403064889)),
+'EPSG:27573': ProjectAndUnProjectResult(
+        Point(x: 1951362.586806893, y: 3125916.1160218357),
+        Point(x: 17.888058560281515, y: 46.89226403064889)),
+'EPSG:27574': ProjectAndUnProjectResult(
+        Point(x: 1351613.8399405696, y: 4345482.043194397),
+        Point(x: 17.888058560281515, y: 46.89226403064889)),
+'EPSG:27581': ProjectAndUnProjectResult(
+        Point(x: 1960992.7487849754, y: 470605.3422483186),
+        Point(x: 17.888058560281515, y: 46.89226403064888)),
+'EPSG:27582': ProjectAndUnProjectResult(
+        Point(x: 1954503.393894864, y: 1799077.2865123858),
+        Point(x: 17.88805856028151, y: 46.89226403064889)),
+'EPSG:27583': ProjectAndUnProjectResult(
+        Point(x: 1951362.586806893, y: 3125916.1160218357),
+        Point(x: 17.888058560281515, y: 46.89226403064889)),
+'EPSG:27584': ProjectAndUnProjectResult(
+        Point(x: 1351613.8399405696, y: 4345482.043194397),
+        Point(x: 17.888058560281515, y: 46.89226403064889)),
+'EPSG:27591': ProjectAndUnProjectResult(
+        Point(x: 1960992.7487849754, y: -529394.6577516814),
+        Point(x: 17.888058560281515, y: 46.89226403064888)),
+'EPSG:27592': ProjectAndUnProjectResult(
+        Point(x: 1954503.393894864, y: -200922.71348761418),
+        Point(x: 17.88805856028151, y: 46.89226403064889)),
+'EPSG:27593': ProjectAndUnProjectResult(
+        Point(x: 1951362.586806893, y: 125916.11602183574),
+        Point(x: 17.888058560281515, y: 46.89226403064889)),
+'EPSG:27594': ProjectAndUnProjectResult(
+        Point(x: 1351613.8399405696, y: 345482.0431943973),
+        Point(x: 17.888058560281515, y: 46.89226403064889)),
+'EPSG:27700': ProjectAndUnProjectResult(
+        Point(x: 1912625.1077145399, y: -138902.14835901326),
+        Point(x: 17.887804967077802, y: 46.89227699578946)),
+'EPSG:28191': ProjectAndUnProjectResult(
+        Point(x: -1139420.1176641148, y: 1957824.0147635664),
+        Point(x: 17.908185550102313, y: 46.892519563568676)),
+'EPSG:28192': ProjectAndUnProjectResult(
+        Point(x: -1148391.7353638234, y: 2957825.0537037267),
+        Point(x: 17.88812627613647, y: 46.89226595089692)),
+'EPSG:28193': ProjectAndUnProjectResult(
+        Point(x: -1139420.1176641148, y: 2957824.0147635667),
+        Point(x: 17.908185550102313, y: 46.892519563568676)),
+'EPSG:28232': ProjectAndUnProjectResult(
+        Point(x: 1176883.2342184111, y: 15231709.450285565),
+        Point(x: 17.888058435869073, y: 46.89226399035672)),
+'EPSG:28348': ProjectAndUnProjectResult(
+        Point(x: -4621959.250494171, y: 19778061.493694857),
+        Point(x: 30362279619.504566, y: 6642887099.3340845)),
+'EPSG:28349': ProjectAndUnProjectResult(
+        Point(x: -4425719.246305057, y: 20435146.71752043),
+        Point(x: 0, y: 90)),
+'EPSG:28350': ProjectAndUnProjectResult(
+        Point(x: -3998899.011053183, y: 21067284.300468326),
+        Point(x: 0, y: 90)),
+'EPSG:28351': ProjectAndUnProjectResult(
+        Point(x: -3275967.0652893055, y: 21622144.51821889),
+        Point(x: 0, y: 90)),
+'EPSG:28352': ProjectAndUnProjectResult(
+        Point(x: -2176781.840373538, y: 22026151.47139568),
+        Point(x: 0, y: 90)),
+'EPSG:28353': ProjectAndUnProjectResult(
+        Point(x: -604157.4780445739, y: 22178763.901223246),
+        Point(x: 0, y: 90)),
+'EPSG:28354': ProjectAndUnProjectResult(
+        Point(x: 1558843.5538291563, y: 21945699.007619552),
+        Point(x: 0, y: 90)),
+'EPSG:28355': ProjectAndUnProjectResult(
+        Point(x: 4451906.623195637, y: 21150975.810983855),
+        Point(x: 0, y: 90)),
+'EPSG:28356': ProjectAndUnProjectResult(
+        Point(x: 8240765.467341783, y: 19567647.747223884),
+        Point(x: -4967267525.630645, y: 1643558557.1708994)),
+'EPSG:28357': ProjectAndUnProjectResult(
+        Point(x: 13120822.691871341, y: 16907087.333848983),
+        Point(x: -142413.85807935635, y: 81938.05169573172)),
+'EPSG:28358': ProjectAndUnProjectResult(
+        Point(x: 19321105.829017498, y: 12806678.893239),
+        Point(x: -5175.116548601758, y: 7749.823533021951)),
+'EPSG:28402': ProjectAndUnProjectResult(
+        Point(x: 3177173.7521509556, y: 5233854.805224848),
+        Point(x: 17.88805843543354, y: 46.89226402703456)),
+'EPSG:28403': ProjectAndUnProjectResult(
+        Point(x: 3720093.035258308, y: 5199410.227239075),
+        Point(x: 17.888058560302017, y: 46.89226406653935)),
+'EPSG:28404': ProjectAndUnProjectResult(
+        Point(x: 4262846.366199088, y: 5200062.991900588),
+        Point(x: 17.88805856025309, y: 46.89226406650986)),
+'EPSG:28405': ProjectAndUnProjectResult(
+        Point(x: 4805779.076641811, y: 5235826.072617986),
+        Point(x: 17.888058718645958, y: 46.892264021268176)),
+'EPSG:28406': ProjectAndUnProjectResult(
+        Point(x: 5349327.8123745285, y: 5307406.913783019),
+        Point(x: 17.888077173334445, y: 46.892264059719786)),
+'EPSG:28407': ProjectAndUnProjectResult(
+        Point(x: 5894204.636684559, y: 5416200.817466673),
+        Point(x: 17.88850918995584, y: 46.89229076437375)),
+'EPSG:28408': ProjectAndUnProjectResult(
+        Point(x: 6441604.82542362, y: 5564270.833365575),
+        Point(x: 17.89339993355319, y: 46.89274300140399)),
+'EPSG:28409': ProjectAndUnProjectResult(
+        Point(x: 6993453.954178276, y: 5754300.314963382),
+        Point(x: 17.93093565100568, y: 46.89708114575195)),
+'EPSG:28410': ProjectAndUnProjectResult(
+        Point(x: 7552709.8779655695, y: 5989497.450296735),
+        Point(x: 18.163219497381576, y: 46.928551732515096)),
+'EPSG:28411': ProjectAndUnProjectResult(
+        Point(x: 8123735.203873761, y: 6273424.221140283),
+        Point(x: 19.45470777256246, y: 47.12664112954269)),
+'EPSG:28412': ProjectAndUnProjectResult(
+        Point(x: 8712755.857068019, y: 6609715.389850158),
+        Point(x: 26.45752617154501, y: 48.3144402829855)),
+'EPSG:28413': ProjectAndUnProjectResult(
+        Point(x: 9328421.340581, y: 7001646.258530278),
+        Point(x: 66.46970363157362, y: 55.685356944014764)),
+'EPSG:28414': ProjectAndUnProjectResult(
+        Point(x: 9982482.289308187, y: 7451501.090610668),
+        Point(x: 45, y: double.nan)),
+'EPSG:28415': ProjectAndUnProjectResult(
+        Point(x: 10690600.918627873, y: 7959687.230352008),
+        Point(x: 45, y: double.nan)),
+'EPSG:28416': ProjectAndUnProjectResult(
+        Point(x: 11473309.968065696, y: 8523533.10121544),
+        Point(x: 45, y: double.nan)),
+'EPSG:28417': ProjectAndUnProjectResult(
+        Point(x: 12357135.740423597, y: 9135701.409461653),
+        Point(x: 45, y: double.nan)),
+'EPSG:28418': ProjectAndUnProjectResult(
+        Point(x: 13375900.836793115, y: 9782142.024768146),
+        Point(x: 45, y: double.nan)),
+'EPSG:28419': ProjectAndUnProjectResult(
+        Point(x: 14572222.187872892, y: 10439502.15507849),
+        Point(x: 0, y: 90)),
+'EPSG:28420': ProjectAndUnProjectResult(
+        Point(x: 15999219.982010296, y: 11071904.578322321),
+        Point(x: 0, y: 90)),
+'EPSG:28421': ProjectAndUnProjectResult(
+        Point(x: 17722453.090387028, y: 11626997.839069745),
+        Point(x: 0, y: 90)),
+'EPSG:28422': ProjectAndUnProjectResult(
+        Point(x: 19822096.589768603, y: 12031175.463608662),
+        Point(x: 0, y: 90)),
+'EPSG:28423': ProjectAndUnProjectResult(
+        Point(x: 22395376.983237706, y: 12183854.3923586),
+        Point(x: 0, y: 90)),
+'EPSG:28424': ProjectAndUnProjectResult(
+        Point(x: 25559280.719331052, y: 11950695.97395934),
+        Point(x: 0, y: 90)),
+'EPSG:28425': ProjectAndUnProjectResult(
+        Point(x: 29453551.61, y: 11155646.010797745),
+        Point(x: 0, y: 90)),
+'EPSG:28426': ProjectAndUnProjectResult(
+        Point(x: 34243992.74781446, y: 9571663.49116099),
+        Point(x: 45, y: double.nan)),
+'EPSG:28427': ProjectAndUnProjectResult(
+        Point(x: 40126088.52283026, y: 6910000.788629317),
+        Point(x: 45, y: double.nan)),
+'EPSG:28428': ProjectAndUnProjectResult(
+        Point(x: 47328962.33953968, y: 2807891.254746426),
+        Point(x: 45, y: double.nan)),
+'EPSG:28429': ProjectAndUnProjectResult(
+        Point(x: 56119685.63432519, y: -3185506.723569556),
+        Point(x: -135, y: double.nan)),
+'EPSG:28430': ProjectAndUnProjectResult(
+        Point(x: 66807953.793836035, y: -11625066.984986547),
+        Point(x: 0, y: -90)),
+'EPSG:28431': ProjectAndUnProjectResult(
+        Point(x: 79751144.57470796, y: -23187718.81077772),
+        Point(x: 0, y: -90)),
+'EPSG:28432': ProjectAndUnProjectResult(
+        Point(x: 95359774.6250457, y: -38692707.59016192),
+        Point(x: 0, y: -90)),
+'EPSG:28462': ProjectAndUnProjectResult(
+        Point(x: 1177173.7521509558, y: 5233854.805224848),
+        Point(x: 17.888058435433543, y: 46.89226402703456)),
+'EPSG:28463': ProjectAndUnProjectResult(
+        Point(x: 720093.0352583079, y: 5199410.227239075),
+        Point(x: 17.888058560302014, y: 46.89226406653935)),
+'EPSG:28464': ProjectAndUnProjectResult(
+        Point(x: 262846.3661990886, y: 5200062.991900588),
+        Point(x: 17.88805856025309, y: 46.89226406650986)),
+'EPSG:28465': ProjectAndUnProjectResult(
+        Point(x: -194220.9233581887, y: 5235826.072617986),
+        Point(x: 17.88805871864596, y: 46.892264021268176)),
+'EPSG:28466': ProjectAndUnProjectResult(
+        Point(x: -650672.1876254713, y: 5307406.913783019),
+        Point(x: 17.888077173334445, y: 46.892264059719786)),
+'EPSG:28467': ProjectAndUnProjectResult(
+        Point(x: -1105795.3633154412, y: 5416200.817466673),
+        Point(x: 17.888509189955833, y: 46.89229076437375)),
+'EPSG:28468': ProjectAndUnProjectResult(
+        Point(x: -1558395.1745763805, y: 5564270.833365575),
+        Point(x: 17.893399933553184, y: 46.89274300140399)),
+'EPSG:28469': ProjectAndUnProjectResult(
+        Point(x: -2006546.045821725, y: 5754300.314963382),
+        Point(x: 17.93093565100567, y: 46.89708114575195)),
+'EPSG:28470': ProjectAndUnProjectResult(
+        Point(x: -2447290.12203443, y: 5989497.450296735),
+        Point(x: 18.163219497381576, y: 46.928551732515096)),
+'EPSG:28471': ProjectAndUnProjectResult(
+        Point(x: -2876264.7961262385, y: 6273424.221140283),
+        Point(x: 19.454707772562468, y: 47.12664112954269)),
+'EPSG:28472': ProjectAndUnProjectResult(
+        Point(x: -3287244.1429319805, y: 6609715.389850158),
+        Point(x: 26.457526171544988, y: 48.3144402829855)),
+'EPSG:28473': ProjectAndUnProjectResult(
+        Point(x: -3671578.659419, y: 7001646.258530278),
+        Point(x: 66.46970363157362, y: 55.685356944014764)),
+'EPSG:28474': ProjectAndUnProjectResult(
+        Point(x: -4017517.7106918134, y: 7451501.090610668),
+        Point(x: 45, y: double.nan)),
+'EPSG:28475': ProjectAndUnProjectResult(
+        Point(x: -4309399.081372126, y: 7959687.230352008),
+        Point(x: 45, y: double.nan)),
+'EPSG:28476': ProjectAndUnProjectResult(
+        Point(x: -4526690.031934304, y: 8523533.10121544),
+        Point(x: 45, y: double.nan)),
+'EPSG:28477': ProjectAndUnProjectResult(
+        Point(x: -4642864.259576404, y: 9135701.409461653),
+        Point(x: 45, y: double.nan)),
+'EPSG:28478': ProjectAndUnProjectResult(
+        Point(x: -4624099.163206885, y: 9782142.024768146),
+        Point(x: 45, y: double.nan)),
+'EPSG:28479': ProjectAndUnProjectResult(
+        Point(x: -4427777.812127108, y: 10439502.15507849),
+        Point(x: 0, y: 90)),
+'EPSG:28480': ProjectAndUnProjectResult(
+        Point(x: -4000780.0179897044, y: 11071904.578322321),
+        Point(x: 0, y: 90)),
+'EPSG:28481': ProjectAndUnProjectResult(
+        Point(x: -3277546.9096129737, y: 11626997.839069745),
+        Point(x: 0, y: 90)),
+'EPSG:28482': ProjectAndUnProjectResult(
+        Point(x: -2177903.4102313956, y: 12031175.463608662),
+        Point(x: 0, y: 90)),
+'EPSG:28483': ProjectAndUnProjectResult(
+        Point(x: -604623.0167622955, y: 12183854.3923586),
+        Point(x: 0, y: 90)),
+'EPSG:28484': ProjectAndUnProjectResult(
+        Point(x: 1559280.7193310524, y: 11950695.97395934),
+        Point(x: 0, y: 90)),
+'EPSG:28485': ProjectAndUnProjectResult(
+        Point(x: 4453551.610000001, y: 11155646.010797745),
+        Point(x: 0, y: 90)),
+'EPSG:28486': ProjectAndUnProjectResult(
+        Point(x: 8243992.74781446, y: 9571663.49116099),
+        Point(x: 45, y: double.nan)),
+'EPSG:28487': ProjectAndUnProjectResult(
+        Point(x: 13126088.52283026, y: 6910000.788629317),
+        Point(x: 45, y: double.nan)),
+'EPSG:28488': ProjectAndUnProjectResult(
+        Point(x: 19328962.339539673, y: 2807891.254746426),
+        Point(x: 45, y: double.nan)),
+'EPSG:28489': ProjectAndUnProjectResult(
+        Point(x: 27119685.634325188, y: -3185506.723569556),
+        Point(x: -135, y: double.nan)),
+'EPSG:28490': ProjectAndUnProjectResult(
+        Point(x: 36807953.793836035, y: -11625066.984986547),
+        Point(x: 0, y: -90)),
+'EPSG:28491': ProjectAndUnProjectResult(
+        Point(x: 48751144.57470795, y: -23187718.81077772),
+        Point(x: 0, y: -90)),
+'EPSG:28492': ProjectAndUnProjectResult(
+        Point(x: 63359774.6250457, y: -38692707.59016192),
+        Point(x: 0, y: -90)),
+'EPSG:28600': ProjectAndUnProjectResult(
+        Point(x: -2322620.023449666, y: 3356906.260496193),
+        Point(x: 17.93405866447349, y: 46.89746591853616)),
+'EPSG:28991': ProjectAndUnProjectResult(
+        Point(x: 951644.7497660064, y: -506439.086804872),
+        Point(x: 17.88805856028151, y: 46.89226413303868)),
+'EPSG:28992': ProjectAndUnProjectResult(
+        Point(x: 1106644.7497660064, y: -43439.08680487197),
+        Point(x: 17.88805856028151, y: 46.89226413303868)),
+'EPSG:29100': ProjectAndUnProjectResult(
+        Point(x: 9743883.718886381, y: 17533855.00604763),
+        Point(x: 17.88805856028154, y: 46.892264067034176)),
+'EPSG:29101': ProjectAndUnProjectResult(
+        Point(x: 9743883.84106201, y: 17533855.018198848),
+        Point(x: 17.88805856028148, y: 46.8922640670278)),
+'EPSG:29118': ProjectAndUnProjectResult(
+        Point(x: 5436834.6300422475, y: 10410845.69118151),
+        Point(x: 0, y: 90)),
+'EPSG:29119': ProjectAndUnProjectResult(
+        Point(x: 5625570.019495951, y: 9753610.32784633),
+        Point(x: 45, y: double.nan)),
+'EPSG:29120': ProjectAndUnProjectResult(
+        Point(x: 5638589.378661514, y: 9108363.41549437),
+        Point(x: 45, y: double.nan)),
+'EPSG:29121': ProjectAndUnProjectResult(
+        Point(x: 5518134.649714009, y: 8498047.567521054),
+        Point(x: 45, y: double.nan)),
+'EPSG:29122': ProjectAndUnProjectResult(
+        Point(x: 5297716.658189929, y: 7936413.9316667905),
+        Point(x: 45, y: double.nan)),
+'EPSG:29168': ProjectAndUnProjectResult(
+        Point(x: 5436834.9310548585, y: 10410845.897631533),
+        Point(x: 0, y: 90)),
+'EPSG:29169': ProjectAndUnProjectResult(
+        Point(x: 5625570.287248085, y: 9753610.469679171),
+        Point(x: 45, y: double.nan)),
+'EPSG:29170': ProjectAndUnProjectResult(
+        Point(x: 5638589.611957945, y: 9108363.512035077),
+        Point(x: 45, y: double.nan)),
+'EPSG:29171': ProjectAndUnProjectResult(
+        Point(x: 5518134.849618785, y: 8498047.633415489),
+        Point(x: 45, y: double.nan)),
+'EPSG:29172': ProjectAndUnProjectResult(
+        Point(x: 5297716.82715439, y: 7936413.9777705595),
+        Point(x: 45, y: double.nan)),
+'EPSG:29177': ProjectAndUnProjectResult(
+        Point(x: 5019710.080254162, y: 21044740.240546945),
+        Point(x: 0, y: 90)),
+'EPSG:29178': ProjectAndUnProjectResult(
+        Point(x: 5436834.6300422475, y: 20410845.69118151),
+        Point(x: 0, y: 90)),
+'EPSG:29179': ProjectAndUnProjectResult(
+        Point(x: 5625570.019495951, y: 19753610.32784633),
+        Point(x: 45, y: double.nan)),
+'EPSG:29180': ProjectAndUnProjectResult(
+        Point(x: 5638589.378661514, y: 19108363.415494367),
+        Point(x: 45, y: double.nan)),
+'EPSG:29181': ProjectAndUnProjectResult(
+        Point(x: 5518134.649714009, y: 18498047.567521054),
+        Point(x: 45, y: double.nan)),
+'EPSG:29182': ProjectAndUnProjectResult(
+        Point(x: 5297716.658189929, y: 17936413.93166679),
+        Point(x: 45, y: double.nan)),
+'EPSG:29183': ProjectAndUnProjectResult(
+        Point(x: 5003604.9571757885, y: 17430589.145310096),
+        Point(x: 45, y: double.nan)),
+'EPSG:29184': ProjectAndUnProjectResult(
+        Point(x: 4656123.038377078, y: 16983103.004960224),
+        Point(x: -27.574020544337863, y: 55.09636414734357)),
+'EPSG:29185': ProjectAndUnProjectResult(
+        Point(x: 4270764.503991876, y: 16593458.943016414),
+        Point(x: 9.846276504934615, y: 48.22214406013148)),
+'EPSG:29187': ProjectAndUnProjectResult(
+        Point(x: 5019710.409948423, y: 21044740.536634523),
+        Point(x: 0, y: 90)),
+'EPSG:29188': ProjectAndUnProjectResult(
+        Point(x: 5436834.9310548585, y: 20410845.897631533),
+        Point(x: 0, y: 90)),
+'EPSG:29189': ProjectAndUnProjectResult(
+        Point(x: 5625570.287248085, y: 19753610.46967917),
+        Point(x: 45, y: double.nan)),
+'EPSG:29190': ProjectAndUnProjectResult(
+        Point(x: 5638589.611957945, y: 19108363.51203508),
+        Point(x: 45, y: double.nan)),
+'EPSG:29191': ProjectAndUnProjectResult(
+        Point(x: 5518134.849618785, y: 18498047.63341549),
+        Point(x: 45, y: double.nan)),
+'EPSG:29192': ProjectAndUnProjectResult(
+        Point(x: 5297716.82715439, y: 17936413.97777056),
+        Point(x: 45, y: double.nan)),
+'EPSG:29193': ProjectAndUnProjectResult(
+        Point(x: 5003605.098381439, y: 17430589.17945776),
+        Point(x: 45, y: double.nan)),
+'EPSG:29194': ProjectAndUnProjectResult(
+        Point(x: 4656123.155258612, y: 16983103.03262259),
+        Point(x: -27.57401515151467, y: 55.09636348204835)),
+'EPSG:29195': ProjectAndUnProjectResult(
+        Point(x: 4270764.59990843, y: 16593458.96785412),
+        Point(x: 9.84627736397417, y: 48.222143976593216)),
+'EPSG:29220': ProjectAndUnProjectResult(
+        Point(x: 5638668.8577555735, y: 19108646.435121816),
+        Point(x: 45, y: double.nan)),
+'EPSG:29221': ProjectAndUnProjectResult(
+        Point(x: 5518224.65906046, y: 18498322.508853763),
+        Point(x: 45, y: double.nan)),
+'EPSG:29333': ProjectAndUnProjectResult(
+        Point(x: 719979.9558512127, y: 15196717.407074308),
+        Point(x: 17.888058560301882, y: 46.89226412462031)),
+'EPSG:29635': ProjectAndUnProjectResult(
+        Point(x: -193923.0794370263, y: 5233679.973491593),
+        Point(x: 17.888058718139288, y: 46.892263984472194)),
+'EPSG:29636': ProjectAndUnProjectResult(
+        Point(x: -650177.7501527893, y: 5305233.7570596095),
+        Point(x: 17.888077162186274, y: 46.89226400623042)),
+'EPSG:29700': ProjectAndUnProjectResult(
+        Point(x: -1505126.0003590453, y: 9596276.381179042),
+        Point(x: 17.888058560281504, y: 46.89226409307016)),
+'EPSG:29702': ProjectAndUnProjectResult(
+        Point(x: -1505126.0003590453, y: 9596276.381179042),
+        Point(x: 17.888058560281504, y: 46.89226409307016)),
+'EPSG:29738': ProjectAndUnProjectResult(
+        Point(x: -1557599.8094046724, y: 15562157.319282241),
+        Point(x: 17.89339995905174, y: 46.89274289000551)),
+'EPSG:29739': ProjectAndUnProjectResult(
+        Point(x: -2005576.2183771236, y: 15752115.796732064),
+        Point(x: 17.93093671554712, y: 46.89708082073056)),
+'EPSG:29849': ProjectAndUnProjectResult(
+        Point(x: -4425344.809606773, y: 10433963.031978875),
+        Point(x: 0, y: 90)),
+'EPSG:29850': ProjectAndUnProjectResult(
+        Point(x: -3998605.7080351273, y: 11066099.776470415),
+        Point(x: 0, y: 90)),
+'EPSG:29871': ProjectAndUnProjectResult(
+        Point(x: -997836.8986768634, y: 389758.90993635746),
+        Point(x: 17.888058560281497, y: 46.89226425877471)),
+'EPSG:29872': ProjectAndUnProjectResult(
+        Point(x: -65857235.308472976, y: 25724088.06059959),
+        Point(x: 17.888058560281515, y: 46.892264258774695)),
+'EPSG:29873': ProjectAndUnProjectResult(
+        Point(x: -20073250.52176401, y: 7840688.442127728),
+        Point(x: 17.888058560281497, y: 46.89226425877471)),
+'EPSG:29900': ProjectAndUnProjectResult(
+        Point(x: 2166448.8570793048, y: -149633.20393718773),
+        Point(x: 17.884700999554877, y: 46.892547370826165)),
+'EPSG:29901': ProjectAndUnProjectResult(
+        Point(x: 2166448.5965697616, y: -149632.46895074664),
+        Point(x: 17.8847011233, y: 46.89254732122343)),
+'EPSG:29902': ProjectAndUnProjectResult(
+        Point(x: 2166448.8570793048, y: -149633.20393718773),
+        Point(x: 17.884700999554877, y: 46.892547370826165)),
+'EPSG:29903': ProjectAndUnProjectResult(
+        Point(x: 2166163.350071438, y: -149649.8145426496),
+        Point(x: 17.884705059016106, y: 46.89254714568311)),
+'EPSG:30161': ProjectAndUnProjectResult(
+        Point(x: -2565871.4940282996, y: 8400473.34291382),
+        Point(x: 0, y: 90)),
+'EPSG:30162': ProjectAndUnProjectResult(
+        Point(x: -2211036.5665795156, y: 8461241.653051388),
+        Point(x: 0, y: 90)),
+'EPSG:30163': ProjectAndUnProjectResult(
+        Point(x: -1913169.9392954672, y: 8163384.198876172),
+        Point(x: 0, y: 90)),
+'EPSG:30164': ProjectAndUnProjectResult(
+        Point(x: -1548120.7859621982, y: 8521336.7528255),
+        Point(x: 0, y: 90)),
+'EPSG:30165': ProjectAndUnProjectResult(
+        Point(x: -1306069.8456720088, y: 8195814.540421145),
+        Point(x: 0, y: 90)),
+'EPSG:30166': ProjectAndUnProjectResult(
+        Point(x: -788375.9712548932, y: 8188660.626954101),
+        Point(x: 0, y: 90)),
+'EPSG:30167': ProjectAndUnProjectResult(
+        Point(x: -398138.67862547695, y: 8165099.388933104),
+        Point(x: 0, y: 90)),
+'EPSG:30168': ProjectAndUnProjectResult(
+        Point(x: 77361.48776505257, y: 8117708.392097521),
+        Point(x: 0, y: 90)),
+'EPSG:32610': ProjectAndUnProjectResult(
+        Point(x: -11916549.255717097, y: 7029722.0728038),
+        Point(x: 169423.46822256624, y: 95274.64645617674)),
+'EPSG:30169': ProjectAndUnProjectResult(
+        Point(x: 585803.8798772371, y: 8046659.881956089),
+        Point(x: 0, y: 90)),
+'EPSG:30170': ProjectAndUnProjectResult(
+        Point(x: 989703.0765082366, y: 7532743.5278446125),
+        Point(x: 0, y: 90)),
+'EPSG:30171': ProjectAndUnProjectResult(
+        Point(x: 751696.2009637066, y: 7131194.857096666),
+        Point(x: 0, y: 90)),
+'EPSG:30172': ProjectAndUnProjectResult(
+        Point(x: 1596483.0977913304, y: 6962871.398420864),
+        Point(x: 0, y: 90)),
+'EPSG:30173': ProjectAndUnProjectResult(
+        Point(x: 2525770.466321988, y: 6727817.84115985),
+        Point(x: 0, y: 90)),
+'EPSG:30174': ProjectAndUnProjectResult(
+        Point(x: 1486382.9506805318, y: 8983978.91884507),
+        Point(x: 0, y: 90)),
+'EPSG:30175': ProjectAndUnProjectResult(
+        Point(x: -2992515.091403043, y: 9070379.90266952),
+        Point(x: 0, y: 90)),
+'EPSG:30176': ProjectAndUnProjectResult(
+        Point(x: -3622077.949052682, y: 8828337.398204101),
+        Point(x: 0, y: 90)),
+'EPSG:30177': ProjectAndUnProjectResult(
+        Point(x: -2211036.5665795156, y: 9236997.493288638),
+        Point(x: 0, y: 90)),
+'EPSG:30178': ProjectAndUnProjectResult(
+        Point(x: -788375.9712548932, y: 9961477.830524674),
+        Point(x: 0, y: 90)),
+'EPSG:30179': ProjectAndUnProjectResult(
+        Point(x: 8474173.04751328, y: 6333898.439269036),
+        Point(x: 45, y: double.nan)),
+'EPSG:30200': ProjectAndUnProjectResult(
+        Point(x: 26910721.511544526, y: 39929593.71236142),
+        Point(x: 45, y: double.nan)),
+'EPSG:30339': ProjectAndUnProjectResult(
+        Point(x: -2005525.8199949968, y: 5751957.866688647),
+        Point(x: 17.930935648444212, y: 46.897081145807086)),
+'EPSG:30340': ProjectAndUnProjectResult(
+        Point(x: -2446090.5057064057, y: 5987059.267526575),
+        Point(x: 18.163219481115515, y: 46.92855173187133)),
+'EPSG:30491': ProjectAndUnProjectResult(
+        Point(x: 1674527.614502858, y: 1608899.5200265232),
+        Point(x: 17.888058560281515, y: 46.892264030648874)),
+'EPSG:30492': ProjectAndUnProjectResult(
+        Point(x: 1688075.6797626016, y: 1910551.5595332228),
+        Point(x: 17.888058560281515, y: 46.89226403064887)),
+'EPSG:30493': ProjectAndUnProjectResult(
+        Point(x: 1674527.614502858, y: 1608899.5200265232),
+        Point(x: 17.888058560281515, y: 46.892264030648874)),
+'EPSG:30494': ProjectAndUnProjectResult(
+        Point(x: 1688075.6797626016, y: 1910551.5595332228),
+        Point(x: 17.888058560281515, y: 46.89226403064887)),
+'EPSG:30729': ProjectAndUnProjectResult(
+        Point(x: 2540689.9359594667, y: 5555742.024561414),
+        Point(x: 17.883147068514432, y: 46.8926992677133)),
+'EPSG:32611': ProjectAndUnProjectResult(
+        Point(x: -7081100.808616535, y: 9644074.03580277),
+        Point(x: 16894389361.82516, y: 5473429535.782776)),
+'EPSG:30730': ProjectAndUnProjectResult(
+        Point(x: 2088164.6801670862, y: 5409237.98513725),
+        Point(x: 17.8876521804974, y: 46.89228740565478)),
+'EPSG:30731': ProjectAndUnProjectResult(
+        Point(x: 1633171.3785517958, y: 5301906.368035032),
+        Point(x: 17.888042398765506, y: 46.89226394800493)),
+'EPSG:30732': ProjectAndUnProjectResult(
+        Point(x: 1176883.224093516, y: 5231709.393128521),
+        Point(x: 17.88805843586916, y: 46.892263990301835)),
+'EPSG:30791': ProjectAndUnProjectResult(
+        Point(x: 1674662.599618344, y: 1608989.5749327152),
+        Point(x: 17.888058560281515, y: 46.89226403059414)),
+'EPSG:30792': ProjectAndUnProjectResult(
+        Point(x: 1688210.6653227813, y: 1910641.6089057918),
+        Point(x: 17.888058560281518, y: 46.89226403059418)),
+'EPSG:30800': ProjectAndUnProjectResult(
+        Point(x: 1658477.7552794372, y: 5196775.451293881),
+        Point(x: 17.88805856028566, y: 46.89226413303138)),
+'EPSG:31028': ProjectAndUnProjectResult(
+        Point(x: 2988854.005416896, y: 5744078.72865976),
+        Point(x: 17.84819324729815, y: 46.8967101047849)),
+'EPSG:31121': ProjectAndUnProjectResult(
+        Point(x: 5518224.65906046, y: 8498322.508853763),
+        Point(x: 45, y: double.nan)),
+'EPSG:31154': ProjectAndUnProjectResult(
+        Point(x: 5418719.084774961, y: 8210840.608569968),
+        Point(x: 45, y: double.nan)),
+'EPSG:31170': ProjectAndUnProjectResult(
+        Point(x: 5477400.882309716, y: 8370568.308461826),
+        Point(x: 45, y: double.nan)),
+'EPSG:31171': ProjectAndUnProjectResult(
+        Point(x: 5478894.700101525, y: 8373080.48382451),
+        Point(x: 45, y: double.nan)),
+'EPSG:31251': ProjectAndUnProjectResult(
+        Point(x: -770255.6353390602, y: 244549.1006535003),
+        Point(x: 17.888058986049202, y: 46.892264054845505)),
+'EPSG:31252': ProjectAndUnProjectResult(
+        Point(x: -998499.2935701305, y: 278799.5507029956),
+        Point(x: 17.888063460605746, y: 46.89226392576044)),
+'EPSG:31253': ProjectAndUnProjectResult(
+        Point(x: -1226487.3848078088, y: 322206.234456907),
+        Point(x: 17.888092636880444, y: 46.89226462415213)),
+'EPSG:31254': ProjectAndUnProjectResult(
+        Point(x: 575560.4572168491, y: 222455.76731980406),
+        Point(x: 17.888058534516855, y: 46.892264117285116)),
+'EPSG:31255': ProjectAndUnProjectResult(
+        Point(x: 347047.6742011425, y: 204756.13317169994),
+        Point(x: 17.88805856028502, y: 46.89226413224243)),
+'EPSG:31256': ProjectAndUnProjectResult(
+        Point(x: 118469.65505968791, y: 195848.7278868407),
+        Point(x: 17.88805856028246, y: 46.89226413303739)),
+'EPSG:31257': ProjectAndUnProjectResult(
+        Point(x: 725560.4572168491, y: 222455.76731980406),
+        Point(x: 17.888058534516855, y: 46.892264117285116)),
+'EPSG:31258': ProjectAndUnProjectResult(
+        Point(x: 797047.6742011425, y: 204756.13317169994),
+        Point(x: 17.88805856028502, y: 46.89226413224243)),
+'EPSG:31259': ProjectAndUnProjectResult(
+        Point(x: 868469.6550596879, y: 195848.7278868407),
+        Point(x: 17.88805856028246, y: 46.89226413303739)),
+'EPSG:31265': ProjectAndUnProjectResult(
+        Point(x: 5720065.001582181, y: 5198725.952166574),
+        Point(x: 17.888058560301882, y: 46.89226413298655)),
+'EPSG:31266': ProjectAndUnProjectResult(
+        Point(x: 6491470.024306756, y: 5194681.210933701),
+        Point(x: 17.888058560281515, y: 46.892264133038665)),
+'EPSG:31267': ProjectAndUnProjectResult(
+        Point(x: 7262876.572660629, y: 5199378.6275801705),
+        Point(x: 17.888058560253288, y: 46.89226413295715)),
+'EPSG:31268': ProjectAndUnProjectResult(
+        Point(x: 8034326.53904783, y: 5212841.563136527),
+        Point(x: 17.88805856313832, y: 46.89226412846887)),
+'EPSG:31275': ProjectAndUnProjectResult(
+        Point(x: 5720042.995082023, y: 5198206.079571357),
+        Point(x: 17.888058560301882, y: 46.89226413298655)),
+'EPSG:31276': ProjectAndUnProjectResult(
+        Point(x: 6491470.877304326, y: 5194161.742812607),
+        Point(x: 17.888058560281515, y: 46.892264133038665)),
+'EPSG:31277': ProjectAndUnProjectResult(
+        Point(x: 7262900.285003362, y: 5198858.689717412),
+        Point(x: 17.88805856025328, y: 46.89226413295715)),
+'EPSG:31278': ProjectAndUnProjectResult(
+        Point(x: 7262900.285003362, y: 5198858.689717412),
+        Point(x: 17.88805856025328, y: 46.89226413295715)),
+'EPSG:31279': ProjectAndUnProjectResult(
+        Point(x: 8034373.106393925, y: 5212320.278980214),
+        Point(x: 17.888058563138316, y: 46.89226412846885)),
+'EPSG:31281': ProjectAndUnProjectResult(
+        Point(x: -770255.6353390602, y: 5244549.1006535),
+        Point(x: 17.888058986049202, y: 46.892264054845505)),
+'EPSG:31282': ProjectAndUnProjectResult(
+        Point(x: -998499.2935701305, y: 5278799.550702996),
+        Point(x: 17.888063460605746, y: 46.89226392576044)),
+'EPSG:31283': ProjectAndUnProjectResult(
+        Point(x: -1226487.3848078088, y: 5322206.234456907),
+        Point(x: 17.888092636880444, y: 46.89226462415213)),
+'EPSG:31284': ProjectAndUnProjectResult(
+        Point(x: 725560.4572168491, y: 5222455.767319804),
+        Point(x: 17.888058534516855, y: 46.892264117285116)),
+'EPSG:31285': ProjectAndUnProjectResult(
+        Point(x: 797047.6742011425, y: 5204756.1331717),
+        Point(x: 17.88805856028502, y: 46.89226413224243)),
+'EPSG:31286': ProjectAndUnProjectResult(
+        Point(x: 868469.6550596879, y: 5195848.727886841),
+        Point(x: 17.88805856028246, y: 46.89226413303739)),
+'EPSG:31287': ProjectAndUnProjectResult(
+        Point(x: 746774.267198731, y: 342564.4498270545),
+        Point(x: 17.888058560281515, y: 46.89226413303861)),
+'EPSG:31288': ProjectAndUnProjectResult(
+        Point(x: -620255.6353390602, y: 5244549.1006535),
+        Point(x: 17.888058986049202, y: 46.892264054845505)),
+'EPSG:31289': ProjectAndUnProjectResult(
+        Point(x: -548499.2935701305, y: 5278799.550702996),
+        Point(x: 17.888063460605746, y: 46.89226392576044)),
+'EPSG:31290': ProjectAndUnProjectResult(
+        Point(x: -476487.3848078088, y: 5322206.234456907),
+        Point(x: 17.888092636880444, y: 46.89226462415213)),
+'EPSG:31291': ProjectAndUnProjectResult(
+        Point(x: -770255.6353390602, y: 5244549.1006535),
+        Point(x: 17.888058986049202, y: 46.892264054845505)),
+'EPSG:31292': ProjectAndUnProjectResult(
+        Point(x: -998499.2935701305, y: 5278799.550702996),
+        Point(x: 17.888063460605746, y: 46.89226392576044)),
+'EPSG:31293': ProjectAndUnProjectResult(
+        Point(x: -1226487.3848078088, y: 5322206.234456907),
+        Point(x: 17.888092636880444, y: 46.89226462415213)),
+'EPSG:31294': ProjectAndUnProjectResult(
+        Point(x: 725560.4572168491, y: 5222455.767319804),
+        Point(x: 17.888058534516855, y: 46.892264117285116)),
+'EPSG:31295': ProjectAndUnProjectResult(
+        Point(x: 797047.6742011425, y: 5204756.1331717),
+        Point(x: 17.88805856028502, y: 46.89226413224243)),
+'EPSG:31296': ProjectAndUnProjectResult(
+        Point(x: 868469.6550596879, y: 5195848.727886841),
+        Point(x: 17.88805856028246, y: 46.89226413303739)),
+'EPSG:31297': ProjectAndUnProjectResult(
+        Point(x: 746774.267198731, y: 342564.4498270545),
+        Point(x: 17.888058560281515, y: 46.89226413303861)),
+'EPSG:31370': ProjectAndUnProjectResult(
+        Point(x: 1176759.146106716, y: -175517.24382414203),
+        Point(x: 17.888058620014764, y: 46.8922641048904)),
+'EPSG:31461': ProjectAndUnProjectResult(
+        Point(x: 2633514.2903908812, y: 5303379.750311261),
+        Point(x: 17.88804238682428, y: 46.89226406928607)),
+'EPSG:31462': ProjectAndUnProjectResult(
+        Point(x: 3405410.460859641, y: 5263731.414179802),
+        Point(x: 17.888056607098953, y: 46.89226397138334)),
+'EPSG:31463': ProjectAndUnProjectResult(
+        Point(x: 4177087.538008534, y: 5233165.822182404),
+        Point(x: 17.88805843535868, y: 46.892264093608865)),
+'EPSG:31464': ProjectAndUnProjectResult(
+        Point(x: 4948619.814255216, y: 5211532.968062555),
+        Point(x: 17.888058558410155, y: 46.892264129373)),
+'EPSG:31465': ProjectAndUnProjectResult(
+        Point(x: 5720065.001582181, y: 5198725.952166574),
+        Point(x: 17.888058560301882, y: 46.89226413298655)),
+'EPSG:31466': ProjectAndUnProjectResult(
+        Point(x: 3405410.460859641, y: 5263731.414179802),
+        Point(x: 17.888056607098953, y: 46.89226397138334)),
+'EPSG:32085': ProjectAndUnProjectResult(
+        Point(x: 5455436.685653299, y: 9269841.86024802),
+        Point(x: 45, y: double.nan)),
+'EPSG:31467': ProjectAndUnProjectResult(
+        Point(x: 4177087.538008534, y: 5233165.822182404),
+        Point(x: 17.88805843535868, y: 46.892264093608865)),
+'EPSG:31468': ProjectAndUnProjectResult(
+        Point(x: 4948619.814255216, y: 5211532.968062555),
+        Point(x: 17.888058558410155, y: 46.892264129373)),
+'EPSG:31469': ProjectAndUnProjectResult(
+        Point(x: 5720065.001582181, y: 5198725.952166574),
+        Point(x: 17.888058560301882, y: 46.89226413298655)),
+'EPSG:31528': ProjectAndUnProjectResult(
+        Point(x: 2988854.005416896, y: 5744078.72865976),
+        Point(x: 17.84819324729815, y: 46.8967101047849)),
+'EPSG:31529': ProjectAndUnProjectResult(
+        Point(x: 2540689.967838512, y: 5555742.083156228),
+        Point(x: 17.88314706852802, y: 46.89269926787449)),
+'EPSG:31600': ProjectAndUnProjectResult(
+        Point(x: -71303.28982566949, y: 637492.2277220218),
+        Point(x: 17.88805856028151, y: 46.892264093070196)),
+'EPSG:31700': ProjectAndUnProjectResult(
+        Point(x: -41498.19877323811, y: 623548.4760109524),
+        Point(x: 17.888058560281515, y: 46.892264066591586)),
+'EPSG:31838': ProjectAndUnProjectResult(
+        Point(x: -1557536.5212162894, y: 5561950.164033774),
+        Point(x: 17.893399933574567, y: 46.89274299727972)),
+'EPSG:31839': ProjectAndUnProjectResult(
+        Point(x: -2005500.4107896662, y: 5751900.446702114),
+        Point(x: 17.93093567947049, y: 46.89708113439577)),
+'EPSG:31900': ProjectAndUnProjectResult(
+        Point(x: -1782230.9782507876, y: 5651492.867998766),
+        Point(x: 17.903750620433836, y: 46.89385766989501)),
+'EPSG:31901': ProjectAndUnProjectResult(
+        Point(x: -1783144.2359451656, y: 5653754.369746664),
+        Point(x: 17.903750620433847, y: 46.89385766989501)),
+'EPSG:31965': ProjectAndUnProjectResult(
+        Point(x: -7081100.809078519, y: 9644074.035715306),
+        Point(x: 16894389367.285646, y: 5473429537.796183)),
+'EPSG:31966': ProjectAndUnProjectResult(
+        Point(x: -3328981.2161364346, y: 11193210.773121612),
+        Point(x: 0, y: 90)),
+'EPSG:31967': ProjectAndUnProjectResult(
+        Point(x: -465963.8528201919, y: 11963247.506900493),
+        Point(x: 0, y: 90)),
+'EPSG:31968': ProjectAndUnProjectResult(
+        Point(x: 1672650.061907484, y: 12179046.047871836),
+        Point(x: 0, y: 90)),
+'EPSG:31969': ProjectAndUnProjectResult(
+        Point(x: 3225639.745211993, y: 12014873.557768293),
+        Point(x: 0, y: 90)),
+'EPSG:31970': ProjectAndUnProjectResult(
+        Point(x: 4309153.746567462, y: 11603618.623518256),
+        Point(x: 0, y: 90)),
+'EPSG:31971': ProjectAndUnProjectResult(
+        Point(x: 5019695.054228077, y: 11044701.550210133),
+        Point(x: 0, y: 90)),
+'EPSG:31972': ProjectAndUnProjectResult(
+        Point(x: 5436818.00586931, y: 10410808.927530395),
+        Point(x: 0, y: 90)),
+'EPSG:31973': ProjectAndUnProjectResult(
+        Point(x: 5625552.597278097, y: 9753575.672750814),
+        Point(x: -14563147143.452982, y: 3188443837.820243)),
+'EPSG:31974': ProjectAndUnProjectResult(
+        Point(x: 5638571.782971076, y: 9108330.901623307),
+        Point(x: -1685042.2535846238, y: 369929.7983349917)),
+'EPSG:31975': ProjectAndUnProjectResult(
+        Point(x: 5518117.362620078, y: 8498017.126823647),
+        Point(x: -33811.09013364492, y: 7380.196889868285)),
+'EPSG:31976': ProjectAndUnProjectResult(
+        Point(x: 5297700.047163907, y: 7936385.43186829),
+        Point(x: -2039.797629755838, y: 544.0590624611513)),
+'EPSG:31977': ProjectAndUnProjectResult(
+        Point(x: 5019695.054228077, y: 21044701.550210133),
+        Point(x: 0, y: 90)),
+'EPSG:31978': ProjectAndUnProjectResult(
+        Point(x: 5436818.00586931, y: 20410808.927530393),
+        Point(x: 0, y: 90)),
+'EPSG:31979': ProjectAndUnProjectResult(
+        Point(x: 5625552.597278097, y: 19753575.672750816),
+        Point(x: -14563147143.453583, y: 3188443837.820372)),
+'EPSG:31980': ProjectAndUnProjectResult(
+        Point(x: 5638571.782971076, y: 19108330.90162331),
+        Point(x: -1685042.253584662, y: 369929.7983350001)),
+'EPSG:31981': ProjectAndUnProjectResult(
+        Point(x: 5518117.362620078, y: 18498017.12682365),
+        Point(x: -33811.09013364537, y: 7380.196889868381)),
+'EPSG:31982': ProjectAndUnProjectResult(
+        Point(x: 5297700.047163907, y: 17936385.43186829),
+        Point(x: -2039.7976297558266, y: 544.0590624611489)),
+'EPSG:31983': ProjectAndUnProjectResult(
+        Point(x: 5003589.298485577, y: 17430562.41671147),
+        Point(x: 87.06844226328268, y: 103.32192587414212)),
+'EPSG:31984': ProjectAndUnProjectResult(
+        Point(x: 4656108.536534103, y: 16983077.859512635),
+        Point(x: -27.57400009510662, y: 55.09636167021363)),
+'EPSG:31985': ProjectAndUnProjectResult(
+        Point(x: 4270751.307769986, y: 16593435.187347272),
+        Point(x: 9.84627979268085, y: 48.22214374762894)),
+'EPSG:31986': ProjectAndUnProjectResult(
+        Point(x: 5019695.054228077, y: 11044701.550210133),
+        Point(x: 0, y: 90)),
+'EPSG:31987': ProjectAndUnProjectResult(
+        Point(x: 5436818.00586931, y: 10410808.927530395),
+        Point(x: 0, y: 90)),
+'EPSG:31988': ProjectAndUnProjectResult(
+        Point(x: 5625552.597278097, y: 9753575.672750814),
+        Point(x: -14563147143.452982, y: 3188443837.820243)),
+'EPSG:31989': ProjectAndUnProjectResult(
+        Point(x: 5638571.782971076, y: 9108330.901623307),
+        Point(x: -1685042.2535846238, y: 369929.7983349917)),
+'EPSG:31990': ProjectAndUnProjectResult(
+        Point(x: 5518117.362620078, y: 8498017.126823647),
+        Point(x: -33811.09013364492, y: 7380.196889868285)),
+'EPSG:31991': ProjectAndUnProjectResult(
+        Point(x: 5297700.047163907, y: 7936385.43186829),
+        Point(x: -2039.797629755838, y: 544.0590624611513)),
+'EPSG:31992': ProjectAndUnProjectResult(
+        Point(x: 5019695.054228077, y: 21044701.550210133),
+        Point(x: 0, y: 90)),
+'EPSG:31993': ProjectAndUnProjectResult(
+        Point(x: 5436818.00586931, y: 20410808.927530393),
+        Point(x: 0, y: 90)),
+'EPSG:31994': ProjectAndUnProjectResult(
+        Point(x: 5625552.597278097, y: 19753575.672750816),
+        Point(x: -14563147143.453583, y: 3188443837.820372)),
+'EPSG:31995': ProjectAndUnProjectResult(
+        Point(x: 5638571.782971076, y: 19108330.90162331),
+        Point(x: -1685042.253584662, y: 369929.7983350001)),
+'EPSG:31996': ProjectAndUnProjectResult(
+        Point(x: 5518117.362620078, y: 18498017.12682365),
+        Point(x: -33811.09013364537, y: 7380.196889868381)),
+'EPSG:31997': ProjectAndUnProjectResult(
+        Point(x: 5297700.047163907, y: 17936385.43186829),
+        Point(x: -2039.7976297558266, y: 544.0590624611489)),
+'EPSG:31998': ProjectAndUnProjectResult(
+        Point(x: 5003589.298485577, y: 17430562.41671147),
+        Point(x: 87.06844226328268, y: 103.32192587414212)),
+'EPSG:31999': ProjectAndUnProjectResult(
+        Point(x: 4656108.536534103, y: 16983077.859512635),
+        Point(x: -27.57400009510662, y: 55.09636167021363)),
+'EPSG:32000': ProjectAndUnProjectResult(
+        Point(x: 4270751.307769986, y: 16593435.187347272),
+        Point(x: 9.84627979268085, y: 48.22214374762894)),
+'EPSG:32001': ProjectAndUnProjectResult(
+        Point(x: 21120726.365708992, y: 20860669.897162892),
+        Point(x: 17.88805856028154, y: 46.892264047823076)),
+'EPSG:32612': ProjectAndUnProjectResult(
+        Point(x: -3328981.215793029, y: 11193210.77317494),
+        Point(x: 0, y: 90)),
+'EPSG:32002': ProjectAndUnProjectResult(
+        Point(x: 21498035.44225126, y: 21085210.998283975),
+        Point(x: 17.88805856028154, y: 46.89226404782304)),
+'EPSG:32003': ProjectAndUnProjectResult(
+        Point(x: 22037916.968802504, y: 21471031.300675966),
+        Point(x: 17.888058560281515, y: 46.892264047823076)),
+'EPSG:32005': ProjectAndUnProjectResult(
+        Point(x: 22975266.76514785, y: 19440458.3730409),
+        Point(x: 17.88805856028152, y: 46.89226404782305)),
+'EPSG:32006': ProjectAndUnProjectResult(
+        Point(x: 23391319.515179522, y: 19658315.344370313),
+        Point(x: 17.888058560281525, y: 46.89226404782306)),
+'EPSG:32007': ProjectAndUnProjectResult(
+        Point(x: -21177526.018185925, y: 20501927.481637213),
+        Point(x: 0, y: 90)),
+'EPSG:32008': ProjectAndUnProjectResult(
+        Point(x: -23609045.75841472, y: 19388960.106328934),
+        Point(x: 45, y: double.nan)),
+'EPSG:32009': ProjectAndUnProjectResult(
+        Point(x: -28193677.82486699, y: 17142919.333458297),
+        Point(x: 45, y: double.nan)),
+'EPSG:32010': ProjectAndUnProjectResult(
+        Point(x: 17126656.70441191, y: 17528723.109379712),
+        Point(x: 0, y: 90)),
+'EPSG:32011': ProjectAndUnProjectResult(
+        Point(x: 18254292.756537504, y: 19942868.435700398),
+        Point(x: 0, y: 90)),
+'EPSG:32012': ProjectAndUnProjectResult(
+        Point(x: -1783032.3863644972, y: 28159943.47464595),
+        Point(x: 0, y: 90)),
+'EPSG:32013': ProjectAndUnProjectResult(
+        Point(x: -4415970.8974956665, y: 27647904.178231586),
+        Point(x: 0, y: 90)),
+'EPSG:32014': ProjectAndUnProjectResult(
+        Point(x: -6780967.248088663, y: 27076842.380629804),
+        Point(x: 0, y: 90)),
+'EPSG:32015': ProjectAndUnProjectResult(
+        Point(x: 16804206.672246672, y: 19398470.491679568),
+        Point(x: 0, y: 90)),
+'EPSG:32016': ProjectAndUnProjectResult(
+        Point(x: 16420833.602460433, y: 20198519.38342491),
+        Point(x: 0, y: 90)),
+'EPSG:32017': ProjectAndUnProjectResult(
+        Point(x: 15986536.034389626, y: 20897266.672445584),
+        Point(x: 0, y: 90)),
+'EPSG:32018': ProjectAndUnProjectResult(
+        Point(x: 20096015.858213864, y: 13382884.173491456),
+        Point(x: 17.88805856028151, y: 46.89226404782304)),
+'EPSG:32019': ProjectAndUnProjectResult(
+        Point(x: 23008993.257446174, y: 15970656.907596953),
+        Point(x: 17.88805856028151, y: 46.89226404782305)),
+'EPSG:32020': ProjectAndUnProjectResult(
+        Point(x: 21243411.594243042, y: 18575972.35477839),
+        Point(x: 17.888058560281515, y: 46.892264047823076)),
+'EPSG:32021': ProjectAndUnProjectResult(
+        Point(x: 21599407.863484036, y: 18836779.991373386),
+        Point(x: 17.88805856028151, y: 46.89226404782305)),
+'EPSG:32022': ProjectAndUnProjectResult(
+        Point(x: 22018110.590104517, y: 15625567.51446645),
+        Point(x: 17.888058560281515, y: 46.89226404782306)),
+'EPSG:32023': ProjectAndUnProjectResult(
+        Point(x: 22419583.739899907, y: 15934279.431295544),
+        Point(x: 17.8880585602815, y: 46.89226404782306)),
+'EPSG:32024': ProjectAndUnProjectResult(
+        Point(x: 24987830.65661639, y: 19977127.85940056),
+        Point(x: 17.88805856028152, y: 46.89226404782305)),
+'EPSG:32025': ProjectAndUnProjectResult(
+        Point(x: 25585470.348201893, y: 20228402.71981805),
+        Point(x: 17.888058560281525, y: 46.89226404782306)),
+'EPSG:32026': ProjectAndUnProjectResult(
+        Point(x: 22003195.03546361, y: 24246002.74858959),
+        Point(x: 17.88805856028154, y: 46.89226404782306)),
+'EPSG:32027': ProjectAndUnProjectResult(
+        Point(x: 22912147.23796372, y: 24599811.45260362),
+        Point(x: 17.88805856028151, y: 46.89226404782304)),
+'EPSG:32028': ProjectAndUnProjectResult(
+        Point(x: 21430529.780992977, y: 14425070.893289246),
+        Point(x: 17.88805856028152, y: 46.89226404782305)),
+'EPSG:32613': ProjectAndUnProjectResult(
+        Point(x: -465963.852572312, y: 11963247.506934201),
+        Point(x: 0, y: 90)),
+'EPSG:32029': ProjectAndUnProjectResult(
+        Point(x: 21649500.871524263, y: 14554426.568313856),
+        Point(x: 17.88805856028151, y: 46.89226404782305)),
+'EPSG:32030': ProjectAndUnProjectResult(
+        Point(x: 17142866.636785306, y: 17985364.9703167),
+        Point(x: 0, y: 90)),
+'EPSG:32031': ProjectAndUnProjectResult(
+        Point(x: 23533120.872627806, y: 16505942.014077801),
+        Point(x: 17.8880585602815, y: 46.89226404782304)),
+'EPSG:32033': ProjectAndUnProjectResult(
+        Point(x: 23916672.88107609, y: 16671254.134926213),
+        Point(x: 17.8880585602815, y: 46.89226404782306)),
+'EPSG:32034': ProjectAndUnProjectResult(
+        Point(x: 22117640.419235308, y: 19051061.17483013),
+        Point(x: 17.88805856028152, y: 46.89226404782305)),
+'EPSG:32035': ProjectAndUnProjectResult(
+        Point(x: 22573036.107764173, y: 19407558.12576192),
+        Point(x: 17.888058560281525, y: 46.89226404782307)),
+'EPSG:32036': ProjectAndUnProjectResult(
+        Point(x: 21887400.95592762, y: 17268660.079646576),
+        Point(x: 17.88805856028152, y: 46.89226404782305)),
+'EPSG:32037': ProjectAndUnProjectResult(
+        Point(x: 25599449.69288814, y: 21003497.02276963),
+        Point(x: 17.888058560281515, y: 46.89226404782306)),
+'EPSG:32614': ProjectAndUnProjectResult(
+        Point(x: 1672650.0620793512, y: 12179046.047896666),
+        Point(x: 0, y: 90)),
+'EPSG:32038': ProjectAndUnProjectResult(
+        Point(x: 26126278.68173496, y: 20362613.73568467),
+        Point(x: 17.888058560281525, y: 46.89226404782306)),
+'EPSG:32039': ProjectAndUnProjectResult(
+        Point(x: 27323905.74450685, y: 21236793.586815536),
+        Point(x: 17.88805856028152, y: 46.89226404782305)),
+'EPSG:32040': ProjectAndUnProjectResult(
+        Point(x: 27875090.84265575, y: 21173557.929617915),
+        Point(x: 17.88805856028151, y: 46.89226404782305)),
+'EPSG:32041': ProjectAndUnProjectResult(
+        Point(x: 28851233.547112186, y: 21225817.291047268),
+        Point(x: 17.888058560281515, y: 46.89226404782307)),
+'EPSG:32042': ProjectAndUnProjectResult(
+        Point(x: 23761186.634704158, y: 22444881.29887874),
+        Point(x: 17.88805856028152, y: 46.89226404782305)),
+'EPSG:32043': ProjectAndUnProjectResult(
+        Point(x: 24363974.027585223, y: 22871882.968080923),
+        Point(x: 17.888058560281525, y: 46.89226404782306)),
+'EPSG:32044': ProjectAndUnProjectResult(
+        Point(x: 25277634.741524845, y: 23023696.14315396),
+        Point(x: 17.888058560281525, y: 46.89226404782307)),
+'EPSG:32045': ProjectAndUnProjectResult(
+        Point(x: 17040276.605683, y: 17828872.62160766),
+        Point(x: 0, y: 90)),
+'EPSG:32615': ProjectAndUnProjectResult(
+        Point(x: 3225639.745324246, y: 12014873.557791939),
+        Point(x: 0, y: 90)),
+'EPSG:32046': ProjectAndUnProjectResult(
+        Point(x: 22126142.048384722, y: 15030264.52095911),
+        Point(x: 17.88805856028151, y: 46.89226404782303)),
+'EPSG:32047': ProjectAndUnProjectResult(
+        Point(x: 22417899.924454346, y: 15299357.38163655),
+        Point(x: 17.88805856028151, y: 46.89226404782305)),
+'EPSG:32048': ProjectAndUnProjectResult(
+        Point(x: 20729703.72120194, y: 23626784.67943964),
+        Point(x: 17.88805856028154, y: 46.89226404782304)),
+'EPSG:32049': ProjectAndUnProjectResult(
+        Point(x: 21388101.902071353, y: 23891068.922299646),
+        Point(x: 17.88805856028154, y: 46.89226404782305)),
+'EPSG:32050': ProjectAndUnProjectResult(
+        Point(x: 22018177.38328611, y: 15121178.171460338),
+        Point(x: 17.888058560281515, y: 46.89226404782306)),
+'EPSG:32051': ProjectAndUnProjectResult(
+        Point(x: 22538300.096520163, y: 15747898.252501206),
+        Point(x: 17.888058560281515, y: 46.89226404782306)),
+'EPSG:32052': ProjectAndUnProjectResult(
+        Point(x: 21412634.426539358, y: 16301698.486754227),
+        Point(x: 17.88805856028151, y: 46.89226404782305)),
+'EPSG:32053': ProjectAndUnProjectResult(
+        Point(x: 21721760.990490414, y: 16558779.166713502),
+        Point(x: 17.888058560281515, y: 46.89226404782307)),
+'EPSG:32616': ProjectAndUnProjectResult(
+        Point(x: 4309153.746633765, y: 11603618.623545988),
+        Point(x: 0, y: 90)),
+'EPSG:32054': ProjectAndUnProjectResult(
+        Point(x: 22090977.92021408, y: 16960529.552741345),
+        Point(x: 17.88805856028154, y: 46.89226404782306)),
+'EPSG:32055': ProjectAndUnProjectResult(
+        Point(x: -2897936.675363011, y: 24442639.971563898),
+        Point(x: 0, y: 90)),
+'EPSG:32056': ProjectAndUnProjectResult(
+        Point(x: -6015110.7868984295, y: 23754726.021082792),
+        Point(x: 0, y: 90)),
+'EPSG:32057': ProjectAndUnProjectResult(
+        Point(x: -8232910.580613359, y: 23160989.44596073),
+        Point(x: 0, y: 90)),
+'EPSG:32058': ProjectAndUnProjectResult(
+        Point(x: -10457474.717705762, y: 22488066.022790976),
+        Point(x: 0, y: 90)),
+'EPSG:32061': ProjectAndUnProjectResult(
+        Point(x: 9646219.06494926, y: 6362764.288074773),
+        Point(x: 17.8880585602815, y: 46.89226404782305)),
+'EPSG:32062': ProjectAndUnProjectResult(
+        Point(x: 9937895.343961982, y: 6420070.311478442),
+        Point(x: 17.88805856028149, y: 46.89226404782305)),
+'EPSG:32064': ProjectAndUnProjectResult(
+        Point(x: 5486456.889301802, y: 39954818.42032872),
+        Point(x: 0, y: 90)),
+'EPSG:32065': ProjectAndUnProjectResult(
+        Point(x: 10581530.491506418, y: 39417001.16198344),
+        Point(x: 0, y: 90)),
+'EPSG:32066': ProjectAndUnProjectResult(
+        Point(x: 14136410.596500264, y: 38068348.285368614),
+        Point(x: 0, y: 90)),
+'EPSG:32067': ProjectAndUnProjectResult(
+        Point(x: 16467677.464075653, y: 36235081.57002145),
+        Point(x: 0, y: 90)),
+'EPSG:32074': ProjectAndUnProjectResult(
+        Point(x: 5486456.889301802, y: 39954818.42032872),
+        Point(x: 0, y: 90)),
+'EPSG:32075': ProjectAndUnProjectResult(
+        Point(x: 10581530.491506418, y: 39417001.16198344),
+        Point(x: 0, y: 90)),
+'EPSG:32076': ProjectAndUnProjectResult(
+        Point(x: 14136410.596500264, y: 38068348.285368614),
+        Point(x: 0, y: 90)),
+'EPSG:32077': ProjectAndUnProjectResult(
+        Point(x: 16467677.464075653, y: 36235081.57002145),
+        Point(x: 0, y: 90)),
+'EPSG:32081': ProjectAndUnProjectResult(
+        Point(x: 5186632.024675163, y: 8120099.2338744365),
+        Point(x: 45, y: double.nan)),
+'EPSG:32082': ProjectAndUnProjectResult(
+        Point(x: 5293654.478661092, y: 8403309.092554256),
+        Point(x: 45, y: double.nan)),
+'EPSG:32083': ProjectAndUnProjectResult(
+        Point(x: 5364906.447261905, y: 8649042.253562236),
+        Point(x: 45, y: double.nan)),
+'EPSG:32084': ProjectAndUnProjectResult(
+        Point(x: 5425654.034597036, y: 8954486.7099849),
+        Point(x: 45, y: double.nan)),
+'EPSG:32086': ProjectAndUnProjectResult(
+        Point(x: 5449562.187312048, y: 9592891.270384526),
+        Point(x: 45, y: double.nan)),
+'EPSG:32098': ProjectAndUnProjectResult(
+        Point(x: 5088215.637831503, y: 3830123.3104011035),
+        Point(x: 17.8880585602815, y: 46.89226404782305)),
+'EPSG:32099': ProjectAndUnProjectResult(
+        Point(x: 27652879.647268478, y: 19734613.337622542),
+        Point(x: 17.88805856028151, y: 46.89226404782304)),
+'EPSG:32100': ProjectAndUnProjectResult(
+        Point(x: 6556297.784221025, y: 6590553.712986213),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:32104': ProjectAndUnProjectResult(
+        Point(x: 6975000.373432801, y: 6039872.843451777),
+        Point(x: 17.888058560281525, y: 46.89226406700874)),
+'EPSG:32107': ProjectAndUnProjectResult(
+        Point(x: -6407205.481935473, y: 14250720.322452161),
+        Point(x: 0, y: 90)),
+'EPSG:32108': ProjectAndUnProjectResult(
+        Point(x: -6848369.235542074, y: 11911589.980849914),
+        Point(x: 189531435637.07315, y: 59487357072.499916)),
+'EPSG:32109': ProjectAndUnProjectResult(
+        Point(x: -7945837.346430153, y: 9227187.99242025),
+        Point(x: 53494776.36427391, y: 20053499.392547227)),
+'EPSG:32110': ProjectAndUnProjectResult(
+        Point(x: 5368091.402649273, y: 5342638.370730873),
+        Point(x: 0, y: 90)),
+'EPSG:32111': ProjectAndUnProjectResult(
+        Point(x: 5111955.253111458, y: 6059884.249141174),
+        Point(x: 0, y: 90)),
+'EPSG:32112': ProjectAndUnProjectResult(
+        Point(x: -530531.6564737859, y: 8584058.195630815),
+        Point(x: 0, y: 90)),
+'EPSG:32113': ProjectAndUnProjectResult(
+        Point(x: -998074.9727628597, y: 8428106.011472125),
+        Point(x: 0, y: 90)),
+'EPSG:32114': ProjectAndUnProjectResult(
+        Point(x: -1388949.665557478, y: 8254150.647986836),
+        Point(x: 0, y: 90)),
+'EPSG:32115': ProjectAndUnProjectResult(
+        Point(x: 5111955.253111458, y: 6059884.249141174),
+        Point(x: 0, y: 90)),
+'EPSG:32116': ProjectAndUnProjectResult(
+        Point(x: 5102989.244976103, y: 6156462.138120647),
+        Point(x: 0, y: 90)),
+'EPSG:32117': ProjectAndUnProjectResult(
+        Point(x: 5070627.948794095, y: 6369472.582025805),
+        Point(x: 0, y: 90)),
+'EPSG:32118': ProjectAndUnProjectResult(
+        Point(x: 6120506.5914582675, y: 4115911.994870667),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:32119': ProjectAndUnProjectResult(
+        Point(x: 7013164.842371999, y: 4867653.736840957),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:32120': ProjectAndUnProjectResult(
+        Point(x: 6465460.630965634, y: 5661785.323388806),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:32121': ProjectAndUnProjectResult(
+        Point(x: 6573964.729929726, y: 5741275.293893124),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:32122': ProjectAndUnProjectResult(
+        Point(x: 6701563.894453452, y: 4762473.447759279),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:32123': ProjectAndUnProjectResult(
+        Point(x: 6823927.076346041, y: 4856567.2808180135),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:32124': ProjectAndUnProjectResult(
+        Point(x: 7606719.341866343, y: 6088830.052103923),
+        Point(x: 17.888058560281525, y: 46.89226406700874)),
+'EPSG:32125': ProjectAndUnProjectResult(
+        Point(x: 7788873.682746351, y: 6165418.092119623),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:32126': ProjectAndUnProjectResult(
+        Point(x: 8597033.820587108, y: 7390016.602283895),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:32127': ProjectAndUnProjectResult(
+        Point(x: 7874076.89548586, y: 7497850.224338042),
+        Point(x: 17.88805856028154, y: 46.892264067008725)),
+'EPSG:32617': ProjectAndUnProjectResult(
+        Point(x: 5019695.054259717, y: 11044701.550245335),
+        Point(x: 0, y: 90)),
+'EPSG:32128': ProjectAndUnProjectResult(
+        Point(x: 6522469.313095474, y: 4396559.711847568),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:32129': ProjectAndUnProjectResult(
+        Point(x: 6583746.193120701, y: 4440183.096793512),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:32130': ProjectAndUnProjectResult(
+        Point(x: 5173030.8098551845, y: 5481823.207905864),
+        Point(x: 0, y: 90)),
+'EPSG:32133': ProjectAndUnProjectResult(
+        Point(x: 7231101.448544078, y: 5119305.1873058975),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:32134': ProjectAndUnProjectResult(
+        Point(x: 6731916.633515107, y: 5806582.369900572),
+        Point(x: 17.888058560281525, y: 46.89226406700874)),
+'EPSG:32135': ProjectAndUnProjectResult(
+        Point(x: 6870716.757738419, y: 5915239.061073107),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:32136': ProjectAndUnProjectResult(
+        Point(x: 7240825.507643389, y: 5300270.815013457),
+        Point(x: 17.888058560281525, y: 46.89226406700874)),
+'EPSG:32137': ProjectAndUnProjectResult(
+        Point(x: 7393138.261094371, y: 7401668.656500031),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:32210': ProjectAndUnProjectResult(
+        Point(x: -11916545.678766463, y: 7029722.271611792),
+        Point(x: 45, y: double.nan)),
+'EPSG:32138': ProjectAndUnProjectResult(
+        Point(x: 7989143.282984504, y: 8276494.464586326),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:32139': ProjectAndUnProjectResult(
+        Point(x: 8418734.087582087, y: 9472776.726556078),
+        Point(x: 17.88805856028155, y: 46.892264067008746)),
+'EPSG:32140': ProjectAndUnProjectResult(
+        Point(x: 8486728.051005203, y: 10453504.590111742),
+        Point(x: 17.88805856028154, y: 46.89226406700874)),
+'EPSG:32141': ProjectAndUnProjectResult(
+        Point(x: 8484246.042842139, y: 11469435.827622361),
+        Point(x: 17.88805856028151, y: 46.892264067008746)),
+'EPSG:32142': ProjectAndUnProjectResult(
+        Point(x: 7132858.074758168, y: 7841015.069017461),
+        Point(x: 17.888058560281525, y: 46.892264067008746)),
+'EPSG:32143': ProjectAndUnProjectResult(
+        Point(x: 7316582.822330039, y: 8971163.047072299),
+        Point(x: 17.888058560281525, y: 46.892264067008725)),
+'EPSG:32144': ProjectAndUnProjectResult(
+        Point(x: 7595059.15054545, y: 10017430.541012172),
+        Point(x: 17.888058560281525, y: 46.89226406700874)),
+'EPSG:32145': ProjectAndUnProjectResult(
+        Point(x: 5541768.404689928, y: 5434133.661562179),
+        Point(x: 0, y: 90)),
+'EPSG:32146': ProjectAndUnProjectResult(
+        Point(x: 9634482.513941199, y: 6581020.355130133),
+        Point(x: 17.888058560281525, y: 46.89226406700873)),
+'EPSG:32147': ProjectAndUnProjectResult(
+        Point(x: 9723405.910334777, y: 5663039.725072842),
+        Point(x: 17.888058560281486, y: 46.892264067008746)),
+'EPSG:32148': ProjectAndUnProjectResult(
+        Point(x: 6208880.764422776, y: 7201291.121268816),
+        Point(x: 17.88805856028151, y: 46.89226406700871)),
+'EPSG:32149': ProjectAndUnProjectResult(
+        Point(x: 6409557.023981855, y: 7281838.145229915),
+        Point(x: 17.88805856028154, y: 46.892264067008746)),
+'EPSG:32150': ProjectAndUnProjectResult(
+        Point(x: 6701578.612677592, y: 4608732.256874052),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:32151': ProjectAndUnProjectResult(
+        Point(x: 6860107.275988375, y: 4799756.489364472),
+        Point(x: 17.88805856028151, y: 46.89226406700873)),
+'EPSG:32152': ProjectAndUnProjectResult(
+        Point(x: 6517033.000426102, y: 4968571.836722961),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:32153': ProjectAndUnProjectResult(
+        Point(x: 6611250.719513921, y: 5046926.8438626565),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:32601': ProjectAndUnProjectResult(
+        Point(x: 48730994.201937996, y: -23178134.33221813),
+        Point(x: 0, y: -90)),
+'EPSG:32154': ProjectAndUnProjectResult(
+        Point(x: 6723783.25810189, y: 5169377.719135766),
+        Point(x: 17.88805856028151, y: 46.89226406700871)),
+'EPSG:32155': ProjectAndUnProjectResult(
+        Point(x: -835360.288822798, y: 7469523.565254046),
+        Point(x: 0, y: 90)),
+'EPSG:32156': ProjectAndUnProjectResult(
+        Point(x: -1585501.348464507, y: 7359986.274514455),
+        Point(x: 0, y: 90)),
+'EPSG:32157': ProjectAndUnProjectResult(
+        Point(x: -2061507.894929119, y: 7079113.201731387),
+        Point(x: 0, y: 90)),
+'EPSG:32158': ProjectAndUnProjectResult(
+        Point(x: -2539578.0552160507, y: 6974103.5782705145),
+        Point(x: 0, y: 90)),
+'EPSG:32161': ProjectAndUnProjectResult(
+        Point(x: 7328037.617013937, y: 5241769.00316173),
+        Point(x: 17.88805856028151, y: 46.89226406700872)),
+'EPSG:32164': ProjectAndUnProjectResult(
+        Point(x: 5487686.08144147, y: 39957420.24205951),
+        Point(x: 0, y: 90)),
+'EPSG:32165': ProjectAndUnProjectResult(
+        Point(x: 10582786.40074968, y: 39418797.664111465),
+        Point(x: 0, y: 90)),
+'EPSG:32166': ProjectAndUnProjectResult(
+        Point(x: 14137615.253530076, y: 38069538.76732614),
+        Point(x: 0, y: 90)),
+'EPSG:32167': ProjectAndUnProjectResult(
+        Point(x: 16468782.86041328, y: 36235825.00264774),
+        Point(x: 0, y: 90)),
+'EPSG:32180': ProjectAndUnProjectResult(
+        Point(x: 5277537.244089515, y: 8355177.8227729015),
+        Point(x: -15979.524499782834, y: 3524.3478798098868)),
+'EPSG:32181': ProjectAndUnProjectResult(
+        Point(x: 5186788.657734889, y: 8120071.285067176),
+        Point(x: -5022.218661072394, y: 1175.203638907414)),
+'EPSG:32182': ProjectAndUnProjectResult(
+        Point(x: 5293828.222920929, y: 8403290.068502737),
+        Point(x: -20392.421758802197, y: 4476.186579255094)),
+'EPSG:32183': ProjectAndUnProjectResult(
+        Point(x: 5365095.243901447, y: 8649032.835441044),
+        Point(x: -76314.668724916, y: 16624.267920019753)),
+'EPSG:32184': ProjectAndUnProjectResult(
+        Point(x: 5425861.74852327, y: 8954491.865918288),
+        Point(x: -519603.48216074344, y: 113747.10753176517)),
+'EPSG:32185': ProjectAndUnProjectResult(
+        Point(x: 5455664.100526009, y: 9269865.456694849),
+        Point(x: -6859630.010890731, y: 1508686.9880534173)),
+'EPSG:32186': ProjectAndUnProjectResult(
+        Point(x: 5449809.877896608, y: 9592937.814035818),
+        Point(x: -411243275.37217355, y: 90346346.30780989)),
+'EPSG:32187': ProjectAndUnProjectResult(
+        Point(x: 5403037.173898023, y: 9920877.559935424),
+        Point(x: -34661211008946.938, y: 7546306826338.474)),
+'EPSG:32188': ProjectAndUnProjectResult(
+        Point(x: 5309461.530223562, y: 10250138.320860693),
+        Point(x: 0, y: 90)),
+'EPSG:32189': ProjectAndUnProjectResult(
+        Point(x: 5162519.4015817605, y: 10576348.404652024),
+        Point(x: 0, y: 90)),
+'EPSG:32190': ProjectAndUnProjectResult(
+        Point(x: 4954908.029848009, y: 10894188.79017561),
+        Point(x: 0, y: 90)),
+'EPSG:32191': ProjectAndUnProjectResult(
+        Point(x: 4678521.605919208, y: 11197258.627550166),
+        Point(x: 0, y: 90)),
+'EPSG:32192': ProjectAndUnProjectResult(
+        Point(x: 4825851.505324784, y: 11048016.28656974),
+        Point(x: 0, y: 90)),
+'EPSG:32193': ProjectAndUnProjectResult(
+        Point(x: 4511768.526647326, y: 11340922.422261257),
+        Point(x: 0, y: 90)),
+'EPSG:32194': ProjectAndUnProjectResult(
+        Point(x: 4115096.9499727935, y: 11607101.102096744),
+        Point(x: 0, y: 90)),
+'EPSG:32195': ProjectAndUnProjectResult(
+        Point(x: 3625418.58528727, y: 11836768.953508014),
+        Point(x: 0, y: 90)),
+'EPSG:32196': ProjectAndUnProjectResult(
+        Point(x: 3031257.7643432096, y: 12018479.462197395),
+        Point(x: 0, y: 90)),
+'EPSG:32197': ProjectAndUnProjectResult(
+        Point(x: 2319999.2891139016, y: 12138921.625162058),
+        Point(x: 0, y: 90)),
+'EPSG:32198': ProjectAndUnProjectResult(
+        Point(x: 5088281.174172236, y: 3829932.5590575594),
+        Point(x: 17.88805856028151, y: 46.892264067008725)),
+'EPSG:32199': ProjectAndUnProjectResult(
+        Point(x: 8818988.21541754, y: 6033384.689384041),
+        Point(x: 17.8880585602815, y: 46.89226406700874)),
+'EPSG:32201': ProjectAndUnProjectResult(
+        Point(x: 48730982.1197823, y: -23178120.96731805),
+        Point(x: 0, y: -90)),
+'EPSG:32202': ProjectAndUnProjectResult(
+        Point(x: 63333502.72616715, y: -38676658.776300564),
+        Point(x: 0, y: -90)),
+'EPSG:32203': ProjectAndUnProjectResult(
+        Point(x: 81069676.20862179, y: -59099719.41716196),
+        Point(x: 0, y: -90)),
+'EPSG:32204': ProjectAndUnProjectResult(
+        Point(x: -79345518.11539811, y: -58236042.24899301),
+        Point(x: 0, y: -90)),
+'EPSG:32205': ProjectAndUnProjectResult(
+        Point(x: -61735449.77408678, y: -38016557.52268096),
+        Point(x: 0, y: -90)),
+'EPSG:32206': ProjectAndUnProjectResult(
+        Point(x: -47240389.79131277, y: -22681634.47694928),
+        Point(x: 0, y: -90)),
+'EPSG:32207': ProjectAndUnProjectResult(
+        Point(x: -35393320.377725065, y: -11254036.386027785),
+        Point(x: 0, y: -90)),
+'EPSG:32208': ProjectAndUnProjectResult(
+        Point(x: -25785981.569639318, y: -2920558.9788088924),
+        Point(x: -135, y: double.nan)),
+'EPSG:32209': ProjectAndUnProjectResult(
+        Point(x: -18063019.177102655, y: 2990543.1758462847),
+        Point(x: 45, y: double.nan)),
+'EPSG:32211': ProjectAndUnProjectResult(
+        Point(x: -7081098.469690898, y: 9644072.871766996),
+        Point(x: 45, y: double.nan)),
+'EPSG:32212': ProjectAndUnProjectResult(
+        Point(x: -3328979.868203833, y: 11193208.685875399),
+        Point(x: 0, y: 90)),
+'EPSG:32213': ProjectAndUnProjectResult(
+        Point(x: -465963.28793670854, y: 11963244.829399344),
+        Point(x: 0, y: 90)),
+'EPSG:32214': ProjectAndUnProjectResult(
+        Point(x: 1672650.0188390382, y: 12179043.027862547),
+        Point(x: 0, y: 90)),
+'EPSG:32215': ProjectAndUnProjectResult(
+        Point(x: 3225639.240452556, y: 12014870.37545779),
+        Point(x: 0, y: 90)),
+'EPSG:32216': ProjectAndUnProjectResult(
+        Point(x: 4309152.901528066, y: 11603615.406282011),
+        Point(x: 0, y: 90)),
+'EPSG:32217': ProjectAndUnProjectResult(
+        Point(x: 5019693.969010158, y: 11044698.384666052),
+        Point(x: 0, y: 90)),
+'EPSG:32218': ProjectAndUnProjectResult(
+        Point(x: 5436816.76239722, y: 10410805.869351413),
+        Point(x: 0, y: 90)),
+'EPSG:32219': ProjectAndUnProjectResult(
+        Point(x: 5625551.262059834, y: 9753572.754551431),
+        Point(x: 45, y: double.nan)),
+'EPSG:32220': ProjectAndUnProjectResult(
+        Point(x: 5638570.409521307, y: 9108328.139219288),
+        Point(x: 45, y: double.nan)),
+'EPSG:32221': ProjectAndUnProjectResult(
+        Point(x: 5518115.993577361, y: 8498014.524130296),
+        Point(x: 45, y: double.nan)),
+'EPSG:32222': ProjectAndUnProjectResult(
+        Point(x: 5297698.716132037, y: 7936382.984671047),
+        Point(x: 45, y: double.nan)),
+'EPSG:32223': ProjectAndUnProjectResult(
+        Point(x: 5003588.031626868, y: 7430560.11551292),
+        Point(x: 45, y: double.nan)),
+'EPSG:32224': ProjectAndUnProjectResult(
+        Point(x: 4656107.353940375, y: 6983075.691632612),
+        Point(x: -27.57399469502039, y: 55.09636100792808)),
+'EPSG:32225': ProjectAndUnProjectResult(
+        Point(x: 4270750.22463494, y: 6593433.138427304),
+        Point(x: 9.846280655469258, y: 48.22214366434994)),
+'EPSG:32226': ProjectAndUnProjectResult(
+        Point(x: 3859133.036428118, y: 6259298.051957194),
+        Point(x: 16.418121711472182, y: 47.11123823768184)),
+'EPSG:32227': ProjectAndUnProjectResult(
+        Point(x: 3429799.90576544, y: 5977373.158633122),
+        Point(x: 17.630645788078013, y: 46.92603298707393)),
+'EPSG:32228': ProjectAndUnProjectResult(
+        Point(x: 2988895.288371747, y: 5744021.2519520875),
+        Point(x: 17.848196837600767, y: 46.8967114233319)),
+'EPSG:32229': ProjectAndUnProjectResult(
+        Point(x: 2540719.931658131, y: 5555690.792168482),
+        Point(x: 17.883147134018852, y: 46.89269979653988)),
+'EPSG:32230': ProjectAndUnProjectResult(
+        Point(x: 2088185.7578615309, y: 5409192.003073928),
+        Point(x: 17.887652119201352, y: 46.89228755981681)),
+'EPSG:32231': ProjectAndUnProjectResult(
+        Point(x: 1633185.2717940256, y: 5301864.448343647),
+        Point(x: 17.88804238865065, y: 46.89226400034761)),
+'EPSG:32232': ProjectAndUnProjectResult(
+        Point(x: 1176891.087078899, y: 5231670.218192305),
+        Point(x: 17.88805843543711, y: 46.89226402744631)),
+'EPSG:32233': ProjectAndUnProjectResult(
+        Point(x: 720001.1647505153, y: 5197240.005367395),
+        Point(x: 17.888058560302017, y: 46.89226406695707)),
+'EPSG:32234': ProjectAndUnProjectResult(
+        Point(x: 262945.358095068, y: 5197892.49779316),
+        Point(x: 17.888058560253082, y: 46.892264066927595)),
+'EPSG:32235': ProjectAndUnProjectResult(
+        Point(x: -193931.14239074418, y: 5233640.663463205),
+        Point(x: 17.88805871864181, y: 46.89226402167896)),
+'EPSG:32236': ProjectAndUnProjectResult(
+        Point(x: -650191.8700460636, y: 5305191.651464923),
+        Point(x: 17.88807717324067, y: 46.89226405999474)),
+'EPSG:32237': ProjectAndUnProjectResult(
+        Point(x: -1105125.0552201804, y: 5413940.181303934),
+        Point(x: 17.888509189362374, y: 46.89229076376232)),
+'EPSG:32238': ProjectAndUnProjectResult(
+        Point(x: -1557535.9166977564, y: 5561948.44098179),
+        Point(x: 17.893399933508082, y: 46.89274299757318)),
+'EPSG:32239': ProjectAndUnProjectResult(
+        Point(x: -2005499.677497893, y: 5751898.662565195),
+        Point(x: 17.930935677109797, y: 46.89708113514009)),
+'EPSG:32240': ProjectAndUnProjectResult(
+        Point(x: -2446059.7111700117, y: 5986997.692270118),
+        Point(x: 18.16321976111327, y: 46.92855172460918)),
+'EPSG:32241': ProjectAndUnProjectResult(
+        Point(x: -2874855.2247094675, y: 6270806.020369118),
+        Point(x: 19.45470963771951, y: 47.126641251675856)),
+'EPSG:32242': ProjectAndUnProjectResult(
+        Point(x: -3285662.884215872, y: 6606956.884515353),
+        Point(x: 26.45753793684007, y: 48.31444147554333)),
+'EPSG:32243': ProjectAndUnProjectResult(
+        Point(x: -3669836.7894170294, y: 6998724.208361697),
+        Point(x: 66.46977864145924, y: 55.6853665288034)),
+'EPSG:32244': ProjectAndUnProjectResult(
+        Point(x: -4015631.2031814735, y: 7448391.285638482),
+        Point(x: 45, y: double.nan)),
+'EPSG:32245': ProjectAndUnProjectResult(
+        Point(x: -4307390.442142525, y: 7956365.268138442),
+        Point(x: 45, y: double.nan)),
+'EPSG:32246': ProjectAndUnProjectResult(
+        Point(x: -4524590.334556816, y: 8519975.664342426),
+        Point(x: 45, y: double.nan)),
+'EPSG:32247': ProjectAndUnProjectResult(
+        Point(x: -4640715.65152024, y: 9131888.203704532),
+        Point(x: 45, y: double.nan)),
+'EPSG:32248': ProjectAndUnProjectResult(
+        Point(x: -4621957.917664263, y: 9778058.56990038),
+        Point(x: 45, y: double.nan)),
+'EPSG:32249': ProjectAndUnProjectResult(
+        Point(x: -4425718.007455542, y: 10435143.65462719),
+        Point(x: 0, y: 90)),
+'EPSG:32250': ProjectAndUnProjectResult(
+        Point(x: -3998897.9332217854, y: 11067281.13182954),
+        Point(x: 0, y: 90)),
+'EPSG:32251': ProjectAndUnProjectResult(
+        Point(x: -3275966.2310268437, y: 11622141.300509516),
+        Point(x: 0, y: 90)),
+'EPSG:32252': ProjectAndUnProjectResult(
+        Point(x: -2176781.350517909, y: 12026148.292565217),
+        Point(x: 0, y: 90)),
+'EPSG:32253': ProjectAndUnProjectResult(
+        Point(x: -604157.4548678189, y: 12178760.890386486),
+        Point(x: 0, y: 90)),
+'EPSG:32254': ProjectAndUnProjectResult(
+        Point(x: 1558842.9630646023, y: 11945696.347221803),
+        Point(x: 0, y: 90)),
+'EPSG:32255': ProjectAndUnProjectResult(
+        Point(x: 4451905.242233194, y: 11150973.751615396),
+        Point(x: 0, y: 90)),
+'EPSG:32256': ProjectAndUnProjectResult(
+        Point(x: 8240763.086439285, y: 9567646.625498582),
+        Point(x: 45, y: double.nan)),
+'EPSG:32257': ProjectAndUnProjectResult(
+        Point(x: 13120819.06277953, y: 6907087.593804411),
+        Point(x: 45, y: double.nan)),
+'EPSG:32258': ProjectAndUnProjectResult(
+        Point(x: 19321100.659383934, y: 2806681.1117598745),
+        Point(x: 45, y: double.nan)),
+'EPSG:32259': ProjectAndUnProjectResult(
+        Point(x: 27108567.496321272, y: -3184226.6157054114),
+        Point(x: -135, y: double.nan)),
+'EPSG:32260': ProjectAndUnProjectResult(
+        Point(x: 36792785.28354862, y: -11620278.239709446),
+        Point(x: 0, y: -90)),
+'EPSG:32301': ProjectAndUnProjectResult(
+        Point(x: 48730982.1197823, y: -13178120.96731805),
+        Point(x: 0, y: -90)),
+'EPSG:32302': ProjectAndUnProjectResult(
+        Point(x: 63333502.72616715, y: -28676658.776300564),
+        Point(x: 0, y: -90)),
+'EPSG:32303': ProjectAndUnProjectResult(
+        Point(x: 81069676.20862179, y: -49099719.41716196),
+        Point(x: 0, y: -90)),
+'EPSG:32304': ProjectAndUnProjectResult(
+        Point(x: -79345518.11539811, y: -48236042.24899301),
+        Point(x: 0, y: -90)),
+'EPSG:32305': ProjectAndUnProjectResult(
+        Point(x: -61735449.77408678, y: -28016557.52268096),
+        Point(x: 0, y: -90)),
+'EPSG:32306': ProjectAndUnProjectResult(
+        Point(x: -47240389.79131277, y: -12681634.476949278),
+        Point(x: 0, y: -90)),
+'EPSG:32307': ProjectAndUnProjectResult(
+        Point(x: -35393320.377725065, y: -1254036.386027785),
+        Point(x: 0, y: -90)),
+'EPSG:32308': ProjectAndUnProjectResult(
+        Point(x: -25785981.569639318, y: 7079441.021191107),
+        Point(x: -135, y: double.nan)),
+'EPSG:32309': ProjectAndUnProjectResult(
+        Point(x: -18063019.177102655, y: 12990543.175846284),
+        Point(x: 45, y: double.nan)),
+'EPSG:32310': ProjectAndUnProjectResult(
+        Point(x: -11916545.678766463, y: 17029722.27161179),
+        Point(x: 45, y: double.nan)),
+'EPSG:32311': ProjectAndUnProjectResult(
+        Point(x: -7081098.469690898, y: 19644072.871766996),
+        Point(x: 45, y: double.nan)),
+'EPSG:32312': ProjectAndUnProjectResult(
+        Point(x: -3328979.868203833, y: 21193208.6858754),
+        Point(x: 0, y: 90)),
+'EPSG:32313': ProjectAndUnProjectResult(
+        Point(x: -465963.28793670854, y: 21963244.829399344),
+        Point(x: 0, y: 90)),
+'EPSG:32314': ProjectAndUnProjectResult(
+        Point(x: 1672650.0188390382, y: 22179043.02786255),
+        Point(x: 0, y: 90)),
+'EPSG:32315': ProjectAndUnProjectResult(
+        Point(x: 3225639.240452556, y: 22014870.37545779),
+        Point(x: 0, y: 90)),
+'EPSG:32316': ProjectAndUnProjectResult(
+        Point(x: 4309152.901528066, y: 21603615.40628201),
+        Point(x: 0, y: 90)),
+'EPSG:32317': ProjectAndUnProjectResult(
+        Point(x: 5019693.969010158, y: 21044698.38466605),
+        Point(x: 0, y: 90)),
+'EPSG:32318': ProjectAndUnProjectResult(
+        Point(x: 5436816.76239722, y: 20410805.869351413),
+        Point(x: 0, y: 90)),
+'EPSG:32319': ProjectAndUnProjectResult(
+        Point(x: 5625551.262059834, y: 19753572.754551433),
+        Point(x: 45, y: double.nan)),
+'EPSG:32320': ProjectAndUnProjectResult(
+        Point(x: 5638570.409521307, y: 19108328.139219288),
+        Point(x: 45, y: double.nan)),
+'EPSG:32321': ProjectAndUnProjectResult(
+        Point(x: 5518115.993577361, y: 18498014.524130296),
+        Point(x: 45, y: double.nan)),
+'EPSG:32322': ProjectAndUnProjectResult(
+        Point(x: 5297698.716132037, y: 17936382.98467105),
+        Point(x: 45, y: double.nan)),
+'EPSG:32323': ProjectAndUnProjectResult(
+        Point(x: 5003588.031626868, y: 17430560.11551292),
+        Point(x: 45, y: double.nan)),
+'EPSG:32324': ProjectAndUnProjectResult(
+        Point(x: 4656107.353940375, y: 16983075.691632614),
+        Point(x: -27.57399469502054, y: 55.09636100792811)),
+'EPSG:32325': ProjectAndUnProjectResult(
+        Point(x: 4270750.22463494, y: 16593433.138427304),
+        Point(x: 9.846280655469258, y: 48.22214366434994)),
+'EPSG:32326': ProjectAndUnProjectResult(
+        Point(x: 3859133.036428118, y: 16259298.051957194),
+        Point(x: 16.418121711472182, y: 47.11123823768184)),
+'EPSG:32327': ProjectAndUnProjectResult(
+        Point(x: 3429799.90576544, y: 15977373.158633122),
+        Point(x: 17.630645788078013, y: 46.92603298707393)),
+'EPSG:32328': ProjectAndUnProjectResult(
+        Point(x: 2988895.288371747, y: 15744021.251952088),
+        Point(x: 17.848196837600767, y: 46.8967114233319)),
+'EPSG:32329': ProjectAndUnProjectResult(
+        Point(x: 2540719.931658131, y: 15555690.792168483),
+        Point(x: 17.88314713401886, y: 46.89269979653988)),
+'EPSG:32330': ProjectAndUnProjectResult(
+        Point(x: 2088185.7578615309, y: 15409192.003073927),
+        Point(x: 17.88765211920135, y: 46.89228755981681)),
+'EPSG:32331': ProjectAndUnProjectResult(
+        Point(x: 1633185.2717940256, y: 15301864.448343646),
+        Point(x: 17.888042388650646, y: 46.89226400034761)),
+'EPSG:32332': ProjectAndUnProjectResult(
+        Point(x: 1176891.087078899, y: 15231670.218192305),
+        Point(x: 17.88805843543711, y: 46.89226402744631)),
+'EPSG:32333': ProjectAndUnProjectResult(
+        Point(x: 720001.1647505153, y: 15197240.005367395),
+        Point(x: 17.888058560302017, y: 46.89226406695707)),
+'EPSG:32334': ProjectAndUnProjectResult(
+        Point(x: 262945.358095068, y: 15197892.49779316),
+        Point(x: 17.888058560253082, y: 46.892264066927595)),
+'EPSG:32335': ProjectAndUnProjectResult(
+        Point(x: -193931.14239074418, y: 15233640.663463205),
+        Point(x: 17.88805871864181, y: 46.89226402167896)),
+'EPSG:32336': ProjectAndUnProjectResult(
+        Point(x: -650191.8700460636, y: 15305191.651464924),
+        Point(x: 17.888077173240664, y: 46.89226405999475)),
+'EPSG:32337': ProjectAndUnProjectResult(
+        Point(x: -1105125.0552201804, y: 15413940.181303933),
+        Point(x: 17.888509189362377, y: 46.89229076376232)),
+'EPSG:32338': ProjectAndUnProjectResult(
+        Point(x: -1557535.9166977564, y: 15561948.44098179),
+        Point(x: 17.893399933508082, y: 46.89274299757318)),
+'EPSG:32339': ProjectAndUnProjectResult(
+        Point(x: -2005499.677497893, y: 15751898.662565194),
+        Point(x: 17.930935677109797, y: 46.897081135140084)),
+'EPSG:32340': ProjectAndUnProjectResult(
+        Point(x: -2446059.7111700117, y: 15986997.692270119),
+        Point(x: 18.16321976111327, y: 46.928551724609186)),
+'EPSG:32341': ProjectAndUnProjectResult(
+        Point(x: -2874855.2247094675, y: 16270806.020369118),
+        Point(x: 19.45470963771951, y: 47.126641251675856)),
+'EPSG:32342': ProjectAndUnProjectResult(
+        Point(x: -3285662.884215872, y: 16606956.884515353),
+        Point(x: 26.45753793684007, y: 48.31444147554333)),
+'EPSG:32343': ProjectAndUnProjectResult(
+        Point(x: -3669836.7894170294, y: 16998724.208361696),
+        Point(x: 66.46977864145907, y: 55.68536652880335)),
+'EPSG:32344': ProjectAndUnProjectResult(
+        Point(x: -4015631.2031814735, y: 17448391.28563848),
+        Point(x: 45, y: double.nan)),
+'EPSG:32345': ProjectAndUnProjectResult(
+        Point(x: -4307390.442142525, y: 17956365.268138442),
+        Point(x: 45, y: double.nan)),
+'EPSG:32346': ProjectAndUnProjectResult(
+        Point(x: -4524590.334556816, y: 18519975.664342426),
+        Point(x: 45, y: double.nan)),
+'EPSG:32347': ProjectAndUnProjectResult(
+        Point(x: -4640715.65152024, y: 19131888.203704532),
+        Point(x: 45, y: double.nan)),
+'EPSG:32348': ProjectAndUnProjectResult(
+        Point(x: -4621957.917664263, y: 19778058.56990038),
+        Point(x: 45, y: double.nan)),
+'EPSG:32349': ProjectAndUnProjectResult(
+        Point(x: -4425718.007455542, y: 20435143.65462719),
+        Point(x: 0, y: 90)),
+'EPSG:32350': ProjectAndUnProjectResult(
+        Point(x: -3998897.9332217854, y: 21067281.131829537),
+        Point(x: 0, y: 90)),
+'EPSG:32351': ProjectAndUnProjectResult(
+        Point(x: -3275966.2310268437, y: 21622141.300509516),
+        Point(x: 0, y: 90)),
+'EPSG:32352': ProjectAndUnProjectResult(
+        Point(x: -2176781.350517909, y: 22026148.29256522),
+        Point(x: 0, y: 90)),
+'EPSG:32353': ProjectAndUnProjectResult(
+        Point(x: -604157.4548678189, y: 22178760.890386485),
+        Point(x: 0, y: 90)),
+'EPSG:32354': ProjectAndUnProjectResult(
+        Point(x: 1558842.9630646023, y: 21945696.347221803),
+        Point(x: 0, y: 90)),
+'EPSG:32355': ProjectAndUnProjectResult(
+        Point(x: 4451905.242233194, y: 21150973.751615398),
+        Point(x: 0, y: 90)),
+'EPSG:32356': ProjectAndUnProjectResult(
+        Point(x: 8240763.086439285, y: 19567646.62549858),
+        Point(x: 45, y: double.nan)),
+'EPSG:32357': ProjectAndUnProjectResult(
+        Point(x: 13120819.06277953, y: 16907087.59380441),
+        Point(x: 45, y: double.nan)),
+'EPSG:32358': ProjectAndUnProjectResult(
+        Point(x: 19321100.659383934, y: 12806681.111759875),
+        Point(x: 45, y: double.nan)),
+'EPSG:32359': ProjectAndUnProjectResult(
+        Point(x: 27108567.496321272, y: 6815773.384294588),
+        Point(x: -135, y: double.nan)),
+'EPSG:32360': ProjectAndUnProjectResult(
+        Point(x: 36792785.28354862, y: -1620278.2397094462),
+        Point(x: 0, y: -90)),
+'EPSG:32401': ProjectAndUnProjectResult(
+        Point(x: 48730982.1197823, y: -23178120.96731805),
+        Point(x: 0, y: -90)),
+'EPSG:32402': ProjectAndUnProjectResult(
+        Point(x: 63333502.72616715, y: -38676658.776300564),
+        Point(x: 0, y: -90)),
+'EPSG:32403': ProjectAndUnProjectResult(
+        Point(x: 81069676.20862179, y: -59099719.41716196),
+        Point(x: 0, y: -90)),
+'EPSG:32404': ProjectAndUnProjectResult(
+        Point(x: -79345518.11539811, y: -58236042.24899301),
+        Point(x: 0, y: -90)),
+'EPSG:32405': ProjectAndUnProjectResult(
+        Point(x: -61735449.77408678, y: -38016557.52268096),
+        Point(x: 0, y: -90)),
+'EPSG:32406': ProjectAndUnProjectResult(
+        Point(x: -47240389.79131277, y: -22681634.47694928),
+        Point(x: 0, y: -90)),
+'EPSG:32407': ProjectAndUnProjectResult(
+        Point(x: -35393320.377725065, y: -11254036.386027785),
+        Point(x: 0, y: -90)),
+'EPSG:32408': ProjectAndUnProjectResult(
+        Point(x: -25785981.569639318, y: -2920558.9788088924),
+        Point(x: -135, y: double.nan)),
+'EPSG:32409': ProjectAndUnProjectResult(
+        Point(x: -18063019.177102655, y: 2990543.1758462847),
+        Point(x: 45, y: double.nan)),
+'EPSG:32410': ProjectAndUnProjectResult(
+        Point(x: -11916545.678766463, y: 7029722.271611792),
+        Point(x: 45, y: double.nan)),
+'EPSG:32411': ProjectAndUnProjectResult(
+        Point(x: -7081098.469690898, y: 9644072.871766996),
+        Point(x: 45, y: double.nan)),
+'EPSG:32412': ProjectAndUnProjectResult(
+        Point(x: -3328979.868203833, y: 11193208.685875399),
+        Point(x: 0, y: 90)),
+'EPSG:32413': ProjectAndUnProjectResult(
+        Point(x: -465963.28793670854, y: 11963244.829399344),
+        Point(x: 0, y: 90)),
+'EPSG:32414': ProjectAndUnProjectResult(
+        Point(x: 1672650.0188390382, y: 12179043.027862547),
+        Point(x: 0, y: 90)),
+'EPSG:32415': ProjectAndUnProjectResult(
+        Point(x: 3225639.240452556, y: 12014870.37545779),
+        Point(x: 0, y: 90)),
+'EPSG:32416': ProjectAndUnProjectResult(
+        Point(x: 4309152.901528066, y: 11603615.406282011),
+        Point(x: 0, y: 90)),
+'EPSG:32417': ProjectAndUnProjectResult(
+        Point(x: 5019693.969010158, y: 11044698.384666052),
+        Point(x: 0, y: 90)),
+'EPSG:32418': ProjectAndUnProjectResult(
+        Point(x: 5436816.76239722, y: 10410805.869351413),
+        Point(x: 0, y: 90)),
+'EPSG:32419': ProjectAndUnProjectResult(
+        Point(x: 5625551.262059834, y: 9753572.754551431),
+        Point(x: 45, y: double.nan)),
+'EPSG:32420': ProjectAndUnProjectResult(
+        Point(x: 5638570.409521307, y: 9108328.139219288),
+        Point(x: 45, y: double.nan)),
+'EPSG:32421': ProjectAndUnProjectResult(
+        Point(x: 5518115.993577361, y: 8498014.524130296),
+        Point(x: 45, y: double.nan)),
+'EPSG:32422': ProjectAndUnProjectResult(
+        Point(x: 5297698.716132037, y: 7936382.984671047),
+        Point(x: 45, y: double.nan)),
+'EPSG:32423': ProjectAndUnProjectResult(
+        Point(x: 5003588.031626868, y: 7430560.11551292),
+        Point(x: 45, y: double.nan)),
+'EPSG:32424': ProjectAndUnProjectResult(
+        Point(x: 4656107.353940375, y: 6983075.691632612),
+        Point(x: -27.57399469502039, y: 55.09636100792808)),
+'EPSG:32425': ProjectAndUnProjectResult(
+        Point(x: 4270750.22463494, y: 6593433.138427304),
+        Point(x: 9.846280655469258, y: 48.22214366434994)),
+'EPSG:32426': ProjectAndUnProjectResult(
+        Point(x: 3859133.036428118, y: 6259298.051957194),
+        Point(x: 16.418121711472182, y: 47.11123823768184)),
+'EPSG:32427': ProjectAndUnProjectResult(
+        Point(x: 3429799.90576544, y: 5977373.158633122),
+        Point(x: 17.630645788078013, y: 46.92603298707393)),
+'EPSG:32428': ProjectAndUnProjectResult(
+        Point(x: 2988895.288371747, y: 5744021.2519520875),
+        Point(x: 17.848196837600767, y: 46.8967114233319)),
+'EPSG:32429': ProjectAndUnProjectResult(
+        Point(x: 2540719.931658131, y: 5555690.792168482),
+        Point(x: 17.883147134018852, y: 46.89269979653988)),
+'EPSG:32430': ProjectAndUnProjectResult(
+        Point(x: 2088185.7578615309, y: 5409192.003073928),
+        Point(x: 17.887652119201352, y: 46.89228755981681)),
+'EPSG:32431': ProjectAndUnProjectResult(
+        Point(x: 1633185.2717940256, y: 5301864.448343647),
+        Point(x: 17.88804238865065, y: 46.89226400034761)),
+'EPSG:32432': ProjectAndUnProjectResult(
+        Point(x: 1176891.087078899, y: 5231670.218192305),
+        Point(x: 17.88805843543711, y: 46.89226402744631)),
+'EPSG:32433': ProjectAndUnProjectResult(
+        Point(x: 720001.1647505153, y: 5197240.005367395),
+        Point(x: 17.888058560302017, y: 46.89226406695707)),
+'EPSG:32434': ProjectAndUnProjectResult(
+        Point(x: 262945.358095068, y: 5197892.49779316),
+        Point(x: 17.888058560253082, y: 46.892264066927595)),
+'EPSG:32435': ProjectAndUnProjectResult(
+        Point(x: -193931.14239074418, y: 5233640.663463205),
+        Point(x: 17.88805871864181, y: 46.89226402167896)),
+'EPSG:32436': ProjectAndUnProjectResult(
+        Point(x: -650191.8700460636, y: 5305191.651464923),
+        Point(x: 17.88807717324067, y: 46.89226405999474)),
+'EPSG:32437': ProjectAndUnProjectResult(
+        Point(x: -1105125.0552201804, y: 5413940.181303934),
+        Point(x: 17.888509189362374, y: 46.89229076376232)),
+'EPSG:32438': ProjectAndUnProjectResult(
+        Point(x: -1557535.9166977564, y: 5561948.44098179),
+        Point(x: 17.893399933508082, y: 46.89274299757318)),
+'EPSG:32439': ProjectAndUnProjectResult(
+        Point(x: -2005499.677497893, y: 5751898.662565195),
+        Point(x: 17.930935677109797, y: 46.89708113514009)),
+'EPSG:32440': ProjectAndUnProjectResult(
+        Point(x: -2446059.7111700117, y: 5986997.692270118),
+        Point(x: 18.16321976111327, y: 46.92855172460918)),
+'EPSG:32441': ProjectAndUnProjectResult(
+        Point(x: -2874855.2247094675, y: 6270806.020369118),
+        Point(x: 19.45470963771951, y: 47.126641251675856)),
+'EPSG:32442': ProjectAndUnProjectResult(
+        Point(x: -3285662.884215872, y: 6606956.884515353),
+        Point(x: 26.45753793684007, y: 48.31444147554333)),
+'EPSG:32443': ProjectAndUnProjectResult(
+        Point(x: -3669836.7894170294, y: 6998724.208361697),
+        Point(x: 66.46977864145924, y: 55.6853665288034)),
+'EPSG:32444': ProjectAndUnProjectResult(
+        Point(x: -4015631.2031814735, y: 7448391.285638482),
+        Point(x: 45, y: double.nan)),
+'EPSG:32445': ProjectAndUnProjectResult(
+        Point(x: -4307390.442142525, y: 7956365.268138442),
+        Point(x: 45, y: double.nan)),
+'EPSG:32446': ProjectAndUnProjectResult(
+        Point(x: -4524590.334556816, y: 8519975.664342426),
+        Point(x: 45, y: double.nan)),
+'EPSG:32447': ProjectAndUnProjectResult(
+        Point(x: -4640715.65152024, y: 9131888.203704532),
+        Point(x: 45, y: double.nan)),
+'EPSG:32448': ProjectAndUnProjectResult(
+        Point(x: -4621957.917664263, y: 9778058.56990038),
+        Point(x: 45, y: double.nan)),
+'EPSG:32449': ProjectAndUnProjectResult(
+        Point(x: -4425718.007455542, y: 10435143.65462719),
+        Point(x: 0, y: 90)),
+'EPSG:32450': ProjectAndUnProjectResult(
+        Point(x: -3998897.9332217854, y: 11067281.13182954),
+        Point(x: 0, y: 90)),
+'EPSG:32451': ProjectAndUnProjectResult(
+        Point(x: -3275966.2310268437, y: 11622141.300509516),
+        Point(x: 0, y: 90)),
+'EPSG:32452': ProjectAndUnProjectResult(
+        Point(x: -2176781.350517909, y: 12026148.292565217),
+        Point(x: 0, y: 90)),
+'EPSG:32453': ProjectAndUnProjectResult(
+        Point(x: -604157.4548678189, y: 12178760.890386486),
+        Point(x: 0, y: 90)),
+'EPSG:32454': ProjectAndUnProjectResult(
+        Point(x: 1558842.9630646023, y: 11945696.347221803),
+        Point(x: 0, y: 90)),
+'EPSG:32455': ProjectAndUnProjectResult(
+        Point(x: 4451905.242233194, y: 11150973.751615396),
+        Point(x: 0, y: 90)),
+'EPSG:32456': ProjectAndUnProjectResult(
+        Point(x: 8240763.086439285, y: 9567646.625498582),
+        Point(x: 45, y: double.nan)),
+'EPSG:32457': ProjectAndUnProjectResult(
+        Point(x: 13120819.06277953, y: 6907087.593804411),
+        Point(x: 45, y: double.nan)),
+'EPSG:32458': ProjectAndUnProjectResult(
+        Point(x: 19321100.659383934, y: 2806681.1117598745),
+        Point(x: 45, y: double.nan)),
+'EPSG:32459': ProjectAndUnProjectResult(
+        Point(x: 27108567.496321272, y: -3184226.6157054114),
+        Point(x: -135, y: double.nan)),
+'EPSG:32460': ProjectAndUnProjectResult(
+        Point(x: 36792785.28354862, y: -11620278.239709446),
+        Point(x: 0, y: -90)),
+'EPSG:32501': ProjectAndUnProjectResult(
+        Point(x: 48730982.1197823, y: -13178120.96731805),
+        Point(x: 0, y: -90)),
+'EPSG:32502': ProjectAndUnProjectResult(
+        Point(x: 63333502.72616715, y: -28676658.776300564),
+        Point(x: 0, y: -90)),
+'EPSG:32503': ProjectAndUnProjectResult(
+        Point(x: 81069676.20862179, y: -49099719.41716196),
+        Point(x: 0, y: -90)),
+'EPSG:32504': ProjectAndUnProjectResult(
+        Point(x: -79345518.11539811, y: -48236042.24899301),
+        Point(x: 0, y: -90)),
+'EPSG:32505': ProjectAndUnProjectResult(
+        Point(x: -61735449.77408678, y: -28016557.52268096),
+        Point(x: 0, y: -90)),
+'EPSG:32506': ProjectAndUnProjectResult(
+        Point(x: -47240389.79131277, y: -12681634.476949278),
+        Point(x: 0, y: -90)),
+'EPSG:32507': ProjectAndUnProjectResult(
+        Point(x: -35393320.377725065, y: -1254036.386027785),
+        Point(x: 0, y: -90)),
+'EPSG:32508': ProjectAndUnProjectResult(
+        Point(x: -25785981.569639318, y: 7079441.021191107),
+        Point(x: -135, y: double.nan)),
+'EPSG:32509': ProjectAndUnProjectResult(
+        Point(x: -18063019.177102655, y: 12990543.175846284),
+        Point(x: 45, y: double.nan)),
+'EPSG:32510': ProjectAndUnProjectResult(
+        Point(x: -11916545.678766463, y: 17029722.27161179),
+        Point(x: 45, y: double.nan)),
+'EPSG:32511': ProjectAndUnProjectResult(
+        Point(x: -7081098.469690898, y: 19644072.871766996),
+        Point(x: 45, y: double.nan)),
+'EPSG:32512': ProjectAndUnProjectResult(
+        Point(x: -3328979.868203833, y: 21193208.6858754),
+        Point(x: 0, y: 90)),
+'EPSG:32513': ProjectAndUnProjectResult(
+        Point(x: -465963.28793670854, y: 21963244.829399344),
+        Point(x: 0, y: 90)),
+'EPSG:32514': ProjectAndUnProjectResult(
+        Point(x: 1672650.0188390382, y: 22179043.02786255),
+        Point(x: 0, y: 90)),
+'EPSG:32515': ProjectAndUnProjectResult(
+        Point(x: 3225639.240452556, y: 22014870.37545779),
+        Point(x: 0, y: 90)),
+'EPSG:32516': ProjectAndUnProjectResult(
+        Point(x: 4309152.901528066, y: 21603615.40628201),
+        Point(x: 0, y: 90)),
+'EPSG:32517': ProjectAndUnProjectResult(
+        Point(x: 5019693.969010158, y: 21044698.38466605),
+        Point(x: 0, y: 90)),
+'EPSG:32518': ProjectAndUnProjectResult(
+        Point(x: 5436816.76239722, y: 20410805.869351413),
+        Point(x: 0, y: 90)),
+'EPSG:32519': ProjectAndUnProjectResult(
+        Point(x: 5625551.262059834, y: 19753572.754551433),
+        Point(x: 45, y: double.nan)),
+'EPSG:32520': ProjectAndUnProjectResult(
+        Point(x: 5638570.409521307, y: 19108328.139219288),
+        Point(x: 45, y: double.nan)),
+'EPSG:32521': ProjectAndUnProjectResult(
+        Point(x: 5518115.993577361, y: 18498014.524130296),
+        Point(x: 45, y: double.nan)),
+'EPSG:32522': ProjectAndUnProjectResult(
+        Point(x: 5297698.716132037, y: 17936382.98467105),
+        Point(x: 45, y: double.nan)),
+'EPSG:32523': ProjectAndUnProjectResult(
+        Point(x: 5003588.031626868, y: 17430560.11551292),
+        Point(x: 45, y: double.nan)),
+'EPSG:32524': ProjectAndUnProjectResult(
+        Point(x: 4656107.353940375, y: 16983075.691632614),
+        Point(x: -27.57399469502054, y: 55.09636100792811)),
+'EPSG:32525': ProjectAndUnProjectResult(
+        Point(x: 4270750.22463494, y: 16593433.138427304),
+        Point(x: 9.846280655469258, y: 48.22214366434994)),
+'EPSG:32526': ProjectAndUnProjectResult(
+        Point(x: 3859133.036428118, y: 16259298.051957194),
+        Point(x: 16.418121711472182, y: 47.11123823768184)),
+'EPSG:32527': ProjectAndUnProjectResult(
+        Point(x: 3429799.90576544, y: 15977373.158633122),
+        Point(x: 17.630645788078013, y: 46.92603298707393)),
+'EPSG:32528': ProjectAndUnProjectResult(
+        Point(x: 2988895.288371747, y: 15744021.251952088),
+        Point(x: 17.848196837600767, y: 46.8967114233319)),
+'EPSG:32529': ProjectAndUnProjectResult(
+        Point(x: 2540719.931658131, y: 15555690.792168483),
+        Point(x: 17.88314713401886, y: 46.89269979653988)),
+'EPSG:32530': ProjectAndUnProjectResult(
+        Point(x: 2088185.7578615309, y: 15409192.003073927),
+        Point(x: 17.88765211920135, y: 46.89228755981681)),
+'EPSG:32531': ProjectAndUnProjectResult(
+        Point(x: 1633185.2717940256, y: 15301864.448343646),
+        Point(x: 17.888042388650646, y: 46.89226400034761)),
+'EPSG:32532': ProjectAndUnProjectResult(
+        Point(x: 1176891.087078899, y: 15231670.218192305),
+        Point(x: 17.88805843543711, y: 46.89226402744631)),
+'EPSG:32533': ProjectAndUnProjectResult(
+        Point(x: 720001.1647505153, y: 15197240.005367395),
+        Point(x: 17.888058560302017, y: 46.89226406695707)),
+'EPSG:32534': ProjectAndUnProjectResult(
+        Point(x: 262945.358095068, y: 15197892.49779316),
+        Point(x: 17.888058560253082, y: 46.892264066927595)),
+'EPSG:32535': ProjectAndUnProjectResult(
+        Point(x: -193931.14239074418, y: 15233640.663463205),
+        Point(x: 17.88805871864181, y: 46.89226402167896)),
+'EPSG:32536': ProjectAndUnProjectResult(
+        Point(x: -650191.8700460636, y: 15305191.651464924),
+        Point(x: 17.888077173240664, y: 46.89226405999475)),
+'EPSG:32537': ProjectAndUnProjectResult(
+        Point(x: -1105125.0552201804, y: 15413940.181303933),
+        Point(x: 17.888509189362377, y: 46.89229076376232)),
+'EPSG:32538': ProjectAndUnProjectResult(
+        Point(x: -1557535.9166977564, y: 15561948.44098179),
+        Point(x: 17.893399933508082, y: 46.89274299757318)),
+'EPSG:32539': ProjectAndUnProjectResult(
+        Point(x: -2005499.677497893, y: 15751898.662565194),
+        Point(x: 17.930935677109797, y: 46.897081135140084)),
+'EPSG:32540': ProjectAndUnProjectResult(
+        Point(x: -2446059.7111700117, y: 15986997.692270119),
+        Point(x: 18.16321976111327, y: 46.928551724609186)),
+'EPSG:32541': ProjectAndUnProjectResult(
+        Point(x: -2874855.2247094675, y: 16270806.020369118),
+        Point(x: 19.45470963771951, y: 47.126641251675856)),
+'EPSG:32542': ProjectAndUnProjectResult(
+        Point(x: -3285662.884215872, y: 16606956.884515353),
+        Point(x: 26.45753793684007, y: 48.31444147554333)),
+'EPSG:32543': ProjectAndUnProjectResult(
+        Point(x: -3669836.7894170294, y: 16998724.208361696),
+        Point(x: 66.46977864145907, y: 55.68536652880335)),
+'EPSG:32544': ProjectAndUnProjectResult(
+        Point(x: -4015631.2031814735, y: 17448391.28563848),
+        Point(x: 45, y: double.nan)),
+'EPSG:32545': ProjectAndUnProjectResult(
+        Point(x: -4307390.442142525, y: 17956365.268138442),
+        Point(x: 45, y: double.nan)),
+'EPSG:32546': ProjectAndUnProjectResult(
+        Point(x: -4524590.334556816, y: 18519975.664342426),
+        Point(x: 45, y: double.nan)),
+'EPSG:32547': ProjectAndUnProjectResult(
+        Point(x: -4640715.65152024, y: 19131888.203704532),
+        Point(x: 45, y: double.nan)),
+'EPSG:32548': ProjectAndUnProjectResult(
+        Point(x: -4621957.917664263, y: 19778058.56990038),
+        Point(x: 45, y: double.nan)),
+'EPSG:32549': ProjectAndUnProjectResult(
+        Point(x: -4425718.007455542, y: 20435143.65462719),
+        Point(x: 0, y: 90)),
+'EPSG:32550': ProjectAndUnProjectResult(
+        Point(x: -3998897.9332217854, y: 21067281.131829537),
+        Point(x: 0, y: 90)),
+'EPSG:32551': ProjectAndUnProjectResult(
+        Point(x: -3275966.2310268437, y: 21622141.300509516),
+        Point(x: 0, y: 90)),
+'EPSG:32552': ProjectAndUnProjectResult(
+        Point(x: -2176781.350517909, y: 22026148.29256522),
+        Point(x: 0, y: 90)),
+'EPSG:32553': ProjectAndUnProjectResult(
+        Point(x: -604157.4548678189, y: 22178760.890386485),
+        Point(x: 0, y: 90)),
+'EPSG:32554': ProjectAndUnProjectResult(
+        Point(x: 1558842.9630646023, y: 21945696.347221803),
+        Point(x: 0, y: 90)),
+'EPSG:32555': ProjectAndUnProjectResult(
+        Point(x: 4451905.242233194, y: 21150973.751615398),
+        Point(x: 0, y: 90)),
+'EPSG:32556': ProjectAndUnProjectResult(
+        Point(x: 8240763.086439285, y: 19567646.62549858),
+        Point(x: 45, y: double.nan)),
+'EPSG:32557': ProjectAndUnProjectResult(
+        Point(x: 13120819.06277953, y: 16907087.59380441),
+        Point(x: 45, y: double.nan)),
+'EPSG:32558': ProjectAndUnProjectResult(
+        Point(x: 19321100.659383934, y: 12806681.111759875),
+        Point(x: 45, y: double.nan)),
+'EPSG:32559': ProjectAndUnProjectResult(
+        Point(x: 27108567.496321272, y: 6815773.384294588),
+        Point(x: -135, y: double.nan)),
+'EPSG:32560': ProjectAndUnProjectResult(
+        Point(x: 36792785.28354862, y: -1620278.2397094462),
+        Point(x: 0, y: -90)),
+'EPSG:32618': ProjectAndUnProjectResult(
+        Point(x: 5436818.00587551, y: 10410808.927574996),
+        Point(x: 0, y: 90)),
+'EPSG:32619': ProjectAndUnProjectResult(
+        Point(x: 5625552.597266308, y: 9753575.672805658),
+        Point(x: -14563147131.785316, y: 3188443835.3107486)),
+'EPSG:32620': ProjectAndUnProjectResult(
+        Point(x: 5638571.782947235, y: 9108330.90168845),
+        Point(x: -1685042.2533001453, y: 369929.7982766386)),
+'EPSG:32621': ProjectAndUnProjectResult(
+        Point(x: 5518117.36258884, y: 8498017.126898602),
+        Point(x: -33811.09013091508, y: 7380.196889341078)),
+'EPSG:32622': ProjectAndUnProjectResult(
+        Point(x: 5297700.047128848, y: 7936385.431952221),
+        Point(x: -2039.797629640532, y: 544.0590624398507)),
+'EPSG:32623': ProjectAndUnProjectResult(
+        Point(x: 5003589.29844938, y: 7430562.4168033395),
+        Point(x: 87.06844227254395, y: 103.32192587245024)),
+'EPSG:32624': ProjectAndUnProjectResult(
+        Point(x: 4656108.536498728, y: 6983077.85961133),
+        Point(x: -27.574000094098345, y: 55.096361670026944)),
+'EPSG:32625': ProjectAndUnProjectResult(
+        Point(x: 4270751.307736807, y: 6593435.187451664),
+        Point(x: 9.84627979280035, y: 48.22214374760744)),
+'EPSG:32626': ProjectAndUnProjectResult(
+        Point(x: 3859134.008783412, y: 6259299.997026029),
+        Point(x: 16.418121572280526, y: 47.11123824637677)),
+'EPSG:32627': ProjectAndUnProjectResult(
+        Point(x: 3429800.7591484087, y: 5977375.014710562),
+        Point(x: 17.630645767875883, y: 46.926032986590954)),
+'EPSG:32628': ProjectAndUnProjectResult(
+        Point(x: 2988896.0169229344, y: 5744023.03356412),
+        Point(x: 17.848196835452416, y: 46.89671142260486)),
+'EPSG:32629': ProjectAndUnProjectResult(
+        Point(x: 2540720.5313107786, y: 5555692.513201211),
+        Point(x: 17.883147133968592, y: 46.89269979625918)),
+'EPSG:32630': ProjectAndUnProjectResult(
+        Point(x: 2088186.225879029, y: 5409193.676717313),
+        Point(x: 17.887652119235128, y: 46.8922875597492)),
+'EPSG:32631': ProjectAndUnProjectResult(
+        Point(x: 1633185.6064071131, y: 5301866.087137116),
+        Point(x: 17.888042388656356, y: 46.89226400033798)),
+'EPSG:32632': ProjectAndUnProjectResult(
+        Point(x: 1176891.2872133553, y: 5231671.834139232),
+        Point(x: 17.88805843543735, y: 46.89226402744535)),
+'EPSG:32633': ProjectAndUnProjectResult(
+        Point(x: 720001.2298381603, y: 5197241.610093783),
+        Point(x: 17.888058560302017, y: 46.89226406695652)),
+'EPSG:32634': ProjectAndUnProjectResult(
+        Point(x: 262945.2879629513, y: 5197894.102732273),
+        Point(x: 17.88805856025308, y: 46.89226406692703)),
+'EPSG:32635': ProjectAndUnProjectResult(
+        Point(x: -193931.3475560262, y: 5233642.280052007),
+        Point(x: 17.88805871864152, y: 46.89226402167793)),
+'EPSG:32636': ProjectAndUnProjectResult(
+        Point(x: -650192.2096599129, y: 5305193.291340299),
+        Point(x: 17.88807717323444, y: 46.892264059984264)),
+'EPSG:32637': ProjectAndUnProjectResult(
+        Point(x: -1105125.5281863362, y: 5413941.8564866185),
+        Point(x: 17.888509189327262, y: 46.89229076369042)),
+'EPSG:32638': ProjectAndUnProjectResult(
+        Point(x: -1557536.5212162894, y: 5561950.164033774),
+        Point(x: 17.893399933574567, y: 46.89274299727972)),
+'EPSG:32639': ProjectAndUnProjectResult(
+        Point(x: -2005500.4107896662, y: 5751900.446702114),
+        Point(x: 17.93093567947049, y: 46.89708113439577)),
+'EPSG:32640': ProjectAndUnProjectResult(
+        Point(x: -2446060.569110333, y: 5986999.55140372),
+        Point(x: 18.16321978290508, y: 46.92855172420238)),
+'EPSG:32641': ProjectAndUnProjectResult(
+        Point(x: -2874856.2013616185, y: 6270807.969046427),
+        Point(x: 19.454709786875302, y: 47.12664126126442)),
+'EPSG:32642': ProjectAndUnProjectResult(
+        Point(x: -3285663.971253113, y: 6606958.9377104975),
+        Point(x: 26.457538859857106, y: 48.31444156546475)),
+'EPSG:32643': ProjectAndUnProjectResult(
+        Point(x: -3669837.9754196387, y: 6998726.381063664),
+        Point(x: 66.46978443192005, y: 55.68536724668764)),
+'EPSG:32644': ProjectAndUnProjectResult(
+        Point(x: -4015632.4727932913, y: 7448393.592163174),
+        Point(x: -29.20355224616991, y: 107.75568997892748)),
+'EPSG:32645': ProjectAndUnProjectResult(
+        Point(x: -4307391.775069423, y: 7956367.721076452),
+        Point(x: 2295.099359406656, y: 590.2186927982785)),
+'EPSG:32646': ProjectAndUnProjectResult(
+        Point(x: -4524591.704387454, y: 8519978.27303488),
+        Point(x: 38040.25674781569, y: 8289.769436337667)),
+'EPSG:32647': ProjectAndUnProjectResult(
+        Point(x: -4640717.024347393, y: 9131890.972118106),
+        Point(x: 2043698.7541324345, y: 448818.11751850427)),
+'EPSG:32648': ProjectAndUnProjectResult(
+        Point(x: -4621959.250482938, y: 9778061.493749313),
+        Point(x: 30362279592.18099, y: 6642887093.450607)),
+'EPSG:32649': ProjectAndUnProjectResult(
+        Point(x: -4425719.24631206, y: 10435146.71756466),
+        Point(x: 0, y: 90)),
+'EPSG:32650': ProjectAndUnProjectResult(
+        Point(x: -3998899.0110859387, y: 11067284.300503207),
+        Point(x: 0, y: 90)),
+'EPSG:32651': ProjectAndUnProjectResult(
+        Point(x: -3275967.065357107, y: 11622144.5182464),
+        Point(x: 0, y: 90)),
+'EPSG:32652': ProjectAndUnProjectResult(
+        Point(x: -2176781.8404877554, y: 12026151.471419258),
+        Point(x: 0, y: 90)),
+'EPSG:32653': ProjectAndUnProjectResult(
+        Point(x: -604157.4782189683, y: 12178763.901248254),
+        Point(x: 0, y: 90)),
+'EPSG:32654': ProjectAndUnProjectResult(
+        Point(x: 1558843.5535780834, y: 11945699.007653777),
+        Point(x: 0, y: 90)),
+'EPSG:32655': ProjectAndUnProjectResult(
+        Point(x: 4451906.622848249, y: 11150975.81103817),
+        Point(x: 0, y: 90)),
+'EPSG:32656': ProjectAndUnProjectResult(
+        Point(x: 8240765.466874875, y: 9567647.74731296),
+        Point(x: -4967267524.084756, y: 1643558556.5869083)),
+'EPSG:32657': ProjectAndUnProjectResult(
+        Point(x: 13120822.691257693, y: 6907087.3339921795),
+        Point(x: -142413.85804992775, y: 81938.05167517894)),
+'EPSG:32658': ProjectAndUnProjectResult(
+        Point(x: 19321105.82822534, y: 2806678.8934613597),
+        Point(x: -5175.116547763912, y: 7749.823531212802)),
+'EPSG:32659': ProjectAndUnProjectResult(
+        Point(x: 27108574.548161704, y: -3184231.5321853566),
+        Point(x: -103767.21813583322, y: -188871.77571889045)),
+'EPSG:32660': ProjectAndUnProjectResult(
+        Point(x: 36792794.61822483, y: -11620286.792064108),
+        Point(x: 0, y: -90)),
+'EPSG:32661': ProjectAndUnProjectResult(
+        Point(x: 3550063.849281694, y: -2802512.035474999),
+        Point(x: 17.888058560281515, y: 46.89226406700877)),
+'EPSG:32662': ProjectAndUnProjectResult(
+        Point(x: 1991289.5702107965, y: 5220022.958083138),
+        Point(x: 17.888058560281515, y: 46.89226406700879)),
+'EPSG:32664': ProjectAndUnProjectResult(
+        Point(x: 5487686.082005338, y: 39957420.24214097),
+        Point(x: 0, y: 90)),
+'EPSG:32665': ProjectAndUnProjectResult(
+        Point(x: 10582786.401117964, y: 39418797.66418905),
+        Point(x: 0, y: 90)),
+'EPSG:32666': ProjectAndUnProjectResult(
+        Point(x: 14137615.25374761, y: 38069538.767417125),
+        Point(x: 0, y: 90)),
+'EPSG:32667': ProjectAndUnProjectResult(
+        Point(x: 16468782.860517088, y: 36235825.002763234),
+        Point(x: 0, y: 90)),
+'EPSG:32701': ProjectAndUnProjectResult(
+        Point(x: 48730994.201937996, y: -13178134.33221813),
+        Point(x: 0, y: -90)),
+'EPSG:32702': ProjectAndUnProjectResult(
+        Point(x: 63333518.09363211, y: -28676678.41689138),
+        Point(x: 0, y: -90)),
+'EPSG:32703': ProjectAndUnProjectResult(
+        Point(x: 81069695.48161745, y: -49099747.137833305),
+        Point(x: 0, y: -90)),
+'EPSG:32704': ProjectAndUnProjectResult(
+        Point(x: -79345537.23046954, y: -48236069.63121628),
+        Point(x: 0, y: -90)),
+'EPSG:32705': ProjectAndUnProjectResult(
+        Point(x: -61735465.00836595, y: -28016576.898993805),
+        Point(x: 0, y: -90)),
+'EPSG:32706': ProjectAndUnProjectResult(
+        Point(x: -47240401.76177123, y: -12681647.637932241),
+        Point(x: 0, y: -90)),
+'EPSG:32707': ProjectAndUnProjectResult(
+        Point(x: -35393329.619301565, y: -1254044.783200482),
+        Point(x: 0, y: -90)),
+'EPSG:32708': ProjectAndUnProjectResult(
+        Point(x: -25785988.54441397, y: 7079436.220885424),
+        Point(x: 72517.82974998129, y: -135482.78847814907)),
+'EPSG:32709': ProjectAndUnProjectResult(
+        Point(x: -18063024.28264584, y: 12990541.042800236),
+        Point(x: 5728.679565344177, y: 8118.48046660466)),
+'EPSG:32710': ProjectAndUnProjectResult(
+        Point(x: -11916549.255717097, y: 17029722.0728038),
+        Point(x: 169423.46822256624, y: 95274.64645617674)),
+'EPSG:32711': ProjectAndUnProjectResult(
+        Point(x: -7081100.808616535, y: 19644074.03580277),
+        Point(x: 16894389361.82516, y: 5473429535.782776)),
+'EPSG:32712': ProjectAndUnProjectResult(
+        Point(x: -3328981.215793029, y: 21193210.77317494),
+        Point(x: 0, y: 90)),
+'EPSG:32713': ProjectAndUnProjectResult(
+        Point(x: -465963.852572312, y: 21963247.506934203),
+        Point(x: 0, y: 90)),
+'EPSG:32714': ProjectAndUnProjectResult(
+        Point(x: 1672650.0620793512, y: 22179046.04789667),
+        Point(x: 0, y: 90)),
+'EPSG:32715': ProjectAndUnProjectResult(
+        Point(x: 3225639.745324246, y: 22014873.55779194),
+        Point(x: 0, y: 90)),
+'EPSG:32716': ProjectAndUnProjectResult(
+        Point(x: 4309153.746633765, y: 21603618.62354599),
+        Point(x: 0, y: 90)),
+'EPSG:32717': ProjectAndUnProjectResult(
+        Point(x: 5019695.054259717, y: 21044701.550245337),
+        Point(x: 0, y: 90)),
+'EPSG:32718': ProjectAndUnProjectResult(
+        Point(x: 5436818.00587551, y: 20410808.927574996),
+        Point(x: 0, y: 90)),
+'EPSG:32719': ProjectAndUnProjectResult(
+        Point(x: 5625552.597266308, y: 19753575.67280566),
+        Point(x: -14563147131.785913, y: 3188443835.3108788)),
+'EPSG:32720': ProjectAndUnProjectResult(
+        Point(x: 5638571.782947235, y: 19108330.90168845),
+        Point(x: -1685042.2533001453, y: 369929.7982766386)),
+'EPSG:32721': ProjectAndUnProjectResult(
+        Point(x: 5518117.36258884, y: 18498017.1268986),
+        Point(x: -33811.09013091508, y: 7380.196889341078)),
+'EPSG:32722': ProjectAndUnProjectResult(
+        Point(x: 5297700.047128848, y: 17936385.431952223),
+        Point(x: -2039.7976296405445, y: 544.0590624398534)),
+'EPSG:32723': ProjectAndUnProjectResult(
+        Point(x: 5003589.29844938, y: 17430562.416803338),
+        Point(x: 87.06844227254507, y: 103.32192587245001)),
+'EPSG:32724': ProjectAndUnProjectResult(
+        Point(x: 4656108.536498728, y: 16983077.85961133),
+        Point(x: -27.57400009409816, y: 55.0963616700269)),
+'EPSG:32725': ProjectAndUnProjectResult(
+        Point(x: 4270751.307736807, y: 16593435.187451664),
+        Point(x: 9.84627979280035, y: 48.22214374760744)),
+'EPSG:32726': ProjectAndUnProjectResult(
+        Point(x: 3859134.008783412, y: 16259299.99702603),
+        Point(x: 16.418121572280523, y: 47.11123824637677)),
+'EPSG:32727': ProjectAndUnProjectResult(
+        Point(x: 3429800.7591484087, y: 15977375.014710562),
+        Point(x: 17.630645767875883, y: 46.926032986590954)),
+'EPSG:32728': ProjectAndUnProjectResult(
+        Point(x: 2988896.0169229344, y: 15744023.03356412),
+        Point(x: 17.848196835452416, y: 46.89671142260487)),
+'EPSG:32729': ProjectAndUnProjectResult(
+        Point(x: 2540720.5313107786, y: 15555692.51320121),
+        Point(x: 17.883147133968592, y: 46.89269979625918)),
+'EPSG:32730': ProjectAndUnProjectResult(
+        Point(x: 2088186.225879029, y: 15409193.676717313),
+        Point(x: 17.887652119235128, y: 46.8922875597492)),
+'EPSG:32731': ProjectAndUnProjectResult(
+        Point(x: 1633185.6064071131, y: 15301866.087137116),
+        Point(x: 17.888042388656356, y: 46.89226400033798)),
+'EPSG:32732': ProjectAndUnProjectResult(
+        Point(x: 1176891.2872133553, y: 15231671.834139232),
+        Point(x: 17.88805843543735, y: 46.89226402744535)),
+'EPSG:32733': ProjectAndUnProjectResult(
+        Point(x: 720001.2298381603, y: 15197241.610093784),
+        Point(x: 17.888058560302017, y: 46.89226406695653)),
+'EPSG:32734': ProjectAndUnProjectResult(
+        Point(x: 262945.2879629513, y: 15197894.102732273),
+        Point(x: 17.88805856025308, y: 46.89226406692703)),
+'EPSG:32735': ProjectAndUnProjectResult(
+        Point(x: -193931.3475560262, y: 15233642.280052006),
+        Point(x: 17.888058718641524, y: 46.892264021677924)),
+'EPSG:32736': ProjectAndUnProjectResult(
+        Point(x: -650192.2096599129, y: 15305193.291340299),
+        Point(x: 17.88807717323444, y: 46.892264059984264)),
+'EPSG:32737': ProjectAndUnProjectResult(
+        Point(x: -1105125.5281863362, y: 15413941.856486619),
+        Point(x: 17.888509189327262, y: 46.89229076369042)),
+'EPSG:32738': ProjectAndUnProjectResult(
+        Point(x: -1557536.5212162894, y: 15561950.164033774),
+        Point(x: 17.893399933574567, y: 46.89274299727972)),
+'EPSG:32739': ProjectAndUnProjectResult(
+        Point(x: -2005500.4107896662, y: 15751900.446702115),
+        Point(x: 17.930935679470483, y: 46.897081134395776)),
+'EPSG:32740': ProjectAndUnProjectResult(
+        Point(x: -2446060.569110333, y: 15986999.55140372),
+        Point(x: 18.16321978290508, y: 46.92855172420238)),
+'EPSG:32741': ProjectAndUnProjectResult(
+        Point(x: -2874856.2013616185, y: 16270807.969046427),
+        Point(x: 19.454709786875302, y: 47.12664126126442)),
+'EPSG:32742': ProjectAndUnProjectResult(
+        Point(x: -3285663.971253113, y: 16606958.937710498),
+        Point(x: 26.457538859857106, y: 48.31444156546475)),
+'EPSG:32743': ProjectAndUnProjectResult(
+        Point(x: -3669837.9754196387, y: 16998726.381063662),
+        Point(x: 66.46978443191988, y: 55.6853672466876)),
+'EPSG:32744': ProjectAndUnProjectResult(
+        Point(x: -4015632.4727932913, y: 17448393.592163175),
+        Point(x: -29.20355224616991, y: 107.75568997892748)),
+'EPSG:32745': ProjectAndUnProjectResult(
+        Point(x: -4307391.775069423, y: 17956367.72107645),
+        Point(x: 2295.099359406642, y: 590.2186927982755)),
+'EPSG:32746': ProjectAndUnProjectResult(
+        Point(x: -4524591.704387454, y: 18519978.273034878),
+        Point(x: 38040.256747815445, y: 8289.769436337614)),
+'EPSG:32747': ProjectAndUnProjectResult(
+        Point(x: -4640717.024347393, y: 19131890.972118106),
+        Point(x: 2043698.7541324345, y: 448818.11751850427)),
+'EPSG:32748': ProjectAndUnProjectResult(
+        Point(x: -4621959.250482938, y: 19778061.493749313),
+        Point(x: 30362279592.18099, y: 6642887093.450607)),
+'EPSG:32749': ProjectAndUnProjectResult(
+        Point(x: -4425719.24631206, y: 20435146.717564657),
+        Point(x: 0, y: 90)),
+'EPSG:32750': ProjectAndUnProjectResult(
+        Point(x: -3998899.0110859387, y: 21067284.30050321),
+        Point(x: 0, y: 90)),
+'EPSG:32751': ProjectAndUnProjectResult(
+        Point(x: -3275967.065357107, y: 21622144.518246397),
+        Point(x: 0, y: 90)),
+'EPSG:32752': ProjectAndUnProjectResult(
+        Point(x: -2176781.8404877554, y: 22026151.47141926),
+        Point(x: 0, y: 90)),
+'EPSG:32753': ProjectAndUnProjectResult(
+        Point(x: -604157.4782189683, y: 22178763.901248254),
+        Point(x: 0, y: 90)),
+'EPSG:32754': ProjectAndUnProjectResult(
+        Point(x: 1558843.5535780834, y: 21945699.007653777),
+        Point(x: 0, y: 90)),
+'EPSG:32755': ProjectAndUnProjectResult(
+        Point(x: 4451906.622848249, y: 21150975.81103817),
+        Point(x: 0, y: 90)),
+'EPSG:32756': ProjectAndUnProjectResult(
+        Point(x: 8240765.466874875, y: 19567647.74731296),
+        Point(x: -4967267524.084756, y: 1643558556.5869083)),
+'EPSG:32757': ProjectAndUnProjectResult(
+        Point(x: 13120822.691257693, y: 16907087.33399218),
+        Point(x: -142413.85804992775, y: 81938.05167517894)),
+'EPSG:32758': ProjectAndUnProjectResult(
+        Point(x: 19321105.82822534, y: 12806678.89346136),
+        Point(x: -5175.116547763912, y: 7749.823531212802)),
+'EPSG:32759': ProjectAndUnProjectResult(
+        Point(x: 27108574.548161704, y: 6815768.467814643),
+        Point(x: -103767.21813583322, y: -188871.77571889054)),
+'EPSG:32760': ProjectAndUnProjectResult(
+        Point(x: 36792794.61822483, y: -1620286.792064108),
+        Point(x: 0, y: -90)),
+'EPSG:32766': ProjectAndUnProjectResult(
+        Point(x: -877885.5006516529, y: 15354804.257526185),
+        Point(x: 17.888161981005894, y: 46.89226782538485)),
+};

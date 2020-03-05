@@ -1,5 +1,5 @@
 /// All ESRI WKT defs
-/// warning we are skipping EPSG:22300 and EPSG:29701 and EPSG:900914
+/// warning we are skipping all defs produced errors with proj4js/proj4js
 const ESRIWktTestDefs = {
   'EPSG:3819':
       'GEOGCS["HD1909",DATUM["D_Hungarian_Datum_1909",SPHEROID["Bessel_1841",6377397.155,299.1528128]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]]',
@@ -310,7 +310,7 @@ const ESRIWktTestDefs = {
   'EPSG:4225':
       'GEOGCS["Corrego Alegre 1970-72",DATUM["D_Corrego_Alegre",SPHEROID["International_1924",6378388,297]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]]',
   'EPSG:4226':
-      'GEOGCS["Cote d\'Ivoire",DATUM["D_Cote_d_Ivoire",SPHEROID["Clarke_1880_IGN",6378249.2,293.46602]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]]',
+      'GEOGCS["Cote d_Ivoire",DATUM["D_Cote_d_Ivoire",SPHEROID["Clarke_1880_IGN",6378249.2,293.46602]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]]',
   'EPSG:4227':
       'GEOGCS["Deir ez Zor",DATUM["D_Deir_ez_Zor",SPHEROID["Clarke_1880_IGN",6378249.2,293.46602]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]]',
   'EPSG:4228':
@@ -390,7 +390,7 @@ const ESRIWktTestDefs = {
   'EPSG:4265':
       'GEOGCS["Monte Mario",DATUM["D_Monte_Mario",SPHEROID["International_1924",6378388,297]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]]',
   'EPSG:4266':
-      'GEOGCS["M\'poraloko",DATUM["D_Mporaloko",SPHEROID["Clarke_1880_IGN",6378249.2,293.46602]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]]',
+      'GEOGCS["M_poraloko",DATUM["D_Mporaloko",SPHEROID["Clarke_1880_IGN",6378249.2,293.46602]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]]',
   'EPSG:4267':
       'GEOGCS["GCS_North_American_1927",DATUM["D_North_American_1927",SPHEROID["Clarke_1866",6378206.4,294.9786982]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]]',
   'EPSG:4268':
@@ -969,26 +969,6 @@ const ESRIWktTestDefs = {
       'PROJCS["Hanoi_1972_Gauss_Kruger_zone_18",GEOGCS["GCS_Hanoi 1972",DATUM["D_Hanoi_1972",SPHEROID["Krasovsky_1940",6378245,298.3]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",105],PARAMETER["scale_factor",1],PARAMETER["false_easting",18500000],PARAMETER["false_northing",0],UNIT["Meter",1]]',
   'EPSG:2045':
       'PROJCS["Hanoi_1972_Gauss_Kruger_zone_19",GEOGCS["GCS_Hanoi 1972",DATUM["D_Hanoi_1972",SPHEROID["Krasovsky_1940",6378245,298.3]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",111],PARAMETER["scale_factor",1],PARAMETER["false_easting",19500000],PARAMETER["false_northing",0],UNIT["Meter",1]]',
-  'EPSG:2046':
-      'PROJCS["Hartebeesthoek94_Lo15",GEOGCS["GCS_Hartebeesthoek94",DATUM["D_Hartebeesthoek_1994",SPHEROID["WGS_1984",6378137,298.257223563]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator_South_Orientated"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",15],PARAMETER["scale_factor",1],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]',
-  'EPSG:2047':
-      'PROJCS["Hartebeesthoek94_Lo17",GEOGCS["GCS_Hartebeesthoek94",DATUM["D_Hartebeesthoek_1994",SPHEROID["WGS_1984",6378137,298.257223563]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator_South_Orientated"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",17],PARAMETER["scale_factor",1],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]',
-  'EPSG:2048':
-      'PROJCS["Hartebeesthoek94_Lo19",GEOGCS["GCS_Hartebeesthoek94",DATUM["D_Hartebeesthoek_1994",SPHEROID["WGS_1984",6378137,298.257223563]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator_South_Orientated"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",19],PARAMETER["scale_factor",1],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]',
-  'EPSG:2049':
-      'PROJCS["Hartebeesthoek94_Lo21",GEOGCS["GCS_Hartebeesthoek94",DATUM["D_Hartebeesthoek_1994",SPHEROID["WGS_1984",6378137,298.257223563]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator_South_Orientated"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",21],PARAMETER["scale_factor",1],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]',
-  'EPSG:2050':
-      'PROJCS["Hartebeesthoek94_Lo23",GEOGCS["GCS_Hartebeesthoek94",DATUM["D_Hartebeesthoek_1994",SPHEROID["WGS_1984",6378137,298.257223563]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator_South_Orientated"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",23],PARAMETER["scale_factor",1],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]',
-  'EPSG:2051':
-      'PROJCS["Hartebeesthoek94_Lo25",GEOGCS["GCS_Hartebeesthoek94",DATUM["D_Hartebeesthoek_1994",SPHEROID["WGS_1984",6378137,298.257223563]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator_South_Orientated"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",25],PARAMETER["scale_factor",1],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]',
-  'EPSG:2052':
-      'PROJCS["Hartebeesthoek94_Lo27",GEOGCS["GCS_Hartebeesthoek94",DATUM["D_Hartebeesthoek_1994",SPHEROID["WGS_1984",6378137,298.257223563]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator_South_Orientated"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",27],PARAMETER["scale_factor",1],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]',
-  'EPSG:2053':
-      'PROJCS["Hartebeesthoek94_Lo29",GEOGCS["GCS_Hartebeesthoek94",DATUM["D_Hartebeesthoek_1994",SPHEROID["WGS_1984",6378137,298.257223563]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator_South_Orientated"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",29],PARAMETER["scale_factor",1],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]',
-  'EPSG:2054':
-      'PROJCS["Hartebeesthoek94_Lo31",GEOGCS["GCS_Hartebeesthoek94",DATUM["D_Hartebeesthoek_1994",SPHEROID["WGS_1984",6378137,298.257223563]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator_South_Orientated"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",31],PARAMETER["scale_factor",1],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]',
-  'EPSG:2055':
-      'PROJCS["Hartebeesthoek94_Lo33",GEOGCS["GCS_Hartebeesthoek94",DATUM["D_Hartebeesthoek_1994",SPHEROID["WGS_1984",6378137,298.257223563]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator_South_Orientated"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",33],PARAMETER["scale_factor",1],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]',
   'EPSG:2056':
       'PROJCS["CH1903+_LV95",GEOGCS["GCS_CH1903+",DATUM["D_CH1903+",SPHEROID["Bessel_1841",6377397.155,299.1528128]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Hotine_Oblique_Mercator_Azimuth_Center"],PARAMETER["latitude_of_center",46.95240555555556],PARAMETER["longitude_of_center",7.439583333333333],PARAMETER["azimuth",90],PARAMETER["scale_factor",1],PARAMETER["false_easting",2600000],PARAMETER["false_northing",1200000],UNIT["Meter",1]]',
   'EPSG:2057':
@@ -1010,7 +990,7 @@ const ESRIWktTestDefs = {
   'EPSG:2065':
       'PROJCS["S_JTSK_Ferro_Krovak",GEOGCS["GCS_S-JTSK (Ferro)",DATUM["D_S_JTSK",SPHEROID["Bessel_1841",6377397.155,299.1528128]],PRIMEM["Ferro",-17.66666666666667],UNIT["Degree",0.017453292519943295]],PROJECTION["Krovak"],PARAMETER["latitude_of_center",49.5],PARAMETER["longitude_of_center",42.5],PARAMETER["azimuth",30.28813972222222],PARAMETER["pseudo_standard_parallel_1",78.5],PARAMETER["scale_factor",0.9999],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]',
   'EPSG:2066':
-      'PROJCS["Mount_Dillon_Tobago_Grid",GEOGCS["GCS_Mount Dillon",DATUM["D_Mount_Dillon",SPHEROID["Clarke_1858",6378293.645208759,294.2606763692569]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Cassini"],PARAMETER["latitude_of_origin",11.25217861111111],PARAMETER["central_meridian",-60.68600888888889],PARAMETER["false_easting",187500],PARAMETER["false_northing",180000],UNIT["Clarke\'s link",0.201166195164],PARAMETER["scale_factor",1.0]]',
+      'PROJCS["Mount_Dillon_Tobago_Grid",GEOGCS["GCS_Mount Dillon",DATUM["D_Mount_Dillon",SPHEROID["Clarke_1858",6378293.645208759,294.2606763692569]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Cassini"],PARAMETER["latitude_of_origin",11.25217861111111],PARAMETER["central_meridian",-60.68600888888889],PARAMETER["false_easting",187500],PARAMETER["false_northing",180000],UNIT["Clarke_s link",0.201166195164],PARAMETER["scale_factor",1.0]]',
   'EPSG:2067':
       'PROJCS["Naparima_1955_UTM_zone_20N",GEOGCS["GCS_Naparima 1955",DATUM["D_Naparima_1955",SPHEROID["International_1924",6378388,297]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",-63],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["Meter",1]]',
   'EPSG:2068':
@@ -1462,7 +1442,7 @@ const ESRIWktTestDefs = {
   'EPSG:2310':
       'PROJCS["WGS_84_TM_132_SE",GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137,298.257223563]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",132],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",10000000],UNIT["Meter",1]]',
   'EPSG:2314':
-      'PROJCS["Trinidad_1903_Trinidad_Grid_ftCla",GEOGCS["GCS_Trinidad 1903",DATUM["D_Trinidad_1903",SPHEROID["Clarke_1858",6378293.645208759,294.2606763692569]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Cassini"],PARAMETER["latitude_of_origin",10.44166666666667],PARAMETER["central_meridian",-61.33333333333334],PARAMETER["false_easting",283800],PARAMETER["false_northing",214500],UNIT["Clarke\'s foot",0.3047972654],PARAMETER["scale_factor",1.0]]',
+      'PROJCS["Trinidad_1903_Trinidad_Grid_ftCla",GEOGCS["GCS_Trinidad 1903",DATUM["D_Trinidad_1903",SPHEROID["Clarke_1858",6378293.645208759,294.2606763692569]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Cassini"],PARAMETER["latitude_of_origin",10.44166666666667],PARAMETER["central_meridian",-61.33333333333334],PARAMETER["false_easting",283800],PARAMETER["false_northing",214500],UNIT["Clarke_s foot",0.3047972654],PARAMETER["scale_factor",1.0]]',
   'EPSG:2315':
       'PROJCS["Campo_Inchauspe_UTM_zone_19S",GEOGCS["GCS_Campo Inchauspe",DATUM["D_Campo_Inchauspe",SPHEROID["International_1924",6378388,297]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",-69],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",10000000],UNIT["Meter",1]]',
   'EPSG:2316':
@@ -3065,8 +3045,6 @@ const ESRIWktTestDefs = {
       'PROJCS["MAGNA_SIRGAS_Colombia_West_zone",GEOGCS["GCS_MAGNA-SIRGAS",DATUM["D_MAGNA",SPHEROID["GRS_1980",6378137,298.257222101]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",4.596200416666666],PARAMETER["central_meridian",-77.07750791666666],PARAMETER["scale_factor",1],PARAMETER["false_easting",1000000],PARAMETER["false_northing",1000000],UNIT["Meter",1]]',
   'EPSG:3116':
       'PROJCS["MAGNA_SIRGAS_Colombia_Bogota_zone",GEOGCS["GCS_MAGNA-SIRGAS",DATUM["D_MAGNA",SPHEROID["GRS_1980",6378137,298.257222101]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",4.596200416666666],PARAMETER["central_meridian",-74.07750791666666],PARAMETER["scale_factor",1],PARAMETER["false_easting",1000000],PARAMETER["false_northing",1000000],UNIT["Meter",1]]',
-  'EPSG:3117':
-      'PROJCS["MAGNA_SIRGAS_Colombia_East_Central_zone",GEOGCS["GCS_MAGNA-SIRGAS",DATUM["D_MAGNA",SPHEROID["GRS_1980",6378137,298.257222101]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",4.596200416666666],PARAMETER["central_meridian",-71.07750791666666],PARAMETER["scale_factor",1],PARAMETER["false_easting",1000000],PARAMETER["false_northing",1000000],UNIT["Meter",1]]',
   'EPSG:3118':
       'PROJCS["MAGNA_SIRGAS_Colombia_East_zone",GEOGCS["GCS_MAGNA-SIRGAS",DATUM["D_MAGNA",SPHEROID["GRS_1980",6378137,298.257222101]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",4.596200416666666],PARAMETER["central_meridian",-68.07750791666666],PARAMETER["scale_factor",1],PARAMETER["false_easting",1000000],PARAMETER["false_northing",1000000],UNIT["Meter",1]]',
   'EPSG:3119':
@@ -3597,8 +3575,6 @@ const ESRIWktTestDefs = {
       'PROJCS["KKJ_Finland_zone_0",GEOGCS["GCS_KKJ",DATUM["D_KKJ",SPHEROID["International_1924",6378388,297]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",18],PARAMETER["scale_factor",1],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["Meter",1]]',
   'EPSG:3387':
       'PROJCS["KKJ_Finland_zone_5",GEOGCS["GCS_KKJ",DATUM["D_KKJ",SPHEROID["International_1924",6378388,297]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",33],PARAMETER["scale_factor",1],PARAMETER["false_easting",5500000],PARAMETER["false_northing",0],UNIT["Meter",1]]',
-  'EPSG:3388':
-      'PROJCS["Pulkovo_1942_Caspian_Sea_Mercator",GEOGCS["GCS_Pulkovo 1942",DATUM["D_Pulkovo_1942",SPHEROID["Krasovsky_1940",6378245,298.3]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Mercator_2SP"],PARAMETER["standard_parallel_1",42],PARAMETER["central_meridian",51],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]',
   'EPSG:3389':
       'PROJCS["Pulkovo_1942_3_degree_Gauss_Kruger_zone_60",GEOGCS["GCS_Pulkovo 1942",DATUM["D_Pulkovo_1942",SPHEROID["Krasovsky_1940",6378245,298.3]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",180],PARAMETER["scale_factor",1],PARAMETER["false_easting",60500000],PARAMETER["false_northing",0],UNIT["Meter",1]]',
   'EPSG:3390':
@@ -3638,13 +3614,11 @@ const ESRIWktTestDefs = {
   'EPSG:3406':
       'PROJCS["VN_2000_UTM_zone_49N",GEOGCS["GCS_VN-2000",DATUM["D_Vietnam_2000",SPHEROID["WGS_1984",6378137,298.257223563]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",111],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["Meter",1]]',
   'EPSG:3407':
-      'PROJCS["Hong_Kong_1963_Grid_System",GEOGCS["GCS_Hong Kong 1963",DATUM["D_Hong_Kong_1963",SPHEROID["Clarke_1858",6378293.645208759,294.2606763692569]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Cassini"],PARAMETER["latitude_of_origin",22.31213333333334],PARAMETER["central_meridian",114.1785555555556],PARAMETER["false_easting",132033.92],PARAMETER["false_northing",62565.96],UNIT["Clarke\'s foot",0.3047972654],PARAMETER["scale_factor",1.0]]',
+      'PROJCS["Hong_Kong_1963_Grid_System",GEOGCS["GCS_Hong Kong 1963",DATUM["D_Hong_Kong_1963",SPHEROID["Clarke_1858",6378293.645208759,294.2606763692569]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Cassini"],PARAMETER["latitude_of_origin",22.31213333333334],PARAMETER["central_meridian",114.1785555555556],PARAMETER["false_easting",132033.92],PARAMETER["false_northing",62565.96],UNIT["Clarke_s foot",0.3047972654],PARAMETER["scale_factor",1.0]]',
   'EPSG:3408':
       'PROJCS["NSIDC_EASE_Grid_North",GEOGCS["GCS_Unspecified datum based upon the International 1924 Authalic Sphere",DATUM["D_Not_specified_based_on_International_1924_Authalic_Sphere",SPHEROID["International_1924_Authalic_Sphere",6371228,0]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Lambert_Azimuthal_Equal_Area"],PARAMETER["latitude_of_origin",90],PARAMETER["central_meridian",0],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]',
   'EPSG:3409':
       'PROJCS["NSIDC_EASE_Grid_South",GEOGCS["GCS_Unspecified datum based upon the International 1924 Authalic Sphere",DATUM["D_Not_specified_based_on_International_1924_Authalic_Sphere",SPHEROID["International_1924_Authalic_Sphere",6371228,0]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Lambert_Azimuthal_Equal_Area"],PARAMETER["latitude_of_origin",-90],PARAMETER["central_meridian",0],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]',
-  'EPSG:3410':
-      'PROJCS["NSIDC_EASE_Grid_Global",GEOGCS["GCS_Unspecified datum based upon the International 1924 Authalic Sphere",DATUM["D_Not_specified_based_on_International_1924_Authalic_Sphere",SPHEROID["International_1924_Authalic_Sphere",6371228,0]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Cylindrical_Equal_Area"],PARAMETER["standard_parallel_1",30],PARAMETER["central_meridian",0],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]',
   'EPSG:3411':
       'PROJCS["NSIDC_Sea_Ice_Polar_Stereographic_North",GEOGCS["GCS_Unspecified datum based upon the Hughes 1980 ellipsoid",DATUM["D_Not_specified_based_on_Hughes_1980_ellipsoid",SPHEROID["Hughes_1980",6378273,298.279411123061]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Stereographic_North_Pole"],PARAMETER["standard_parallel_1",70],PARAMETER["central_meridian",-45],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]',
   'EPSG:3412':
@@ -4543,8 +4517,6 @@ const ESRIWktTestDefs = {
       'PROJCS["NAD83_HARN_Virginia_Lambert",GEOGCS["GCS_NAD83(HARN)",DATUM["D_North_American_1983_HARN",SPHEROID["GRS_1980",6378137,298.257222101]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Lambert_Conformal_Conic"],PARAMETER["standard_parallel_1",37],PARAMETER["standard_parallel_2",39.5],PARAMETER["latitude_of_origin",36],PARAMETER["central_meridian",-79.5],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]',
   'EPSG:3970':
       'PROJCS["NAD83_NSRS2007_Virginia_Lambert",GEOGCS["GCS_NAD83(NSRS2007)",DATUM["D_NAD83_National_Spatial_Reference_System_2007",SPHEROID["GRS_1980",6378137,298.257222101]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Lambert_Conformal_Conic"],PARAMETER["standard_parallel_1",37],PARAMETER["standard_parallel_2",39.5],PARAMETER["latitude_of_origin",36],PARAMETER["central_meridian",-79.5],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]',
-  'EPSG:3975':
-      'PROJCS["WGS_84_NSIDC_EASE_Grid_Global",GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137,298.257223563]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Cylindrical_Equal_Area"],PARAMETER["standard_parallel_1",30],PARAMETER["central_meridian",0],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]',
   'EPSG:3976':
       'PROJCS["WGS_84_NSIDC_Sea_Ice_Polar_Stereographic_South",GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137,298.257223563]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Stereographic_South_Pole"],PARAMETER["standard_parallel_1",-70],PARAMETER["central_meridian",0],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]',
   'EPSG:3978':
@@ -4565,8 +4537,6 @@ const ESRIWktTestDefs = {
       'PROJCS["Puerto_Rico_State_Plane_CS_of_1927",GEOGCS["GCS_Puerto Rico",DATUM["D_Puerto_Rico",SPHEROID["Clarke_1866",6378206.4,294.9786982]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Lambert_Conformal_Conic"],PARAMETER["standard_parallel_1",18.43333333333333],PARAMETER["standard_parallel_2",18.03333333333333],PARAMETER["latitude_of_origin",17.83333333333333],PARAMETER["central_meridian",-66.43333333333334],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["Foot_US",0.30480060960121924]]',
   'EPSG:3992':
       'PROJCS["Puerto_Rico_St_Croix",GEOGCS["GCS_Puerto Rico",DATUM["D_Puerto_Rico",SPHEROID["Clarke_1866",6378206.4,294.9786982]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Lambert_Conformal_Conic"],PARAMETER["standard_parallel_1",18.43333333333333],PARAMETER["standard_parallel_2",18.03333333333333],PARAMETER["latitude_of_origin",17.83333333333333],PARAMETER["central_meridian",-66.43333333333334],PARAMETER["false_easting",500000],PARAMETER["false_northing",100000],UNIT["Foot_US",0.30480060960121924]]',
-  'EPSG:3994':
-      'PROJCS["WGS_84_Mercator_41",GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137,298.257223563]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Mercator_2SP"],PARAMETER["standard_parallel_1",-41],PARAMETER["central_meridian",100],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]',
   'EPSG:3995':
       'PROJCS["WGS_84_Arctic_Polar_Stereographic",GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137,298.257223563]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Stereographic_North_Pole"],PARAMETER["standard_parallel_1",71],PARAMETER["central_meridian",0],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]',
   'EPSG:3996':
@@ -5283,26 +5253,6 @@ const ESRIWktTestDefs = {
       'PROJCS["Cape_UTM_zone_35S",GEOGCS["GCS_Cape",DATUM["D_Cape",SPHEROID["Clarke_1880_Arc",6378249.145,293.4663077]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",27],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",10000000],UNIT["Meter",1]]',
   'EPSG:22236':
       'PROJCS["Cape_UTM_zone_36S_deprecated",GEOGCS["GCS_Cape",DATUM["D_Cape",SPHEROID["Clarke_1880_Arc",6378249.145,293.4663077]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",33],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",10000000],UNIT["Meter",1]]',
-  'EPSG:22275':
-      'PROJCS["Cape_Lo15",GEOGCS["GCS_Cape",DATUM["D_Cape",SPHEROID["Clarke_1880_Arc",6378249.145,293.4663077]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator_South_Orientated"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",15],PARAMETER["scale_factor",1],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]',
-  'EPSG:22277':
-      'PROJCS["Cape_Lo17",GEOGCS["GCS_Cape",DATUM["D_Cape",SPHEROID["Clarke_1880_Arc",6378249.145,293.4663077]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator_South_Orientated"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",17],PARAMETER["scale_factor",1],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]',
-  'EPSG:22279':
-      'PROJCS["Cape_Lo19",GEOGCS["GCS_Cape",DATUM["D_Cape",SPHEROID["Clarke_1880_Arc",6378249.145,293.4663077]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator_South_Orientated"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",19],PARAMETER["scale_factor",1],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]',
-  'EPSG:22281':
-      'PROJCS["Cape_Lo21",GEOGCS["GCS_Cape",DATUM["D_Cape",SPHEROID["Clarke_1880_Arc",6378249.145,293.4663077]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator_South_Orientated"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",21],PARAMETER["scale_factor",1],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]',
-  'EPSG:22283':
-      'PROJCS["Cape_Lo23",GEOGCS["GCS_Cape",DATUM["D_Cape",SPHEROID["Clarke_1880_Arc",6378249.145,293.4663077]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator_South_Orientated"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",23],PARAMETER["scale_factor",1],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]',
-  'EPSG:22285':
-      'PROJCS["Cape_Lo25",GEOGCS["GCS_Cape",DATUM["D_Cape",SPHEROID["Clarke_1880_Arc",6378249.145,293.4663077]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator_South_Orientated"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",25],PARAMETER["scale_factor",1],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]',
-  'EPSG:22287':
-      'PROJCS["Cape_Lo27",GEOGCS["GCS_Cape",DATUM["D_Cape",SPHEROID["Clarke_1880_Arc",6378249.145,293.4663077]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator_South_Orientated"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",27],PARAMETER["scale_factor",1],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]',
-  'EPSG:22289':
-      'PROJCS["Cape_Lo29",GEOGCS["GCS_Cape",DATUM["D_Cape",SPHEROID["Clarke_1880_Arc",6378249.145,293.4663077]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator_South_Orientated"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",29],PARAMETER["scale_factor",1],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]',
-  'EPSG:22291':
-      'PROJCS["Cape_Lo31",GEOGCS["GCS_Cape",DATUM["D_Cape",SPHEROID["Clarke_1880_Arc",6378249.145,293.4663077]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator_South_Orientated"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",31],PARAMETER["scale_factor",1],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]',
-  'EPSG:22293':
-      'PROJCS["Cape_Lo33",GEOGCS["GCS_Cape",DATUM["D_Cape",SPHEROID["Clarke_1880_Arc",6378249.145,293.4663077]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator_South_Orientated"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",33],PARAMETER["scale_factor",1],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]',
   'EPSG:22332':
       'PROJCS["Carthage_UTM_zone_32N",GEOGCS["GCS_Carthage",DATUM["D_Carthage",SPHEROID["Clarke_1880_IGN",6378249.2,293.46602]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",9],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["Meter",1]]',
   'EPSG:22391':
@@ -5476,7 +5426,7 @@ const ESRIWktTestDefs = {
   'EPSG:24048':
       'PROJCS["Indian_1975_UTM_zone_48N",GEOGCS["GCS_Indian_1975",DATUM["D_Indian_1975",SPHEROID["Everest_Adjustment_1937",6377276.345,300.8017]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",105],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["Meter",1]]',
   'EPSG:24100':
-      'PROJCS["Jamaica_1875_Jamaica_Old_Grid",GEOGCS["GCS_Jamaica 1875",DATUM["D_Jamaica_1875",SPHEROID["Clarke_1880",6378249.144808011,293.4663076556349]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Lambert_Conformal_Conic"],PARAMETER["latitude_of_origin",18],PARAMETER["central_meridian",-77],PARAMETER["scale_factor",1],PARAMETER["false_easting",550000],PARAMETER["false_northing",400000],UNIT["Clarke\'s foot",0.3047972654],PARAMETER["standard_parallel_1",18]]',
+      'PROJCS["Jamaica_1875_Jamaica_Old_Grid",GEOGCS["GCS_Jamaica 1875",DATUM["D_Jamaica_1875",SPHEROID["Clarke_1880",6378249.144808011,293.4663076556349]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Lambert_Conformal_Conic"],PARAMETER["latitude_of_origin",18],PARAMETER["central_meridian",-77],PARAMETER["scale_factor",1],PARAMETER["false_easting",550000],PARAMETER["false_northing",400000],UNIT["Clarke_s foot",0.3047972654],PARAMETER["standard_parallel_1",18]]',
   'EPSG:24200':
       'PROJCS["JAD69_Jamaica_National_Grid",GEOGCS["GCS_JAD69",DATUM["D_Jamaica_1969",SPHEROID["Clarke_1866",6378206.4,294.9786982]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Lambert_Conformal_Conic"],PARAMETER["latitude_of_origin",18],PARAMETER["central_meridian",-77],PARAMETER["scale_factor",1],PARAMETER["false_easting",250000],PARAMETER["false_northing",150000],UNIT["Meter",1],PARAMETER["standard_parallel_1",18]]',
   'EPSG:24305':
@@ -5650,9 +5600,9 @@ const ESRIWktTestDefs = {
   'EPSG:26592':
       'PROJCS["Monte_Mario_Rome_Italy_zone_2_deprecated",GEOGCS["GCS_Monte Mario (Rome)",DATUM["D_Monte_Mario",SPHEROID["International_1924",6378388,297]],PRIMEM["Rome",12.45233333333333],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",2.54766666666666],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",2520000],PARAMETER["false_northing",0],UNIT["Meter",1]]',
   'EPSG:26632':
-      'PROJCS["M_poraloko_UTM_zone_32N",GEOGCS["GCS_M\'poraloko",DATUM["D_Mporaloko",SPHEROID["Clarke_1880_IGN",6378249.2,293.46602]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",9],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["Meter",1]]',
+      'PROJCS["M_poraloko_UTM_zone_32N",GEOGCS["GCS_M_poraloko",DATUM["D_Mporaloko",SPHEROID["Clarke_1880_IGN",6378249.2,293.46602]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",9],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["Meter",1]]',
   'EPSG:26692':
-      'PROJCS["M_poraloko_UTM_zone_32S",GEOGCS["GCS_M\'poraloko",DATUM["D_Mporaloko",SPHEROID["Clarke_1880_IGN",6378249.2,293.46602]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",9],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",10000000],UNIT["Meter",1]]',
+      'PROJCS["M_poraloko_UTM_zone_32S",GEOGCS["GCS_M_poraloko",DATUM["D_Mporaloko",SPHEROID["Clarke_1880_IGN",6378249.2,293.46602]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",9],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",10000000],UNIT["Meter",1]]',
   'EPSG:26701':
       'PROJCS["NAD_1927_UTM_Zone_1N",GEOGCS["GCS_North_American_1927",DATUM["D_North_American_1927",SPHEROID["Clarke_1866",6378206.4,294.9786982]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",-177],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["Meter",1]]',
   'EPSG:26702':
@@ -6139,8 +6089,6 @@ const ESRIWktTestDefs = {
       'PROJCS["Nahrwan_1967_UTM_zone_40N",GEOGCS["GCS_Nahrwan 1967",DATUM["D_Nahrwan_1967",SPHEROID["Clarke_1880_RGS",6378249.145,293.465]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",57],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["Meter",1]]',
   'EPSG:27120':
       'PROJCS["Naparima_1972_UTM_zone_20N",GEOGCS["GCS_Naparima 1972",DATUM["D_Naparima_1972",SPHEROID["International_1924",6378388,297]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",-63],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["Meter",1]]',
-  'EPSG:27200':
-      'PROJCS["NZGD49_New_Zealand_Map_Grid",GEOGCS["GCS_New_Zealand_1949",DATUM["D_New_Zealand_1949",SPHEROID["International_1924",6378388,297]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["New_Zealand_Map_Grid"],PARAMETER["latitude_of_origin",-41],PARAMETER["Longitude_Of_Origin",173],PARAMETER["false_easting",2510000],PARAMETER["false_northing",6023150],UNIT["Meter",1]]',
   'EPSG:27205':
       'PROJCS["NZGD49_Mount_Eden_Circuit",GEOGCS["GCS_New_Zealand_1949",DATUM["D_New_Zealand_1949",SPHEROID["International_1924",6378388,297]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",-36.87986527777778],PARAMETER["central_meridian",174.7643393611111],PARAMETER["scale_factor",0.9999],PARAMETER["false_easting",300000],PARAMETER["false_northing",700000],UNIT["Meter",1]]',
   'EPSG:27206':
@@ -6493,22 +6441,6 @@ const ESRIWktTestDefs = {
       'PROJCS["Sapper_Hill_1943_UTM_zone_21S",GEOGCS["GCS_Sapper Hill 1943",DATUM["D_Sapper_Hill_1943",SPHEROID["International_1924",6378388,297]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",-57],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",10000000],UNIT["Meter",1]]',
   'EPSG:29333':
       'PROJCS["Schwarzeck_UTM_zone_33S",GEOGCS["GCS_Schwarzeck",DATUM["D_Schwarzeck",SPHEROID["Bessel_Namibia_GLM",6377483.865280419,299.1528128]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",15],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",10000000],UNIT["Meter",1]]',
-  'EPSG:29371':
-      'PROJCS["Schwarzeck_Lo22_11",GEOGCS["GCS_Schwarzeck",DATUM["D_Schwarzeck",SPHEROID["Bessel_Namibia_GLM",6377483.865280419,299.1528128]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator_South_Orientated"],PARAMETER["latitude_of_origin",-22],PARAMETER["central_meridian",11],PARAMETER["scale_factor",1],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["German legal metre",1.0000135965]]',
-  'EPSG:29373':
-      'PROJCS["Schwarzeck_Lo22_13",GEOGCS["GCS_Schwarzeck",DATUM["D_Schwarzeck",SPHEROID["Bessel_Namibia_GLM",6377483.865280419,299.1528128]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator_South_Orientated"],PARAMETER["latitude_of_origin",-22],PARAMETER["central_meridian",13],PARAMETER["scale_factor",1],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["German legal metre",1.0000135965]]',
-  'EPSG:29375':
-      'PROJCS["Schwarzeck_Lo22_15",GEOGCS["GCS_Schwarzeck",DATUM["D_Schwarzeck",SPHEROID["Bessel_Namibia_GLM",6377483.865280419,299.1528128]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator_South_Orientated"],PARAMETER["latitude_of_origin",-22],PARAMETER["central_meridian",15],PARAMETER["scale_factor",1],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["German legal metre",1.0000135965]]',
-  'EPSG:29377':
-      'PROJCS["Schwarzeck_Lo22_17",GEOGCS["GCS_Schwarzeck",DATUM["D_Schwarzeck",SPHEROID["Bessel_Namibia_GLM",6377483.865280419,299.1528128]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator_South_Orientated"],PARAMETER["latitude_of_origin",-22],PARAMETER["central_meridian",17],PARAMETER["scale_factor",1],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["German legal metre",1.0000135965]]',
-  'EPSG:29379':
-      'PROJCS["Schwarzeck_Lo22_19",GEOGCS["GCS_Schwarzeck",DATUM["D_Schwarzeck",SPHEROID["Bessel_Namibia_GLM",6377483.865280419,299.1528128]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator_South_Orientated"],PARAMETER["latitude_of_origin",-22],PARAMETER["central_meridian",19],PARAMETER["scale_factor",1],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["German legal metre",1.0000135965]]',
-  'EPSG:29381':
-      'PROJCS["Schwarzeck_Lo22_21",GEOGCS["GCS_Schwarzeck",DATUM["D_Schwarzeck",SPHEROID["Bessel_Namibia_GLM",6377483.865280419,299.1528128]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator_South_Orientated"],PARAMETER["latitude_of_origin",-22],PARAMETER["central_meridian",21],PARAMETER["scale_factor",1],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["German legal metre",1.0000135965]]',
-  'EPSG:29383':
-      'PROJCS["Schwarzeck_Lo22_23",GEOGCS["GCS_Schwarzeck",DATUM["D_Schwarzeck",SPHEROID["Bessel_Namibia_GLM",6377483.865280419,299.1528128]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator_South_Orientated"],PARAMETER["latitude_of_origin",-22],PARAMETER["central_meridian",23],PARAMETER["scale_factor",1],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["German legal metre",1.0000135965]]',
-  'EPSG:29385':
-      'PROJCS["Schwarzeck_Lo22_25",GEOGCS["GCS_Schwarzeck",DATUM["D_Schwarzeck",SPHEROID["Bessel_Namibia_GLM",6377483.865280419,299.1528128]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator_South_Orientated"],PARAMETER["latitude_of_origin",-22],PARAMETER["central_meridian",25],PARAMETER["scale_factor",1],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["German legal metre",1.0000135965]]',
   'EPSG:29635':
       'PROJCS["Sudan_UTM_zone_35N_deprecated",GEOGCS["GCS_Sudan",DATUM["D_Sudan",SPHEROID["Clarke_1880_IGN",6378249.2,293.46602]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",27],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["Meter",1]]',
   'EPSG:29636':
@@ -6580,7 +6512,7 @@ const ESRIWktTestDefs = {
   'EPSG:30179':
       'PROJCS["Tokyo_Japan_Plane_Rectangular_CS_XIX",GEOGCS["GCS_Tokyo",DATUM["D_Tokyo",SPHEROID["Bessel_1841",6377397.155,299.1528128]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",26],PARAMETER["central_meridian",154],PARAMETER["scale_factor",0.9999],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]',
   'EPSG:30200':
-      'PROJCS["Trinidad_1903_Trinidad_Grid",GEOGCS["GCS_Trinidad 1903",DATUM["D_Trinidad_1903",SPHEROID["Clarke_1858",6378293.645208759,294.2606763692569]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Cassini"],PARAMETER["latitude_of_origin",10.44166666666667],PARAMETER["central_meridian",-61.33333333333334],PARAMETER["false_easting",430000],PARAMETER["false_northing",325000],UNIT["Clarke\'s link",0.201166195164],PARAMETER["scale_factor",1.0]]',
+      'PROJCS["Trinidad_1903_Trinidad_Grid",GEOGCS["GCS_Trinidad 1903",DATUM["D_Trinidad_1903",SPHEROID["Clarke_1858",6378293.645208759,294.2606763692569]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Cassini"],PARAMETER["latitude_of_origin",10.44166666666667],PARAMETER["central_meridian",-61.33333333333334],PARAMETER["false_easting",430000],PARAMETER["false_northing",325000],UNIT["Clarke_s link",0.201166195164],PARAMETER["scale_factor",1.0]]',
   'EPSG:30339':
       'PROJCS["TC_1948_UTM_zone_39N",GEOGCS["GCS_TC(1948)",DATUM["D_Trucial_Coast_1948",SPHEROID["Helmert_1906",6378200,298.3]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",51],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["Meter",1]]',
   'EPSG:30340':
@@ -6689,8 +6621,6 @@ const ESRIWktTestDefs = {
       'PROJCS["MGI_M34_deprecated",GEOGCS["GCS_MGI",DATUM["D_MGI",SPHEROID["Bessel_1841",6377397.155,299.1528128]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",16.33333333333333],PARAMETER["scale_factor",1],PARAMETER["false_easting",750000],PARAMETER["false_northing",0],UNIT["Meter",1]]',
   'EPSG:31297':
       'PROJCS["MGI_Austria_Lambert_deprecated",GEOGCS["GCS_MGI",DATUM["D_MGI",SPHEROID["Bessel_1841",6377397.155,299.1528128]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Lambert_Conformal_Conic"],PARAMETER["standard_parallel_1",49],PARAMETER["standard_parallel_2",46],PARAMETER["latitude_of_origin",47.5],PARAMETER["central_meridian",13.33333333333333],PARAMETER["false_easting",400000],PARAMETER["false_northing",400000],UNIT["Meter",1]]',
-  'EPSG:31300':
-      'PROJCS["Belge_1972_Belge_Lambert_72",GEOGCS["GCS_Belge 1972",DATUM["D_Belge_1972",SPHEROID["International_1924",6378388,297]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Lambert_Conformal_Conic_2SP_Belgium"],PARAMETER["standard_parallel_1",49.83333333333334],PARAMETER["standard_parallel_2",51.16666666666666],PARAMETER["latitude_of_origin",90],PARAMETER["central_meridian",4.356939722222222],PARAMETER["false_easting",150000.01256],PARAMETER["false_northing",5400088.4378],UNIT["Meter",1]]',
   'EPSG:31370':
       'PROJCS["Belge_1972_Belgian_Lambert_72",GEOGCS["GCS_Belge 1972",DATUM["D_Belge_1972",SPHEROID["International_1924",6378388,297]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Lambert_Conformal_Conic"],PARAMETER["standard_parallel_1",51.16666723333333],PARAMETER["standard_parallel_2",49.8333339],PARAMETER["latitude_of_origin",90],PARAMETER["central_meridian",4.367486666666666],PARAMETER["false_easting",150000.013],PARAMETER["false_northing",5400088.438],UNIT["Meter",1]]',
   'EPSG:31461':
@@ -7813,10 +7743,6 @@ const ESRIWktTestDefs = {
       'PROJCS["WGS_1984_UTM_Zone_59S",GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137,298.257223563]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",171],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",10000000],UNIT["Meter",1]]',
   'EPSG:32760':
       'PROJCS["WGS_1984_UTM_Zone_60S",GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137,298.257223563]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",177],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",10000000],UNIT["Meter",1]]',
-  'EPSG:32761':
-      'PROJCS["WGS_84_UPS_South_N_E",GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137,298.257223563]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Stereographic_South_Pole"],PARAMETER["standard_parallel_1",-90],PARAMETER["central_meridian",0],PARAMETER["false_easting",2000000],PARAMETER["false_northing",2000000],UNIT["Meter",1]]',
   'EPSG:32766':
       'PROJCS["WGS_84_TM_36_SE",GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137,298.257223563]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",36],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",10000000],UNIT["Meter",1]]',
-  'EPSG:900913':
-      'PROJCS["Google_Maps_Global_Mercator",GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137,298.257223563]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Mercator_2SP"],PARAMETER["standard_parallel_1",0],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",0],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]',
 };

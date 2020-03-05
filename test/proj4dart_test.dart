@@ -7,7 +7,9 @@ import './classes/project_and_unproject_result.dart';
 import './data/all_proj4_defs.dart' as all_proj4_defs;
 import './data/all_proj4_ogc_wkt_defs.dart' as all_proj4_ogc_defs;
 import './data/all_proj4_esri_wkt_defs.dart' as all_proj4_esri_defs;
-import './data/all_proj4_tests.dart' as all_proj4_tests;
+import './results/all_proj4_results.dart' as all_proj4_results;
+import './results/all_proj4_ogc_wkt_results.dart' as all_proj4_ogc_results;
+import './results/all_proj4_esri_wkt_results.dart' as all_proj4_esri_results;
 
 void main() {
   group('Bulk tests', () {
@@ -86,7 +88,7 @@ void main() {
 
       var wgs = Projection('EPSG:4326');
 
-      all_proj4_tests.testResults.forEach((key, value) {
+      all_proj4_results.testResults.forEach((key, value) {
         var testPoint = Point(x: 17.888058560281515, y: 46.89226406700879);
         if (key == 'EPSG:3117') {
           testPoint = Point(x: -72.62, y: 3.81);
