@@ -43,7 +43,7 @@ void main() {
     test('Project / unproject test for all Proj4 def projections', () {
       all_proj4_defs.testDefs
           .forEach((key, value) => Projection.add(key, value));
-      var wgs = Projection('EPSG:4326');
+      var wgs = Projection.WGS84;
       all_proj4_results.testResults.forEach((key, value) {
         var testPoint = Point(x: 17.888058560281515, y: 46.89226406700879);
         if (key == 'EPSG:3117') {
@@ -79,7 +79,7 @@ void main() {
     test('Project / unproject test for all OGC WKT projections', () {
       all_proj4_ogc_defs.OGCWktTestDefs.forEach(
           (key, value) => Projection.add(key, value));
-      var wgs = Projection('EPSG:4326');
+      var wgs = Projection.WGS84;
       all_proj4_ogc_results.testResults.forEach((key, value) {
         var testPoint = Point(x: 17.888058560281515, y: 46.89226406700879);
         var custom = Projection(key);
@@ -112,7 +112,7 @@ void main() {
     test('Project / unproject test for all ESRI WKT projections', () {
       all_proj4_esri_defs.ESRIWktTestDefs.forEach(
           (key, value) => Projection.add(key, value));
-      var wgs = Projection('EPSG:4326');
+      var wgs = Projection.WGS84;
       all_proj4_esri_results.testResults.forEach((key, value) {
         var testPoint = Point(x: 17.888058560281515, y: 46.89226406700879);
         var custom = Projection(key);

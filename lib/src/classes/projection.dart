@@ -5,6 +5,7 @@ import 'package:proj4dart/src/common/datum_transform.dart' as dt;
 import 'package:proj4dart/src/common/utils.dart' as utils;
 import 'package:proj4dart/src/constants/values.dart' as consts;
 import 'package:proj4dart/src/globals/projs.dart';
+import 'package:proj4dart/src/constants/initializers.dart';
 
 abstract class Projection {
   String projName;
@@ -44,21 +45,45 @@ abstract class Projection {
         from_greenwich = params.from_greenwich,
         to_meter = params.to_meter;
 
+  /// Safest way to return WGS84 Projection from the [ProjStore] which cannot be overwritten
+  /// even with [Projection.add].
+  static Projection get WGS84 => ProjStore().WGS84;
+
+  /// Find and return Projection based on code / alias from the [ProjStore]
+  /// An Exception occours if Projection not exists in store.
   factory Projection(String code) {
     var result = ProjStore().get(code);
 
     if (result == null) {
       throw Exception(
-          'There is no Projection registered with the following alias: $code');
+          'There is no Projection registered with the following code / alias: $code');
     }
 
     return result;
   }
 
+  /// Creates a Projection via [Projection.parse] and registers it to the [ProjStore].
+  /// If register was successfull then it can be accessed anytime with [Projection] factory.
+  /// Warning: this can override predefined Projections!
   factory Projection.add(String code, String defString) {
-    var params = ProjParams(defString);
+    var params = Projection.parse(defString);
 
     return ProjStore().register(code, params);
+  }
+
+  /// Creates a Projection from defString which can be valid proj4 string / ogc wkt string / esri wkt string
+  factory Projection.parse(String defString) {
+    var params = ProjParams(defString);
+
+    var projName = params.proj;
+    var initializer = initializers[projName];
+
+    if (initializer == null) {
+      throw Exception(
+          'Projection initializer not found by projname: $projName');
+    }
+
+    return initializer(params);
   }
 
   static bool _checkNotWGS(Projection source, Projection dest) {
@@ -81,7 +106,7 @@ abstract class Projection {
     if (source.datum != null &&
         dest.datum != null &&
         _checkNotWGS(source, dest)) {
-      var wgs84 = Projection('EPSG:4326');
+      var wgs84 = WGS84;
       point = source.transform(wgs84, point);
       source = wgs84;
     }
@@ -114,7 +139,10 @@ abstract class Projection {
     // Adjust for the prime meridian if necessary
     if (dest.from_greenwich != null) {
       point = Point.withZ(
-          x: point.x - dest.from_greenwich, y: point.y, z: point.z ?? 0.0);
+        x: point.x - dest.from_greenwich,
+        y: point.y,
+        z: point.z ?? 0.0,
+      );
     }
 
     if (dest.projName == 'longlat') {
