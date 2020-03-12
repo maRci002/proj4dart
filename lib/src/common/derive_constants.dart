@@ -3,7 +3,7 @@ import 'dart:math' as math;
 import 'package:proj4dart/src/constants/ellipsoids.dart' as ellipsoids;
 import 'package:proj4dart/src/constants/values.dart' as consts;
 
-dynamic eccentricity(double a, double b, rf, bool R_A) {
+Map<String, double> eccentricity(double a, double b, double rf, bool R_A) {
   var a2 = a * a; // used in geocentric
   var b2 = b * b; // used in geocentric
   var es = (a2 - b2) / a2; // e ^ 2
@@ -19,7 +19,8 @@ dynamic eccentricity(double a, double b, rf, bool R_A) {
   return {'es': es, 'e': e, 'ep2': ep2};
 }
 
-dynamic sphere(double a, double b, double rf, String ellps, sphere) {
+Map<String, Object> sphere(
+    double a, double b, double rf, String ellps, bool sphere) {
   if (a == null || a.isNaN) {
     // do we have an ellipsoid?
     var ellipse = ellipsoids.match(ellps);

@@ -5,7 +5,6 @@ import 'package:proj4dart/src/common/datum_transform.dart' as dt;
 import 'package:proj4dart/src/common/utils.dart' as utils;
 import 'package:proj4dart/src/constants/values.dart' as consts;
 import 'package:proj4dart/src/globals/projs.dart';
-import 'package:wkt_parser/wkt_parser.dart' as wkt_parser;
 
 abstract class Projection {
   String projName;
@@ -57,14 +56,8 @@ abstract class Projection {
   }
 
   factory Projection.add(String code, String defString) {
-    // In case of Proj4 string
-    if (defString[0] == '+') {
-      var params = ProjParams(defString);
-      return ProjStore().register(code, params);
-    }
-    // In case of WKT CRS string
-    var projWKT = wkt_parser.parseWKT(defString);
-    var params = ProjParams.fromProjWKT(projWKT);
+    var params = ProjParams(defString);
+
     return ProjStore().register(code, params);
   }
 

@@ -478,13 +478,11 @@ double tsfnz(double eccent, double phi, double sinphi) {
   return (math.tan(0.5 * (consts.HALF_PI - phi)) / con);
 }
 
-void checkCoord(dynamic coord) {
-  if (coord is double) {
-    if (coord.isFinite) {
-      return;
-    }
-    throw Exception('coordinates must be finite numbers');
+void checkCoord(double coord) {
+  if (coord.isFinite) {
+    return;
   }
+  throw Exception('coordinates must be finite numbers');
 }
 
 void checkSanity(Point point) {
@@ -554,16 +552,4 @@ Point adjust_axis(Projection crs, bool denorm, Point point) {
     }
   }
   return Point.withZ(x: out['x'], y: out['y'], z: out['z']);
-}
-
-void extend(dynamic destination, dynamic source) {
-  destination = destination ?? {};
-  if (source == null) {
-    return destination;
-  }
-  source.forEach((k, v) {
-    if (v != null) {
-      destination[k] = v;
-    }
-  });
 }

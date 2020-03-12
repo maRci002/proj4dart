@@ -75,71 +75,71 @@ void main() {
         }
       });
     });
-  });
 
-  test('Project / unproject test for all OGC WKT projections', () {
-    all_proj4_ogc_defs.OGCWktTestDefs.forEach(
-        (key, value) => Projection.add(key, value));
-    var wgs = Projection('EPSG:4326');
-    all_proj4_ogc_results.testResults.forEach((key, value) {
-      var testPoint = Point(x: 17.888058560281515, y: 46.89226406700879);
-      var custom = Projection(key);
-      var projectResult = wgs.transform(custom, testPoint);
-      var unProjectResult = custom.transform(wgs, value.wgsToCustom);
-      var result = ProjectAndUnProjectResult(projectResult, unProjectResult);
-      if (value.customToWgs.x.isNaN) {
-        expect(result.customToWgs.x, isNaN);
-      } else {
-        expect(result.customToWgs.x, closeTo(value.customToWgs.x, 0.000001));
-      }
-      if (value.customToWgs.y.isNaN) {
-        expect(result.customToWgs.y, isNaN);
-      } else {
-        expect(result.customToWgs.y, closeTo(value.customToWgs.y, 0.000001));
-      }
-      if (value.wgsToCustom.x.isNaN) {
-        expect(result.wgsToCustom.x, isNaN);
-      } else {
-        expect(result.wgsToCustom.x, closeTo(value.wgsToCustom.x, 0.00001));
-      }
-      if (value.wgsToCustom.y.isNaN) {
-        expect(result.wgsToCustom.y, isNaN);
-      } else {
-        expect(result.wgsToCustom.y, closeTo(value.wgsToCustom.y, 0.00001));
-      }
+    test('Project / unproject test for all OGC WKT projections', () {
+      all_proj4_ogc_defs.OGCWktTestDefs.forEach(
+          (key, value) => Projection.add(key, value));
+      var wgs = Projection('EPSG:4326');
+      all_proj4_ogc_results.testResults.forEach((key, value) {
+        var testPoint = Point(x: 17.888058560281515, y: 46.89226406700879);
+        var custom = Projection(key);
+        var projectResult = wgs.transform(custom, testPoint);
+        var unProjectResult = custom.transform(wgs, value.wgsToCustom);
+        var result = ProjectAndUnProjectResult(projectResult, unProjectResult);
+        if (value.customToWgs.x.isNaN) {
+          expect(result.customToWgs.x, isNaN);
+        } else {
+          expect(result.customToWgs.x, closeTo(value.customToWgs.x, 0.000001));
+        }
+        if (value.customToWgs.y.isNaN) {
+          expect(result.customToWgs.y, isNaN);
+        } else {
+          expect(result.customToWgs.y, closeTo(value.customToWgs.y, 0.000001));
+        }
+        if (value.wgsToCustom.x.isNaN) {
+          expect(result.wgsToCustom.x, isNaN);
+        } else {
+          expect(result.wgsToCustom.x, closeTo(value.wgsToCustom.x, 0.00001));
+        }
+        if (value.wgsToCustom.y.isNaN) {
+          expect(result.wgsToCustom.y, isNaN);
+        } else {
+          expect(result.wgsToCustom.y, closeTo(value.wgsToCustom.y, 0.00001));
+        }
+      });
     });
-  });
 
-  test('Project / unproject test for all ESRI WKT projections', () {
-    all_proj4_esri_defs.ESRIWktTestDefs.forEach(
-        (key, value) => Projection.add(key, value));
-    var wgs = Projection('EPSG:4326');
-    all_proj4_esri_results.testResults.forEach((key, value) {
-      var testPoint = Point(x: 17.888058560281515, y: 46.89226406700879);
-      var custom = Projection(key);
-      var projectResult = wgs.transform(custom, testPoint);
-      var unProjectResult = custom.transform(wgs, value.wgsToCustom);
-      var result = ProjectAndUnProjectResult(projectResult, unProjectResult);
-      if (value.customToWgs.x.isNaN) {
-        expect(result.customToWgs.x, isNaN);
-      } else {
-        expect(result.customToWgs.x, closeTo(value.customToWgs.x, 0.000001));
-      }
-      if (value.customToWgs.y.isNaN) {
-        expect(result.customToWgs.y, isNaN);
-      } else {
-        expect(result.customToWgs.y, closeTo(value.customToWgs.y, 0.000001));
-      }
-      if (value.wgsToCustom.x.isNaN) {
-        expect(result.wgsToCustom.x, isNaN);
-      } else {
-        expect(result.wgsToCustom.x, closeTo(value.wgsToCustom.x, 0.00001));
-      }
-      if (value.wgsToCustom.y.isNaN) {
-        expect(result.wgsToCustom.y, isNaN);
-      } else {
-        expect(result.wgsToCustom.y, closeTo(value.wgsToCustom.y, 0.00001));
-      }
+    test('Project / unproject test for all ESRI WKT projections', () {
+      all_proj4_esri_defs.ESRIWktTestDefs.forEach(
+          (key, value) => Projection.add(key, value));
+      var wgs = Projection('EPSG:4326');
+      all_proj4_esri_results.testResults.forEach((key, value) {
+        var testPoint = Point(x: 17.888058560281515, y: 46.89226406700879);
+        var custom = Projection(key);
+        var projectResult = wgs.transform(custom, testPoint);
+        var unProjectResult = custom.transform(wgs, value.wgsToCustom);
+        var result = ProjectAndUnProjectResult(projectResult, unProjectResult);
+        if (value.customToWgs.x.isNaN) {
+          expect(result.customToWgs.x, isNaN);
+        } else {
+          expect(result.customToWgs.x, closeTo(value.customToWgs.x, 0.000001));
+        }
+        if (value.customToWgs.y.isNaN) {
+          expect(result.customToWgs.y, isNaN);
+        } else {
+          expect(result.customToWgs.y, closeTo(value.customToWgs.y, 0.000001));
+        }
+        if (value.wgsToCustom.x.isNaN) {
+          expect(result.wgsToCustom.x, isNaN);
+        } else {
+          expect(result.wgsToCustom.x, closeTo(value.wgsToCustom.x, 0.00001));
+        }
+        if (value.wgsToCustom.y.isNaN) {
+          expect(result.wgsToCustom.y, isNaN);
+        } else {
+          expect(result.wgsToCustom.y, closeTo(value.wgsToCustom.y, 0.00001));
+        }
+      });
     });
   });
 

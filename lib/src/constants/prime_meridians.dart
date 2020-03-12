@@ -12,7 +12,7 @@ final stockholm = 18.058277777778; //"18d3'29.8\"E",
 final athens = 23.7163375; //"23d42'58.815\"E",
 final oslo = 10.722916666667;
 
-final dynamic _items = {
+final _items = {
   'greenwich': greenwich,
   'lisbon': lisbon,
   'paris': paris,

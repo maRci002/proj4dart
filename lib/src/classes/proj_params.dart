@@ -4,10 +4,10 @@ import 'package:proj4dart/src/constants/datums.dart' as datums;
 import 'package:proj4dart/src/constants/prime_meridians.dart' as consts_pm;
 import 'package:proj4dart/src/constants/units.dart' as consts_units;
 import 'package:proj4dart/src/constants/values.dart' as consts;
-import 'package:wkt_parser/wkt_parser.dart';
+import 'package:wkt_parser/wkt_parser.dart' as wkt_parser;
 
 class ProjParams {
-  Map<String, dynamic> map = {};
+  Map<String, Object> map = {};
   String srsCode;
 
   String get title => map['title'];
@@ -55,32 +55,34 @@ class ProjParams {
 
   /// Default constructor
   ProjParams(String defData) {
-    srsCode = defData;
-    var paramObj = {} as dynamic;
-    defData
-        .split('+')
-        .map((v) => v.trim())
-        .where((a) => a != null)
-        .forEach((a) {
-      var split = a.split('=');
-      if (split.length == 2) {
-        paramObj[split[0]] = split[1];
-      } else if (split.length == 1 && split[0].isNotEmpty) {
-        paramObj[split[0]] = true;
-      }
-    });
-    _iterateProps(paramObj);
-    _addExtraProps();
-  }
-
-  /// Construct from ProjWKT
-  ProjParams.fromProjWKT(ProjWKT wkt) {
-    _iterateProps(wkt.map);
-    _addExtraProps();
+    if (defData[0] == '+') {
+      // In case of Proj4 string
+      srsCode = defData;
+      var paramObj = <String, Object>{};
+      defData
+          .split('+')
+          .map((v) => v.trim())
+          .where((a) => a != null)
+          .forEach((a) {
+        var split = a.split('=');
+        if (split.length == 2) {
+          paramObj[split[0]] = split[1];
+        } else if (split.length == 1 && split[0].isNotEmpty) {
+          paramObj[split[0]] = true;
+        }
+      });
+      _iterateProps(paramObj);
+      _addExtraProps();
+    } else {
+      // In case of WKT CRS string
+      var projWKT = wkt_parser.parseWKT(defData);
+      _iterateProps(projWKT.map.cast<String, Object>());
+      _addExtraProps();
+    }
   }
 
   /// Populate map object with parameters
-  void _iterateProps(Map<dynamic, dynamic> paramObj) {
+  void _iterateProps(Map<String, Object> paramObj) {
     paramObj.forEach((key, v) {
       switch (key) {
         case 'title':
@@ -241,7 +243,7 @@ class ProjParams {
   }
 
   /// Parse to List<double> if possible for the getter function to work
-  List<double> _parseDatumParams(List<dynamic> paramsList) {
+  List<double> _parseDatumParams(List<Object> paramsList) {
     return paramsList != null
         ? paramsList.map((e) => double.parse(e.toString())).toList()
         : null;
