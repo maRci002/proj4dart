@@ -70,6 +70,8 @@ class PolyconicProjection extends Projection {
     double lon, lat, x, y;
     double al, bl;
     double phi, dphi;
+    lat = double.nan; // fix js behavior
+
     x = p.x - x0;
     y = p.y - y0;
 
@@ -82,7 +84,7 @@ class PolyconicProjection extends Projection {
         bl = x * x / a / a + al * al;
         phi = al;
         var tanphi;
-        for (var i = 0; i < MAX_ITER; i++) {
+        for (var i = MAX_ITER; i > 0; --i) {
           tanphi = math.tan(phi);
           dphi = -1 *
               (al * (phi * tanphi + 1) -
@@ -108,7 +110,7 @@ class PolyconicProjection extends Projection {
         phi = al;
         var cl, mln, mlnp, ma;
         var con;
-        for (var i = 0; i < MAX_ITER; i++) {
+        for (var i = MAX_ITER; i > 0; --i) {
           con = e * math.sin(phi);
           cl = math.sqrt(1 - con * con) * math.tan(phi);
           mln = a * utils.mlfn(e0, e1, e2, e3, phi);

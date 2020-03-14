@@ -38,7 +38,7 @@ class StereographicSouthProjection extends Projection {
   StereographicSouthProjection.init(ProjParams params)
       : lat0 = params.lat0,
         long0 = params.long0,
-        lat_ts = params.lat_ts,
+        lat_ts = params.lat_ts ?? double.nan, // fix js behavior
         x0 = params.x0,
         y0 = params.y0,
         super.init(params) {
