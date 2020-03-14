@@ -38,12 +38,14 @@ void main() {
 
     test('Create all projections via esri wkt strings and find all of them',
         () {
-      all_proj4_esri_defs.ESRIWktTestDefs.forEach(
-          (key, value) => Projection.add(key, value));
-      var projectionArray = all_proj4_esri_defs.ESRIWktTestDefs.keys
-          .map((key) => Projection(key));
-      expect(
-          projectionArray.length, all_proj4_esri_defs.ESRIWktTestDefs.length);
+      final whiteList = Map.from(all_proj4_esri_defs.ESRIWktTestDefs)
+        ..removeWhere(
+            (key, value) => all_proj4_esri_defs.blackList.keys.contains(key));
+
+      whiteList.forEach((key, value) => Projection.add(key, value));
+      final projectionArray = whiteList.keys.map((key) => Projection(key));
+
+      expect(projectionArray.length, whiteList.length);
     });
 
     test('Project / unproject test for all Proj4 def projections', () {
@@ -131,15 +133,24 @@ void main() {
     });
 
     test('Project / unproject test for all ESRI WKT projections', () {
-      all_proj4_esri_defs.ESRIWktTestDefs.forEach(
-          (key, value) => Projection.add(key, value));
-      var wgs = Projection.WGS84;
+      final wgs = Projection.WGS84;
+      final testPoint = Point(x: 17.888058560281515, y: 46.89226406700879);
+
+      final whiteList = Map.from(all_proj4_esri_defs.ESRIWktTestDefs)
+        ..removeWhere(
+            (key, value) => all_proj4_esri_defs.blackList.keys.contains(key));
+
+      whiteList.forEach((key, value) => Projection.add(key, value));
       all_proj4_esri_results.testResults.forEach((key, value) {
-        var testPoint = Point(x: 17.888058560281515, y: 46.89226406700879);
-        var custom = Projection(key);
-        var projectResult = wgs.transform(custom, testPoint);
-        var unProjectResult = custom.transform(wgs, value.wgsToCustom);
-        var result = ProjectAndUnProjectResult(projectResult, unProjectResult);
+        final point =
+            key == 'EPSG:3117' ? Point(x: -72.62, y: 3.81) : testPoint;
+
+        final custom = Projection(key);
+        final projectResult = wgs.transform(custom, point);
+        final unProjectResult = custom.transform(wgs, value.wgsToCustom);
+        final result =
+            ProjectAndUnProjectResult(projectResult, unProjectResult);
+
         if (value.customToWgs.x.isNaN) {
           expect(result.customToWgs.x, isNaN);
         } else {
