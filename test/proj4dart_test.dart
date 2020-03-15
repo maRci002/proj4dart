@@ -182,5 +182,25 @@ void main() {
       var proj = Projection.add('GOOGLE', projStr);
       expect(proj.runtimeType, UniversalTransverseMercatorProjection);
     });
+
+    test('PojectionTuple should create the same result as "plain" Projections',
+        () {
+      final defs = all_proj4_defs.testDefs;
+      final from = Projection.parse(defs['EPSG:23700']);
+      final to = Projection.parse(defs['EPSG:28426']);
+      final tuple = ProjectionTuple(fromProj: from, toProj: to);
+
+      final plainForwardResult = from.transform(
+          to, Point.fromArray([561651.8408065987, 172658.61998377228]));
+      final plainInverseResult =
+          to.transform(from, Point.copy(plainForwardResult));
+
+      final tupleForwardResult = tuple
+          .forward(Point.fromArray([561651.8408065987, 172658.61998377228]));
+      final tupleInverseResult = tuple.inverse(Point.copy(tupleForwardResult));
+
+      expect(plainForwardResult.toString(), tupleForwardResult.toString());
+      expect(plainInverseResult.toString(), tupleInverseResult.toString());
+    });
   });
 }
