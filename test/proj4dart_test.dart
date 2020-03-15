@@ -13,165 +13,94 @@ import './results/all_proj4_esri_wkt_results.dart' as all_proj4_esri_results;
 
 void main() {
   group('Bulk tests', () {
+    Map<String, String> proj4StringDefs;
+    Map<String, String> proj4OGCWktTestDefs;
+    Map<String, String> proj4ESRIWktTestDefs;
+
+    setUp(() {
+      proj4StringDefs = all_proj4_defs.testDefs;
+      proj4OGCWktTestDefs = all_proj4_ogc_defs.testDefs;
+      proj4ESRIWktTestDefs = all_proj4_esri_defs.testDefs;
+    });
+
+    void checkProjectAndUnProjectResult(Map<String, String> defs,
+        Map<String, ProjectAndUnProjectResult> testResults) {
+      final wgs = Projection.WGS84;
+      final testPoint = Point(x: 17.888058560281515, y: 46.89226406700879);
+
+      defs.forEach((key, value) => Projection.add(key, value));
+      testResults.forEach((key, value) {
+        final point =
+            key == 'EPSG:3117' ? Point(x: -72.62, y: 3.81) : testPoint;
+
+        final custom = Projection(key);
+        final projectResult = wgs.transform(custom, point);
+        final unProjectResult = custom.transform(wgs, value.wgsToCustom);
+        final result =
+            ProjectAndUnProjectResult(projectResult, unProjectResult);
+
+        if (value.customToWgs.x.isNaN) {
+          expect(result.customToWgs.x, isNaN);
+        } else {
+          expect(result.customToWgs.x, closeTo(value.customToWgs.x, 0.000001));
+        }
+        if (value.customToWgs.y.isNaN) {
+          expect(result.customToWgs.y, isNaN);
+        } else {
+          expect(result.customToWgs.y, closeTo(value.customToWgs.y, 0.000001));
+        }
+        if (value.wgsToCustom.x.isNaN) {
+          expect(result.wgsToCustom.x, isNaN);
+        } else {
+          expect(result.wgsToCustom.x, closeTo(value.wgsToCustom.x, 0.00001));
+        }
+        if (value.wgsToCustom.y.isNaN) {
+          expect(result.wgsToCustom.y, isNaN);
+        } else {
+          expect(result.wgsToCustom.y, closeTo(value.wgsToCustom.y, 0.00001));
+        }
+      });
+    }
+
     test('Create all projections via proj4 def strings and find all of them',
         () {
-      final whiteList = Map.from(all_proj4_defs.testDefs)
-        ..removeWhere(
-            (key, value) => all_proj4_defs.blackList.keys.contains(key));
+      proj4StringDefs.forEach((key, value) => Projection.add(key, value));
+      final projectionArray =
+          proj4StringDefs.keys.map((key) => Projection(key));
 
-      whiteList.forEach((key, value) => Projection.add(key, value));
-      final projectionArray = whiteList.keys.map((key) => Projection(key));
-
-      expect(projectionArray.length, whiteList.length);
+      expect(projectionArray.length, proj4StringDefs.length);
     });
 
     test('Create all projections via ogc wkt strings and find all of them', () {
-      final whiteList = Map.from(all_proj4_ogc_defs.OGCWktTestDefs)
-        ..removeWhere(
-            (key, value) => all_proj4_ogc_defs.blackList.keys.contains(key));
+      proj4OGCWktTestDefs.forEach((key, value) => Projection.add(key, value));
+      final projectionArray =
+          proj4OGCWktTestDefs.keys.map((key) => Projection(key));
 
-      whiteList.forEach((key, value) => Projection.add(key, value));
-      final projectionArray = whiteList.keys.map((key) => Projection(key));
-
-      expect(projectionArray.length, whiteList.length);
+      expect(projectionArray.length, proj4OGCWktTestDefs.length);
     });
 
     test('Create all projections via esri wkt strings and find all of them',
         () {
-      final whiteList = Map.from(all_proj4_esri_defs.ESRIWktTestDefs)
-        ..removeWhere(
-            (key, value) => all_proj4_esri_defs.blackList.keys.contains(key));
+      proj4ESRIWktTestDefs.forEach((key, value) => Projection.add(key, value));
+      final projectionArray =
+          proj4ESRIWktTestDefs.keys.map((key) => Projection(key));
 
-      whiteList.forEach((key, value) => Projection.add(key, value));
-      final projectionArray = whiteList.keys.map((key) => Projection(key));
-
-      expect(projectionArray.length, whiteList.length);
+      expect(projectionArray.length, proj4ESRIWktTestDefs.length);
     });
 
     test('Project / unproject test for all Proj4 def projections', () {
-      final wgs = Projection.WGS84;
-      final testPoint = Point(x: 17.888058560281515, y: 46.89226406700879);
-
-      final whiteList = Map.from(all_proj4_defs.testDefs)
-        ..removeWhere(
-            (key, value) => all_proj4_defs.blackList.keys.contains(key));
-
-      whiteList.forEach((key, value) => Projection.add(key, value));
-      all_proj4_results.testResults.forEach((key, value) {
-        final point =
-            key == 'EPSG:3117' ? Point(x: -72.62, y: 3.81) : testPoint;
-
-        final custom = Projection(key);
-        final projectResult = wgs.transform(custom, point);
-        final unProjectResult = custom.transform(wgs, value.wgsToCustom);
-        final result =
-            ProjectAndUnProjectResult(projectResult, unProjectResult);
-
-        if (value.customToWgs.x.isNaN) {
-          expect(result.customToWgs.x, isNaN);
-        } else {
-          expect(result.customToWgs.x, closeTo(value.customToWgs.x, 0.000001));
-        }
-        if (value.customToWgs.y.isNaN) {
-          expect(result.customToWgs.y, isNaN);
-        } else {
-          expect(result.customToWgs.y, closeTo(value.customToWgs.y, 0.000001));
-        }
-        if (value.wgsToCustom.x.isNaN) {
-          expect(result.wgsToCustom.x, isNaN);
-        } else {
-          expect(result.wgsToCustom.x, closeTo(value.wgsToCustom.x, 0.00001));
-        }
-        if (value.wgsToCustom.y.isNaN) {
-          expect(result.wgsToCustom.y, isNaN);
-        } else {
-          expect(result.wgsToCustom.y, closeTo(value.wgsToCustom.y, 0.00001));
-        }
-      });
+      checkProjectAndUnProjectResult(
+          proj4StringDefs, all_proj4_results.testResults);
     });
 
     test('Project / unproject test for all OGC WKT projections', () {
-      final wgs = Projection.WGS84;
-      final testPoint = Point(x: 17.888058560281515, y: 46.89226406700879);
-
-      final whiteList = Map.from(all_proj4_ogc_defs.OGCWktTestDefs)
-        ..removeWhere(
-            (key, value) => all_proj4_ogc_defs.blackList.keys.contains(key));
-
-      whiteList.forEach((key, value) => Projection.add(key, value));
-      all_proj4_ogc_results.testResults.forEach((key, value) {
-        final point =
-            key == 'EPSG:3117' ? Point(x: -72.62, y: 3.81) : testPoint;
-
-        final custom = Projection(key);
-        final projectResult = wgs.transform(custom, point);
-        final unProjectResult = custom.transform(wgs, value.wgsToCustom);
-        final result =
-            ProjectAndUnProjectResult(projectResult, unProjectResult);
-
-        if (value.customToWgs.x.isNaN) {
-          expect(result.customToWgs.x, isNaN);
-        } else {
-          expect(result.customToWgs.x, closeTo(value.customToWgs.x, 0.000001));
-        }
-        if (value.customToWgs.y.isNaN) {
-          expect(result.customToWgs.y, isNaN);
-        } else {
-          expect(result.customToWgs.y, closeTo(value.customToWgs.y, 0.000001));
-        }
-        if (value.wgsToCustom.x.isNaN) {
-          expect(result.wgsToCustom.x, isNaN);
-        } else {
-          expect(result.wgsToCustom.x, closeTo(value.wgsToCustom.x, 0.00001));
-        }
-        if (value.wgsToCustom.y.isNaN) {
-          expect(result.wgsToCustom.y, isNaN);
-        } else {
-          expect(result.wgsToCustom.y, closeTo(value.wgsToCustom.y, 0.00001));
-        }
-      });
+      checkProjectAndUnProjectResult(
+          proj4OGCWktTestDefs, all_proj4_ogc_results.testResults);
     });
 
     test('Project / unproject test for all ESRI WKT projections', () {
-      final wgs = Projection.WGS84;
-      final testPoint = Point(x: 17.888058560281515, y: 46.89226406700879);
-
-      final whiteList = Map.from(all_proj4_esri_defs.ESRIWktTestDefs)
-        ..removeWhere(
-            (key, value) => all_proj4_esri_defs.blackList.keys.contains(key));
-
-      whiteList.forEach((key, value) => Projection.add(key, value));
-      all_proj4_esri_results.testResults.forEach((key, value) {
-        final point =
-            key == 'EPSG:3117' ? Point(x: -72.62, y: 3.81) : testPoint;
-
-        final custom = Projection(key);
-        final projectResult = wgs.transform(custom, point);
-        final unProjectResult = custom.transform(wgs, value.wgsToCustom);
-        final result =
-            ProjectAndUnProjectResult(projectResult, unProjectResult);
-
-        if (value.customToWgs.x.isNaN) {
-          expect(result.customToWgs.x, isNaN);
-        } else {
-          expect(result.customToWgs.x, closeTo(value.customToWgs.x, 0.000001));
-        }
-        if (value.customToWgs.y.isNaN) {
-          expect(result.customToWgs.y, isNaN);
-        } else {
-          expect(result.customToWgs.y, closeTo(value.customToWgs.y, 0.000001));
-        }
-        if (value.wgsToCustom.x.isNaN) {
-          expect(result.wgsToCustom.x, isNaN);
-        } else {
-          expect(result.wgsToCustom.x, closeTo(value.wgsToCustom.x, 0.00001));
-        }
-        if (value.wgsToCustom.y.isNaN) {
-          expect(result.wgsToCustom.y, isNaN);
-        } else {
-          expect(result.wgsToCustom.y, closeTo(value.wgsToCustom.y, 0.00001));
-        }
-      });
+      checkProjectAndUnProjectResult(
+          proj4ESRIWktTestDefs, all_proj4_esri_results.testResults);
     });
   });
 

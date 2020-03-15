@@ -1,4 +1,9 @@
-const blackList = {
+Map<String, String> get testDefs => Map.from(_testDefs)
+  ..removeWhere((key, value) => _blackList.keys.contains(key));
+
+/// if proj4js wasn't able to process any proj4 ogc wkt string, then we took them in a blackList
+/// 'undefined' means proj4js was able to parse def however cannot use it (for instance there is no projection which can handle it).
+const _blackList = {
   'EPSG:4338': 'undefined',
   'EPSG:2046': 'undefined',
   'EPSG:2047': 'undefined',
@@ -949,7 +954,8 @@ const blackList = {
   'EPSG:9013': 'undefined',
 };
 
-var OGCWktTestDefs = {
+/// proj4 ogc wkt def strings based on PostGIS 3.0.1 (6185 definitions)
+const _testDefs = {
   'EPSG:3819':
       'GEOGCS["HD1909",DATUM["Hungarian_Datum_1909",SPHEROID["Bessel 1841",6377397.155,299.1528128,AUTHORITY["EPSG","7004"]],TOWGS84[595.48,121.69,515.35,4.115,-2.9383,0.853,-3.408],AUTHORITY["EPSG","1024"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","3819"]]',
   'EPSG:3821':

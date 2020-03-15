@@ -1,4 +1,9 @@
-const blackList = {
+Map<String, String> get testDefs => Map.from(_testDefs)
+  ..removeWhere((key, value) => _blackList.keys.contains(key));
+
+/// if proj4js wasn't able to process any proj4 string, then we took them in a blackList
+/// 'undefined' means proj4js was able to parse def however cannot use it (for instance there is no projection which can handle it).
+const _blackList = {
   'EPSG:22300': 'unable to parse string \"\". State is 1',
   'EPSG:29701': 'unable to parse string \"\". State is 1',
   'EPSG:8441': 'undefined',
@@ -57,7 +62,8 @@ const blackList = {
   'ESRI:102590': 'undefined',
 };
 
-const testDefs = {
+/// proj4 def strings based on PostGIS 3.0.1 (8500 definitions)
+const _testDefs = {
   'EPSG:3819':
       '+proj=longlat +ellps=bessel +towgs84=595.48,121.69,515.35,4.115,-2.9383,0.853,-3.408 +no_defs',
   'EPSG:3821': '+proj=longlat +ellps=aust_SA +no_defs',

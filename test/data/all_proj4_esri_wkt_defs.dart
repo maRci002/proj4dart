@@ -1,4 +1,9 @@
-const blackList = {
+Map<String, String> get testDefs => Map.from(_testDefs)
+  ..removeWhere((key, value) => _blackList.keys.contains(key));
+
+/// if proj4js wasn't able to process any proj4 esri wkt string, then we took them in a blackList
+/// 'undefined' means proj4js was able to parse def however cannot use it (for instance there is no projection which can handle it).
+const _blackList = {
   'EPSG:8246': 'unable to parse string \"\". State is 1',
   'EPSG:7683': 'unable to parse string \"\". State is 1',
   'EPSG:7798': 'unable to parse string \"\". State is 1',
@@ -1075,7 +1080,8 @@ const blackList = {
   'ESRI:103471': 'undefined',
 };
 
-const ESRIWktTestDefs = {
+/// proj4 esri wkt def strings based on PostGIS 3.0.1 (8500 definitions (if authority == 'EPSG' => we pulled esri wkt def string from https://epsg.io/))
+const _testDefs = {
   // ESRI from https://epsg.io/
   'EPSG:3819':
       'GEOGCS["HD1909",DATUM["D_Hungarian_Datum_1909",SPHEROID["Bessel_1841",6377397.155,299.1528128]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]]',
