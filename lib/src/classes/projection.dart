@@ -168,8 +168,10 @@ abstract class Projection {
       return utils.adjust_axis(dest, true, point);
     }
 
-    if (shouldRemoveZ && point.z != null) {
-      return Point(x: point.x, y: point.y);
+    if (shouldRemoveZ) {
+      point.z = null;
+      point.m = null;
+      return point;
     } else {
       return point;
     }
