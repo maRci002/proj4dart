@@ -1,9 +1,9 @@
 Map<String, String> get testDefs => Map.from(_testDefs)
-  ..removeWhere((key, value) => _blackList.keys.contains(key));
+  ..removeWhere((key, value) => blackList.keys.contains(key));
 
 /// if proj4js wasn't able to process any proj4 esri wkt string, then we took them in a blackList
 /// 'undefined' means proj4js was able to parse def however cannot use it (for instance there is no projection which can handle it).
-const _blackList = {
+const blackList = {
   'EPSG:8246': 'unable to parse string \"\". State is 1',
   'EPSG:7683': 'unable to parse string \"\". State is 1',
   'EPSG:7798': 'unable to parse string \"\". State is 1',
