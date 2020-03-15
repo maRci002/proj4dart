@@ -92,7 +92,7 @@ class LambertAzimuthalEqualAreaProjection extends Projection {
     var lam = p.x;
     var phi = p.y;
 
-    lam = utils.adjust_lon(lam - long0);
+    lam = long0 == null ? double.nan : utils.adjust_lon(lam - long0);
     if (sphere != null && sphere) {
       sinphi = math.sin(phi);
       cosphi = math.cos(phi);

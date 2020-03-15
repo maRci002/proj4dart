@@ -2,971 +2,14 @@ import 'package:proj4dart/src/classes/point.dart';
 
 import '../classes/project_and_unproject_result.dart';
 
-// don't need to check this blackList because these results are skipped from testResults
-const blackList = {
-  'EPSG:4338': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:2046': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:2047': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:2048': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:2049': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:2050': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:2051': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:2052': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:2053': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:2054': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:2055': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:2085': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:2062': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4340': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:2086': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:2101': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:2102': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:2103': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:2104': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4342': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4344': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4346': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4348': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:2155': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4350': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:2192': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:2194': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4352': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4354': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4356': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4358': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4360': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4362': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4364': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4366': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4368': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4370': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4372': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:3102': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4374': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7664': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4376': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4378': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:3200': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4380': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4382': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:3337': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4384': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4385': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:3388': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:3394': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4387': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:3410': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4389': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:3448': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:3975': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4465': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4468': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4473': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4479': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4481': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4556': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4882': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4884': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4886': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4888': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:3994': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4890': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4892': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4894': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4896': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4897': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4899': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4906': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4908': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4910': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4911': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5456': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5457': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5458': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5459': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5460': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5461': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5462': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5469': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5559': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5641': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4912': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4913': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4914': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4915': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7677': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4916': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4917': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4918': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4919': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4920': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4922': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4924': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4926': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4928': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4930': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4932': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4934': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6792': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4936': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6793': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6794': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6795': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6796': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6797': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6798': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6799': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6804': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6805': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6806': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6807': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4938': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6852': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6853': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6854': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6855': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4940': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6933': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7057': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7058': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7060': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7061': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7066': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7068': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7111': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7112': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7113': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7114': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7116': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7117': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7121': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4942': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7122': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7123': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7124': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7126': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7127': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4944': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4946': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4948': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4950': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4952': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4954': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4956': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7531': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7534': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7536': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7538': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7539': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7540': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7545': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7549': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7550': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7557': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7559': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7562': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7564': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7565': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7567': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7569': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7573': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7576': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7578': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7579': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7580': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7581': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7585': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7586': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7590': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7593': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7595': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7597': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4958': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7598': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7599': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7604': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4960': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7608': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7609': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4962': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7616': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7618': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7621': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4964': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7623': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7624': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7626': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7628': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4966': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7632': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7635': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7637': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4968': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7638': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7639': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7640': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7644': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7645': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4970': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4972': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4974': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4976': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8068': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4978': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8092': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8093': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8095': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8096': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8097': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8098': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4980': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8105': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8106': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8107': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8108': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8109': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8110': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8111': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8112': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8115': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8116': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4982': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8121': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8122': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4984': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8129': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8130': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8133': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8134': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4986': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8137': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8138': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8139': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8140': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8143': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8144': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8149': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8150': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4988': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8153': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8154': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4990': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8167': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8168': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4992': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8169': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8170': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4994': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8191': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8193': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4996': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8196': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8197': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8198': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8200': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8203': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8204': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4998': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8207': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8208': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5011': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8214': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8216': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5244': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8315': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8316': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5250': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8321': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8322': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8323': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8324': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8325': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8326': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8327': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8328': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8329': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8330': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8333': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8334': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8335': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8336': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5262': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8339': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8340': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8341': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8342': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8345': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8346': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5322': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5332': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:22275': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:22277': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:22279': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:22281': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:22283': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:22285': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:22287': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:22289': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:22291': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:22293': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:22300': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:22391': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:22392': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:22700': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:22770': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5341': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5352': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:24100': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:24200': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5358': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:24370': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:24371': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:24372': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:24373': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:24374': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:24375': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:24376': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:24377': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:24378': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:24379': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:24380': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:24381': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:24382': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:24383': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:24600': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:26191': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:26192': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:26193': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:26194': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:26195': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5363': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5368': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5369': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5379': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5391': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:27500': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:27561': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:27562': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:27563': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:27564': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:27571': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:27572': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:27573': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:27574': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:27581': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:27582': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:27583': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:27584': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:27591': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5487': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:27592': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:27593': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:27594': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5544': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:29371': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:29373': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:29375': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:29377': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:29379': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:29381': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:29383': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:29385': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5558': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:29701': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5591': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:30491': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:30492': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:30493': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:30494': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:30791': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:30792': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5828': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5884': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:31300': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6133': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:32061': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:32062': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4079': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4328': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4330': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4331': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4332': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4333': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4334': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4335': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4336': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4337': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6309': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7660': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7662': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:3822': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:3887': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4000': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4039': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4073': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6317': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6320': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6323': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6363': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6666': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6704': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6781': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6934': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6978': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6981': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6985': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6988': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7071': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7134': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7137': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7371': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7656': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7658': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7679': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7681': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7684': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7789': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7796': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7815': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7842': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7879': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7884': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7914': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7916': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7918': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7920': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7922': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7924': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7926': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7928': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7930': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8084': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8227': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8230': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8233': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8238': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8242': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8247': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8250': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8253': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:3901': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:3902': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:3903': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5500': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4097': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4098': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4099': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4100': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5318': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5498': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5499': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5554': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5555': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5556': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5598': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5628': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5698': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5699': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5846': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5707': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5708': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5832': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5833': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5834': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5835': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5845': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5847': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5848': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5849': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5850': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5851': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5852': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5853': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5854': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5855': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5856': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5857': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5942': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5945': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5946': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5947': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5948': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5949': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5950': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5951': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5952': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5953': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5954': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5955': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7409': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5956': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5957': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5958': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5959': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5960': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5961': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5962': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7410': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5963': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5964': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5965': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5966': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5967': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5968': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5969': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5970': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5971': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5972': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5973': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5974': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5975': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5976': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6144': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6145': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6146': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6147': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6148': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6149': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6150': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6151': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6152': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6153': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6154': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6155': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6156': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6157': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6158': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6159': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6160': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6161': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6162': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6163': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6164': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6165': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6166': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6167': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6168': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6169': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6170': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6171': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6172': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6173': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6174': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6175': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6176': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6190': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6349': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6649': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6650': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6651': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6652': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6653': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6654': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6655': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6656': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6657': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6658': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6659': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6660': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6661': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6662': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6663': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6664': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6665': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6696': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6697': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6700': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6871': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6893': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6917': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6927': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7400': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7401': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7402': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7403': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7404': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7405': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7406': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7407': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7408': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7411': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7412': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7413': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7414': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7415': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7416': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7417': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7418': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7419': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7420': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7421': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7422': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7423': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7954': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7955': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7956': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8349': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8350': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:3993': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6200': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6201': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6202': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6966': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8441': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8816': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8525': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8526': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8527': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8528': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8536': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8538': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8857': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8858': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8859': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8397': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8401': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8425': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8429': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8541': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8543': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8683': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8898': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8905': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:9001': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:9004': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:9007': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:9010': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:9015': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8360': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8370': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8700': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8701': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4329': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8702': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8703': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8704': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8705': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8706': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8707': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7138': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8708': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8709': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8710': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8711': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8712': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8713': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8714': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8715': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8716': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8717': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8718': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8719': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8720': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8721': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8722': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8723': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8724': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8725': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8726': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8727': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8728': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8729': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8730': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8731': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7372': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8732': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8733': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8734': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8735': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8736': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8737': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8738': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8739': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8740': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8741': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8742': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8743': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8744': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8745': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8746': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8747': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8748': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8749': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8750': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8751': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8752': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8753': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8754': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8755': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8756': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8757': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8758': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8759': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8760': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8761': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7657': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8762': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8763': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8764': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8765': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8766': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8767': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7659': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8768': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8769': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8770': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8771': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8772': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8773': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8774': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8775': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8776': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8777': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8778': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8779': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8780': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8781': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8782': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8783': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8784': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8785': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8786': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8787': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8788': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8789': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8790': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8791': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8792': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8793': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8794': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8795': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8796': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8797': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8798': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8799': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8800': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8801': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8802': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8803': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7661': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8804': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8805': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8806': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8807': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8808': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8809': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8810': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8811': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8812': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8813': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8814': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8815': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8912': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:3823': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:3888': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4017': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4040': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4074': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4080': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4327': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4339': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4341': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4343': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4345': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4347': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7663': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4349': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4351': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4353': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4355': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4357': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7665': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4359': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4361': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4363': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4365': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4367': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7678': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4369': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4371': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4373': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4375': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4377': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7680': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4379': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4381': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4383': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4386': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4388': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4466': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7682': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7685': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4469': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4472': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4480': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4482': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4557': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4883': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4885': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4887': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4889': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4891': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4893': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4895': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4898': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4900': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4907': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4909': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4921': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4923': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4925': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4927': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4929': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4931': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4933': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7902': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4935': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4937': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4939': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4941': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4943': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7903': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4945': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4947': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4949': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4951': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4953': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7904': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4955': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4957': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4959': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4961': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4963': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7905': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4965': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4967': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4969': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4971': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4973': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7906': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4975': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4977': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4979': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4981': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4983': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4985': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4987': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4989': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4991': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4993': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4995': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7907': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7908': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4997': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:4999': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5012': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5245': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5251': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7909': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5263': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5323': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5342': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5353': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5359': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7910': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5364': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5370': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5372': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5380': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5392': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7911': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5488': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5545': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5560': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5592': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5830': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:5885': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7912': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6134': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6310': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6319': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6321': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6324': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6364': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6667': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7915': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6705': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6782': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6979': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6982': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6986': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:6989': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7034': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7036': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:9016': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7038': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7040': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7042': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7072': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7085': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7087': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7135': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7797': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7816': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7843': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7880': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7885': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7900': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7901': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7917': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7919': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7921': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7923': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7925': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7927': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7929': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:7931': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8085': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8231': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8235': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8239': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:9018': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8244': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8248': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8251': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8254': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8399': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8403': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8426': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8430': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8542': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8544': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8684': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8817': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8899': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8901': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8906': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:9002': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:9005': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:9008': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:9011': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:9013': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:3408': 'coordinates must be finite numbers',
-  'EPSG:3409': 'coordinates must be finite numbers',
-  'EPSG:3974': 'coordinates must be finite numbers',
-  'EPSG:3973': 'coordinates must be finite numbers',
-  'EPSG:5042': 'coordinates must be finite numbers',
-  'EPSG:5482': 'coordinates must be finite numbers',
-  'EPSG:6931': 'coordinates must be finite numbers',
-  'EPSG:6932': 'coordinates must be finite numbers',
-  'EPSG:32761': 'coordinates must be finite numbers',
-  'EPSG:3295': 'coordinates must be finite numbers'
-};
+import '../data/all_proj4_ogc_wkt_defs.dart' show blackList;
+
+Map<String, ProjectAndUnProjectResult> get testResults => Map.from(_testResults)
+  ..removeWhere((key, value) => blackList.keys.contains(key));
 
 // We converted this point [17.888058560281515, 46.89226406700879] with proj4js this will give us wgsToCustom
 // Then we transformed back the wgsToCustom to calculate customToWgs
-final Map<String, ProjectAndUnProjectResult> testResults = {
+final Map<String, ProjectAndUnProjectResult> _testResults = {
   'EPSG:3819': ProjectAndUnProjectResult(
       Point(x: 17.889590510079564, y: 46.89133824892714),
       Point(x: 17.888058590372236, y: 46.89226407474856)),
@@ -2604,6 +1647,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:2037': ProjectAndUnProjectResult(
       Point(x: 5625552.597278097, y: 9753575.672750814),
       Point(x: -14563147143.452982, y: 3188443837.820243)),
+  'EPSG:4338': ProjectAndUnProjectResult(null, null),
   'EPSG:2038': ProjectAndUnProjectResult(
       Point(x: 5638571.782971076, y: 9108330.901623307),
       Point(x: -1685042.2535846238, y: 369929.7983349917)),
@@ -2628,9 +1672,20 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:2045': ProjectAndUnProjectResult(
       Point(x: 14572166.498555884, y: 10439359.049643723),
       Point(x: -99.18246850655717, y: 89.9990176256858)),
+  'EPSG:2046': ProjectAndUnProjectResult(null, null),
+  'EPSG:2047': ProjectAndUnProjectResult(null, null),
+  'EPSG:2048': ProjectAndUnProjectResult(null, null),
+  'EPSG:2049': ProjectAndUnProjectResult(null, null),
+  'EPSG:2050': ProjectAndUnProjectResult(null, null),
+  'EPSG:2051': ProjectAndUnProjectResult(null, null),
+  'EPSG:2052': ProjectAndUnProjectResult(null, null),
+  'EPSG:2053': ProjectAndUnProjectResult(null, null),
+  'EPSG:2054': ProjectAndUnProjectResult(null, null),
+  'EPSG:2055': ProjectAndUnProjectResult(null, null),
   'EPSG:2056': ProjectAndUnProjectResult(
       Point(x: 3393998.8609966785, y: 1246372.8682418307),
       Point(x: 17.88805857342887, y: 46.892264073036614)),
+  'EPSG:2085': ProjectAndUnProjectResult(null, null),
   'EPSG:2057': ProjectAndUnProjectResult(
       Point(x: -1967980.2117443858, y: 5814317.985443937),
       Point(x: 17.888058552817974, y: 46.89226406364063)),
@@ -2646,6 +1701,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:2061': ProjectAndUnProjectResult(
       Point(x: -2874870.017929434, y: 6270985.091068825),
       Point(x: 19.45430257528023, y: 47.12658590690358)),
+  'EPSG:2062': ProjectAndUnProjectResult(null, null),
   'EPSG:2063': ProjectAndUnProjectResult(
       Point(x: 2988585.002277317, y: 5744009.102065168),
       Point(x: 17.84823657652429, y: 46.89670599128666)),
@@ -2685,6 +1741,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:2074': ProjectAndUnProjectResult(
       Point(x: -37074.63351051809, y: 5199644.30056243),
       Point(x: 17.88805855964199, y: 46.892264066263465)),
+  'EPSG:4340': ProjectAndUnProjectResult(null, null),
   'EPSG:2075': ProjectAndUnProjectResult(
       Point(x: -189455.24974488816, y: 5207641.431124745),
       Point(x: 17.888058559947464, y: 46.89226406475083)),
@@ -2715,6 +1772,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:2084': ProjectAndUnProjectResult(
       Point(x: 5625682.8648036625, y: 19753637.08426707),
       Point(x: 45, y: double.nan)),
+  'EPSG:2086': ProjectAndUnProjectResult(null, null),
   'EPSG:2087': ProjectAndUnProjectResult(
       Point(x: 948562.5161284998, y: 5210242.47811393),
       Point(x: 17.88805855781303, y: 46.89226406264945)),
@@ -2754,6 +1812,10 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:2100': ProjectAndUnProjectResult(
       Point(x: 34306.32981000986, y: 5211073.220895577),
       Point(x: 17.888058545235562, y: 46.89226403542799)),
+  'EPSG:2101': ProjectAndUnProjectResult(null, null),
+  'EPSG:2102': ProjectAndUnProjectResult(null, null),
+  'EPSG:2103': ProjectAndUnProjectResult(null, null),
+  'EPSG:2104': ProjectAndUnProjectResult(null, null),
   'EPSG:2105': ProjectAndUnProjectResult(
       Point(x: 32850550.065560255, y: -3270535.576852885),
       Point(x: -4199764943.5286245, y: -5957715656.169244)),
@@ -2781,6 +1843,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:2114': ProjectAndUnProjectResult(
       Point(x: 29513789.58716431, y: 44107.2351280842),
       Point(x: -2611936.0038365964, y: -3936120.7101866063)),
+  'EPSG:4342': ProjectAndUnProjectResult(null, null),
   'EPSG:2115': ProjectAndUnProjectResult(
       Point(x: 30489035.306998402, y: -725324.512856351),
       Point(x: -12876700.09181123, y: -18658874.29126566)),
@@ -2808,6 +1871,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:2123': ProjectAndUnProjectResult(
       Point(x: 23701742.26292862, y: 5136799.454106336),
       Point(x: -4624.2225625370465, y: -4574.04745204502)),
+  'EPSG:4344': ProjectAndUnProjectResult(null, null),
   'EPSG:2124': ProjectAndUnProjectResult(
       Point(x: 29598432.423587836, y: 291775.43540201656),
       Point(x: -2970085.785647243, y: -4456765.992337756)),
@@ -2835,6 +1899,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:2132': ProjectAndUnProjectResult(
       Point(x: 23354328.47571193, y: 5697778.310615819),
       Point(x: -3777.7176323807585, y: -1967.9352749532163)),
+  'EPSG:4346': ProjectAndUnProjectResult(null, null),
   'EPSG:2133': ProjectAndUnProjectResult(
       Point(x: 19321105.829017498, y: 12806678.893239),
       Point(x: -5175.116548601758, y: 7749.823533021951)),
@@ -2886,6 +1951,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 5436818.00586931, y: 10410808.927530395), Point(x: 0, y: 90)),
   'EPSG:2150': ProjectAndUnProjectResult(
       Point(x: 5019695.054228077, y: 11044701.550210133), Point(x: 0, y: 90)),
+  'EPSG:4348': ProjectAndUnProjectResult(null, null),
   'EPSG:2151': ProjectAndUnProjectResult(
       Point(x: -465963.8528201919, y: 11963247.506900493), Point(x: 0, y: 90)),
   'EPSG:2152': ProjectAndUnProjectResult(
@@ -2896,6 +1962,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:2154': ProjectAndUnProjectResult(
       Point(x: 1826843.263640678, y: 6750111.643270713),
       Point(x: 17.888058560281515, y: 46.89226406700873)),
+  'EPSG:2155': ProjectAndUnProjectResult(null, null),
   'EPSG:2156': ProjectAndUnProjectResult(
       Point(x: 27108574.549169235, y: 6815768.467481233),
       Point(x: -103767.21820745953, y: -188871.77584871996)),
@@ -2908,6 +1975,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:2159': ProjectAndUnProjectResult(
       Point(x: 7935821.360607181, y: 16107775.865064288),
       Point(x: 17.873538880077483, y: 46.893725941677246)),
+  'EPSG:4350': ProjectAndUnProjectResult(null, null),
   'EPSG:2160': ProjectAndUnProjectResult(
       Point(x: 8235821.360607179, y: 16707775.865064288),
       Point(x: 17.873538880077483, y: 46.893725941677246)),
@@ -2983,9 +2051,11 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:2191': ProjectAndUnProjectResult(
       Point(x: 2988971.3749373723, y: 5744238.047397396),
       Point(x: 17.848195893325798, y: 46.89671111691266)),
+  'EPSG:2192': ProjectAndUnProjectResult(null, null),
   'EPSG:2193': ProjectAndUnProjectResult(
       Point(x: 31209288.20939178, y: 4306152.547655749),
       Point(x: -5793696.938596561, y: -8531714.862681149)),
+  'EPSG:2194': ProjectAndUnProjectResult(null, null),
   'EPSG:2328': ProjectAndUnProjectResult(
       Point(x: 9982558.448361719, y: 7451377.650985235),
       Point(x: 45, y: double.nan)),
@@ -3139,6 +2209,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:2251': ProjectAndUnProjectResult(
       Point(x: 45461213.70641344, y: 15730349.260780366),
       Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'EPSG:4352': ProjectAndUnProjectResult(null, null),
   'EPSG:2252': ProjectAndUnProjectResult(
       Point(x: 39006952.19021326, y: 15402243.62815605),
       Point(x: 17.88805856028151, y: 46.89226406700874)),
@@ -3209,6 +2280,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:2276': ProjectAndUnProjectResult(
       Point(x: 26211047.58759166, y: 27153798.922896974),
       Point(x: 17.88805856028154, y: 46.89226406700873)),
+  'EPSG:4354': ProjectAndUnProjectResult(null, null),
   'EPSG:2277': ProjectAndUnProjectResult(
       Point(x: 27620463.418675568, y: 31078601.6437094),
       Point(x: 17.88805856028155, y: 46.892264067008746)),
@@ -3483,6 +2555,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:2393': ProjectAndUnProjectResult(
       Point(x: 2805947.597461324, y: 5235870.493398355),
       Point(x: 17.888058727374972, y: 46.89226403979681)),
+  'EPSG:4356': ProjectAndUnProjectResult(null, null),
   'EPSG:2394': ProjectAndUnProjectResult(
       Point(x: 3577604.3454710813, y: 5267106.15784692),
       Point(x: 17.888060891114286, y: 46.892263910899054)),
@@ -4718,6 +3791,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:2799': ProjectAndUnProjectResult(
       Point(x: 7000500.0764196385, y: 5649813.9503045585),
       Point(x: 17.88805856028154, y: 46.89226406700873)),
+  'EPSG:4358': ProjectAndUnProjectResult(null, null),
   'EPSG:2800': ProjectAndUnProjectResult(
       Point(x: 8293004.335917232, y: 5912444.595764324),
       Point(x: 17.88805856028151, y: 46.892264067008725)),
@@ -4835,6 +3909,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:2841': ProjectAndUnProjectResult(
       Point(x: 6731916.633515107, y: 5806582.369900572),
       Point(x: 17.888058560281525, y: 46.89226406700874)),
+  'EPSG:4360': ProjectAndUnProjectResult(null, null),
   'EPSG:2842': ProjectAndUnProjectResult(
       Point(x: 6870716.757738419, y: 5915239.061073107),
       Point(x: 17.888058560281525, y: 46.89226406700873)),
@@ -4882,6 +3957,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:2857': ProjectAndUnProjectResult(
       Point(x: 6701578.612677592, y: 4608732.256874052),
       Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'EPSG:4362': ProjectAndUnProjectResult(null, null),
   'EPSG:2858': ProjectAndUnProjectResult(
       Point(x: 6860107.275988375, y: 4799756.489364472),
       Point(x: 17.88805856028151, y: 46.89226406700873)),
@@ -4926,6 +4002,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:2873': ProjectAndUnProjectResult(
       Point(x: 30723796.79656839, y: 26753014.189562038),
       Point(x: 17.88805856028151, y: 46.89226406700871)),
+  'EPSG:4364': ProjectAndUnProjectResult(null, null),
   'EPSG:2874': ProjectAndUnProjectResult(
       Point(x: 31683048.00808699, y: 26700474.83101188),
       Point(x: 17.88805856028151, y: 46.89226406700873)),
@@ -5185,6 +4262,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:2970': ProjectAndUnProjectResult(
       Point(x: 5638821.68229843, y: 9108451.568282675),
       Point(x: 45, y: double.nan)),
+  'EPSG:4366': ProjectAndUnProjectResult(null, null),
   'EPSG:2971': ProjectAndUnProjectResult(
       Point(x: 5297833.539434429, y: 7936267.20626459),
       Point(x: 45, y: double.nan)),
@@ -5242,6 +4320,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:2992': ProjectAndUnProjectResult(
       Point(x: 21722704.48359173, y: 24772346.160235517),
       Point(x: 17.88805856028151, y: 46.892264067008746)),
+  'EPSG:4368': ProjectAndUnProjectResult(null, null),
   'EPSG:2993': ProjectAndUnProjectResult(
       Point(x: 6621080.326600361, y: 7550611.109639786),
       Point(x: 17.88805856028151, y: 46.892264067008746)),
@@ -5302,6 +4381,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:3012': ProjectAndUnProjectResult(
       Point(x: 427239.7350572513, y: 5201700.173692855),
       Point(x: 17.888058560331274, y: 46.89226406680042)),
+  'EPSG:4370': ProjectAndUnProjectResult(null, null),
   'EPSG:3019': ProjectAndUnProjectResult(
       Point(x: 2001544.817457878, y: 5215710.302426993),
       Point(x: 17.88805857994177, y: 46.89226402330031)),
@@ -5500,10 +4580,12 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: -3275967.0652893055, y: 11622144.51821889), Point(x: 0, y: 90)),
   'EPSG:3098': ProjectAndUnProjectResult(
       Point(x: -2176781.840373538, y: 12026151.471395677), Point(x: 0, y: 90)),
+  'EPSG:4372': ProjectAndUnProjectResult(null, null),
   'EPSG:3100': ProjectAndUnProjectResult(
       Point(x: 1558843.5538291563, y: 11945699.00761955), Point(x: 0, y: 90)),
   'EPSG:3101': ProjectAndUnProjectResult(
       Point(x: 4451906.623195637, y: 11150975.810983855), Point(x: 0, y: 90)),
+  'EPSG:3102': ProjectAndUnProjectResult(null, null),
   'EPSG:3103': ProjectAndUnProjectResult(
       Point(x: 2988853.9655160126, y: 5744078.669052498),
       Point(x: 17.848193246526034, y: 46.89671010445272)),
@@ -5608,6 +4690,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:3136': ProjectAndUnProjectResult(
       Point(x: -346452.9248036217, y: 5255561.907893532),
       Point(x: 17.888059595624604, y: 46.892263943722426)),
+  'EPSG:4374': ProjectAndUnProjectResult(null, null),
   'EPSG:3137': ProjectAndUnProjectResult(
       Point(x: -422543.52053862845, y: 5266978.024236943),
       Point(x: 17.88806088688771, y: 46.892263893655276)),
@@ -5717,6 +4800,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:3177': ProjectAndUnProjectResult(
       Point(x: 1067485.2187028376, y: 5177491.749015629),
       Point(x: 17.888058563770656, y: 46.892264062483235)),
+  'EPSG:7664': ProjectAndUnProjectResult(null, null),
   'EPSG:3179': ProjectAndUnProjectResult(
       Point(x: 5625552.597278097, y: 9753575.672750814),
       Point(x: -14563147143.452982, y: 3188443837.820243)),
@@ -5747,6 +4831,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:3188': ProjectAndUnProjectResult(
       Point(x: 2988896.0169453374, y: 5744023.033448553),
       Point(x: 17.848196835452992, y: 46.89671142260442)),
+  'EPSG:4376': ProjectAndUnProjectResult(null, null),
   'EPSG:3189': ProjectAndUnProjectResult(
       Point(x: 2540720.5313290567, y: 5555692.513083512),
       Point(x: 17.883147133968766, y: 46.89269979625903)),
@@ -5774,12 +4859,14 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:3197': ProjectAndUnProjectResult(
       Point(x: -189503.8943491241, y: 5207733.9196965825),
       Point(x: 17.88805856404742, y: 46.89226406088829)),
+  'EPSG:4378': ProjectAndUnProjectResult(null, null),
   'EPSG:3198': ProjectAndUnProjectResult(
       Point(x: -341863.70448730537, y: 5219644.946301369),
       Point(x: 17.888058577796404, y: 46.89226405129616)),
   'EPSG:3199': ProjectAndUnProjectResult(
       Point(x: 1176972.287139605, y: 5231701.509203208),
       Point(x: 17.88805843897405, y: 46.8922640227178)),
+  'EPSG:3200': ProjectAndUnProjectResult(null, null),
   'EPSG:3201': ProjectAndUnProjectResult(
       Point(x: 720054.9017458203, y: 5197266.4752174495),
       Point(x: 17.888058563791315, y: 46.89226406243074)),
@@ -5798,6 +4885,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:3206': ProjectAndUnProjectResult(
       Point(x: 20785721.617491703, y: 15729916.612043316),
       Point(x: 17.888058560281518, y: 46.89226406700873)),
+  'EPSG:4380': ProjectAndUnProjectResult(null, null),
   'EPSG:3207': ProjectAndUnProjectResult(
       Point(x: -12052973.866507681, y: -24271874.65087082),
       Point(x: 17.888058560281486, y: 46.89226406700873)),
@@ -6197,9 +5285,11 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:3335': ProjectAndUnProjectResult(
       Point(x: 4805908.013583425, y: 5235855.842461305),
       Point(x: 17.888058730440267, y: 46.89226402351891)),
+  'EPSG:4382': ProjectAndUnProjectResult(null, null),
   'EPSG:3336': ProjectAndUnProjectResult(
       Point(x: -3285584.1671327204, y: 16607021.600969851),
       Point(x: 26.45060222505478, y: 48.31343513168791)),
+  'EPSG:3337': ProjectAndUnProjectResult(null, null),
   'EPSG:3338': ProjectAndUnProjectResult(
       Point(x: 2704046.3736966117, y: 9181485.899239805),
       Point(x: 17.88805856028151, y: 46.892264067008746)),
@@ -6221,6 +5311,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:3344': ProjectAndUnProjectResult(
       Point(x: 2540720.5313290567, y: 5555692.513083512),
       Point(x: 17.883147133968766, y: 46.89269979625903)),
+  'EPSG:4384': ProjectAndUnProjectResult(null, null),
   'EPSG:3346': ProjectAndUnProjectResult(
       Point(x: 34368.35104356846, y: 5212395.955506003),
       Point(x: 17.888058563129828, y: 46.892264062424815)),
@@ -6275,6 +5366,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:3363': ProjectAndUnProjectResult(
       Point(x: 21399134.738047402, y: 14424379.654619897),
       Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'EPSG:4385': ProjectAndUnProjectResult(null, null),
   'EPSG:3364': ProjectAndUnProjectResult(
       Point(x: 6583746.193120701, y: 4440183.096793512),
       Point(x: 17.88805856028151, y: 46.892264067008746)),
@@ -6346,6 +5438,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:3387': ProjectAndUnProjectResult(
       Point(x: 4349486.602413602, y: 5307438.843630845),
       Point(x: 17.88807715206505, y: 46.892264073559815)),
+  'EPSG:3388': ProjectAndUnProjectResult(null, null),
   'EPSG:3389': ProjectAndUnProjectResult(
       Point(x: 102468753.1875995, y: -16966271.673058722),
       Point(x: -84.68868061818502, y: -89.99872978885845)),
@@ -6361,6 +5454,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:3393': ProjectAndUnProjectResult(
       Point(x: -2005220.9784956514, y: 5751597.95431283),
       Point(x: 17.93087373704674, y: 46.897073596907575)),
+  'EPSG:3394': ProjectAndUnProjectResult(null, null),
   'EPSG:3395': ProjectAndUnProjectResult(
       Point(x: 1991289.5702107965, y: 5893297.075909311),
       Point(x: 17.888058560281515, y: 46.892264067008725)),
@@ -6384,6 +5478,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: -5717776.119356243, y: 10259186.452845959), Point(x: 0, y: 90)),
   'EPSG:3403': ProjectAndUnProjectResult(
       Point(x: -6217776.119356243, y: 10259186.452845959), Point(x: 0, y: 90)),
+  'EPSG:4387': ProjectAndUnProjectResult(null, null),
   'EPSG:3404': ProjectAndUnProjectResult(
       Point(x: 23009024.984398805, y: 15969960.634952374),
       Point(x: 17.888058560281525, y: 46.892264067008725)),
@@ -6396,6 +5491,13 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:3407': ProjectAndUnProjectResult(
       Point(x: -20644820.551084325, y: 30074879.277563635),
       Point(x: -78.49319663914245, y: -17.124395706761387)),
+  'EPSG:3408': ProjectAndUnProjectResult(
+      Point(x: double.nan, y: double.nan), null,
+      inverseResultError: 'coordinates must be finite numbers'),
+  'EPSG:3409': ProjectAndUnProjectResult(
+      Point(x: double.nan, y: double.nan), null,
+      inverseResultError: 'coordinates must be finite numbers'),
+  'EPSG:3410': ProjectAndUnProjectResult(null, null),
   'EPSG:3411': ProjectAndUnProjectResult(
       Point(x: 4335988.0113786, y: -302806.5645456136),
       Point(x: 17.888058560281515, y: 46.89226406679031)),
@@ -6450,6 +5552,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 17.88805856028151, y: 46.892264067008725)),
   'EPSG:3429': ProjectAndUnProjectResult(
       Point(x: -21020973.318616632, y: 46754238.25794514), Point(x: 0, y: 90)),
+  'EPSG:4389': ProjectAndUnProjectResult(null, null),
   'EPSG:3430': ProjectAndUnProjectResult(
       Point(x: -22468358.066907622, y: 39079941.46217176),
       Point(x: 189531435637.07315, y: 59487357072.499916)),
@@ -6493,11 +5596,15 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 13092484.923865333, y: 25555865.841472708), Point(x: 0, y: 90)),
   'EPSG:3445': ProjectAndUnProjectResult(
       Point(x: 17611813.210191824, y: 17528306.05463954), Point(x: 0, y: 90)),
+  'EPSG:3974': ProjectAndUnProjectResult(
+      Point(x: double.nan, y: double.nan), null,
+      inverseResultError: 'coordinates must be finite numbers'),
   'EPSG:3446': ProjectAndUnProjectResult(
       Point(x: 16971851.915299885, y: 17984948.307937823), Point(x: 0, y: 90)),
   'EPSG:3447': ProjectAndUnProjectResult(
       Point(x: 1177562.2460995112, y: -174450.21423480567),
       Point(x: 17.888058560281515, y: 46.892264067008725)),
+  'EPSG:3448': ProjectAndUnProjectResult(null, null),
   'EPSG:3449': ProjectAndUnProjectResult(
       Point(x: 5019695.054259717, y: 11044701.550245335), Point(x: 0, y: 90)),
   'EPSG:3450': ProjectAndUnProjectResult(
@@ -6537,6 +5644,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:3462': ProjectAndUnProjectResult(
       Point(x: 2540679.084689201, y: 5555587.727476858),
       Point(x: 17.88314874018998, y: 46.89269917289242)),
+  'EPSG:3975': ProjectAndUnProjectResult(null, null),
   'EPSG:3464': ProjectAndUnProjectResult(
       Point(x: 5625524.243963247, y: 4952785.35904863),
       Point(x: -21737319794.91784, y: 4757338589.640197)),
@@ -6602,6 +5710,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:3489': ProjectAndUnProjectResult(
       Point(x: 8713369.04628296, y: 8228903.974584526),
       Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'EPSG:4465': ProjectAndUnProjectResult(null, null),
   'EPSG:3490': ProjectAndUnProjectResult(
       Point(x: 28587111.613013346, y: 26997662.4569494),
       Point(x: 17.88805856028151, y: 46.89226406700873)),
@@ -6670,6 +5779,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 4721237.687280814, y: 8356420.754737286), Point(x: 0, y: 90)),
   'EPSG:3512': ProjectAndUnProjectResult(
       Point(x: 15489593.979353804, y: 27416023.75950058), Point(x: 0, y: 90)),
+  'EPSG:4468': ProjectAndUnProjectResult(null, null),
   'EPSG:3514': ProjectAndUnProjectResult(
       Point(x: 7714848.02247523, y: 5442253.479619011),
       Point(x: 17.8880585602815, y: 46.89226406700873)),
@@ -6728,6 +5838,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:3537': ProjectAndUnProjectResult(
       Point(x: 25440189.887127113, y: 21133297.2926685),
       Point(x: 17.88805856028151, y: 46.892264067008725)),
+  'EPSG:4473': ProjectAndUnProjectResult(null, null),
   'EPSG:3538': ProjectAndUnProjectResult(
       Point(x: 6883654.037123509, y: 5522527.676852138),
       Point(x: 17.888058560281525, y: 46.89226406700873)),
@@ -6897,6 +6008,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 3960143.9403490187, y: 8595620.856387978), Point(x: 0, y: 90)),
   'EPSG:3600': ProjectAndUnProjectResult(
       Point(x: 12992572.243961738, y: 28200799.426332895), Point(x: 0, y: 90)),
+  'EPSG:4479': ProjectAndUnProjectResult(null, null),
   'EPSG:3601': ProjectAndUnProjectResult(
       Point(x: 3333355.4118026467, y: 8025679.559234873), Point(x: 0, y: 90)),
   'EPSG:3602': ProjectAndUnProjectResult(
@@ -7238,6 +6350,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:3728': ProjectAndUnProjectResult(
       Point(x: 21986714.210386034, y: 15624881.636523569),
       Point(x: 17.88805856028151, y: 46.892264067008725)),
+  'EPSG:4481': ProjectAndUnProjectResult(null, null),
   'EPSG:3729': ProjectAndUnProjectResult(
       Point(x: 22388167.416311968, y: 15933587.820483766),
       Point(x: 17.88805856028151, y: 46.89226406700874)),
@@ -7257,6 +6370,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 17.88805856028151, y: 46.89226406700874)),
   'EPSG:3736': ProjectAndUnProjectResult(
       Point(x: -2740677.880879463, y: 24506261.897004317), Point(x: 0, y: 90)),
+  'EPSG:4556': ProjectAndUnProjectResult(null, null),
   'EPSG:3737': ProjectAndUnProjectResult(
       Point(x: -5201765.674120637, y: 24146888.30226951), Point(x: 0, y: 90)),
   'EPSG:3738': ProjectAndUnProjectResult(
@@ -7302,6 +6416,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 17.88805856028151, y: 46.89226406700874)),
   'EPSG:3755': ProjectAndUnProjectResult(
       Point(x: -2740677.880879463, y: 24506261.897004317), Point(x: 0, y: 90)),
+  'EPSG:4882': ProjectAndUnProjectResult(null, null),
   'EPSG:3756': ProjectAndUnProjectResult(
       Point(x: -5201765.674120637, y: 24146888.30226951), Point(x: 0, y: 90)),
   'EPSG:3757': ProjectAndUnProjectResult(
@@ -7515,6 +6630,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:3852': ProjectAndUnProjectResult(
       Point(x: -20458557.0628475, y: -21767259.770745546),
       Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'EPSG:4884': ProjectAndUnProjectResult(null, null),
   'EPSG:3854': ProjectAndUnProjectResult(
       Point(x: 87241.68909288984, y: -1305361.7569410224),
       Point(x: 17.888058560281515, y: 46.892264067008796)),
@@ -7575,6 +6691,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:3908': ProjectAndUnProjectResult(
       Point(x: 6491873.651574707, y: 5194261.4486098),
       Point(x: 17.888058599054723, y: 46.89226406925582)),
+  'EPSG:4886': ProjectAndUnProjectResult(null, null),
   'EPSG:3909': ProjectAndUnProjectResult(
       Point(x: 7263306.8569601495, y: 5198942.980445724),
       Point(x: 17.88805859902672, y: 46.892264069175155)),
@@ -7628,6 +6745,10 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:3970': ProjectAndUnProjectResult(
       Point(x: 6197425.928759272, y: 4812816.468950871),
       Point(x: 17.88805856028151, y: 46.89226406700874)),
+  'EPSG:3973': ProjectAndUnProjectResult(
+      Point(x: double.nan, y: double.nan), null,
+      inverseResultError: 'coordinates must be finite numbers'),
+  'EPSG:4888': ProjectAndUnProjectResult(null, null),
   'EPSG:3976': ProjectAndUnProjectResult(
       Point(x: 4982953.187166658, y: 20348945.033028428),
       Point(x: 17.888058560281515, y: 46.892264067008796)),
@@ -7658,6 +6779,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:3992': ProjectAndUnProjectResult(
       Point(x: 23885697.09035628, y: 16641981.799064776),
       Point(x: 17.888058574820878, y: 46.892264016315934)),
+  'EPSG:3994': ProjectAndUnProjectResult(null, null),
   'EPSG:3995': ProjectAndUnProjectResult(
       Point(x: 1410164.281460657, y: -2531074.364577075),
       Point(x: 17.88805856028151, y: 46.892264067008796)),
@@ -7682,6 +6804,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:4049': ProjectAndUnProjectResult(
       Point(x: 796259.5929516172, y: 15202094.645796508),
       Point(x: 17.88805856033801, y: 46.892264066698644)),
+  'EPSG:4890': ProjectAndUnProjectResult(null, null),
   'EPSG:4050': ProjectAndUnProjectResult(
       Point(x: 643870.49935693, y: 15196481.41480021),
       Point(x: 17.88805856028407, y: 46.892264067004696)),
@@ -7872,6 +6995,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:4455': ProjectAndUnProjectResult(
       Point(x: 21631580.131799556, y: 14568195.981304659),
       Point(x: 17.88805856028152, y: 46.89226404782306)),
+  'EPSG:4892': ProjectAndUnProjectResult(null, null),
   'EPSG:4456': ProjectAndUnProjectResult(
       Point(x: 21096015.858215142, y: 13482884.173489098),
       Point(x: 17.88805856028152, y: 46.89226404782306)),
@@ -8008,6 +7132,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 42542755.54808611, y: 12146255.194351697), Point(x: 0, y: 90)),
   'EPSG:4533': ProjectAndUnProjectResult(
       Point(x: 44395400.68222832, y: 12183637.356165713), Point(x: 0, y: 90)),
+  'EPSG:4894': ProjectAndUnProjectResult(null, null),
   'EPSG:4534': ProjectAndUnProjectResult(
       Point(x: -3671506.5780863077, y: 7001526.991761912),
       Point(x: 66.4697844330128, y: 55.685367246889896)),
@@ -8229,6 +7354,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:4839': ProjectAndUnProjectResult(
       Point(x: 563086.4346155266, y: -428506.2201042669),
       Point(x: 17.888058560281515, y: 46.892264067008725)),
+  'EPSG:4896': ProjectAndUnProjectResult(null, null),
   'EPSG:4855': ProjectAndUnProjectResult(
       Point(x: 1043549.191261411, y: 6270307.943609711),
       Point(x: 17.888055685365153, y: 46.89226388108927)),
@@ -8322,6 +7448,9 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:5041': ProjectAndUnProjectResult(
       Point(x: 3540763.4661860038, y: -2773696.963262149),
       Point(x: 17.888058560281515, y: 46.89226406700877)),
+  'EPSG:5042': ProjectAndUnProjectResult(
+      Point(x: double.nan, y: double.nan), null,
+      inverseResultError: 'coordinates must be finite numbers'),
   'EPSG:5048': ProjectAndUnProjectResult(
       Point(x: -193931.3475621267, y: 5233642.279931091),
       Point(x: 17.88805871864152, y: 46.89226402167793)),
@@ -8429,6 +7558,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: -2011257.6923487503, y: 8407396.692423936), Point(x: 0, y: 90)),
   'EPSG:5173': ProjectAndUnProjectResult(
       Point(x: -3256402.496348738, y: 8074559.151882682), Point(x: 0, y: 90)),
+  'EPSG:4897': ProjectAndUnProjectResult(null, null),
   'EPSG:5174': ProjectAndUnProjectResult(
       Point(x: -2891032.0922573707, y: 8210485.212807267), Point(x: 0, y: 90)),
   'EPSG:5175': ProjectAndUnProjectResult(
@@ -8449,6 +7579,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: -2891839.482595572, y: 8261095.205943269), Point(x: 0, y: 90)),
   'EPSG:5183': ProjectAndUnProjectResult(
       Point(x: -2477852.9815661646, y: 8323465.837894738), Point(x: 0, y: 90)),
+  'EPSG:4899': ProjectAndUnProjectResult(null, null),
   'EPSG:5184': ProjectAndUnProjectResult(
       Point(x: -2011403.4038216677, y: 8408169.127970863), Point(x: 0, y: 90)),
   'EPSG:5185': ProjectAndUnProjectResult(
@@ -8471,6 +7602,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:5235': ProjectAndUnProjectResult(
       Point(x: -4004722.705631966, y: 7158588.972797912),
       Point(x: double.nan, y: double.nan)),
+  'EPSG:4906': ProjectAndUnProjectResult(null, null),
   'EPSG:5243': ProjectAndUnProjectResult(
       Point(x: 563086.4346155266, y: -428506.2201042669),
       Point(x: 17.888058560281515, y: 46.892264067008725)),
@@ -8558,6 +7690,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:5303': ProjectAndUnProjectResult(
       Point(x: -4643784.586701601, y: 5647733.411315759),
       Point(x: 5760.501454903568, y: 1324.7507163936098)),
+  'EPSG:4908': ProjectAndUnProjectResult(null, null),
   'EPSG:5304': ProjectAndUnProjectResult(
       Point(x: -4688405.866214727, y: 5759964.86292654),
       Point(x: 9947.317307311861, y: 2219.888560237287)),
@@ -8585,6 +7718,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:5316': ProjectAndUnProjectResult(
       Point(x: 2090999.5151226467, y: -495459.66639980115),
       Point(x: 17.885795631862905, y: 46.89244457913767)),
+  'EPSG:4910': ProjectAndUnProjectResult(null, null),
   'EPSG:5320': ProjectAndUnProjectResult(
       Point(x: 6585325.179032699, y: 10327216.83405834),
       Point(x: 17.8880585602815, y: 46.89226406700872)),
@@ -8611,6 +7745,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:5344': ProjectAndUnProjectResult(
       Point(x: 7627603.63873359, y: 19759444.393447872),
       Point(x: -14563147143.451214, y: 3188443837.8198547)),
+  'EPSG:4911': ProjectAndUnProjectResult(null, null),
   'EPSG:5345': ProjectAndUnProjectResult(
       Point(x: 8653224.300104942, y: 19433509.59298006),
       Point(x: -39521738.61122337, y: 8695128.741618276)),
@@ -8658,11 +7793,19 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:5396': ProjectAndUnProjectResult(
       Point(x: 3859134.0088134822, y: 16259299.99691699),
       Point(x: 16.418121572269165, y: 47.11123824637778)),
+  'EPSG:5456': ProjectAndUnProjectResult(null, null),
+  'EPSG:5457': ProjectAndUnProjectResult(null, null),
+  'EPSG:5458': ProjectAndUnProjectResult(null, null),
+  'EPSG:5459': ProjectAndUnProjectResult(null, null),
+  'EPSG:5460': ProjectAndUnProjectResult(null, null),
+  'EPSG:5461': ProjectAndUnProjectResult(null, null),
+  'EPSG:5462': ProjectAndUnProjectResult(null, null),
   'EPSG:5463': ProjectAndUnProjectResult(
       Point(x: 5019765.581687489, y: 11044729.306872435),
       Point(x: 176.26099850716986, y: 89.99940003205084)),
   'EPSG:5466': ProjectAndUnProjectResult(
       Point(x: 3622337.4680198547, y: 9986868.192057936), Point(x: 0, y: 90)),
+  'EPSG:5469': ProjectAndUnProjectResult(null, null),
   'EPSG:5472': ProjectAndUnProjectResult(
       Point(x: 7227331.737905409, y: 10317868.916699609),
       Point(x: -135, y: double.nan)),
@@ -8675,6 +7818,9 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:5481': ProjectAndUnProjectResult(
       Point(x: -15185803.60358078, y: -23172406.771932896),
       Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'EPSG:5482': ProjectAndUnProjectResult(
+      Point(x: double.nan, y: double.nan), null,
+      inverseResultError: 'coordinates must be finite numbers'),
   'EPSG:5490': ProjectAndUnProjectResult(
       Point(x: 5638571.782971076, y: 9108330.901623307),
       Point(x: -1685042.2535846238, y: 369929.7983349917)),
@@ -8733,6 +7879,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:5552': ProjectAndUnProjectResult(
       Point(x: 8240765.467341783, y: 19567647.747223884),
       Point(x: -4967267525.630645, y: 1643558557.1708994)),
+  'EPSG:5559': ProjectAndUnProjectResult(null, null),
   'EPSG:5562': ProjectAndUnProjectResult(
       Point(x: 4262977.023450082, y: 5200107.5557981115),
       Point(x: 17.888058571143702, y: 46.89226406858427)),
@@ -8846,6 +7993,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:5639': ProjectAndUnProjectResult(
       Point(x: 4580708.59132307, y: 2282143.4053414315),
       Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'EPSG:5641': ProjectAndUnProjectResult(null, null),
   'EPSG:5643': ProjectAndUnProjectResult(
       Point(x: 1418749.1386416086, y: -90270.6623273138),
       Point(x: 17.888058565321924, y: 46.89226407177286)),
@@ -8885,6 +8033,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:5665': ProjectAndUnProjectResult(
       Point(x: 3720214.533676548, y: 5199458.992247189),
       Point(x: 17.88805857142926, y: 46.89226406953736)),
+  'EPSG:4912': ProjectAndUnProjectResult(null, null),
   'EPSG:5666': ProjectAndUnProjectResult(
       Point(x: 4177087.538008534, y: 5233165.822182404),
       Point(x: 17.88805843535868, y: 46.892264093608865)),
@@ -9027,6 +8176,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:5933': ProjectAndUnProjectResult(
       Point(x: -1188183.3054560896, y: -1910006.2399837212),
       Point(x: 17.888058560281515, y: 46.892264067008725)),
+  'EPSG:4913': ProjectAndUnProjectResult(null, null),
   'EPSG:5934': ProjectAndUnProjectResult(
       Point(x: -4922351.672361038, y: 2005951.3756691637),
       Point(x: 17.88805856028151, y: 46.892264067008725)),
@@ -9081,6 +8231,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:6059': ProjectAndUnProjectResult(
       Point(x: 46300896.26590719, y: 6376729.593240524),
       Point(x: 17.88805856028151, y: 46.892264067008746)),
+  'EPSG:4914': ProjectAndUnProjectResult(null, null),
   'EPSG:6060': ProjectAndUnProjectResult(
       Point(x: 47648187.08747809, y: 4877253.733754402),
       Point(x: 17.888058560281543, y: 46.89226406700871)),
@@ -9105,6 +8256,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:6067': ProjectAndUnProjectResult(
       Point(x: 24988565.14662123, y: 9481374.641974468),
       Point(x: 17.888058560281518, y: 46.89226406700872)),
+  'EPSG:4915': ProjectAndUnProjectResult(null, null),
   'EPSG:6068': ProjectAndUnProjectResult(
       Point(x: 26315741.595585834, y: 8517148.25571841),
       Point(x: 17.88805856028151, y: 46.89226406700872)),
@@ -9255,6 +8407,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:6116': ProjectAndUnProjectResult(
       Point(x: 24732905.80108915, y: 450840.2015568176),
       Point(x: 17.88805856028151, y: 46.892264067008725)),
+  'EPSG:7677': ProjectAndUnProjectResult(null, null),
   'EPSG:6118': ProjectAndUnProjectResult(
       Point(x: 22597913.495447412, y: 6904605.098151971),
       Point(x: 17.88805856028151, y: 46.892264067008725)),
@@ -9335,6 +8488,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:6339': ProjectAndUnProjectResult(
       Point(x: -11916549.256324729, y: 7029722.072663035),
       Point(x: 169423.46825792477, y: 95274.64648021963)),
+  'EPSG:4916': ProjectAndUnProjectResult(null, null),
   'EPSG:6340': ProjectAndUnProjectResult(
       Point(x: -7081100.809078519, y: 9644074.035715306),
       Point(x: 16894389367.285646, y: 5473429537.796183)),
@@ -9358,6 +8512,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:6350': ProjectAndUnProjectResult(
       Point(x: 6774661.149690735, y: 7282623.854975374),
       Point(x: 17.88805856028151, y: 46.89226406700876)),
+  'EPSG:4917': ProjectAndUnProjectResult(null, null),
   'EPSG:6351': ProjectAndUnProjectResult(
       Point(x: 28672231.949399307, y: 12453101.772669625),
       Point(x: 17.888058560281486, y: 46.892264067008746)),
@@ -9434,6 +8589,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:6398': ProjectAndUnProjectResult(
       Point(x: -64460118.121024735, y: -47015897.944632985),
       Point(x: 0, y: -90)),
+  'EPSG:4918': ProjectAndUnProjectResult(null, null),
   'EPSG:6399': ProjectAndUnProjectResult(
       Point(x: -76195487.58152132, y: -60481645.41980923), Point(x: 0, y: -90)),
   'EPSG:6400': ProjectAndUnProjectResult(
@@ -9504,6 +8660,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:6424': ProjectAndUnProjectResult(
       Point(x: 31683048.00808699, y: 26700474.83101188),
       Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'EPSG:4919': ProjectAndUnProjectResult(null, null),
   'EPSG:6425': ProjectAndUnProjectResult(
       Point(x: 9857792.552179694, y: 8039982.800465539),
       Point(x: 17.88805856028151, y: 46.892264067008746)),
@@ -9569,6 +8726,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: -16681202.277333234, y: 19427882.72002641), Point(x: 0, y: 90)),
   'EPSG:6450': ProjectAndUnProjectResult(
       Point(x: -4284867.971020522, y: 6350434.242753448), Point(x: 0, y: 90)),
+  'EPSG:4920': ProjectAndUnProjectResult(null, null),
   'EPSG:6451': ProjectAndUnProjectResult(
       Point(x: -14057937.667923164, y: 20834716.344766937), Point(x: 0, y: 90)),
   'EPSG:6452': ProjectAndUnProjectResult(
@@ -9712,6 +8870,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:6500': ProjectAndUnProjectResult(
       Point(x: 6763552.011142525, y: 5414428.169782657),
       Point(x: 17.88805856028151, y: 46.89226406700874)),
+  'EPSG:4922': ProjectAndUnProjectResult(null, null),
   'EPSG:6501': ProjectAndUnProjectResult(
       Point(x: 22190086.889923435, y: 17763836.420328602),
       Point(x: 17.88805856028151, y: 46.89226406700874)),
@@ -9758,6 +8917,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:6518': ProjectAndUnProjectResult(
       Point(x: -6848369.235542074, y: 11911589.980849914),
       Point(x: 189531435637.07315, y: 59487357072.499916)),
+  'EPSG:4924': ProjectAndUnProjectResult(null, null),
   'EPSG:6519': ProjectAndUnProjectResult(
       Point(x: -22468358.066907622, y: 39079941.46217176),
       Point(x: 189531435637.07315, y: 59487357072.499916)),
@@ -9779,6 +8939,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 5111955.253111458, y: 6059884.249141174), Point(x: 0, y: 90)),
   'EPSG:6527': ProjectAndUnProjectResult(
       Point(x: 16771473.19291651, y: 19881470.240724005), Point(x: 0, y: 90)),
+  'EPSG:4926': ProjectAndUnProjectResult(null, null),
   'EPSG:6529': ProjectAndUnProjectResult(
       Point(x: -3274517.639472816, y: 27651211.139304798), Point(x: 0, y: 90)),
   'EPSG:6530': ProjectAndUnProjectResult(
@@ -9797,6 +8958,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 5111955.253111458, y: 6059884.249141174), Point(x: 0, y: 90)),
   'EPSG:6537': ProjectAndUnProjectResult(
       Point(x: 16771473.19291651, y: 19881470.240724005), Point(x: 0, y: 90)),
+  'EPSG:4928': ProjectAndUnProjectResult(null, null),
   'EPSG:6538': ProjectAndUnProjectResult(
       Point(x: 6120506.5914582675, y: 4115911.994870667),
       Point(x: 17.88805856028151, y: 46.89226406700873)),
@@ -9921,6 +9083,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:6577': ProjectAndUnProjectResult(
       Point(x: 8418734.087582087, y: 9472776.726556078),
       Point(x: 17.88805856028155, y: 46.892264067008746)),
+  'EPSG:4930': ProjectAndUnProjectResult(null, null),
   'EPSG:6578': ProjectAndUnProjectResult(
       Point(x: 27620463.418675568, y: 31078601.6437094),
       Point(x: 17.88805856028155, y: 46.892264067008746)),
@@ -9945,6 +9108,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:6585': ProjectAndUnProjectResult(
       Point(x: 8484246.042842139, y: 11469435.827622361),
       Point(x: 17.88805856028151, y: 46.892264067008746)),
+  'EPSG:4932': ProjectAndUnProjectResult(null, null),
   'EPSG:6586': ProjectAndUnProjectResult(
       Point(x: 27835397.225557923, y: 37629307.37812436),
       Point(x: 17.88805856028154, y: 46.89226406700874)),
@@ -9993,6 +9157,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:6601': ProjectAndUnProjectResult(
       Point(x: 21986762.4984264, y: 15120482.412760952),
       Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'EPSG:4934': ProjectAndUnProjectResult(null, null),
   'EPSG:6602': ProjectAndUnProjectResult(
       Point(x: 6860107.275988375, y: 4799756.489364472),
       Point(x: 17.88805856028151, y: 46.89226406700873)),
@@ -10194,6 +9359,15 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:6791': ProjectAndUnProjectResult(
       Point(x: -36863299.72607754, y: 10034593.486712141),
       Point(x: 506388.7815752957, y: 252544.63146005166)),
+  'EPSG:6792': ProjectAndUnProjectResult(null, null),
+  'EPSG:4936': ProjectAndUnProjectResult(null, null),
+  'EPSG:6793': ProjectAndUnProjectResult(null, null),
+  'EPSG:6794': ProjectAndUnProjectResult(null, null),
+  'EPSG:6795': ProjectAndUnProjectResult(null, null),
+  'EPSG:6796': ProjectAndUnProjectResult(null, null),
+  'EPSG:6797': ProjectAndUnProjectResult(null, null),
+  'EPSG:6798': ProjectAndUnProjectResult(null, null),
+  'EPSG:6799': ProjectAndUnProjectResult(null, null),
   'EPSG:6800': ProjectAndUnProjectResult(
       Point(x: -12687334.617845144, y: 2142123.4901495352),
       Point(x: 131147.12864422146, y: 76287.34812805503)),
@@ -10206,6 +9380,10 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:6803': ProjectAndUnProjectResult(
       Point(x: -41625113.57560795, y: 7027964.206527346),
       Point(x: 131147.12864422126, y: 76287.3481280549)),
+  'EPSG:6804': ProjectAndUnProjectResult(null, null),
+  'EPSG:6805': ProjectAndUnProjectResult(null, null),
+  'EPSG:6806': ProjectAndUnProjectResult(null, null),
+  'EPSG:6807': ProjectAndUnProjectResult(null, null),
   'EPSG:6808': ProjectAndUnProjectResult(
       Point(x: 14427099.751763076, y: 11533305.931524668),
       Point(x: 17.88805856028155, y: 46.892264067008696)),
@@ -10269,6 +9447,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:6828': ProjectAndUnProjectResult(
       Point(x: -11814330.286069289, y: 2401419.0651764544),
       Point(x: 294986.9593849864, y: 155421.92309333876)),
+  'EPSG:4938': ProjectAndUnProjectResult(null, null),
   'EPSG:6829': ProjectAndUnProjectResult(
       Point(x: -38760926.13534806, y: 7878671.473676031),
       Point(x: 294986.9593849864, y: 155421.92309333876)),
@@ -10341,6 +9520,10 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:6851': ProjectAndUnProjectResult(
       Point(x: -27983859.615831155, y: 13703332.753047716),
       Point(x: 98652277.72918534, y: 36154061.091848835)),
+  'EPSG:6852': ProjectAndUnProjectResult(null, null),
+  'EPSG:6853': ProjectAndUnProjectResult(null, null),
+  'EPSG:6854': ProjectAndUnProjectResult(null, null),
+  'EPSG:6855': ProjectAndUnProjectResult(null, null),
   'EPSG:6856': ProjectAndUnProjectResult(
       Point(x: -12447494.07457886, y: 2076261.6085382975),
       Point(x: 158722.84328641556, y: 90007.24762701495)),
@@ -10368,6 +9551,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:6867': ProjectAndUnProjectResult(
       Point(x: 6621080.326600361, y: 7550611.109639786),
       Point(x: 17.88805856028151, y: 46.892264067008746)),
+  'EPSG:4940': ProjectAndUnProjectResult(null, null),
   'EPSG:6868': ProjectAndUnProjectResult(
       Point(x: 21722704.48359173, y: 24772346.160235517),
       Point(x: 17.88805856028151, y: 46.892264067008746)),
@@ -10413,6 +9597,13 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:6925': ProjectAndUnProjectResult(
       Point(x: 23477569.54505528, y: 20173116.139789633),
       Point(x: 17.888058560281525, y: 46.89226406700872)),
+  'EPSG:6931': ProjectAndUnProjectResult(
+      Point(x: double.nan, y: double.nan), null,
+      inverseResultError: 'coordinates must be finite numbers'),
+  'EPSG:6932': ProjectAndUnProjectResult(
+      Point(x: double.nan, y: double.nan), null,
+      inverseResultError: 'coordinates must be finite numbers'),
+  'EPSG:6933': ProjectAndUnProjectResult(null, null),
   'EPSG:7005': ProjectAndUnProjectResult(
       Point(x: -1105167.6622423972, y: 5413518.053847402),
       Point(x: 17.888508896499072, y: 46.89229062656116)),
@@ -10449,8 +9640,12 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:7007': ProjectAndUnProjectResult(
       Point(x: -2005606.4598314841, y: 5751485.376458449),
       Point(x: 17.930922921082697, y: 46.89707837787241)),
+  'EPSG:7057': ProjectAndUnProjectResult(null, null),
+  'EPSG:7058': ProjectAndUnProjectResult(null, null),
   'EPSG:7059': ProjectAndUnProjectResult(
       Point(x: 23659396.327111464, y: 32775259.236593112), Point(x: 0, y: 90)),
+  'EPSG:7060': ProjectAndUnProjectResult(null, null),
+  'EPSG:7061': ProjectAndUnProjectResult(null, null),
   'EPSG:7062': ProjectAndUnProjectResult(
       Point(x: 23336606.10109816, y: 31781388.117976915), Point(x: 0, y: 90)),
   'EPSG:7063': ProjectAndUnProjectResult(
@@ -10459,8 +9654,10 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 26925283.91182929, y: 31926234.221029256), Point(x: 0, y: 90)),
   'EPSG:7065': ProjectAndUnProjectResult(
       Point(x: 28575914.851010647, y: 31980476.745277643), Point(x: 0, y: 90)),
+  'EPSG:7066': ProjectAndUnProjectResult(null, null),
   'EPSG:7067': ProjectAndUnProjectResult(
       Point(x: 32075379.757604606, y: 31934051.784694847), Point(x: 0, y: 90)),
+  'EPSG:7068': ProjectAndUnProjectResult(null, null),
   'EPSG:7069': ProjectAndUnProjectResult(
       Point(x: 33192213.201036148, y: 31016906.6763871), Point(x: 0, y: 90)),
   'EPSG:7070': ProjectAndUnProjectResult(
@@ -10493,16 +9690,29 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: -4529224.4946787935, y: 5520223.694971471), Point(x: 0, y: 90)),
   'EPSG:7110': ProjectAndUnProjectResult(
       Point(x: -4579364.848956948, y: 5575997.430125581), Point(x: 0, y: 90)),
+  'EPSG:7111': ProjectAndUnProjectResult(null, null),
+  'EPSG:7112': ProjectAndUnProjectResult(null, null),
+  'EPSG:7113': ProjectAndUnProjectResult(null, null),
+  'EPSG:7114': ProjectAndUnProjectResult(null, null),
   'EPSG:7115': ProjectAndUnProjectResult(
       Point(x: -1980157.3253148668, y: 6739903.780372046), Point(x: 0, y: 90)),
+  'EPSG:7116': ProjectAndUnProjectResult(null, null),
+  'EPSG:7117': ProjectAndUnProjectResult(null, null),
   'EPSG:7118': ProjectAndUnProjectResult(
       Point(x: -2358766.854885466, y: 6897593.647641159), Point(x: 0, y: 90)),
   'EPSG:7119': ProjectAndUnProjectResult(
       Point(x: -14859660.415564805, y: 18110970.127859157), Point(x: 0, y: 90)),
   'EPSG:7120': ProjectAndUnProjectResult(
       Point(x: -15024162.890280012, y: 18293954.823246658), Point(x: 0, y: 90)),
+  'EPSG:7121': ProjectAndUnProjectResult(null, null),
+  'EPSG:4942': ProjectAndUnProjectResult(null, null),
+  'EPSG:7122': ProjectAndUnProjectResult(null, null),
+  'EPSG:7123': ProjectAndUnProjectResult(null, null),
+  'EPSG:7124': ProjectAndUnProjectResult(null, null),
   'EPSG:7125': ProjectAndUnProjectResult(
       Point(x: -6496579.15129812, y: 22112545.211194374), Point(x: 0, y: 90)),
+  'EPSG:7126': ProjectAndUnProjectResult(null, null),
+  'EPSG:7127': ProjectAndUnProjectResult(null, null),
   'EPSG:7128': ProjectAndUnProjectResult(
       Point(x: -7738720.9231034005, y: 22629855.15896937), Point(x: 0, y: 90)),
   'EPSG:7131': ProjectAndUnProjectResult(
@@ -10530,6 +9740,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 4006181.03954188, y: 7189760.266630081), Point(x: 0, y: 90)),
   'EPSG:7264': ProjectAndUnProjectResult(
       Point(x: 13143612.293896986, y: 23588405.141435526), Point(x: 0, y: 90)),
+  'EPSG:4944': ProjectAndUnProjectResult(null, null),
   'EPSG:7265': ProjectAndUnProjectResult(
       Point(x: 4273299.505410438, y: 7071357.478190964), Point(x: 0, y: 90)),
   'EPSG:7266': ProjectAndUnProjectResult(
@@ -10569,6 +9780,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 4123059.037562798, y: 7383732.239831039), Point(x: 0, y: 90)),
   'EPSG:7282': ProjectAndUnProjectResult(
       Point(x: 13527069.52573728, y: 24224794.85684567), Point(x: 0, y: 90)),
+  'EPSG:4946': ProjectAndUnProjectResult(null, null),
   'EPSG:7283': ProjectAndUnProjectResult(
       Point(x: 4035981.4071827894, y: 7395249.464870051), Point(x: 0, y: 90)),
   'EPSG:7284': ProjectAndUnProjectResult(
@@ -10587,6 +9799,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 14210346.641218198, y: 22629843.468683917), Point(x: 0, y: 90)),
   'EPSG:7291': ProjectAndUnProjectResult(
       Point(x: 4058098.101393937, y: 7410544.829712538), Point(x: 0, y: 90)),
+  'EPSG:4948': ProjectAndUnProjectResult(null, null),
   'EPSG:7292': ProjectAndUnProjectResult(
       Point(x: 13313943.520989943, y: 24312762.495481886), Point(x: 0, y: 90)),
   'EPSG:7293': ProjectAndUnProjectResult(
@@ -10605,6 +9818,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 4151285.2646906725, y: 7055777.580320902), Point(x: 0, y: 90)),
   'EPSG:7300': ProjectAndUnProjectResult(
       Point(x: 13619675.072572649, y: 23148830.278102826), Point(x: 0, y: 90)),
+  'EPSG:4950': ProjectAndUnProjectResult(null, null),
   'EPSG:7301': ProjectAndUnProjectResult(
       Point(x: 3952890.3566686762, y: 7473443.057522163), Point(x: 0, y: 90)),
   'EPSG:7302': ProjectAndUnProjectResult(
@@ -10644,6 +9858,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 4199639.770194668, y: 7269668.482471146), Point(x: 0, y: 90)),
   'EPSG:7318': ProjectAndUnProjectResult(
       Point(x: 13778318.14604701, y: 23850570.679574084), Point(x: 0, y: 90)),
+  'EPSG:4952': ProjectAndUnProjectResult(null, null),
   'EPSG:7319': ProjectAndUnProjectResult(
       Point(x: 4036015.570400516, y: 7145499.315997849), Point(x: 0, y: 90)),
   'EPSG:7320': ProjectAndUnProjectResult(
@@ -10683,6 +9898,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 4087243.382869298, y: 7094049.956822051), Point(x: 0, y: 90)),
   'EPSG:7336': ProjectAndUnProjectResult(
       Point(x: 13409564.33196369, y: 23274395.56667368), Point(x: 0, y: 90)),
+  'EPSG:4954': ProjectAndUnProjectResult(null, null),
   'EPSG:7337': ProjectAndUnProjectResult(
       Point(x: 4123070.686448688, y: 7289396.167388706), Point(x: 0, y: 90)),
   'EPSG:7338': ProjectAndUnProjectResult(
@@ -10701,6 +9917,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 13118835.405111335, y: 23911327.952690575), Point(x: 0, y: 90)),
   'EPSG:7345': ProjectAndUnProjectResult(
       Point(x: 4094432.01033165, y: 7433959.560401595), Point(x: 0, y: 90)),
+  'EPSG:4956': ProjectAndUnProjectResult(null, null),
   'EPSG:7346': ProjectAndUnProjectResult(
       Point(x: 13433149.020563088, y: 24389582.32441757), Point(x: 0, y: 90)),
   'EPSG:7347': ProjectAndUnProjectResult(
@@ -10771,14 +9988,20 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 3379674.584728664, y: 6816915.478636543), Point(x: 0, y: 90)),
   'EPSG:7530': ProjectAndUnProjectResult(
       Point(x: 3060937.2787154065, y: 6957068.465882632), Point(x: 0, y: 90)),
+  'EPSG:7531': ProjectAndUnProjectResult(null, null),
   'EPSG:7532': ProjectAndUnProjectResult(
       Point(x: 3689988.0851689526, y: 6931430.5799844805), Point(x: 0, y: 90)),
   'EPSG:7533': ProjectAndUnProjectResult(
       Point(x: 3153672.940117676, y: 7137461.697173122), Point(x: 0, y: 90)),
+  'EPSG:7534': ProjectAndUnProjectResult(null, null),
   'EPSG:7535': ProjectAndUnProjectResult(
       Point(x: 3822990.361101892, y: 6996993.411303278), Point(x: 0, y: 90)),
+  'EPSG:7536': ProjectAndUnProjectResult(null, null),
   'EPSG:7537': ProjectAndUnProjectResult(
       Point(x: 3390618.4191545607, y: 7056596.4442245625), Point(x: 0, y: 90)),
+  'EPSG:7538': ProjectAndUnProjectResult(null, null),
+  'EPSG:7539': ProjectAndUnProjectResult(null, null),
+  'EPSG:7540': ProjectAndUnProjectResult(null, null),
   'EPSG:7541': ProjectAndUnProjectResult(
       Point(x: 3796339.751557811, y: 7156497.446786959), Point(x: 0, y: 90)),
   'EPSG:7542': ProjectAndUnProjectResult(
@@ -10787,12 +10010,15 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 3013378.5853116503, y: 6877533.049658766), Point(x: 0, y: 90)),
   'EPSG:7544': ProjectAndUnProjectResult(
       Point(x: 3010580.2176696234, y: 7040185.373915163), Point(x: 0, y: 90)),
+  'EPSG:7545': ProjectAndUnProjectResult(null, null),
   'EPSG:7546': ProjectAndUnProjectResult(
       Point(x: 3769574.888567513, y: 6667205.568796816), Point(x: 0, y: 90)),
   'EPSG:7547': ProjectAndUnProjectResult(
       Point(x: 3832374.9261409976, y: 6864556.294344704), Point(x: 0, y: 90)),
   'EPSG:7548': ProjectAndUnProjectResult(
       Point(x: 3415636.1902642823, y: 7305642.758030209), Point(x: 0, y: 90)),
+  'EPSG:7549': ProjectAndUnProjectResult(null, null),
+  'EPSG:7550': ProjectAndUnProjectResult(null, null),
   'EPSG:7551': ProjectAndUnProjectResult(
       Point(x: 3405012.5367005337, y: 7137827.349102414), Point(x: 0, y: 90)),
   'EPSG:7552': ProjectAndUnProjectResult(
@@ -10805,53 +10031,75 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 3808127.092819137, y: 6861235.0608257), Point(x: 0, y: 90)),
   'EPSG:7556': ProjectAndUnProjectResult(
       Point(x: 3204291.414114237, y: 7111748.531335806), Point(x: 0, y: 90)),
+  'EPSG:7557': ProjectAndUnProjectResult(null, null),
   'EPSG:7558': ProjectAndUnProjectResult(
       Point(x: 3484867.686109837, y: 6852050.195405609), Point(x: 0, y: 90)),
+  'EPSG:7559': ProjectAndUnProjectResult(null, null),
   'EPSG:7560': ProjectAndUnProjectResult(
       Point(x: 3942161.367084428, y: 6715885.210692157), Point(x: 0, y: 90)),
   'EPSG:7561': ProjectAndUnProjectResult(
       Point(x: 3697276.437847649, y: 6768723.763080934), Point(x: 0, y: 90)),
+  'EPSG:7562': ProjectAndUnProjectResult(null, null),
   'EPSG:7563': ProjectAndUnProjectResult(
       Point(x: 3855689.606143715, y: 6764352.072904594), Point(x: 0, y: 90)),
+  'EPSG:7564': ProjectAndUnProjectResult(null, null),
+  'EPSG:7565': ProjectAndUnProjectResult(null, null),
   'EPSG:7566': ProjectAndUnProjectResult(
       Point(x: 2947228.968603797, y: 7053493.02016694), Point(x: 0, y: 90)),
+  'EPSG:7567': ProjectAndUnProjectResult(null, null),
   'EPSG:7568': ProjectAndUnProjectResult(
       Point(x: 3459761.570267035, y: 6936063.286349483), Point(x: 0, y: 90)),
+  'EPSG:7569': ProjectAndUnProjectResult(null, null),
   'EPSG:7570': ProjectAndUnProjectResult(
       Point(x: 3629429.2884092713, y: 7126247.272572763), Point(x: 0, y: 90)),
   'EPSG:7571': ProjectAndUnProjectResult(
       Point(x: 3372972.8871539193, y: 7044187.319239815), Point(x: 0, y: 90)),
   'EPSG:7572': ProjectAndUnProjectResult(
       Point(x: 3524640.118549972, y: 7088603.953742174), Point(x: 0, y: 90)),
+  'EPSG:7573': ProjectAndUnProjectResult(null, null),
   'EPSG:7574': ProjectAndUnProjectResult(
       Point(x: 3823405.313439519, y: 6858804.031463695), Point(x: 0, y: 90)),
   'EPSG:7575': ProjectAndUnProjectResult(
       Point(x: 2970988.8156491998, y: 7122908.373712409), Point(x: 0, y: 90)),
+  'EPSG:7576': ProjectAndUnProjectResult(null, null),
   'EPSG:7577': ProjectAndUnProjectResult(
       Point(x: 3320998.1229724446, y: 7147083.394483467), Point(x: 0, y: 90)),
+  'EPSG:7578': ProjectAndUnProjectResult(null, null),
+  'EPSG:7579': ProjectAndUnProjectResult(null, null),
+  'EPSG:7580': ProjectAndUnProjectResult(null, null),
   'EPSG:7692': ProjectAndUnProjectResult(
       Point(x: -2454926.226432084, y: 6595235.458561134),
       Point(x: 25.359226227943847, y: 48.12268107212026)),
+  'EPSG:7581': ProjectAndUnProjectResult(null, null),
   'EPSG:7582': ProjectAndUnProjectResult(
       Point(x: 3768447.9297039146, y: 6941092.747986726), Point(x: 0, y: 90)),
   'EPSG:7583': ProjectAndUnProjectResult(
       Point(x: 3831482.1536448947, y: 6992424.743299675), Point(x: 0, y: 90)),
   'EPSG:7584': ProjectAndUnProjectResult(
       Point(x: 3711070.401249271, y: 6943225.986154948), Point(x: 0, y: 90)),
+  'EPSG:7585': ProjectAndUnProjectResult(null, null),
+  'EPSG:7586': ProjectAndUnProjectResult(null, null),
   'EPSG:7587': ProjectAndUnProjectResult(
       Point(x: 11378883.685214741, y: 23079857.103862435), Point(x: 0, y: 90)),
   'EPSG:7588': ProjectAndUnProjectResult(
       Point(x: 11088149.032900875, y: 22365163.53324931), Point(x: 0, y: 90)),
   'EPSG:7589': ProjectAndUnProjectResult(
       Point(x: 10042425.055252131, y: 22824982.125635523), Point(x: 0, y: 90)),
+  'EPSG:7590': ProjectAndUnProjectResult(null, null),
   'EPSG:7591': ProjectAndUnProjectResult(
       Point(x: 12106235.909091806, y: 22740868.494165752), Point(x: 0, y: 90)),
   'EPSG:7592': ProjectAndUnProjectResult(
       Point(x: 10346675.304421574, y: 23416822.251727488), Point(x: 0, y: 90)),
+  'EPSG:7593': ProjectAndUnProjectResult(null, null),
   'EPSG:7594': ProjectAndUnProjectResult(
       Point(x: 12542594.209403375, y: 22955969.216841422), Point(x: 0, y: 90)),
+  'EPSG:7595': ProjectAndUnProjectResult(null, null),
   'EPSG:7596': ProjectAndUnProjectResult(
       Point(x: 11124053.930451838, y: 23151516.833878253), Point(x: 0, y: 90)),
+  'EPSG:7597': ProjectAndUnProjectResult(null, null),
+  'EPSG:4958': ProjectAndUnProjectResult(null, null),
+  'EPSG:7598': ProjectAndUnProjectResult(null, null),
+  'EPSG:7599': ProjectAndUnProjectResult(null, null),
   'EPSG:7600': ProjectAndUnProjectResult(
       Point(x: 12455158.00186667, y: 23479275.373399213), Point(x: 0, y: 90)),
   'EPSG:7601': ProjectAndUnProjectResult(
@@ -10860,12 +10108,16 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 9886392.908520725, y: 22564039.67997072), Point(x: 0, y: 90)),
   'EPSG:7603': ProjectAndUnProjectResult(
       Point(x: 9877211.930597758, y: 23097674.847744167), Point(x: 0, y: 90)),
+  'EPSG:7604': ProjectAndUnProjectResult(null, null),
   'EPSG:7605': ProjectAndUnProjectResult(
       Point(x: 12367346.946661, y: 21873990.270624973), Point(x: 0, y: 90)),
+  'EPSG:4960': ProjectAndUnProjectResult(null, null),
   'EPSG:7606': ProjectAndUnProjectResult(
       Point(x: 12573383.403229175, y: 22521465.109520163), Point(x: 0, y: 90)),
   'EPSG:7607': ProjectAndUnProjectResult(
       Point(x: 11206133.067307316, y: 23968596.282162443), Point(x: 0, y: 90)),
+  'EPSG:7608': ProjectAndUnProjectResult(null, null),
+  'EPSG:7609': ProjectAndUnProjectResult(null, null),
   'EPSG:7610': ProjectAndUnProjectResult(
       Point(x: 11171278.631028585, y: 23418021.894749753), Point(x: 0, y: 90)),
   'EPSG:7611': ProjectAndUnProjectResult(
@@ -10874,40 +10126,60 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 10472152.450069249, y: 23024102.495499462), Point(x: 0, y: 90)),
   'EPSG:7613': ProjectAndUnProjectResult(
       Point(x: 12667039.887473177, y: 22983970.31930564), Point(x: 0, y: 90)),
+  'EPSG:4962': ProjectAndUnProjectResult(null, null),
   'EPSG:7614': ProjectAndUnProjectResult(
       Point(x: 12493830.304164285, y: 22510568.69545532), Point(x: 0, y: 90)),
   'EPSG:7615': ProjectAndUnProjectResult(
       Point(x: 10512746.080779292, y: 23332461.64006414), Point(x: 0, y: 90)),
+  'EPSG:7616': ProjectAndUnProjectResult(null, null),
   'EPSG:7617': ProjectAndUnProjectResult(
       Point(x: 11433270.066707775, y: 22480434.68273107), Point(x: 0, y: 90)),
+  'EPSG:7618': ProjectAndUnProjectResult(null, null),
   'EPSG:7619': ProjectAndUnProjectResult(
       Point(x: 12933574.418677995, y: 22033700.06158052), Point(x: 0, y: 90)),
   'EPSG:7620': ProjectAndUnProjectResult(
       Point(x: 12130147.779973747, y: 22207054.54652695), Point(x: 0, y: 90)),
+  'EPSG:7621': ProjectAndUnProjectResult(null, null),
+  'EPSG:4964': ProjectAndUnProjectResult(null, null),
   'EPSG:7622': ProjectAndUnProjectResult(
       Point(x: 12649874.982788838, y: 22192711.759361073), Point(x: 0, y: 90)),
+  'EPSG:7623': ProjectAndUnProjectResult(null, null),
+  'EPSG:7624': ProjectAndUnProjectResult(null, null),
   'EPSG:7625': ProjectAndUnProjectResult(
       Point(x: 9669367.040981706, y: 23141335.016640786), Point(x: 0, y: 90)),
+  'EPSG:7626': ProjectAndUnProjectResult(null, null),
   'EPSG:7627': ProjectAndUnProjectResult(
       Point(x: 11350901.084650932, y: 22756067.632203847), Point(x: 0, y: 90)),
+  'EPSG:7628': ProjectAndUnProjectResult(null, null),
   'EPSG:7629': ProjectAndUnProjectResult(
       Point(x: 11907552.590417586, y: 23380029.59312281), Point(x: 0, y: 90)),
+  'EPSG:4966': ProjectAndUnProjectResult(null, null),
   'EPSG:7630': ProjectAndUnProjectResult(
       Point(x: 11066161.880922401, y: 23110804.56343446), Point(x: 0, y: 90)),
   'EPSG:7631': ProjectAndUnProjectResult(
       Point(x: 11563756.788785035, y: 23256528.138503537), Point(x: 0, y: 90)),
+  'EPSG:7632': ProjectAndUnProjectResult(null, null),
   'EPSG:7633': ProjectAndUnProjectResult(
       Point(x: 12543955.598754406, y: 22502592.892731138), Point(x: 0, y: 90)),
   'EPSG:7634': ProjectAndUnProjectResult(
       Point(x: 9747319.139011249, y: 23369075.222962216), Point(x: 0, y: 90)),
+  'EPSG:7635': ProjectAndUnProjectResult(null, null),
   'EPSG:7636': ProjectAndUnProjectResult(
       Point(x: 10895641.342093261, y: 23448389.436283093), Point(x: 0, y: 90)),
+  'EPSG:7637': ProjectAndUnProjectResult(null, null),
+  'EPSG:4968': ProjectAndUnProjectResult(null, null),
+  'EPSG:7638': ProjectAndUnProjectResult(null, null),
+  'EPSG:7639': ProjectAndUnProjectResult(null, null),
+  'EPSG:7640': ProjectAndUnProjectResult(null, null),
   'EPSG:7641': ProjectAndUnProjectResult(
       Point(x: 12363649.582382344, y: 22772568.457510624), Point(x: 0, y: 90)),
   'EPSG:7642': ProjectAndUnProjectResult(
       Point(x: 12570454.365361627, y: 22940980.17848752), Point(x: 0, y: 90)),
   'EPSG:7643': ProjectAndUnProjectResult(
       Point(x: 12175403.474904234, y: 22779567.256277528), Point(x: 0, y: 90)),
+  'EPSG:7644': ProjectAndUnProjectResult(null, null),
+  'EPSG:7645': ProjectAndUnProjectResult(null, null),
+  'EPSG:4970': ProjectAndUnProjectResult(null, null),
   'EPSG:7693': ProjectAndUnProjectResult(
       Point(x: -1652225.1502001407, y: 6781799.831137376),
       Point(x: 35.47110857973571, y: 49.92415331328578)),
@@ -10992,6 +10264,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:7777': ProjectAndUnProjectResult(
       Point(x: -4033381.4670982556, y: 8414069.773018373),
       Point(x: 43417.311257047084, y: 9457.129707704946)),
+  'EPSG:4972': ProjectAndUnProjectResult(null, null),
   'EPSG:7778': ProjectAndUnProjectResult(
       Point(x: -3582542.945106227, y: 6228518.862826186),
       Point(x: 132.0497408210313, y: 140.34639719975036)),
@@ -11022,6 +10295,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:7787': ProjectAndUnProjectResult(
       Point(x: -3845521.7607766697, y: 6340845.19478786),
       Point(x: 3388.1823641108126, y: 820.9021764409059)),
+  'EPSG:4974': ProjectAndUnProjectResult(null, null),
   'EPSG:7791': ProjectAndUnProjectResult(
       Point(x: 1176891.287219305, y: 5231671.834018296),
       Point(x: 17.88805843543735, y: 46.892264027445336)),
@@ -11052,6 +10326,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:7804': ProjectAndUnProjectResult(
       Point(x: 262945.2879608735, y: 5197894.102611037),
       Point(x: 17.888058560253082, y: 46.89226406692702)),
+  'EPSG:4976': ProjectAndUnProjectResult(null, null),
   'EPSG:7825': ProjectAndUnProjectResult(
       Point(x: 872489.2518016153, y: 5201499.242895964),
       Point(x: 17.888058571216604, y: 46.89226406568868)),
@@ -11199,9 +10474,11 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: -12916232.579982523, y: 25630463.91394005), Point(x: 0, y: 90)),
   'EPSG:8067': ProjectAndUnProjectResult(
       Point(x: -16047526.030278021, y: 23804140.53235026), Point(x: 0, y: 90)),
+  'EPSG:8068': ProjectAndUnProjectResult(null, null),
   'EPSG:8082': ProjectAndUnProjectResult(
       Point(x: 29621061.74852327, y: 8954491.865918288),
       Point(x: -519603.4821607426, y: 113747.10753176491)),
+  'EPSG:4978': ProjectAndUnProjectResult(null, null),
   'EPSG:8083': ProjectAndUnProjectResult(
       Point(x: 30650864.10052601, y: 9269865.456694849),
       Point(x: -6859630.010890731, y: 1508686.9880534173)),
@@ -11212,9 +10489,15 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 3769574.888567513, y: 6667205.568796816), Point(x: 0, y: 90)),
   'EPSG:8091': ProjectAndUnProjectResult(
       Point(x: 12367346.946661, y: 21873990.270624973), Point(x: 0, y: 90)),
+  'EPSG:8092': ProjectAndUnProjectResult(null, null),
+  'EPSG:8093': ProjectAndUnProjectResult(null, null),
+  'EPSG:8095': ProjectAndUnProjectResult(null, null),
+  'EPSG:8096': ProjectAndUnProjectResult(null, null),
   'EPSG:26708': ProjectAndUnProjectResult(
       Point(x: -25784880.089815598, y: -2925109.978929641),
       Point(x: -135, y: double.nan)),
+  'EPSG:8097': ProjectAndUnProjectResult(null, null),
+  'EPSG:8098': ProjectAndUnProjectResult(null, null),
   'EPSG:8099': ProjectAndUnProjectResult(
       Point(x: 3711070.401249271, y: 6943225.986154948), Point(x: 0, y: 90)),
   'EPSG:8100': ProjectAndUnProjectResult(
@@ -11227,10 +10510,21 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 3768447.9297039146, y: 6941092.747986726), Point(x: 0, y: 90)),
   'EPSG:8104': ProjectAndUnProjectResult(
       Point(x: 12363649.582382344, y: 22772568.457510624), Point(x: 0, y: 90)),
+  'EPSG:4980': ProjectAndUnProjectResult(null, null),
+  'EPSG:8105': ProjectAndUnProjectResult(null, null),
+  'EPSG:8106': ProjectAndUnProjectResult(null, null),
+  'EPSG:8107': ProjectAndUnProjectResult(null, null),
+  'EPSG:8108': ProjectAndUnProjectResult(null, null),
+  'EPSG:8109': ProjectAndUnProjectResult(null, null),
+  'EPSG:8110': ProjectAndUnProjectResult(null, null),
+  'EPSG:8111': ProjectAndUnProjectResult(null, null),
+  'EPSG:8112': ProjectAndUnProjectResult(null, null),
   'EPSG:8113': ProjectAndUnProjectResult(
       Point(x: 3320998.1229724446, y: 7147083.394483467), Point(x: 0, y: 90)),
   'EPSG:8114': ProjectAndUnProjectResult(
       Point(x: 10895641.342093261, y: 23448389.436283093), Point(x: 0, y: 90)),
+  'EPSG:8115': ProjectAndUnProjectResult(null, null),
+  'EPSG:8116': ProjectAndUnProjectResult(null, null),
   'EPSG:8117': ProjectAndUnProjectResult(
       Point(x: 2970988.8156491998, y: 7122908.373712409), Point(x: 0, y: 90)),
   'EPSG:8118': ProjectAndUnProjectResult(
@@ -11239,6 +10533,9 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 3823405.313439519, y: 6858804.031463695), Point(x: 0, y: 90)),
   'EPSG:8120': ProjectAndUnProjectResult(
       Point(x: 12543955.598754406, y: 22502592.892731138), Point(x: 0, y: 90)),
+  'EPSG:4982': ProjectAndUnProjectResult(null, null),
+  'EPSG:8121': ProjectAndUnProjectResult(null, null),
+  'EPSG:8122': ProjectAndUnProjectResult(null, null),
   'EPSG:8123': ProjectAndUnProjectResult(
       Point(x: 3524640.118549972, y: 7088603.953742174), Point(x: 0, y: 90)),
   'EPSG:8124': ProjectAndUnProjectResult(
@@ -11251,18 +10548,30 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 3629429.2884092713, y: 7126247.272572763), Point(x: 0, y: 90)),
   'EPSG:8128': ProjectAndUnProjectResult(
       Point(x: 11907552.590417586, y: 23380029.59312281), Point(x: 0, y: 90)),
+  'EPSG:4984': ProjectAndUnProjectResult(null, null),
+  'EPSG:8129': ProjectAndUnProjectResult(null, null),
+  'EPSG:8130': ProjectAndUnProjectResult(null, null),
   'EPSG:8131': ProjectAndUnProjectResult(
       Point(x: 3459761.570267035, y: 6936063.286349483), Point(x: 0, y: 90)),
   'EPSG:8132': ProjectAndUnProjectResult(
       Point(x: 11350901.084650932, y: 22756067.632203847), Point(x: 0, y: 90)),
+  'EPSG:8133': ProjectAndUnProjectResult(null, null),
+  'EPSG:8134': ProjectAndUnProjectResult(null, null),
   'EPSG:8135': ProjectAndUnProjectResult(
       Point(x: 2947228.968603797, y: 7053493.02016694), Point(x: 0, y: 90)),
   'EPSG:8136': ProjectAndUnProjectResult(
       Point(x: 9669367.040981706, y: 23141335.016640786), Point(x: 0, y: 90)),
+  'EPSG:4986': ProjectAndUnProjectResult(null, null),
+  'EPSG:8137': ProjectAndUnProjectResult(null, null),
+  'EPSG:8138': ProjectAndUnProjectResult(null, null),
+  'EPSG:8139': ProjectAndUnProjectResult(null, null),
+  'EPSG:8140': ProjectAndUnProjectResult(null, null),
   'EPSG:8141': ProjectAndUnProjectResult(
       Point(x: 3855689.606143715, y: 6764352.072904594), Point(x: 0, y: 90)),
   'EPSG:8142': ProjectAndUnProjectResult(
       Point(x: 12649874.982788838, y: 22192711.759361073), Point(x: 0, y: 90)),
+  'EPSG:8143': ProjectAndUnProjectResult(null, null),
+  'EPSG:8144': ProjectAndUnProjectResult(null, null),
   'EPSG:8145': ProjectAndUnProjectResult(
       Point(x: 3697276.437847649, y: 6768723.763080934), Point(x: 0, y: 90)),
   'EPSG:8146': ProjectAndUnProjectResult(
@@ -11271,10 +10580,15 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 3942161.367084428, y: 6715885.210692157), Point(x: 0, y: 90)),
   'EPSG:8148': ProjectAndUnProjectResult(
       Point(x: 12933574.418677995, y: 22033700.06158052), Point(x: 0, y: 90)),
+  'EPSG:8149': ProjectAndUnProjectResult(null, null),
+  'EPSG:8150': ProjectAndUnProjectResult(null, null),
   'EPSG:8151': ProjectAndUnProjectResult(
       Point(x: 3484867.686109837, y: 6852050.195405609), Point(x: 0, y: 90)),
   'EPSG:8152': ProjectAndUnProjectResult(
       Point(x: 11433270.066707775, y: 22480434.68273107), Point(x: 0, y: 90)),
+  'EPSG:4988': ProjectAndUnProjectResult(null, null),
+  'EPSG:8153': ProjectAndUnProjectResult(null, null),
+  'EPSG:8154': ProjectAndUnProjectResult(null, null),
   'EPSG:8155': ProjectAndUnProjectResult(
       Point(x: 3204291.414114237, y: 7111748.531335806), Point(x: 0, y: 90)),
   'EPSG:8156': ProjectAndUnProjectResult(
@@ -11287,6 +10601,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 3860921.4795736372, y: 7005528.164366286), Point(x: 0, y: 90)),
   'EPSG:8160': ProjectAndUnProjectResult(
       Point(x: 12667039.887473177, y: 22983970.31930564), Point(x: 0, y: 90)),
+  'EPSG:4990': ProjectAndUnProjectResult(null, null),
   'EPSG:8161': ProjectAndUnProjectResult(
       Point(x: 3191918.450618008, y: 7017760.476250788), Point(x: 0, y: 90)),
   'EPSG:8162': ProjectAndUnProjectResult(
@@ -11299,6 +10614,11 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 3405012.5367005337, y: 7137827.349102414), Point(x: 0, y: 90)),
   'EPSG:8166': ProjectAndUnProjectResult(
       Point(x: 11171278.631028585, y: 23418021.894749753), Point(x: 0, y: 90)),
+  'EPSG:8167': ProjectAndUnProjectResult(null, null),
+  'EPSG:8168': ProjectAndUnProjectResult(null, null),
+  'EPSG:4992': ProjectAndUnProjectResult(null, null),
+  'EPSG:8169': ProjectAndUnProjectResult(null, null),
+  'EPSG:8170': ProjectAndUnProjectResult(null, null),
   'EPSG:8171': ProjectAndUnProjectResult(
       Point(x: 3415636.1902642823, y: 7305642.758030209), Point(x: 0, y: 90)),
   'EPSG:8172': ProjectAndUnProjectResult(
@@ -11311,6 +10631,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 3010580.2176696234, y: 7040185.373915163), Point(x: 0, y: 90)),
   'EPSG:8180': ProjectAndUnProjectResult(
       Point(x: 9877211.930597758, y: 23097674.847744167), Point(x: 0, y: 90)),
+  'EPSG:4994': ProjectAndUnProjectResult(null, null),
   'EPSG:8181': ProjectAndUnProjectResult(
       Point(x: 3013378.5853116503, y: 6877533.049658766), Point(x: 0, y: 90)),
   'EPSG:8182': ProjectAndUnProjectResult(
@@ -11323,14 +10644,26 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 3796339.751557811, y: 7156497.446786959), Point(x: 0, y: 90)),
   'EPSG:8189': ProjectAndUnProjectResult(
       Point(x: 12455158.00186667, y: 23479275.373399213), Point(x: 0, y: 90)),
+  'EPSG:8191': ProjectAndUnProjectResult(null, null),
+  'EPSG:8193': ProjectAndUnProjectResult(null, null),
+  'EPSG:4996': ProjectAndUnProjectResult(null, null),
+  'EPSG:8196': ProjectAndUnProjectResult(null, null),
+  'EPSG:8197': ProjectAndUnProjectResult(null, null),
+  'EPSG:8198': ProjectAndUnProjectResult(null, null),
+  'EPSG:8200': ProjectAndUnProjectResult(null, null),
   'EPSG:8201': ProjectAndUnProjectResult(
       Point(x: 3390618.4191545607, y: 7056596.4442245625), Point(x: 0, y: 90)),
   'EPSG:8202': ProjectAndUnProjectResult(
       Point(x: 11124053.930451838, y: 23151516.833878253), Point(x: 0, y: 90)),
+  'EPSG:8203': ProjectAndUnProjectResult(null, null),
+  'EPSG:8204': ProjectAndUnProjectResult(null, null),
+  'EPSG:4998': ProjectAndUnProjectResult(null, null),
   'EPSG:8205': ProjectAndUnProjectResult(
       Point(x: 3822990.361101892, y: 6996993.411303278), Point(x: 0, y: 90)),
   'EPSG:8206': ProjectAndUnProjectResult(
       Point(x: 12542594.209403375, y: 22955969.216841422), Point(x: 0, y: 90)),
+  'EPSG:8207': ProjectAndUnProjectResult(null, null),
+  'EPSG:8208': ProjectAndUnProjectResult(null, null),
   'EPSG:8209': ProjectAndUnProjectResult(
       Point(x: 3153672.940117676, y: 7137461.697173122), Point(x: 0, y: 90)),
   'EPSG:8210': ProjectAndUnProjectResult(
@@ -11339,6 +10672,9 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 3689988.0851689526, y: 6931430.5799844805), Point(x: 0, y: 90)),
   'EPSG:8213': ProjectAndUnProjectResult(
       Point(x: 12106235.909091806, y: 22740868.494165752), Point(x: 0, y: 90)),
+  'EPSG:5011': ProjectAndUnProjectResult(null, null),
+  'EPSG:8214': ProjectAndUnProjectResult(null, null),
+  'EPSG:8216': ProjectAndUnProjectResult(null, null),
   'EPSG:8218': ProjectAndUnProjectResult(
       Point(x: 3060937.2787154065, y: 6957068.465882632), Point(x: 0, y: 90)),
   'EPSG:8220': ProjectAndUnProjectResult(
@@ -11351,6 +10687,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 3468290.683902232, y: 7034754.514808692), Point(x: 0, y: 90)),
   'EPSG:8226': ProjectAndUnProjectResult(
       Point(x: 11378883.685214741, y: 23079857.103862435), Point(x: 0, y: 90)),
+  'EPSG:5244': ProjectAndUnProjectResult(null, null),
   'EPSG:8311': ProjectAndUnProjectResult(
       Point(x: -7975369.376852105, y: 4598229.7015076615),
       Point(x: 758426831.2235305, y: 261498166.30999714)),
@@ -11363,6 +10700,8 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:8314': ProjectAndUnProjectResult(
       Point(x: -29683897.208306756, y: 13429450.100047378),
       Point(x: 21903007.92161727, y: 8524499.952568647)),
+  'EPSG:8315': ProjectAndUnProjectResult(null, null),
+  'EPSG:8316': ProjectAndUnProjectResult(null, null),
   'EPSG:8317': ProjectAndUnProjectResult(
       Point(x: -9542274.605646268, y: 3749531.5095347357),
       Point(x: 7069759.790099894, y: 2911934.865820695)),
@@ -11372,27 +10711,50 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:8319': ProjectAndUnProjectResult(
       Point(x: -8542311.979663761, y: 4515564.93732704),
       Point(x: 79858529.9392508, y: 29488526.316998694)),
+  'EPSG:5250': ProjectAndUnProjectResult(null, null),
   'EPSG:8320': ProjectAndUnProjectResult(
       Point(x: -28025957.93853045, y: 14814845.594904987),
       Point(x: 79858529.9392508, y: 29488526.316998694)),
+  'EPSG:8321': ProjectAndUnProjectResult(null, null),
+  'EPSG:8322': ProjectAndUnProjectResult(null, null),
+  'EPSG:8323': ProjectAndUnProjectResult(null, null),
+  'EPSG:8324': ProjectAndUnProjectResult(null, null),
+  'EPSG:8325': ProjectAndUnProjectResult(null, null),
+  'EPSG:8326': ProjectAndUnProjectResult(null, null),
+  'EPSG:8327': ProjectAndUnProjectResult(null, null),
+  'EPSG:8328': ProjectAndUnProjectResult(null, null),
+  'EPSG:8329': ProjectAndUnProjectResult(null, null),
+  'EPSG:8330': ProjectAndUnProjectResult(null, null),
   'EPSG:8331': ProjectAndUnProjectResult(
       Point(x: -7934928.037013731, y: 4822593.757571801),
       Point(x: 1036345618.5015662, y: 354578869.8149666)),
   'EPSG:8332': ProjectAndUnProjectResult(
       Point(x: -26033228.467843737, y: 15822157.99728281),
       Point(x: 1036345618.5015662, y: 354578869.8149666)),
+  'EPSG:8333': ProjectAndUnProjectResult(null, null),
+  'EPSG:8334': ProjectAndUnProjectResult(null, null),
+  'EPSG:8335': ProjectAndUnProjectResult(null, null),
+  'EPSG:8336': ProjectAndUnProjectResult(null, null),
   'EPSG:8337': ProjectAndUnProjectResult(
       Point(x: -10056189.773874594, y: 3724599.912720571),
       Point(x: 2536611.3873870787, y: 1112250.8758671032)),
+  'EPSG:5262': ProjectAndUnProjectResult(null, null),
   'EPSG:8338': ProjectAndUnProjectResult(
       Point(x: -32992748.60190168, y: 12219815.986616045),
       Point(x: 2536611.3873870787, y: 1112250.8758671032)),
+  'EPSG:8339': ProjectAndUnProjectResult(null, null),
+  'EPSG:8340': ProjectAndUnProjectResult(null, null),
+  'EPSG:8341': ProjectAndUnProjectResult(null, null),
+  'EPSG:8342': ProjectAndUnProjectResult(null, null),
   'EPSG:8343': ProjectAndUnProjectResult(
       Point(x: -7884495.80102217, y: 4463267.0818563495),
       Point(x: 1440376520.9247227, y: 489022394.8755672)),
   'EPSG:8344': ProjectAndUnProjectResult(
       Point(x: -25867768.376057774, y: 14643264.704253115),
       Point(x: 1440376520.92472, y: 489022394.87556624)),
+  'EPSG:8345': ProjectAndUnProjectResult(null, null),
+  'EPSG:8346': ProjectAndUnProjectResult(null, null),
+  'EPSG:5322': ProjectAndUnProjectResult(null, null),
   'EPSG:8347': ProjectAndUnProjectResult(
       Point(x: -11513374.110879114, y: 2794604.711851623),
       Point(x: 398884.89595851535, y: 203629.51671519192)),
@@ -11630,6 +10992,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:20350': ProjectAndUnProjectResult(
       Point(x: -3999190.95806007, y: 21067553.24832288),
       Point(x: -160.29202115696808, y: 89.99872568051475)),
+  'EPSG:5332': ProjectAndUnProjectResult(null, null),
   'EPSG:20351': ProjectAndUnProjectResult(
       Point(x: -3276209.8909524027, y: 21622555.34907522),
       Point(x: -160.29202115696808, y: 89.99872568051475)),
@@ -11963,9 +11326,22 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:22236': ProjectAndUnProjectResult(
       Point(x: -650101.0589285116, y: 15305302.272816662),
       Point(x: 17.888077104406324, y: 46.89226380089118)),
+  'EPSG:22275': ProjectAndUnProjectResult(null, null),
+  'EPSG:22277': ProjectAndUnProjectResult(null, null),
+  'EPSG:22279': ProjectAndUnProjectResult(null, null),
+  'EPSG:22281': ProjectAndUnProjectResult(null, null),
+  'EPSG:22283': ProjectAndUnProjectResult(null, null),
+  'EPSG:22285': ProjectAndUnProjectResult(null, null),
+  'EPSG:22287': ProjectAndUnProjectResult(null, null),
+  'EPSG:22289': ProjectAndUnProjectResult(null, null),
+  'EPSG:22291': ProjectAndUnProjectResult(null, null),
+  'EPSG:22293': ProjectAndUnProjectResult(null, null),
+  'EPSG:22300': ProjectAndUnProjectResult(null, null),
   'EPSG:22332': ProjectAndUnProjectResult(
       Point(x: 1176851.1186573808, y: 5231224.271853624),
       Point(x: 17.888058423427236, y: 46.89226401399397)),
+  'EPSG:22391': ProjectAndUnProjectResult(null, null),
+  'EPSG:22392': ProjectAndUnProjectResult(null, null),
   'EPSG:22521': ProjectAndUnProjectResult(
       Point(x: 5518270.098143509, y: 18497994.964059576),
       Point(x: 45, y: double.nan)),
@@ -11981,6 +11357,8 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:22525': ProjectAndUnProjectResult(
       Point(x: 4270741.2175406385, y: 16593418.05087208),
       Point(x: 9.85268310796776, y: 48.2212153256088)),
+  'EPSG:22700': ProjectAndUnProjectResult(null, null),
+  'EPSG:22770': ProjectAndUnProjectResult(null, null),
   'EPSG:22780': ProjectAndUnProjectResult(
       Point(x: -1634162.8158513, y: 1615233.2285455111),
       Point(x: 17.888058563233912, y: 46.8922640653223)),
@@ -11996,6 +11374,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:22993': ProjectAndUnProjectResult(
       Point(x: 5632.832389040384, y: 2115600.1999049373),
       Point(x: 17.88805872086583, y: 46.89226402217269)),
+  'EPSG:5341': ProjectAndUnProjectResult(null, null),
   'EPSG:22994': ProjectAndUnProjectResult(
       Point(x: 5632.832389040384, y: 3115600.1999049373),
       Point(x: 17.88805872086583, y: 46.89226402217269)),
@@ -12026,6 +11405,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:23036': ProjectAndUnProjectResult(
       Point(x: -650161.9585444932, y: 5305376.291796589),
       Point(x: 17.888077165773627, y: 46.89226406012086)),
+  'EPSG:5352': ProjectAndUnProjectResult(null, null),
   'EPSG:23037': ProjectAndUnProjectResult(
       Point(x: -1105109.377250435, y: 5414124.14574574),
       Point(x: 17.888509008752166, y: 46.89229072693788)),
@@ -12191,6 +11571,8 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:24048': ProjectAndUnProjectResult(
       Point(x: -4621169.186341875, y: 9777865.43758633),
       Point(x: 45, y: double.nan)),
+  'EPSG:24100': ProjectAndUnProjectResult(null, null),
+  'EPSG:24200': ProjectAndUnProjectResult(null, null),
   'EPSG:24305': ProjectAndUnProjectResult(
       Point(x: -4307121.938350191, y: 7956237.7296176525),
       Point(x: 45, y: double.nan)),
@@ -12206,6 +11588,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:24313': ProjectAndUnProjectResult(
       Point(x: -3669674.161219406, y: 6998502.807600593),
       Point(x: 66.56734830003317, y: 55.702462554542706)),
+  'EPSG:5358': ProjectAndUnProjectResult(null, null),
   'EPSG:24342': ProjectAndUnProjectResult(
       Point(x: -3285632.7871328234, y: 6606765.224516772),
       Point(x: 26.475957144671206, y: 48.317119288998164)),
@@ -12224,9 +11607,23 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:24347': ProjectAndUnProjectResult(
       Point(x: -4640059.218651982, y: 9131647.566523755),
       Point(x: 45, y: double.nan)),
+  'EPSG:24370': ProjectAndUnProjectResult(null, null),
+  'EPSG:24371': ProjectAndUnProjectResult(null, null),
+  'EPSG:24372': ProjectAndUnProjectResult(null, null),
+  'EPSG:24373': ProjectAndUnProjectResult(null, null),
+  'EPSG:24374': ProjectAndUnProjectResult(null, null),
+  'EPSG:24375': ProjectAndUnProjectResult(null, null),
+  'EPSG:24376': ProjectAndUnProjectResult(null, null),
+  'EPSG:24377': ProjectAndUnProjectResult(null, null),
+  'EPSG:24378': ProjectAndUnProjectResult(null, null),
+  'EPSG:24379': ProjectAndUnProjectResult(null, null),
+  'EPSG:24380': ProjectAndUnProjectResult(null, null),
   'EPSG:26710': ProjectAndUnProjectResult(
       Point(x: -11916361.782284085, y: 7027010.125400178),
       Point(x: 45, y: double.nan)),
+  'EPSG:24381': ProjectAndUnProjectResult(null, null),
+  'EPSG:24382': ProjectAndUnProjectResult(null, null),
+  'EPSG:24383': ProjectAndUnProjectResult(null, null),
   'EPSG:24500': ProjectAndUnProjectResult(
       Point(x: -5685006.08355233, y: 9890075.024441343),
       Point(x: -135, y: double.nan)),
@@ -12239,6 +11636,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:24571': ProjectAndUnProjectResult(
       Point(x: -264292.2490371383, y: 346484.959807246),
       Point(x: 17.888059495884065, y: 46.89226406978048)),
+  'EPSG:24600': ProjectAndUnProjectResult(null, null),
   'EPSG:24718': ProjectAndUnProjectResult(
       Point(x: 5436885.139325045, y: 10410809.007274145),
       Point(x: 157.9822041331554, y: 89.99735862730533)),
@@ -12356,6 +11754,11 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:25932': ProjectAndUnProjectResult(
       Point(x: 1176852.2620693797, y: 15231746.959374499),
       Point(x: 17.88805844125422, y: 46.89226402822769)),
+  'EPSG:26191': ProjectAndUnProjectResult(null, null),
+  'EPSG:26192': ProjectAndUnProjectResult(null, null),
+  'EPSG:26193': ProjectAndUnProjectResult(null, null),
+  'EPSG:26194': ProjectAndUnProjectResult(null, null),
+  'EPSG:26195': ProjectAndUnProjectResult(null, null),
   'EPSG:26237': ProjectAndUnProjectResult(
       Point(x: -1104998.7498205835, y: 5413863.875225357),
       Point(x: 17.88850979530133, y: 46.89229071661217)),
@@ -12452,6 +11855,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:26737': ProjectAndUnProjectResult(
       Point(x: -294582993.2983449, y: -251156589.36744004),
       Point(x: 0, y: -90)),
+  'EPSG:5363': ProjectAndUnProjectResult(null, null),
   'EPSG:26738': ProjectAndUnProjectResult(
       Point(x: 254409816.49533752, y: -201178438.84498614),
       Point(x: 0, y: -90)),
@@ -12614,6 +12018,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:26814': ProjectAndUnProjectResult(
       Point(x: 5434242.727510438, y: 4865567.286727372),
       Point(x: -3577911303.5949883, y: 784422263.488511)),
+  'EPSG:5368': ProjectAndUnProjectResult(null, null),
   'EPSG:26815': ProjectAndUnProjectResult(
       Point(x: 6005972.529556511, y: 5140915.469168544),
       Point(x: -2514978608650.738, y: 548342325600.6209)),
@@ -12664,6 +12069,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:26836': ProjectAndUnProjectResult(
       Point(x: 5434242.727510438, y: 4865567.286727372),
       Point(x: -3577911303.5949883, y: 784422263.488511)),
+  'EPSG:5369': ProjectAndUnProjectResult(null, null),
   'EPSG:26837': ProjectAndUnProjectResult(
       Point(x: 6005972.529556511, y: 5140915.469168544),
       Point(x: -2514978608650.738, y: 548342325600.6209)),
@@ -12837,6 +12243,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 4175252.6559100477, y: 8132636.419234506), Point(x: 0, y: 90)),
   'EPSG:26930': ProjectAndUnProjectResult(
       Point(x: 4335563.615183162, y: 8328698.3072116645), Point(x: 0, y: 90)),
+  'EPSG:5379': ProjectAndUnProjectResult(null, null),
   'EPSG:26931': ProjectAndUnProjectResult(
       Point(x: 6508725.5759530235, y: 4717646.787048834),
       Point(x: 17.88805856028155, y: 46.89226406700871)),
@@ -12955,6 +12362,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:26977': ProjectAndUnProjectResult(
       Point(x: 7071987.862697571, y: 5919601.754797991),
       Point(x: 17.888058560281525, y: 46.89226406700874)),
+  'EPSG:5391': ProjectAndUnProjectResult(null, null),
   'EPSG:26978': ProjectAndUnProjectResult(
       Point(x: 7225695.016863069, y: 6455856.986343259),
       Point(x: 17.88805856028151, y: 46.892264067008725)),
@@ -13172,8 +12580,26 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:27493': ProjectAndUnProjectResult(
       Point(x: 1976377.7231515201, y: 1141502.2166061795),
       Point(x: 17.8845328124321, y: 46.89256349786412)),
+  'EPSG:27500': ProjectAndUnProjectResult(null, null),
+  'EPSG:27561': ProjectAndUnProjectResult(null, null),
+  'EPSG:27562': ProjectAndUnProjectResult(null, null),
+  'EPSG:27563': ProjectAndUnProjectResult(null, null),
+  'EPSG:27564': ProjectAndUnProjectResult(null, null),
+  'EPSG:27571': ProjectAndUnProjectResult(null, null),
   'EPSG:32617': ProjectAndUnProjectResult(
       Point(x: 5019695.054259717, y: 11044701.550245335), Point(x: 0, y: 90)),
+  'EPSG:27572': ProjectAndUnProjectResult(null, null),
+  'EPSG:27573': ProjectAndUnProjectResult(null, null),
+  'EPSG:27574': ProjectAndUnProjectResult(null, null),
+  'EPSG:27581': ProjectAndUnProjectResult(null, null),
+  'EPSG:27582': ProjectAndUnProjectResult(null, null),
+  'EPSG:27583': ProjectAndUnProjectResult(null, null),
+  'EPSG:27584': ProjectAndUnProjectResult(null, null),
+  'EPSG:27591': ProjectAndUnProjectResult(null, null),
+  'EPSG:5487': ProjectAndUnProjectResult(null, null),
+  'EPSG:27592': ProjectAndUnProjectResult(null, null),
+  'EPSG:27593': ProjectAndUnProjectResult(null, null),
+  'EPSG:27594': ProjectAndUnProjectResult(null, null),
   'EPSG:27700': ProjectAndUnProjectResult(
       Point(x: 1912625.1077145399, y: -138902.14835901326),
       Point(x: 17.887804967077802, y: 46.89227699578946)),
@@ -13422,6 +12848,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:29101': ProjectAndUnProjectResult(
       Point(x: 9743887.956464902, y: 17533818.112649657),
       Point(x: 17.88805856271662, y: 46.89226406826736)),
+  'EPSG:5544': ProjectAndUnProjectResult(null, null),
   'EPSG:29118': ProjectAndUnProjectResult(
       Point(x: 5436862.661781785, y: 10410826.069211695),
       Point(x: 178.9949139947389, y: 89.99948959703168)),
@@ -13515,9 +12942,19 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:29333': ProjectAndUnProjectResult(
       Point(x: 720053.9317411971, y: 15197341.896036757),
       Point(x: 17.88805848463445, y: 46.89226376882078)),
+  'EPSG:29371': ProjectAndUnProjectResult(null, null),
+  'EPSG:29373': ProjectAndUnProjectResult(null, null),
+  'EPSG:29375': ProjectAndUnProjectResult(null, null),
+  'EPSG:29377': ProjectAndUnProjectResult(null, null),
+  'EPSG:29379': ProjectAndUnProjectResult(null, null),
+  'EPSG:29381': ProjectAndUnProjectResult(null, null),
+  'EPSG:29383': ProjectAndUnProjectResult(null, null),
+  'EPSG:29385': ProjectAndUnProjectResult(null, null),
+  'EPSG:5558': ProjectAndUnProjectResult(null, null),
   'EPSG:29700': ProjectAndUnProjectResult(
       Point(x: -1505040.3499380755, y: 9596011.052582644),
       Point(x: 17.888058546920686, y: 46.89226406872663)),
+  'EPSG:29701': ProjectAndUnProjectResult(null, null),
   'EPSG:29702': ProjectAndUnProjectResult(
       Point(x: -1505040.3499380755, y: 9596011.052582644),
       Point(x: 17.888058546920686, y: 46.89226406872663)),
@@ -13566,6 +13003,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:30164': ProjectAndUnProjectResult(
       Point(x: -1546225.9547115215, y: 8522977.245382551),
       Point(x: 106.09777940057985, y: 89.99527243122452)),
+  'EPSG:5591': ProjectAndUnProjectResult(null, null),
   'EPSG:30165': ProjectAndUnProjectResult(
       Point(x: -1304035.1793757156, y: 8197467.6810126435),
       Point(x: 106.09777940057985, y: 89.99527243122452)),
@@ -13620,9 +13058,13 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:30340': ProjectAndUnProjectResult(
       Point(x: -2446090.5057064057, y: 5987059.267526575),
       Point(x: 18.163219481115515, y: 46.92855173187133)),
+  'EPSG:30491': ProjectAndUnProjectResult(null, null),
   'EPSG:31028': ProjectAndUnProjectResult(
       Point(x: 2988686.97697698, y: 5743953.323279653),
       Point(x: 17.848226773091078, y: 46.89670697012952)),
+  'EPSG:30492': ProjectAndUnProjectResult(null, null),
+  'EPSG:30493': ProjectAndUnProjectResult(null, null),
+  'EPSG:30494': ProjectAndUnProjectResult(null, null),
   'EPSG:30729': ProjectAndUnProjectResult(
       Point(x: 2540844.526002939, y: 5555418.648402401),
       Point(x: 17.883146807815894, y: 46.89269931000284)),
@@ -13635,6 +13077,8 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:30732': ProjectAndUnProjectResult(
       Point(x: 1176952.9782639088, y: 5231373.806754128),
       Point(x: 17.888058430560996, y: 46.89226401974158)),
+  'EPSG:30791': ProjectAndUnProjectResult(null, null),
+  'EPSG:30792': ProjectAndUnProjectResult(null, null),
   'EPSG:31121': ProjectAndUnProjectResult(
       Point(x: 5518037.318817771, y: 8498105.375988903),
       Point(x: 45, y: double.nan)),
@@ -13662,6 +13106,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:31255': ProjectAndUnProjectResult(
       Point(x: 347141.32095861033, y: 204860.82432084158),
       Point(x: 17.888058571082826, y: 46.89226407115187)),
+  'EPSG:5828': ProjectAndUnProjectResult(null, null),
   'EPSG:31256': ProjectAndUnProjectResult(
       Point(x: 118567.11251134053, y: 195949.6262858007),
       Point(x: 17.888058571080563, y: 46.89226407194811)),
@@ -13749,12 +13194,14 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:31295': ProjectAndUnProjectResult(
       Point(x: 797141.3209586104, y: 5204860.824320842),
       Point(x: 17.888058571082826, y: 46.89226407115187)),
+  'EPSG:5884': ProjectAndUnProjectResult(null, null),
   'EPSG:31296': ProjectAndUnProjectResult(
       Point(x: 868567.1125113405, y: 5195949.626285801),
       Point(x: 17.888058571080563, y: 46.89226407194811)),
   'EPSG:31297': ProjectAndUnProjectResult(
       Point(x: 746867.6942995265, y: 342669.0052540684),
       Point(x: 17.888058571079615, y: 46.89226407194935)),
+  'EPSG:31300': ProjectAndUnProjectResult(null, null),
   'EPSG:31370': ProjectAndUnProjectResult(
       Point(x: 1176759.146106716, y: -175517.24382414203),
       Point(x: 17.888058620014764, y: 46.8922641048904)),
@@ -13907,6 +13354,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:32002': ProjectAndUnProjectResult(
       Point(x: 21498035.44225285, y: 21085210.99828248),
       Point(x: 17.88805856028151, y: 46.89226404782306)),
+  'EPSG:6133': ProjectAndUnProjectResult(null, null),
   'EPSG:32003': ProjectAndUnProjectResult(
       Point(x: 22037916.96880421, y: 21471031.300674338),
       Point(x: 17.88805856028151, y: 46.89226404782306)),
@@ -14066,12 +13514,15 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: -8232910.5806097975, y: 23160989.44597798), Point(x: 0, y: 90)),
   'EPSG:32058': ProjectAndUnProjectResult(
       Point(x: -10457474.71770262, y: 22488066.022809565), Point(x: 0, y: 90)),
+  'EPSG:32061': ProjectAndUnProjectResult(null, null),
+  'EPSG:32062': ProjectAndUnProjectResult(null, null),
   'EPSG:32064': ProjectAndUnProjectResult(
       Point(x: 5486456.889307273, y: 39954818.42034174), Point(x: 0, y: 90)),
   'EPSG:32065': ProjectAndUnProjectResult(
       Point(x: 10581530.491512235, y: 39417001.16199298), Point(x: 0, y: 90)),
   'EPSG:32066': ProjectAndUnProjectResult(
       Point(x: 14136410.596506024, y: 38068348.2853755), Point(x: 0, y: 90)),
+  'EPSG:4079': ProjectAndUnProjectResult(null, null),
   'EPSG:32067': ProjectAndUnProjectResult(
       Point(x: 16467677.464081096, y: 36235081.57002633), Point(x: 0, y: 90)),
   'EPSG:32074': ProjectAndUnProjectResult(
@@ -14122,6 +13573,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 53494776.36427391, y: 20053499.392547227)),
   'EPSG:32110': ProjectAndUnProjectResult(
       Point(x: 5368091.402649273, y: 5342638.370730873), Point(x: 0, y: 90)),
+  'EPSG:4328': ProjectAndUnProjectResult(null, null),
   'EPSG:32111': ProjectAndUnProjectResult(
       Point(x: 5111955.253111458, y: 6059884.249141174), Point(x: 0, y: 90)),
   'EPSG:32112': ProjectAndUnProjectResult(
@@ -14142,6 +13594,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:32119': ProjectAndUnProjectResult(
       Point(x: 7013164.842371999, y: 4867653.736840957),
       Point(x: 17.88805856028151, y: 46.892264067008746)),
+  'EPSG:4330': ProjectAndUnProjectResult(null, null),
   'EPSG:32120': ProjectAndUnProjectResult(
       Point(x: 6465460.630965634, y: 5661785.323388806),
       Point(x: 17.88805856028151, y: 46.89226406700873)),
@@ -14343,6 +13796,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: -465902.9171997283, y: 11963271.723847203), Point(x: 0, y: 90)),
   'EPSG:32214': ProjectAndUnProjectResult(
       Point(x: 1672696.7891896109, y: 12179054.280612223), Point(x: 0, y: 90)),
+  'EPSG:4331': ProjectAndUnProjectResult(null, null),
   'EPSG:32215': ProjectAndUnProjectResult(
       Point(x: 3225674.641727498, y: 12014870.583308987), Point(x: 0, y: 90)),
   'EPSG:32216': ProjectAndUnProjectResult(
@@ -14369,6 +13823,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:32224': ProjectAndUnProjectResult(
       Point(x: 4656100.707349753, y: 6983062.48574052),
       Point(x: -27.571871337591244, y: 55.09596297762314)),
+  'EPSG:4332': ProjectAndUnProjectResult(null, null),
   'EPSG:32225': ProjectAndUnProjectResult(
       Point(x: 4270742.388316864, y: 6593421.181767962),
       Point(x: 9.846641343406638, y: 48.22208112109944)),
@@ -14399,6 +13854,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:32234': ProjectAndUnProjectResult(
       Point(x: 262933.5144257985, y: 5197889.894233299),
       Point(x: 17.88805856025308, y: 46.89226406670703)),
+  'EPSG:4333': ProjectAndUnProjectResult(null, null),
   'EPSG:32235': ProjectAndUnProjectResult(
       Point(x: -193943.2138932828, y: 5233638.96861848),
       Point(x: 17.888058718667033, y: 46.89226402145434)),
@@ -14429,6 +13885,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:32244': ProjectAndUnProjectResult(
       Point(x: -4015642.671452025, y: 7448401.404313255),
       Point(x: double.nan, y: double.nan)),
+  'EPSG:4334': ProjectAndUnProjectResult(null, null),
   'EPSG:32245': ProjectAndUnProjectResult(
       Point(x: -4307400.670852506, y: 7956377.283264385),
       Point(x: double.nan, y: double.nan)),
@@ -14453,6 +13910,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: -604109.9703759034, y: 12178771.885352278), Point(x: 0, y: 90)),
   'EPSG:32254': ProjectAndUnProjectResult(
       Point(x: 1558910.4167932295, y: 11945699.275061477), Point(x: 0, y: 90)),
+  'EPSG:4335': ProjectAndUnProjectResult(null, null),
   'EPSG:32255': ProjectAndUnProjectResult(
       Point(x: 4451997.912435863, y: 11150964.292449776), Point(x: 0, y: 90)),
   'EPSG:32256': ProjectAndUnProjectResult(
@@ -14478,6 +13936,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 81070332.36641054, y: -49100215.08082769), Point(x: 0, y: -90)),
   'EPSG:32304': ProjectAndUnProjectResult(
       Point(x: -79345177.22661728, y: -48235351.19662066), Point(x: 0, y: -90)),
+  'EPSG:4336': ProjectAndUnProjectResult(null, null),
   'EPSG:32305': ProjectAndUnProjectResult(
       Point(x: -61735158.723653734, y: -28016021.26287999),
       Point(x: 0, y: -90)),
@@ -14961,6 +14420,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 81069695.48161745, y: -59099747.137833305), Point(x: 0, y: -90)),
   'EPSG:32604': ProjectAndUnProjectResult(
       Point(x: -79345537.23046954, y: -58236069.63121628), Point(x: 0, y: -90)),
+  'EPSG:4337': ProjectAndUnProjectResult(null, null),
   'EPSG:32623': ProjectAndUnProjectResult(
       Point(x: 5003589.29844938, y: 7430562.4168033395),
       Point(x: 87.06844227254395, y: 103.32192587245024)),
@@ -14994,6 +14454,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:32633': ProjectAndUnProjectResult(
       Point(x: 720001.2298381603, y: 5197241.610093783),
       Point(x: 17.888058560302017, y: 46.89226406695652)),
+  'EPSG:6309': ProjectAndUnProjectResult(null, null),
   'EPSG:32634': ProjectAndUnProjectResult(
       Point(x: 262945.2879629513, y: 5197894.102732273),
       Point(x: 17.88805856025308, y: 46.89226406692703)),
@@ -15027,6 +14488,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:32644': ProjectAndUnProjectResult(
       Point(x: -4015632.4727932913, y: 7448393.592163174),
       Point(x: -29.20355224616991, y: 107.75568997892748)),
+  'EPSG:7660': ProjectAndUnProjectResult(null, null),
   'EPSG:32645': ProjectAndUnProjectResult(
       Point(x: -4307391.775069423, y: 7956367.721076452),
       Point(x: 2295.099359406656, y: 590.2186927982785)),
@@ -15053,6 +14515,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 1558843.5535780834, y: 11945699.007653777), Point(x: 0, y: 90)),
   'EPSG:32655': ProjectAndUnProjectResult(
       Point(x: 4451906.622848249, y: 11150975.81103817), Point(x: 0, y: 90)),
+  'EPSG:7662': ProjectAndUnProjectResult(null, null),
   'EPSG:32656': ProjectAndUnProjectResult(
       Point(x: 8240765.466874875, y: 9567647.74731296),
       Point(x: -4967267524.084756, y: 1643558556.5869083)),
@@ -15245,63 +14708,274 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: -103767.21813583322, y: -188871.77571889054)),
   'EPSG:32760': ProjectAndUnProjectResult(
       Point(x: 36792794.61822483, y: -1620286.792064108), Point(x: 0, y: -90)),
+  'EPSG:32761': ProjectAndUnProjectResult(
+      Point(x: double.nan, y: double.nan), null,
+      inverseResultError: 'coordinates must be finite numbers'),
   'EPSG:32766': ProjectAndUnProjectResult(
       Point(x: -877885.5006516529, y: 15354804.257526185),
       Point(x: 17.888161981005894, y: 46.89226782538485)),
+  'EPSG:3822': ProjectAndUnProjectResult(null, null),
+  'EPSG:3887': ProjectAndUnProjectResult(null, null),
+  'EPSG:4000': ProjectAndUnProjectResult(null, null),
+  'EPSG:4039': ProjectAndUnProjectResult(null, null),
+  'EPSG:4073': ProjectAndUnProjectResult(null, null),
+  'EPSG:6317': ProjectAndUnProjectResult(null, null),
+  'EPSG:6320': ProjectAndUnProjectResult(null, null),
+  'EPSG:6323': ProjectAndUnProjectResult(null, null),
+  'EPSG:6363': ProjectAndUnProjectResult(null, null),
+  'EPSG:6666': ProjectAndUnProjectResult(null, null),
+  'EPSG:6704': ProjectAndUnProjectResult(null, null),
+  'EPSG:6781': ProjectAndUnProjectResult(null, null),
+  'EPSG:6934': ProjectAndUnProjectResult(null, null),
+  'EPSG:6978': ProjectAndUnProjectResult(null, null),
+  'EPSG:6981': ProjectAndUnProjectResult(null, null),
+  'EPSG:6985': ProjectAndUnProjectResult(null, null),
+  'EPSG:6988': ProjectAndUnProjectResult(null, null),
+  'EPSG:7071': ProjectAndUnProjectResult(null, null),
+  'EPSG:7134': ProjectAndUnProjectResult(null, null),
+  'EPSG:7137': ProjectAndUnProjectResult(null, null),
+  'EPSG:7371': ProjectAndUnProjectResult(null, null),
+  'EPSG:7656': ProjectAndUnProjectResult(null, null),
+  'EPSG:7658': ProjectAndUnProjectResult(null, null),
+  'EPSG:7679': ProjectAndUnProjectResult(null, null),
+  'EPSG:7681': ProjectAndUnProjectResult(null, null),
+  'EPSG:7684': ProjectAndUnProjectResult(null, null),
+  'EPSG:7789': ProjectAndUnProjectResult(null, null),
+  'EPSG:7796': ProjectAndUnProjectResult(null, null),
+  'EPSG:7815': ProjectAndUnProjectResult(null, null),
+  'EPSG:7842': ProjectAndUnProjectResult(null, null),
+  'EPSG:7879': ProjectAndUnProjectResult(null, null),
+  'EPSG:7884': ProjectAndUnProjectResult(null, null),
+  'EPSG:7914': ProjectAndUnProjectResult(null, null),
+  'EPSG:7916': ProjectAndUnProjectResult(null, null),
+  'EPSG:7918': ProjectAndUnProjectResult(null, null),
+  'EPSG:7920': ProjectAndUnProjectResult(null, null),
+  'EPSG:7922': ProjectAndUnProjectResult(null, null),
+  'EPSG:7924': ProjectAndUnProjectResult(null, null),
+  'EPSG:7926': ProjectAndUnProjectResult(null, null),
+  'EPSG:7928': ProjectAndUnProjectResult(null, null),
+  'EPSG:7930': ProjectAndUnProjectResult(null, null),
+  'EPSG:8084': ProjectAndUnProjectResult(null, null),
+  'EPSG:8227': ProjectAndUnProjectResult(null, null),
+  'EPSG:8230': ProjectAndUnProjectResult(null, null),
+  'EPSG:8233': ProjectAndUnProjectResult(null, null),
+  'EPSG:8238': ProjectAndUnProjectResult(null, null),
+  'EPSG:8242': ProjectAndUnProjectResult(null, null),
+  'EPSG:8247': ProjectAndUnProjectResult(null, null),
+  'EPSG:8250': ProjectAndUnProjectResult(null, null),
+  'EPSG:8253': ProjectAndUnProjectResult(null, null),
+  'EPSG:3901': ProjectAndUnProjectResult(null, null),
+  'EPSG:3902': ProjectAndUnProjectResult(null, null),
+  'EPSG:3903': ProjectAndUnProjectResult(null, null),
+  'EPSG:5500': ProjectAndUnProjectResult(null, null),
+  'EPSG:4097': ProjectAndUnProjectResult(null, null),
+  'EPSG:4098': ProjectAndUnProjectResult(null, null),
+  'EPSG:4099': ProjectAndUnProjectResult(null, null),
+  'EPSG:4100': ProjectAndUnProjectResult(null, null),
+  'EPSG:5318': ProjectAndUnProjectResult(null, null),
+  'EPSG:5498': ProjectAndUnProjectResult(null, null),
+  'EPSG:5499': ProjectAndUnProjectResult(null, null),
   'EPSG:8999': ProjectAndUnProjectResult(
       Point(x: 17.888058560281515, y: 46.89226406700879),
       Point(x: 17.888058560281515, y: 46.89226406700879)),
   'EPSG:9000': ProjectAndUnProjectResult(
       Point(x: 17.888058560281515, y: 46.89226406700879),
       Point(x: 17.888058560281515, y: 46.89226406700879)),
+  'EPSG:5554': ProjectAndUnProjectResult(null, null),
+  'EPSG:5555': ProjectAndUnProjectResult(null, null),
+  'EPSG:5556': ProjectAndUnProjectResult(null, null),
+  'EPSG:5598': ProjectAndUnProjectResult(null, null),
+  'EPSG:5628': ProjectAndUnProjectResult(null, null),
+  'EPSG:5698': ProjectAndUnProjectResult(null, null),
+  'EPSG:5699': ProjectAndUnProjectResult(null, null),
+  'EPSG:5846': ProjectAndUnProjectResult(null, null),
+  'EPSG:5707': ProjectAndUnProjectResult(null, null),
+  'EPSG:5708': ProjectAndUnProjectResult(null, null),
+  'EPSG:5832': ProjectAndUnProjectResult(null, null),
+  'EPSG:5833': ProjectAndUnProjectResult(null, null),
+  'EPSG:5834': ProjectAndUnProjectResult(null, null),
+  'EPSG:5835': ProjectAndUnProjectResult(null, null),
+  'EPSG:5845': ProjectAndUnProjectResult(null, null),
   'EPSG:9003': ProjectAndUnProjectResult(
       Point(x: 17.888058560281515, y: 46.89226406700879),
       Point(x: 17.888058560281515, y: 46.89226406700879)),
+  'EPSG:5847': ProjectAndUnProjectResult(null, null),
+  'EPSG:5848': ProjectAndUnProjectResult(null, null),
+  'EPSG:5849': ProjectAndUnProjectResult(null, null),
+  'EPSG:5850': ProjectAndUnProjectResult(null, null),
+  'EPSG:5851': ProjectAndUnProjectResult(null, null),
+  'EPSG:5852': ProjectAndUnProjectResult(null, null),
+  'EPSG:5853': ProjectAndUnProjectResult(null, null),
+  'EPSG:5854': ProjectAndUnProjectResult(null, null),
+  'EPSG:5855': ProjectAndUnProjectResult(null, null),
+  'EPSG:5856': ProjectAndUnProjectResult(null, null),
+  'EPSG:5857': ProjectAndUnProjectResult(null, null),
+  'EPSG:5942': ProjectAndUnProjectResult(null, null),
+  'EPSG:5945': ProjectAndUnProjectResult(null, null),
+  'EPSG:5946': ProjectAndUnProjectResult(null, null),
+  'EPSG:5947': ProjectAndUnProjectResult(null, null),
+  'EPSG:5948': ProjectAndUnProjectResult(null, null),
+  'EPSG:5949': ProjectAndUnProjectResult(null, null),
+  'EPSG:5950': ProjectAndUnProjectResult(null, null),
+  'EPSG:5951': ProjectAndUnProjectResult(null, null),
+  'EPSG:5952': ProjectAndUnProjectResult(null, null),
+  'EPSG:5953': ProjectAndUnProjectResult(null, null),
+  'EPSG:5954': ProjectAndUnProjectResult(null, null),
+  'EPSG:5955': ProjectAndUnProjectResult(null, null),
+  'EPSG:7409': ProjectAndUnProjectResult(null, null),
+  'EPSG:5956': ProjectAndUnProjectResult(null, null),
+  'EPSG:5957': ProjectAndUnProjectResult(null, null),
+  'EPSG:5958': ProjectAndUnProjectResult(null, null),
+  'EPSG:5959': ProjectAndUnProjectResult(null, null),
+  'EPSG:5960': ProjectAndUnProjectResult(null, null),
+  'EPSG:5961': ProjectAndUnProjectResult(null, null),
+  'EPSG:5962': ProjectAndUnProjectResult(null, null),
+  'EPSG:7410': ProjectAndUnProjectResult(null, null),
+  'EPSG:5963': ProjectAndUnProjectResult(null, null),
+  'EPSG:5964': ProjectAndUnProjectResult(null, null),
+  'EPSG:5965': ProjectAndUnProjectResult(null, null),
+  'EPSG:5966': ProjectAndUnProjectResult(null, null),
+  'EPSG:5967': ProjectAndUnProjectResult(null, null),
+  'EPSG:5968': ProjectAndUnProjectResult(null, null),
+  'EPSG:5969': ProjectAndUnProjectResult(null, null),
   'EPSG:8860': ProjectAndUnProjectResult(
       Point(x: 17.888058560281515, y: 46.89226406700879),
       Point(x: 17.888058560281515, y: 46.89226406700879)),
   'EPSG:8900': ProjectAndUnProjectResult(
       Point(x: 17.888058560281515, y: 46.89226406700879),
       Point(x: 17.888058560281515, y: 46.89226406700879)),
+  'EPSG:5970': ProjectAndUnProjectResult(null, null),
+  'EPSG:5971': ProjectAndUnProjectResult(null, null),
+  'EPSG:5972': ProjectAndUnProjectResult(null, null),
+  'EPSG:5973': ProjectAndUnProjectResult(null, null),
+  'EPSG:5974': ProjectAndUnProjectResult(null, null),
+  'EPSG:5975': ProjectAndUnProjectResult(null, null),
+  'EPSG:5976': ProjectAndUnProjectResult(null, null),
+  'EPSG:6144': ProjectAndUnProjectResult(null, null),
+  'EPSG:6145': ProjectAndUnProjectResult(null, null),
+  'EPSG:6146': ProjectAndUnProjectResult(null, null),
+  'EPSG:6147': ProjectAndUnProjectResult(null, null),
+  'EPSG:6148': ProjectAndUnProjectResult(null, null),
+  'EPSG:6149': ProjectAndUnProjectResult(null, null),
+  'EPSG:6150': ProjectAndUnProjectResult(null, null),
+  'EPSG:6151': ProjectAndUnProjectResult(null, null),
   'EPSG:8902': ProjectAndUnProjectResult(
       Point(x: 17.888058560281515, y: 46.89226406700879),
       Point(x: 17.888058560281515, y: 46.89226406700879)),
   'EPSG:8907': ProjectAndUnProjectResult(
       Point(x: 17.888058560281515, y: 46.89226406700879),
       Point(x: 17.888058560281515, y: 46.89226406700879)),
+  'EPSG:6152': ProjectAndUnProjectResult(null, null),
+  'EPSG:6153': ProjectAndUnProjectResult(null, null),
+  'EPSG:6154': ProjectAndUnProjectResult(null, null),
+  'EPSG:6155': ProjectAndUnProjectResult(null, null),
+  'EPSG:6156': ProjectAndUnProjectResult(null, null),
+  'EPSG:6157': ProjectAndUnProjectResult(null, null),
+  'EPSG:6158': ProjectAndUnProjectResult(null, null),
   'EPSG:8988': ProjectAndUnProjectResult(
       Point(x: 17.888058560281515, y: 46.89226406700879),
       Point(x: 17.888058560281515, y: 46.89226406700879)),
   'EPSG:8989': ProjectAndUnProjectResult(
       Point(x: 17.888058560281515, y: 46.89226406700879),
       Point(x: 17.888058560281515, y: 46.89226406700879)),
+  'EPSG:6159': ProjectAndUnProjectResult(null, null),
+  'EPSG:6160': ProjectAndUnProjectResult(null, null),
+  'EPSG:6161': ProjectAndUnProjectResult(null, null),
+  'EPSG:6162': ProjectAndUnProjectResult(null, null),
+  'EPSG:6163': ProjectAndUnProjectResult(null, null),
+  'EPSG:6164': ProjectAndUnProjectResult(null, null),
+  'EPSG:6165': ProjectAndUnProjectResult(null, null),
   'EPSG:8990': ProjectAndUnProjectResult(
       Point(x: 17.888058560281515, y: 46.89226406700879),
       Point(x: 17.888058560281515, y: 46.89226406700879)),
   'EPSG:8991': ProjectAndUnProjectResult(
       Point(x: 17.888058560281515, y: 46.89226406700879),
       Point(x: 17.888058560281515, y: 46.89226406700879)),
+  'EPSG:6166': ProjectAndUnProjectResult(null, null),
+  'EPSG:6167': ProjectAndUnProjectResult(null, null),
+  'EPSG:6168': ProjectAndUnProjectResult(null, null),
+  'EPSG:6169': ProjectAndUnProjectResult(null, null),
+  'EPSG:6170': ProjectAndUnProjectResult(null, null),
+  'EPSG:6171': ProjectAndUnProjectResult(null, null),
+  'EPSG:6172': ProjectAndUnProjectResult(null, null),
   'EPSG:8992': ProjectAndUnProjectResult(
       Point(x: 17.888058560281515, y: 46.89226406700879),
       Point(x: 17.888058560281515, y: 46.89226406700879)),
   'EPSG:8993': ProjectAndUnProjectResult(
       Point(x: 17.888058560281515, y: 46.89226406700879),
       Point(x: 17.888058560281515, y: 46.89226406700879)),
+  'EPSG:6173': ProjectAndUnProjectResult(null, null),
+  'EPSG:6174': ProjectAndUnProjectResult(null, null),
+  'EPSG:6175': ProjectAndUnProjectResult(null, null),
+  'EPSG:6176': ProjectAndUnProjectResult(null, null),
+  'EPSG:6190': ProjectAndUnProjectResult(null, null),
+  'EPSG:6349': ProjectAndUnProjectResult(null, null),
+  'EPSG:6649': ProjectAndUnProjectResult(null, null),
+  'EPSG:6650': ProjectAndUnProjectResult(null, null),
+  'EPSG:6651': ProjectAndUnProjectResult(null, null),
+  'EPSG:6652': ProjectAndUnProjectResult(null, null),
+  'EPSG:6653': ProjectAndUnProjectResult(null, null),
+  'EPSG:6654': ProjectAndUnProjectResult(null, null),
+  'EPSG:6655': ProjectAndUnProjectResult(null, null),
+  'EPSG:6656': ProjectAndUnProjectResult(null, null),
+  'EPSG:6657': ProjectAndUnProjectResult(null, null),
   'EPSG:8994': ProjectAndUnProjectResult(
       Point(x: 17.888058560281515, y: 46.89226406700879),
       Point(x: 17.888058560281515, y: 46.89226406700879)),
+  'EPSG:6658': ProjectAndUnProjectResult(null, null),
+  'EPSG:6659': ProjectAndUnProjectResult(null, null),
+  'EPSG:6660': ProjectAndUnProjectResult(null, null),
+  'EPSG:6661': ProjectAndUnProjectResult(null, null),
+  'EPSG:6662': ProjectAndUnProjectResult(null, null),
+  'EPSG:6663': ProjectAndUnProjectResult(null, null),
+  'EPSG:6664': ProjectAndUnProjectResult(null, null),
   'EPSG:8995': ProjectAndUnProjectResult(
       Point(x: 17.888058560281515, y: 46.89226406700879),
       Point(x: 17.888058560281515, y: 46.89226406700879)),
+  'EPSG:6665': ProjectAndUnProjectResult(null, null),
+  'EPSG:6696': ProjectAndUnProjectResult(null, null),
+  'EPSG:6697': ProjectAndUnProjectResult(null, null),
+  'EPSG:6700': ProjectAndUnProjectResult(null, null),
+  'EPSG:6871': ProjectAndUnProjectResult(null, null),
+  'EPSG:6893': ProjectAndUnProjectResult(null, null),
+  'EPSG:6917': ProjectAndUnProjectResult(null, null),
+  'EPSG:6927': ProjectAndUnProjectResult(null, null),
+  'EPSG:7400': ProjectAndUnProjectResult(null, null),
   'EPSG:8996': ProjectAndUnProjectResult(
       Point(x: 17.888058560281515, y: 46.89226406700879),
       Point(x: 17.888058560281515, y: 46.89226406700879)),
+  'EPSG:7401': ProjectAndUnProjectResult(null, null),
+  'EPSG:7402': ProjectAndUnProjectResult(null, null),
+  'EPSG:7403': ProjectAndUnProjectResult(null, null),
+  'EPSG:7404': ProjectAndUnProjectResult(null, null),
+  'EPSG:7405': ProjectAndUnProjectResult(null, null),
+  'EPSG:7406': ProjectAndUnProjectResult(null, null),
+  'EPSG:7407': ProjectAndUnProjectResult(null, null),
+  'EPSG:7408': ProjectAndUnProjectResult(null, null),
+  'EPSG:7411': ProjectAndUnProjectResult(null, null),
+  'EPSG:7412': ProjectAndUnProjectResult(null, null),
+  'EPSG:7413': ProjectAndUnProjectResult(null, null),
+  'EPSG:7414': ProjectAndUnProjectResult(null, null),
+  'EPSG:7415': ProjectAndUnProjectResult(null, null),
+  'EPSG:7416': ProjectAndUnProjectResult(null, null),
+  'EPSG:7417': ProjectAndUnProjectResult(null, null),
   'EPSG:8997': ProjectAndUnProjectResult(
       Point(x: 17.888058560281515, y: 46.89226406700879),
       Point(x: 17.888058560281515, y: 46.89226406700879)),
+  'EPSG:7418': ProjectAndUnProjectResult(null, null),
+  'EPSG:7419': ProjectAndUnProjectResult(null, null),
+  'EPSG:7420': ProjectAndUnProjectResult(null, null),
+  'EPSG:7421': ProjectAndUnProjectResult(null, null),
+  'EPSG:7422': ProjectAndUnProjectResult(null, null),
+  'EPSG:7423': ProjectAndUnProjectResult(null, null),
+  'EPSG:7954': ProjectAndUnProjectResult(null, null),
   'EPSG:8998': ProjectAndUnProjectResult(
       Point(x: 17.888058560281515, y: 46.89226406700879),
       Point(x: 17.888058560281515, y: 46.89226406700879)),
+  'EPSG:7955': ProjectAndUnProjectResult(null, null),
+  'EPSG:7956': ProjectAndUnProjectResult(null, null),
+  'EPSG:8349': ProjectAndUnProjectResult(null, null),
+  'EPSG:8350': ProjectAndUnProjectResult(null, null),
   'spatialreferencing.org:900913': ProjectAndUnProjectResult(
       Point(x: 1991289.5702107965, y: 5893278.543519946),
       Point(x: 17.888058560281515, y: 46.89192236199592)),
@@ -15329,6 +15003,10 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:8818': ProjectAndUnProjectResult(
       Point(x: 17.888058560281515, y: 46.89226406700879),
       Point(x: 17.888058560281515, y: 46.89226406700879)),
+  'EPSG:3295': ProjectAndUnProjectResult(
+      Point(x: double.nan, y: double.nan), null,
+      inverseResultError: 'coordinates must be finite numbers'),
+  'EPSG:3993': ProjectAndUnProjectResult(null, null),
   'EPSG:5896': ProjectAndUnProjectResult(
       Point(x: -4652275.287064603, y: 9454768.882961797),
       Point(x: double.nan, y: double.nan)),
@@ -15341,6 +15019,10 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:5899': ProjectAndUnProjectResult(
       Point(x: -4558590.894691086, y: 10082782.95357802),
       Point(x: -168.37939778999916, y: 89.99824032468668)),
+  'EPSG:6200': ProjectAndUnProjectResult(null, null),
+  'EPSG:6201': ProjectAndUnProjectResult(null, null),
+  'EPSG:6202': ProjectAndUnProjectResult(null, null),
+  'EPSG:6966': ProjectAndUnProjectResult(null, null),
   'EPSG:8352': ProjectAndUnProjectResult(
       Point(x: -528543.9649871907, y: -1425017.3661174867),
       Point(x: 17.88805852862392, y: 46.89226411006948)),
@@ -15370,6 +15052,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 17.88805843543735, y: 46.892264027445336)),
   'EPSG:8433': ProjectAndUnProjectResult(
       Point(x: -4758861.0031654285, y: 8275272.920901373), Point(x: 0, y: 90)),
+  'EPSG:8441': ProjectAndUnProjectResult(null, null),
   'EPSG:8455': ProjectAndUnProjectResult(
       Point(x: -604157.4780445739, y: 22178763.901223246), Point(x: 0, y: 90)),
   'EPSG:8456': ProjectAndUnProjectResult(
@@ -15382,12 +15065,17 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 5952317.323946266, y: 26321824.754202325), Point(x: 0, y: 90)),
   'EPSG:8521': ProjectAndUnProjectResult(
       Point(x: 7894508.763283352, y: 26349908.7582918), Point(x: 0, y: 90)),
+  'EPSG:8816': ProjectAndUnProjectResult(null, null),
   'EPSG:8522': ProjectAndUnProjectResult(
       Point(x: 9678901.615483083, y: 26351636.208173048), Point(x: 0, y: 90)),
   'EPSG:8523': ProjectAndUnProjectResult(
       Point(x: 11178511.569606742, y: 26341238.571121696), Point(x: 0, y: 90)),
   'EPSG:8524': ProjectAndUnProjectResult(
       Point(x: 12940183.515098223, y: 26307191.59882053), Point(x: 0, y: 90)),
+  'EPSG:8525': ProjectAndUnProjectResult(null, null),
+  'EPSG:8526': ProjectAndUnProjectResult(null, null),
+  'EPSG:8527': ProjectAndUnProjectResult(null, null),
+  'EPSG:8528': ProjectAndUnProjectResult(null, null),
   'EPSG:8529': ProjectAndUnProjectResult(
       Point(x: 13776808.246564932, y: 26521702.797595344), Point(x: 0, y: 90)),
   'EPSG:8531': ProjectAndUnProjectResult(
@@ -15398,6 +15086,8 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 19148432.40305358, y: 26626034.48773308), Point(x: 0, y: 90)),
   'EPSG:8535': ProjectAndUnProjectResult(
       Point(x: 20792906.346516766, y: 26622981.894110717), Point(x: 0, y: 90)),
+  'EPSG:8536': ProjectAndUnProjectResult(null, null),
+  'EPSG:8538': ProjectAndUnProjectResult(null, null),
   'EPSG:8539': ProjectAndUnProjectResult(
       Point(x: 26140622.956820395, y: 26478605.71820706), Point(x: 0, y: 90)),
   'EPSG:8540': ProjectAndUnProjectResult(
@@ -15441,6 +15131,9 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:8840': ProjectAndUnProjectResult(
       Point(x: -2446060.569136869, y: 5986999.55129112),
       Point(x: 18.16321978290487, y: 46.92855172420158)),
+  'EPSG:8857': ProjectAndUnProjectResult(null, null),
+  'EPSG:8858': ProjectAndUnProjectResult(null, null),
+  'EPSG:8859': ProjectAndUnProjectResult(null, null),
   'EPSG:8903': ProjectAndUnProjectResult(
       Point(x: 48730994.20351042, y: -13178134.332903616), Point(x: 0, y: -90)),
   'EPSG:8908': ProjectAndUnProjectResult(
@@ -15449,4 +15142,332 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 4309153.746567462, y: 11603618.623518256), Point(x: 0, y: 90)),
   'EPSG:8910': ProjectAndUnProjectResult(
       Point(x: 5019695.054228077, y: 11044701.550210133), Point(x: 0, y: 90)),
+  'EPSG:8397': ProjectAndUnProjectResult(null, null),
+  'EPSG:8401': ProjectAndUnProjectResult(null, null),
+  'EPSG:8425': ProjectAndUnProjectResult(null, null),
+  'EPSG:8429': ProjectAndUnProjectResult(null, null),
+  'EPSG:8541': ProjectAndUnProjectResult(null, null),
+  'EPSG:8543': ProjectAndUnProjectResult(null, null),
+  'EPSG:8683': ProjectAndUnProjectResult(null, null),
+  'EPSG:8898': ProjectAndUnProjectResult(null, null),
+  'EPSG:8905': ProjectAndUnProjectResult(null, null),
+  'EPSG:9001': ProjectAndUnProjectResult(null, null),
+  'EPSG:9004': ProjectAndUnProjectResult(null, null),
+  'EPSG:9007': ProjectAndUnProjectResult(null, null),
+  'EPSG:9010': ProjectAndUnProjectResult(null, null),
+  'EPSG:9015': ProjectAndUnProjectResult(null, null),
+  'EPSG:8360': ProjectAndUnProjectResult(null, null),
+  'EPSG:8370': ProjectAndUnProjectResult(null, null),
+  'EPSG:8700': ProjectAndUnProjectResult(null, null),
+  'EPSG:8701': ProjectAndUnProjectResult(null, null),
+  'EPSG:4329': ProjectAndUnProjectResult(null, null),
+  'EPSG:8702': ProjectAndUnProjectResult(null, null),
+  'EPSG:8703': ProjectAndUnProjectResult(null, null),
+  'EPSG:8704': ProjectAndUnProjectResult(null, null),
+  'EPSG:8705': ProjectAndUnProjectResult(null, null),
+  'EPSG:8706': ProjectAndUnProjectResult(null, null),
+  'EPSG:8707': ProjectAndUnProjectResult(null, null),
+  'EPSG:7138': ProjectAndUnProjectResult(null, null),
+  'EPSG:8708': ProjectAndUnProjectResult(null, null),
+  'EPSG:8709': ProjectAndUnProjectResult(null, null),
+  'EPSG:8710': ProjectAndUnProjectResult(null, null),
+  'EPSG:8711': ProjectAndUnProjectResult(null, null),
+  'EPSG:8712': ProjectAndUnProjectResult(null, null),
+  'EPSG:8713': ProjectAndUnProjectResult(null, null),
+  'EPSG:8714': ProjectAndUnProjectResult(null, null),
+  'EPSG:8715': ProjectAndUnProjectResult(null, null),
+  'EPSG:8716': ProjectAndUnProjectResult(null, null),
+  'EPSG:8717': ProjectAndUnProjectResult(null, null),
+  'EPSG:8718': ProjectAndUnProjectResult(null, null),
+  'EPSG:8719': ProjectAndUnProjectResult(null, null),
+  'EPSG:8720': ProjectAndUnProjectResult(null, null),
+  'EPSG:8721': ProjectAndUnProjectResult(null, null),
+  'EPSG:8722': ProjectAndUnProjectResult(null, null),
+  'EPSG:8723': ProjectAndUnProjectResult(null, null),
+  'EPSG:8724': ProjectAndUnProjectResult(null, null),
+  'EPSG:8725': ProjectAndUnProjectResult(null, null),
+  'EPSG:8726': ProjectAndUnProjectResult(null, null),
+  'EPSG:8727': ProjectAndUnProjectResult(null, null),
+  'EPSG:8728': ProjectAndUnProjectResult(null, null),
+  'EPSG:8729': ProjectAndUnProjectResult(null, null),
+  'EPSG:8730': ProjectAndUnProjectResult(null, null),
+  'EPSG:8731': ProjectAndUnProjectResult(null, null),
+  'EPSG:7372': ProjectAndUnProjectResult(null, null),
+  'EPSG:8732': ProjectAndUnProjectResult(null, null),
+  'EPSG:8733': ProjectAndUnProjectResult(null, null),
+  'EPSG:8734': ProjectAndUnProjectResult(null, null),
+  'EPSG:8735': ProjectAndUnProjectResult(null, null),
+  'EPSG:8736': ProjectAndUnProjectResult(null, null),
+  'EPSG:8737': ProjectAndUnProjectResult(null, null),
+  'EPSG:8738': ProjectAndUnProjectResult(null, null),
+  'EPSG:8739': ProjectAndUnProjectResult(null, null),
+  'EPSG:8740': ProjectAndUnProjectResult(null, null),
+  'EPSG:8741': ProjectAndUnProjectResult(null, null),
+  'EPSG:8742': ProjectAndUnProjectResult(null, null),
+  'EPSG:8743': ProjectAndUnProjectResult(null, null),
+  'EPSG:8744': ProjectAndUnProjectResult(null, null),
+  'EPSG:8745': ProjectAndUnProjectResult(null, null),
+  'EPSG:8746': ProjectAndUnProjectResult(null, null),
+  'EPSG:8747': ProjectAndUnProjectResult(null, null),
+  'EPSG:8748': ProjectAndUnProjectResult(null, null),
+  'EPSG:8749': ProjectAndUnProjectResult(null, null),
+  'EPSG:8750': ProjectAndUnProjectResult(null, null),
+  'EPSG:8751': ProjectAndUnProjectResult(null, null),
+  'EPSG:8752': ProjectAndUnProjectResult(null, null),
+  'EPSG:8753': ProjectAndUnProjectResult(null, null),
+  'EPSG:8754': ProjectAndUnProjectResult(null, null),
+  'EPSG:8755': ProjectAndUnProjectResult(null, null),
+  'EPSG:8756': ProjectAndUnProjectResult(null, null),
+  'EPSG:8757': ProjectAndUnProjectResult(null, null),
+  'EPSG:8758': ProjectAndUnProjectResult(null, null),
+  'EPSG:8759': ProjectAndUnProjectResult(null, null),
+  'EPSG:8760': ProjectAndUnProjectResult(null, null),
+  'EPSG:8761': ProjectAndUnProjectResult(null, null),
+  'EPSG:7657': ProjectAndUnProjectResult(null, null),
+  'EPSG:8762': ProjectAndUnProjectResult(null, null),
+  'EPSG:8763': ProjectAndUnProjectResult(null, null),
+  'EPSG:8764': ProjectAndUnProjectResult(null, null),
+  'EPSG:8765': ProjectAndUnProjectResult(null, null),
+  'EPSG:8766': ProjectAndUnProjectResult(null, null),
+  'EPSG:8767': ProjectAndUnProjectResult(null, null),
+  'EPSG:7659': ProjectAndUnProjectResult(null, null),
+  'EPSG:8768': ProjectAndUnProjectResult(null, null),
+  'EPSG:8769': ProjectAndUnProjectResult(null, null),
+  'EPSG:8770': ProjectAndUnProjectResult(null, null),
+  'EPSG:8771': ProjectAndUnProjectResult(null, null),
+  'EPSG:8772': ProjectAndUnProjectResult(null, null),
+  'EPSG:8773': ProjectAndUnProjectResult(null, null),
+  'EPSG:8774': ProjectAndUnProjectResult(null, null),
+  'EPSG:8775': ProjectAndUnProjectResult(null, null),
+  'EPSG:8776': ProjectAndUnProjectResult(null, null),
+  'EPSG:8777': ProjectAndUnProjectResult(null, null),
+  'EPSG:8778': ProjectAndUnProjectResult(null, null),
+  'EPSG:8779': ProjectAndUnProjectResult(null, null),
+  'EPSG:8780': ProjectAndUnProjectResult(null, null),
+  'EPSG:8781': ProjectAndUnProjectResult(null, null),
+  'EPSG:8782': ProjectAndUnProjectResult(null, null),
+  'EPSG:8783': ProjectAndUnProjectResult(null, null),
+  'EPSG:8784': ProjectAndUnProjectResult(null, null),
+  'EPSG:8785': ProjectAndUnProjectResult(null, null),
+  'EPSG:8786': ProjectAndUnProjectResult(null, null),
+  'EPSG:8787': ProjectAndUnProjectResult(null, null),
+  'EPSG:8788': ProjectAndUnProjectResult(null, null),
+  'EPSG:8789': ProjectAndUnProjectResult(null, null),
+  'EPSG:8790': ProjectAndUnProjectResult(null, null),
+  'EPSG:8791': ProjectAndUnProjectResult(null, null),
+  'EPSG:8792': ProjectAndUnProjectResult(null, null),
+  'EPSG:8793': ProjectAndUnProjectResult(null, null),
+  'EPSG:8794': ProjectAndUnProjectResult(null, null),
+  'EPSG:8795': ProjectAndUnProjectResult(null, null),
+  'EPSG:8796': ProjectAndUnProjectResult(null, null),
+  'EPSG:8797': ProjectAndUnProjectResult(null, null),
+  'EPSG:8798': ProjectAndUnProjectResult(null, null),
+  'EPSG:8799': ProjectAndUnProjectResult(null, null),
+  'EPSG:8800': ProjectAndUnProjectResult(null, null),
+  'EPSG:8801': ProjectAndUnProjectResult(null, null),
+  'EPSG:8802': ProjectAndUnProjectResult(null, null),
+  'EPSG:8803': ProjectAndUnProjectResult(null, null),
+  'EPSG:7661': ProjectAndUnProjectResult(null, null),
+  'EPSG:8804': ProjectAndUnProjectResult(null, null),
+  'EPSG:8805': ProjectAndUnProjectResult(null, null),
+  'EPSG:8806': ProjectAndUnProjectResult(null, null),
+  'EPSG:8807': ProjectAndUnProjectResult(null, null),
+  'EPSG:8808': ProjectAndUnProjectResult(null, null),
+  'EPSG:8809': ProjectAndUnProjectResult(null, null),
+  'EPSG:8810': ProjectAndUnProjectResult(null, null),
+  'EPSG:8811': ProjectAndUnProjectResult(null, null),
+  'EPSG:8812': ProjectAndUnProjectResult(null, null),
+  'EPSG:8813': ProjectAndUnProjectResult(null, null),
+  'EPSG:8814': ProjectAndUnProjectResult(null, null),
+  'EPSG:8815': ProjectAndUnProjectResult(null, null),
+  'EPSG:8912': ProjectAndUnProjectResult(null, null),
+  'EPSG:3823': ProjectAndUnProjectResult(null, null),
+  'EPSG:3888': ProjectAndUnProjectResult(null, null),
+  'EPSG:4017': ProjectAndUnProjectResult(null, null),
+  'EPSG:4040': ProjectAndUnProjectResult(null, null),
+  'EPSG:4074': ProjectAndUnProjectResult(null, null),
+  'EPSG:4080': ProjectAndUnProjectResult(null, null),
+  'EPSG:4327': ProjectAndUnProjectResult(null, null),
+  'EPSG:4339': ProjectAndUnProjectResult(null, null),
+  'EPSG:4341': ProjectAndUnProjectResult(null, null),
+  'EPSG:4343': ProjectAndUnProjectResult(null, null),
+  'EPSG:4345': ProjectAndUnProjectResult(null, null),
+  'EPSG:4347': ProjectAndUnProjectResult(null, null),
+  'EPSG:7663': ProjectAndUnProjectResult(null, null),
+  'EPSG:4349': ProjectAndUnProjectResult(null, null),
+  'EPSG:4351': ProjectAndUnProjectResult(null, null),
+  'EPSG:4353': ProjectAndUnProjectResult(null, null),
+  'EPSG:4355': ProjectAndUnProjectResult(null, null),
+  'EPSG:4357': ProjectAndUnProjectResult(null, null),
+  'EPSG:7665': ProjectAndUnProjectResult(null, null),
+  'EPSG:4359': ProjectAndUnProjectResult(null, null),
+  'EPSG:4361': ProjectAndUnProjectResult(null, null),
+  'EPSG:4363': ProjectAndUnProjectResult(null, null),
+  'EPSG:4365': ProjectAndUnProjectResult(null, null),
+  'EPSG:4367': ProjectAndUnProjectResult(null, null),
+  'EPSG:7678': ProjectAndUnProjectResult(null, null),
+  'EPSG:4369': ProjectAndUnProjectResult(null, null),
+  'EPSG:4371': ProjectAndUnProjectResult(null, null),
+  'EPSG:4373': ProjectAndUnProjectResult(null, null),
+  'EPSG:4375': ProjectAndUnProjectResult(null, null),
+  'EPSG:4377': ProjectAndUnProjectResult(null, null),
+  'EPSG:7680': ProjectAndUnProjectResult(null, null),
+  'EPSG:4379': ProjectAndUnProjectResult(null, null),
+  'EPSG:4381': ProjectAndUnProjectResult(null, null),
+  'EPSG:4383': ProjectAndUnProjectResult(null, null),
+  'EPSG:4386': ProjectAndUnProjectResult(null, null),
+  'EPSG:4388': ProjectAndUnProjectResult(null, null),
+  'EPSG:4466': ProjectAndUnProjectResult(null, null),
+  'EPSG:7682': ProjectAndUnProjectResult(null, null),
+  'EPSG:7685': ProjectAndUnProjectResult(null, null),
+  'EPSG:4469': ProjectAndUnProjectResult(null, null),
+  'EPSG:4472': ProjectAndUnProjectResult(null, null),
+  'EPSG:4480': ProjectAndUnProjectResult(null, null),
+  'EPSG:4482': ProjectAndUnProjectResult(null, null),
+  'EPSG:4557': ProjectAndUnProjectResult(null, null),
+  'EPSG:4883': ProjectAndUnProjectResult(null, null),
+  'EPSG:4885': ProjectAndUnProjectResult(null, null),
+  'EPSG:4887': ProjectAndUnProjectResult(null, null),
+  'EPSG:4889': ProjectAndUnProjectResult(null, null),
+  'EPSG:4891': ProjectAndUnProjectResult(null, null),
+  'EPSG:4893': ProjectAndUnProjectResult(null, null),
+  'EPSG:4895': ProjectAndUnProjectResult(null, null),
+  'EPSG:4898': ProjectAndUnProjectResult(null, null),
+  'EPSG:4900': ProjectAndUnProjectResult(null, null),
+  'EPSG:4907': ProjectAndUnProjectResult(null, null),
+  'EPSG:4909': ProjectAndUnProjectResult(null, null),
+  'EPSG:4921': ProjectAndUnProjectResult(null, null),
+  'EPSG:4923': ProjectAndUnProjectResult(null, null),
+  'EPSG:4925': ProjectAndUnProjectResult(null, null),
+  'EPSG:4927': ProjectAndUnProjectResult(null, null),
+  'EPSG:4929': ProjectAndUnProjectResult(null, null),
+  'EPSG:4931': ProjectAndUnProjectResult(null, null),
+  'EPSG:4933': ProjectAndUnProjectResult(null, null),
+  'EPSG:7902': ProjectAndUnProjectResult(null, null),
+  'EPSG:4935': ProjectAndUnProjectResult(null, null),
+  'EPSG:4937': ProjectAndUnProjectResult(null, null),
+  'EPSG:4939': ProjectAndUnProjectResult(null, null),
+  'EPSG:4941': ProjectAndUnProjectResult(null, null),
+  'EPSG:4943': ProjectAndUnProjectResult(null, null),
+  'EPSG:7903': ProjectAndUnProjectResult(null, null),
+  'EPSG:4945': ProjectAndUnProjectResult(null, null),
+  'EPSG:4947': ProjectAndUnProjectResult(null, null),
+  'EPSG:4949': ProjectAndUnProjectResult(null, null),
+  'EPSG:4951': ProjectAndUnProjectResult(null, null),
+  'EPSG:4953': ProjectAndUnProjectResult(null, null),
+  'EPSG:7904': ProjectAndUnProjectResult(null, null),
+  'EPSG:4955': ProjectAndUnProjectResult(null, null),
+  'EPSG:4957': ProjectAndUnProjectResult(null, null),
+  'EPSG:4959': ProjectAndUnProjectResult(null, null),
+  'EPSG:4961': ProjectAndUnProjectResult(null, null),
+  'EPSG:4963': ProjectAndUnProjectResult(null, null),
+  'EPSG:7905': ProjectAndUnProjectResult(null, null),
+  'EPSG:4965': ProjectAndUnProjectResult(null, null),
+  'EPSG:4967': ProjectAndUnProjectResult(null, null),
+  'EPSG:4969': ProjectAndUnProjectResult(null, null),
+  'EPSG:4971': ProjectAndUnProjectResult(null, null),
+  'EPSG:4973': ProjectAndUnProjectResult(null, null),
+  'EPSG:7906': ProjectAndUnProjectResult(null, null),
+  'EPSG:4975': ProjectAndUnProjectResult(null, null),
+  'EPSG:4977': ProjectAndUnProjectResult(null, null),
+  'EPSG:4979': ProjectAndUnProjectResult(null, null),
+  'EPSG:4981': ProjectAndUnProjectResult(null, null),
+  'EPSG:4983': ProjectAndUnProjectResult(null, null),
+  'EPSG:4985': ProjectAndUnProjectResult(null, null),
+  'EPSG:4987': ProjectAndUnProjectResult(null, null),
+  'EPSG:4989': ProjectAndUnProjectResult(null, null),
+  'EPSG:4991': ProjectAndUnProjectResult(null, null),
+  'EPSG:4993': ProjectAndUnProjectResult(null, null),
+  'EPSG:4995': ProjectAndUnProjectResult(null, null),
+  'EPSG:7907': ProjectAndUnProjectResult(null, null),
+  'EPSG:7908': ProjectAndUnProjectResult(null, null),
+  'EPSG:4997': ProjectAndUnProjectResult(null, null),
+  'EPSG:4999': ProjectAndUnProjectResult(null, null),
+  'EPSG:5012': ProjectAndUnProjectResult(null, null),
+  'EPSG:5245': ProjectAndUnProjectResult(null, null),
+  'EPSG:5251': ProjectAndUnProjectResult(null, null),
+  'EPSG:7909': ProjectAndUnProjectResult(null, null),
+  'EPSG:5263': ProjectAndUnProjectResult(null, null),
+  'EPSG:5323': ProjectAndUnProjectResult(null, null),
+  'EPSG:5342': ProjectAndUnProjectResult(null, null),
+  'EPSG:5353': ProjectAndUnProjectResult(null, null),
+  'EPSG:5359': ProjectAndUnProjectResult(null, null),
+  'EPSG:7910': ProjectAndUnProjectResult(null, null),
+  'EPSG:5364': ProjectAndUnProjectResult(null, null),
+  'EPSG:5370': ProjectAndUnProjectResult(null, null),
+  'EPSG:5372': ProjectAndUnProjectResult(null, null),
+  'EPSG:5380': ProjectAndUnProjectResult(null, null),
+  'EPSG:5392': ProjectAndUnProjectResult(null, null),
+  'EPSG:7911': ProjectAndUnProjectResult(null, null),
+  'EPSG:5488': ProjectAndUnProjectResult(null, null),
+  'EPSG:5545': ProjectAndUnProjectResult(null, null),
+  'EPSG:5560': ProjectAndUnProjectResult(null, null),
+  'EPSG:5592': ProjectAndUnProjectResult(null, null),
+  'EPSG:5830': ProjectAndUnProjectResult(null, null),
+  'EPSG:5885': ProjectAndUnProjectResult(null, null),
+  'EPSG:7912': ProjectAndUnProjectResult(null, null),
+  'EPSG:6134': ProjectAndUnProjectResult(null, null),
+  'EPSG:6310': ProjectAndUnProjectResult(null, null),
+  'EPSG:6319': ProjectAndUnProjectResult(null, null),
+  'EPSG:6321': ProjectAndUnProjectResult(null, null),
+  'EPSG:6324': ProjectAndUnProjectResult(null, null),
+  'EPSG:6364': ProjectAndUnProjectResult(null, null),
+  'EPSG:6667': ProjectAndUnProjectResult(null, null),
+  'EPSG:7915': ProjectAndUnProjectResult(null, null),
+  'EPSG:6705': ProjectAndUnProjectResult(null, null),
+  'EPSG:6782': ProjectAndUnProjectResult(null, null),
+  'EPSG:6979': ProjectAndUnProjectResult(null, null),
+  'EPSG:6982': ProjectAndUnProjectResult(null, null),
+  'EPSG:6986': ProjectAndUnProjectResult(null, null),
+  'EPSG:6989': ProjectAndUnProjectResult(null, null),
+  'EPSG:7034': ProjectAndUnProjectResult(null, null),
+  'EPSG:7036': ProjectAndUnProjectResult(null, null),
+  'EPSG:9016': ProjectAndUnProjectResult(null, null),
+  'EPSG:7038': ProjectAndUnProjectResult(null, null),
+  'EPSG:7040': ProjectAndUnProjectResult(null, null),
+  'EPSG:7042': ProjectAndUnProjectResult(null, null),
+  'EPSG:7072': ProjectAndUnProjectResult(null, null),
+  'EPSG:7085': ProjectAndUnProjectResult(null, null),
+  'EPSG:7087': ProjectAndUnProjectResult(null, null),
+  'EPSG:7135': ProjectAndUnProjectResult(null, null),
+  'EPSG:7797': ProjectAndUnProjectResult(null, null),
+  'EPSG:7816': ProjectAndUnProjectResult(null, null),
+  'EPSG:7843': ProjectAndUnProjectResult(null, null),
+  'EPSG:7880': ProjectAndUnProjectResult(null, null),
+  'EPSG:7885': ProjectAndUnProjectResult(null, null),
+  'EPSG:7900': ProjectAndUnProjectResult(null, null),
+  'EPSG:7901': ProjectAndUnProjectResult(null, null),
+  'EPSG:7917': ProjectAndUnProjectResult(null, null),
+  'EPSG:7919': ProjectAndUnProjectResult(null, null),
+  'EPSG:7921': ProjectAndUnProjectResult(null, null),
+  'EPSG:7923': ProjectAndUnProjectResult(null, null),
+  'EPSG:7925': ProjectAndUnProjectResult(null, null),
+  'EPSG:7927': ProjectAndUnProjectResult(null, null),
+  'EPSG:7929': ProjectAndUnProjectResult(null, null),
+  'EPSG:7931': ProjectAndUnProjectResult(null, null),
+  'EPSG:8085': ProjectAndUnProjectResult(null, null),
+  'EPSG:8231': ProjectAndUnProjectResult(null, null),
+  'EPSG:8235': ProjectAndUnProjectResult(null, null),
+  'EPSG:8239': ProjectAndUnProjectResult(null, null),
+  'EPSG:9018': ProjectAndUnProjectResult(null, null),
+  'EPSG:8244': ProjectAndUnProjectResult(null, null),
+  'EPSG:8248': ProjectAndUnProjectResult(null, null),
+  'EPSG:8251': ProjectAndUnProjectResult(null, null),
+  'EPSG:8254': ProjectAndUnProjectResult(null, null),
+  'EPSG:8399': ProjectAndUnProjectResult(null, null),
+  'EPSG:8403': ProjectAndUnProjectResult(null, null),
+  'EPSG:8426': ProjectAndUnProjectResult(null, null),
+  'EPSG:8430': ProjectAndUnProjectResult(null, null),
+  'EPSG:8542': ProjectAndUnProjectResult(null, null),
+  'EPSG:8544': ProjectAndUnProjectResult(null, null),
+  'EPSG:8684': ProjectAndUnProjectResult(null, null),
+  'EPSG:8817': ProjectAndUnProjectResult(null, null),
+  'EPSG:8899': ProjectAndUnProjectResult(null, null),
+  'EPSG:8901': ProjectAndUnProjectResult(null, null),
+  'EPSG:8906': ProjectAndUnProjectResult(null, null),
+  'EPSG:9002': ProjectAndUnProjectResult(null, null),
+  'EPSG:9005': ProjectAndUnProjectResult(null, null),
+  'EPSG:9008': ProjectAndUnProjectResult(null, null),
+  'EPSG:9011': ProjectAndUnProjectResult(null, null),
+  'EPSG:9013': ProjectAndUnProjectResult(null, null),
 };

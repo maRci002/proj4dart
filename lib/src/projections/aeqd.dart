@@ -35,7 +35,7 @@ class AzimuthalEquidistantProjection extends Projection {
     var lat = p.y;
     var sinphi = math.sin(p.y);
     var cosphi = math.cos(p.y);
-    var dlon = utils.adjust_lon(lon - long0);
+    var dlon = long0 == null ? double.nan : utils.adjust_lon(lon - long0);
     var e0,
         e1,
         e2,
