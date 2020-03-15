@@ -28,7 +28,9 @@ class TransverseMercatorProjection extends Projection {
         super.init(params) {
     x0 = x0 ?? 0.0;
     y0 = y0 ?? 0.0;
-    long0 = long0 ?? 0.0;
+    if (long0 == null || long0.isNaN) {
+      long0 = 0;
+    }
     lat0 = lat0 ?? 0.0;
 
     if (es != null) {

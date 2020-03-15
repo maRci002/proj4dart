@@ -36,7 +36,9 @@ class KrovakProjection extends Projection {
     es = 0.006674372230614;
     e = math.sqrt(es);
     lat0 ??= 0.863937979737193;
-    long0 ??= 0.7417649320975901 - 0.308341501185665;
+    if (long0 == null || long0.isNaN) {
+      long0 = 0.7417649320975901 - 0.308341501185665;
+    }
     // if scale not set default to 0.9999
     k0 ??= 0.9999;
     s45 = 0.785398163397448; // 45

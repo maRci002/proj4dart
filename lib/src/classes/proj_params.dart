@@ -18,7 +18,7 @@ class ProjParams {
   double get lat1 => map['lat1'];
   double get lat2 => map['lat2'];
   double get lat_ts => map['lat_ts'];
-  double get long0 => map['long0'];
+  double get long0 => map['long0'] ?? double.nan;
   double get long1 => map['long1'];
   double get long2 => map['long2'];
   double get alpha => map['alpha'];

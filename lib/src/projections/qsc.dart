@@ -26,7 +26,7 @@ class QuadrilateralizedSphericalCubeProjection extends Projection {
 
   QuadrilateralizedSphericalCubeProjection.init(ProjParams params)
       : lat0 = params.lat0 ?? 0.0,
-        long0 = params.long0 ?? 0.0,
+        long0 = params.long0 == null || params.long0.isNaN ? 0.0 : params.long0,
         x0 = params.x0 ?? 0.0,
         y0 = params.y0 ?? 0.0,
         lat_ts = params.lat_ts ?? 0.0,

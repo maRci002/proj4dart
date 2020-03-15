@@ -67,7 +67,7 @@ class RobinsonProjection extends Projection {
   RobinsonProjection.init(ProjParams params)
       : x0 = params.x0 ?? 0.0,
         y0 = params.y0 ?? 0.0,
-        long0 = params.long0 ?? 0.0,
+        long0 = params.long0 == null || params.long0.isNaN ? 0.0 : params.long0,
         es = 0.0,
         title = params.title ?? 'Robinson',
         super.init(params);
