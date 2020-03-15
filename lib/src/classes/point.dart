@@ -40,8 +40,20 @@ class Point {
     return Mgrs.forward([x, y], accuracy);
   }
 
-  factory Point.copy(Point p) {
-    return Point.withM(x: p.x, y: p.y, z: p.z, m: p.m);
+  Point.copy(Point p) {
+    x = p.x;
+    y = p.y;
+    z = p.z;
+    m = p.m;
+  }
+
+  Point copyWith({double x, double y, double z, double m}) {
+    return Point.withM(
+      x: x ?? this.x,
+      y: y ?? this.y,
+      z: z ?? this.z,
+      m: m ?? this.m,
+    );
   }
 
   @override
