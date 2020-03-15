@@ -1,71 +1,14 @@
 import 'package:proj4dart/src/classes/point.dart';
 
 import '../classes/project_and_unproject_result.dart';
+import '../data/all_proj4_defs.dart' show blackList;
 
-// don't need to check this blackList because these results are skipped from testResults
-const blackList = {
-  'EPSG:22300': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:29701': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8441': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8857': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8858': 'Skip because proj4js wasn\'t able to process this def',
-  'EPSG:8859': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:53010': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:53011': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:53012': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:53013': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:53014': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:53015': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:53016': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:53018': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:53019': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:53022': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:53023': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:53024': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:53031': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:53035': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:53036': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:53037': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:53042': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:53043': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:53046': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:53074': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:53075': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:53076': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:54010': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:54011': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:54012': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:54013': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:54014': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:54015': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:54016': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:54018': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:54019': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:54022': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:54023': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:54024': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:54031': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:54035': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:54036': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:54037': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:54042': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:54043': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:54046': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:54052': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:54053': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:54074': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:54075': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:54076': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:102163': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:102497': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:102498': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:102590': 'Skip because proj4js wasn\'t able to process this def',
-  'ESRI:102037': 'coordinates must be finite numbers',
-};
+Map<String, ProjectAndUnProjectResult> get testResults => Map.from(_testResults)
+  ..removeWhere((key, value) => blackList.keys.contains(key));
 
-// We converted this point [17.888058560281515, 46.89226406700879] with proj4js this will give us wgsToCustom
-// Then we transformed back the wgsToCustom to calculate customToWgs
-final Map<String, ProjectAndUnProjectResult> testResults = {
+// We converted point [17.888058560281515, 46.89226406700879] with proj4js which gave us forwardResult
+// Then we transformed back the forwardResult to calculate inverseResult
+final Map<String, ProjectAndUnProjectResult> _testResults = {
   'EPSG:3819': ProjectAndUnProjectResult(
       Point(x: 17.889590510079564, y: 46.89133824892714),
       Point(x: 17.888058590372236, y: 46.89226407474856)),
@@ -12110,6 +12053,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:22293': ProjectAndUnProjectResult(
       Point(x: 1150561.2834418882, y: -5307425.242913828),
       Point(x: 17.88807710440632, y: 46.892263800891186)),
+  'EPSG:22300': ProjectAndUnProjectResult(null, null),
   'EPSG:22332': ProjectAndUnProjectResult(
       Point(x: 1176859.1682733605, y: 5231186.641959781),
       Point(x: 17.888058534550296, y: 46.89226396964504)),
@@ -13900,6 +13844,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:29700': ProjectAndUnProjectResult(
       Point(x: -1385383.755730996, y: 9088716.506591452),
       Point(x: 17.88805854692072, y: 46.89226406872663)),
+  'EPSG:29701': ProjectAndUnProjectResult(null, null),
   'EPSG:29702': ProjectAndUnProjectResult(
       Point(x: -1385383.755730996, y: 9088716.506591452),
       Point(x: 17.88805854692072, y: 46.89226406872663)),
@@ -16606,6 +16551,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
       Point(x: 17.88805843543735, y: 46.892264027445336)),
   'EPSG:8433': ProjectAndUnProjectResult(
       Point(x: -4758988.061677987, y: 8275347.846315364), Point(x: 0, y: 90)),
+  'EPSG:8441': ProjectAndUnProjectResult(null, null),
   'EPSG:8455': ProjectAndUnProjectResult(
       Point(x: -4009686.094082634, y: 22571384.874783527),
       Point(x: 17.88805856028154, y: 46.892264067008796)),
@@ -16702,6 +16648,9 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'EPSG:8840': ProjectAndUnProjectResult(
       Point(x: -2446086.561687547, y: 5986927.66662456),
       Point(x: 17.888058560281518, y: 46.89226406700878)),
+  'EPSG:8857': ProjectAndUnProjectResult(null, null),
+  'EPSG:8858': ProjectAndUnProjectResult(null, null),
+  'EPSG:8859': ProjectAndUnProjectResult(null, null),
   'EPSG:8903': ProjectAndUnProjectResult(
       Point(x: -633185.5802525296, y: 24694063.811162703),
       Point(x: 17.888058560281486, y: 46.8922640670088)),
@@ -18827,6 +18776,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'ESRI:20063': ProjectAndUnProjectResult(
       Point(x: 720092.9358476108, y: 5199412.926318542),
       Point(x: 17.88805856030201, y: 46.89226406695653)),
+  'ESRI:53010': ProjectAndUnProjectResult(null, null),
   'ESRI:24721': ProjectAndUnProjectResult(
       Point(x: 5559015.508627503, y: 8471180.200352376),
       Point(x: 17.888058560281475, y: 46.89226406700888)),
@@ -18917,9 +18867,20 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'ESRI:53009': ProjectAndUnProjectResult(
       Point(x: 1414141.3556645794, y: 5544248.031354492),
       Point(x: 17.88805856028151, y: 46.89226406700878)),
+  'ESRI:53011': ProjectAndUnProjectResult(null, null),
+  'ESRI:53012': ProjectAndUnProjectResult(null, null),
+  'ESRI:53013': ProjectAndUnProjectResult(null, null),
+  'ESRI:53014': ProjectAndUnProjectResult(null, null),
+  'ESRI:53015': ProjectAndUnProjectResult(null, null),
+  'ESRI:53016': ProjectAndUnProjectResult(null, null),
+  'ESRI:53018': ProjectAndUnProjectResult(null, null),
+  'ESRI:53019': ProjectAndUnProjectResult(null, null),
   'ESRI:53021': ProjectAndUnProjectResult(
       Point(x: 1351453.1741997828, y: 5349959.962020223),
       Point(x: 17.88805856028151, y: 46.892264067008774)),
+  'ESRI:53022': ProjectAndUnProjectResult(null, null),
+  'ESRI:53023': ProjectAndUnProjectResult(null, null),
+  'ESRI:53024': ProjectAndUnProjectResult(null, null),
   'ESRI:53025': ProjectAndUnProjectResult(
       Point(x: -525349.467460791, y: 790147.622601181),
       Point(x: 17.88805856028151, y: 46.89226406700873)),
@@ -18938,12 +18899,22 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'ESRI:53030': ProjectAndUnProjectResult(
       Point(x: 1497178.4037709725, y: 5003543.734577744),
       Point(x: 17.888058560281518, y: 46.892264067008796)),
+  'ESRI:53031': ProjectAndUnProjectResult(null, null),
   'ESRI:53032': ProjectAndUnProjectResult(
       Point(x: 1523568.3894497056, y: 5263682.972199991),
       Point(x: 17.891276821972156, y: 46.89723820611514)),
   'ESRI:53034': ProjectAndUnProjectResult(
       Point(x: 1991289.5702107965, y: 4636352.193343262),
       Point(x: 17.888058560281515, y: 46.8922640670088)),
+  'ESRI:53035': ProjectAndUnProjectResult(null, null),
+  'ESRI:53036': ProjectAndUnProjectResult(null, null),
+  'ESRI:53037': ProjectAndUnProjectResult(null, null),
+  'ESRI:53042': ProjectAndUnProjectResult(null, null),
+  'ESRI:53043': ProjectAndUnProjectResult(null, null),
+  'ESRI:53046': ProjectAndUnProjectResult(null, null),
+  'ESRI:53074': ProjectAndUnProjectResult(null, null),
+  'ESRI:53075': ProjectAndUnProjectResult(null, null),
+  'ESRI:53076': ProjectAndUnProjectResult(null, null),
   'ESRI:54001': ProjectAndUnProjectResult(
       Point(x: 1991289.5702107965, y: 5220022.958083138),
       Point(x: 17.888058560281515, y: 46.89226406700879)),
@@ -18962,9 +18933,21 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'ESRI:54009': ProjectAndUnProjectResult(
       Point(x: 1414141.3556645794, y: 5544248.031354492),
       Point(x: 17.88805856028151, y: 46.89226406700878)),
+  'ESRI:54010': ProjectAndUnProjectResult(null, null),
+  'ESRI:54011': ProjectAndUnProjectResult(null, null),
+  'ESRI:54012': ProjectAndUnProjectResult(null, null),
+  'ESRI:54013': ProjectAndUnProjectResult(null, null),
+  'ESRI:54014': ProjectAndUnProjectResult(null, null),
+  'ESRI:54015': ProjectAndUnProjectResult(null, null),
+  'ESRI:54016': ProjectAndUnProjectResult(null, null),
+  'ESRI:54018': ProjectAndUnProjectResult(null, null),
+  'ESRI:54019': ProjectAndUnProjectResult(null, null),
   'ESRI:54021': ProjectAndUnProjectResult(
       Point(x: 1351453.1741997828, y: 5349959.962020223),
       Point(x: 17.88805856028151, y: 46.892264067008774)),
+  'ESRI:54022': ProjectAndUnProjectResult(null, null),
+  'ESRI:54023': ProjectAndUnProjectResult(null, null),
+  'ESRI:54024': ProjectAndUnProjectResult(null, null),
   'ESRI:54025': ProjectAndUnProjectResult(
       Point(x: -525349.467460791, y: 790147.622601181),
       Point(x: 17.88805856028151, y: 46.89226406700873)),
@@ -18983,12 +18966,24 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'ESRI:54030': ProjectAndUnProjectResult(
       Point(x: 1497178.4037709725, y: 5003543.734577744),
       Point(x: 17.888058560281518, y: 46.892264067008796)),
+  'ESRI:54031': ProjectAndUnProjectResult(null, null),
   'ESRI:54032': ProjectAndUnProjectResult(
       Point(x: 1523568.3894497056, y: 5263682.972199991),
       Point(x: 17.891276821972156, y: 46.89723820611514)),
   'ESRI:54034': ProjectAndUnProjectResult(
       Point(x: 1991289.5702107965, y: 4636352.193343262),
       Point(x: 17.888058560281515, y: 46.8922640670088)),
+  'ESRI:54035': ProjectAndUnProjectResult(null, null),
+  'ESRI:54036': ProjectAndUnProjectResult(null, null),
+  'ESRI:54037': ProjectAndUnProjectResult(null, null),
+  'ESRI:54042': ProjectAndUnProjectResult(null, null),
+  'ESRI:54043': ProjectAndUnProjectResult(null, null),
+  'ESRI:54046': ProjectAndUnProjectResult(null, null),
+  'ESRI:54052': ProjectAndUnProjectResult(null, null),
+  'ESRI:54053': ProjectAndUnProjectResult(null, null),
+  'ESRI:54074': ProjectAndUnProjectResult(null, null),
+  'ESRI:54075': ProjectAndUnProjectResult(null, null),
+  'ESRI:54076': ProjectAndUnProjectResult(null, null),
   'ESRI:65061': ProjectAndUnProjectResult(
       Point(x: -19436753.601035345, y: 32839221.261754297),
       Point(x: double.nan, y: double.nan)),
@@ -19109,6 +19104,8 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'ESRI:102036': ProjectAndUnProjectResult(
       Point(x: 1338793138.3379195, y: 4147938914.1671124),
       Point(x: 17.888058560281515, y: -0.08384263489336523)),
+  'ESRI:102037': ProjectAndUnProjectResult(Point(x: null, y: null), null,
+      inverseResultError: 'coordinates must be finite numbers'),
   'ESRI:102038': ProjectAndUnProjectResult(
       Point(x: 4353645.455623519, y: 3449096.3761631944),
       Point(x: 17.888058560281525, y: 46.8922640670088)),
@@ -19466,6 +19463,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'ESRI:102162': ProjectAndUnProjectResult(
       Point(x: 3859430.607002985, y: 6259189.170533028),
       Point(x: 17.888058560281518, y: 46.89226406700879)),
+  'ESRI:102163': ProjectAndUnProjectResult(null, null),
   'ESRI:102164': ProjectAndUnProjectResult(
       Point(x: 2176345.7709806855, y: 1441713.704633559),
       Point(x: 17.88452979374401, y: 46.89256373315974)),
@@ -20369,6 +20367,8 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'ESRI:102496': ProjectAndUnProjectResult(
       Point(x: -176891.28615693585, y: 24764258.052049905),
       Point(x: 17.88805856028154, y: 46.892264067008824)),
+  'ESRI:102497': ProjectAndUnProjectResult(null, null),
+  'ESRI:102498': ProjectAndUnProjectResult(null, null),
   'ESRI:102499': ProjectAndUnProjectResult(
       Point(x: 1176661.3639696387, y: -175636.5794835603),
       Point(x: 17.888058560281515, y: 46.892264067008725)),
@@ -20602,6 +20602,7 @@ final Map<String, ProjectAndUnProjectResult> testResults = {
   'ESRI:102589': ProjectAndUnProjectResult(
       Point(x: 21721903.016502142, y: 20704304.708874747),
       Point(x: 17.88805856028151, y: 46.892264067008746)),
+  'ESRI:102590': ProjectAndUnProjectResult(null, null),
   'ESRI:102591': ProjectAndUnProjectResult(
       Point(x: 1674717.7638729396, y: 1608638.3988546093),
       Point(x: 17.888058560281515, y: 46.89226406700871)),

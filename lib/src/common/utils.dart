@@ -479,7 +479,7 @@ double tsfnz(double eccent, double phi, double sinphi) {
 }
 
 void checkCoord(double coord) {
-  if (coord.isFinite) {
+  if (coord != null && coord.isFinite) {
     return;
   }
   throw Exception('coordinates must be finite numbers');

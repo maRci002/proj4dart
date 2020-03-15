@@ -1,13 +1,17 @@
 import 'package:proj4dart/src/classes/point.dart';
 
+/// Holds forward and inverse results
 class ProjectAndUnProjectResult {
-  final Point wgsToCustom;
-  final Point customToWgs;
+  final Point forwardResult;
+  final Point inverseResult;
+  final String forwardResultError;
+  final String inverseResultError;
 
-  ProjectAndUnProjectResult(this.wgsToCustom, this.customToWgs);
+  ProjectAndUnProjectResult(this.forwardResult, this.inverseResult,
+      {this.forwardResultError, this.inverseResultError});
 
   @override
   String toString() {
-    return 'wgsToCustom: $wgsToCustom customToWgs: $customToWgs';
+    return 'forwardResult: ${forwardResultError ?? forwardResult} inverseResult: ${inverseResultError ?? inverseResult}';
   }
 }
