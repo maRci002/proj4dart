@@ -136,7 +136,6 @@ void main() {
       var testResults = all_proj4_ogc_results.testResults;
       testResults.remove('EPSG:3408');
       testResults.remove('EPSG:3409');
-      testResults.remove('EPSG:3409');
       testResults.remove('EPSG:3974');
       testResults.remove('EPSG:3973');
       testResults.remove('EPSG:6931');
@@ -175,7 +174,7 @@ void main() {
       expect(identical(Projection(code), Projection(code)), true);
     });
 
-    test('Should be able to override predifined projection', () {
+    test('Should be able to override predefined projection', () {
       expect(Projection('GOOGLE').runtimeType, PseudoMercatorProjection);
       var projStr =
           '+proj=utm +zone=48 +south +ellps=aust_SA +towgs84=-134,-48,149,0,0,0,0 +units=m +no_defs';
@@ -183,7 +182,7 @@ void main() {
       expect(proj.runtimeType, UniversalTransverseMercatorProjection);
     });
 
-    test('PojectionTuple should create the same result as "plain" Projections',
+    test('ProjectionTuple should create the same result as "plain" Projections',
         () {
       final defs = all_proj4_defs.testDefs;
       final from = Projection.parse(defs['EPSG:23700']);

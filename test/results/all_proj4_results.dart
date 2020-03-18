@@ -1680,34 +1680,34 @@ final Map<String, ProjectAndUnProjectResult> _testResults = {
       Point(x: 14572166.498555884, y: 10439359.049643723),
       Point(x: -99.18246850655717, y: 89.9990176256858)),
   'EPSG:2046': ProjectAndUnProjectResult(
-      Point(x: -220089.26554437814, y: -5199321.338629234),
+      Point(x: 220089.26554437814, y: 5199321.338629234),
       Point(x: 17.888058560302017, y: 46.892264066956514)),
   'EPSG:2047': ProjectAndUnProjectResult(
-      Point(x: -67677.65313369762, y: -5195652.954569092),
+      Point(x: 67677.65313369762, y: 5195652.954569092),
       Point(x: 17.88805856028157, y: 46.892264067008746)),
   'EPSG:2048': ProjectAndUnProjectResult(
-      Point(x: 84739.31772125408, y: -5195870.378876455),
+      Point(x: -84739.31772125408, y: 5195870.378876455),
       Point(x: 17.888058560281344, y: 46.89226406700862)),
   'EPSG:2049': ProjectAndUnProjectResult(
-      Point(x: 237149.57186579498, y: -5199974.092369221),
+      Point(x: -237149.57186579498, y: 5199974.092369221),
       Point(x: 17.888058560253082, y: 46.892264066927034)),
   'EPSG:2050': ProjectAndUnProjectResult(
-      Point(x: 389540.6380220994, y: -5207973.16531258),
+      Point(x: -389540.6380220994, y: 5207973.16531258),
       Point(x: 17.888058560563294, y: 46.89226406541965)),
   'EPSG:2051': ProjectAndUnProjectResult(
-      Point(x: 541898.93239327, y: -5219885.251365696),
+      Point(x: -541898.93239327, y: 5219885.251365696),
       Point(x: 17.88805857434856, y: 46.89226405586626)),
   'EPSG:2052': ProjectAndUnProjectResult(
-      Point(x: 694209.0311684936, y: -5235736.57468188),
+      Point(x: -694209.0311684936, y: 5235736.57468188),
       Point(x: 17.888058718641524, y: 46.89226402167793)),
   'EPSG:2053': ProjectAndUnProjectResult(
-      Point(x: 846452.9247961688, y: -5255561.908014318),
+      Point(x: -846452.9247961688, y: 5255561.908014318),
       Point(x: 17.888059595624597, y: 46.892263943722426)),
   'EPSG:2054': ProjectAndUnProjectResult(
-      Point(x: 998609.2468918889, y: -5279404.53863471),
+      Point(x: -998609.2468918889, y: 5279404.53863471),
       Point(x: 17.88806345975466, y: 46.89226385836239)),
   'EPSG:2055': ProjectAndUnProjectResult(
-      Point(x: 1150652.4706481723, y: -5307316.21782743),
+      Point(x: -1150652.4706481723, y: 5307316.21782743),
       Point(x: 17.888077173234432, y: 46.89226405998427)),
   'EPSG:2056': ProjectAndUnProjectResult(
       Point(x: 3393998.952123363, y: 1246372.8804294462),
@@ -12024,36 +12024,36 @@ final Map<String, ProjectAndUnProjectResult> _testResults = {
       Point(x: -650101.0296436828, y: 15305302.258695006),
       Point(x: 17.888058510401958, y: 46.89226382542353)),
   'EPSG:22275': ProjectAndUnProjectResult(
-      Point(x: -220144.73426353507, y: -5199440.622867489),
+      Point(x: 220144.73426353507, y: 5199440.622867489),
       Point(x: 17.888058510423235, y: 46.89226382537031)),
   'EPSG:22277': ProjectAndUnProjectResult(
-      Point(x: -67736.95745847678, y: -5195770.542987711),
+      Point(x: 67736.95745847678, y: 5195770.542987711),
       Point(x: 17.88805851040201, y: 46.892263825423484)),
   'EPSG:22279': ProjectAndUnProjectResult(
-      Point(x: 84676.19166841115, y: -5195986.42073681),
+      Point(x: -84676.19166841115, y: 5195986.42073681),
       Point(x: 17.88805851040178, y: 46.89226382542335)),
   'EPSG:22281': ProjectAndUnProjectResult(
-      Point(x: 237082.61766123463, y: -5200088.73346243),
+      Point(x: -237082.61766123463, y: 5200088.73346243),
       Point(x: 17.888058510372446, y: 46.89226382534054)),
   'EPSG:22283': ProjectAndUnProjectResult(
-      Point(x: 389469.82914270804, y: -5208086.547379509),
+      Point(x: -389469.82914270804, y: 5208086.547379509),
       Point(x: 17.888058510666365, y: 46.892263823809344)),
   'EPSG:22285': ProjectAndUnProjectResult(
-      Point(x: 541824.2222720046, y: -5219997.511490319),
+      Point(x: -541824.2222720046, y: 5219997.511490319),
       Point(x: 17.88805852434154, y: 46.892263814096154)),
   'EPSG:22287': ProjectAndUnProjectResult(
-      Point(x: 694130.35311062, y: -5235847.844631069),
+      Point(x: -694130.35311062, y: 5235847.844631069),
       Point(x: 17.88805866814209, y: 46.8922637792668)),
   'EPSG:22289': ProjectAndUnProjectResult(
-      Point(x: 846370.1917657558, y: -5255672.313497574),
+      Point(x: -846370.1917657558, y: 5255672.313497574),
       Point(x: 17.88805954343561, y: 46.89226369940145)),
   'EPSG:22291': ProjectAndUnProjectResult(
-      Point(x: 998522.3511807241, y: -5279514.198457728),
+      Point(x: -998522.3511807241, y: 5279514.198457728),
       Point(x: 17.88806340276551, y: 46.89226360934863)),
   'EPSG:22293': ProjectAndUnProjectResult(
-      Point(x: 1150561.2834418882, y: -5307425.242913828),
+      Point(x: -1150561.2834418882, y: 5307425.242913828),
       Point(x: 17.88807710440632, y: 46.892263800891186)),
-  'EPSG:22300': ProjectAndUnProjectResult(null, null),
+  'EPSG:22300': null /* blacklist */,
   'EPSG:22332': ProjectAndUnProjectResult(
       Point(x: 1176859.1682733605, y: 5231186.641959781),
       Point(x: 17.888058534550296, y: 46.89226396964504)),
@@ -13815,28 +13815,28 @@ final Map<String, ProjectAndUnProjectResult> _testResults = {
       Point(x: 720053.9317297677, y: 15197341.895806285),
       Point(x: 17.888058484614003, y: 46.892263768872816)),
   'EPSG:29371': ProjectAndUnProjectResult(
-      Point(x: -524830.027291518, y: -7651952.311892425),
+      Point(x: 524830.027291518, y: 7651952.311892425),
       Point(x: 17.888058474415747, y: 46.89226375964239)),
   'EPSG:29373': ProjectAndUnProjectResult(
-      Point(x: -372500.1397896259, y: -7640478.439719801),
+      Point(x: 372500.1397896259, y: 7640478.439719801),
       Point(x: 17.88805848449022, y: 46.8922637676574)),
   'EPSG:29375': ProjectAndUnProjectResult(
-      Point(x: -220138.9954071155, y: -7632914.664681439),
+      Point(x: 220138.9954071155, y: 7632914.664681439),
       Point(x: 17.888058484634396, y: 46.89226376882054)),
   'EPSG:29377': ProjectAndUnProjectResult(
-      Point(x: -67760.04878387022, y: -7629244.295466425),
+      Point(x: 67760.04878387022, y: 7629244.295466425),
       Point(x: 17.88805848461406, y: 46.892263768872766)),
   'EPSG:29379': ProjectAndUnProjectResult(
-      Point(x: 84624.27761075545, y: -7629459.221290548),
+      Point(x: -84624.27761075545, y: 7629459.221290548),
       Point(x: 17.88805848461383, y: 46.89226376887262)),
   'EPSG:29381': ProjectAndUnProjectResult(
-      Point(x: 237001.87800936878, y: -7633559.91729796),
+      Point(x: -237001.87800936878, y: 7633559.91729796),
       Point(x: 17.888058484585844, y: 46.89226376879147)),
   'EPSG:29383': ProjectAndUnProjectResult(
-      Point(x: 389360.2510477339, y: -7641555.4442533245),
+      Point(x: -389360.2510477339, y: 7641555.4442533245),
       Point(x: 17.8880584848983, y: 46.892263767290714)),
   'EPSG:29385': ProjectAndUnProjectResult(
-      Point(x: 541685.783507301, y: -7653463.442466688),
+      Point(x: -541685.783507301, y: 7653463.442466688),
       Point(x: 17.888058498682625, y: 46.89226375777593)),
   'EPSG:5558': ProjectAndUnProjectResult(
       Point(x: 4155428.244442961, y: 1341210.402475973),
@@ -13844,7 +13844,7 @@ final Map<String, ProjectAndUnProjectResult> _testResults = {
   'EPSG:29700': ProjectAndUnProjectResult(
       Point(x: -1385383.755730996, y: 9088716.506591452),
       Point(x: 17.88805854692072, y: 46.89226406872663)),
-  'EPSG:29701': ProjectAndUnProjectResult(null, null),
+  'EPSG:29701': null /* blacklist */,
   'EPSG:29702': ProjectAndUnProjectResult(
       Point(x: -1385383.755730996, y: 9088716.506591452),
       Point(x: 17.88805854692072, y: 46.89226406872663)),
@@ -16523,7 +16523,7 @@ final Map<String, ProjectAndUnProjectResult> _testResults = {
       Point(x: 21215187.32920057, y: 15731000.38572078),
       Point(x: 17.888058528615417, y: 46.89226408776839)),
   'EPSG:8352': ProjectAndUnProjectResult(
-      Point(x: 528543.9649871885, y: 1425017.3661174874),
+      Point(x: -1425017.3661174874, y: -528543.9649871885),
       Point(x: 17.88805852862392, y: 46.89226411006946)),
   'EPSG:8353': ProjectAndUnProjectResult(
       Point(x: -528543.9649871885, y: -1425017.3661174874),
@@ -16551,7 +16551,7 @@ final Map<String, ProjectAndUnProjectResult> _testResults = {
       Point(x: 17.88805843543735, y: 46.892264027445336)),
   'EPSG:8433': ProjectAndUnProjectResult(
       Point(x: -4758988.061677987, y: 8275347.846315364), Point(x: 0, y: 90)),
-  'EPSG:8441': ProjectAndUnProjectResult(null, null),
+  'EPSG:8441': null /* blacklist */,
   'EPSG:8455': ProjectAndUnProjectResult(
       Point(x: -4009686.094082634, y: 22571384.874783527),
       Point(x: 17.88805856028154, y: 46.892264067008796)),
@@ -16648,9 +16648,9 @@ final Map<String, ProjectAndUnProjectResult> _testResults = {
   'EPSG:8840': ProjectAndUnProjectResult(
       Point(x: -2446086.561687547, y: 5986927.66662456),
       Point(x: 17.888058560281518, y: 46.89226406700878)),
-  'EPSG:8857': ProjectAndUnProjectResult(null, null),
-  'EPSG:8858': ProjectAndUnProjectResult(null, null),
-  'EPSG:8859': ProjectAndUnProjectResult(null, null),
+  'EPSG:8857': null /* blacklist */,
+  'EPSG:8858': null /* blacklist */,
+  'EPSG:8859': null /* blacklist */,
   'EPSG:8903': ProjectAndUnProjectResult(
       Point(x: -633185.5802525296, y: 24694063.811162703),
       Point(x: 17.888058560281486, y: 46.8922640670088)),
@@ -18776,7 +18776,7 @@ final Map<String, ProjectAndUnProjectResult> _testResults = {
   'ESRI:20063': ProjectAndUnProjectResult(
       Point(x: 720092.9358476108, y: 5199412.926318542),
       Point(x: 17.88805856030201, y: 46.89226406695653)),
-  'ESRI:53010': ProjectAndUnProjectResult(null, null),
+  'ESRI:53010': null /* blacklist */,
   'ESRI:24721': ProjectAndUnProjectResult(
       Point(x: 5559015.508627503, y: 8471180.200352376),
       Point(x: 17.888058560281475, y: 46.89226406700888)),
@@ -18867,20 +18867,20 @@ final Map<String, ProjectAndUnProjectResult> _testResults = {
   'ESRI:53009': ProjectAndUnProjectResult(
       Point(x: 1414141.3556645794, y: 5544248.031354492),
       Point(x: 17.88805856028151, y: 46.89226406700878)),
-  'ESRI:53011': ProjectAndUnProjectResult(null, null),
-  'ESRI:53012': ProjectAndUnProjectResult(null, null),
-  'ESRI:53013': ProjectAndUnProjectResult(null, null),
-  'ESRI:53014': ProjectAndUnProjectResult(null, null),
-  'ESRI:53015': ProjectAndUnProjectResult(null, null),
-  'ESRI:53016': ProjectAndUnProjectResult(null, null),
-  'ESRI:53018': ProjectAndUnProjectResult(null, null),
-  'ESRI:53019': ProjectAndUnProjectResult(null, null),
+  'ESRI:53011': null /* blacklist */,
+  'ESRI:53012': null /* blacklist */,
+  'ESRI:53013': null /* blacklist */,
+  'ESRI:53014': null /* blacklist */,
+  'ESRI:53015': null /* blacklist */,
+  'ESRI:53016': null /* blacklist */,
+  'ESRI:53018': null /* blacklist */,
+  'ESRI:53019': null /* blacklist */,
   'ESRI:53021': ProjectAndUnProjectResult(
       Point(x: 1351453.1741997828, y: 5349959.962020223),
       Point(x: 17.88805856028151, y: 46.892264067008774)),
-  'ESRI:53022': ProjectAndUnProjectResult(null, null),
-  'ESRI:53023': ProjectAndUnProjectResult(null, null),
-  'ESRI:53024': ProjectAndUnProjectResult(null, null),
+  'ESRI:53022': null /* blacklist */,
+  'ESRI:53023': null /* blacklist */,
+  'ESRI:53024': null /* blacklist */,
   'ESRI:53025': ProjectAndUnProjectResult(
       Point(x: -525349.467460791, y: 790147.622601181),
       Point(x: 17.88805856028151, y: 46.89226406700873)),
@@ -18899,22 +18899,22 @@ final Map<String, ProjectAndUnProjectResult> _testResults = {
   'ESRI:53030': ProjectAndUnProjectResult(
       Point(x: 1497178.4037709725, y: 5003543.734577744),
       Point(x: 17.888058560281518, y: 46.892264067008796)),
-  'ESRI:53031': ProjectAndUnProjectResult(null, null),
+  'ESRI:53031': null /* blacklist */,
   'ESRI:53032': ProjectAndUnProjectResult(
       Point(x: 1523568.3894497056, y: 5263682.972199991),
       Point(x: 17.891276821972156, y: 46.89723820611514)),
   'ESRI:53034': ProjectAndUnProjectResult(
       Point(x: 1991289.5702107965, y: 4636352.193343262),
       Point(x: 17.888058560281515, y: 46.8922640670088)),
-  'ESRI:53035': ProjectAndUnProjectResult(null, null),
-  'ESRI:53036': ProjectAndUnProjectResult(null, null),
-  'ESRI:53037': ProjectAndUnProjectResult(null, null),
-  'ESRI:53042': ProjectAndUnProjectResult(null, null),
-  'ESRI:53043': ProjectAndUnProjectResult(null, null),
-  'ESRI:53046': ProjectAndUnProjectResult(null, null),
-  'ESRI:53074': ProjectAndUnProjectResult(null, null),
-  'ESRI:53075': ProjectAndUnProjectResult(null, null),
-  'ESRI:53076': ProjectAndUnProjectResult(null, null),
+  'ESRI:53035': null /* blacklist */,
+  'ESRI:53036': null /* blacklist */,
+  'ESRI:53037': null /* blacklist */,
+  'ESRI:53042': null /* blacklist */,
+  'ESRI:53043': null /* blacklist */,
+  'ESRI:53046': null /* blacklist */,
+  'ESRI:53074': null /* blacklist */,
+  'ESRI:53075': null /* blacklist */,
+  'ESRI:53076': null /* blacklist */,
   'ESRI:54001': ProjectAndUnProjectResult(
       Point(x: 1991289.5702107965, y: 5220022.958083138),
       Point(x: 17.888058560281515, y: 46.89226406700879)),
@@ -18933,21 +18933,21 @@ final Map<String, ProjectAndUnProjectResult> _testResults = {
   'ESRI:54009': ProjectAndUnProjectResult(
       Point(x: 1414141.3556645794, y: 5544248.031354492),
       Point(x: 17.88805856028151, y: 46.89226406700878)),
-  'ESRI:54010': ProjectAndUnProjectResult(null, null),
-  'ESRI:54011': ProjectAndUnProjectResult(null, null),
-  'ESRI:54012': ProjectAndUnProjectResult(null, null),
-  'ESRI:54013': ProjectAndUnProjectResult(null, null),
-  'ESRI:54014': ProjectAndUnProjectResult(null, null),
-  'ESRI:54015': ProjectAndUnProjectResult(null, null),
-  'ESRI:54016': ProjectAndUnProjectResult(null, null),
-  'ESRI:54018': ProjectAndUnProjectResult(null, null),
-  'ESRI:54019': ProjectAndUnProjectResult(null, null),
+  'ESRI:54010': null /* blacklist */,
+  'ESRI:54011': null /* blacklist */,
+  'ESRI:54012': null /* blacklist */,
+  'ESRI:54013': null /* blacklist */,
+  'ESRI:54014': null /* blacklist */,
+  'ESRI:54015': null /* blacklist */,
+  'ESRI:54016': null /* blacklist */,
+  'ESRI:54018': null /* blacklist */,
+  'ESRI:54019': null /* blacklist */,
   'ESRI:54021': ProjectAndUnProjectResult(
       Point(x: 1351453.1741997828, y: 5349959.962020223),
       Point(x: 17.88805856028151, y: 46.892264067008774)),
-  'ESRI:54022': ProjectAndUnProjectResult(null, null),
-  'ESRI:54023': ProjectAndUnProjectResult(null, null),
-  'ESRI:54024': ProjectAndUnProjectResult(null, null),
+  'ESRI:54022': null /* blacklist */,
+  'ESRI:54023': null /* blacklist */,
+  'ESRI:54024': null /* blacklist */,
   'ESRI:54025': ProjectAndUnProjectResult(
       Point(x: -525349.467460791, y: 790147.622601181),
       Point(x: 17.88805856028151, y: 46.89226406700873)),
@@ -18966,24 +18966,24 @@ final Map<String, ProjectAndUnProjectResult> _testResults = {
   'ESRI:54030': ProjectAndUnProjectResult(
       Point(x: 1497178.4037709725, y: 5003543.734577744),
       Point(x: 17.888058560281518, y: 46.892264067008796)),
-  'ESRI:54031': ProjectAndUnProjectResult(null, null),
+  'ESRI:54031': null /* blacklist */,
   'ESRI:54032': ProjectAndUnProjectResult(
       Point(x: 1523568.3894497056, y: 5263682.972199991),
       Point(x: 17.891276821972156, y: 46.89723820611514)),
   'ESRI:54034': ProjectAndUnProjectResult(
       Point(x: 1991289.5702107965, y: 4636352.193343262),
       Point(x: 17.888058560281515, y: 46.8922640670088)),
-  'ESRI:54035': ProjectAndUnProjectResult(null, null),
-  'ESRI:54036': ProjectAndUnProjectResult(null, null),
-  'ESRI:54037': ProjectAndUnProjectResult(null, null),
-  'ESRI:54042': ProjectAndUnProjectResult(null, null),
-  'ESRI:54043': ProjectAndUnProjectResult(null, null),
-  'ESRI:54046': ProjectAndUnProjectResult(null, null),
-  'ESRI:54052': ProjectAndUnProjectResult(null, null),
-  'ESRI:54053': ProjectAndUnProjectResult(null, null),
-  'ESRI:54074': ProjectAndUnProjectResult(null, null),
-  'ESRI:54075': ProjectAndUnProjectResult(null, null),
-  'ESRI:54076': ProjectAndUnProjectResult(null, null),
+  'ESRI:54035': null /* blacklist */,
+  'ESRI:54036': null /* blacklist */,
+  'ESRI:54037': null /* blacklist */,
+  'ESRI:54042': null /* blacklist */,
+  'ESRI:54043': null /* blacklist */,
+  'ESRI:54046': null /* blacklist */,
+  'ESRI:54052': null /* blacklist */,
+  'ESRI:54053': null /* blacklist */,
+  'ESRI:54074': null /* blacklist */,
+  'ESRI:54075': null /* blacklist */,
+  'ESRI:54076': null /* blacklist */,
   'ESRI:65061': ProjectAndUnProjectResult(
       Point(x: -19436753.601035345, y: 32839221.261754297),
       Point(x: double.nan, y: double.nan)),
@@ -19187,7 +19187,7 @@ final Map<String, ProjectAndUnProjectResult> _testResults = {
       Point(x: -4343549.648282396, y: 6819223.854255024),
       Point(x: -51.72593229585971, y: 103.2352650943955)),
   'ESRI:102065': ProjectAndUnProjectResult(
-      Point(x: 528644.275502284, y: 1425041.7330509082),
+      Point(x: -1425041.7330509082, y: -528644.275502284),
       Point(x: 17.888058560281507, y: 46.89226406700537)),
   'ESRI:102066': ProjectAndUnProjectResult(
       Point(x: -528644.2755022617, y: -1425041.7330509105),
@@ -19463,7 +19463,7 @@ final Map<String, ProjectAndUnProjectResult> _testResults = {
   'ESRI:102162': ProjectAndUnProjectResult(
       Point(x: 3859430.607002985, y: 6259189.170533028),
       Point(x: 17.888058560281518, y: 46.89226406700879)),
-  'ESRI:102163': ProjectAndUnProjectResult(null, null),
+  'ESRI:102163': null /* blacklist */,
   'ESRI:102164': ProjectAndUnProjectResult(
       Point(x: 2176345.7709806855, y: 1441713.704633559),
       Point(x: 17.88452979374401, y: 46.89256373315974)),
@@ -20367,8 +20367,8 @@ final Map<String, ProjectAndUnProjectResult> _testResults = {
   'ESRI:102496': ProjectAndUnProjectResult(
       Point(x: -176891.28615693585, y: 24764258.052049905),
       Point(x: 17.88805856028154, y: 46.892264067008824)),
-  'ESRI:102497': ProjectAndUnProjectResult(null, null),
-  'ESRI:102498': ProjectAndUnProjectResult(null, null),
+  'ESRI:102497': null /* blacklist */,
+  'ESRI:102498': null /* blacklist */,
   'ESRI:102499': ProjectAndUnProjectResult(
       Point(x: 1176661.3639696387, y: -175636.5794835603),
       Point(x: 17.888058560281515, y: 46.892264067008725)),
@@ -20602,7 +20602,7 @@ final Map<String, ProjectAndUnProjectResult> _testResults = {
   'ESRI:102589': ProjectAndUnProjectResult(
       Point(x: 21721903.016502142, y: 20704304.708874747),
       Point(x: 17.88805856028151, y: 46.892264067008746)),
-  'ESRI:102590': ProjectAndUnProjectResult(null, null),
+  'ESRI:102590': null /* blacklist */,
   'ESRI:102591': ProjectAndUnProjectResult(
       Point(x: 1674717.7638729396, y: 1608638.3988546093),
       Point(x: 17.888058560281515, y: 46.89226406700871)),
@@ -23910,5 +23910,5 @@ final Map<String, ProjectAndUnProjectResult> _testResults = {
       Point(x: 17.88805856028151, y: 46.89226406700873)),
   'ESRI:103971': ProjectAndUnProjectResult(
       Point(x: 20534553.941256035, y: 16716272.227879208),
-      Point(x: 17.888058560281525, y: 46.892264067008725)),
+      Point(x: 17.888058560281525, y: 46.892264067008725))
 };

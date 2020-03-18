@@ -4,8 +4,8 @@ Map<String, String> get testDefs => Map.from(_testDefs)
 /// if proj4js wasn't able to process any proj4 string, then we took them in a blackList
 /// 'undefined' means proj4js was able to parse def however cannot use it (for instance there is no projection which can handle it).
 const blackList = {
-  'EPSG:22300': 'unable to parse string \"\". State is 1',
-  'EPSG:29701': 'unable to parse string \"\". State is 1',
+  'EPSG:22300': 'unable to parse string "". State is 1',
+  'EPSG:29701': 'unable to parse string "". State is 1',
   'EPSG:8441': 'undefined',
   'EPSG:8857': 'undefined',
   'EPSG:8858': 'undefined',

@@ -515,26 +515,28 @@ Point adjust_axis(Projection crs, bool denorm, Point point) {
     }
     if (i == 0) {
       v = xin;
-      t = 'x';
+      if ('ew'.indexOf(crs.axis[i]) != -1) {
+        t = 'x';
+      } else {
+        t = 'y';
+      }
     } else if (i == 1) {
       v = yin;
-      t = 'y';
+      if ('ns'.indexOf(crs.axis[i]) != -1) {
+        t = 'y';
+      } else {
+        t = 'x';
+      }
     } else {
       v = zin;
       t = 'z';
     }
     switch (crs.axis[i]) {
       case 'e':
-        out[t] = v;
-        break;
       case 'w':
-        out[t] = -v;
-        break;
       case 'n':
-        out[t] = v;
-        break;
       case 's':
-        out[t] = -v;
+        out[t] = v;
         break;
       case 'u':
         if (pointObj[t] != null) {
