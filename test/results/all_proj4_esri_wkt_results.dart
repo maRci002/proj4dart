@@ -16916,7 +16916,7 @@ final Map<String, ProjectAndUnProjectResult> _testResults = {
       Point(x: -4750397.579877405, y: 7457490.391246642),
       Point(x: 45, y: double.nan)),
   'ESRI:102065': ProjectAndUnProjectResult(
-      Point(x: -528650.2823952527, y: -1425107.847610734),
+      Point(x: -1425107.847610734, y: -528650.2823952527),
       Point(x: 17.888058560281518, y: 46.892264133035226)),
   'ESRI:102066': ProjectAndUnProjectResult(
       Point(x: -528650.2823952527, y: -1425107.847610734),
@@ -21414,5 +21414,5 @@ final Map<String, ProjectAndUnProjectResult> _testResults = {
       Point(x: 17.888058560281515, y: 46.89226406700873)),
   'ESRI:103971': ProjectAndUnProjectResult(
       Point(x: 20534553.941269353, y: 16716272.227875762),
-      Point(x: 17.88805856028152, y: 46.89226406700873)),
+      Point(x: 17.88805856028152, y: 46.89226406700873))
 };
