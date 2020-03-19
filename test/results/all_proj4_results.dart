@@ -23910,5 +23910,5 @@ final Map<String, ProjectAndUnProjectResult> _testResults = {
       Point(x: 17.88805856028151, y: 46.89226406700873)),
   'ESRI:103971': ProjectAndUnProjectResult(
       Point(x: 20534553.941256035, y: 16716272.227879208),
-      Point(x: 17.888058560281525, y: 46.892264067008725))
+      Point(x: 17.888058560281525, y: 46.892264067008725)),
 };
