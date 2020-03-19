@@ -165,7 +165,7 @@ abstract class Projection {
 
     // DGR, 2010/11/12
     if (dest.axis != 'enu') {
-      return utils.adjust_axis(dest, true, point);
+      point = utils.adjust_axis(dest, true, point);
     }
 
     if (shouldRemoveZ) {
