@@ -15024,7 +15024,7 @@ final Map<String, ProjectAndUnProjectResult> _testResults = {
   'EPSG:6202': ProjectAndUnProjectResult(null, null),
   'EPSG:6966': ProjectAndUnProjectResult(null, null),
   'EPSG:8352': ProjectAndUnProjectResult(
-      Point(x: -528543.9649871907, y: -1425017.3661174867),
+      Point(x: -1425017.3661174867, y: -528543.9649871907),
       Point(x: 17.88805852862392, y: 46.89226411006948)),
   'EPSG:8353': ProjectAndUnProjectResult(
       Point(x: -528543.9649871907, y: -1425017.3661174867),
@@ -15051,7 +15051,7 @@ final Map<String, ProjectAndUnProjectResult> _testResults = {
       Point(x: 1177162.152080137, y: 5233765.340154357),
       Point(x: 17.88805843543735, y: 46.892264027445336)),
   'EPSG:8433': ProjectAndUnProjectResult(
-      Point(x: -4758861.0031654285, y: 8275272.920901373), Point(x: 0, y: 90)),
+      Point(x: 8275272.920901373, y: -4758861.0031654285), Point(x: 0, y: 90)),
   'EPSG:8441': ProjectAndUnProjectResult(null, null),
   'EPSG:8455': ProjectAndUnProjectResult(
       Point(x: -604157.4780445739, y: 22178763.901223246), Point(x: 0, y: 90)),
