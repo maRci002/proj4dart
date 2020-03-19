@@ -15470,4 +15470,1204 @@ final Map<String, ProjectAndUnProjectResult> _testResults = {
   'EPSG:9008': null /* blacklist */,
   'EPSG:9011': null /* blacklist */,
   'EPSG:9013': null /* blacklist */,
+  'ESRI:37001': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.892268957628076),
+      Point(x: 17.888058560281515, y: 46.89226406701472)),
+  'ESRI:37002': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.892237408954415),
+      Point(x: 17.888058560281515, y: 46.89226406688081)),
+  'ESRI:37003': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89223692746856),
+      Point(x: 17.888058560281515, y: 46.89226406694655)),
+  'ESRI:37004': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89223707793289),
+      Point(x: 17.888058560281515, y: 46.892264066925755)),
+  'ESRI:37005': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308077156372),
+      Point(x: 17.888058560281515, y: 46.8922640778546)),
+  'ESRI:37206': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89540255142901),
+      Point(x: 17.888058560281515, y: 46.892264030594234)),
+  'ESRI:37006': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.890614959330605),
+      Point(x: 17.888058560281515, y: 46.89226425955022)),
+  'ESRI:37007': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.88935948811329),
+      Point(x: 17.888058560281515, y: 46.89226455449245)),
+  'ESRI:37008': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.7002178889327),
+      Point(x: 17.888058560281515, y: 46.89213711396999)),
+  'ESRI:37201': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308433805259),
+      Point(x: 17.888058560281515, y: 46.89226409307021)),
+  'ESRI:37202': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.890614382797786),
+      Point(x: 17.888058560281515, y: 46.892264264613424)),
+  'ESRI:37203': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89061510968799),
+      Point(x: 17.888058560281515, y: 46.89226425809032)),
+  'ESRI:37204': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308433805259),
+      Point(x: 17.888058560281515, y: 46.89226409307021)),
+  'ESRI:37205': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308433805259),
+      Point(x: 17.888058560281515, y: 46.89226409307021)),
+  'ESRI:4305': null /* blacklist */,
+  'ESRI:37207': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89223707793289),
+      Point(x: 17.888058560281515, y: 46.892264066925755)),
+  'ESRI:37208': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89540255142901),
+      Point(x: 17.888058560281515, y: 46.892264030594234)),
+  'ESRI:37211': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89540255142901),
+      Point(x: 17.888058560281515, y: 46.892264030594234)),
+  'ESRI:37212': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308433805259),
+      Point(x: 17.888058560281515, y: 46.89226409307021)),
+  'ESRI:37213': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308433805259),
+      Point(x: 17.888058560281515, y: 46.89226409307021)),
+  'ESRI:37214': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308433805259),
+      Point(x: 17.888058560281515, y: 46.89226409307021)),
+  'ESRI:37215': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308433805259),
+      Point(x: 17.888058560281515, y: 46.89226409307021)),
+  'ESRI:37216': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308433805259),
+      Point(x: 17.888058560281515, y: 46.89226409307021)),
+  'ESRI:37217': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308433805259),
+      Point(x: 17.888058560281515, y: 46.89226409307021)),
+  'ESRI:37218': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308433805259),
+      Point(x: 17.888058560281515, y: 46.89226409307021)),
+  'ESRI:37219': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308433805259),
+      Point(x: 17.888058560281515, y: 46.89226409307021)),
+  'ESRI:37220': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89439997508733),
+      Point(x: 17.888058560281515, y: 46.89226404782313)),
+  'ESRI:37221': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308433805259),
+      Point(x: 17.888058560281515, y: 46.89226409307021)),
+  'ESRI:37222': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308433805259),
+      Point(x: 17.888058560281515, y: 46.89226409307021)),
+  'ESRI:37223': ProjectAndUnProjectResult(
+      Point(x: 17.88692368188675, y: 46.89112086400906),
+      Point(x: 17.888058547656193, y: 46.89226405425118)),
+  'ESRI:37224': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308433805259),
+      Point(x: 17.888058560281515, y: 46.89226409307021)),
+  'ESRI:37226': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308433805259),
+      Point(x: 17.888058560281515, y: 46.89226409307021)),
+  'ESRI:37227': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308433805259),
+      Point(x: 17.888058560281515, y: 46.89226409307021)),
+  'ESRI:37228': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89540255142901),
+      Point(x: 17.888058560281515, y: 46.892264030594234)),
+  'ESRI:37229': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308077156372),
+      Point(x: 17.888058560281515, y: 46.8922640778546)),
+  'ESRI:37230': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308433805259),
+      Point(x: 17.888058560281515, y: 46.89226409307021)),
+  'ESRI:37231': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89226940909668),
+      Point(x: 17.888058560281515, y: 46.89226406702781)),
+  'ESRI:37232': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308433805259),
+      Point(x: 17.888058560281515, y: 46.89226409307021)),
+  'ESRI:37233': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308433805259),
+      Point(x: 17.888058560281515, y: 46.89226409307021)),
+  'ESRI:37234': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308433805259),
+      Point(x: 17.888058560281515, y: 46.89226409307021)),
+  'ESRI:37235': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308433805259),
+      Point(x: 17.888058560281515, y: 46.89226409307021)),
+  'ESRI:37237': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308433805259),
+      Point(x: 17.888058560281515, y: 46.89226409307021)),
+  'ESRI:37238': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308433805259),
+      Point(x: 17.888058560281515, y: 46.89226409307021)),
+  'ESRI:37239': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89439997508733),
+      Point(x: 17.888058560281515, y: 46.89226404782313)),
+  'ESRI:37240': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89540255142901),
+      Point(x: 17.888058560281515, y: 46.892264030594234)),
+  'ESRI:37241': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308433805259),
+      Point(x: 17.888058560281515, y: 46.89226409307021)),
+  'ESRI:37242': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308433805259),
+      Point(x: 17.888058560281515, y: 46.89226409307021)),
+  'ESRI:37243': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89439997508733),
+      Point(x: 17.888058560281515, y: 46.89226404782313)),
+  'ESRI:37245': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308433805259),
+      Point(x: 17.888058560281515, y: 46.89226409307021)),
+  'ESRI:37246': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308433805259),
+      Point(x: 17.888058560281515, y: 46.89226409307021)),
+  'ESRI:37247': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308433805259),
+      Point(x: 17.888058560281515, y: 46.89226409307021)),
+  'ESRI:37249': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308433805259),
+      Point(x: 17.888058560281515, y: 46.89226409307021)),
+  'ESRI:37250': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308433805259),
+      Point(x: 17.888058560281515, y: 46.89226409307021)),
+  'ESRI:37251': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308433805259),
+      Point(x: 17.888058560281515, y: 46.89226409307021)),
+  'ESRI:37252': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89439997508733),
+      Point(x: 17.888058560281515, y: 46.89226404782313)),
+  'ESRI:37253': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308433805259),
+      Point(x: 17.888058560281515, y: 46.89226409307021)),
+  'ESRI:37254': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89540255142901),
+      Point(x: 17.888058560281515, y: 46.892264030594234)),
+  'ESRI:37255': ProjectAndUnProjectResult(
+      Point(x: 17.87789321261279, y: 46.89027575009919),
+      Point(x: 17.888059822235842, y: 46.8922643145557)),
+  'ESRI:37257': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89223978629081),
+      Point(x: 17.888058560281515, y: 46.892264066591615)),
+  'ESRI:37259': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308433805259),
+      Point(x: 17.888058560281515, y: 46.89226409307021)),
+  'ESRI:37260': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89439997508733),
+      Point(x: 17.888058560281515, y: 46.89226404782313)),
+  'ESRI:104000': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89439997508733),
+      Point(x: 17.888058560281515, y: 46.89226404782313)),
+  'ESRI:104101': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.891667111272),
+      Point(x: 17.888058560281515, y: 46.89226413303865)),
+  'ESRI:104102': ProjectAndUnProjectResult(
+      Point(x: 17.893338495202972, y: 46.89256039541229),
+      Point(x: 17.888058563174475, y: 46.892264067171745)),
+  'ESRI:104103': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89540255142901),
+      Point(x: 17.888058560281515, y: 46.892264030594234)),
+  'ESRI:104104': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308433805259),
+      Point(x: 17.888058560281515, y: 46.89226409307021)),
+  'ESRI:104105': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.891667111272),
+      Point(x: 17.888058560281515, y: 46.89226413303865)),
+  'ESRI:104106': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89308433805259),
+      Point(x: 17.888058560281515, y: 46.89226409307021)),
+  'ESRI:104107': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89226406700879),
+      Point(x: 17.888058560281515, y: 46.89226406700879)),
+  'ESRI:104108': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89226406700879),
+      Point(x: 17.888058560281515, y: 46.89226406700879)),
+  'ESRI:104261': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.895401874928865),
+      Point(x: 17.888058560281515, y: 46.892264030648946)),
+  'ESRI:104304': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.895401874928865),
+      Point(x: 17.888058560281515, y: 46.892264030648946)),
+  'ESRI:104305': ProjectAndUnProjectResult(
+      Point(x: 17.888058560281515, y: 46.89540255142901),
+      Point(x: 17.888058560281515, y: 46.892264030594234)),
+  'ESRI:2181': null /* blacklist */,
+  'ESRI:2182': null /* blacklist */,
+  'ESRI:2183': null /* blacklist */,
+  'ESRI:2184': null /* blacklist */,
+  'ESRI:2185': null /* blacklist */,
+  'ESRI:2186': null /* blacklist */,
+  'ESRI:2187': null /* blacklist */,
+  'ESRI:20002': null /* blacklist */,
+  'ESRI:20003': null /* blacklist */,
+  'ESRI:20062': null /* blacklist */,
+  'ESRI:20063': null /* blacklist */,
+  'ESRI:53010': null /* blacklist */,
+  'ESRI:24721': null /* blacklist */,
+  'ESRI:26761': null /* blacklist */,
+  'ESRI:26762': null /* blacklist */,
+  'ESRI:26763': null /* blacklist */,
+  'ESRI:26764': null /* blacklist */,
+  'ESRI:26765': null /* blacklist */,
+  'ESRI:26788': null /* blacklist */,
+  'ESRI:26789': null /* blacklist */,
+  'ESRI:26790': null /* blacklist */,
+  'ESRI:30591': null /* blacklist */,
+  'ESRI:30592': null /* blacklist */,
+  'ESRI:31491': ProjectAndUnProjectResult(
+      Point(x: 2633514.2903908812, y: 5303379.750311261),
+      Point(x: 17.88804238682428, y: 46.89226406928607)),
+  'ESRI:31492': ProjectAndUnProjectResult(
+      Point(x: 3405410.460859641, y: 5263731.414179802),
+      Point(x: 17.888056607098953, y: 46.89226397138334)),
+  'ESRI:31493': ProjectAndUnProjectResult(
+      Point(x: 4177087.538008534, y: 5233165.822182404),
+      Point(x: 17.88805843535868, y: 46.892264093608865)),
+  'ESRI:31494': ProjectAndUnProjectResult(
+      Point(x: 4948619.814255216, y: 5211532.968062555),
+      Point(x: 17.888058558410155, y: 46.892264129373)),
+  'ESRI:31495': ProjectAndUnProjectResult(
+      Point(x: 5720065.001582181, y: 5198725.952166574),
+      Point(x: 17.888058560301882, y: 46.89226413298655)),
+  'ESRI:32059': null /* blacklist */,
+  'ESRI:32060': null /* blacklist */,
+  'ESRI:53001': null /* blacklist */,
+  'ESRI:53002': ProjectAndUnProjectResult(
+      Point(x: 1989061.359424074, y: -1478868.296228743),
+      Point(x: 17.888058560281515, y: 46.89213702363702)),
+  'ESRI:53003': ProjectAndUnProjectResult(
+      Point(x: 1989061.359424074, y: 5605508.101878505),
+      Point(x: 17.888058560281515, y: 46.89213702363701)),
+  'ESRI:53004': ProjectAndUnProjectResult(
+      Point(x: 1989061.359424074, y: 5886684.089847173),
+      Point(x: 17.888058560281515, y: 46.89213702363699)),
+  'ESRI:53008': ProjectAndUnProjectResult(
+      Point(x: 1364129.2803920931, y: 5192827.30244478),
+      Point(x: 17.888058560281515, y: 46.89213702363702)),
+  'ESRI:53009': ProjectAndUnProjectResult(
+      Point(x: 1415734.1810570231, y: 5517481.565709639),
+      Point(x: 17.888058560281518, y: 46.89213702363702)),
+  'ESRI:53011': null /* blacklist */,
+  'ESRI:53012': null /* blacklist */,
+  'ESRI:53013': null /* blacklist */,
+  'ESRI:53014': null /* blacklist */,
+  'ESRI:53015': null /* blacklist */,
+  'ESRI:53016': null /* blacklist */,
+  'ESRI:53018': null /* blacklist */,
+  'ESRI:53019': null /* blacklist */,
+  'ESRI:53021': ProjectAndUnProjectResult(
+      Point(x: 1352421.9196164657, y: 5347137.354775429),
+      Point(x: 17.88805856028151, y: 46.89213702363699)),
+  'ESRI:53022': null /* blacklist */,
+  'ESRI:53023': null /* blacklist */,
+  'ESRI:53024': null /* blacklist */,
+  'ESRI:53025': null /* blacklist */,
+  'ESRI:53026': null /* blacklist */,
+  'ESRI:53027': ProjectAndUnProjectResult(
+      Point(x: double.nan, y: double.nan), null,
+      inverseResultError: 'coordinates must be finite numbers'),
+  'ESRI:53028': ProjectAndUnProjectResult(
+      Point(x: 1352205.6285220713, y: 5350092.753603541),
+      Point(x: 17.888058560281515, y: 46.89213702363702)),
+  'ESRI:53029': ProjectAndUnProjectResult(
+      Point(x: 1834060.3257663748, y: 5612665.5682255635),
+      Point(x: 17.888058560281436, y: 46.89213702363701)),
+  'ESRI:53030': ProjectAndUnProjectResult(
+      Point(x: 1497296.2929764842, y: 4977873.885669099),
+      Point(x: 17.888058560281515, y: 46.89213702363702)),
+  'ESRI:53031': null /* blacklist */,
+  'ESRI:53032': ProjectAndUnProjectResult(
+      Point(x: 1522852.2532540832, y: 5261208.837185918),
+      Point(x: 17.888058560281515, y: 46.89213702363702)),
+  'ESRI:54001': null /* blacklist */,
+  'ESRI:54002': ProjectAndUnProjectResult(
+      Point(x: 1991289.5702107965, y: -1459146.4895132757),
+      Point(x: 17.888058560281515, y: 46.89226406700879)),
+  'ESRI:54003': ProjectAndUnProjectResult(
+      Point(x: 1991289.5702107965, y: 5638711.875533271),
+      Point(x: 17.888058560281515, y: 46.892264067008796)),
+  'ESRI:54004': ProjectAndUnProjectResult(
+      Point(x: 1991289.5702107965, y: 5893297.075909311),
+      Point(x: 17.888058560281515, y: 46.892264067008725)),
+  'ESRI:54008': ProjectAndUnProjectResult(
+      Point(x: 1363226.4882243178, y: 5195270.02783802),
+      Point(x: 17.88805856028151, y: 46.89226406700879)),
+  'ESRI:54009': ProjectAndUnProjectResult(
+      Point(x: 1414141.3556645794, y: 5544248.031354492),
+      Point(x: 17.88805856028151, y: 46.89226406700878)),
+  'ESRI:54010': null /* blacklist */,
+  'ESRI:54011': null /* blacklist */,
+  'ESRI:54012': null /* blacklist */,
+  'ESRI:54013': null /* blacklist */,
+  'ESRI:54014': null /* blacklist */,
+  'ESRI:54015': null /* blacklist */,
+  'ESRI:54016': null /* blacklist */,
+  'ESRI:54018': null /* blacklist */,
+  'ESRI:54019': null /* blacklist */,
+  'ESRI:54021': ProjectAndUnProjectResult(
+      Point(x: 1351453.1741997828, y: 5349959.962020223),
+      Point(x: 17.88805856028151, y: 46.892264067008774)),
+  'ESRI:54022': null /* blacklist */,
+  'ESRI:54023': null /* blacklist */,
+  'ESRI:54024': null /* blacklist */,
+  'ESRI:54025': null /* blacklist */,
+  'ESRI:54026': null /* blacklist */,
+  'ESRI:54027': ProjectAndUnProjectResult(
+      Point(x: double.nan, y: double.nan), null,
+      inverseResultError: 'coordinates must be finite numbers'),
+  'ESRI:54028': ProjectAndUnProjectResult(
+      Point(x: 1351607.4865958982, y: 5352916.572213091),
+      Point(x: 17.86418197560285, y: 46.892565435916886)),
+  'ESRI:54029': ProjectAndUnProjectResult(
+      Point(x: 1834612.8834825777, y: 5646061.103307025),
+      Point(x: 17.888058560281596, y: 46.892264067008796)),
+  'ESRI:54030': ProjectAndUnProjectResult(
+      Point(x: 1497178.4037709725, y: 5003543.734577744),
+      Point(x: 17.888058560281518, y: 46.892264067008796)),
+  'ESRI:54031': null /* blacklist */,
+  'ESRI:54032': ProjectAndUnProjectResult(
+      Point(x: 1523568.3894497056, y: 5263682.972199991),
+      Point(x: 17.891276821972156, y: 46.89723820611514)),
+  'ESRI:65061': ProjectAndUnProjectResult(
+      Point(x: 17368152.185412448, y: 41376903.25302795),
+      Point(x: 45, y: double.nan)),
+  'ESRI:65161': ProjectAndUnProjectResult(
+      Point(x: 5294261.244979995, y: 12611603.39857551),
+      Point(x: 151.47831049836137, y: 142.80426914492568)),
+  'ESRI:102001': ProjectAndUnProjectResult(
+      Point(x: 5120443.478249472, y: 6553335.276617178),
+      Point(x: 17.888058560281525, y: 46.89226406700877)),
+  'ESRI:102002': ProjectAndUnProjectResult(
+      Point(x: 5001062.464395562, y: 6655842.056607917),
+      Point(x: 17.888058560281525, y: 46.89226406700873)),
+  'ESRI:102003': ProjectAndUnProjectResult(
+      Point(x: 6774661.149690735, y: 5675837.594398042),
+      Point(x: 17.888058560281525, y: 46.89226406700876)),
+  'ESRI:102004': ProjectAndUnProjectResult(
+      Point(x: 6606704.495302742, y: 5657712.944661155),
+      Point(x: 17.888058560281525, y: 46.892264067008746)),
+  'ESRI:102005': ProjectAndUnProjectResult(
+      Point(x: double.nan, y: double.nan), null,
+      inverseResultError: 'coordinates must be finite numbers'),
+  'ESRI:102006': ProjectAndUnProjectResult(
+      Point(x: 2704046.3736966117, y: 9181485.899239805),
+      Point(x: 17.88805856028151, y: 46.892264067008746)),
+  'ESRI:102007': ProjectAndUnProjectResult(
+      Point(x: 15228176.418609375, y: 8954791.91505796),
+      Point(x: 17.88805856028151, y: 46.892264067008746)),
+  'ESRI:102008': ProjectAndUnProjectResult(
+      Point(x: 6346529.50757314, y: 5162449.305987446),
+      Point(x: 17.88805856028151, y: 46.89226406700877)),
+  'ESRI:102009': ProjectAndUnProjectResult(
+      Point(x: 6056745.170151441, y: 5353401.639261529),
+      Point(x: 17.88805856028151, y: 46.892264067008746)),
+  'ESRI:102010': ProjectAndUnProjectResult(
+      Point(x: double.nan, y: double.nan), null,
+      inverseResultError: 'coordinates must be finite numbers'),
+  'ESRI:102011': ProjectAndUnProjectResult(
+      Point(x: 220095.31753549844, y: 5195270.02783802),
+      Point(x: 17.888058560281515, y: 46.89226406700879)),
+  'ESRI:102012': ProjectAndUnProjectResult(
+      Point(x: -5150430.384290749, y: 8723201.977773694),
+      Point(x: 17.8880585602815, y: 46.89226406700872)),
+  'ESRI:102013': ProjectAndUnProjectResult(
+      Point(x: 595268.2876240935, y: 1880710.052046259),
+      Point(x: 17.888058560281515, y: 46.892264093070246)),
+  'ESRI:102014': ProjectAndUnProjectResult(
+      Point(x: 594775.2624609793, y: 1942495.0923757292),
+      Point(x: 17.888058560281515, y: 46.89226409307015)),
+  'ESRI:102015': ProjectAndUnProjectResult(
+      Point(x: 12370797.835033901, y: 7310375.521148352),
+      Point(x: 17.88805856028151, y: 46.89226406702775)),
+  'ESRI:102016': ProjectAndUnProjectResult(
+      Point(x: 1476416.3949630032, y: -4574332.540861594),
+      Point(x: 17.888058560281515, y: 46.89226406700879)),
+  'ESRI:102017': ProjectAndUnProjectResult(
+      Point(x: 1441907.3090332332, y: -4467414.170635901),
+      Point(x: 17.888058560281515, y: 46.89226406911223)),
+  'ESRI:102018': null /* blacklist */,
+  'ESRI:102019': ProjectAndUnProjectResult(
+      Point(x: 4667956.830362232, y: 14462577.699157946),
+      Point(x: 17.888058560281515, y: 46.89226406700877)),
+  'ESRI:102020': ProjectAndUnProjectResult(
+      Point(x: 3638523.4746012595, y: 11273118.062993607),
+      Point(x: 17.888058560281515, y: 46.89226406911217)),
+  'ESRI:102021': null /* blacklist */,
+  'ESRI:102022': ProjectAndUnProjectResult(
+      Point(x: -752148.4448422453, y: 4927878.07939145),
+      Point(x: 17.888058560281515, y: 46.89226406700897)),
+  'ESRI:102023': ProjectAndUnProjectResult(
+      Point(x: double.nan, y: double.nan), null,
+      inverseResultError: 'coordinates must be finite numbers'),
+  'ESRI:102024': ProjectAndUnProjectResult(
+      Point(x: -755714.924059733, y: 5555010.119621694),
+      Point(x: 17.888058560281515, y: 46.89226406700883)),
+  'ESRI:102025': ProjectAndUnProjectResult(
+      Point(x: -4799866.25311625, y: 4036450.490477857),
+      Point(x: 17.888058560281525, y: 46.89226406700875)),
+  'ESRI:102026': ProjectAndUnProjectResult(
+      Point(x: double.nan, y: double.nan), null,
+      inverseResultError: 'coordinates must be finite numbers'),
+  'ESRI:102027': ProjectAndUnProjectResult(
+      Point(x: -4653305.61079776, y: 3943254.587262065),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102028': ProjectAndUnProjectResult(
+      Point(x: -12919202.408105567, y: 3712576.94264026),
+      Point(x: 17.88805856028151, y: 46.892264067008796)),
+  'ESRI:102029': ProjectAndUnProjectResult(
+      Point(x: double.nan, y: double.nan), null,
+      inverseResultError: 'coordinates must be finite numbers'),
+  'ESRI:102030': ProjectAndUnProjectResult(
+      Point(x: -13732290.521873133, y: 5015949.6748771),
+      Point(x: 17.88805856028154, y: 46.89226406700873)),
+  'ESRI:102031': ProjectAndUnProjectResult(
+      Point(x: double.nan, y: double.nan), null,
+      inverseResultError: 'coordinates must be finite numbers'),
+  'ESRI:102032': ProjectAndUnProjectResult(
+      Point(x: double.nan, y: double.nan), null,
+      inverseResultError: 'coordinates must be finite numbers'),
+  'ESRI:102033': ProjectAndUnProjectResult(
+      Point(x: 10516696.26778462, y: 4923983.229660712),
+      Point(x: 17.88805856028151, y: 46.89226406702777)),
+  'ESRI:102065': ProjectAndUnProjectResult(
+      Point(x: -528650.2823952527, y: -1425107.847610734),
+      Point(x: 17.888058560281518, y: 46.892264133035226)),
+  'ESRI:102066': ProjectAndUnProjectResult(
+      Point(x: -528650.2823952527, y: -1425107.847610734),
+      Point(x: 17.888058560281518, y: 46.892264133035226)),
+  'ESRI:102067': ProjectAndUnProjectResult(
+      Point(x: -528650.2823952527, y: -1425107.847610734),
+      Point(x: 17.888058560281518, y: 46.892264133035226)),
+  'ESRI:102091': ProjectAndUnProjectResult(
+      Point(x: 2176912.6646181988, y: 5231864.353102461),
+      Point(x: 17.888058435548963, y: 46.8922640533178)),
+  'ESRI:102092': ProjectAndUnProjectResult(
+      Point(x: 2740008.1957439464, y: 5197432.579517475),
+      Point(x: 17.888058560302213, y: 46.892264093017694)),
+  'ESRI:102100': null /* blacklist */,
+  'ESRI:102101': ProjectAndUnProjectResult(
+      Point(x: 901144.5141596653, y: -1167554.02602259),
+      Point(x: 17.888056692181117, y: 46.89226396502511)),
+  'ESRI:102102': ProjectAndUnProjectResult(
+      Point(x: 723569.503447467, y: -1191972.7272622623),
+      Point(x: 17.88805832495651, y: 46.89226406740445)),
+  'ESRI:102103': ProjectAndUnProjectResult(
+      Point(x: 545899.034846687, y: -1210972.0935099924),
+      Point(x: 17.88805854509358, y: 46.892264112290604)),
+  'ESRI:102104': ProjectAndUnProjectResult(
+      Point(x: 355464.9271881655, y: -1225378.850737502),
+      Point(x: 17.888058560254795, y: 46.892264122970886)),
+  'ESRI:102105': ProjectAndUnProjectResult(
+      Point(x: 76085.03331336606, y: -1235471.183078234),
+      Point(x: 17.888058560281614, y: 46.892264123889376)),
+  'ESRI:102106': ProjectAndUnProjectResult(
+      Point(x: -228713.8109986034, y: -1231579.6305102806),
+      Point(x: 17.88805856025734, y: 46.89226412382382)),
+  'ESRI:102107': ProjectAndUnProjectResult(
+      Point(x: -533437.6998064392, y: -1212102.5931776296),
+      Point(x: 17.8880585723027, y: 46.89226411374865)),
+  'ESRI:102108': ProjectAndUnProjectResult(
+      Point(x: -850652.5290024325, y: -1175054.2778190067),
+      Point(x: 17.888059646302192, y: 46.89226399834284)),
+  'ESRI:102110': ProjectAndUnProjectResult(
+      Point(x: 1826843.2636406783, y: 6750111.643270712),
+      Point(x: 17.888058560281515, y: 46.89226406700873)),
+  'ESRI:102113': ProjectAndUnProjectResult(
+      Point(x: 1991289.5702107965, y: 5893278.543519946),
+      Point(x: 17.888058560281515, y: 46.89192236199592)),
+  'ESRI:102114': ProjectAndUnProjectResult(
+      Point(x: -79339726.16669452, y: -58247338.454235926),
+      Point(x: 0, y: -90)),
+  'ESRI:102115': ProjectAndUnProjectResult(
+      Point(x: -61731329.631061815, y: -38025676.41738077),
+      Point(x: 0, y: -90)),
+  'ESRI:102120': ProjectAndUnProjectResult(
+      Point(x: 27513500.90484948, y: 9174657.37624571),
+      Point(x: 17.88805856028151, y: 46.89226404782305)),
+  'ESRI:102121': ProjectAndUnProjectResult(
+      Point(x: 27514482.49162391, y: 9174016.875371268),
+      Point(x: 17.8880585602815, y: 46.89226406700872)),
+  'ESRI:102122': ProjectAndUnProjectResult(
+      Point(x: 8386131.848100426, y: 2796441.161164048),
+      Point(x: 17.88805856028151, y: 46.89226404782305)),
+  'ESRI:102123': ProjectAndUnProjectResult(
+      Point(x: 8386431.03634765, y: 2796245.936107068),
+      Point(x: 17.8880585602815, y: 46.89226406700872)),
+  'ESRI:102132': ProjectAndUnProjectResult(
+      Point(x: 1176826.7344775074, y: 5231150.6834382145),
+      Point(x: 17.88805843535865, y: 46.89226408445966)),
+  'ESRI:102133': ProjectAndUnProjectResult(
+      Point(x: 719980.2360636793, y: 5196724.077529944),
+      Point(x: 17.888058560301882, y: 46.89226412383736)),
+  'ESRI:102134': ProjectAndUnProjectResult(
+      Point(x: 262967.9088134776, y: 5197376.501573689),
+      Point(x: 17.888058560253278, y: 46.89226412380796)),
+  'ESRI:102135': ProjectAndUnProjectResult(
+      Point(x: -193865.17213603505, y: 5233120.9223734755),
+      Point(x: 17.888058718733078, y: 46.89226407871372)),
+  'ESRI:102140': ProjectAndUnProjectResult(
+      Point(x: -3897417.994616852, y: 9131318.503755674), Point(x: 0, y: 90)),
+  'ESRI:102141': ProjectAndUnProjectResult(
+      Point(x: -4425777.201304138, y: 10435463.566175487), Point(x: 0, y: 90)),
+  'ESRI:102142': ProjectAndUnProjectResult(
+      Point(x: -3998927.589101782, y: 11067585.148782928), Point(x: 0, y: 90)),
+  'ESRI:102151': ProjectAndUnProjectResult(
+      Point(x: -3275641.8609203375, y: 11620934.150254922), Point(x: 0, y: 90)),
+  'ESRI:102152': ProjectAndUnProjectResult(
+      Point(x: -2176583.9027588833, y: 12024947.74795484), Point(x: 0, y: 90)),
+  'ESRI:102153': ProjectAndUnProjectResult(
+      Point(x: -604133.2198818212, y: 12177612.213822527), Point(x: 0, y: 90)),
+  'ESRI:102154': ProjectAndUnProjectResult(
+      Point(x: 1558637.9374573864, y: 11944663.942841321), Point(x: 0, y: 90)),
+  'ESRI:102155': ProjectAndUnProjectResult(
+      Point(x: 4451403.528502634, y: 11150146.547297414), Point(x: 0, y: 90)),
+  'ESRI:102156': ProjectAndUnProjectResult(
+      Point(x: 8239884.04959958, y: 9567144.57756446),
+      Point(x: 45, y: double.nan)),
+  'ESRI:102160': ProjectAndUnProjectResult(
+      Point(x: 2176494.265478581, y: 1441716.7625317026),
+      Point(x: 17.884529662973257, y: 46.89256376274838)),
+  'ESRI:102161': ProjectAndUnProjectResult(
+      Point(x: 1976494.2654785814, y: 1141716.7625317026),
+      Point(x: 17.884529662973264, y: 46.89256376274837)),
+  'ESRI:102162': ProjectAndUnProjectResult(
+      Point(x: 3859230.857707509, y: 6259536.256453576),
+      Point(x: 16.41805953600252, y: 47.1112421538169)),
+  'ESRI:102163': null /* blacklist */,
+  'ESRI:102164': ProjectAndUnProjectResult(
+      Point(x: 2176313.6674785814, y: 1441803.7525317026),
+      Point(x: 17.884529662973264, y: 46.89256376274837)),
+  'ESRI:102165': ProjectAndUnProjectResult(
+      Point(x: 1976313.6674785814, y: 1141803.7525317026),
+      Point(x: 17.884529662973264, y: 46.89256376274837)),
+  'ESRI:102166': ProjectAndUnProjectResult(
+      Point(x: 4270856.281408513, y: 6593684.3265233915),
+      Point(x: 9.84589431168172, y: 48.22218117699896)),
+  'ESRI:102167': ProjectAndUnProjectResult(
+      Point(x: 2988971.3749373723, y: 5744238.047397396),
+      Point(x: 17.848195893325798, y: 46.89671111691266)),
+  'ESRI:102168': ProjectAndUnProjectResult(
+      Point(x: 3859230.857707509, y: 6259536.256453576),
+      Point(x: 16.41805953600252, y: 47.1112421538169)),
+  'ESRI:102169': ProjectAndUnProjectResult(
+      Point(x: 2988971.3749373723, y: 5744238.047397396),
+      Point(x: 17.848195893325798, y: 46.89671111691266)),
+  'ESRI:102191': null /* blacklist */,
+  'ESRI:102192': null /* blacklist */,
+  'ESRI:102193': null /* blacklist */,
+  'ESRI:102229': ProjectAndUnProjectResult(
+      Point(x: 4175252.6559100477, y: 8132636.419234506), Point(x: 0, y: 90)),
+  'ESRI:102230': ProjectAndUnProjectResult(
+      Point(x: 4335563.616428432, y: 8328698.309988083), Point(x: 0, y: 90)),
+  'ESRI:102241': ProjectAndUnProjectResult(
+      Point(x: 8713369.046282943, y: 8228903.974584531),
+      Point(x: 17.88805856028151, y: 46.89226406700876)),
+  'ESRI:102242': ProjectAndUnProjectResult(
+      Point(x: 8988852.8708823, y: 8299543.835321411),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102243': ProjectAndUnProjectResult(
+      Point(x: 9196533.039980348, y: 8221416.367224053),
+      Point(x: 17.88805856028151, y: 46.89226406700874)),
+  'ESRI:102244': ProjectAndUnProjectResult(
+      Point(x: 9364631.992756408, y: 8154335.033546982),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102245': ProjectAndUnProjectResult(
+      Point(x: 9657012.346788004, y: 8138321.005032832),
+      Point(x: 17.88805856028151, y: 46.89226406700871)),
+  'ESRI:102246': ProjectAndUnProjectResult(
+      Point(x: 9857792.552179703, y: 8039982.8004655335),
+      Point(x: 17.888058560281486, y: 46.89226406700873)),
+  'ESRI:102248': ProjectAndUnProjectResult(
+      Point(x: -3169861.026850693, y: 7913822.186592112), Point(x: 0, y: 90)),
+  'ESRI:102249': ProjectAndUnProjectResult(
+      Point(x: -4128150.708307095, y: 7585988.433132556), Point(x: 0, y: 90)),
+  'ESRI:102250': ProjectAndUnProjectResult(
+      Point(x: -5215796.69246647, y: 7168396.860804598), Point(x: 0, y: 90)),
+  'ESRI:102251': ProjectAndUnProjectResult(
+      Point(x: 7280845.10476573, y: 5698018.880729798),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102252': ProjectAndUnProjectResult(
+      Point(x: 7441828.743390069, y: 6181711.961229633),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102253': ProjectAndUnProjectResult(
+      Point(x: 7609906.701740931, y: 6737108.930826645),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102254': ProjectAndUnProjectResult(
+      Point(x: 7746779.736843128, y: 6828729.263310337),
+      Point(x: 17.88805856028151, y: 46.89226406700871)),
+  'ESRI:102255': ProjectAndUnProjectResult(
+      Point(x: 7902404.853652748, y: 6873456.424769691),
+      Point(x: 17.88805856028151, y: 46.892264067008725)),
+  'ESRI:102256': ProjectAndUnProjectResult(
+      Point(x: 6039095.133709736, y: 4143749.0649760203),
+      Point(x: 17.8880585602815, y: 46.89226406700873)),
+  'ESRI:102257': ProjectAndUnProjectResult(
+      Point(x: 5117848.770438616, y: 6252732.387920412), Point(x: 0, y: 90)),
+  'ESRI:102258': ProjectAndUnProjectResult(
+      Point(x: 4721237.684887077, y: 8356420.750313038), Point(x: 0, y: 90)),
+  'ESRI:102259': ProjectAndUnProjectResult(
+      Point(x: 4625113.955128239, y: 8456488.810548952), Point(x: 0, y: 90)),
+  'ESRI:102260': ProjectAndUnProjectResult(
+      Point(x: 7714848.022475246, y: 5442253.479619002),
+      Point(x: 17.88805856028151, y: 46.892264067008725)),
+  'ESRI:102261': ProjectAndUnProjectResult(
+      Point(x: -68690821.20834173, y: -47885351.83275826), Point(x: 0, y: -90)),
+  'ESRI:102262': ProjectAndUnProjectResult(
+      Point(x: -72121220.69938906, y: -51990013.818980485),
+      Point(x: 0, y: -90)),
+  'ESRI:102263': ProjectAndUnProjectResult(
+      Point(x: -76202390.86573209, y: -56842739.61567939), Point(x: 0, y: -90)),
+  'ESRI:102264': ProjectAndUnProjectResult(
+      Point(x: -81001618.96536075, y: -62615395.648396604),
+      Point(x: 0, y: -90)),
+  'ESRI:102265': ProjectAndUnProjectResult(
+      Point(x: -83208947.34861997, y: -65252448.177499056),
+      Point(x: 0, y: -90)),
+  'ESRI:102266': ProjectAndUnProjectResult(
+      Point(x: 4608098.742447868, y: 7844758.075159398), Point(x: 0, y: 90)),
+  'ESRI:102267': ProjectAndUnProjectResult(
+      Point(x: 4887189.5243078265, y: 8036713.270922709), Point(x: 0, y: 90)),
+  'ESRI:102268': ProjectAndUnProjectResult(
+      Point(x: -4284867.972908987, y: 6350434.245427457), Point(x: 0, y: 90)),
+  'ESRI:102269': ProjectAndUnProjectResult(
+      Point(x: -5084440.6254654825, y: 5921630.498818492), Point(x: 0, y: 90)),
+  'ESRI:102270': ProjectAndUnProjectResult(
+      Point(x: -5919234.388843659, y: 5433186.327222641), Point(x: 0, y: 90)),
+  'ESRI:102271': ProjectAndUnProjectResult(
+      Point(x: 3905071.6147695784, y: 7655783.660641345), Point(x: 0, y: 90)),
+  'ESRI:102272': ProjectAndUnProjectResult(
+      Point(x: 3990597.384256901, y: 7789443.4832437895), Point(x: 0, y: 90)),
+  'ESRI:102273': ProjectAndUnProjectResult(
+      Point(x: 4097701.444894589, y: 7591591.665800522), Point(x: 0, y: 90)),
+  'ESRI:102274': ProjectAndUnProjectResult(
+      Point(x: 4698254.478448598, y: 7712933.356896208), Point(x: 0, y: 90)),
+  'ESRI:102277': ProjectAndUnProjectResult(
+      Point(x: 7071987.862697568, y: 5919601.754797993),
+      Point(x: 17.888058560281525, y: 46.89226406700874)),
+  'ESRI:102278': ProjectAndUnProjectResult(
+      Point(x: 7225695.016863086, y: 6455856.986343248),
+      Point(x: 17.88805856028151, y: 46.892264067008725)),
+  'ESRI:102279': ProjectAndUnProjectResult(
+      Point(x: 6854798.276271999, y: 4982007.395728776),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102280': ProjectAndUnProjectResult(
+      Point(x: 7000500.076419635, y: 5649813.950304558),
+      Point(x: 17.8880585602815, y: 46.89226406700874)),
+  'ESRI:102281': ProjectAndUnProjectResult(
+      Point(x: 8293004.335917229, y: 5912444.595764328),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102282': ProjectAndUnProjectResult(
+      Point(x: 8460640.047614928, y: 5922044.608001556),
+      Point(x: 17.8880585602815, y: 46.892264067008746)),
+  'ESRI:102283': ProjectAndUnProjectResult(
+      Point(x: 5434242.727510438, y: 4865567.286727372),
+      Point(x: -3577911303.5949883, y: 784422263.488511)),
+  'ESRI:102284': ProjectAndUnProjectResult(
+      Point(x: 6005972.527854464, y: 5140915.467454848),
+      Point(x: -2514978608650.7397, y: 548342325600.6217)),
+  'ESRI:102285': ProjectAndUnProjectResult(
+      Point(x: 6458859.81690114, y: 4494509.0184601825),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102286': ProjectAndUnProjectResult(
+      Point(x: 5851118.614199298, y: 4670879.245324645),
+      Point(x: 17.888058560281525, y: 46.892264067008725)),
+  'ESRI:102287': ProjectAndUnProjectResult(
+      Point(x: 6154332.40676674, y: 3817884.2153316587),
+      Point(x: 17.888058560281525, y: 46.89226406700873)),
+  'ESRI:102288': ProjectAndUnProjectResult(
+      Point(x: 13856577.937746845, y: 4794610.4546858305),
+      Point(x: 17.8880585602815, y: 46.89226406700873)),
+  'ESRI:102289': ProjectAndUnProjectResult(
+      Point(x: 11889319.027601, y: 4694603.857861963),
+      Point(x: 17.888058560281525, y: 46.89226406700872)),
+  'ESRI:102290': ProjectAndUnProjectResult(
+      Point(x: 10027794.927513309, y: 4787933.322479348),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102291': ProjectAndUnProjectResult(
+      Point(x: 6637522.089340435, y: 5241976.733282344),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102292': ProjectAndUnProjectResult(
+      Point(x: 6763552.011142511, y: 5414428.169782666),
+      Point(x: 17.8880585602815, y: 46.892264067008746)),
+  'ESRI:102293': ProjectAndUnProjectResult(
+      Point(x: 6907731.667199811, y: 5516216.609642074),
+      Point(x: 17.8880585602815, y: 46.89226406700874)),
+  'ESRI:102294': ProjectAndUnProjectResult(
+      Point(x: 3822984.905080838, y: 8488545.1484227), Point(x: 0, y: 90)),
+  'ESRI:102295': ProjectAndUnProjectResult(
+      Point(x: 3960143.9403490187, y: 8595620.856387978), Point(x: 0, y: 90)),
+  'ESRI:102296': ProjectAndUnProjectResult(
+      Point(x: 3479281.2887565303, y: 7904330.121566462), Point(x: 0, y: 90)),
+  'ESRI:102297': ProjectAndUnProjectResult(
+      Point(x: 3333355.4127471615, y: 8025679.561910278), Point(x: 0, y: 90)),
+  'ESRI:102298': ProjectAndUnProjectResult(
+      Point(x: 3236399.2984918333, y: 8083966.911635789), Point(x: 0, y: 90)),
+  'ESRI:102300': ProjectAndUnProjectResult(
+      Point(x: 6556297.784221032, y: 6590553.712986212),
+      Point(x: 17.88805856028151, y: 46.89226406700871)),
+  'ESRI:102304': ProjectAndUnProjectResult(
+      Point(x: 6975000.373432806, y: 6039872.843451775),
+      Point(x: 17.888058560281525, y: 46.89226406700873)),
+  'ESRI:102307': ProjectAndUnProjectResult(
+      Point(x: -6407205.481935473, y: 14250720.322452161), Point(x: 0, y: 90)),
+  'ESRI:102308': ProjectAndUnProjectResult(
+      Point(x: -6848369.235542074, y: 11911589.980849914),
+      Point(x: 189531435637.07315, y: 59487357072.499916)),
+  'ESRI:102309': ProjectAndUnProjectResult(
+      Point(x: -7945837.346430153, y: 9227187.99242025),
+      Point(x: 53494776.36427391, y: 20053499.392547227)),
+  'ESRI:102310': ProjectAndUnProjectResult(
+      Point(x: 5368091.400959853, y: 5342638.368949934), Point(x: 0, y: 90)),
+  'ESRI:102311': ProjectAndUnProjectResult(
+      Point(x: 5111955.253111458, y: 6059884.249141174), Point(x: 0, y: 90)),
+  'ESRI:102312': ProjectAndUnProjectResult(
+      Point(x: -530531.6564105499, y: 8584058.194850374), Point(x: 0, y: 90)),
+  'ESRI:102313': ProjectAndUnProjectResult(
+      Point(x: -998074.9727628597, y: 8428106.011472125), Point(x: 0, y: 90)),
+  'ESRI:102314': ProjectAndUnProjectResult(
+      Point(x: -1388949.6648177663, y: 8254150.645235222), Point(x: 0, y: 90)),
+  'ESRI:102315': ProjectAndUnProjectResult(
+      Point(x: 5111955.253111458, y: 6059884.249141174), Point(x: 0, y: 90)),
+  'ESRI:102316': ProjectAndUnProjectResult(
+      Point(x: 5102989.244976103, y: 6156462.138120647), Point(x: 0, y: 90)),
+  'ESRI:102317': ProjectAndUnProjectResult(
+      Point(x: 5070627.948794095, y: 6369472.582025805), Point(x: 0, y: 90)),
+  'ESRI:102318': ProjectAndUnProjectResult(
+      Point(x: 6120506.591458272, y: 4115911.994870665),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102320': ProjectAndUnProjectResult(
+      Point(x: 6465460.63096565, y: 5661785.323388794),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102321': ProjectAndUnProjectResult(
+      Point(x: 6573964.729929708, y: 5741275.293893134),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102322': ProjectAndUnProjectResult(
+      Point(x: 6701563.894453478, y: 4762473.447759256),
+      Point(x: 17.8880585602815, y: 46.89226406700871)),
+  'ESRI:102323': ProjectAndUnProjectResult(
+      Point(x: 6823927.07634605, y: 4856567.280818008),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102324': ProjectAndUnProjectResult(
+      Point(x: 7606719.341866302, y: 6088830.052103948),
+      Point(x: 17.888058560281525, y: 46.89226406700873)),
+  'ESRI:102325': ProjectAndUnProjectResult(
+      Point(x: 7788873.682746312, y: 6165418.092119642),
+      Point(x: 17.888058560281525, y: 46.89226406700873)),
+  'ESRI:102326': ProjectAndUnProjectResult(
+      Point(x: 8597033.820587102, y: 7390016.602283892),
+      Point(x: 17.88805856028151, y: 46.892264067008746)),
+  'ESRI:102327': ProjectAndUnProjectResult(
+      Point(x: 7874076.895485826, y: 7497850.224338057),
+      Point(x: 17.88805856028154, y: 46.89226406700873)),
+  'ESRI:102330': ProjectAndUnProjectResult(
+      Point(x: 5173030.8098551845, y: 5481823.207905864), Point(x: 0, y: 90)),
+  'ESRI:102334': ProjectAndUnProjectResult(
+      Point(x: 6731916.63351509, y: 5806582.369900583),
+      Point(x: 17.888058560281525, y: 46.892264067008746)),
+  'ESRI:102335': ProjectAndUnProjectResult(
+      Point(x: 6870716.757738413, y: 5915239.061073111),
+      Point(x: 17.888058560281525, y: 46.89226406700873)),
+  'ESRI:102336': ProjectAndUnProjectResult(
+      Point(x: 7240825.507643355, y: 5300270.815013479),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102337': ProjectAndUnProjectResult(
+      Point(x: 7393138.261094385, y: 7401668.656500028),
+      Point(x: 17.88805856028151, y: 46.89226406700872)),
+  'ESRI:102338': ProjectAndUnProjectResult(
+      Point(x: 7989143.282984497, y: 8276494.464586327),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102339': ProjectAndUnProjectResult(
+      Point(x: 8418734.087582076, y: 9472776.726556081),
+      Point(x: 17.888058560281525, y: 46.892264067008746)),
+  'ESRI:102340': ProjectAndUnProjectResult(
+      Point(x: 8486728.05100521, y: 10453504.590111732),
+      Point(x: 17.888058560281486, y: 46.89226406700872)),
+  'ESRI:102341': ProjectAndUnProjectResult(
+      Point(x: 8484246.042842105, y: 11469435.827622378),
+      Point(x: 17.88805856028151, y: 46.89226406700875)),
+  'ESRI:102342': ProjectAndUnProjectResult(
+      Point(x: 7132858.074758153, y: 7841015.06901747),
+      Point(x: 17.888058560281525, y: 46.89226406700873)),
+  'ESRI:102343': ProjectAndUnProjectResult(
+      Point(x: 7316582.822330046, y: 8971163.047072295),
+      Point(x: 17.888058560281525, y: 46.892264067008746)),
+  'ESRI:102344': ProjectAndUnProjectResult(
+      Point(x: 7595059.150545531, y: 10017430.54101213),
+      Point(x: 17.888058560281525, y: 46.89226406700873)),
+  'ESRI:102345': ProjectAndUnProjectResult(
+      Point(x: 5541768.40324937, y: 5434133.660009515), Point(x: 0, y: 90)),
+  'ESRI:102346': ProjectAndUnProjectResult(
+      Point(x: 9634482.513941213, y: 6581020.355130121),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102347': ProjectAndUnProjectResult(
+      Point(x: 9723405.91033478, y: 5663039.725072844),
+      Point(x: 17.888058560281525, y: 46.89226406700871)),
+  'ESRI:102348': ProjectAndUnProjectResult(
+      Point(x: 6208880.764422732, y: 7201291.12126883),
+      Point(x: 17.88805856028151, y: 46.892264067008746)),
+  'ESRI:102349': ProjectAndUnProjectResult(
+      Point(x: 6409557.023981833, y: 7281838.145229923),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102350': ProjectAndUnProjectResult(
+      Point(x: 6701578.612677605, y: 4608732.2568740435),
+      Point(x: 17.8880585602815, y: 46.89226406700873)),
+  'ESRI:102351': ProjectAndUnProjectResult(
+      Point(x: 6860107.27598835, y: 4799756.48936449),
+      Point(x: 17.888058560281525, y: 46.89226406700873)),
+  'ESRI:102352': ProjectAndUnProjectResult(
+      Point(x: 6517033.000426139, y: 4968571.83672293),
+      Point(x: 17.88805856028151, y: 46.892264067008746)),
+  'ESRI:102353': ProjectAndUnProjectResult(
+      Point(x: 6611250.719513914, y: 5046926.84386266),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102354': ProjectAndUnProjectResult(
+      Point(x: 6723783.258101868, y: 5169377.719135778),
+      Point(x: 17.88805856028151, y: 46.892264067008746)),
+  'ESRI:102355': ProjectAndUnProjectResult(
+      Point(x: -835360.288822798, y: 7469523.565254046), Point(x: 0, y: 90)),
+  'ESRI:102356': ProjectAndUnProjectResult(
+      Point(x: -1585501.348464507, y: 7359986.274514455), Point(x: 0, y: 90)),
+  'ESRI:102357': ProjectAndUnProjectResult(
+      Point(x: -2061507.894929119, y: 7079113.201731387), Point(x: 0, y: 90)),
+  'ESRI:102358': ProjectAndUnProjectResult(
+      Point(x: -2539578.0552160507, y: 6974103.5782705145), Point(x: 0, y: 90)),
+  'ESRI:102361': ProjectAndUnProjectResult(
+      Point(x: 7328037.617013928, y: 5241769.003161736),
+      Point(x: 17.88805856028151, y: 46.89226406700871)),
+  'ESRI:102491': null /* blacklist */,
+  'ESRI:102492': null /* blacklist */,
+  'ESRI:102581': null /* blacklist */,
+  'ESRI:102582': null /* blacklist */,
+  'ESRI:102583': null /* blacklist */,
+  'ESRI:102584': null /* blacklist */,
+  'ESRI:102591': null /* blacklist */,
+  'ESRI:102592': null /* blacklist */,
+  'ESRI:102629': ProjectAndUnProjectResult(
+      Point(x: 13698308.088598212, y: 26681824.652105205), Point(x: 0, y: 90)),
+  'ESRI:102630': ProjectAndUnProjectResult(
+      Point(x: 14224261.631565612, y: 27325071.0386859), Point(x: 0, y: 90)),
+  'ESRI:102631': ProjectAndUnProjectResult(
+      Point(x: 21354043.82719847, y: 15477812.835390395),
+      Point(x: 17.888058560281486, y: 46.892264067008746)),
+  'ESRI:102632': ProjectAndUnProjectResult(
+      Point(x: -122090567.90055281, y: -62049993.88293497),
+      Point(x: 0, y: -90)),
+  'ESRI:102633': ProjectAndUnProjectResult(
+      Point(x: -147989879.33979228, y: -87011139.30383137),
+      Point(x: 0, y: -90)),
+  'ESRI:102634': ProjectAndUnProjectResult(
+      Point(x: -177642655.88589934, y: -117447296.60331947),
+      Point(x: 0, y: -90)),
+  'ESRI:102635': ProjectAndUnProjectResult(
+      Point(x: -211482904.20206195, y: -154251325.17335004),
+      Point(x: 0, y: -90)),
+  'ESRI:102636': ProjectAndUnProjectResult(
+      Point(x: -249984695.50704116, y: -198430198.34815744),
+      Point(x: 0, y: -90)),
+  'ESRI:102637': ProjectAndUnProjectResult(
+      Point(x: -293664942.33389753, y: -251116261.78879932),
+      Point(x: 0, y: -90)),
+  'ESRI:102638': ProjectAndUnProjectResult(
+      Point(x: 255568514.06361824, y: -201143160.13223416),
+      Point(x: 0, y: -90)),
+  'ESRI:102639': ProjectAndUnProjectResult(
+      Point(x: 216790949.2236894, y: -156519270.8462234), Point(x: 0, y: -90)),
+  'ESRI:102640': ProjectAndUnProjectResult(
+      Point(x: -10064883.817215798, y: 28741135.173276257),
+      Point(x: 17.888058560281486, y: 46.89226406700872)),
+  'ESRI:102641': ProjectAndUnProjectResult(
+      Point(x: 28587111.612679955, y: 26997662.456616078),
+      Point(x: 17.88805856028151, y: 46.89226406700876)),
+  'ESRI:102642': ProjectAndUnProjectResult(
+      Point(x: 29490928.127219677, y: 27229420.066383656),
+      Point(x: 17.888058560281486, y: 46.89226406700873)),
+  'ESRI:102643': ProjectAndUnProjectResult(
+      Point(x: 30172292.148668855, y: 26973096.864800908),
+      Point(x: 17.88805856028151, y: 46.89226406700874)),
+  'ESRI:102644': ProjectAndUnProjectResult(
+      Point(x: 30723796.796234977, y: 26753014.18922872),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102645': ProjectAndUnProjectResult(
+      Point(x: 31683048.00775364, y: 26700474.830678545),
+      Point(x: 17.88805856028151, y: 46.89226406700871)),
+  'ESRI:102646': ProjectAndUnProjectResult(
+      Point(x: 32341774.39827624, y: 26377843.571194),
+      Point(x: 17.888058560281486, y: 46.89226406700873)),
+  'ESRI:102648': ProjectAndUnProjectResult(
+      Point(x: -10399785.71892598, y: 25963931.623844285), Point(x: 0, y: 90)),
+  'ESRI:102649': ProjectAndUnProjectResult(
+      Point(x: -13543774.448837526, y: 24888363.717702392), Point(x: 0, y: 90)),
+  'ESRI:102650': ProjectAndUnProjectResult(
+      Point(x: -17112159.648533743, y: 23518315.367489748), Point(x: 0, y: 90)),
+  'ESRI:102651': ProjectAndUnProjectResult(
+      Point(x: 23887239.31455223, y: 18694250.27786101),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102652': ProjectAndUnProjectResult(
+      Point(x: 24415399.80227225, y: 20281166.65946755),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102653': ProjectAndUnProjectResult(
+      Point(x: 24966835.570628367, y: 22103331.55055375),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102654': ProjectAndUnProjectResult(
+      Point(x: 25415893.18662616, y: 22403922.59137733),
+      Point(x: 17.88805856028151, y: 46.89226406700871)),
+  'ESRI:102655': ProjectAndUnProjectResult(
+      Point(x: 25926473.257359054, y: 22550664.95359856),
+      Point(x: 17.88805856028151, y: 46.892264067008725)),
+  'ESRI:102656': ProjectAndUnProjectResult(
+      Point(x: 19813264.617846023, y: 13594950.057342159),
+      Point(x: 17.8880585602815, y: 46.89226406700873)),
+  'ESRI:102657': ProjectAndUnProjectResult(
+      Point(x: 16790808.841014024, y: 20514172.842702217), Point(x: 0, y: 90)),
+  'ESRI:102658': ProjectAndUnProjectResult(
+      Point(x: 15489593.971167015, y: 27416023.744985357), Point(x: 0, y: 90)),
+  'ESRI:102659': ProjectAndUnProjectResult(
+      Point(x: 15174228.034449894, y: 27744330.37260935), Point(x: 0, y: 90)),
+  'ESRI:102660': ProjectAndUnProjectResult(
+      Point(x: 25311130.553737532, y: 17855126.62438334),
+      Point(x: 17.8880585602815, y: 46.892264067008746)),
+  'ESRI:102661': ProjectAndUnProjectResult(
+      Point(x: -225363135.9143678, y: -157103858.47130772),
+      Point(x: 0, y: -90)),
+  'ESRI:102662': ProjectAndUnProjectResult(
+      Point(x: -236617704.91124555, y: -170570570.33777177),
+      Point(x: 0, y: -90)),
+  'ESRI:102663': ProjectAndUnProjectResult(
+      Point(x: -250007344.03198934, y: -186491554.88910812),
+      Point(x: 0, y: -90)),
+  'ESRI:102664': ProjectAndUnProjectResult(
+      Point(x: -265752811.555521, y: -205430677.2231145), Point(x: 0, y: -90)),
+  'ESRI:102665': ProjectAndUnProjectResult(
+      Point(x: -272994688.0929306, y: -214082407.0623448), Point(x: 0, y: -90)),
+  'ESRI:102666': ProjectAndUnProjectResult(
+      Point(x: 15118403.95751438, y: 25737343.78491879), Point(x: 0, y: 90)),
+  'ESRI:102667': ProjectAndUnProjectResult(
+      Point(x: 16034054.297666593, y: 26367116.789685585), Point(x: 0, y: 90)),
+  'ESRI:102668': ProjectAndUnProjectResult(
+      Point(x: -14057937.674452232, y: 20834716.35353991), Point(x: 0, y: 90)),
+  'ESRI:102669': ProjectAndUnProjectResult(
+      Point(x: -16681202.285381336, y: 19427882.728207), Point(x: 0, y: 90)),
+  'ESRI:102670': ProjectAndUnProjectResult(
+      Point(x: -19420021.490731236, y: 17825378.808562946), Point(x: 0, y: 90)),
+  'ESRI:102671': ProjectAndUnProjectResult(
+      Point(x: 12811889.122789858, y: 25117350.226620812), Point(x: 0, y: 90)),
+  'ESRI:102672': ProjectAndUnProjectResult(
+      Point(x: 13092484.918182848, y: 25555865.82794233), Point(x: 0, y: 90)),
+  'ESRI:102673': ProjectAndUnProjectResult(
+      Point(x: 13443875.490458328, y: 24906746.990213875), Point(x: 0, y: 90)),
+  'ESRI:102674': ProjectAndUnProjectResult(
+      Point(x: 15414189.901376773, y: 25304848.855083637), Point(x: 0, y: 90)),
+  'ESRI:102675': ProjectAndUnProjectResult(
+      Point(x: 25440189.887127146, y: 21133297.292701807),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102676': ProjectAndUnProjectResult(
+      Point(x: 22584121.62012939, y: 18118492.88647238),
+      Point(x: 17.88805856028151, y: 46.892264067008725)),
+  'ESRI:102677': ProjectAndUnProjectResult(
+      Point(x: 23202013.512866933, y: 19421226.757199746),
+      Point(x: 17.888058560281525, y: 46.89226406700874)),
+  'ESRI:102678': ProjectAndUnProjectResult(
+      Point(x: 23706301.06782497, y: 21180590.796027802),
+      Point(x: 17.88805856028151, y: 46.892264067008746)),
+  'ESRI:102679': ProjectAndUnProjectResult(
+      Point(x: 22489450.678069048, y: 16345135.930820158),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102680': ProjectAndUnProjectResult(
+      Point(x: 22967474.000720084, y: 18536097.935290866),
+      Point(x: 17.8880585602815, y: 46.89226406700872)),
+  'ESRI:102681': ProjectAndUnProjectResult(
+      Point(x: 27207965.058755103, y: 19397745.31127013),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102682': ProjectAndUnProjectResult(
+      Point(x: 27757949.889549974, y: 19429241.351418436),
+      Point(x: 17.8880585602815, y: 46.892264067008746)),
+  'ESRI:102683': ProjectAndUnProjectResult(
+      Point(x: 17828844.681840494, y: 15963115.339871382),
+      Point(x: -3577911303.5949883, y: 784422263.488511)),
+  'ESRI:102684': ProjectAndUnProjectResult(
+      Point(x: 19704594.868469186, y: 16866486.829474777),
+      Point(x: -2514978608650.7397, y: 548342325600.6217)),
+  'ESRI:102685': ProjectAndUnProjectResult(
+      Point(x: 21190442.582616486, y: 14745735.004731447),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102686': ProjectAndUnProjectResult(
+      Point(x: 19196544.986752197, y: 15324376.32403594),
+      Point(x: 17.888058560281525, y: 46.892264067008725)),
+  'ESRI:102687': ProjectAndUnProjectResult(
+      Point(x: 20191338.904533874, y: 12525841.796467282),
+      Point(x: 17.8880585602815, y: 46.89226406700873)),
+  'ESRI:102688': ProjectAndUnProjectResult(
+      Point(x: 45461122.7840911, y: 15730317.80008176),
+      Point(x: 17.8880585602815, y: 46.89226406700872)),
+  'ESRI:102689': ProjectAndUnProjectResult(
+      Point(x: 39006874.17638761, y: 15402212.82366879),
+      Point(x: 17.8880585602815, y: 46.89226406700873)),
+  'ESRI:102690': ProjectAndUnProjectResult(
+      Point(x: 32899523.858016577, y: 15708411.242167657),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102691': ProjectAndUnProjectResult(
+      Point(x: 21776603.72144441, y: 17198051.99911049),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102692': ProjectAndUnProjectResult(
+      Point(x: 22190086.889890052, y: 17763836.42036196),
+      Point(x: 17.8880585602815, y: 46.892264067008746)),
+  'ESRI:102693': ProjectAndUnProjectResult(
+      Point(x: 22663116.311471377, y: 18097787.326800704),
+      Point(x: 17.8880585602815, y: 46.89226406700874)),
+  'ESRI:102694': ProjectAndUnProjectResult(
+      Point(x: 12542576.309419382, y: 27849501.874450136), Point(x: 0, y: 90)),
+  'ESRI:102695': ProjectAndUnProjectResult(
+      Point(x: 12992572.24429507, y: 28200799.426332887), Point(x: 0, y: 90)),
+  'ESRI:102696': ProjectAndUnProjectResult(
+      Point(x: 11414942.028195381, y: 25932789.740505964), Point(x: 0, y: 90)),
+  'ESRI:102697': ProjectAndUnProjectResult(
+      Point(x: 10936183.549987977, y: 26330917.0293673), Point(x: 0, y: 90)),
+  'ESRI:102698': ProjectAndUnProjectResult(
+      Point(x: 10618086.698468622, y: 26522148.109258413), Point(x: 0, y: 90)),
+  'ESRI:102700': ProjectAndUnProjectResult(
+      Point(x: 21510120.31373183, y: 21622508.306688927),
+      Point(x: 17.88805856028151, y: 46.892264067008746)),
+  'ESRI:102704': ProjectAndUnProjectResult(
+      Point(x: 22883813.725170795, y: 19815816.153891362),
+      Point(x: 17.888058560281525, y: 46.89226406700873)),
+  'ESRI:102707': ProjectAndUnProjectResult(
+      Point(x: -21020973.318649963, y: 46754238.257911794), Point(x: 0, y: 90)),
+  'ESRI:102708': ProjectAndUnProjectResult(
+      Point(x: -22468358.066940952, y: 39079941.462171756),
+      Point(x: 189531435637.05768, y: 59487357072.495026)),
+  'ESRI:102709': ProjectAndUnProjectResult(
+      Point(x: -26068968.02741292, y: 30272865.938465435),
+      Point(x: 53494776.36427391, y: 20053499.392547227)),
+  'ESRI:102710': ProjectAndUnProjectResult(
+      Point(x: 17611813.204649117, y: 17528306.04879657), Point(x: 0, y: 90)),
+  'ESRI:102711': ProjectAndUnProjectResult(
+      Point(x: 16771473.192916507, y: 19881470.240724), Point(x: 0, y: 90)),
+  'ESRI:102712': ProjectAndUnProjectResult(
+      Point(x: -1740585.9427402788, y: 28162864.260938264), Point(x: 0, y: 90)),
+  'ESRI:102713': ProjectAndUnProjectResult(
+      Point(x: -3274517.6398061477, y: 27651211.13930479), Point(x: 0, y: 90)),
+  'ESRI:102714': ProjectAndUnProjectResult(
+      Point(x: -4556912.358656287, y: 27080492.575242553), Point(x: 0, y: 90)),
+  'ESRI:102715': ProjectAndUnProjectResult(
+      Point(x: 16771473.192916507, y: 19881470.240724), Point(x: 0, y: 90)),
+  'ESRI:102716': ProjectAndUnProjectResult(
+      Point(x: 16742057.214559097, y: 20198326.198150817), Point(x: 0, y: 90)),
+  'ESRI:102717': ProjectAndUnProjectResult(
+      Point(x: 16635885.195335291, y: 20897177.96286299), Point(x: 0, y: 90)),
+  'ESRI:102718': ProjectAndUnProjectResult(
+      Point(x: 20080362.042142678, y: 13503621.269838171),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102719': ProjectAndUnProjectResult(
+      Point(x: 23009024.987015437, y: 15969960.634952383),
+      Point(x: 17.88805856028151, y: 46.89226406700872)),
+  'ESRI:102720': ProjectAndUnProjectResult(
+      Point(x: 21212098.753426466, y: 18575374.0151514),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102721': ProjectAndUnProjectResult(
+      Point(x: 21568082.618111048, y: 18836167.36004772),
+      Point(x: 17.888058560281486, y: 46.89226406700873)),
+  'ESRI:102722': ProjectAndUnProjectResult(
+      Point(x: 21986714.210386116, y: 15624881.636523489),
+      Point(x: 17.8880585602815, y: 46.89226406700871)),
+  'ESRI:102723': ProjectAndUnProjectResult(
+      Point(x: 22388167.416311998, y: 15933587.820483746),
+      Point(x: 17.88805856028154, y: 46.89226406700873)),
+  'ESRI:102724': ProjectAndUnProjectResult(
+      Point(x: 24956378.37410636, y: 19976436.595944367),
+      Point(x: 17.88805856028155, y: 46.89226406700872)),
+  'ESRI:102725': ProjectAndUnProjectResult(
+      Point(x: 25553996.407476854, y: 20227709.19056252),
+      Point(x: 17.888058560281525, y: 46.89226406700873)),
+  'ESRI:102726': ProjectAndUnProjectResult(
+      Point(x: 28205435.12637618, y: 24245412.802659735),
+      Point(x: 17.88805856028151, y: 46.892264067008746)),
+  'ESRI:102727': ProjectAndUnProjectResult(
+      Point(x: 25833533.947939742, y: 24599196.944349106),
+      Point(x: 17.88805856028154, y: 46.89226406700873)),
+  'ESRI:102728': ProjectAndUnProjectResult(
+      Point(x: 21399134.738047305, y: 14424379.654619973),
+      Point(x: 17.88805856028151, y: 46.892264067008725)),
+  'ESRI:102729': ProjectAndUnProjectResult(
+      Point(x: 21600173.96859681, y: 14567500.7100634),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102730': ProjectAndUnProjectResult(
+      Point(x: 16971851.915333215, y: 17984948.30793782), Point(x: 0, y: 90)),
+  'ESRI:102733': ProjectAndUnProjectResult(
+      Point(x: 23724038.66909839, y: 16795587.102019407),
+      Point(x: 17.8880585602815, y: 46.89226406700873)),
+  'ESRI:102734': ProjectAndUnProjectResult(
+      Point(x: 22086296.48845742, y: 19050428.991915494),
+      Point(x: 17.888058560281525, y: 46.892264067008746)),
+  'ESRI:102735': ProjectAndUnProjectResult(
+      Point(x: 22541676.562680107, y: 19406913.48620403),
+      Point(x: 17.888058560281525, y: 46.89226406700873)),
+  'ESRI:102736': ProjectAndUnProjectResult(
+      Point(x: 23755941.68632657, y: 17389305.165590055),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102737': ProjectAndUnProjectResult(
+      Point(x: 24255654.444940493, y: 24283641.25053384),
+      Point(x: 17.88805856028151, y: 46.89226406700872)),
+  'ESRI:102738': ProjectAndUnProjectResult(
+      Point(x: 26211047.587591633, y: 27153798.92256364),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102739': ProjectAndUnProjectResult(
+      Point(x: 27620463.41900886, y: 31078601.643709406),
+      Point(x: 17.888058560281525, y: 46.892264067008746)),
+  'ESRI:102740': ProjectAndUnProjectResult(
+      Point(x: 27843540.28067293, y: 34296206.30939157),
+      Point(x: 17.888058560281486, y: 46.89226406700871)),
+  'ESRI:102741': ProjectAndUnProjectResult(
+      Point(x: 27835397.225557804, y: 37629307.37779108),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102742': ProjectAndUnProjectResult(
+      Point(x: 23401718.53360237, y: 25725063.60560148),
+      Point(x: 17.888058560281525, y: 46.89226406700873)),
+  'ESRI:102743': ProjectAndUnProjectResult(
+      Point(x: 24004488.80959449, y: 29432890.763603017),
+      Point(x: 17.888058560281525, y: 46.892264067008746)),
+  'ESRI:102744': ProjectAndUnProjectResult(
+      Point(x: 24918123.229748126, y: 32865520.03330396),
+      Point(x: 17.888058560281525, y: 46.89226406700873)),
+  'ESRI:102745': ProjectAndUnProjectResult(
+      Point(x: 18181618.50299397, y: 17828486.84954788), Point(x: 0, y: 90)),
+  'ESRI:102746': ProjectAndUnProjectResult(
+      Point(x: 31609131.381155454, y: 21591230.94845607),
+      Point(x: 17.88805856028154, y: 46.892264067008746)),
+  'ESRI:102747': ProjectAndUnProjectResult(
+      Point(x: 31900874.22415668, y: 18579489.49800982),
+      Point(x: 17.888058560281525, y: 46.89226406700871)),
+  'ESRI:102748': ProjectAndUnProjectResult(
+      Point(x: 20370302.974610247, y: 23626235.95369615),
+      Point(x: 17.88805856028151, y: 46.892264067008746)),
+  'ESRI:102749': ProjectAndUnProjectResult(
+      Point(x: 21028688.336180393, y: 23890497.314808503),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102750': ProjectAndUnProjectResult(
+      Point(x: 21986762.49842644, y: 15120482.412760923),
+      Point(x: 17.888058560281525, y: 46.89226406700873)),
+  'ESRI:102751': ProjectAndUnProjectResult(
+      Point(x: 22506868.621305108, y: 15747201.082189996),
+      Point(x: 17.888058560281525, y: 46.89226406700873)),
+  'ESRI:102752': ProjectAndUnProjectResult(
+      Point(x: 21381299.10223142, y: 16301056.100981811),
+      Point(x: 17.88805856028151, y: 46.892264067008746)),
+  'ESRI:102753': ProjectAndUnProjectResult(
+      Point(x: 21690411.73560523, y: 16558125.82023941),
+      Point(x: 17.88805856028151, y: 46.89226406700873)),
+  'ESRI:102754': ProjectAndUnProjectResult(
+      Point(x: 22059612.23928921, y: 16959866.733531296),
+      Point(x: 17.88805856028151, y: 46.892264067008746)),
+  'ESRI:102755': ProjectAndUnProjectResult(
+      Point(x: -2740677.880912796, y: 24506261.89700431), Point(x: 0, y: 90)),
+  'ESRI:102756': ProjectAndUnProjectResult(
+      Point(x: -5201765.674087303, y: 24146888.302302837), Point(x: 0, y: 90)),
+  'ESRI:102757': ProjectAndUnProjectResult(
+      Point(x: -6763463.818613283, y: 23225390.56268039), Point(x: 0, y: 90)),
+  'ESRI:102758': ProjectAndUnProjectResult(
+      Point(x: -8331932.336154658, y: 22880871.489709176), Point(x: 0, y: 90)),
+  'ESRI:102761': ProjectAndUnProjectResult(
+      Point(x: 24042070.08181986, y: 17197370.47120646),
+      Point(x: 17.88805856028151, y: 46.89226406700871)),
+  'ESRI:102766': ProjectAndUnProjectResult(
+      Point(x: 17369588.767905198, y: 41376568.816826485),
+      Point(x: 151.47831049836137, y: 142.80426914492568)),
+  'ESRI:103300': ProjectAndUnProjectResult(
+      Point(x: 1176759.1457026089, y: -175517.24009857047),
+      Point(x: 17.888058620014768, y: 46.8922641048904))
 };

@@ -1080,7 +1080,10 @@ const blackList = {
   'ESRI:103471': 'undefined',
 };
 
-/// proj4 esri wkt def strings based on PostGIS 3.0.1 (8500 definitions (if authority == 'EPSG' => we pulled esri wkt def string from https://epsg.io/))
+/// proj4 esri wkt def strings (8500 definitions)
+/// ESRI authority: 2315 esri definitions from PostGIS 3.0.1
+/// EPSG authority: 6184 esri definitions from https://epsg.io/
+/// spatialreferencing.org authority: 1 esri definition from https://epsg.io/
 const _testDefs = {
   // ESRI from https://epsg.io/
   'EPSG:3819':
