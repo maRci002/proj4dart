@@ -62,7 +62,9 @@ const blackList = {
   'ESRI:102590': 'undefined',
 };
 
-/// proj4 def strings based on PostGIS 3.0.1 (8500 definitions)
+/// proj4 definitions based on PostGIS 3.0.1 (8500 definitions)
+/// blackList size: -56
+/// altogether definitions: 8444
 const _testDefs = {
   'EPSG:3819':
       '+proj=longlat +ellps=bessel +towgs84=595.48,121.69,515.35,4.115,-2.9383,0.853,-3.408 +no_defs',
