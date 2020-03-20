@@ -16789,8 +16789,8 @@ final Map<String, ProjectAndUnProjectResult> _testResults = {
       Point(x: double.nan, y: double.nan), null,
       inverseResultError: 'coordinates must be finite numbers'),
   'ESRI:102017': ProjectAndUnProjectResult(
-      Point(x: double.nan, y: double.nan), null,
-      inverseResultError: 'coordinates must be finite numbers'),
+      Point(x: 1441907.3090332332, y: -4467414.170635901),
+      Point(x: 17.888058560281515, y: 46.89226406911223)),
   'ESRI:102018': ProjectAndUnProjectResult(
       Point(x: 1550063.8492816938, y: -4802512.035474999),
       Point(x: 17.888058560281515, y: 46.89226406700877)),
@@ -16798,8 +16798,8 @@ final Map<String, ProjectAndUnProjectResult> _testResults = {
       Point(x: double.nan, y: double.nan), null,
       inverseResultError: 'coordinates must be finite numbers'),
   'ESRI:102020': ProjectAndUnProjectResult(
-      Point(x: double.nan, y: double.nan), null,
-      inverseResultError: 'coordinates must be finite numbers'),
+      Point(x: 3638523.4746012595, y: 11273118.062993607),
+      Point(x: 17.888058560281515, y: 46.89226406911217)),
   'ESRI:102021': ProjectAndUnProjectResult(
       Point(x: double.nan, y: double.nan), null,
       inverseResultError: 'coordinates must be finite numbers'),

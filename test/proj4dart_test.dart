@@ -132,26 +132,13 @@ void main() {
     });
 
     test('Project / unproject test for all OGC WKT projections', () {
-      // TODO: These are removed because in laea.dart we got 'long0' as 0.0 but in proj4js it is undefined (we should get null - its coming from wkt parser)
-      var testResults = all_proj4_ogc_results.testResults;
-      testResults.remove('EPSG:3408');
-      testResults.remove('EPSG:3409');
-      testResults.remove('EPSG:3974');
-      testResults.remove('EPSG:3973');
-      testResults.remove('EPSG:6931');
-      testResults.remove('EPSG:6932');
-
-      checkProjectAndUnProjectResults(proj4OGCWktTestDefs, testResults);
+      checkProjectAndUnProjectResults(
+          proj4OGCWktTestDefs, all_proj4_ogc_results.testResults);
     });
 
     test('Project / unproject test for all ESRI WKT projections', () {
-      // TODO: These are removed because in laea.dart we got 'long0' as 0.0 but in proj4js it is undefined (we should get null - its coming from wkt parser)
-      var testResults = all_proj4_esri_results.testResults;
-      testResults.remove('EPSG:3408');
-      testResults.remove('ESRI:102017');
-      testResults.remove('ESRI:102020');
-
-      checkProjectAndUnProjectResults(proj4ESRIWktTestDefs, testResults);
+      checkProjectAndUnProjectResults(
+          proj4ESRIWktTestDefs, all_proj4_esri_results.testResults);
     });
   });
 

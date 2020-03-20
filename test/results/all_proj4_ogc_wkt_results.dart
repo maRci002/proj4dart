@@ -5492,11 +5492,11 @@ final Map<String, ProjectAndUnProjectResult> _testResults = {
       Point(x: -20644820.551084325, y: 30074879.277563635),
       Point(x: -78.49319663914245, y: -17.124395706761387)),
   'EPSG:3408': ProjectAndUnProjectResult(
-      Point(x: double.nan, y: double.nan), null,
-      inverseResultError: 'coordinates must be finite numbers'),
+      Point(x: 1443989.670318814, y: -4473865.882377223),
+      Point(x: 17.888058560281515, y: 46.892130158581075)),
   'EPSG:3409': ProjectAndUnProjectResult(
-      Point(x: double.nan, y: double.nan), null,
-      inverseResultError: 'coordinates must be finite numbers'),
+      Point(x: 3637843.5169242946, y: 11271011.372402279),
+      Point(x: 17.888058560281515, y: 46.89213015858108)),
   'EPSG:3410': null /* blacklist */,
   'EPSG:3411': ProjectAndUnProjectResult(
       Point(x: 4335988.0113786, y: -302806.5645456136),
@@ -5597,8 +5597,8 @@ final Map<String, ProjectAndUnProjectResult> _testResults = {
   'EPSG:3445': ProjectAndUnProjectResult(
       Point(x: 17611813.210191824, y: 17528306.05463954), Point(x: 0, y: 90)),
   'EPSG:3974': ProjectAndUnProjectResult(
-      Point(x: double.nan, y: double.nan), null,
-      inverseResultError: 'coordinates must be finite numbers'),
+      Point(x: 3638523.4746012595, y: 11273118.062993607),
+      Point(x: 17.888058560281515, y: 46.89226406911217)),
   'EPSG:3446': ProjectAndUnProjectResult(
       Point(x: 16971851.915299885, y: 17984948.307937823), Point(x: 0, y: 90)),
   'EPSG:3447': ProjectAndUnProjectResult(
@@ -6746,8 +6746,8 @@ final Map<String, ProjectAndUnProjectResult> _testResults = {
       Point(x: 6197425.928759272, y: 4812816.468950871),
       Point(x: 17.88805856028151, y: 46.89226406700874)),
   'EPSG:3973': ProjectAndUnProjectResult(
-      Point(x: double.nan, y: double.nan), null,
-      inverseResultError: 'coordinates must be finite numbers'),
+      Point(x: 1441907.3090332332, y: -4467414.170635901),
+      Point(x: 17.888058560281515, y: 46.89226406911223)),
   'EPSG:4888': null /* blacklist */,
   'EPSG:3976': ProjectAndUnProjectResult(
       Point(x: 4982953.187166658, y: 20348945.033028428),
@@ -9598,11 +9598,11 @@ final Map<String, ProjectAndUnProjectResult> _testResults = {
       Point(x: 23477569.54505528, y: 20173116.139789633),
       Point(x: 17.888058560281525, y: 46.89226406700872)),
   'EPSG:6931': ProjectAndUnProjectResult(
-      Point(x: double.nan, y: double.nan), null,
-      inverseResultError: 'coordinates must be finite numbers'),
+      Point(x: 1441907.3090332332, y: -4467414.170635901),
+      Point(x: 17.888058560281515, y: 46.89226406911223)),
   'EPSG:6932': ProjectAndUnProjectResult(
-      Point(x: double.nan, y: double.nan), null,
-      inverseResultError: 'coordinates must be finite numbers'),
+      Point(x: 3638523.4746012595, y: 11273118.062993607),
+      Point(x: 17.888058560281515, y: 46.89226406911217)),
   'EPSG:6933': null /* blacklist */,
   'EPSG:7005': ProjectAndUnProjectResult(
       Point(x: -1105167.6622423972, y: 5413518.053847402),
