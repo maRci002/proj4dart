@@ -10,6 +10,8 @@ document.head.appendChild(script);
 // ----- END ------- Load proj4js on WEB ------ END ---------
 
 // ----- START ------- Parse proj4 defs ------ START ---------
+// copy '_testDefs' from all_proj4_defs.dart / all_proj4_ogc_wkt_defs.dart / all_proj4_esri_wkt_defs.dart and rename it to 'allDefs'
+
 var blackList = [];
 var blackListKeys = [];
 
