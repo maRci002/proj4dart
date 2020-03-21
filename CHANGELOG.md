@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.0.2
+
+- Support ProjectionTuple
+- Support Projection.parse
+- Add more definitions
+- Add more tests
+  - support exception compare
+  - use blacklist when necessary
+  - make closeTo even strict
+- Update wkt-parser-dart
+- fix axis order in some cases
+
 ## 1.0.1
 
 - Support OGC WKT definitions
