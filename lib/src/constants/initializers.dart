@@ -139,8 +139,8 @@ final initializers = <String, ProjectionInitializer>{
       name: (params) => NewZealandMapGridProjection.init(params)
   },
   ...{
-    for (var name in HotlineObliqueMercatorProjection.names)
-      name: (params) => HotlineObliqueMercatorProjection.init(params)
+    for (var name in HotineObliqueMercatorProjection.names)
+      name: (params) => HotineObliqueMercatorProjection.init(params)
   },
   ...{
     for (var name in OrthographicProjection.names)

@@ -126,7 +126,7 @@ void main() {
   });
 
   group('CloseTo calculators', () {
-    test('Print closeTos', () {
+    test('Print avarage closeTos', () {
       // this is not real test
       var map = _getCloseToHelper(
           all_proj4_defs.testDefs, all_proj4_results.testResults);

@@ -6,7 +6,7 @@ import 'package:proj4dart/src/classes/projection.dart';
 import 'package:proj4dart/src/common/utils.dart' as utils;
 import 'package:proj4dart/src/constants/values.dart' as consts;
 
-class HotlineObliqueMercatorProjection extends Projection {
+class HotineObliqueMercatorProjection extends Projection {
   static final List<String> names = [
     'Hotine_Oblique_Mercator',
     'Hotine Oblique Mercator',
@@ -28,7 +28,7 @@ class HotlineObliqueMercatorProjection extends Projection {
   bool no_off, no_rot;
   double bl, al, el, gamma0, uc;
 
-  HotlineObliqueMercatorProjection.init(ProjParams params)
+  HotineObliqueMercatorProjection.init(ProjParams params)
       : lat0 = params.lat0,
         long0 = params.long0,
         longc = params.longc,
