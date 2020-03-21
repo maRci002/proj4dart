@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.3
+
+- add meta.dart to pubspec.yaml (avoid pub warning)
+
 ## 1.0.2
 
 - Support ProjectionTuple
