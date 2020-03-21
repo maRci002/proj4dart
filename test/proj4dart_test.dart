@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:proj4dart/proj4dart.dart';
 import 'package:proj4dart/src/projections/merc.dart';
 import 'package:proj4dart/src/projections/utm.dart';
@@ -10,6 +12,7 @@ import './data/all_proj4_esri_wkt_defs.dart' as all_proj4_esri_defs;
 import './results/all_proj4_results.dart' as all_proj4_results;
 import './results/all_proj4_ogc_wkt_results.dart' as all_proj4_ogc_results;
 import './results/all_proj4_esri_wkt_results.dart' as all_proj4_esri_results;
+import 'classes/close_to_helper.dart';
 
 void main() {
   group('Bulk tests', () {
@@ -22,83 +25,6 @@ void main() {
       proj4OGCWktTestDefs = all_proj4_ogc_defs.testDefs;
       proj4ESRIWktTestDefs = all_proj4_esri_defs.testDefs;
     });
-
-    void checkProjectAndUnProjectResults(Map<String, String> defs,
-        Map<String, ProjectAndUnProjectResult> testResults) {
-      final testPoint = Point(x: 17.888058560281515, y: 46.89226406700879);
-
-      testResults.forEach((key, value) {
-        final point =
-            key == 'EPSG:3117' ? Point(x: -72.62, y: 3.81) : testPoint;
-
-        final wgs = Projection.WGS84;
-        final custom = Projection.parse(defs[key]);
-
-        if (value.forwardResultError != null) {
-          try {
-            wgs.transform(custom, point);
-          } on Exception catch (error) {
-            expect(
-              value.forwardResultError,
-              error.toString().substring('Exception: '.length),
-              reason: key,
-            );
-          }
-        } else {
-          final forwardResult = wgs.transform(custom, point);
-
-          if (value.forwardResult.x != forwardResult.x) {
-            if (value.forwardResult.x.isNaN) {
-              expect(forwardResult.x, isNaN, reason: key);
-            } else {
-              expect(forwardResult.x, closeTo(value.forwardResult.x, 0.00001),
-                  reason: key);
-            }
-          }
-
-          if (value.forwardResult.y != forwardResult.y) {
-            if (value.forwardResult.y.isNaN) {
-              expect(forwardResult.y, isNaN, reason: key);
-            } else {
-              expect(forwardResult.y, closeTo(value.forwardResult.y, 0.00001),
-                  reason: key);
-            }
-          }
-        }
-
-        if (value.inverseResultError != null) {
-          try {
-            custom.transform(wgs, value.forwardResult);
-          } on Exception catch (error) {
-            expect(
-              value.inverseResultError,
-              error.toString().substring('Exception: '.length),
-              reason: key,
-            );
-          }
-        } else {
-          final inverseResult = custom.transform(wgs, value.forwardResult);
-
-          if (value.inverseResult.x != inverseResult.x) {
-            if (value.inverseResult.x.isNaN) {
-              expect(inverseResult.x, isNaN, reason: key);
-            } else {
-              expect(inverseResult.x, closeTo(value.inverseResult.x, 0.000001),
-                  reason: key);
-            }
-          }
-
-          if (value.inverseResult.y != inverseResult.y) {
-            if (value.inverseResult.y.isNaN) {
-              expect(inverseResult.y, isNaN, reason: key);
-            } else {
-              expect(inverseResult.y, closeTo(value.inverseResult.y, 0.000001),
-                  reason: key);
-            }
-          }
-        }
-      });
-    }
 
     test('Create all projections via proj4 def strings and find all of them',
         () {
@@ -127,17 +53,17 @@ void main() {
     });
 
     test('Project / unproject test for all Proj4 def projections', () {
-      checkProjectAndUnProjectResults(
+      _checkProjectAndUnProjectResults(
           proj4StringDefs, all_proj4_results.testResults);
     });
 
     test('Project / unproject test for all OGC WKT projections', () {
-      checkProjectAndUnProjectResults(
+      _checkProjectAndUnProjectResults(
           proj4OGCWktTestDefs, all_proj4_ogc_results.testResults);
     });
 
     test('Project / unproject test for all ESRI WKT projections', () {
-      checkProjectAndUnProjectResults(
+      _checkProjectAndUnProjectResults(
           proj4ESRIWktTestDefs, all_proj4_esri_results.testResults);
     });
   });
@@ -188,5 +114,140 @@ void main() {
       expect(plainForwardResult.toString(), tupleForwardResult.toString());
       expect(plainInverseResult.toString(), tupleInverseResult.toString());
     });
+  });
+
+  group('CloseTo calculators', () {
+    test('Print closeTos', () {
+      // this is not real test
+      _printCloseToHelper(
+          all_proj4_defs.testDefs, all_proj4_results.testResults);
+    });
+  });
+}
+
+void _checkProjectAndUnProjectResults(Map<String, String> defs,
+    Map<String, ProjectAndUnProjectResult> testResults) {
+  final testPoint = Point(x: 17.888058560281515, y: 46.89226406700879);
+
+  testResults.forEach((key, value) {
+    final point = key == 'EPSG:3117' ? Point(x: -72.62, y: 3.81) : testPoint;
+
+    final wgs = Projection.WGS84;
+    final custom = Projection.parse(defs[key]);
+
+    if (value.forwardResultError != null) {
+      try {
+        wgs.transform(custom, point);
+      } on Exception catch (error) {
+        expect(
+          value.forwardResultError,
+          error.toString().substring('Exception: '.length),
+          reason: key,
+        );
+      }
+    } else {
+      final forwardResult = wgs.transform(custom, point);
+
+      if (value.forwardResult.x != forwardResult.x) {
+        if (value.forwardResult.x.isNaN) {
+          expect(forwardResult.x, isNaN, reason: key);
+        } else {
+          expect(forwardResult.x, closeTo(value.forwardResult.x, 0.00001),
+              reason: key);
+        }
+      }
+
+      if (value.forwardResult.y != forwardResult.y) {
+        if (value.forwardResult.y.isNaN) {
+          expect(forwardResult.y, isNaN, reason: key);
+        } else {
+          expect(forwardResult.y, closeTo(value.forwardResult.y, 0.00001),
+              reason: key);
+        }
+      }
+    }
+
+    if (value.inverseResultError != null) {
+      try {
+        custom.transform(wgs, value.forwardResult);
+      } on Exception catch (error) {
+        expect(
+          value.inverseResultError,
+          error.toString().substring('Exception: '.length),
+          reason: key,
+        );
+      }
+    } else {
+      final inverseResult = custom.transform(wgs, value.forwardResult);
+
+      if (value.inverseResult.x != inverseResult.x) {
+        if (value.inverseResult.x.isNaN) {
+          expect(inverseResult.x, isNaN, reason: key);
+        } else {
+          expect(inverseResult.x, closeTo(value.inverseResult.x, 0.000001),
+              reason: key);
+        }
+      }
+
+      if (value.inverseResult.y != inverseResult.y) {
+        if (value.inverseResult.y.isNaN) {
+          expect(inverseResult.y, isNaN, reason: key);
+        } else {
+          expect(inverseResult.y, closeTo(value.inverseResult.y, 0.000001),
+              reason: key);
+        }
+      }
+    }
+  });
+}
+
+void _printCloseToHelper(Map<String, String> defs,
+    Map<String, ProjectAndUnProjectResult> testResults) {
+  final testPoint = Point(x: 17.888058560281515, y: 46.89226406700879);
+  var closeHelperMap = <Type, CloseToHelper>{};
+
+  testResults.forEach((key, value) {
+    final point = key == 'EPSG:3117' ? Point(x: -72.62, y: 3.81) : testPoint;
+
+    final wgs = Projection.WGS84;
+    final custom = Projection.parse(defs[key]);
+    final type = custom.runtimeType;
+
+    var currClose = closeHelperMap[type];
+    currClose ??= closeHelperMap[type] = CloseToHelper();
+
+    if (value.forwardResultError == null && value.inverseResultError == null) {
+      currClose.testedAgainst++;
+
+      final forwardResult = wgs.transform(custom, point);
+      if (value.forwardResult.x.isFinite) {
+        currClose.putForwardX((forwardResult.x - value.forwardResult.x).abs());
+      }
+
+      if (value.forwardResult.y.isFinite) {
+        currClose.putForwardY((forwardResult.y - value.forwardResult.y).abs());
+      }
+
+      final inverseResult = custom.transform(wgs, value.forwardResult);
+      if (value.inverseResult.x.isFinite) {
+        currClose.putInverseX((inverseResult.x - value.inverseResult.x).abs());
+      }
+
+      if (value.inverseResult.y.isFinite) {
+        currClose.putInverseY((inverseResult.y - value.inverseResult.y).abs());
+      }
+    }
+  });
+
+  print(
+      'Projection | No. tests | avg delta forward_x | avg delta forward_y | avg delta inverse_x | avg delta inverse_y');
+  print(':--- | :--- | :--- | :--- | :--- | :---');
+
+  var orderedByKey = SplayTreeMap.from(closeHelperMap,
+      (left, right) => left.toString().compareTo(right.toString()));
+
+  orderedByKey.forEach((key, value) {
+    print(
+        '**$key** | ${value.testedAgainst} | *${value.avgForwardX}* | *${value.avgForwardY}* | *${value.avgInverseX}* | *${value.avgInverseY}*');
   });
 }
