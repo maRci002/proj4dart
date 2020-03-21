@@ -48,7 +48,7 @@ var closeToHelpers = {
     ..worstForwardY = 0.0
     ..worstInverseX = 3.552713678800501e-15
     ..worstInverseY = 0.0,
-  'HotlineObliqueMercatorProjection': CloseToHelper()
+  'HotineObliqueMercatorProjection': CloseToHelper()
     ..worstForwardX = 3.725290298461914e-8
     ..worstForwardY = 8.195638656616211e-8
     ..worstInverseX = 2.4868995751603507e-14

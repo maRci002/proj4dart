@@ -120,13 +120,13 @@ void main() {
   // Forward transform (lonlat -> projected crs)
   var pointForward = projSrc.transform(projDst, pointSrc);
   print(
-      'FORWARD: Transform point [${pointSrc.x}, ${pointSrc.y}] from EPSG:4326 to EPSG:23700: [${pointForward.x}, ${pointForward.y}]');
+      'FORWARD: Transform point ${pointSrc.toList()} from EPSG:4326 to EPSG:23700: ${pointForward.toList()}');
   // FORWARD: Transform point [17.888058560281515, 46.89226406700879] from EPSG:4326 to EPSG:23700: [561651.8408065987, 172658.61998377228]
 
   // Inverse transform (projected crs -> lonlat)
   var pointInverse = projDst.transform(projSrc, pointForward);
   print(
-      'INVERSE: Transform point [${pointForward.x}, ${pointForward.y}] from EPSG:23700 to EPSG:4326: [${pointInverse.x}, ${pointInverse.y}]');
+      'INVERSE: Transform point ${pointForward.toList()} from EPSG:23700 to EPSG:4326: ${pointInverse.toList()}');
   // INVERSE: Transform point [561651.8408065987, 172658.61998377228] from EPSG:23700 to EPSG:4326: [17.888058565574845, 46.89226406698969]
 }
 
@@ -141,26 +141,25 @@ void main() {
   // Define Point
   var pointSrc = Point(x: 17.888058560281515, y: 46.89226406700879);
 
-  // Define custom projection
-  var projDst = Projection.add(
-    'EPSG:23700',
-    '+proj=somerc +lat_0=47.14439372222222 +lon_0=19.04857177777778 +k_0=0.99993 +x_0=650000 +y_0=200000 +ellps=GRS67 +towgs84=52.17,-71.82,-14.9,0,0,0,0 +units=m +no_defs',
-  );
-
   // Define ProjectionTuple which makes vice versa conversions even easier
-  var tuple =
-      ProjectionTuple(fromProj: Projection('EPSG:4326'), toProj: projDst);
+  var tuple = ProjectionTuple(
+    // Use built-in projection
+    fromProj: Projection('EPSG:4326'),
+    // Define custom projection
+    toProj: Projection.parse(
+        '+proj=somerc +lat_0=47.14439372222222 +lon_0=19.04857177777778 +k_0=0.99993 +x_0=650000 +y_0=200000 +ellps=GRS67 +towgs84=52.17,-71.82,-14.9,0,0,0,0 +units=m +no_defs'),
+  );
 
   // Forward transform (lonlat -> projected crs)
   var pointForward = tuple.forward(pointSrc);
   print(
-      'FORWARD: Transform point [${pointSrc.x}, ${pointSrc.y}] from EPSG:4326 to EPSG:23700: [${pointForward.x}, ${pointForward.y}]');
+      'FORWARD: Transform point ${pointSrc.toList()} from EPSG:4326 to EPSG:23700: ${pointForward.toList()}');
   // FORWARD: Transform point [17.888058560281515, 46.89226406700879] from EPSG:4326 to EPSG:23700: [561651.8408065987, 172658.61998377228]
 
   // Inverse transform (projected crs -> lonlat)
   var pointInverse = tuple.inverse(pointForward);
   print(
-      'INVERSE: Transform point [${pointForward.x}, ${pointForward.y}] from EPSG:23700 to EPSG:4326: [${pointInverse.x}, ${pointInverse.y}]');
+      'INVERSE: Transform point ${pointForward.toList()} from EPSG:23700 to EPSG:4326: ${pointInverse.toList()}');
   // INVERSE: Transform point [561651.8408065987, 172658.61998377228] from EPSG:23700 to EPSG:4326: [17.888058565574845, 46.89226406698969]
 }
 
@@ -195,7 +194,7 @@ Projection | No. tests | avg delta forward_x | avg delta forward_y | avg delta i
 **LongLat** | 1152 | *1.6961740653995446e-16* | *0.0* | *2.312964634635743e-16* | *2.7755575615628914e-16*
 **Miller Cylindrical Projection** | 2 | *0.0* | *0.0* | *0.0* | *0.0*
 **Mollweide Projection** | 2 | *0.0* | *0.0* | *0.0* | *0.0*
-**New Zealand MapGrid Projection** | 1 | *0.0* | *0.0* | *NaN* | *NaN*
+**New Zealand Map Grid Projection** | 1 | *0.0* | *0.0* | *NaN* | *NaN*
 **Orthographic Projection** | 2 | *0.0* | *0.0* | *7.105427357601002e-15* | *3.552713678800501e-15*
 **Polyconic Projection** | 10 | *0.0* | *0.0* | *1.1842378929335002e-15* | *0.0*
 **Pseudo Mercator Projection** | 25 | *0.0* | *3.7252902984619143e-10* | *1.4210854715202004e-16* | *2.842170943040401e-16*

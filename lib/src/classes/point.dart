@@ -40,6 +40,18 @@ class Point {
     return Mgrs.forward([x, y], accuracy);
   }
 
+  List<double> toList() {
+    var res = [x, y];
+    if (z != null) {
+      res.add(z);
+
+      if (m != null) {
+        res.add(m);
+      }
+    }
+    return res;
+  }
+
   Point.copy(Point p) {
     x = p.x;
     y = p.y;
