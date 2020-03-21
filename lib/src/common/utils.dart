@@ -515,14 +515,14 @@ Point adjust_axis(Projection crs, bool denorm, Point point) {
     }
     if (i == 0) {
       v = xin;
-      if ('ew'.indexOf(crs.axis[i]) != -1) {
+      if ('ew'.contains(crs.axis[i])) {
         t = 'x';
       } else {
         t = 'y';
       }
     } else if (i == 1) {
       v = yin;
-      if ('ns'.indexOf(crs.axis[i]) != -1) {
+      if ('ns'.contains(crs.axis[i])) {
         t = 'y';
       } else {
         t = 'x';

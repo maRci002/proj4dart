@@ -1,11 +1,12 @@
 import 'package:proj4dart/proj4dart.dart';
+import 'package:meta/meta.dart';
 
 /// Creates a ProjectionTuple which makes vice versa conversions easier.
 class ProjectionTuple {
   final Projection fromProj;
   final Projection toProj;
 
-  ProjectionTuple({this.fromProj, this.toProj})
+  ProjectionTuple({@required this.fromProj, @required this.toProj})
       : assert(null != fromProj),
         assert(null != toProj);
 
