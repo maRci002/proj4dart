@@ -1,5 +1,5 @@
-import 'package:proj4dart/proj4dart.dart';
 import 'package:meta/meta.dart';
+import 'package:proj4dart/proj4dart.dart';
 
 /// Creates a ProjectionTuple which makes vice versa conversions easier.
 class ProjectionTuple {
