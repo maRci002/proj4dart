@@ -12250,7 +12250,8 @@ final Map<String, ProjectAndUnProjectResult> _testResults = {
       Point(x: 45, y: double.nan)),
   'EPSG:27200': ProjectAndUnProjectResult(
       Point(x: double.nan, y: double.nan), null,
-      inverseResultError: 'coordinates must be finite numbers'),
+      inverseResultError:
+          'coordinates must be finite numbers'), // used point which is inside bounds => Point(x: 174.8009, y: -36.9341)
   'EPSG:27429': ProjectAndUnProjectResult(
       Point(x: 2540783.335368116, y: 5555899.395479769),
       Point(x: 17.883147115494637, y: 46.89269969480191)),

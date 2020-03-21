@@ -12541,8 +12541,10 @@ final Map<String, ProjectAndUnProjectResult> _testResults = {
       Point(x: 5638670.724266193, y: 9108144.693498828),
       Point(x: 45, y: double.nan)),
   'EPSG:27200': ProjectAndUnProjectResult(
-      Point(x: -458846823476502, y: 143249613978264.16),
-      Point(x: double.nan, y: double.nan)),
+      Point(x: 2670800.1429357016, y: 6472614.122788343),
+      Point(
+          x: 174.80089670520277,
+          y: -36.934108540127546)), // used point which is inside bounds => Point(x: 174.8009, y: -36.9341)
   'EPSG:27429': ProjectAndUnProjectResult(
       Point(x: 2540669.110000123, y: 5555682.856045014),
       Point(x: 17.88315140500048, y: 46.892699335407094)),

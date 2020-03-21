@@ -168,14 +168,23 @@ void main() {
   });
 }
 
+Point _getTestPointByKey(String key) {
+  switch (key) {
+    case 'EPSG:27200':
+      return Point(x: 174.8009, y: -36.9341);
+    case 'EPSG:3117':
+      return Point(x: -72.62, y: 3.81);
+    default:
+      return Point(x: 17.888058560281515, y: 46.89226406700879);
+  }
+}
+
 void _checkProjectAndUnProjectResults(
     Map<String, String> defs,
     Map<String, ProjectAndUnProjectResult> testResults,
     Map<String, CloseToHelper> closeToHelpers) {
-  final testPoint = Point(x: 17.888058560281515, y: 46.89226406700879);
-
   testResults.forEach((key, value) {
-    final point = key == 'EPSG:3117' ? Point(x: -72.62, y: 3.81) : testPoint;
+    final point = _getTestPointByKey(key);
 
     final wgs = Projection.WGS84;
     final custom = Projection.parse(defs[key]);
@@ -253,11 +262,10 @@ void _checkProjectAndUnProjectResults(
 
 Map<Type, CloseToHelper> _getCloseToHelper(Map<String, String> defs,
     Map<String, ProjectAndUnProjectResult> testResults) {
-  final testPoint = Point(x: 17.888058560281515, y: 46.89226406700879);
   var closeHelperMap = <Type, CloseToHelper>{};
 
   testResults.forEach((key, value) {
-    final point = key == 'EPSG:3117' ? Point(x: -72.62, y: 3.81) : testPoint;
+    final point = _getTestPointByKey(key);
 
     final wgs = Projection.WGS84;
     final custom = Projection.parse(defs[key]);
