@@ -3,12 +3,12 @@ class CloseToHelper {
 
   double _sumForwardX = 0.0;
   int _counterForwardX = 0;
-  double _worstForwardX;
+  double worstForwardX;
   void putForwardX(double value) {
     _sumForwardX += value;
     _counterForwardX++;
-    if (_worstForwardX == null || value > _worstForwardX) {
-      _worstForwardX = value;
+    if (worstForwardX == null || value > worstForwardX) {
+      worstForwardX = value;
     }
   }
 
@@ -16,12 +16,12 @@ class CloseToHelper {
 
   double _sumForwardY = 0.0;
   int _counterForwardY = 0;
-  double _worstForwardY;
+  double worstForwardY;
   void putForwardY(double value) {
     _sumForwardY += value;
     _counterForwardY++;
-    if (_worstForwardY == null || value > _worstForwardY) {
-      _worstForwardY = value;
+    if (worstForwardY == null || value > worstForwardY) {
+      worstForwardY = value;
     }
   }
 
@@ -29,12 +29,12 @@ class CloseToHelper {
 
   double _sumInverseX = 0.0;
   int _counterInverseX = 0;
-  double _worstInverseX;
+  double worstInverseX;
   void putInverseX(double value) {
     _sumInverseX += value;
     _counterInverseX++;
-    if (_worstInverseX == null || value > _worstInverseX) {
-      _worstInverseX = value;
+    if (worstInverseX == null || value > worstInverseX) {
+      worstInverseX = value;
     }
   }
 
@@ -42,12 +42,12 @@ class CloseToHelper {
 
   double _sumInverseY = 0.0;
   int _counterInverseY = 0;
-  double _worstInverseY;
+  double worstInverseY;
   void putInverseY(double value) {
     _sumInverseY += value;
     _counterInverseY++;
-    if (_worstInverseY == null || value > _worstInverseY) {
-      _worstInverseY = value;
+    if (worstInverseY == null || value > worstInverseY) {
+      worstInverseY = value;
     }
   }
 

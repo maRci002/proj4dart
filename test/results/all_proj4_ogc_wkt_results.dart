@@ -1,11 +1,115 @@
 import 'package:proj4dart/src/classes/point.dart';
 
+import '../classes/close_to_helper.dart';
 import '../classes/project_and_unproject_result.dart';
 
 import '../data/all_proj4_ogc_wkt_defs.dart' show blackList;
 
 Map<String, ProjectAndUnProjectResult> get testResults => Map.from(_testResults)
   ..removeWhere((key, value) => blackList.keys.contains(key));
+
+var closeToHelpers = {
+  'AlbersProjection': CloseToHelper()
+    ..worstForwardX = 1.30385160446167e-8
+    ..worstForwardY = 9.313225746154785e-9
+    ..worstInverseX = 7.460698725481052e-14
+    ..worstInverseY = 7.815970093361102e-14,
+  'AzimuthalEquidistantProjection': CloseToHelper()
+    ..worstForwardX = 0.0
+    ..worstForwardY = 0.0
+    ..worstInverseX = 3.552713678800501e-15
+    ..worstInverseY = 0.0,
+  'CassiniProjection': CloseToHelper()
+    ..worstForwardX = 7.450580596923828e-9
+    ..worstForwardY = 1.4901161193847656e-8
+    ..worstInverseX = 3.552713678800501e-15
+    ..worstInverseY = 0.0,
+  'EquidistantConicProjection': CloseToHelper()
+    ..worstForwardX = null
+    ..worstForwardY = null
+    ..worstInverseX = null
+    ..worstInverseY = null,
+  'EquidistantCylindricalProjection': CloseToHelper()
+    ..worstForwardX = 0.0
+    ..worstForwardY = 0.0
+    ..worstInverseX = 0.0
+    ..worstInverseY = 0.0,
+  'HotlineObliqueMercatorProjection': CloseToHelper()
+    ..worstForwardX = 3.725290298461914e-8
+    ..worstForwardY = 8.195638656616211e-8
+    ..worstInverseX = 2.4868995751603507e-14
+    ..worstInverseY = 2.1316282072803006e-14,
+  'KrovakProjection': CloseToHelper()
+    ..worstForwardX = 3.4924596548080444e-10
+    ..worstForwardY = 6.05359673500061e-9
+    ..worstInverseX = 3.552713678800501e-15
+    ..worstInverseY = 1.4210854715202004e-14,
+  'LambertAzimuthalEqualAreaProjection': CloseToHelper()
+    ..worstForwardX = 2.3283064365386963e-10
+    ..worstForwardY = 0.0
+    ..worstInverseX = 3.552713678800501e-15
+    ..worstInverseY = 0.0,
+  'LambertConformalConicProjection': CloseToHelper()
+    ..worstForwardX = 3.948807716369629e-7
+    ..worstForwardY = 0.0000014863908290863037
+    ..worstInverseX = 8.544276397515205e-12
+    ..worstInverseY = 1.9824142327706795e-12,
+  'LongLat': CloseToHelper()
+    ..worstForwardX = 3.552713678800501e-15
+    ..worstForwardY = 0.0
+    ..worstInverseX = 7.105427357601002e-15
+    ..worstInverseY = 1.4210854715202004e-14,
+  'MillerCylindricalProjection': CloseToHelper()
+    ..worstForwardX = 0.0
+    ..worstForwardY = 0.0
+    ..worstInverseX = 0.0
+    ..worstInverseY = 0.0,
+  'MollweideProjection': CloseToHelper()
+    ..worstForwardX = 0.0
+    ..worstForwardY = 0.0
+    ..worstInverseX = 0.0
+    ..worstInverseY = 0.0,
+  'NewZealandMapGridProjection': CloseToHelper()
+    ..worstForwardX = 0.0
+    ..worstForwardY = 0.0
+    ..worstInverseX = null
+    ..worstInverseY = null,
+  'PolyconicProjection': CloseToHelper()
+    ..worstForwardX = 0.0
+    ..worstForwardY = 0.0
+    ..worstInverseX = 2.842170943040401e-14
+    ..worstInverseY = 7.105427357601002e-15,
+  'PseudoMercatorProjection': CloseToHelper()
+    ..worstForwardX = 0.0
+    ..worstForwardY = 9.313225746154785e-10
+    ..worstInverseX = 3.552713678800501e-15
+    ..worstInverseY = 7.105427357601002e-15,
+  'RobinsonProjection': CloseToHelper()
+    ..worstForwardX = 0.0
+    ..worstForwardY = 0.0
+    ..worstInverseX = 0.0
+    ..worstInverseY = 0.0,
+  'SinusoidalProjection': CloseToHelper()
+    ..worstForwardX = 0.0
+    ..worstForwardY = 0.0
+    ..worstInverseX = 3.552713678800501e-15
+    ..worstInverseY = 0.0,
+  'StereographicNorthProjection': CloseToHelper()
+    ..worstForwardX = 5.587935447692871e-9
+    ..worstForwardY = 1.862645149230957e-8
+    ..worstInverseX = 1.4210854715202004e-14
+    ..worstInverseY = 2.842170943040401e-14,
+  'TransverseMercatorProjection': CloseToHelper()
+    ..worstForwardX = 1.7881393432617188e-7
+    ..worstForwardY = 2.086162567138672e-7
+    ..worstInverseX = 2.9103830456733704e-10
+    ..worstInverseY = 2.3283064365386963e-10,
+  'VanDerGrintenProjection': CloseToHelper()
+    ..worstForwardX = 7.2177499532699585e-9
+    ..worstForwardY = 4.6566128730773926e-9
+    ..worstInverseX = 3.552713678800501e-15
+    ..worstInverseY = 0.0,
+};
 
 // We converted point [17.888058560281515, 46.89226406700879] with proj4js which gave us forwardResult
 // Then we transformed back the forwardResult to calculate inverseResult

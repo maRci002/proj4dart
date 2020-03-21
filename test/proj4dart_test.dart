@@ -54,17 +54,26 @@ void main() {
 
     test('Project / unproject test for all Proj4 def projections', () {
       _checkProjectAndUnProjectResults(
-          proj4StringDefs, all_proj4_results.testResults);
+        proj4StringDefs,
+        all_proj4_results.testResults,
+        all_proj4_results.closeToHelpers,
+      );
     });
 
     test('Project / unproject test for all OGC WKT projections', () {
       _checkProjectAndUnProjectResults(
-          proj4OGCWktTestDefs, all_proj4_ogc_results.testResults);
+        proj4OGCWktTestDefs,
+        all_proj4_ogc_results.testResults,
+        all_proj4_ogc_results.closeToHelpers,
+      );
     });
 
     test('Project / unproject test for all ESRI WKT projections', () {
       _checkProjectAndUnProjectResults(
-          proj4ESRIWktTestDefs, all_proj4_esri_results.testResults);
+        proj4ESRIWktTestDefs,
+        all_proj4_esri_results.testResults,
+        all_proj4_esri_results.closeToHelpers,
+      );
     });
   });
 
@@ -119,14 +128,50 @@ void main() {
   group('CloseTo calculators', () {
     test('Print closeTos', () {
       // this is not real test
-      _printCloseToHelper(
+      var map = _getCloseToHelper(
           all_proj4_defs.testDefs, all_proj4_results.testResults);
+
+      print(
+          'Projection | No. tests | avg delta forward_x | avg delta forward_y | avg delta inverse_x | avg delta inverse_y');
+      print(':--- | :--- | :--- | :--- | :--- | :---');
+
+      map.forEach((key, value) {
+        print(
+            '**$key** | ${value.testedAgainst} | *${value.avgForwardX}* | *${value.avgForwardY}* | *${value.avgInverseX}* | *${value.avgInverseY}*');
+      });
+    });
+
+    test('Print worst closeTos as Map', () {
+      // this is not real test
+      var result = <String, Map<Type, CloseToHelper>>{};
+
+      result['proj4 defs'] = _getCloseToHelper(
+          all_proj4_defs.testDefs, all_proj4_results.testResults);
+
+      result['proj4 ogc wkt defs'] = _getCloseToHelper(
+          all_proj4_ogc_defs.testDefs, all_proj4_ogc_results.testResults);
+
+      result['proj4 esri wkt defs'] = _getCloseToHelper(
+          all_proj4_esri_defs.testDefs, all_proj4_esri_results.testResults);
+
+      result.forEach((key, value) {
+        print('--------------------- $key start -----------------------------');
+        print('var closeToHelpers = {');
+        value.forEach((key, value) {
+          print(
+              '\'$key\' : CloseToHelper()..worstForwardX = ${value.worstForwardX}..worstForwardY = ${value.worstForwardY}..worstInverseX = ${value.worstInverseX}..worstInverseY = ${value.worstInverseY},');
+        });
+        print('};');
+        print('--------------------- $key end -----------------------------');
+      });
     });
   });
 }
 
-void _checkProjectAndUnProjectResults(Map<String, String> defs,
-    Map<String, ProjectAndUnProjectResult> testResults) {
+void _checkProjectAndUnProjectResults(
+    Map<String, String> defs,
+    Map<String, ProjectAndUnProjectResult> testResults,
+    Map<String, CloseToHelper> closeToHelpers) {
   final testPoint = Point(x: 17.888058560281515, y: 46.89226406700879);
 
   testResults.forEach((key, value) {
@@ -134,6 +179,7 @@ void _checkProjectAndUnProjectResults(Map<String, String> defs,
 
     final wgs = Projection.WGS84;
     final custom = Projection.parse(defs[key]);
+    var closeToHelper = closeToHelpers[custom.runtimeType.toString()];
 
     if (value.forwardResultError != null) {
       try {
@@ -152,7 +198,8 @@ void _checkProjectAndUnProjectResults(Map<String, String> defs,
         if (value.forwardResult.x.isNaN) {
           expect(forwardResult.x, isNaN, reason: key);
         } else {
-          expect(forwardResult.x, closeTo(value.forwardResult.x, 0.00001),
+          expect(forwardResult.x,
+              closeTo(value.forwardResult.x, closeToHelper.worstForwardX),
               reason: key);
         }
       }
@@ -161,7 +208,8 @@ void _checkProjectAndUnProjectResults(Map<String, String> defs,
         if (value.forwardResult.y.isNaN) {
           expect(forwardResult.y, isNaN, reason: key);
         } else {
-          expect(forwardResult.y, closeTo(value.forwardResult.y, 0.00001),
+          expect(forwardResult.y,
+              closeTo(value.forwardResult.y, closeToHelper.worstForwardY),
               reason: key);
         }
       }
@@ -184,7 +232,8 @@ void _checkProjectAndUnProjectResults(Map<String, String> defs,
         if (value.inverseResult.x.isNaN) {
           expect(inverseResult.x, isNaN, reason: key);
         } else {
-          expect(inverseResult.x, closeTo(value.inverseResult.x, 0.000001),
+          expect(inverseResult.x,
+              closeTo(value.inverseResult.x, closeToHelper.worstInverseX),
               reason: key);
         }
       }
@@ -193,7 +242,8 @@ void _checkProjectAndUnProjectResults(Map<String, String> defs,
         if (value.inverseResult.y.isNaN) {
           expect(inverseResult.y, isNaN, reason: key);
         } else {
-          expect(inverseResult.y, closeTo(value.inverseResult.y, 0.000001),
+          expect(inverseResult.y,
+              closeTo(value.inverseResult.y, closeToHelper.worstInverseY),
               reason: key);
         }
       }
@@ -201,7 +251,7 @@ void _checkProjectAndUnProjectResults(Map<String, String> defs,
   });
 }
 
-void _printCloseToHelper(Map<String, String> defs,
+Map<Type, CloseToHelper> _getCloseToHelper(Map<String, String> defs,
     Map<String, ProjectAndUnProjectResult> testResults) {
   final testPoint = Point(x: 17.888058560281515, y: 46.89226406700879);
   var closeHelperMap = <Type, CloseToHelper>{};
@@ -239,15 +289,8 @@ void _printCloseToHelper(Map<String, String> defs,
     }
   });
 
-  print(
-      'Projection | No. tests | avg delta forward_x | avg delta forward_y | avg delta inverse_x | avg delta inverse_y');
-  print(':--- | :--- | :--- | :--- | :--- | :---');
-
-  var orderedByKey = SplayTreeMap.from(closeHelperMap,
+  var orderedByKey = SplayTreeMap<Type, CloseToHelper>.from(closeHelperMap,
       (left, right) => left.toString().compareTo(right.toString()));
 
-  orderedByKey.forEach((key, value) {
-    print(
-        '**$key** | ${value.testedAgainst} | *${value.avgForwardX}* | *${value.avgForwardY}* | *${value.avgInverseX}* | *${value.avgInverseY}*');
-  });
+  return orderedByKey;
 }
