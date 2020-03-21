@@ -40,7 +40,7 @@ class Point {
     return Mgrs.forward([x, y], accuracy);
   }
 
-  List<double> toList() {
+  List<double> toArray() {
     var res = [x, y];
     if (z != null) {
       res.add(z);

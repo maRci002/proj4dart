@@ -16,12 +16,12 @@ void main() {
   // Forward transform (lonlat -> projected crs)
   var pointForward = projSrc.transform(projDst, pointSrc);
   print(
-      'FORWARD: Transform point ${pointSrc.toList()} from EPSG:4326 to EPSG:23700: ${pointForward.toList()}');
+      'FORWARD: Transform point ${pointSrc.toArray()} from EPSG:4326 to EPSG:23700: ${pointForward.toArray()}');
   // FORWARD: Transform point [17.888058560281515, 46.89226406700879] from EPSG:4326 to EPSG:23700: [561566.9401485138, 172629.5556637255]
 
   // Inverse transform (projected crs -> lonlat)
   var pointInverse = projDst.transform(projSrc, pointForward);
   print(
-      'INVERSE: Transform point ${pointForward.toList()} from EPSG:23700 to EPSG:4326: ${pointInverse.toList()}');
+      'INVERSE: Transform point ${pointForward.toArray()} from EPSG:23700 to EPSG:4326: ${pointInverse.toArray()}');
   // INVERSE: Transform point [561566.9401485138, 172629.5556637255] from EPSG:23700 to EPSG:4326: [17.88805856028154, 46.89226406703413]
 }
