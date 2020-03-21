@@ -177,35 +177,35 @@ Forward and inverse transformations were both performed and checked in each case
 
 The following table shows the avarage deltas of different Projections (using [EPSG:4326](http://epsg.io/4326.proj4) point of `[17.888058560281515, 46.89226406700879]` and transformed to [Custom CRS defined with Proj4 definition string](test/data/all_proj4_defs.dart#L65) which gave the `forward result` then transformed back the received forward result which gave the `inverse result`):
 
-Projection | No. tests | avg delta forward_x | avg delta forward_y | avg delta inverse_x | avg delta inverse_y
-:--- | :--- | :--- | :--- | :--- | :---
-**Albers Projection** | 58 | *2.8260822953849e-9* | *1.6378431484617036e-9* | *1.0719394720518753e-14* | *1.0903155772870503e-14*
-**Azimuthal Equidistant Projection** | 12 | *7.761021455128987e-11* | *1.5522042910257974e-10* | *1.7763568394002505e-15* | *1.1842378929335002e-15*
-**Cassini Projection** | 33 | *3.9510654680656665e-10* | *3.3866275440562856e-10* | *3.2297397080004555e-16* | *0.0*
-**Central Cylindrical Projection** | 5 | *0.0* | *0.0* | *0.0* | *0.0*
-**Equidistant Conic Projection** | 9 | *1.2935035758548312e-11* | *0.0* | *1.578983857244667e-15* | *0.0*
-**Equidistant Cylindrical Projection** | 25 | *0.0* | *0.0* | *0.0* | *0.0*
-**Geocentric Projection** | 196 | *0.0* | *0.0* | *9.06304509898087e-17* | *0.0*
-**Gnomic Projection** | 2 | *0.0* | *0.0* | *3.552713678800501e-15* | *0.0*
-**Hotine Oblique Mercator Projection** | 51 | *4.460304683330012e-9* | *8.017819959158991e-9* | *6.339155779820502e-15* | *3.901018941428001e-15*
-**Krovak Projection** | 9 | *9.054525030983819e-10* | *1.448724004957411e-9* | *1.578983857244667e-15* | *3.157967714489334e-15*
-**Lambert Azimuthal Equal-Area Projection** | 20 | *5.820766091346741e-11* | *0.0* | *5.329070518200751e-16* | *0.0*
-**Lambert Conformal Conic Projection** | 2028 | *1.8960008225716005e-8* | *1.2588414830372427e-8* | *4.613097105712702e-14* | *8.064379757884726e-14*
-**LongLat** | 1152 | *1.6961740653995446e-16* | *0.0* | *2.312964634635743e-16* | *2.7755575615628914e-16*
-**Miller Cylindrical Projection** | 2 | *0.0* | *0.0* | *0.0* | *0.0*
-**Mollweide Projection** | 2 | *0.0* | *0.0* | *0.0* | *0.0*
-**New Zealand Map Grid Projection** | 1 | *0.0* | *0.0* | *NaN* | *NaN*
-**Orthographic Projection** | 2 | *0.0* | *0.0* | *7.105427357601002e-15* | *3.552713678800501e-15*
-**Polyconic Projection** | 10 | *0.0* | *0.0* | *1.1842378929335002e-15* | *0.0*
-**Pseudo Mercator Projection** | 25 | *0.0* | *3.7252902984619143e-10* | *1.4210854715202004e-16* | *2.842170943040401e-16*
-**Robinson Projection** | 2 | *0.0* | *0.0* | *0.0* | *0.0*
-**Sinusoidal Projection** | 3 | *0.0* | *0.0* | *0.0* | *0.0*
-**Stereographic North Projection** | 21 | *2.217434701465425e-11* | *2.993536846978324e-10* | *4.906128413581644e-15* | *1.3534147347811431e-15*
-**Stereographic South Projection** | 44 | *2.43414258446509e-10* | *2.063731004268861e-10* | *1.3726393759001935e-15* | *0.0*
-**Swiss Oblique Mercator Projection** | 5 | *4.656612873077393e-11* | *0.0* | *1.4210854715202005e-15* | *0.0*
-**Transverse Mercator Projection** | 3445 | *7.527289676908484e-12* | *5.01819311793899e-12* | *3.966550829771659e-13* | *3.0942861377693824e-13*
-**Universal Transverse Mercator Projection** | 1279 | *3.4847229055075836e-10* | *3.429655454604303e-10* | *3.4304936617033767e-15* | *2.4999548951684524e-15*
-**Van der Grinten Projection** | 2 | *3.3760443329811096e-9* | *2.3283064365386963e-9* | *0.0* | *0.0*
+| Projection                                   | No. tests | avg delta forward_x      | avg delta forward_y      | avg delta inverse_x      | avg delta inverse_y      |
+| :------------------------------------------- | :-------- | :----------------------- | :----------------------- | :----------------------- | :----------------------- |
+| **Albers Projection**                        | 58        | *2.8260822953849e-9*     | *1.6378431484617036e-9*  | *1.0719394720518753e-14* | *1.0903155772870503e-14* |
+| **Azimuthal Equidistant Projection**         | 12        | *7.761021455128987e-11*  | *1.5522042910257974e-10* | *1.7763568394002505e-15* | *1.1842378929335002e-15* |
+| **Cassini Projection**                       | 33        | *3.9510654680656665e-10* | *3.3866275440562856e-10* | *3.2297397080004555e-16* | *0.0*                    |
+| **Central Cylindrical Projection**           | 5         | *0.0*                    | *0.0*                    | *0.0*                    | *0.0*                    |
+| **Equidistant Conic Projection**             | 9         | *1.2935035758548312e-11* | *0.0*                    | *1.578983857244667e-15*  | *0.0*                    |
+| **Equidistant Cylindrical Projection**       | 25        | *0.0*                    | *0.0*                    | *0.0*                    | *0.0*                    |
+| **Geocentric Projection**                    | 196       | *0.0*                    | *0.0*                    | *9.06304509898087e-17*   | *0.0*                    |
+| **Gnomic Projection**                        | 2         | *0.0*                    | *0.0*                    | *3.552713678800501e-15*  | *0.0*                    |
+| **Hotine Oblique Mercator Projection**       | 51        | *4.460304683330012e-9*   | *8.017819959158991e-9*   | *6.339155779820502e-15*  | *3.901018941428001e-15*  |
+| **Krovak Projection**                        | 9         | *9.054525030983819e-10*  | *1.448724004957411e-9*   | *1.578983857244667e-15*  | *3.157967714489334e-15*  |
+| **Lambert Azimuthal Equal-Area Projection**  | 20        | *5.820766091346741e-11*  | *0.0*                    | *5.329070518200751e-16*  | *0.0*                    |
+| **Lambert Conformal Conic Projection**       | 2028      | *1.8960008225716005e-8*  | *1.2588414830372427e-8*  | *4.613097105712702e-14*  | *8.064379757884726e-14*  |
+| **LongLat**                                  | 1152      | *1.6961740653995446e-16* | *0.0*                    | *2.312964634635743e-16*  | *2.7755575615628914e-16* |
+| **Miller Cylindrical Projection**            | 2         | *0.0*                    | *0.0*                    | *0.0*                    | *0.0*                    |
+| **Mollweide Projection**                     | 2         | *0.0*                    | *0.0*                    | *0.0*                    | *0.0*                    |
+| **New Zealand Map Grid Projection**          | 1         | *0.0*                    | *0.0*                    | *NaN*                    | *NaN*                    |
+| **Orthographic Projection**                  | 2         | *0.0*                    | *0.0*                    | *7.105427357601002e-15*  | *3.552713678800501e-15*  |
+| **Polyconic Projection**                     | 10        | *0.0*                    | *0.0*                    | *1.1842378929335002e-15* | *0.0*                    |
+| **Pseudo Mercator Projection**               | 25        | *0.0*                    | *3.7252902984619143e-10* | *1.4210854715202004e-16* | *2.842170943040401e-16*  |
+| **Robinson Projection**                      | 2         | *0.0*                    | *0.0*                    | *0.0*                    | *0.0*                    |
+| **Sinusoidal Projection**                    | 3         | *0.0*                    | *0.0*                    | *0.0*                    | *0.0*                    |
+| **Stereographic North Projection**           | 21        | *2.217434701465425e-11*  | *2.993536846978324e-10*  | *4.906128413581644e-15*  | *1.3534147347811431e-15* |
+| **Stereographic South Projection**           | 44        | *2.43414258446509e-10*   | *2.063731004268861e-10*  | *1.3726393759001935e-15* | *0.0*                    |
+| **Swiss Oblique Mercator Projection**        | 5         | *4.656612873077393e-11*  | *0.0*                    | *1.4210854715202005e-15* | *0.0*                    |
+| **Transverse Mercator Projection**           | 3445      | *7.527289676908484e-12*  | *5.01819311793899e-12*   | *3.966550829771659e-13*  | *3.0942861377693824e-13* |
+| **Universal Transverse Mercator Projection** | 1279      | *3.4847229055075836e-10* | *3.429655454604303e-10*  | *3.4304936617033767e-15* | *2.4999548951684524e-15* |
+| **Van der Grinten Projection**               | 2         | *3.3760443329811096e-9*  | *2.3283064365386963e-9*  | *0.0*                    | *0.0*                    |
 
 Example (using [EPSG:4326](http://epsg.io/4326.proj4) point of `[17.888058560281515, 46.89226406700879]` and transformed to [EPSG:23700](http://epsg.io/23700.proj4) defined with Proj4 definition string):
 
@@ -222,6 +222,10 @@ In some cases also manual PostGIS testing (PostgreSQL 12.1, PostGIS 3.0.0 r17983
 | **proj4dart** | 561651.8408065987 | 172658.61998377228 | 17.888058565574845  | 46.89226406698969  |
 | **PostGIS**   | 561651.8408065987 | 172658.6199837724  | 17.88805856557482   | 46.8922640683514   |
 | *delta*       | *0.0*             | *0.00000000012*    | *0.000000000000025* | *0.00000000136171* |
+
+## Used by
+
+- Proj4dart is currently the default projection handler of [flutter_map](https://github.com/johnpryan/flutter_map).
 
 ## Authors
 
