@@ -4,24 +4,23 @@ void main() {
   // Define Point
   var pointSrc = Point(x: 17.888058560281515, y: 46.89226406700879);
 
+  // Use built-in projection
+  var projSrc = Projection('EPSG:4326');
+
   // Define custom projection
   var projDst = Projection.add(
     'EPSG:23700',
     '+proj=somerc +lat_0=47.14439372222222 +lon_0=19.04857177777778 +k_0=0.99993 +x_0=650000 +y_0=200000 +ellps=GRS67 +towgs84=52.17,-71.82,-14.9,0,0,0,0 +units=m +no_defs',
   );
 
-  // Define ProjectionTuple which makes vice versa conversions even easier
-  var tuple =
-      ProjectionTuple(fromProj: Projection('EPSG:4326'), toProj: projDst);
-
   // Forward transform (lonlat -> projected crs)
-  var pointForward = tuple.forward(pointSrc);
+  var pointForward = projSrc.transform(projDst, pointSrc);
   print(
       'FORWARD: Transform point [${pointSrc.x}, ${pointSrc.y}] from EPSG:4326 to EPSG:23700: [${pointForward.x}, ${pointForward.y}]');
   // FORWARD: Transform point [17.888058560281515, 46.89226406700879] from EPSG:4326 to EPSG:23700: [561651.8408065987, 172658.61998377228]
 
   // Inverse transform (projected crs -> lonlat)
-  var pointInverse = tuple.inverse(pointForward);
+  var pointInverse = projDst.transform(projSrc, pointForward);
   print(
       'INVERSE: Transform point [${pointForward.x}, ${pointForward.y}] from EPSG:23700 to EPSG:4326: [${pointInverse.x}, ${pointInverse.y}]');
   // INVERSE: Transform point [561651.8408065987, 172658.61998377228] from EPSG:23700 to EPSG:4326: [17.888058565574845, 46.89226406698969]
