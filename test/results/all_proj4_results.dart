@@ -86,8 +86,8 @@ var closeToHelpers = {
   'NewZealandMapGridProjection': CloseToHelper()
     ..worstForwardX = 0.0
     ..worstForwardY = 0.0
-    ..worstInverseX = null
-    ..worstInverseY = null,
+    ..worstInverseX = 0.000003294908452744494
+    ..worstInverseY = 0.000008533214440831216,
   'OrthographicProjection': CloseToHelper()
     ..worstForwardX = 0.0
     ..worstForwardY = 0.0
