@@ -17,9 +17,10 @@ import 'classes/close_to_helper.dart';
 
 void main() {
   group('Bulk tests', () {
+    setUp(() => ProjectionStore().clearProjectionCache());
+
     test('Create all projections via proj4 def strings and find all of them',
         () {
-      ProjectionStore().clearProjectionCache();
       var proj4StringDefs = all_proj4_defs.testDefs;
 
       proj4StringDefs.forEach((key, value) => Projection.add(key, value));
@@ -30,7 +31,6 @@ void main() {
     });
 
     test('Create all projections via ogc wkt strings and find all of them', () {
-      ProjectionStore().clearProjectionCache();
       var proj4OGCWktTestDefs = all_proj4_ogc_defs.testDefs;
 
       proj4OGCWktTestDefs.forEach((key, value) => Projection.add(key, value));
@@ -42,7 +42,6 @@ void main() {
 
     test('Create all projections via esri wkt strings and find all of them',
         () {
-      ProjectionStore().clearProjectionCache();
       var proj4ESRIWktTestDefs = all_proj4_esri_defs.testDefs;
 
       proj4ESRIWktTestDefs.forEach((key, value) => Projection.add(key, value));
@@ -53,27 +52,66 @@ void main() {
     });
 
     test('Project / unproject test for all Proj4 def projections', () {
+      var defs = all_proj4_defs.testDefs;
+      var testResults = all_proj4_results.testResults;
+      // Since each dart version may produce different average deltas (maybe it also depends on underlying Operating System)
+      // We precalculate worstDeltas which will be printed
+      var closeToHelpers = _getCloseToHelpers(defs, testResults);
+
       _checkProjectAndUnProjectResults(
-        all_proj4_defs.testDefs,
-        all_proj4_results.testResults,
-        all_proj4_results.closeToHelpers,
+        defs,
+        testResults,
+        closeToHelpers,
       );
+
+      print(
+          'Project / unproject test for all Proj4 def projections test were run against following closeTos:');
+      closeToHelpers.forEach((key, value) {
+        print(
+            '$key : worstForwardX = ${value.worstForwardX}, worstForwardY = ${value.worstForwardY}, worstInverseX = ${value.worstInverseX}, worstInverseY = ${value.worstInverseY}');
+      });
     });
 
     test('Project / unproject test for all OGC WKT projections', () {
+      var defs = all_proj4_ogc_defs.testDefs;
+      var testResults = all_proj4_ogc_results.testResults;
+      // Since each dart version may produce different average deltas (maybe it also depends on underlying Operating System)
+      // We precalculate worstDeltas which will be printed
+      var closeToHelpers = _getCloseToHelpers(defs, testResults);
+
       _checkProjectAndUnProjectResults(
-        all_proj4_ogc_defs.testDefs,
-        all_proj4_ogc_results.testResults,
-        all_proj4_ogc_results.closeToHelpers,
+        defs,
+        testResults,
+        closeToHelpers,
       );
+
+      print(
+          'Project / unproject test for all OGC WKT projections test were run against following closeTos');
+      closeToHelpers.forEach((key, value) {
+        print(
+            '$key : worstForwardX = ${value.worstForwardX}, worstForwardY = ${value.worstForwardY}, worstInverseX = ${value.worstInverseX}, worstInverseY = ${value.worstInverseY}');
+      });
     });
 
     test('Project / unproject test for all ESRI WKT projections', () {
+      var defs = all_proj4_esri_defs.testDefs;
+      var testResults = all_proj4_esri_results.testResults;
+      // Since each dart version may produce different average deltas (maybe it also depends on underlying Operating System)
+      // We precalculate worstDeltas which will be printed
+      var closeToHelpers = _getCloseToHelpers(defs, testResults);
+
       _checkProjectAndUnProjectResults(
-        all_proj4_esri_defs.testDefs,
-        all_proj4_esri_results.testResults,
-        all_proj4_esri_results.closeToHelpers,
+        defs,
+        testResults,
+        closeToHelpers,
       );
+
+      print(
+          'Project / unproject test for all ESRI WKT projections test were run against following closeTos');
+      closeToHelpers.forEach((key, value) {
+        print(
+            '$key : worstForwardX = ${value.worstForwardX}, worstForwardY = ${value.worstForwardY}, worstInverseX = ${value.worstInverseX}, worstInverseY = ${value.worstInverseY}');
+      });
     });
   });
 
@@ -128,7 +166,7 @@ void main() {
   group('CloseTo calculators', () {
     test('Print avarage closeTos', () {
       // this is not real test
-      var map = _getCloseToHelper(
+      var map = _getCloseToHelpers(
           all_proj4_defs.testDefs, all_proj4_results.testResults);
 
       print(
@@ -145,13 +183,13 @@ void main() {
       // this is not real test
       var result = <String, Map<Type, CloseToHelper>>{};
 
-      result['proj4 defs'] = _getCloseToHelper(
+      result['proj4 defs'] = _getCloseToHelpers(
           all_proj4_defs.testDefs, all_proj4_results.testResults);
 
-      result['proj4 ogc wkt defs'] = _getCloseToHelper(
+      result['proj4 ogc wkt defs'] = _getCloseToHelpers(
           all_proj4_ogc_defs.testDefs, all_proj4_ogc_results.testResults);
 
-      result['proj4 esri wkt defs'] = _getCloseToHelper(
+      result['proj4 esri wkt defs'] = _getCloseToHelpers(
           all_proj4_esri_defs.testDefs, all_proj4_esri_results.testResults);
 
       result.forEach((key, value) {
@@ -182,13 +220,13 @@ Point _getTestPointByKey(String key) {
 void _checkProjectAndUnProjectResults(
     Map<String, String> defs,
     Map<String, ProjectAndUnProjectResult> testResults,
-    Map<String, CloseToHelper> closeToHelpers) {
+    Map<Type, CloseToHelper> closeToHelpers) {
   testResults.forEach((key, value) {
     final point = _getTestPointByKey(key);
 
     final wgs = Projection.WGS84;
     final custom = Projection.parse(defs[key]);
-    var closeToHelper = closeToHelpers[custom.runtimeType.toString()];
+    var closeToHelper = closeToHelpers[custom.runtimeType];
 
     if (value.forwardResultError != null) {
       try {
@@ -260,7 +298,7 @@ void _checkProjectAndUnProjectResults(
   });
 }
 
-Map<Type, CloseToHelper> _getCloseToHelper(Map<String, String> defs,
+Map<Type, CloseToHelper> _getCloseToHelpers(Map<String, String> defs,
     Map<String, ProjectAndUnProjectResult> testResults) {
   var closeHelperMap = <Type, CloseToHelper>{};
 
