@@ -49,29 +49,24 @@ abstract class Projection {
   /// even with [Projection.add].
   static Projection get WGS84 => ProjStore().WGS84;
 
-  /// Find and return Projection based on code / alias from the [ProjStore]
-  /// An Exception occours if Projection not exists in store.
+  /// Named Projection: a [Projection] can be obtained from the [ProjStore] via it's name.
+  /// null value will return if Projection not exists in store.
   factory Projection(String code) {
     var result = ProjStore().get(code);
-
-    if (result == null) {
-      throw Exception(
-          'There is no Projection registered with the following code / alias: $code');
-    }
 
     return result;
   }
 
-  /// Creates a Projection via [Projection.parse] and registers it to the [ProjStore].
-  /// If register was successfull then it can be accessed anytime with [Projection] factory.
-  /// Warning: this can override predefined Projections!
+  /// Creates a Named Projection via [Projection.parse] and registers it to the [ProjStore].
+  /// If register was successfull then it can be accessed anytime with [Projection] factory constructor.
+  /// Warning: this can override even the predefined Projections!
   factory Projection.add(String code, String defString) {
     var params = Projection.parse(defString);
 
     return ProjStore().register(code, params);
   }
 
-  /// Creates a Projection from defString which can be valid proj4 string / ogc wkt string / esri wkt string
+  /// Creates a Projection from defString which can be valid proj4 string / ogc wkt string / esri wkt string.
   factory Projection.parse(String defString) {
     var params = ProjParams(defString);
 
