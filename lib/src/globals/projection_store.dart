@@ -1,7 +1,7 @@
 import 'package:proj4dart/src/classes/projection.dart';
 
 /// Global class for storing predefined and user-defined Projections
-class ProjStore {
+class ProjectionStore {
   // WGS84 Projection which is not overrideable
   final Projection WGS84;
 
@@ -11,14 +11,14 @@ class ProjStore {
 
   bool get isEmpty => _projectionCache.isEmpty;
 
-  static final ProjStore _projStore = ProjStore._internal();
+  static final ProjectionStore _projStore = ProjectionStore._internal();
 
-  factory ProjStore() {
+  factory ProjectionStore() {
     return _projStore;
   }
 
   /// Private constructor
-  ProjStore._internalInitializer(
+  ProjectionStore._internalInitializer(
       {Projection wgs84, Projection nad83, Projection google})
       : WGS84 = wgs84,
         _projectionCache = {} {
@@ -33,7 +33,7 @@ class ProjStore {
   }
 
   /// Private helper constructor
-  ProjStore._internal()
+  ProjectionStore._internal()
       : this._internalInitializer(
             wgs84: Projection.parse('+proj=longlat +datum=WGS84 +no_defs'),
             nad83: Projection.parse(

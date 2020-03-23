@@ -4,7 +4,7 @@ import 'package:proj4dart/src/classes/proj_params.dart';
 import 'package:proj4dart/src/common/datum_transform.dart' as dt;
 import 'package:proj4dart/src/common/utils.dart' as utils;
 import 'package:proj4dart/src/constants/values.dart' as consts;
-import 'package:proj4dart/src/globals/projs.dart';
+import 'package:proj4dart/src/globals/projection_store.dart';
 import 'package:proj4dart/src/constants/initializers.dart';
 
 abstract class Projection {
@@ -45,25 +45,25 @@ abstract class Projection {
         from_greenwich = params.from_greenwich,
         to_meter = params.to_meter;
 
-  /// Safest way to return WGS84 Projection from the [ProjStore] which cannot be overwritten
+  /// Safest way to return WGS84 Projection from the [ProjectionStore] which cannot be overwritten
   /// even with [Projection.add].
-  static Projection get WGS84 => ProjStore().WGS84;
+  static Projection get WGS84 => ProjectionStore().WGS84;
 
-  /// Named Projection: a [Projection] can be obtained from the [ProjStore] via it's name.
+  /// Named Projection: a [Projection] can be obtained from the [ProjectionStore] via it's name.
   /// null value will return if Projection not exists in store.
   factory Projection(String code) {
-    var result = ProjStore().get(code);
+    var result = ProjectionStore().get(code);
 
     return result;
   }
 
-  /// Creates a Named Projection via [Projection.parse] and registers it to the [ProjStore].
+  /// Creates a Named Projection via [Projection.parse] and registers it to the [ProjectionStore].
   /// If register was successfull then it can be accessed anytime with [Projection] factory constructor.
   /// Warning: this can override even the predefined Projections!
   factory Projection.add(String code, String defString) {
     var params = Projection.parse(defString);
 
-    return ProjStore().register(code, params);
+    return ProjectionStore().register(code, params);
   }
 
   /// Creates a Projection from defString which can be valid proj4 string / ogc wkt string / esri wkt string.
