@@ -1,3 +1,4 @@
+import 'package:meta/meta.dart';
 import 'package:proj4dart/src/classes/projection.dart';
 
 /// Global class for storing predefined and user-defined Projections
@@ -10,6 +11,12 @@ class ProjectionStore {
   final Map<String, Projection> _projectionCache;
 
   bool get isEmpty => _projectionCache.isEmpty;
+
+  /// Clear Projection Cache only for testing purpose
+  @visibleForTesting
+  void clearProjectionCache() {
+    _projectionCache.clear();
+  }
 
   static final ProjectionStore _projStore = ProjectionStore._internal();
 

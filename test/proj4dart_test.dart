@@ -1,6 +1,7 @@
 import 'dart:collection';
 
 import 'package:proj4dart/proj4dart.dart';
+import 'package:proj4dart/src/globals/projection_store.dart';
 import 'package:proj4dart/src/projections/merc.dart';
 import 'package:proj4dart/src/projections/utm.dart';
 import 'package:test/test.dart';
@@ -16,45 +17,44 @@ import 'classes/close_to_helper.dart';
 
 void main() {
   group('Bulk tests', () {
-    Map<String, String> proj4StringDefs;
-    Map<String, String> proj4OGCWktTestDefs;
-    Map<String, String> proj4ESRIWktTestDefs;
-
-    setUp(() {
-      proj4StringDefs = all_proj4_defs.testDefs;
-      proj4OGCWktTestDefs = all_proj4_ogc_defs.testDefs;
-      proj4ESRIWktTestDefs = all_proj4_esri_defs.testDefs;
-    });
-
     test('Create all projections via proj4 def strings and find all of them',
         () {
+      ProjectionStore().clearProjectionCache();
+      var proj4StringDefs = all_proj4_defs.testDefs;
+
       proj4StringDefs.forEach((key, value) => Projection.add(key, value));
       final projectionArray =
-          proj4StringDefs.keys.map((key) => Projection(key));
+          proj4StringDefs.keys.map((key) => Projection(key)).toList();
 
       expect(projectionArray.length, proj4StringDefs.length);
     });
 
     test('Create all projections via ogc wkt strings and find all of them', () {
+      ProjectionStore().clearProjectionCache();
+      var proj4OGCWktTestDefs = all_proj4_ogc_defs.testDefs;
+
       proj4OGCWktTestDefs.forEach((key, value) => Projection.add(key, value));
       final projectionArray =
-          proj4OGCWktTestDefs.keys.map((key) => Projection(key));
+          proj4OGCWktTestDefs.keys.map((key) => Projection(key)).toList();
 
       expect(projectionArray.length, proj4OGCWktTestDefs.length);
     });
 
     test('Create all projections via esri wkt strings and find all of them',
         () {
+      ProjectionStore().clearProjectionCache();
+      var proj4ESRIWktTestDefs = all_proj4_esri_defs.testDefs;
+
       proj4ESRIWktTestDefs.forEach((key, value) => Projection.add(key, value));
       final projectionArray =
-          proj4ESRIWktTestDefs.keys.map((key) => Projection(key));
+          proj4ESRIWktTestDefs.keys.map((key) => Projection(key)).toList();
 
       expect(projectionArray.length, proj4ESRIWktTestDefs.length);
     });
 
     test('Project / unproject test for all Proj4 def projections', () {
       _checkProjectAndUnProjectResults(
-        proj4StringDefs,
+        all_proj4_defs.testDefs,
         all_proj4_results.testResults,
         all_proj4_results.closeToHelpers,
       );
@@ -62,7 +62,7 @@ void main() {
 
     test('Project / unproject test for all OGC WKT projections', () {
       _checkProjectAndUnProjectResults(
-        proj4OGCWktTestDefs,
+        all_proj4_ogc_defs.testDefs,
         all_proj4_ogc_results.testResults,
         all_proj4_ogc_results.closeToHelpers,
       );
@@ -70,7 +70,7 @@ void main() {
 
     test('Project / unproject test for all ESRI WKT projections', () {
       _checkProjectAndUnProjectResults(
-        proj4ESRIWktTestDefs,
+        all_proj4_esri_defs.testDefs,
         all_proj4_esri_results.testResults,
         all_proj4_esri_results.closeToHelpers,
       );
