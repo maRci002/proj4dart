@@ -111,11 +111,12 @@ void main() {
   // Use built-in projection
   var projSrc = Projection('EPSG:4326');
 
-  // Define custom projection
-  var projDst = Projection.add(
-    'EPSG:23700',
-    '+proj=somerc +lat_0=47.14439372222222 +lon_0=19.04857177777778 +k_0=0.99993 +x_0=650000 +y_0=200000 +ellps=GRS67 +towgs84=52.17,-71.82,-14.9,0,0,0,0 +units=m +no_defs',
-  );
+  // Find Projection by name or define it if not exists
+  var projDst = Projection('EPSG:23700') ??
+      Projection.add(
+        'EPSG:23700',
+        '+proj=somerc +lat_0=47.14439372222222 +lon_0=19.04857177777778 +k_0=0.99993 +x_0=650000 +y_0=200000 +ellps=GRS67 +towgs84=52.17,-71.82,-14.9,0,0,0,0 +units=m +no_defs',
+      );
 
   // Forward transform (lonlat -> projected crs)
   var pointForward = projSrc.transform(projDst, pointSrc);
@@ -147,7 +148,8 @@ void main() {
     fromProj: Projection('EPSG:4326'),
     // Define custom projection
     toProj: Projection.parse(
-        '+proj=somerc +lat_0=47.14439372222222 +lon_0=19.04857177777778 +k_0=0.99993 +x_0=650000 +y_0=200000 +ellps=GRS67 +towgs84=52.17,-71.82,-14.9,0,0,0,0 +units=m +no_defs'),
+      '+proj=somerc +lat_0=47.14439372222222 +lon_0=19.04857177777778 +k_0=0.99993 +x_0=650000 +y_0=200000 +ellps=GRS67 +towgs84=52.17,-71.82,-14.9,0,0,0,0 +units=m +no_defs',
+    ),
   );
 
   // Forward transform (lonlat -> projected crs)
