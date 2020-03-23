@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.4
+
+- Named Projection returns null instead of throwing Exception if Projection not found by name
+- Some tests precalculate worst closeTos because these may depend on Dart version / OS
+
 ## 1.0.3
 
 - add meta.dart to pubspec.yaml (avoid pub warning)
