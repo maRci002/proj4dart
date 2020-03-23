@@ -49,6 +49,11 @@ class ProjectionStore {
 
   /// Registers Projection to the store
   Projection register(String code, Projection projection) {
+    if (_projectionCache.containsKey(code)) {
+      print(
+          'Warning a Projection was already registered with the following name: $code, it will be overridden');
+    }
+
     return _projectionCache[code] = projection;
   }
 }
