@@ -178,7 +178,7 @@ Forward and inverse transformations were both performed and checked in each case
 The following table shows the avarage deltas of different Projections (using [EPSG:4326](http://epsg.io/4326.proj4) point of `[17.888058560281515, 46.89226406700879]` and transformed to [Custom CRS defined with Proj4 definition string](test/data/all_proj4_defs.dart#L65) which gave the `forward result` then transformed back the received forward result which gave the `inverse result`):
 
 | Projection                                   | No. tests | avg delta forward_x      | avg delta forward_y      | avg delta inverse_x       | avg delta inverse_y       |
-| :------------------------------------------- | :-------- | :----------------------- | :----------------------- | :------------------------ | :------------------------ |
+|:---------------------------------------------|:----------|:-------------------------|:-------------------------|:--------------------------|:--------------------------|
 | **Albers Projection**                        | 58        | *2.8260822953849e-9*     | *1.6378431484617036e-9*  | *1.0719394720518753e-14*  | *1.0903155772870503e-14*  |
 | **Azimuthal Equidistant Projection**         | 12        | *7.761021455128987e-11*  | *1.5522042910257974e-10* | *1.7763568394002505e-15*  | *1.1842378929335002e-15*  |
 | **Cassini Projection**                       | 33        | *3.9510654680656665e-10* | *3.3866275440562856e-10* | *3.2297397080004555e-16*  | *0.0*                     |
@@ -210,7 +210,7 @@ The following table shows the avarage deltas of different Projections (using [EP
 Example (using [EPSG:4326](http://epsg.io/4326.proj4) point of `[17.888058560281515, 46.89226406700879]` and transformed to [EPSG:23700](http://epsg.io/23700.proj4) defined with Proj4 definition string):
 
 | LIBRARY       | forward_x         | forward_y          | inverse_x           | inverse_y         |
-| :------------ | :---------------- | :----------------- | :------------------ | :---------------- |
+|:--------------|:------------------|:-------------------|:--------------------|:------------------|
 | **proj4dart** | 561651.8408065987 | 172658.61998377228 | 17.888058565574845  | 46.89226406698969 |
 | **proj4js**   | 561651.8408065989 | 172658.61998377228 | 17.888058565574852  | 46.89226406698969 |
 | *delta*       | *0.0000000002*    | *0.0*              | *0.000000000000007* | *0.0*             |
@@ -218,7 +218,7 @@ Example (using [EPSG:4326](http://epsg.io/4326.proj4) point of `[17.888058560281
 In some cases also manual PostGIS testing (PostgreSQL 12.1, PostGIS 3.0.0 r17983) was performed such as the following (using [EPSG:4326](http://epsg.io/4326.proj4) point of `[17.888058560281515, 46.89226406700879]` and transformed to [EPSG:23700](http://epsg.io/23700.proj4) defined with Proj4 definition string):
 
 | LIBRARY       | forward_x         | forward_y          | inverse_x           | inverse_y          |
-| :------------ | :---------------- | :----------------- | :------------------ | :----------------- |
+|:--------------|:------------------|:-------------------|:--------------------|:-------------------|
 | **proj4dart** | 561651.8408065987 | 172658.61998377228 | 17.888058565574845  | 46.89226406698969  |
 | **PostGIS**   | 561651.8408065987 | 172658.6199837724  | 17.88805856557482   | 46.8922640683514   |
 | *delta*       | *0.0*             | *0.00000000012*    | *0.000000000000025* | *0.00000000136171* |
