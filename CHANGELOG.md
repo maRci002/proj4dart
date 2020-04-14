@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.5
+
+- If WKT is Mercator projection then internal EPSG:3857 will be used
+- If WKT definition contains an encapsulated proj4 string definition then it will be used
+
 ## 1.0.4
 
 - Named Projection returns null instead of throwing Exception if Projection not found by name
