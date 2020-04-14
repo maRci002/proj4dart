@@ -6,6 +6,7 @@ import 'package:proj4dart/src/common/utils.dart' as utils;
 import 'package:proj4dart/src/constants/values.dart' as consts;
 import 'package:proj4dart/src/globals/projection_store.dart';
 import 'package:proj4dart/src/constants/initializers.dart';
+import 'package:wkt_parser/wkt_parser.dart' as wkt_parser;
 
 abstract class Projection {
   String projName;
@@ -68,7 +69,20 @@ abstract class Projection {
 
   /// Creates a Projection from defString which can be valid proj4 string / ogc wkt string / esri wkt string.
   factory Projection.parse(String defString) {
-    var params = ProjParams(defString);
+    ProjParams params;
+    if (defString[0] == '+') {
+      params = ProjParams(defString);
+    } else {
+      // Parse WKT
+      var projWKT = wkt_parser.parseWKT(defString);
+      // Override with EPSG:3857 proj4 version if possible
+      if (_checkMercator(projWKT) || _checkProjStr(projWKT)) {
+        params = ProjParams(
+            '+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs');
+      } else {
+        params = ProjParams.fromWKT(projWKT);
+      }
+    }
 
     var projName = params.proj;
     var initializer = initializers[projName];
@@ -79,6 +93,41 @@ abstract class Projection {
     }
 
     return initializer(params);
+  }
+
+  /// Checks whether it is EPSG:3857 or one of its versions
+  static bool _checkMercator(wkt_parser.ProjWKT wkt) {
+    var authority = wkt.AUTHORITY;
+    if (authority == null) {
+      return false;
+    }
+
+    String epsg;
+    if (authority['EPSG'] != null) {
+      epsg = authority['EPSG'];
+    } else if (authority['epsg'] != null) {
+      epsg = authority['epsg'];
+    }
+    var codes = ['3857', '900913', '3785', '102113'];
+
+    return epsg != null && codes.contains(epsg);
+  }
+
+  /// Checks whether the WKT definition contains an encapsulated proj4 string definition
+  static bool _checkProjStr(wkt_parser.ProjWKT wkt) {
+    var ext = wkt.EXTENSION;
+    if (ext == null) {
+      return false;
+    }
+
+    String stringDef;
+    if (ext['PROJ4'] != null) {
+      stringDef = ext['PROJ4'];
+    } else if (ext['proj4'] != null) {
+      stringDef = ext['proj4'];
+    }
+
+    return stringDef != null;
   }
 
   static bool _checkNotWGS(Projection source, Projection dest) {

@@ -55,30 +55,28 @@ class ProjParams {
 
   /// Default constructor
   ProjParams(String defData) {
-    if (defData[0] == '+') {
-      // In case of Proj4 string
-      srsCode = defData;
-      var paramObj = <String, Object>{};
-      defData
-          .split('+')
-          .map((v) => v.trim())
-          .where((a) => a != null)
-          .forEach((a) {
-        var split = a.split('=');
-        if (split.length == 2) {
-          paramObj[split[0]] = split[1];
-        } else if (split.length == 1 && split[0].isNotEmpty) {
-          paramObj[split[0]] = true;
-        }
-      });
-      _iterateProps(paramObj);
-      _addExtraProps();
-    } else {
-      // In case of WKT CRS string
-      var projWKT = wkt_parser.parseWKT(defData);
-      _iterateProps(projWKT.map.cast<String, Object>());
-      _addExtraProps();
-    }
+    srsCode = defData;
+    var paramObj = <String, Object>{};
+    defData
+        .split('+')
+        .map((v) => v.trim())
+        .where((a) => a != null)
+        .forEach((a) {
+      var split = a.split('=');
+      if (split.length == 2) {
+        paramObj[split[0]] = split[1];
+      } else if (split.length == 1 && split[0].isNotEmpty) {
+        paramObj[split[0]] = true;
+      }
+    });
+    _iterateProps(paramObj);
+    _addExtraProps();
+  }
+
+  /// Construct ProjParams from ProjWKT
+  ProjParams.fromWKT(wkt_parser.ProjWKT wkt) {
+    _iterateProps(wkt.map.cast<String, Object>());
+    _addExtraProps();
   }
 
   /// Populate map object with parameters
