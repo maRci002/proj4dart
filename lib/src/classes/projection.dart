@@ -76,12 +76,17 @@ abstract class Projection {
       // Parse WKT
       var projWKT = wkt_parser.parseWKT(defString);
       // Override with EPSG:3857 proj4 version if possible
-      if (_checkMercator(projWKT) || _checkProjStr(projWKT)) {
+      if (_checkMercator(projWKT)) {
         params = ProjParams(
             '+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs');
-      } else {
-        params = ProjParams.fromWKT(projWKT);
       }
+      if (params == null) {
+        var extensionProjStr = _checkProjStr(projWKT);
+        if (extensionProjStr != null) {
+          params = ProjParams(extensionProjStr);
+        }
+      }
+      params ??= ProjParams.fromWKT(projWKT);
     }
 
     var projName = params.proj;
@@ -114,20 +119,20 @@ abstract class Projection {
   }
 
   /// Checks whether the WKT definition contains an encapsulated proj4 string definition
-  static bool _checkProjStr(wkt_parser.ProjWKT wkt) {
+  static String _checkProjStr(wkt_parser.ProjWKT wkt) {
     var ext = wkt.EXTENSION;
     if (ext == null) {
-      return false;
+      return null;
     }
 
     String stringDef;
     if (ext['PROJ4'] != null) {
-      stringDef = ext['PROJ4'];
+      return ext['PROJ4'];
     } else if (ext['proj4'] != null) {
-      stringDef = ext['proj4'];
+      return ext['proj4'];
     }
 
-    return stringDef != null;
+    return stringDef;
   }
 
   static bool _checkNotWGS(Projection source, Projection dest) {
