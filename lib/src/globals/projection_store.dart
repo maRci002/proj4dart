@@ -6,6 +6,9 @@ class ProjectionStore {
   // WGS84 Projection which is not overrideable
   final Projection WGS84;
 
+  // EPSG:3857 Projection which is not overrideable
+  final Projection GOOGLE;
+
   // Key: Cordinate System / Country / Code / !Any alias!
   // Value: Projection
   final Map<String, Projection> _projectionCache;
@@ -28,6 +31,7 @@ class ProjectionStore {
   ProjectionStore._internalInitializer(
       {Projection wgs84, Projection nad83, Projection google})
       : WGS84 = wgs84,
+        GOOGLE = google,
         _projectionCache = {} {
     register('WGS84', wgs84);
     register('EPSG:4326', wgs84);

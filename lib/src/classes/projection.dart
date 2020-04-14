@@ -1,3 +1,4 @@
+import 'package:proj4dart/proj4dart.dart';
 import 'package:proj4dart/src/classes/datum.dart';
 import 'package:proj4dart/src/classes/point.dart';
 import 'package:proj4dart/src/classes/proj_params.dart';
@@ -50,6 +51,10 @@ abstract class Projection {
   /// even with [Projection.add].
   static Projection get WGS84 => ProjectionStore().WGS84;
 
+  /// Safest way to return EPSG:3857 Projection from the [ProjectionStore] which cannot be overwritten
+  /// even with [Projection.add].
+  static Projection get GOOGLE => ProjectionStore().GOOGLE;
+
   /// Named Projection: a [Projection] can be obtained from the [ProjectionStore] via it's name.
   /// null value will return if Projection not exists in store.
   factory Projection(String code) {
@@ -76,17 +81,17 @@ abstract class Projection {
       // Parse WKT
       var projWKT = wkt_parser.parseWKT(defString);
       // Override with EPSG:3857 proj4 version if possible
+      // test of spetial case, due to this being a very common and often malformed
       if (_checkMercator(projWKT)) {
-        params = ProjParams(
-            '+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs');
+        return GOOGLE;
       }
-      if (params == null) {
-        var extensionProjStr = _checkProjStr(projWKT);
-        if (extensionProjStr != null) {
-          params = ProjParams(extensionProjStr);
-        }
+
+      var extensionProjStr = _checkProjStr(projWKT);
+      if (extensionProjStr != null) {
+        params = ProjParams(extensionProjStr);
+      } else {
+        params = ProjParams.fromWKT(projWKT);
       }
-      params ??= ProjParams.fromWKT(projWKT);
     }
 
     var projName = params.proj;
@@ -99,6 +104,8 @@ abstract class Projection {
 
     return initializer(params);
   }
+
+  static final _mercatorCodes = ['3857', '900913', '3785', '102113'];
 
   /// Checks whether it is EPSG:3857 or one of its versions
   static bool _checkMercator(wkt_parser.ProjWKT wkt) {
@@ -113,9 +120,8 @@ abstract class Projection {
     } else if (authority['epsg'] != null) {
       epsg = authority['epsg'];
     }
-    var codes = ['3857', '900913', '3785', '102113'];
 
-    return epsg != null && codes.contains(epsg);
+    return epsg != null && _mercatorCodes.contains(epsg);
   }
 
   /// Checks whether the WKT definition contains an encapsulated proj4 string definition
@@ -125,14 +131,13 @@ abstract class Projection {
       return null;
     }
 
-    String stringDef;
     if (ext['PROJ4'] != null) {
       return ext['PROJ4'];
     } else if (ext['proj4'] != null) {
       return ext['proj4'];
     }
 
-    return stringDef;
+    return null;
   }
 
   static bool _checkNotWGS(Projection source, Projection dest) {
