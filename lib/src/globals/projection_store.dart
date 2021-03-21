@@ -9,6 +9,9 @@ class ProjectionStore {
   // EPSG:3857 Projection which is not overrideable
   final Projection GOOGLE;
 
+  // EPSG:4269 Projection which is not overrideable
+  final Projection NAD83;
+
   // Key: Cordinate System / Country / Code / !Any alias!
   // Value: Projection
   final Map<String, Projection> _projectionCache;
@@ -19,6 +22,8 @@ class ProjectionStore {
   @visibleForTesting
   void clearProjectionCache() {
     _projectionCache.clear();
+
+    _fillProjectionCache();
   }
 
   static final ProjectionStore _projStore = ProjectionStore._internal();
@@ -32,15 +37,20 @@ class ProjectionStore {
       {Projection wgs84, Projection nad83, Projection google})
       : WGS84 = wgs84,
         GOOGLE = google,
+        NAD83 = nad83,
         _projectionCache = {} {
-    register('WGS84', wgs84);
-    register('EPSG:4326', wgs84);
-    register('EPSG:4269', nad83);
-    register('EPSG:3857', google);
-    register('EPSG:3785', google);
-    register('GOOGLE', google);
-    register('EPSG:900913', google);
-    register('EPSG:102113', google);
+    _fillProjectionCache();
+  }
+
+  void _fillProjectionCache() {
+    register('WGS84', WGS84);
+    register('EPSG:4326', WGS84);
+    register('EPSG:4269', NAD83);
+    register('EPSG:3857', GOOGLE);
+    register('EPSG:3785', GOOGLE);
+    register('GOOGLE', GOOGLE);
+    register('EPSG:900913', GOOGLE);
+    register('EPSG:102113', GOOGLE);
   }
 
   /// Private helper constructor
