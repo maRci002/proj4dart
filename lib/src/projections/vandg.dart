@@ -13,16 +13,16 @@ class VanDerGrintenProjection extends Projection {
     'vandg'
   ];
 
-  double R;
-  double long0;
-  double x0;
-  double y0;
+  late double R;
+  late double long0;
+  late double x0;
+  late double y0;
 
   VanDerGrintenProjection.init(ProjParams params) : super.init(params) {
-    R = params.a;
+    R = params.a!;
     long0 = params.long0;
-    x0 = params.x0;
-    y0 = params.y0;
+    x0 = params.x0!;
+    y0 = params.y0!;
   }
 
   @override

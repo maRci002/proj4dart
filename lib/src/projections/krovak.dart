@@ -10,37 +10,38 @@ class KrovakProjection extends Projection {
 
   double lat0;
   double long0;
-  double s45;
-  double s90;
-  double fi0;
-  double e2;
-  double alfa;
-  double uq;
-  double u0;
-  double g;
-  double k1;
-  double k;
-  double n0;
-  double s0;
-  double n;
-  double ro0;
-  double ad;
+  late double s45;
+  late double s90;
+  late double fi0;
+  late double e2;
+  late double alfa;
+  late double uq;
+  late double u0;
+  late double g;
+  late double k1;
+  late double k;
+  late double n0;
+  late double s0;
+  late double n;
+  late double ro0;
+  late double ad;
   bool czech;
 
   KrovakProjection.init(ProjParams params)
-      : lat0 = params.lat0,
+      : lat0 = params.lat0 ?? 0.863937979737193,
         long0 = params.long0,
-        czech = params.map['czech'],
+        czech = params.map['czech'] == true,
         super.init(params) {
     a = 6377397.155;
     es = 0.006674372230614;
     e = math.sqrt(es);
-    lat0 ??= 0.863937979737193;
-    if (long0 == null || long0.isNaN) {
+    if (/*long0 == null || */ long0.isNaN) {
       long0 = 0.7417649320975901 - 0.308341501185665;
     }
     // if scale not set default to 0.9999
-    k0 ??= 0.9999;
+    if (k0 == 0.0 || k0.isNaN) {
+      k0 = 0.9999;
+    }
     s45 = 0.785398163397448; // 45
     s90 = 2 * s45;
     fi0 = lat0;
@@ -50,7 +51,8 @@ class KrovakProjection extends Projection {
     uq = 1.04216856380474;
     u0 = math.asin(math.sin(fi0) / alfa);
     g = math.pow(
-        (1 + e * math.sin(fi0)) / (1 - e * math.sin(fi0)), alfa * e / 2);
+            (1 + e * math.sin(fi0)) / (1 - e * math.sin(fi0)), alfa * e / 2)
+        as double;
     k = math.tan(u0 / 2 + s45) / math.pow(math.tan(fi0 / 2 + s45), alfa) * g;
     k1 = k0;
     n0 = a * math.sqrt(1 - e2) / (1 - e2 * math.pow(math.sin(fi0), 2));
@@ -67,7 +69,8 @@ class KrovakProjection extends Projection {
     var lat = p.y;
     var delta_lon = utils.adjust_lon(lon - long0);
     gfi = math.pow(
-        ((1 + e * math.sin(lat)) / (1 - e * math.sin(lat))), (alfa * e / 2));
+            ((1 + e * math.sin(lat)) / (1 - e * math.sin(lat))), (alfa * e / 2))
+        as double;
     u = 2 *
         (math.atan(k * math.pow(math.tan(lat / 2 + s45), alfa) / gfi) - s45);
     deltav = -delta_lon * alfa;
@@ -81,7 +84,7 @@ class KrovakProjection extends Projection {
     p.y = ro * math.cos(eps) / 1;
     p.x = ro * math.sin(eps) / 1;
 
-    if (czech == null || !czech) {
+    if (!czech) {
       p.y *= -1;
       p.x *= -1;
     }
@@ -96,7 +99,7 @@ class KrovakProjection extends Projection {
     var tmp = p.x;
     p.x = p.y;
     p.y = tmp;
-    if (czech == null || !czech) {
+    if (!czech) {
       p.y *= -1;
       p.x *= -1;
     }
@@ -126,7 +129,7 @@ class KrovakProjection extends Projection {
       iter += 1;
     } while (ok == 0 && iter < 15);
     if (iter >= 15) {
-      return null;
+      throw 'Shouldn\'t reach';
     }
 
     return (p);

@@ -17,35 +17,32 @@ class HotineObliqueMercatorProjection extends Projection {
 
   double lat0;
   double long0;
-  double longc;
+  double? longc;
   double x0;
   double y0;
-  double lat1;
-  double lat2;
-  double long1;
-  double long2;
-  double alpha;
+  double? lat1;
+  double? lat2;
+  double? long1;
+  double? long2;
+  double? alpha;
   bool no_off, no_rot;
-  double bl, al, el, gamma0, uc;
+  late double bl, al, el, gamma0, uc;
 
   HotineObliqueMercatorProjection.init(ProjParams params)
-      : lat0 = params.lat0,
+      : lat0 = params.lat0!,
         long0 = params.long0,
         longc = params.longc,
-        x0 = params.x0,
-        y0 = params.y0,
+        x0 = params.x0!,
+        y0 = params.y0!,
         lat1 = params.lat1,
         lat2 = params.lat2,
         long1 = params.long1,
         long2 = params.long2,
         alpha = params.alpha,
-        no_off = params.map['no_off'],
-        no_rot = params.map['no_rot'],
+        no_off = params.map['no_off'] == true,
+        no_rot = params.map['no_rot'] == true,
         super.init(params) {
-    no_off = no_off ?? false;
-    no_rot = no_rot ?? false;
-
-    if (k0 == null || k0.isNaN) {
+    if (k0 == 0.0 || k0.isNaN) {
       k0 = 1.0;
     }
     var sinlat = math.sin(lat0);
@@ -71,12 +68,12 @@ class HotineObliqueMercatorProjection extends Projection {
       }
       el = fl * math.pow(t0, bl);
       gl = 0.5 * (fl - 1 / fl);
-      gamma0 = math.asin(math.sin(alpha) / dl);
-      long0 = longc - math.asin(gl * math.tan(gamma0)) / bl;
+      gamma0 = math.asin(math.sin(alpha!) / dl);
+      long0 = longc! - math.asin(gl * math.tan(gamma0)) / bl;
     } else {
       //2 points method
-      var t1 = utils.tsfnz(e, lat1, math.sin(lat1));
-      var t2 = utils.tsfnz(e, lat2, math.sin(lat2));
+      var t1 = utils.tsfnz(e, lat1!, math.sin(lat1!));
+      var t2 = utils.tsfnz(e, lat2!, math.sin(lat2!));
       if (lat0 >= 0) {
         el = (dl + math.sqrt(dl * dl - 1)) * math.pow(t0, bl);
       } else {
@@ -88,11 +85,11 @@ class HotineObliqueMercatorProjection extends Projection {
       gl = 0.5 * (fl - 1 / fl);
       var jl = (el * el - ll * hl) / (el * el + ll * hl);
       var pl = (ll - hl) / (ll + hl);
-      var dlon12 = utils.adjust_lon(long1 - long2);
-      long0 = 0.5 * (long1 + long2) -
+      var dlon12 = utils.adjust_lon(long1! - long2!);
+      long0 = 0.5 * (long1! + long2!) -
           math.atan(jl * math.tan(0.5 * bl * (dlon12)) / pl) / bl;
       long0 = utils.adjust_lon(long0);
-      var dlon10 = utils.adjust_lon(long1 - long0);
+      var dlon10 = utils.adjust_lon(long1! - long0);
       gamma0 = math.atan(math.sin(bl * (dlon10)) / gl);
       alpha = math.asin(dl * math.sin(gamma0));
     }
@@ -101,9 +98,10 @@ class HotineObliqueMercatorProjection extends Projection {
       uc = 0;
     } else {
       if (lat0 >= 0) {
-        uc = al / bl * math.atan2(math.sqrt(dl * dl - 1), math.cos(alpha));
+        uc = al / bl * math.atan2(math.sqrt(dl * dl - 1), math.cos(alpha!));
       } else {
-        uc = -1 * al / bl * math.atan2(math.sqrt(dl * dl - 1), math.cos(alpha));
+        uc =
+            -1 * al / bl * math.atan2(math.sqrt(dl * dl - 1), math.cos(alpha!));
       }
     }
   }
@@ -150,8 +148,8 @@ class HotineObliqueMercatorProjection extends Projection {
       p.y = y0 + vs;
     } else {
       us -= uc;
-      p.x = x0 + vs * math.cos(alpha) + us * math.sin(alpha);
-      p.y = y0 + us * math.cos(alpha) - vs * math.sin(alpha);
+      p.x = x0 + vs * math.cos(alpha!) + us * math.sin(alpha!);
+      p.y = y0 + us * math.cos(alpha!) - vs * math.sin(alpha!);
     }
     return p;
   }
@@ -163,8 +161,8 @@ class HotineObliqueMercatorProjection extends Projection {
       vs = p.y - y0;
       us = p.x - x0;
     } else {
-      vs = (p.x - x0) * math.cos(alpha) - (p.y - y0) * math.sin(alpha);
-      us = (p.y - y0) * math.cos(alpha) + (p.x - x0) * math.sin(alpha);
+      vs = (p.x - x0) * math.cos(alpha!) - (p.y - y0) * math.sin(alpha!);
+      us = (p.y - y0) * math.cos(alpha!) + (p.x - x0) * math.sin(alpha!);
       us += uc;
     }
     var qp = math.exp(-1 * bl * vs / al);
@@ -180,7 +178,7 @@ class HotineObliqueMercatorProjection extends Projection {
       p.x = long0;
       p.y = -1 * consts.HALF_PI;
     } else {
-      p.y = utils.phi2z(e, ts);
+      p.y = utils.phi2z(e, ts as double);
       p.x = utils.adjust_lon(long0 -
           math.atan2(sp * math.cos(gamma0) - vp * math.sin(gamma0),
                   math.cos(bl * us / al)) /

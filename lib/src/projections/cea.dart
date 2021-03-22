@@ -14,19 +14,19 @@ class CentralCylindricalProjection extends Projection {
     'cea',
   ];
 
-  double long0;
-  double x0;
-  double y0;
-  double lat_ts;
+  late double long0;
+  late double x0;
+  late double y0;
+  late double lat_ts;
 
   CentralCylindricalProjection.init(ProjParams params) : super.init(params) {
     long0 = params.long0;
-    x0 = params.x0;
-    y0 = params.y0;
-    lat_ts = params.lat_ts;
+    x0 = params.x0!;
+    y0 = params.y0!;
+    lat_ts = params.lat_ts!;
 
     //no-op
-    if (sphere == null || !sphere) {
+    if (sphere == null || !sphere!) {
       k0 = utils.msfnz(e, math.sin(lat_ts), math.cos(lat_ts));
     }
   }
@@ -38,7 +38,7 @@ class CentralCylindricalProjection extends Projection {
     var lat = p.y;
     var x, y;
     var dlon = utils.adjust_lon(lon - long0);
-    if (sphere != null && sphere) {
+    if (sphere != null && sphere!) {
       x = x0 + a * dlon * math.cos(lat_ts);
       y = y0 + a * math.sin(lat) / math.cos(lat_ts);
     } else {
@@ -59,7 +59,7 @@ class CentralCylindricalProjection extends Projection {
     p.y -= y0;
     var lon, lat;
 
-    if (sphere != null && sphere) {
+    if (sphere != null && sphere!) {
       lon = utils.adjust_lon(long0 + (p.x / a) / math.cos(lat_ts));
       lat = math.asin((p.y / a) * math.cos(lat_ts));
     } else {

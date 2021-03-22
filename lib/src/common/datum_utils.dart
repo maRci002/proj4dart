@@ -173,14 +173,15 @@ Point geocentricToGeodetic(Point p, double es, double a, double b) {
 /// passed back and forth by reference rather than by value.
 /// Other point classes may be used as long as they have
 /// x and y properties, which will get modified in the transform method.
-Point geocentricToWgs84(Point p, int datumType, List<double> datumParams) {
+Point geocentricToWgs84(
+    Point p, int datumType, List<double> datumParams) {
   if (datumType == consts.PJD_3PARAM) {
     // if( x[io] === HUGE_VAL )
     // continue;
     return Point.withZ(
         x: p.x + datumParams[0],
         y: p.y + datumParams[1],
-        z: p.z != null ? p.z + datumParams[2] : 0.0);
+        z: p.z != null ? p.z! + datumParams[2] : 0.0);
   } else if (datumType == consts.PJD_7PARAM) {
     var Dx_BF = datumParams[0];
     var Dy_BF = datumParams[1];
@@ -193,24 +194,26 @@ Point geocentricToWgs84(Point p, int datumType, List<double> datumParams) {
     // continue;
     p.z = p.z ?? 0.0;
     return Point.withZ(
-        x: M_BF * (p.x - Rz_BF * p.y + Ry_BF * p.z) + Dx_BF,
-        y: M_BF * (Rz_BF * p.x + p.y - Rx_BF * p.z) + Dy_BF,
-        z: M_BF * (-Ry_BF * p.x + Rx_BF * p.y + p.z) + Dz_BF);
+        x: M_BF * (p.x - Rz_BF * p.y + Ry_BF * p.z!) + Dx_BF,
+        y: M_BF * (Rz_BF * p.x + p.y - Rx_BF * p.z!) + Dy_BF,
+        z: M_BF * (-Ry_BF * p.x + Rx_BF * p.y + p.z!) + Dz_BF);
   }
-  return null;
+
+  throw 'Shouldn\'t reach';
 } // cs_geocentric_to_wgs84
 
 /// pj_geocentic_from_wgs84()
 /// coordinate system definition,
 /// point to transform in geocentric coordinates (x,y,z)
-Point geocentricFromWgs84(Point p, int datumType, List<double> datumParams) {
+Point geocentricFromWgs84(
+    Point p, int datumType, List<double> datumParams) {
   if (datumType == consts.PJD_3PARAM) {
     //if( x[io] === HUGE_VAL )
     // continue;
     return Point.withZ(
       x: p.x - datumParams[0],
       y: p.y - datumParams[1],
-      z: p.z - datumParams[2],
+      z: p.z! - datumParams[2],
     );
   } else if (datumType == consts.PJD_7PARAM) {
     var Dx_BF = datumParams[0];
@@ -222,7 +225,7 @@ Point geocentricFromWgs84(Point p, int datumType, List<double> datumParams) {
     var M_BF = datumParams[6];
     var x_tmp = (p.x - Dx_BF) / M_BF;
     var y_tmp = (p.y - Dy_BF) / M_BF;
-    var z_tmp = (p.z - Dz_BF) / M_BF;
+    var z_tmp = (p.z! - Dz_BF) / M_BF;
     //if( x[io] === HUGE_VAL )
     // continue;
 
@@ -231,5 +234,5 @@ Point geocentricFromWgs84(Point p, int datumType, List<double> datumParams) {
         y: -Rz_BF * x_tmp + y_tmp + Rx_BF * z_tmp,
         z: Ry_BF * x_tmp - Rx_BF * y_tmp + z_tmp);
   }
-  return null;
+  throw 'Shouldn\'t reach';
 } //cs_geocentric_from_wgs84()

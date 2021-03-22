@@ -25,15 +25,11 @@ class UniversalTransverseMercatorProjection
 
   UniversalTransverseMercatorProjection.init(ProjParams params)
       : zone = utils.adjust_zone(params.zone, params.long0),
-        utmSouth = params.utmSouth,
+        utmSouth = params.utmSouth == true,
         lat0 = 0,
-        long0 = ((6 * params.zone.abs()) - 183) * consts.D2R,
+        long0 = ((6 * params.zone!.abs()) - 183) * consts.D2R,
         x0 = 500000,
-        y0 = params.utmSouth != null && params.utmSouth ? 10000000 : 0,
+        y0 = params.utmSouth == true ? 10000000 : 0,
         k0 = 0.9996,
-        super.init(params) {
-    if (zone == null) {
-      throw Exception('Unknown utm zone');
-    }
-  }
+        super.init(params);
 }
