@@ -8,17 +8,17 @@ import 'package:proj4dart/src/common/utils.dart' as utils;
 class GaussSchreiberTransverseMercatorProjection extends Projection {
   static final List<String> names = ['gstmerg', 'gstmerc'];
 
-  double long0;
-  double lat0;
-  double x0;
-  double y0;
-  double lc;
-  double rs;
-  double cp;
-  double n2;
-  double xs;
-  double ys;
-  String title;
+  late double long0;
+  late double lat0;
+  late double x0;
+  late double y0;
+  late double lc;
+  late double rs;
+  late double cp;
+  late double n2;
+  late double xs;
+  late double ys;
+  late String title;
 
   GaussSchreiberTransverseMercatorProjection.init(ProjParams params)
       : super.init(params) {
@@ -35,7 +35,7 @@ class GaussSchreiberTransverseMercatorProjection extends Projection {
     xs = x0;
     ys = y0 - n2 * pc;
 
-    if (title == null || title.isEmpty) {
+    if (title.isEmpty) {
       title = 'Gauss Schreiber transverse mercator';
     }
   }

@@ -14,27 +14,27 @@ class LambertConformalConicProjection extends Projection {
     'lcc'
   ];
 
-  double lat0;
-  double long0;
-  double lat1;
-  double lat2;
-  double x0;
-  double y0;
-  double ns, f0, rh;
-  String title;
+  late double lat0;
+  late double long0;
+  late double lat1;
+  late double lat2;
+  late double x0;
+  late double y0;
+  late double ns, f0, rh;
+  late String title;
 
   LambertConformalConicProjection.init(ProjParams params)
-      : lat0 = params.lat0,
+      : lat0 = params.lat0!,
         long0 = params.long0,
-        lat1 = params.lat1,
-        lat2 = params.lat2,
-        x0 = params.x0,
-        y0 = params.y0,
+        lat1 = params.lat1!,
+        lat2 = params.lat2 ?? params.lat1!, //if lat2 is not defined
+        x0 = params.x0 ?? 0.0,
+        y0 = params.y0 ?? 0.0,
         super.init(params) {
-    lat2 ??= lat1; //if lat2 is not defined
-    k0 ??= 1;
-    x0 = x0 ?? 0.0;
-    y0 = y0 ?? 0.0;
+    if (k0 == 0.0 || k0.isNaN) {
+      k0 = 1;
+    }
+
     // Standard Parallels cannot be equal and on opposite sides of the equator
     if ((lat1 + lat2).abs() < consts.EPSLN) {
       return;
@@ -65,7 +65,7 @@ class LambertConformalConicProjection extends Projection {
     }
     f0 = ms1 / (ns * math.pow(ts1, ns));
     rh = a * f0 * math.pow(ts0, ns);
-    title ??= 'Lambert Conformal Conic';
+    title = 'Lambert Conformal Conic';
   }
 
   @override
@@ -86,7 +86,7 @@ class LambertConformalConicProjection extends Projection {
     } else {
       con = lat * ns;
       if (con <= 0) {
-        return null;
+        throw 'Shouldn\'t reach';
       }
       rh1 = 0;
     }
@@ -116,10 +116,10 @@ class LambertConformalConicProjection extends Projection {
     }
     if ((rh1 != 0) || (ns > 0)) {
       con = 1 / ns;
-      ts = math.pow((rh1 / (a * f0)), con);
+      ts = math.pow((rh1 / (a * f0)), con) as double;
       lat = utils.phi2z(e, ts);
       if (lat == -9999) {
-        return null;
+        throw 'Shouldn\'t reach';
       }
     } else {
       lat = -consts.HALF_PI;

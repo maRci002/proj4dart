@@ -271,7 +271,7 @@ final List<Ellipsoid> _ellipsoids = [
   sphere
 ];
 
-Ellipsoid match(String ellipseName) {
+Ellipsoid? match(String ellipseName) {
   var ell = _ellipsoids
       .where((element) =>
           element.shortName.toLowerCase() == ellipseName.toLowerCase())

@@ -15,8 +15,8 @@ class MollweideProjection extends Projection {
 
   MollweideProjection.init(ProjParams params)
       : long0 = params.long0,
-        x0 = params.x0,
-        y0 = params.y0,
+        x0 = params.x0!,
+        y0 = params.y0!,
         super.init(params);
 
   @override

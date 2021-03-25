@@ -12,34 +12,31 @@ class ExtendedTransverseMercatorProjection extends Projection {
     'etmerc'
   ];
 
-  double x0;
-  double y0;
-  double long0;
-  double lat0;
-  double Qn;
-  double Zb;
-  List<double> cgb;
-  List<double> cbg;
-  List<double> utg;
-  List<double> gtu;
+  late double x0;
+  late double y0;
+  late double long0;
+  late double lat0;
+  late double Qn;
+  late double Zb;
+  late List<double> cgb;
+  late List<double> cbg;
+  late List<double> utg;
+  late List<double> gtu;
 
   ExtendedTransverseMercatorProjection.init(ProjParams params)
       : super.init(params) {
-    es = params.es;
-    if (es == null || es <= 0) {
+    if (params.es == null || params.es! <= 0) {
       throw Exception('Incorrect elliptical usage');
     }
-    x0 = x0 ?? 0;
-    y0 = y0 ?? 0;
-    if (long0 == null || long0.isNaN) {
+    es = params.es!;
+    if (/*long0 == null || */ long0.isNaN) {
       long0 = 0;
     }
-    lat0 = lat0 ?? 0;
 
-    cgb = List<double>(6);
-    cbg = List<double>(6);
-    utg = List<double>(6);
-    gtu = List<double>(6);
+    cgb = List<double>.filled(6, 0.0);
+    cbg = List<double>.filled(6, 0.0);
+    utg = List<double>.filled(6, 0.0);
+    gtu = List<double>.filled(6, 0.0);
 
     var f = es / (1 + math.sqrt(1 - es));
     var n = f / (2 - f);
@@ -94,7 +91,7 @@ class ExtendedTransverseMercatorProjection extends Projection {
     cgb[5] = np * (601676 / 22275);
     cbg[5] = np * (444337 / 155925);
 
-    np = math.pow(n, 2);
+    np = math.pow(n, 2) as double;
     Qn = k0 / (1 + n) * (1 + np * (1 / 4 + np * (1 / 64 + np / 256)));
 
     utg[0] = n *

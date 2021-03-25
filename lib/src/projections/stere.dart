@@ -19,15 +19,15 @@ class StereographicSouthProjection extends Projection {
   double x0;
   double y0;
 
-  double sinlat0;
-  double coslat0;
-  double rh;
-  double con;
-  double cons;
-  double ms1;
-  double X0;
-  double cosX0;
-  double sinX0;
+  late double sinlat0;
+  late double coslat0;
+  late double rh;
+  late double con;
+  late double cons;
+  late double ms1;
+  late double X0;
+  late double cosX0;
+  late double sinX0;
 
   double _ssfn(double phit, double sinphi, double eccen) {
     sinphi *= eccen;
@@ -36,15 +36,15 @@ class StereographicSouthProjection extends Projection {
   }
 
   StereographicSouthProjection.init(ProjParams params)
-      : lat0 = params.lat0,
+      : lat0 = params.lat0!,
         long0 = params.long0,
         lat_ts = params.lat_ts ?? double.nan, // fix js behavior
-        x0 = params.x0,
-        y0 = params.y0,
+        x0 = params.x0!,
+        y0 = params.y0!,
         super.init(params) {
     coslat0 = math.cos(lat0);
     sinlat0 = math.sin(lat0);
-    if (sphere != null && sphere) {
+    if (sphere != null && sphere!) {
       if (k0 == 1.0 && !lat_ts.isNaN && coslat0.abs() <= consts.EPSLN) {
         k0 = 0.5 * (1 + utils.sign(lat0) * math.sin(lat_ts));
       }
@@ -91,7 +91,7 @@ class StereographicSouthProjection extends Projection {
       p.y = double.nan;
       return p;
     }
-    if (sphere != null && sphere) {
+    if (sphere != null && sphere!) {
       //trace('stere:sphere case');
       A = 2 * k0 / (1 + sinlat0 * sinlat + coslat0 * coslat * math.cos(dlon));
       p.x = a * A * coslat * math.sin(dlon) + x0;
@@ -135,7 +135,7 @@ class StereographicSouthProjection extends Projection {
     p.y -= y0;
     double lon, lat, ts, ce, Chi;
     var rh = math.sqrt(p.x * p.x + p.y * p.y);
-    if (sphere != null && sphere) {
+    if (sphere != null && sphere!) {
       var c = 2 * math.atan(rh / (2 * a * k0));
       lon = long0;
       lat = lat0;

@@ -12,25 +12,25 @@ import 'package:proj4dart/src/classes/projection.dart';
 class SwissObliqueMercatorProjection extends Projection {
   static final List<String> names = ['somerc'];
 
-  double x0;
-  double y0;
-  double lambda0;
-  double R;
-  double alpha;
-  double b0;
-  double K;
+  late double x0;
+  late double y0;
+  late double lambda0;
+  late double R;
+  late double alpha;
+  late double b0;
+  late double K;
 
   SwissObliqueMercatorProjection.init(ProjParams params) : super.init(params) {
-    var lat0 = params.lat0;
+    var lat0 = params.lat0!;
     var long0 = params.long0;
-    x0 = params.x0;
-    y0 = params.y0;
+    x0 = params.x0!;
+    y0 = params.y0!;
 
     var phy0 = lat0;
     lambda0 = long0;
     var sinPhy0 = math.sin(phy0);
     var semiMajorAxis = a;
-    var invF = rf;
+    var invF = rf!;
     var flattening = 1 / invF;
     var e2 = 2 * flattening - math.pow(flattening, 2);
     e = math.sqrt(e2);

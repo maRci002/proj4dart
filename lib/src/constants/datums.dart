@@ -63,6 +63,6 @@ final datums = {
       datumName: 'Reseau National Belge 1972')
 };
 
-ConstantDatum match(String name) {
+ConstantDatum? match(String name) {
   return datums[name.toLowerCase()];
 }

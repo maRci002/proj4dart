@@ -7,60 +7,58 @@ import 'package:proj4dart/src/constants/values.dart' as consts;
 import 'package:wkt_parser/wkt_parser.dart' as wkt_parser;
 
 class ProjParams {
-  Map<String, Object> map = {};
-  String srsCode;
+  Map<String, Object?> map = {};
+  String? srsCode;
 
-  String get title => map['title'];
-  String get datumCode => map['datumCode'];
-  String get proj => map['proj'];
-  double get rf => map['rf'];
-  double get lat0 => map['lat0'];
-  double get lat1 => map['lat1'];
-  double get lat2 => map['lat2'];
-  double get lat_ts => map['lat_ts'];
-  double get long0 => map['long0'] ?? double.nan;
-  double get long1 => map['long1'];
-  double get long2 => map['long2'];
-  double get alpha => map['alpha'];
-  double get longc => map['longc'];
-  double get x0 => map['x0'];
-  double get y0 => map['y0'];
-  double get k0 => map['k0'];
-  double get k => map['k'];
-  double get a => map['a'];
-  double get b => map['b'];
-  bool get R_A => map['R_A'];
-  int get zone => map['zone'];
-  bool get utmSouth => map['utmSouth'];
-  List<double> get datum_params => map['datum_params'] is List<double>
-      ? map['datum_params']
-      : _parseDatumParams(map['datum_params']);
-  double get to_meter => map['to_meter'];
-  String get units => map['units'];
-  double get from_greenwich => map['from_greenwich'];
-  String get nadgrids => map['nadgrids'];
-  String get axis => map['axis'];
-  bool get no_defs => map['no_defs'];
+  String? get title => map['title'] as String?;
+  String? get datumCode => map['datumCode'] as String?;
+  String? get proj => map['proj'] as String?;
+  double? get rf => map['rf'] as double?;
+  double? get lat0 => map['lat0'] as double?;
+  double? get lat1 => map['lat1'] as double?;
+  double? get lat2 => map['lat2'] as double?;
+  double? get lat_ts => map['lat_ts'] as double?;
+  double get long0 => map['long0'] as double? ?? double.nan;
+  double? get long1 => map['long1'] as double?;
+  double? get long2 => map['long2'] as double?;
+  double? get alpha => map['alpha'] as double?;
+  double? get longc => map['longc'] as double?;
+  double? get x0 => map['x0'] as double?;
+  double? get y0 => map['y0'] as double?;
+  double? get k0 => map['k0'] as double?;
+  double? get k => map['k'] as double?;
+  double? get a => map['a'] as double?;
+  double? get b => map['b'] as double?;
+  bool? get R_A => map['R_A'] as bool?;
+  int? get zone => map['zone'] as int?;
+  bool? get utmSouth => map['utmSouth'] as bool?;
+  List<double>? get datum_params => map['datum_params'] is List<double>
+      ? map['datum_params'] as List<double>?
+      : _parseDatumParams(map['datum_params'] as List<dynamic>?);
+  double? get to_meter => map['to_meter'] as double?;
+  String? get units => map['units'] as String?;
+  double? get from_greenwich => map['from_greenwich'] as double?;
+  String? get nadgrids => map['nadgrids'] as String?;
+  String? get axis => map['axis'] as String?;
+  bool? get no_defs => map['no_defs'] as bool?;
 
   // Extra properties
-  String get ellps => map['ellps'];
-  String get datumName => map['datumName'];
-  bool get sphere => map['sphere'];
-  double get es => map['es'];
-  double get e => map['e'];
-  double get ep2 => map['ep2'];
+  String? get ellps => map['ellps'] as String?;
+  String? get datumName => map['datumName'] as String?;
+  bool? get sphere => map['sphere'] as bool?;
+  double? get es => map['es'] as double?;
+  double? get e => map['e'] as double?;
+  double? get ep2 => map['ep2'] as double?;
 
   // Datum properties
-  Datum get datum => map['datum'];
+  Datum? get datum => map['datum'] as Datum?;
 
   /// Default constructor
   ProjParams(String defData) {
     srsCode = defData;
-    var paramObj = <String, Object>{};
-    defData
-        .split('+')
-        .map((v) => v.trim())
-        .where((a) => a != null)
+    var paramObj = <String, dynamic>{};
+    defData.split('+').map((v) => v.trim())
+        // .where((a) => a != null)
         .forEach((a) {
       var split = a.split('=');
       if (split.length == 2) {
@@ -75,12 +73,12 @@ class ProjParams {
 
   /// Construct ProjParams from ProjWKT
   ProjParams.fromWKT(wkt_parser.ProjWKT wkt) {
-    _iterateProps(wkt.map.cast<String, Object>());
+    _iterateProps(wkt.map);
     _addExtraProps();
   }
 
   /// Populate map object with parameters
-  void _iterateProps(Map<String, Object> paramObj) {
+  void _iterateProps(Map<String, dynamic> paramObj) {
     paramObj.forEach((key, v) {
       switch (key) {
         case 'title':
@@ -202,27 +200,28 @@ class ProjParams {
       }
     });
     if (datumCode != null && datumCode != 'WGS84') {
-      map['datumCode'] = datumCode.toLowerCase();
+      map['datumCode'] = datumCode!.toLowerCase();
     }
   }
 
   /// Get datum, sphere and eccentricity parameters
   void _addExtraProps() {
     if (datumCode != null && datumCode != 'none') {
-      var datumDef = datums.match(datumCode);
+      var datumDef = datums.match(datumCode!);
       if (datumDef != null) {
         map['datum_params'] = datumDef.towgs84 != null
-            ? _getDatumParamsFromString(datumDef.towgs84)
+            ? _getDatumParamsFromString(datumDef.towgs84!)
             : null;
         map['ellps'] = datumDef.ellipse;
-        map['datumName'] = datumDef.datumName ?? datumCode;
+        map['datumName'] = datumDef.datumName /* ?? datumCode*/;
       }
     }
     map['k0'] = k0 ?? 1.0;
     map['axis'] = axis ?? 'enu';
     map['ellps'] = ellps ?? 'wgs84';
-    var sphere = dc.sphere(a, b, rf, ellps, map['sphere']);
-    var ecc = dc.eccentricity(sphere['a'], sphere['b'], sphere['rf'], R_A);
+    var sphere = dc.sphere(a, b, rf, ellps!, map['sphere'] as bool?);
+    var ecc = dc.eccentricity(sphere['a'] as double, sphere['b'] as double,
+        sphere['rf'] as double?, R_A);
     map['a'] = sphere['a'];
     map['b'] = sphere['b'];
     map['rf'] = sphere['rf'];
@@ -231,7 +230,7 @@ class ProjParams {
     map['e'] = ecc['e'];
     map['ep2'] = ecc['ep2'];
     if (datum == null) {
-      map['datum'] = Datum(datumCode, datum_params, a, b, es, ep2);
+      map['datum'] = Datum(datumCode, datum_params, a!, b!, es!, ep2!);
     }
   }
 
@@ -241,7 +240,7 @@ class ProjParams {
   }
 
   /// Parse to List<double> if possible for the getter function to work
-  List<double> _parseDatumParams(List<Object> paramsList) {
+  List<double>? _parseDatumParams(List<dynamic>? paramsList) {
     return paramsList != null
         ? paramsList.map((e) => double.parse(e.toString())).toList()
         : null;

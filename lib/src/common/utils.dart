@@ -17,7 +17,7 @@ double adjust_lon(double x) {
   return (x.abs() <= consts.SPI) ? x : (x - (sign(x) * consts.TWO_PI));
 }
 
-int adjust_zone(int zone, double lon) {
+int adjust_zone(int? zone, double lon) {
   if (zone == null) {
     zone = ((adjust_lon(lon) + math.pi) * 30 / math.pi).floor() + 1;
     if (zone < 0) {
@@ -59,12 +59,12 @@ List<double> clens_cmplx(List<double> pp, double arg_r, double arg_i) {
   var r = 2 * cos_arg_r * cosh_arg_i;
   var i = -2 * sin_arg_r * sinh_arg_i;
   var j = pp.length - 1;
-  var hr = pp[j];
-  var hi1 = 0.0;
-  var hr1 = 0.0;
-  var hi = 0.0;
-  var hr2;
-  var hi2;
+  double hr = pp[j];
+  double hi1 = 0.0;
+  double hr1 = 0.0;
+  double hi = 0.0;
+  double hr2;
+  double hi2;
   while (--j >= 0) {
     hr2 = hr1;
     hi2 = hi1;
@@ -81,9 +81,14 @@ List<double> clens_cmplx(List<double> pp, double arg_r, double arg_i) {
 double clens(List<double> pp, double arg_r) {
   var r = 2 * math.cos(arg_r);
   var i = pp.length - 1;
-  var hr1 = pp[i];
-  var hr2 = 0.0;
-  var hr;
+  double hr1 = pp[i];
+  double hr2 = 0.0;
+  double hr = 0.0;
+
+  if (i <= 0) {
+    throw 'i must be positive number';
+  }
+
   while (--i >= 0) {
     hr = -hr2 + r * hr1 + pp[i];
     hr2 = hr1;
@@ -121,9 +126,14 @@ double fL(double x, double L) {
 double gatg(List<double> pp, double B) {
   var cos_2B = 2 * math.cos(2 * B);
   var i = pp.length - 1;
-  var h1 = pp[i];
-  var h2 = 0.0;
-  var h;
+  double h1 = pp[i];
+  double h2 = 0.0;
+  double h = 0.0;
+
+  if (i <= 0) {
+    throw 'i must be positive number';
+  }
+
   while (--i >= 0) {
     h = -h2 + cos_2B * h1 + pp[i];
     h2 = h1;
@@ -141,7 +151,7 @@ double hypot(double x, double y) {
   x = x.abs();
   y = y.abs();
   var a = math.max(x, y);
-  var b = math.min(x, y) / (a ?? 1);
+  var b = math.min(x, y) / (a == 0 ? 1 : a);
   return a * math.sqrt(1 + math.pow(b, 2));
 }
 
@@ -174,7 +184,8 @@ Point inverseNadCvt(Point t, Point val, tb, ct) {
   }
   t.x = tb.x + t.x;
   t.y = tb.y - t.y;
-  var i = 9, tol = 1e-12;
+  var i = 9;
+  var tol = 1e-12;
   Point dif;
   Point del;
   do {
@@ -301,7 +312,7 @@ Point nad_intr(pin, ct) {
   // from computation under C:C++ by leveraging rounding problems ...
   var t = Point(x: (pin.x - 1e-7) / ct.del[0], y: (pin.y - 1e-7) / ct.del[1]);
   var indx = Point(x: (t.x).floorToDouble(), y: (t.y).floorToDouble());
-  var frct = Point(x: t.x - 1 * indx.x, y: t.y - 1 * indx.y);
+  Point frct = Point(x: t.x - 1 * indx.x, y: t.y - 1 * indx.y);
   var val = Point(x: double.nan, y: double.nan);
   var temp = nadInterBreakout(indx, frct, 'x', 0, ct);
   if (temp) {
@@ -390,7 +401,7 @@ List<double> pj_enfn(double es) {
   var C66 = 0.36458333333333333333;
   var C68 = 0.00569661458333333333;
   var C88 = 0.3076171875;
-  var en = List<double>(5);
+  var en = List<double>.filled(5, 0.0);
   en[0] = C00 - es * (C02 + es * (C04 + es * (C06 + es * C08)));
   en[1] = es * (C22 - es * (C04 + es * (C06 + es * C08)));
   var t = es * es;
@@ -451,7 +462,7 @@ double sinh(double x) {
 }
 
 double srat(double esinp, double exp) {
-  return (math.pow((1 - esinp) / (1 + esinp), exp));
+  return math.pow((1 - esinp) / (1 + esinp), exp) as double;
 }
 
 double tanh(double x) {
@@ -472,14 +483,14 @@ Point toPoint(List<double> array) {
 }
 
 double tsfnz(double eccent, double phi, double sinphi) {
-  var con = eccent * sinphi;
-  var com = 0.5 * eccent;
-  con = math.pow(((1 - con) / (1 + con)), com);
+  double con = eccent * sinphi;
+  double com = 0.5 * eccent;
+  con = math.pow(((1 - con) / (1 + con)), com) as double;
   return (math.tan(0.5 * (consts.HALF_PI - phi)) / con);
 }
 
 void checkCoord(double coord) {
-  if (coord != null && coord.isFinite) {
+  if (/*coord != null && */ coord.isFinite) {
     return;
   }
   throw Exception('coordinates must be finite numbers');
@@ -549,8 +560,10 @@ Point adjust_axis(Projection crs, bool denorm, Point point) {
         }
         break;
       default:
-        //console.log("ERROR: unknow axis ("+crs.axis[i]+") - check definition of "+crs.projName);
-        return null;
+        throw 'ERROR: unknow axis (' +
+            crs.axis[i] +
+            ') - check definition of ' +
+            crs.projName;
     }
   }
   return Point.withZ(x: out['x'], y: out['y'], z: out['z']);

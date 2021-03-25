@@ -13,23 +13,23 @@ class CassiniProjection extends Projection {
     'cass',
   ];
 
-  double e0;
-  double e1;
-  double e2;
-  double e3;
-  double ml0;
-  double lat0;
-  double long0;
-  double x0;
-  double y0;
+  late double e0;
+  late double e1;
+  late double e2;
+  late double e3;
+  late double ml0;
+  late double lat0;
+  late double long0;
+  late double x0;
+  late double y0;
 
   CassiniProjection.init(ProjParams params) : super.init(params) {
-    lat0 = params.lat0;
+    lat0 = params.lat0!;
     long0 = params.long0;
-    x0 = params.x0;
-    y0 = params.y0;
+    x0 = params.x0!;
+    y0 = params.y0!;
 
-    if (sphere == null || (sphere != null && !sphere)) {
+    if (sphere == null || (sphere != null && !sphere!)) {
       e0 = utils.e0fn(es);
       e1 = utils.e1fn(es);
       e2 = utils.e2fn(es);
@@ -46,7 +46,7 @@ class CassiniProjection extends Projection {
     var phi = p.y;
     lam = utils.adjust_lon(lam - long0);
 
-    if (sphere != null && sphere) {
+    if (sphere != null && sphere!) {
       x = a * math.asin(math.cos(phi) * math.sin(lam));
       y = a * (math.atan2(math.tan(phi), math.cos(lam)) - lat0);
     } else {
@@ -80,7 +80,7 @@ class CassiniProjection extends Projection {
     var y = p.y / a;
     var phi, lam;
 
-    if (sphere != null && sphere) {
+    if (sphere != null && sphere!) {
       var dd = y + lat0;
       phi = math.asin(math.sin(dd) * math.cos(x));
       lam = math.atan2(math.tan(x), math.cos(dd));

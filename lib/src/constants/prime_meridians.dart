@@ -12,7 +12,7 @@ final stockholm = 18.058277777778; //"18d3'29.8\"E",
 final athens = 23.7163375; //"23d42'58.815\"E",
 final oslo = 10.722916666667;
 
-final _items = {
+final _items = <String, double>{
   'greenwich': greenwich,
   'lisbon': lisbon,
   'paris': paris,
@@ -28,6 +28,6 @@ final _items = {
   'oslo': oslo
 };
 
-double match(String name) {
+double? match(String name) {
   return _items[name];
 }
