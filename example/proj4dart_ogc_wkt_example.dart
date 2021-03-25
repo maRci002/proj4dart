@@ -5,7 +5,7 @@ void main() {
   var pointSrc = Point(x: 17.888058560281515, y: 46.89226406700879);
 
   // Use built-in projection
-  var projSrc = Projection.get('EPSG:4326');
+  var projSrc = Projection.get('EPSG:4326')!;
 
   // Find Projection by name or define it if not exists
   var projDst = Projection.get('EPSG:23700') ??
@@ -15,7 +15,7 @@ void main() {
       );
 
   // Forward transform (lonlat -> projected crs)
-  var pointForward = projSrc!.transform(projDst, pointSrc);
+  var pointForward = projSrc.transform(projDst, pointSrc);
   print(
       'FORWARD: Transform point ${pointSrc.toArray()} from EPSG:4326 to EPSG:23700: ${pointForward.toArray()}');
   // FORWARD: Transform point [17.888058560281515, 46.89226406700879] from EPSG:4326 to EPSG:23700: [561651.7488729078, 172658.62134758622]

@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.0
+
+- Stable null safety release.
+- BREAKING CHANGE: `Projection('key')` syntax is no longer available since [factory constructors cannot return null value](https://dart.dev/null-safety/faq#how-should-i-migrate-a-factory-that-can-return-null) use `Projection.get('key')` instead.
+
 ## 1.0.5
 
 - If WKT is Mercator projection then internal EPSG:3857 will be used
