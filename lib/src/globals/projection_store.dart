@@ -14,7 +14,7 @@ class ProjectionStore {
 
   // Key: Cordinate System / Country / Code / !Any alias!
   // Value: Projection
-  final Map<String, Projection > _projectionCache;
+  final Map<String, Projection> _projectionCache;
 
   bool get isEmpty => _projectionCache.isEmpty;
 
@@ -33,9 +33,11 @@ class ProjectionStore {
   }
 
   /// Private constructor
-  ProjectionStore._internalInitializer(
-      {required Projection wgs84, required Projection nad83, required Projection google})
-      : WGS84 = wgs84,
+  ProjectionStore._internalInitializer({
+    required Projection wgs84,
+    required Projection nad83,
+    required Projection google,
+  })   : WGS84 = wgs84,
         GOOGLE = google,
         NAD83 = nad83,
         _projectionCache = {} {
