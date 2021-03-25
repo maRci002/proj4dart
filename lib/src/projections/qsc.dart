@@ -20,13 +20,13 @@ class QuadrilateralizedSphericalCubeProjection extends Projection {
   double y0;
   double lat_ts;
   String title;
-  int face;
+  late int face;
 
-  double one_minus_f, one_minus_f_squared;
+  late double one_minus_f, one_minus_f_squared;
 
   QuadrilateralizedSphericalCubeProjection.init(ProjParams params)
       : lat0 = params.lat0 ?? 0.0,
-        long0 = params.long0 == null || params.long0.isNaN ? 0.0 : params.long0,
+        long0 = params.long0.isNaN ? 0.0 : params.long0,
         x0 = params.x0 ?? 0.0,
         y0 = params.y0 ?? 0.0,
         lat_ts = params.lat_ts ?? 0.0,
@@ -309,11 +309,11 @@ class QuadrilateralizedSphericalCubeProjection extends Projection {
       lp['phi'] = math.acos(-s) - consts.HALF_PI;
       lp['lam'] = math.atan2(r, q);
       if (face == faces.RIGHT) {
-        lp['lam'] = _qsc_shift_lon_origin(lp['lam'], -consts.HALF_PI);
+        lp['lam'] = _qsc_shift_lon_origin(lp['lam']!, -consts.HALF_PI);
       } else if (face == faces.BACK) {
-        lp['lam'] = _qsc_shift_lon_origin(lp['lam'], -consts.SPI);
+        lp['lam'] = _qsc_shift_lon_origin(lp['lam']!, -consts.SPI);
       } else if (face == faces.LEFT) {
-        lp['lam'] = _qsc_shift_lon_origin(lp['lam'], consts.HALF_PI);
+        lp['lam'] = _qsc_shift_lon_origin(lp['lam']!, consts.HALF_PI);
       }
     }
 
@@ -322,18 +322,17 @@ class QuadrilateralizedSphericalCubeProjection extends Projection {
     if (es != 0) {
       int invert_sign;
       double tanphi, xa;
-      invert_sign = lp['phi'] < 0 ? 1 : 0;
-      tanphi = math.tan(lp['phi']);
+      invert_sign = lp['phi']! < 0 ? 1 : 0;
+      tanphi = math.tan(lp['phi']!);
       xa = b / math.sqrt(tanphi * tanphi + one_minus_f_squared);
       lp['phi'] = math.atan(math.sqrt(a * a - xa * xa) / (one_minus_f * xa));
       if (invert_sign != 0) {
-        lp['phi'] = -lp['phi'];
+        lp['phi'] = -lp['phi']!;
       }
     }
 
-    lp['lam'] += long0;
-    p.x = lp['lam'];
-    p.y = lp['phi'];
+    p.x = lp['lam']! + long0;
+    p.y = lp['phi']!;
     return p;
   }
 

@@ -12,28 +12,24 @@ class EquidistantCylindricalProjection extends Projection {
     'eqc'
   ];
 
-  double long0;
-  double x0;
-  double y0;
-  double lat_ts;
-  double lat0;
-  double rc;
+  late double long0;
+  late double x0;
+  late double y0;
+  late double lat_ts;
+  late double lat0;
+  late double rc;
 
   EquidistantCylindricalProjection.init(ProjParams params)
       : super.init(params) {
     long0 = params.long0;
-    x0 = params.x0;
-    y0 = params.y0;
-    lat_ts = params.lat_ts;
-    lat0 = params.lat0;
 
-    x0 = x0 ?? 0;
-    y0 = y0 ?? 0;
-    lat0 = lat0 ?? 0;
-    if (long0 == null || long0.isNaN) {
+    x0 = params.x0 ?? 0;
+    y0 = params.y0 ?? 0;
+    lat0 = params.lat0 ?? 0;
+    if (long0.isNaN) {
       long0 = 0;
     }
-    lat_ts = lat_ts ?? 0;
+    lat_ts = params.lat_ts ?? 0;
     // title = title ?? 'Equidistant Cylindrical (Plate Carre)';
 
     rc = math.cos(lat_ts);

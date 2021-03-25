@@ -17,23 +17,20 @@ class TransverseMercatorProjection extends Projection {
   double long0;
   double x0;
   double y0;
-  List<double> en;
-  double ml0;
+  late List<double> en;
+  late double ml0;
 
   TransverseMercatorProjection.init(ProjParams params)
-      : lat0 = params.lat0,
+      : lat0 = params.lat0 ?? 0.0,
         long0 = params.long0,
-        x0 = params.x0,
-        y0 = params.y0,
+        x0 = params.x0 ?? 0.0,
+        y0 = params.y0 ?? 0.0,
         super.init(params) {
-    x0 = x0 ?? 0.0;
-    y0 = y0 ?? 0.0;
-    if (long0 == null || long0.isNaN) {
+    if (/*long0 == null || */ long0.isNaN) {
       long0 = 0;
     }
-    lat0 = lat0 ?? 0.0;
 
-    if (es != null) {
+    if (es != 0.0) {
       en = utils.pj_enfn(es);
       ml0 = utils.pj_mlfn(lat0, math.sin(lat0), math.cos(lat0), en);
     }
@@ -49,7 +46,7 @@ class TransverseMercatorProjection extends Projection {
     var sin_phi = math.sin(lat);
     var cos_phi = math.cos(lat);
 
-    if (es == null) {
+    if (es == 0.0) {
       var b = cos_phi * math.sin(delta_lon);
 
       if (((b.abs() - 1).abs()) < consts.EPSLN) {
@@ -157,7 +154,7 @@ class TransverseMercatorProjection extends Projection {
     var x = (p.x - x0) * (1 / a);
     var y = (p.y - y0) * (1 / a);
 
-    if (es == null) {
+    if (es == 0.0) {
       var f = math.exp(x / k0);
       var g = 0.5 * (f - 1 / f);
       var temp = lat0 + y / k0;

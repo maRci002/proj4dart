@@ -15,17 +15,18 @@ class PolyconicProjection extends Projection {
   double long0;
   double x0;
   double y0;
-  double temp, e0, e1, e2, e3, ml0;
+  late double temp, e1, ml0;
+  late double e0, e2, e3;
 
   PolyconicProjection.init(ProjParams params)
-      : lat0 = params.lat0,
+      : lat0 = params.lat0!,
         long0 = params.long0,
-        x0 = params.x0,
-        y0 = params.y0,
+        x0 = params.x0!,
+        y0 = params.y0!,
         super.init(params) {
     // Place parameters in static storage for common use
     temp = b / a;
-    es = 1 - math.pow(temp, 2);
+    es = 1 - (math.pow(temp, 2) as double);
     e = math.sqrt(es);
     e0 = utils.e0fn(es);
     e1 = utils.e1fn(es);
@@ -41,7 +42,7 @@ class PolyconicProjection extends Projection {
     double x, y, el;
     var dlon = utils.adjust_lon(lon - long0);
     el = dlon * math.sin(lat);
-    if (sphere != null && sphere) {
+    if (sphere != null && sphere!) {
       if (lat.abs() <= consts.EPSLN) {
         x = a * dlon;
         y = -1 * a * lat0;
@@ -75,7 +76,7 @@ class PolyconicProjection extends Projection {
     x = p.x - x0;
     y = p.y - y0;
 
-    if (sphere != null && sphere) {
+    if (sphere != null && sphere!) {
       if ((y + a * lat0).abs() <= consts.EPSLN) {
         lon = utils.adjust_lon(x / a + long0);
         lat = 0;

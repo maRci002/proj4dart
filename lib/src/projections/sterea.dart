@@ -15,12 +15,12 @@ class StereographicNorthProjection extends GaussProjection {
     'Double_Stereographic'
   ];
 
-  double sinc0;
-  double cosc0;
-  double R2;
+  late double sinc0;
+  late double cosc0;
+  late double R2;
 
   StereographicNorthProjection.init(ProjParams params) : super.init(params) {
-    if (rc == null) {
+    if (rc == 0) {
       return;
     }
     sinc0 = math.sin(phic0);

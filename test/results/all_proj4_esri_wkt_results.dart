@@ -3,12 +3,13 @@ import 'package:proj4dart/src/classes/point.dart';
 import '../classes/project_and_unproject_result.dart';
 import '../data/all_proj4_esri_wkt_defs.dart' show blackList;
 
-Map<String, ProjectAndUnProjectResult> get testResults => Map.from(_testResults)
-  ..removeWhere((key, value) => blackList.keys.contains(key));
+Map<String, ProjectAndUnProjectResult?> get testResults =>
+    Map.from(_testResults)
+      ..removeWhere((key, value) => blackList.keys.contains(key));
 
 // We converted point [17.888058560281515, 46.89226406700879] with proj4js which gave us forwardResult
 // Then we transformed back the forwardResult to calculate inverseResult
-final Map<String, ProjectAndUnProjectResult> _testResults = {
+final Map<String, ProjectAndUnProjectResult?> _testResults = {
   'EPSG:3819': ProjectAndUnProjectResult(
       Point(x: 17.888058560281515, y: 46.891667111272),
       Point(x: 17.888058560281515, y: 46.89226413303865)),

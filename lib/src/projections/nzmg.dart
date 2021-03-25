@@ -13,18 +13,18 @@ class NewZealandMapGridProjection extends Projection {
   double x0;
   double y0;
 
-  var A = List<double>(11);
-  var B_re = List<double>(7);
-  var B_im = List<double>(7);
-  var C_re = List<double>(7);
-  var C_im = List<double>(7);
-  var D = List<double>(10);
+  var A = List<double>.filled(11, 0.0);
+  var B_re = List<double>.filled(7, 0.0);
+  var B_im = List<double>.filled(7, 0.0);
+  var C_re = List<double>.filled(7, 0.0);
+  var C_im = List<double>.filled(7, 0.0);
+  var D = List<double>.filled(10, 0.0);
 
   NewZealandMapGridProjection.init(ProjParams params)
-      : lat0 = params.lat0,
+      : lat0 = params.lat0!,
         long0 = params.long0,
-        x0 = params.x0,
-        y0 = params.y0,
+        x0 = params.x0!,
+        y0 = params.y0!,
         super.init(params) {
     A[1] = 0.6399175073;
     A[2] = -0.1358797613;

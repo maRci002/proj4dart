@@ -1,14 +1,14 @@
 import 'package:proj4dart/src/constants/values.dart' as consts;
 
 class Datum {
-  int datumType;
-  List<double> datumParams;
+  late int datumType;
+  late List<double> datumParams;
   final double a;
   final double b;
   final double es;
   final double ep2;
 
-  Datum(String datumCode, List<double> datum_params, double a, double b,
+  Datum(String? datumCode, List<double>? datum_params, double a, double b,
       double es, double ep2)
       : a = a,
         b = b,

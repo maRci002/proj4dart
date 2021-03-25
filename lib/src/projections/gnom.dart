@@ -13,18 +13,18 @@ class GnomicProjection extends Projection {
   double long0;
   double x0;
   double y0;
-  double sin_p14;
-  double cos_p14;
-  double infinity_dist;
-  double rc;
-  double phic0;
+  late double sin_p14;
+  late double cos_p14;
+  late double infinity_dist;
+  late double rc;
+  double? phic0;
 
   GnomicProjection.init(ProjParams params)
-      : lat0 = params.lat0,
+      : lat0 = params.lat0!,
         long0 = params.long0,
-        x0 = params.x0,
-        y0 = params.y0,
-        phic0 = params.map['phic0'],
+        x0 = params.x0!,
+        y0 = params.y0!,
+        phic0 = params.map['phic0'] as double?,
         super.init(params) {
     sin_p14 = math.sin(lat0);
     cos_p14 = math.cos(lat0);
@@ -89,7 +89,7 @@ class GnomicProjection extends Projection {
       lon = math.atan2(p.x * sinc, rh * cos_p14 * cosc - p.y * sin_p14 * sinc);
       lon = utils.adjust_lon(long0 + lon);
     } else {
-      lat = phic0;
+      lat = phic0!;
       lon = 0;
     }
 

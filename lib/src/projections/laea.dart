@@ -25,21 +25,21 @@ class LambertAzimuthalEqualAreaProjection extends Projection {
   static const EQUIT = 3;
   static const OBLIQ = 4;
 
-  double lat0;
-  double long0;
-  double x0;
-  double y0;
-  double phi0;
-  int mode;
-  List<double> apa;
-  double qp, mmf, dd, rq, xmf, ymf, sinb1, cosb1, sinph0, cosph0;
+  late double lat0;
+  late double long0;
+  late double x0;
+  late double y0;
+  double? phi0;
+  late int mode;
+  late List<double> apa;
+  late double qp, mmf, dd, rq, xmf, ymf, sinb1, cosb1, sinph0, cosph0;
 
   LambertAzimuthalEqualAreaProjection.init(ProjParams params)
-      : lat0 = params.lat0,
+      : lat0 = params.lat0!,
         long0 = params.long0,
-        x0 = params.x0,
-        y0 = params.y0,
-        phi0 = params.map['phi0'],
+        x0 = params.x0!,
+        y0 = params.y0!,
+        phi0 = params.map['phi0'] as double?,
         super.init(params) {
     var t = lat0.abs();
     if ((t - consts.HALF_PI).abs() < consts.EPSLN) {
@@ -88,12 +88,13 @@ class LambertAzimuthalEqualAreaProjection extends Projection {
 
   @override
   Point forward(Point p) {
-    double x, y, coslam, sinlam, sinphi, q, sinb, cosb, b, cosphi;
+    double? x, y;
+    double coslam, sinlam, sinphi, q, sinb, cosb, b, cosphi;
     var lam = p.x;
     var phi = p.y;
 
     lam = utils.adjust_lon(lam - long0);
-    if (sphere != null && sphere) {
+    if (sphere != null && sphere!) {
       sinphi = math.sin(phi);
       cosphi = math.cos(phi);
       coslam = math.cos(lam);
@@ -102,7 +103,7 @@ class LambertAzimuthalEqualAreaProjection extends Projection {
             ? 1 + cosphi * coslam
             : 1 + sinph0 * sinphi + cosph0 * cosphi * coslam;
         if (y <= consts.EPSLN) {
-          return null;
+          throw 'Shouldn\'t reach';
         }
         y = math.sqrt(2 / y);
         x = y * cosphi * math.sin(lam);
@@ -114,8 +115,8 @@ class LambertAzimuthalEqualAreaProjection extends Projection {
           coslam = -coslam;
         }
 
-        if (phi0 != null && (phi + phi0).abs() < consts.EPSLN) {
-          return null;
+        if (phi0 != null && (phi + phi0!).abs() < consts.EPSLN) {
+          throw 'Shouldn\'t reach';
         }
         y = consts.FORTPI - phi * 0.5;
         y = 2 * ((mode == S_POLE) ? math.cos(y) : math.sin(y));
@@ -151,7 +152,7 @@ class LambertAzimuthalEqualAreaProjection extends Projection {
           break;
       }
       if (b.abs() < consts.EPSLN) {
-        return null;
+        throw 'Shouldn\'t reach';
       }
       switch (mode) {
         case OBLIQ:
@@ -176,8 +177,8 @@ class LambertAzimuthalEqualAreaProjection extends Projection {
       }
     }
 
-    p.x = a * x + x0;
-    p.y = a * y + y0;
+    p.x = a * x! + x0;
+    p.y = a * y! + y0;
     return p;
   }
 
@@ -188,13 +189,13 @@ class LambertAzimuthalEqualAreaProjection extends Projection {
     var x = p.x / a;
     var y = p.y / a;
     double lam, phi, cCe, sCe, q, rho, ab;
-    if (sphere != null && sphere) {
+    if (sphere != null && sphere!) {
       double cosz = 0.0, rh, sinz = 0.0;
 
       rh = math.sqrt(x * x + y * y);
       phi = rh * 0.5;
       if (phi > 1) {
-        return null;
+        throw 'Shouldn\'t reach';
       }
       phi = 2 * math.asin(phi);
       if (mode == OBLIQ || mode == EQUIT) {
@@ -209,7 +210,7 @@ class LambertAzimuthalEqualAreaProjection extends Projection {
           break;
         case OBLIQ:
           phi = (rh.abs() <= consts.EPSLN)
-              ? phi0
+              ? phi0!
               : math.asin(cosz * sinph0 + y * sinz * cosph0 / rh);
           x *= sinz * cosph0;
           y = (cosz - math.sin(phi) * sinph0) * rh;
@@ -231,7 +232,7 @@ class LambertAzimuthalEqualAreaProjection extends Projection {
         rho = math.sqrt(x * x + y * y);
         if (rho < consts.EPSLN) {
           p.x = 0.0;
-          p.y = phi0;
+          p.y = phi0!;
           return p;
         }
         sCe = 2 * math.asin(0.5 * rho / rq);
@@ -251,9 +252,9 @@ class LambertAzimuthalEqualAreaProjection extends Projection {
           y = -y;
         }
         q = (x * x + y * y);
-        if (q == null) {
+        if (q == 0.0) {
           p.x = 0.0;
-          p.y = phi0;
+          p.y = phi0!;
           return p;
         }
         ab = 1 - q / qp;
@@ -272,7 +273,7 @@ class LambertAzimuthalEqualAreaProjection extends Projection {
 
   List<double> _authset(double es) {
     double t;
-    var APA = List<double>(3);
+    var APA = List<double>.filled(3, 0.0);
     APA[0] = es * P00;
     t = es * es;
     APA[0] += t * P01;

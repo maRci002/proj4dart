@@ -1,15 +1,14 @@
 name: proj4dart
 description: Proj4dart is a Dart library to transform point coordinates from one coordinate system to another, including datum transformations (Dart version of proj4js/proj4js).
-version: 1.0.5
+version: 2.0.0
 homepage: https://github.com/maRci002/proj4dart
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
-  mgrs_dart: ^1.0.1
-  wkt_parser: ^1.0.7
-  meta: ^1.1.8
+  mgrs_dart: ^2.0.0
+  wkt_parser: ^2.0.0
 
 dev_dependencies:
   pedantic: ^1.9.0

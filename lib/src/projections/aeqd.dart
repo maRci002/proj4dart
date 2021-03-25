@@ -12,18 +12,18 @@ class AzimuthalEquidistantProjection extends Projection {
     'aeqd',
   ];
 
-  double sin_p12;
-  double cos_p12;
-  double lat0;
-  double long0;
-  double x0;
-  double y0;
+  late double sin_p12;
+  late double cos_p12;
+  late double lat0;
+  late double long0;
+  late double x0;
+  late double y0;
 
   AzimuthalEquidistantProjection.init(ProjParams params) : super.init(params) {
-    lat0 = params.lat0;
+    lat0 = params.lat0!;
     long0 = params.long0;
-    x0 = params.x0;
-    y0 = params.y0;
+    x0 = params.x0!;
+    y0 = params.y0!;
 
     sin_p12 = math.sin(lat0);
     cos_p12 = math.cos(lat0);
@@ -59,7 +59,7 @@ class AzimuthalEquidistantProjection extends Projection {
         s3,
         s4,
         s5;
-    if (sphere != null && sphere) {
+    if (sphere != null && sphere!) {
       if ((sin_p12 - 1).abs() <= consts.EPSLN) {
         //North Pole case
         p.x = x0 + a * (consts.HALF_PI - lat) * math.sin(dlon);
@@ -163,7 +163,7 @@ class AzimuthalEquidistantProjection extends Projection {
         D,
         Ee,
         F;
-    if (sphere != null && sphere) {
+    if (sphere != null && sphere!) {
       rh = math.sqrt(p.x * p.x + p.y * p.y);
       if (rh > (2 * consts.HALF_PI * a)) {
         //...reportError("aeqdInvDataError");

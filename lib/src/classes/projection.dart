@@ -12,38 +12,38 @@ import 'package:wkt_parser/wkt_parser.dart' as wkt_parser;
 abstract class Projection {
   String projName;
   String ellps;
-  bool noDefs;
+  bool? noDefs;
   double k0;
   String axis;
   double a;
   double b;
-  double rf;
-  bool sphere;
+  double? rf;
+  bool? sphere;
   double es;
   double e;
   double ep2;
   Datum datum;
-  double from_greenwich;
-  double to_meter;
+  double? from_greenwich;
+  double? to_meter;
 
   Point forward(Point p);
 
   Point inverse(Point p);
 
   Projection.init(ProjParams params)
-      : projName = params.proj,
-        ellps = params.ellps,
+      : projName = params.proj!,
+        ellps = params.ellps!,
         noDefs = params.no_defs,
-        k0 = params.k0,
-        axis = params.axis,
-        a = params.a,
-        b = params.b,
+        k0 = params.k0!,
+        axis = params.axis!,
+        a = params.a!,
+        b = params.b!,
         rf = params.rf,
         sphere = params.sphere,
-        es = params.es,
-        e = params.e,
-        ep2 = params.ep2,
-        datum = params.datum,
+        es = params.es!,
+        e = params.e!,
+        ep2 = params.ep2!,
+        datum = params.datum!,
         from_greenwich = params.from_greenwich,
         to_meter = params.to_meter;
 
@@ -57,7 +57,7 @@ abstract class Projection {
 
   /// Named Projection: a [Projection] can be obtained from the [ProjectionStore] via it's name.
   /// null value will return if Projection not exists in store.
-  factory Projection(String code) {
+  static Projection? get(String code) {
     var result = ProjectionStore().get(code);
 
     return result;
@@ -95,7 +95,7 @@ abstract class Projection {
     }
 
     var projName = params.proj;
-    var initializer = initializers[projName];
+    var initializer = initializers[projName!];
 
     if (initializer == null) {
       throw Exception(
@@ -114,7 +114,7 @@ abstract class Projection {
       return false;
     }
 
-    String epsg;
+    String? epsg;
     if (authority['EPSG'] != null) {
       epsg = authority['EPSG'];
     } else if (authority['epsg'] != null) {
@@ -125,7 +125,7 @@ abstract class Projection {
   }
 
   /// Checks whether the WKT definition contains an encapsulated proj4 string definition
-  static String _checkProjStr(wkt_parser.ProjWKT wkt) {
+  static String? _checkProjStr(wkt_parser.ProjWKT wkt) {
     var ext = wkt.EXTENSION;
     if (ext == null) {
       return null;
@@ -150,10 +150,6 @@ abstract class Projection {
   }
 
   Point transform(Projection dest, Point point) {
-    if (null == dest) {
-      throw Exception('Destination Projection cannot be null!');
-    }
-
     var source = this;
     point = Point.copy(point); // make sure we don't mutate incoming point
     var shouldRemoveZ = point.z == null;
@@ -161,8 +157,8 @@ abstract class Projection {
     utils.checkSanity(point);
 
     // Workaround for datum shifts towgs84, if either source or destination projection is not wgs84
-    if (source.datum != null &&
-        dest.datum != null &&
+    if (/*source.datum != null &&
+        dest.datum != null &&*/
         _checkNotWGS(source, dest)) {
       var wgs84 = WGS84;
       point = source.transform(wgs84, point);
@@ -182,14 +178,14 @@ abstract class Projection {
     } else {
       if (source.to_meter != null) {
         point = Point.withZ(
-            x: point.x * source.to_meter,
-            y: point.y * source.to_meter,
+            x: point.x * source.to_meter!,
+            y: point.y * source.to_meter!,
             z: point.z ?? 0.0);
       }
       point = source.inverse(point); // Convert Cartesian to longlat
     }
     if (source.from_greenwich != null) {
-      point.x += source.from_greenwich;
+      point.x += source.from_greenwich!;
     }
 
     // Convert datums if needed, and if possible.
@@ -197,7 +193,7 @@ abstract class Projection {
     // Adjust for the prime meridian if necessary
     if (dest.from_greenwich != null) {
       point = Point.withZ(
-        x: point.x - dest.from_greenwich,
+        x: point.x - dest.from_greenwich!,
         y: point.y,
         z: point.z ?? 0.0,
       );
@@ -215,8 +211,8 @@ abstract class Projection {
       point = dest.forward(point);
       if (dest.to_meter != null) {
         point = Point.withZ(
-            x: point.x / dest.to_meter,
-            y: point.y / dest.to_meter,
+            x: point.x / dest.to_meter!,
+            y: point.y / dest.to_meter!,
             z: point.z ?? 0.0);
       }
     }

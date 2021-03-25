@@ -13,26 +13,26 @@ class AlbersProjection extends Projection {
     'aea',
   ];
 
-  double e3;
-  double ns0;
-  double c;
-  double rh;
-  double long0;
-  double x0;
-  double y0;
+  late double e3;
+  late double ns0;
+  late double c;
+  late double rh;
+  late double long0;
+  late double x0;
+  late double y0;
 
   AlbersProjection.init(ProjParams params) : super.init(params) {
-    var lat1 = params.lat1;
-    var lat2 = params.lat2;
+    var lat1 = params.lat1!;
+    var lat2 = params.lat2!;
     long0 = params.long0;
-    x0 = params.x0;
-    y0 = params.y0;
+    x0 = params.x0!;
+    y0 = params.y0!;
 
     if ((lat1 + lat2).abs() < consts.EPSLN) {
       return;
     }
     var temp = b / a;
-    es = 1 - math.pow(temp, 2);
+    es = 1 - (math.pow(temp, 2) as double);
     e3 = math.sqrt(es);
 
     var sin_po = math.sin(lat1);
@@ -48,8 +48,8 @@ class AlbersProjection extends Projection {
     var ms2 = utils.msfnz(e3, sin_po, cos_po);
     var qs2 = utils.qsfnz(e3, sin_po);
 
-    sin_po = math.sin(params.lat0);
-    cos_po = math.cos(params.lat0);
+    sin_po = math.sin(params.lat0!);
+    cos_po = math.cos(params.lat0!);
     // var t3 = sin_po;
     var qs0 = utils.qsfnz(e3, sin_po);
 
@@ -100,7 +100,7 @@ class AlbersProjection extends Projection {
       theta = math.atan2(con * p.x, con * p.y);
     }
     con = rh1 * ns0 / a;
-    if (sphere != null && sphere) {
+    if (sphere != null && sphere!) {
       lat = math.asin((c - con * con) / (2 * ns0));
     } else {
       qs = (c - con * con) / ns0;
@@ -140,6 +140,6 @@ class AlbersProjection extends Projection {
         return phi;
       }
     }
-    return null;
+    throw 'Shouldn\'t reach';
   }
 }

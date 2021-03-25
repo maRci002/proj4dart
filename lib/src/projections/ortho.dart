@@ -13,13 +13,13 @@ class OrthographicProjection extends Projection {
   double long0;
   double x0;
   double y0;
-  double sin_p14, cos_p14;
+  late double sin_p14, cos_p14;
 
   OrthographicProjection.init(ProjParams params)
-      : lat0 = params.lat0,
+      : lat0 = params.lat0!,
         long0 = params.long0,
-        x0 = params.x0,
-        y0 = params.y0,
+        x0 = params.x0!,
+        y0 = params.y0!,
         super.init(params) {
     sin_p14 = math.sin(lat0);
     cos_p14 = math.cos(lat0);
@@ -44,10 +44,13 @@ class OrthographicProjection extends Projection {
     if ((g > 0) || (g.abs() <= consts.EPSLN)) {
       x = a * ksp * cosphi * math.sin(dlon);
       y = y0 + a * ksp * (cos_p14 * sinphi - sin_p14 * cosphi * coslon);
+
+      p.x = x;
+      p.y = y;
+      return p;
     }
-    p.x = x;
-    p.y = y;
-    return p;
+
+    throw 'Shouldn\'t reach';
   }
 
   @override

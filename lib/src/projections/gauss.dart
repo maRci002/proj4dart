@@ -11,21 +11,21 @@ var MAX_ITER = 20;
 class GaussProjection extends Projection {
   static final List<String> names = ['gauss'];
 
-  double lat0;
-  double long0;
-  double rc;
-  double C;
-  double phic0;
-  double ratexp;
-  double K;
-  double x0;
-  double y0;
+  late double lat0;
+  late double long0;
+  late double rc;
+  late double C;
+  late double phic0;
+  late double ratexp;
+  late double K;
+  late double x0;
+  late double y0;
 
   GaussProjection.init(ProjParams params)
-      : lat0 = params.lat0,
+      : lat0 = params.lat0!,
         long0 = params.long0,
-        x0 = params.x0,
-        y0 = params.y0,
+        x0 = params.x0!,
+        y0 = params.y0!,
         super.init(params) {
     var sphi = math.sin(lat0);
     var cphi = math.cos(lat0);

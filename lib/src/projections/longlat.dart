@@ -5,8 +5,8 @@ import 'package:proj4dart/src/classes/projection.dart';
 class LongLat extends Projection {
   static final List<String> names = ['longlat', 'identity'];
 
-  final String datumCode;
-  final String datumName;
+  final String? datumCode;
+  final String? datumName;
 
   LongLat.init(ProjParams params)
       : datumCode = params.datumCode,
