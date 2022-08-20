@@ -17,10 +17,10 @@ dependencies:
 
 There are 3 predefined Projections and 5 aliases by default:
 
-- [EPSG:4326](http://epsg.io/4326), which has the following alias:
+- [EPSG:4326](https://epsg.io/4326), which has the following alias:
   - WGS84
-- [EPSG:4269](http://epsg.io/4269)
-- [EPSG:3857](http://epsg.io/3857), which has the following aliases:
+- [EPSG:4269](https://epsg.io/4269)
+- [EPSG:3857](https://epsg.io/3857), which has the following aliases:
   - EPSG:3785
   - GOOGLE
   - EPSG:900913
@@ -38,7 +38,7 @@ Proj4dart supports `Proj4 definition strings`, `OGC WKT definitions` and `ESRI W
 
 #### With Proj4 string definition
 
-If you wish to define your own projection you can create it with a valid Proj4 string (here for [EPSG:23700](http://epsg.io/23700)):
+If you wish to define your own projection you can create it with a valid Proj4 string (here for [EPSG:23700](https://epsg.io/23700)):
 
 ```dart
 +proj=somerc +lat_0=47.14439372222222 +lon_0=19.04857177777778 +k_0=0.99993 +x_0=650000 +y_0=200000 +ellps=GRS67 +towgs84=52.17,-71.82,-14.9,0,0,0,0 +units=m +no_defs
@@ -59,7 +59,7 @@ For full example visit [example/proj4dart_example.dart](example/proj4dart_exampl
 
 #### With OGC WKT definition
 
-If you wish to define your own projection you can create it with a valid OGC WKT string (here for [EPSG:23700](http://epsg.io/23700)):
+If you wish to define your own projection you can create it with a valid OGC WKT string (here for [EPSG:23700](https://epsg.io/23700)):
 
 ```dart
 PROJCS["HD72 / EOV",GEOGCS["HD72",DATUM["Hungarian_Datum_1972",SPHEROID["GRS 1967",6378160,298.247167427,AUTHORITY["EPSG","7036"]],TOWGS84[52.17,-71.82,-14.9,0,0,0,0],AUTHORITY["EPSG","6237"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4237"]],PROJECTION["Hotine_Oblique_Mercator_Azimuth_Center"],PARAMETER["latitude_of_center",47.14439372222222],PARAMETER["longitude_of_center",19.04857177777778],PARAMETER["azimuth",90],PARAMETER["rectified_grid_angle",90],PARAMETER["scale_factor",0.99993],PARAMETER["false_easting",650000],PARAMETER["false_northing",200000],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AXIS["Y",EAST],AXIS["X",NORTH],AUTHORITY["EPSG","23700"]]
@@ -80,7 +80,7 @@ For full example visit [example/proj4dart_ogc_wkt_example.dart](example/proj4dar
 
 #### With ESRI WKT definition
 
-If you wish to define your own projection you can create it with a valid ESRI WKT string (here for [EPSG:23700](http://epsg.io/23700)):
+If you wish to define your own projection you can create it with a valid ESRI WKT string (here for [EPSG:23700](https://epsg.io/23700)):
 
 ```dart
 PROJCS["HD72_EOV",GEOGCS["GCS_HD72",DATUM["D_Hungarian_1972",SPHEROID["GRS_1967",6378160,298.247167427]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Hotine_Oblique_Mercator_Azimuth_Center"],PARAMETER["latitude_of_center",47.14439372222222],PARAMETER["longitude_of_center",19.04857177777778],PARAMETER["azimuth",90],PARAMETER["scale_factor",0.99993],PARAMETER["false_easting",650000],PARAMETER["false_northing",200000],UNIT["Meter",1]]
@@ -120,7 +120,7 @@ final bytes = (await rootBundle.load(fileName)).buffer.asUint8List();
 Projection.nadgrid('key', bytes);
 ```
 
-then use the given key in your definition, e.g. `+nadgrids=@key,null`. See [Proj4 General Parameters](http://proj.maptools.org/gen_parms.html).
+then use the given key in your definition, e.g. `+nadgrids=@key,null`. See [Proj4 General Parameters](https://proj.maptools.org/gen_parms.html).
 
 Nadgrid example:
 
@@ -214,7 +214,7 @@ Proj4dart was tested with
 
 Forward and inverse transformations were both performed and checked in each case. The expected forward and inverse results were pre-calculated using proj4js ([test/results/all_proj4_results.dart](test/results/all_proj4_results.dart), [test/results/all_proj4_ogc_wkt_results.dart](test/results/all_proj4_ogc_wkt_results.dart), [test/results/all_proj4_esri_wkt_results.dart](test/results/all_proj4_esri_wkt_results.dart)).
 
-The following table shows the avarage deltas of different Projections (using [EPSG:4326](http://epsg.io/4326.proj4) point of `[17.888058560281515, 46.89226406700879]` and transformed to [Custom CRS defined with Proj4 definition string](test/data/all_proj4_defs.dart#L65) which gave the `forward result` then transformed back the received forward result which gave the `inverse result`):
+The following table shows the avarage deltas of different Projections (using [EPSG:4326](https://epsg.io/4326.proj4) point of `[17.888058560281515, 46.89226406700879]` and transformed to [Custom CRS defined with Proj4 definition string](test/data/all_proj4_defs.dart#L65) which gave the `forward result` then transformed back the received forward result which gave the `inverse result`):
 
 | Projection                                   | No. tests | avg delta forward_x      | avg delta forward_y      | avg delta inverse_x       | avg delta inverse_y       |
 |:---------------------------------------------|:----------|:-------------------------|:-------------------------|:--------------------------|:--------------------------|
@@ -246,7 +246,7 @@ The following table shows the avarage deltas of different Projections (using [EP
 | **Universal Transverse Mercator Projection** | 1279      | *3.4847229055075836e-10* | *3.429655454604303e-10*  | *3.4304936617033767e-15*  | *2.4999548951684524e-15*  |
 | **Van der Grinten Projection**               | 2         | *3.3760443329811096e-9*  | *2.3283064365386963e-9*  | *0.0*                     | *0.0*                     |
 
-Example (using [EPSG:4326](http://epsg.io/4326.proj4) point of `[17.888058560281515, 46.89226406700879]` and transformed to [EPSG:23700](http://epsg.io/23700.proj4) defined with Proj4 definition string):
+Example (using [EPSG:4326](https://epsg.io/4326.proj4) point of `[17.888058560281515, 46.89226406700879]` and transformed to [EPSG:23700](https://epsg.io/23700.proj4) defined with Proj4 definition string):
 
 | LIBRARY       | forward_x         | forward_y          | inverse_x           | inverse_y         |
 |:--------------|:------------------|:-------------------|:--------------------|:------------------|
@@ -254,7 +254,7 @@ Example (using [EPSG:4326](http://epsg.io/4326.proj4) point of `[17.888058560281
 | **proj4js**   | 561651.8408065989 | 172658.61998377228 | 17.888058565574852  | 46.89226406698969 |
 | *delta*       | *0.0000000002*    | *0.0*              | *0.000000000000007* | *0.0*             |
 
-In some cases also manual PostGIS testing (PostgreSQL 12.1, PostGIS 3.0.0 r17983) was performed such as the following (using [EPSG:4326](http://epsg.io/4326.proj4) point of `[17.888058560281515, 46.89226406700879]` and transformed to [EPSG:23700](http://epsg.io/23700.proj4) defined with Proj4 definition string):
+In some cases also manual PostGIS testing (PostgreSQL 12.1, PostGIS 3.0.0 r17983) was performed such as the following (using [EPSG:4326](https://epsg.io/4326.proj4) point of `[17.888058560281515, 46.89226406700879]` and transformed to [EPSG:23700](https://epsg.io/23700.proj4) defined with Proj4 definition string):
 
 | LIBRARY       | forward_x         | forward_y          | inverse_x           | inverse_y          |
 |:--------------|:------------------|:-------------------|:--------------------|:-------------------|
@@ -268,4 +268,4 @@ In some cases also manual PostGIS testing (PostgreSQL 12.1, PostGIS 3.0.0 r17983
 
 ## Authors
 
-Proj4dart was ported from proj4js by @maRci002 and [Gergely Padányi-Gulyás (@fegyi001)](https://twitter.com/fegyi001)
+Proj4dart was ported from proj4js by @maRci002 and [Gergely Padányi-Gulyás (@fegyi001)](https://twitter.com/fegyi001).

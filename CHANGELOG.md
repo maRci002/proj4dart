@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.0
+
+- Add nadgrids support
+
 ## 2.0.0
 
 - Stable null safety release.
