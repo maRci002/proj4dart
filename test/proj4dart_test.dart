@@ -1,4 +1,5 @@
 import 'dart:collection';
+import 'dart:io';
 
 import 'package:proj4dart/proj4dart.dart';
 import 'package:proj4dart/src/globals/projection_store.dart';
@@ -16,6 +17,101 @@ import './results/all_proj4_esri_wkt_results.dart' as all_proj4_esri_results;
 import 'classes/close_to_helper.dart';
 
 void main() {
+  setUpAll(() async {
+    final bytes = await File(
+      'test/test_resources/nzgd2kgrid0005.gsb',
+    ).readAsBytes();
+
+    Projection.nadgrid('nzgd2kgrid0005.gsb', bytes);
+  });
+
+  group('Nadgrid tests', () {
+    setUpAll(() async {
+      final bytes = await File(
+        'test/test_resources/ntv2_0_downsampled.gsb',
+      ).readAsBytes();
+
+      Projection.nadgrid('ntv2', bytes);
+    });
+
+    setUp(() => ProjectionStore().clearProjectionCache());
+
+    test('Create all projections via proj4 def strings and find all of them',
+        () async {
+      var tests = <List<double>>[
+        [
+          -44.382211538462,
+          40.3768,
+          -44.380749,
+          40.377457
+        ], // just inside the lower limit
+        [
+          -87.617788,
+          59.623262,
+          -87.617659,
+          59.623441
+        ], // just inside the upper limit
+        [-44.5, 40.5, -44.498553, 40.500632], // inside the first square
+        [
+          -60,
+          50,
+          -59.999192,
+          50.000058
+        ], // a general point towards the middle of the grid
+        [0, 0, 0, 0] // fall back to null
+      ];
+
+      final from = Projection.add('ntv2_from',
+          '+proj=longlat +ellps=clrk66 +nadgrids=@ignorable,ntv2,null');
+      final to =
+          Projection.add('ntv2_to', '+proj=longlat +datum=WGS84 +no_defs');
+      var converter = ProjectionTuple(fromProj: from, toProj: to);
+
+      tests.forEach((test) {
+        var fromLng = test[0];
+        var fromLat = test[1];
+        var toLng = test[2];
+        var toLat = test[3];
+
+        var actual = converter.forward(Point(x: fromLng, y: fromLat));
+
+        expect(
+          actual.x,
+          closeTo(toLng, 0.000001),
+        );
+
+        expect(
+          actual.y,
+          closeTo(toLat, 0.000001),
+        );
+      });
+
+      var inverseTests = <List<double>>[
+        [-44.5, 40.5, -44.498553, 40.500632],
+        [-60, 50, -59.999192, 50.000058]
+      ];
+
+      inverseTests.forEach((test) {
+        var fromLng = test[0];
+        var fromLat = test[1];
+        var toLng = test[2];
+        var toLat = test[3];
+
+        var actual = converter.inverse(Point(x: toLng, y: toLat));
+
+        expect(
+          actual.x,
+          closeTo(fromLng, 0.000001),
+        );
+
+        expect(
+          actual.y,
+          closeTo(fromLat, 0.000001),
+        );
+      });
+    });
+  });
+
   group('Bulk tests', () {
     setUp(() => ProjectionStore().clearProjectionCache());
 

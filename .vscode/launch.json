@@ -1,19 +1,29 @@
 {
   "version": "0.2.0",
-  "configurations": [{
-    "name": "Dart-proj4",
-    "program": "example/proj4dart_example.dart",
-    "request": "launch",
-    "type": "dart"
-  }, {
-    "name": "Dart-ogc-wkt",
-    "program": "example/proj4dart_ogc_wkt_example.dart",
-    "request": "launch",
-    "type": "dart"
-  }, {
-    "name": "Dart-esri-wkt",
-    "program": "example/proj4dart_esri_wkt_example.dart",
-    "request": "launch",
-    "type": "dart"
-  }]
+  "configurations": [
+    {
+      "name": "Dart-proj4",
+      "program": "example/proj4dart_example.dart",
+      "request": "launch",
+      "type": "dart"
+    },
+    {
+      "name": "Dart-ogc-wkt",
+      "program": "example/proj4dart_ogc_wkt_example.dart",
+      "request": "launch",
+      "type": "dart"
+    },
+    {
+      "name": "Dart-esri-wkt",
+      "program": "example/proj4dart_esri_wkt_example.dart",
+      "request": "launch",
+      "type": "dart"
+    },
+    {
+      "name": "Dart-shift-grid",
+      "program": "example/proj4dart_shift_grid_example.dart",
+      "request": "launch",
+      "type": "dart"
+    }
+  ]
 }

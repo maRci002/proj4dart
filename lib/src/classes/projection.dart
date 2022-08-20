@@ -1,5 +1,8 @@
+import 'dart:typed_data';
+
 import 'package:proj4dart/proj4dart.dart';
 import 'package:proj4dart/src/classes/datum.dart';
+import 'package:proj4dart/src/classes/nadgrid.dart';
 import 'package:proj4dart/src/classes/point.dart';
 import 'package:proj4dart/src/classes/proj_params.dart';
 import 'package:proj4dart/src/common/datum_transform.dart' as dt;
@@ -103,6 +106,10 @@ abstract class Projection {
     }
 
     return initializer(params);
+  }
+
+  static void nadgrid(String key, Uint8List data) {
+    Nadgird.factory(key, data);
   }
 
   static final _mercatorCodes = ['3857', '900913', '3785', '102113'];

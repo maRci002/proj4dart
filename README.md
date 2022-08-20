@@ -99,6 +99,43 @@ var projection = Projection.parse(def);
 
 For full example visit [example/proj4dart_esri_wkt_example.dart](example/proj4dart_esri_wkt_example.dart)
 
+#### Grid Based Datum Adjustments
+
+To use `+nadgrids=` in a proj definition, first read your NTv2 `.gsb` file into an `Uint8List`, then pass to `Projection.nadgrid`. E.g:
+
+Dart:
+```dart
+final bytes = await File(
+  'assets/my_grid.gsb',
+).readAsBytes();
+
+Projection.nadgrid('key', bytes);
+```
+
+Flutter:
+```dart
+import 'package:flutter/services.dart' show rootBundle;
+final bytes = (await rootBundle.load(fileName)).buffer.asUint8List();
+
+Projection.nadgrid('key', bytes);
+```
+
+then use the given key in your definition, e.g. `+nadgrids=@key,null`. See [Proj4 General Parameters](http://proj.maptools.org/gen_parms.html).
+
+Nadgrid example:
+
+```dart
+import 'package:flutter/services.dart' show rootBundle;
+
+final bytes = (await rootBundle.load('assets/nzgd2kgrid0005.gsb')).buffer.asUint8List();
+Projection.nadgrid('nzgd2kgrid0005.gsb', bytes);
+
+var def = '+proj=longlat +datum=nzgd49 +towgs84=59.47,-5.04,187.44,0.47,-0.1,1.024,-4.5993 +nadgrids=nzgd2kgrid0005.gsb +no_defs';
+var namedProjection = Projection.add('EPSG:4272', def);
+```
+
+For full example visit [example/proj4dart_shift_grid_example.dart](example/proj4dart_shift_grid_example.dart)
+
 ### Transform between Projections
 
 ```dart
