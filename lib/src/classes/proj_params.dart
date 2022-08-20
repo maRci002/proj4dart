@@ -1,4 +1,5 @@
 import 'package:proj4dart/src/classes/datum.dart';
+import 'package:proj4dart/src/classes/nadgrid.dart';
 import 'package:proj4dart/src/common/derive_constants.dart' as dc;
 import 'package:proj4dart/src/constants/datums.dart' as datums;
 import 'package:proj4dart/src/constants/prime_meridians.dart' as consts_pm;
@@ -222,6 +223,7 @@ class ProjParams {
     var sphere = dc.sphere(a, b, rf, ellps!, map['sphere'] as bool?);
     var ecc = dc.eccentricity(sphere['a'] as double, sphere['b'] as double,
         sphere['rf'] as double?, R_A);
+    var parsedNadgrids = Nadgird.getNadgrids(nadgrids);
     map['a'] = sphere['a'];
     map['b'] = sphere['b'];
     map['rf'] = sphere['rf'];
@@ -230,7 +232,8 @@ class ProjParams {
     map['e'] = ecc['e'];
     map['ep2'] = ecc['ep2'];
     if (datum == null) {
-      map['datum'] = Datum(datumCode, datum_params, a!, b!, es!, ep2!);
+      map['datum'] =
+          Datum(datumCode, datum_params, a!, b!, es!, ep2!, parsedNadgrids);
     }
   }
 

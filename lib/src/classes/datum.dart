@@ -1,3 +1,4 @@
+import 'package:proj4dart/src/classes/nadgrid.dart';
 import 'package:proj4dart/src/constants/values.dart' as consts;
 
 class Datum {
@@ -7,13 +8,15 @@ class Datum {
   final double b;
   final double es;
   final double ep2;
+  final List<NadgridParam>? grids;
 
   Datum(String? datumCode, List<double>? datum_params, double a, double b,
-      double es, double ep2)
+      double es, double ep2, List<NadgridParam>? nadgrids)
       : a = a,
         b = b,
         es = es,
-        ep2 = ep2 {
+        ep2 = ep2,
+        grids = nadgrids {
     if (datumCode == null || datumCode == 'none') {
       datumType = consts.PJD_NODATUM;
     } else {
@@ -36,6 +39,10 @@ class Datum {
           datumParams[6] = (datumParams[6] / 1000000.0) + 1.0;
         }
       }
+    }
+
+    if (nadgrids != null) {
+      datumType = consts.PJD_GRIDSHIFT;
     }
   }
 }
