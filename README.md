@@ -268,4 +268,4 @@ In some cases also manual PostGIS testing (PostgreSQL 12.1, PostGIS 3.0.0 r17983
 
 ## Authors
 
-Proj4dart was ported from proj4js by @maRci002 and [Gergely Padányi-Gulyás (@fegyi001)](https://twitter.com/fegyi001) at [Ulyssys Ltd](https://www.ulyssys.hu/index_en.html), Budapest, Hungary.
+Proj4dart was ported from proj4js by @maRci002 and [Gergely Padányi-Gulyás (@fegyi001)](https://twitter.com/fegyi001)
