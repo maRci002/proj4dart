@@ -3,8 +3,8 @@ import 'dart:math' as math;
 import 'package:proj4dart/src/classes/point.dart';
 import 'package:proj4dart/src/classes/proj_params.dart';
 import 'package:proj4dart/src/classes/projection.dart';
-import 'package:proj4dart/src/constants/values.dart' as consts;
 import 'package:proj4dart/src/common/utils.dart' as utils;
+import 'package:proj4dart/src/constants/values.dart' as consts;
 
 class AlbersProjection extends Projection {
   static final List<String> names = [
@@ -84,7 +84,10 @@ class AlbersProjection extends Projection {
 
   @override
   Point inverse(Point p) {
-    var rh1, qs, con, theta, lon, lat;
+    double rh1;
+    double con;
+    double theta;
+    double lat;
 
     p.x -= x0;
     p.y = rh - p.y + y0;
@@ -103,11 +106,11 @@ class AlbersProjection extends Projection {
     if (sphere != null && sphere!) {
       lat = math.asin((c - con * con) / (2 * ns0));
     } else {
-      qs = (c - con * con) / ns0;
+      final qs = (c - con * con) / ns0;
       lat = _phi1z(e3, qs);
     }
 
-    lon = utils.adjust_lon(theta / ns0 + long0);
+    final lon = utils.adjust_lon(theta / ns0 + long0);
     p.x = lon;
     p.y = lat;
     return p;
@@ -115,8 +118,7 @@ class AlbersProjection extends Projection {
 
   /// Function to compute phi1, the latitude for the inverse of the
   /// Albers Conical Equal-Area projection.
-  double _phi1z(eccent, qs) {
-    var sinphi, cosphi, con, com, dphi;
+  double _phi1z(double eccent, double qs) {
     var phi = utils.asinz(0.5 * qs);
     if (eccent < consts.EPSLN) {
       return phi;
@@ -124,11 +126,11 @@ class AlbersProjection extends Projection {
 
     var eccnts = eccent * eccent;
     for (var i = 1; i <= 25; i++) {
-      sinphi = math.sin(phi);
-      cosphi = math.cos(phi);
-      con = eccent * sinphi;
-      com = 1 - con * con;
-      dphi = 0.5 *
+      final sinphi = math.sin(phi);
+      final cosphi = math.cos(phi);
+      final con = eccent * sinphi;
+      final com = 1 - con * con;
+      final dphi = 0.5 *
           com *
           com /
           cosphi *
@@ -140,6 +142,6 @@ class AlbersProjection extends Projection {
         return phi;
       }
     }
-    throw 'Shouldn\'t reach';
+    throw Exception("Shouldn't reach");
   }
 }

@@ -1,7 +1,6 @@
 import 'dart:math' as math;
 
 import 'package:proj4dart/src/classes/point.dart';
-import 'package:proj4dart/src/classes/proj_params.dart';
 import 'package:proj4dart/src/classes/projection.dart';
 import 'package:proj4dart/src/common/utils.dart' as utils;
 import 'package:proj4dart/src/constants/values.dart' as consts;
@@ -28,7 +27,7 @@ class HotineObliqueMercatorProjection extends Projection {
   bool no_off, no_rot;
   late double bl, al, el, gamma0, uc;
 
-  HotineObliqueMercatorProjection.init(ProjParams params)
+  HotineObliqueMercatorProjection.init(super.params)
       : lat0 = params.lat0!,
         long0 = params.long0,
         longc = params.longc,
@@ -41,7 +40,7 @@ class HotineObliqueMercatorProjection extends Projection {
         alpha = params.alpha,
         no_off = params.map['no_off'] == true,
         no_rot = params.map['no_rot'] == true,
-        super.init(params) {
+        super.init() {
     if (k0 == 0.0 || k0.isNaN) {
       k0 = 1.0;
     }

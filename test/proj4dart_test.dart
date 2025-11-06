@@ -9,11 +9,11 @@ import 'package:test/test.dart';
 
 import './classes/project_and_unproject_result.dart';
 import './data/all_proj4_defs.dart' as all_proj4_defs;
-import './data/all_proj4_ogc_wkt_defs.dart' as all_proj4_ogc_defs;
 import './data/all_proj4_esri_wkt_defs.dart' as all_proj4_esri_defs;
-import './results/all_proj4_results.dart' as all_proj4_results;
-import './results/all_proj4_ogc_wkt_results.dart' as all_proj4_ogc_results;
+import './data/all_proj4_ogc_wkt_defs.dart' as all_proj4_ogc_defs;
 import './results/all_proj4_esri_wkt_results.dart' as all_proj4_esri_results;
+import './results/all_proj4_ogc_wkt_results.dart' as all_proj4_ogc_results;
+import './results/all_proj4_results.dart' as all_proj4_results;
 import 'classes/close_to_helper.dart';
 
 void main() {
@@ -67,7 +67,7 @@ void main() {
           Projection.add('ntv2_to', '+proj=longlat +datum=WGS84 +no_defs');
       var converter = ProjectionTuple(fromProj: from, toProj: to);
 
-      tests.forEach((test) {
+      for (var test in tests) {
         var fromLng = test[0];
         var fromLat = test[1];
         var toLng = test[2];
@@ -84,14 +84,14 @@ void main() {
           actual.y,
           closeTo(toLat, 0.000001),
         );
-      });
+      }
 
       var inverseTests = <List<double>>[
         [-44.5, 40.5, -44.498553, 40.500632],
         [-60, 50, -59.999192, 50.000058]
       ];
 
-      inverseTests.forEach((test) {
+      for (var test in inverseTests) {
         var fromLng = test[0];
         var fromLat = test[1];
         var toLng = test[2];
@@ -108,7 +108,7 @@ void main() {
           actual.y,
           closeTo(fromLat, 0.000001),
         );
-      });
+      }
     });
   });
 
@@ -161,10 +161,12 @@ void main() {
       );
 
       print(
-          'Project / unproject test for all Proj4 def projections test were run against following closeTos:');
+        'Project / unproject test for all Proj4 def projections test were run against following closeTos:',
+      );
       closeToHelpers.forEach((key, value) {
         print(
-            '$key : worstForwardX = ${value.worstForwardX}, worstForwardY = ${value.worstForwardY}, worstInverseX = ${value.worstInverseX}, worstInverseY = ${value.worstInverseY}');
+          '$key : worstForwardX = ${value.worstForwardX}, worstForwardY = ${value.worstForwardY}, worstInverseX = ${value.worstInverseX}, worstInverseY = ${value.worstInverseY}',
+        );
       });
     });
 

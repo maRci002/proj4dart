@@ -54,11 +54,11 @@ class PseudoMercatorProjection extends Projection {
         lat * consts.R2D < -90 &&
         lon * consts.R2D > 180 &&
         lon * consts.R2D < -180) {
-      throw 'Shouldn\'t reach';
+      throw Exception("Shouldn't reach");
     }
-    var x, y;
+    double x, y;
     if ((lat.abs() - consts.HALF_PI).abs() <= consts.EPSLN) {
-      throw 'Shouldn\'t reach';
+      throw Exception("Shouldn't reach");
     } else {
       if (sphere != null && sphere!) {
         x = x0 + a * k0 * utils.adjust_lon(lon - long0);
@@ -86,7 +86,7 @@ class PseudoMercatorProjection extends Projection {
       var ts = math.exp(-y / (a * k0));
       lat = utils.phi2z(e, ts);
       if (lat == -9999.0) {
-        throw 'Shouldn\'t reach';
+        throw Exception("Shouldn't reach");
       }
     }
     lon = utils.adjust_lon(long0 + x / (a * k0));

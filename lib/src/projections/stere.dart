@@ -1,7 +1,6 @@
 import 'dart:math' as math;
 
 import 'package:proj4dart/src/classes/point.dart';
-import 'package:proj4dart/src/classes/proj_params.dart';
 import 'package:proj4dart/src/classes/projection.dart';
 import 'package:proj4dart/src/common/utils.dart' as utils;
 import 'package:proj4dart/src/constants/values.dart' as consts;
@@ -35,13 +34,13 @@ class StereographicSouthProjection extends Projection {
         math.pow((1 - sinphi) / (1 + sinphi), 0.5 * eccen));
   }
 
-  StereographicSouthProjection.init(ProjParams params)
+  StereographicSouthProjection.init(super.params)
       : lat0 = params.lat0!,
         long0 = params.long0,
         lat_ts = params.lat_ts ?? double.nan, // fix js behavior
         x0 = params.x0!,
         y0 = params.y0!,
-        super.init(params) {
+        super.init() {
     coslat0 = math.cos(lat0);
     sinlat0 = math.sin(lat0);
     if (sphere != null && sphere!) {
@@ -80,7 +79,7 @@ class StereographicSouthProjection extends Projection {
     var lat = p.y;
     var sinlat = math.sin(lat);
     var coslat = math.cos(lat);
-    var A, X, sinX, cosX, ts, rh;
+    double A, X, sinX, cosX, ts, rh;
     var dlon = utils.adjust_lon(lon - long0);
 
     if (((lon - long0).abs() - math.pi).abs() <= consts.EPSLN &&

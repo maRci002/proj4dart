@@ -1,7 +1,6 @@
 import 'dart:math' as math;
 
 import 'package:proj4dart/src/classes/point.dart';
-import 'package:proj4dart/src/classes/proj_params.dart';
 import 'package:proj4dart/src/classes/projection.dart';
 import 'package:proj4dart/src/common/utils.dart' as utils;
 import 'package:proj4dart/src/constants/values.dart' as consts;
@@ -34,13 +33,13 @@ class LambertAzimuthalEqualAreaProjection extends Projection {
   late List<double> apa;
   late double qp, mmf, dd, rq, xmf, ymf, sinb1, cosb1, sinph0, cosph0;
 
-  LambertAzimuthalEqualAreaProjection.init(ProjParams params)
+  LambertAzimuthalEqualAreaProjection.init(super.params)
       : lat0 = params.lat0!,
         long0 = params.long0,
         x0 = params.x0!,
         y0 = params.y0!,
         phi0 = params.map['phi0'] as double?,
-        super.init(params) {
+        super.init() {
     var t = lat0.abs();
     if ((t - consts.HALF_PI).abs() < consts.EPSLN) {
       mode = lat0 < 0 ? S_POLE : N_POLE;
@@ -50,7 +49,7 @@ class LambertAzimuthalEqualAreaProjection extends Projection {
       mode = OBLIQ;
     }
     if (es > 0) {
-      var sinphi;
+      double sinphi;
       qp = utils.qsfnz(e, 1);
       mmf = 0.5 / (1 - es);
       apa = _authset(es);
@@ -103,7 +102,7 @@ class LambertAzimuthalEqualAreaProjection extends Projection {
             ? 1 + cosphi * coslam
             : 1 + sinph0 * sinphi + cosph0 * cosphi * coslam;
         if (y <= consts.EPSLN) {
-          throw 'Shouldn\'t reach';
+          throw Exception("Shouldn't reach");
         }
         y = math.sqrt(2 / y);
         x = y * cosphi * math.sin(lam);
@@ -116,7 +115,7 @@ class LambertAzimuthalEqualAreaProjection extends Projection {
         }
 
         if (phi0 != null && (phi + phi0!).abs() < consts.EPSLN) {
-          throw 'Shouldn\'t reach';
+          throw Exception("Shouldn't reach");
         }
         y = consts.FORTPI - phi * 0.5;
         y = 2 * ((mode == S_POLE) ? math.cos(y) : math.sin(y));
@@ -152,7 +151,7 @@ class LambertAzimuthalEqualAreaProjection extends Projection {
           break;
       }
       if (b.abs() < consts.EPSLN) {
-        throw 'Shouldn\'t reach';
+        throw Exception("Shouldn't reach");
       }
       switch (mode) {
         case OBLIQ:
@@ -195,7 +194,7 @@ class LambertAzimuthalEqualAreaProjection extends Projection {
       rh = math.sqrt(x * x + y * y);
       phi = rh * 0.5;
       if (phi > 1) {
-        throw 'Shouldn\'t reach';
+        throw Exception("Shouldn't reach");
       }
       phi = 2 * math.asin(phi);
       if (mode == OBLIQ || mode == EQUIT) {

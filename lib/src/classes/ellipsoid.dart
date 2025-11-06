@@ -5,15 +5,17 @@ class Ellipsoid {
   String ellipseName;
   String shortName;
 
-  Ellipsoid({required double a, required double rf, required String ellipseName, required String shortName})
-      : a = a,
-        rf = rf,
-        ellipseName = ellipseName,
-        shortName = shortName;
+  Ellipsoid({
+    required this.a,
+    required double this.rf,
+    required this.ellipseName,
+    required this.shortName,
+  });
 
-  Ellipsoid.withB({required double a, required double b, required String ellipseName, required String shortName})
-      : a = a,
-        b = b,
-        ellipseName = ellipseName,
-        shortName = shortName;
+  Ellipsoid.withB({
+    required this.a,
+    required double this.b,
+    required this.ellipseName,
+    required this.shortName,
+  });
 }

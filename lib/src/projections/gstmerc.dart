@@ -1,7 +1,6 @@
 import 'dart:math' as math;
 
 import 'package:proj4dart/src/classes/point.dart';
-import 'package:proj4dart/src/classes/proj_params.dart';
 import 'package:proj4dart/src/classes/projection.dart';
 import 'package:proj4dart/src/common/utils.dart' as utils;
 
@@ -20,8 +19,7 @@ class GaussSchreiberTransverseMercatorProjection extends Projection {
   late double ys;
   late String title;
 
-  GaussSchreiberTransverseMercatorProjection.init(ProjParams params)
-      : super.init(params) {
+  GaussSchreiberTransverseMercatorProjection.init(super.params) : super.init() {
     // array of:  a, b, lon0, lat0, k0, x0, y0
     var temp = b / a;
     e = math.sqrt(1 - temp * temp);

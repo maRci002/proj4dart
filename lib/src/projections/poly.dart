@@ -1,7 +1,6 @@
 import 'dart:math' as math;
 
 import 'package:proj4dart/src/classes/point.dart';
-import 'package:proj4dart/src/classes/proj_params.dart';
 import 'package:proj4dart/src/classes/projection.dart';
 import 'package:proj4dart/src/common/utils.dart' as utils;
 import 'package:proj4dart/src/constants/values.dart' as consts;
@@ -18,12 +17,12 @@ class PolyconicProjection extends Projection {
   late double temp, e1, ml0;
   late double e0, e2, e3;
 
-  PolyconicProjection.init(ProjParams params)
+  PolyconicProjection.init(super.params)
       : lat0 = params.lat0!,
         long0 = params.long0,
         x0 = params.x0!,
         y0 = params.y0!,
-        super.init(params) {
+        super.init() {
     // Place parameters in static storage for common use
     temp = b / a;
     es = 1 - (math.pow(temp, 2) as double);
@@ -84,7 +83,7 @@ class PolyconicProjection extends Projection {
         al = lat0 + y / a;
         bl = x * x / a / a + al * al;
         phi = al;
-        var tanphi;
+        double tanphi;
         for (var i = MAX_ITER; i > 0; --i) {
           tanphi = math.tan(phi);
           dphi = -1 *
@@ -109,8 +108,8 @@ class PolyconicProjection extends Projection {
         al = (ml0 + y) / a;
         bl = x * x / a / a + al * al;
         phi = al;
-        var cl, mln, mlnp, ma;
-        var con;
+        double cl, mln, mlnp, ma;
+        double con;
         for (var i = MAX_ITER; i > 0; --i) {
           con = e * math.sin(phi);
           cl = math.sqrt(1 - con * con) * math.tan(phi);

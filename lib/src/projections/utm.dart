@@ -1,4 +1,3 @@
-import 'package:proj4dart/src/classes/proj_params.dart';
 import 'package:proj4dart/src/common/utils.dart' as utils;
 import 'package:proj4dart/src/constants/values.dart' as consts;
 import 'package:proj4dart/src/projections/etmerc.dart';
@@ -23,7 +22,7 @@ class UniversalTransverseMercatorProjection
   @override
   double k0;
 
-  UniversalTransverseMercatorProjection.init(ProjParams params)
+  UniversalTransverseMercatorProjection.init(super.params)
       : zone = utils.adjust_zone(params.zone, params.long0),
         utmSouth = params.utmSouth == true,
         lat0 = 0,
@@ -31,5 +30,5 @@ class UniversalTransverseMercatorProjection
         x0 = 500000,
         y0 = params.utmSouth == true ? 10000000 : 0,
         k0 = 0.9996,
-        super.init(params);
+        super.init();
 }

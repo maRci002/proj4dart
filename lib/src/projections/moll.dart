@@ -1,7 +1,6 @@
 import 'dart:math' as math;
 
 import 'package:proj4dart/src/classes/point.dart';
-import 'package:proj4dart/src/classes/proj_params.dart';
 import 'package:proj4dart/src/classes/projection.dart';
 import 'package:proj4dart/src/common/utils.dart' as utils;
 import 'package:proj4dart/src/constants/values.dart' as consts;
@@ -13,11 +12,11 @@ class MollweideProjection extends Projection {
   double x0;
   double y0;
 
-  MollweideProjection.init(ProjParams params)
+  MollweideProjection.init(super.params)
       : long0 = params.long0,
         x0 = params.x0!,
         y0 = params.y0!,
-        super.init(params);
+        super.init();
 
   @override
   Point forward(Point p) {

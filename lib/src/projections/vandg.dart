@@ -31,7 +31,7 @@ class VanDerGrintenProjection extends Projection {
     var lat = p.y;
 
     var dlon = utils.adjust_lon(lon - long0);
-    var x, y;
+    double x, y;
 
     if (lat.abs() <= consts.EPSLN) {
       x = x0 + R * dlon;

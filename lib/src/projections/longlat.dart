@@ -1,5 +1,4 @@
 import 'package:proj4dart/src/classes/point.dart';
-import 'package:proj4dart/src/classes/proj_params.dart';
 import 'package:proj4dart/src/classes/projection.dart';
 
 class LongLat extends Projection {
@@ -8,10 +7,10 @@ class LongLat extends Projection {
   final String? datumCode;
   final String? datumName;
 
-  LongLat.init(ProjParams params)
+  LongLat.init(super.params)
       : datumCode = params.datumCode,
         datumName = params.datumName,
-        super.init(params);
+        super.init();
 
   @override
   Point forward(Point p) {

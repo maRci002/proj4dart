@@ -1,7 +1,6 @@
 import 'dart:math' as math;
 
 import 'package:proj4dart/src/classes/point.dart';
-import 'package:proj4dart/src/classes/proj_params.dart';
 import 'package:proj4dart/src/classes/projection.dart';
 import 'package:proj4dart/src/constants/areas.dart' as areas;
 import 'package:proj4dart/src/constants/faces.dart' as faces;
@@ -24,14 +23,14 @@ class QuadrilateralizedSphericalCubeProjection extends Projection {
 
   late double one_minus_f, one_minus_f_squared;
 
-  QuadrilateralizedSphericalCubeProjection.init(ProjParams params)
+  QuadrilateralizedSphericalCubeProjection.init(super.params)
       : lat0 = params.lat0 ?? 0.0,
         long0 = params.long0.isNaN ? 0.0 : params.long0,
         x0 = params.x0 ?? 0.0,
         y0 = params.y0 ?? 0.0,
         lat_ts = params.lat_ts ?? 0.0,
         title = params.title ?? 'Quadrilateralized Spherical Cube',
-        super.init(params) {
+        super.init() {
     // Determine the cube face from the center of projection.
     if (lat0 >= consts.HALF_PI - consts.FORTPI / 2.0) {
       face = faces.TOP;

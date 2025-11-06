@@ -1,7 +1,6 @@
 import 'dart:math' as math;
 
 import 'package:proj4dart/src/classes/point.dart';
-import 'package:proj4dart/src/classes/proj_params.dart';
 import 'package:proj4dart/src/classes/projection.dart';
 import 'package:proj4dart/src/common/utils.dart' as utils;
 import 'package:proj4dart/src/constants/values.dart' as consts;
@@ -23,14 +22,14 @@ class LambertConformalConicProjection extends Projection {
   late double ns, f0, rh;
   late String title;
 
-  LambertConformalConicProjection.init(ProjParams params)
+  LambertConformalConicProjection.init(super.params)
       : lat0 = params.lat0!,
         long0 = params.long0,
         lat1 = params.lat1!,
         lat2 = params.lat2 ?? params.lat1!, //if lat2 is not defined
         x0 = params.x0 ?? 0.0,
         y0 = params.y0 ?? 0.0,
-        super.init(params) {
+        super.init() {
     if (k0 == 0.0 || k0.isNaN) {
       k0 = 1;
     }
@@ -79,14 +78,14 @@ class LambertConformalConicProjection extends Projection {
     }
 
     var con = (lat.abs() - consts.HALF_PI).abs();
-    var ts, rh1;
+    double ts, rh1;
     if (con > consts.EPSLN) {
       ts = utils.tsfnz(e, lat, math.sin(lat));
       rh1 = a * f0 * math.pow(ts, ns);
     } else {
       con = lat * ns;
       if (con <= 0) {
-        throw 'Shouldn\'t reach';
+        throw Exception("Shouldn't reach");
       }
       rh1 = 0;
     }
@@ -119,7 +118,7 @@ class LambertConformalConicProjection extends Projection {
       ts = math.pow((rh1 / (a * f0)), con) as double;
       lat = utils.phi2z(e, ts);
       if (lat == -9999) {
-        throw 'Shouldn\'t reach';
+        throw Exception("Shouldn't reach");
       }
     } else {
       lat = -consts.HALF_PI;

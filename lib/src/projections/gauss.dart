@@ -1,12 +1,11 @@
 import 'dart:math' as math;
 
 import 'package:proj4dart/src/classes/point.dart';
-import 'package:proj4dart/src/classes/proj_params.dart';
 import 'package:proj4dart/src/classes/projection.dart';
 import 'package:proj4dart/src/common/utils.dart' as utils;
 import 'package:proj4dart/src/constants/values.dart' as consts;
 
-var MAX_ITER = 20;
+const MAX_ITER = 20;
 
 class GaussProjection extends Projection {
   static final List<String> names = ['gauss'];
@@ -21,12 +20,12 @@ class GaussProjection extends Projection {
   late double x0;
   late double y0;
 
-  GaussProjection.init(ProjParams params)
+  GaussProjection.init(super.params)
       : lat0 = params.lat0!,
         long0 = params.long0,
         x0 = params.x0!,
         y0 = params.y0!,
-        super.init(params) {
+        super.init() {
     var sphi = math.sin(lat0);
     var cphi = math.cos(lat0);
     cphi *= cphi;

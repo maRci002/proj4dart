@@ -58,7 +58,9 @@ class ProjParams {
   ProjParams(String defData) {
     srsCode = defData;
     var paramObj = <String, dynamic>{};
-    defData.split('+').map((v) => v.trim())
+    defData
+        .split('+')
+        .map((v) => v.trim())
         // .where((a) => a != null)
         .forEach((a) {
       var split = a.split('=');
@@ -242,10 +244,8 @@ class ProjParams {
     return towgs84.split(',').map(double.parse).toList();
   }
 
-  /// Parse to List<double> if possible for the getter function to work
+  /// Parse to `List<double>` if possible for the getter function to work
   List<double>? _parseDatumParams(List<dynamic>? paramsList) {
-    return paramsList != null
-        ? paramsList.map((e) => double.parse(e.toString())).toList()
-        : null;
+    return paramsList?.map((e) => double.parse(e.toString())).toList();
   }
 }

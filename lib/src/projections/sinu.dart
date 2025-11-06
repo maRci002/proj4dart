@@ -1,7 +1,6 @@
 import 'dart:math' as math;
 
 import 'package:proj4dart/src/classes/point.dart';
-import 'package:proj4dart/src/classes/proj_params.dart';
 import 'package:proj4dart/src/classes/projection.dart';
 import 'package:proj4dart/src/common/utils.dart' as utils;
 import 'package:proj4dart/src/constants/values.dart' as consts;
@@ -21,12 +20,12 @@ class SinusoidalProjection extends Projection {
   late double C_y;
   late double C_x;
 
-  SinusoidalProjection.init(ProjParams params)
+  SinusoidalProjection.init(super.params)
       : lat0 = params.lat0,
         long0 = params.long0,
         x0 = params.x0!,
         y0 = params.y0!,
-        super.init(params) {
+        super.init() {
     if (sphere == null || (sphere != null && !sphere!)) {
       en = utils.pj_enfn(es);
     } else {

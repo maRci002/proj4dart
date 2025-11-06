@@ -1,7 +1,6 @@
 import 'dart:math' as math;
 
 import 'package:proj4dart/src/classes/point.dart';
-import 'package:proj4dart/src/classes/proj_params.dart';
 import 'package:proj4dart/src/classes/projection.dart';
 import 'package:proj4dart/src/common/utils.dart' as utils;
 import 'package:proj4dart/src/constants/values.dart' as consts;
@@ -20,12 +19,12 @@ class TransverseMercatorProjection extends Projection {
   late List<double> en;
   late double ml0;
 
-  TransverseMercatorProjection.init(ProjParams params)
+  TransverseMercatorProjection.init(super.params)
       : lat0 = params.lat0 ?? 0.0,
         long0 = params.long0,
         x0 = params.x0 ?? 0.0,
         y0 = params.y0 ?? 0.0,
-        super.init(params) {
+        super.init() {
     if (/*long0 == null || */ long0.isNaN) {
       long0 = 0;
     }

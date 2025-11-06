@@ -1,5 +1,5 @@
-import 'dart:typed_data';
 import 'dart:math' as math;
+import 'dart:typed_data';
 
 import 'package:proj4dart/src/globals/nadgrid_store.dart';
 
@@ -105,7 +105,7 @@ class Nadgird {
     required this.subgrids,
   });
 
-  /// Load a binary NTv2 file (.gsb) to a key that can be used in a proj string like +nadgrids=<key>. Pass the NTv2 file
+  /// Load a binary NTv2 file (.gsb) to a key that can be used in a proj string like +nadgrids=`key`. Pass the NTv2 file
   /// as an Uint8List.
   factory Nadgird.factory(String key, Uint8List data) {
     var view = ByteData.view(data.buffer);
@@ -113,7 +113,8 @@ class Nadgird {
     var header = readHeader(view, endian);
     if (header.nSubgrids > 1) {
       print(
-          'Only single NTv2 subgrids are currently supported, subsequent sub grids are ignored');
+        'Only single NTv2 subgrids are currently supported, subsequent sub grids are ignored',
+      );
     }
     var subgrids = readSubgrids(view, header, endian);
     var nadgrid = Nadgird(header: header, subgrids: subgrids);

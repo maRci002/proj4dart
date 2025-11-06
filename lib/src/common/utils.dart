@@ -86,7 +86,7 @@ double clens(List<double> pp, double arg_r) {
   double hr = 0.0;
 
   if (i <= 0) {
-    throw 'i must be positive number';
+    throw Exception('i must be positive number');
   }
 
   while (--i >= 0) {
@@ -131,7 +131,7 @@ double gatg(List<double> pp, double B) {
   double h = 0.0;
 
   if (i <= 0) {
-    throw 'i must be positive number';
+    throw Exception('i must be positive number');
   }
 
   while (--i >= 0) {
@@ -392,9 +392,8 @@ void checkSanity(Point point) {
 
 Point adjust_axis(Projection crs, bool denorm, Point point) {
   var xin = point.x, yin = point.y, zin = point.z ?? 0.0;
-  var v, t, i;
-  var pointString =
-      '''
+
+  var pointString = '''
       {
         "x": ${point.x}, 
         "y": ${point.y}, 
@@ -402,8 +401,7 @@ Point adjust_axis(Projection crs, bool denorm, Point point) {
       }
     ''';
   var pointObj = jsonDecode(pointString);
-  var outString =
-      '''
+  var outString = '''
       {
         "x": null, 
         "y": null, 
@@ -411,10 +409,13 @@ Point adjust_axis(Projection crs, bool denorm, Point point) {
       }
     ''';
   var out = jsonDecode(outString);
-  for (i = 0; i < 3; i++) {
+  for (var i = 0; i < 3; i++) {
     if (denorm && i == 2 && point.z == null) {
       continue;
     }
+
+    final double v;
+    final String t;
     if (i == 0) {
       v = xin;
       if ('ew'.contains(crs.axis[i])) {
@@ -451,11 +452,11 @@ Point adjust_axis(Projection crs, bool denorm, Point point) {
         }
         break;
       default:
-        throw 'ERROR: unknow axis (' +
-            crs.axis[i] +
-            ') - check definition of ' +
-            crs.projName;
+        throw Exception(
+          'ERROR: unknow axis (${crs.axis[i]}) - check definition of ${crs.projName}',
+        );
     }
   }
+
   return Point.withZ(x: out['x'], y: out['y'], z: out['z']);
 }

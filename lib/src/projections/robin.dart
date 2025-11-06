@@ -1,5 +1,4 @@
 import 'package:proj4dart/src/classes/point.dart';
-import 'package:proj4dart/src/classes/proj_params.dart';
 import 'package:proj4dart/src/classes/projection.dart';
 import 'package:proj4dart/src/common/utils.dart' as utils;
 import 'package:proj4dart/src/constants/values.dart' as consts;
@@ -64,15 +63,14 @@ class RobinsonProjection extends Projection {
   double es;
   String title;
 
-  RobinsonProjection.init(ProjParams params)
+  RobinsonProjection.init(super.params)
       : x0 = params.x0 ?? 0.0,
         y0 = params.y0 ?? 0.0,
-        long0 = /*params.long0 == null || */ params.long0.isNaN
-            ? 0.0
-            : params.long0,
+        /*params.long0 == null || */
+        long0 = params.long0.isNaN ? 0.0 : params.long0,
         es = 0.0,
         title = params.title ?? 'Robinson',
-        super.init(params);
+        super.init();
 
   @override
   Point forward(Point ll) {

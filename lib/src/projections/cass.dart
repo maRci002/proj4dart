@@ -3,8 +3,8 @@ import 'dart:math' as math;
 import 'package:proj4dart/src/classes/point.dart';
 import 'package:proj4dart/src/classes/proj_params.dart';
 import 'package:proj4dart/src/classes/projection.dart';
-import 'package:proj4dart/src/constants/values.dart' as consts;
 import 'package:proj4dart/src/common/utils.dart' as utils;
+import 'package:proj4dart/src/constants/values.dart' as consts;
 
 class CassiniProjection extends Projection {
   static final List<String> names = [
@@ -41,7 +41,7 @@ class CassiniProjection extends Projection {
   /// Forward equations
   @override
   Point forward(Point p) {
-    var x, y;
+    double x, y;
     var lam = p.x;
     var phi = p.y;
     lam = utils.adjust_lon(lam - long0);
@@ -78,7 +78,7 @@ class CassiniProjection extends Projection {
     p.y -= y0;
     var x = p.x / a;
     var y = p.y / a;
-    var phi, lam;
+    double phi, lam;
 
     if (sphere != null && sphere!) {
       var dd = y + lat0;

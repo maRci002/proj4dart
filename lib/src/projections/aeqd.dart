@@ -3,8 +3,8 @@ import 'dart:math' as math;
 import 'package:proj4dart/src/classes/point.dart';
 import 'package:proj4dart/src/classes/proj_params.dart';
 import 'package:proj4dart/src/classes/projection.dart';
-import 'package:proj4dart/src/constants/values.dart' as consts;
 import 'package:proj4dart/src/common/utils.dart' as utils;
+import 'package:proj4dart/src/constants/values.dart' as consts;
 
 class AzimuthalEquidistantProjection extends Projection {
   static final List<String> names = [
@@ -36,29 +36,30 @@ class AzimuthalEquidistantProjection extends Projection {
     var sinphi = math.sin(p.y);
     var cosphi = math.cos(p.y);
     var dlon = utils.adjust_lon(lon - long0);
-    var e0,
-        e1,
-        e2,
-        e3,
-        Mlp,
-        Ml,
-        tanphi,
-        Nl1,
-        Nl,
-        psi,
-        Az,
-        G,
-        H,
-        GH,
-        Hs,
-        c,
-        kp,
-        cos_c,
-        s,
-        s2,
-        s3,
-        s4,
-        s5;
+    double e0;
+    double e1;
+    double e2;
+    double e3;
+    double Mlp;
+    double Ml;
+    double tanphi;
+    double Nl1;
+    double Nl;
+    double psi;
+    double Az;
+    double G;
+    double H;
+    double GH;
+    double Hs;
+    double c;
+    double kp;
+    double cos_c;
+    double s;
+    double s2;
+    double s3;
+    double s4;
+    double s5;
+
     if (sphere != null && sphere!) {
       if ((sin_p12 - 1).abs() <= consts.EPSLN) {
         //North Pole case
@@ -140,29 +141,30 @@ class AzimuthalEquidistantProjection extends Projection {
   Point inverse(Point p) {
     p.x -= x0;
     p.y -= y0;
-    var rh,
-        z,
-        sinz,
-        cosz,
-        lon,
-        lat,
-        con,
-        e0,
-        e1,
-        e2,
-        e3,
-        Mlp,
-        M,
-        N1,
-        psi,
-        Az,
-        cosAz,
-        tmp,
-        A,
-        B,
-        D,
-        Ee,
-        F;
+    double rh;
+    double z;
+    double sinz;
+    double cosz;
+    double lon;
+    double lat;
+    double con;
+    double e0;
+    double e1;
+    double e2;
+    double e3;
+    double Mlp;
+    double M;
+    double N1;
+    double psi;
+    double Az;
+    double cosAz;
+    double tmp;
+    double A;
+    double B;
+    double D;
+    double Ee;
+    double F;
+
     if (sphere != null && sphere!) {
       rh = math.sqrt(p.x * p.x + p.y * p.y);
       if (rh > (2 * consts.HALF_PI * a)) {

@@ -1,7 +1,6 @@
 import 'dart:math' as math;
 
 import 'package:proj4dart/src/classes/point.dart';
-import 'package:proj4dart/src/classes/proj_params.dart';
 import 'package:proj4dart/src/classes/projection.dart';
 import 'package:proj4dart/src/common/utils.dart' as utils;
 
@@ -27,11 +26,11 @@ class KrovakProjection extends Projection {
   late double ad;
   bool czech;
 
-  KrovakProjection.init(ProjParams params)
+  KrovakProjection.init(super.params)
       : lat0 = params.lat0 ?? 0.863937979737193,
         long0 = params.long0,
         czech = params.map['czech'] == true,
-        super.init(params) {
+        super.init() {
     a = 6377397.155;
     es = 0.006674372230614;
     e = math.sqrt(es);
@@ -94,7 +93,7 @@ class KrovakProjection extends Projection {
   @override
   Point inverse(Point p) {
     double u, deltav, s, d, eps, ro, fi1;
-    var ok;
+    int ok;
     // revert y, x
     var tmp = p.x;
     p.x = p.y;
@@ -129,7 +128,7 @@ class KrovakProjection extends Projection {
       iter += 1;
     } while (ok == 0 && iter < 15);
     if (iter >= 15) {
-      throw 'Shouldn\'t reach';
+      throw Exception("Shouldn't reach");
     }
 
     return (p);

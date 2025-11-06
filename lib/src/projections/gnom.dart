@@ -1,7 +1,6 @@
 import 'dart:math' as math;
 
 import 'package:proj4dart/src/classes/point.dart';
-import 'package:proj4dart/src/classes/proj_params.dart';
 import 'package:proj4dart/src/classes/projection.dart';
 import 'package:proj4dart/src/common/utils.dart' as utils;
 import 'package:proj4dart/src/constants/values.dart' as consts;
@@ -19,13 +18,13 @@ class GnomicProjection extends Projection {
   late double rc;
   double? phic0;
 
-  GnomicProjection.init(ProjParams params)
+  GnomicProjection.init(super.params)
       : lat0 = params.lat0!,
         long0 = params.long0,
         x0 = params.x0!,
         y0 = params.y0!,
         phic0 = params.map['phic0'] as double?,
-        super.init(params) {
+        super.init() {
     sin_p14 = math.sin(lat0);
     cos_p14 = math.cos(lat0);
     // Approximation for projecting points to the horizon (infinity)

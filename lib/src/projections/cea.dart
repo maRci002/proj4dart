@@ -36,7 +36,7 @@ class CentralCylindricalProjection extends Projection {
   Point forward(Point p) {
     var lon = p.x;
     var lat = p.y;
-    var x, y;
+    double x, y;
     var dlon = utils.adjust_lon(lon - long0);
     if (sphere != null && sphere!) {
       x = x0 + a * dlon * math.cos(lat_ts);
@@ -57,7 +57,7 @@ class CentralCylindricalProjection extends Projection {
   Point inverse(Point p) {
     p.x -= x0;
     p.y -= y0;
-    var lon, lat;
+    double lon, lat;
 
     if (sphere != null && sphere!) {
       lon = utils.adjust_lon(long0 + (p.x / a) / math.cos(lat_ts));

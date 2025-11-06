@@ -4,13 +4,15 @@ class ConstantDatum {
   String datumName;
   String? nadgrids;
 
-  ConstantDatum({required String towgs84, required String ellipse, required String datumName})
-      : towgs84 = towgs84,
-        ellipse = ellipse,
-        datumName = datumName;
+  ConstantDatum({
+    required String this.towgs84,
+    required this.ellipse,
+    required this.datumName,
+  });
 
-  ConstantDatum.withNadgrid({required String nadgrids, required String ellipse, required String datumName})
-      : nadgrids = nadgrids,
-        ellipse = ellipse,
-        datumName = datumName;
+  ConstantDatum.withNadgrid({
+    required String this.nadgrids,
+    required this.ellipse,
+    required this.datumName,
+  });
 }

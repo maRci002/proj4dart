@@ -1,10 +1,11 @@
+import 'dart:math' as math;
+
 import 'package:proj4dart/src/classes/datum.dart';
 import 'package:proj4dart/src/classes/nadgrid.dart';
 import 'package:proj4dart/src/classes/point.dart';
 import 'package:proj4dart/src/common/datum_utils.dart' as datum_utils;
-import 'package:proj4dart/src/constants/values.dart' as consts;
-import 'dart:math' as math;
 import 'package:proj4dart/src/common/utils.dart' as utils;
+import 'package:proj4dart/src/constants/values.dart' as consts;
 
 bool checkParams(int type) {
   return (type == consts.PJD_3PARAM || type == consts.PJD_7PARAM);
@@ -76,7 +77,7 @@ void applyGridShift(Datum source, bool inverse, Point point) {
   }
   var input = Point(x: -point.x, y: point.y);
   var output = Point(x: double.nan, y: double.nan);
-  var onlyMandatoryGrids = false;
+  // var onlyMandatoryGrids = false;
   var attemptedGrids = <String>[];
   for (var i = 0; i < source.grids!.length; i++) {
     var grid = source.grids![i];
@@ -85,7 +86,7 @@ void applyGridShift(Datum source, bool inverse, Point point) {
       output = input;
       break;
     }
-    onlyMandatoryGrids = grid.mandatory;
+    // onlyMandatoryGrids = grid.mandatory;
     if (grid.grid == null) {
       if (grid.mandatory) {
         throw Exception("Unable to find mandatory grid '${grid.name}'");
@@ -138,7 +139,8 @@ Point applySubgridShift(Point pin, bool inverse, SubGrid ct) {
       del = nadInterpolate(t, ct);
       if (del.x.isNaN) {
         print(
-            'Inverse grid shift iteration failed, presumably at grid edge.  Using first approximation.');
+          'Inverse grid shift iteration failed, presumably at grid edge.  Using first approximation.',
+        );
         break;
       }
       dif = Point(x: tb.x - (del.x + t.x), y: tb.y - (del.y + t.y));

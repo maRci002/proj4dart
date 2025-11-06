@@ -22,7 +22,6 @@ void main() async {
     'ntv2_from',
     '+proj=longlat +ellps=clrk66 +nadgrids=@ignorable,ntv2,null',
   );
-  ;
 
   // Use built-in projection
   var projDst = Projection.WGS84;

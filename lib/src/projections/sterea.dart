@@ -1,7 +1,6 @@
 import 'dart:math' as math;
 
 import 'package:proj4dart/src/classes/point.dart';
-import 'package:proj4dart/src/classes/proj_params.dart';
 import 'package:proj4dart/src/common/utils.dart' as utils;
 import 'package:proj4dart/src/projections/gauss.dart';
 
@@ -19,7 +18,7 @@ class StereographicNorthProjection extends GaussProjection {
   late double cosc0;
   late double R2;
 
-  StereographicNorthProjection.init(ProjParams params) : super.init(params) {
+  StereographicNorthProjection.init(super.params) : super.init() {
     if (rc == 0) {
       return;
     }

@@ -45,11 +45,6 @@ Point geodeticToGeocentric(Point p, es, a) {
   var Latitude = p.y;
   var Height = p.z ?? 0; // Z value not always supplied
 
-  var Rn; // Earth radius at location
-  var Sin_Lat; // math.sin(Latitude)
-  var Sin2_Lat; // Square of math.sin(Latitude)
-  var Cos_Lat; // math.cos(Latitude)
-
   /// Don't blow up if Latitude is just a little out of the value
   /// range as it may just be a rounding issue. Also removed longitude
   /// test, it should be wrapped by math.cos() and math.sin(). NFW for PROJ.4, Sep/2001.
@@ -70,10 +65,12 @@ Point geodeticToGeocentric(Point p, es, a) {
   if (Longitude > math.pi) {
     Longitude -= (2 * math.pi);
   }
-  Sin_Lat = math.sin(Latitude);
-  Cos_Lat = math.cos(Latitude);
-  Sin2_Lat = Sin_Lat * Sin_Lat;
-  Rn = a / (math.sqrt(1.0e0 - es * Sin2_Lat));
+
+  final Sin_Lat = math.sin(Latitude);
+  final Cos_Lat = math.cos(Latitude);
+  final Sin2_Lat = Sin_Lat * Sin_Lat;
+  // Earth radius at location
+  final Rn = a / (math.sqrt(1.0e0 - es * Sin2_Lat));
   return Point.withZ(
       x: (Rn + Height) * Cos_Lat * math.cos(Longitude),
       y: (Rn + Height) * Cos_Lat * math.sin(Longitude),
@@ -100,7 +97,7 @@ Point geocentricToGeodetic(Point p, double es, double a, double b) {
   double SPHI; // sin of searched geodetic latitude
   double
       SDPHI; // end-criterium: addition-theorem of sin(Latitude(iter)-Latitude(iter-1))
-  var iter; // # of continous iteration, max. 30 is always enough (s.a.)
+  int iter; // # of continous iteration, max. 30 is always enough (s.a.)
 
   var X = p.x;
   var Y = p.y;
@@ -173,8 +170,7 @@ Point geocentricToGeodetic(Point p, double es, double a, double b) {
 /// passed back and forth by reference rather than by value.
 /// Other point classes may be used as long as they have
 /// x and y properties, which will get modified in the transform method.
-Point geocentricToWgs84(
-    Point p, int datumType, List<double> datumParams) {
+Point geocentricToWgs84(Point p, int datumType, List<double> datumParams) {
   if (datumType == consts.PJD_3PARAM) {
     // if( x[io] === HUGE_VAL )
     // continue;
@@ -199,14 +195,13 @@ Point geocentricToWgs84(
         z: M_BF * (-Ry_BF * p.x + Rx_BF * p.y + p.z!) + Dz_BF);
   }
 
-  throw 'Shouldn\'t reach';
+  throw Exception("Shouldn't reach");
 } // cs_geocentric_to_wgs84
 
 /// pj_geocentic_from_wgs84()
 /// coordinate system definition,
 /// point to transform in geocentric coordinates (x,y,z)
-Point geocentricFromWgs84(
-    Point p, int datumType, List<double> datumParams) {
+Point geocentricFromWgs84(Point p, int datumType, List<double> datumParams) {
   if (datumType == consts.PJD_3PARAM) {
     //if( x[io] === HUGE_VAL )
     // continue;
@@ -234,5 +229,5 @@ Point geocentricFromWgs84(
         y: -Rz_BF * x_tmp + y_tmp + Rx_BF * z_tmp,
         z: Ry_BF * x_tmp - Rx_BF * y_tmp + z_tmp);
   }
-  throw 'Shouldn\'t reach';
+  throw Exception("Shouldn't reach");
 } //cs_geocentric_from_wgs84()

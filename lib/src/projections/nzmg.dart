@@ -1,5 +1,4 @@
 import 'package:proj4dart/src/classes/point.dart';
-import 'package:proj4dart/src/classes/proj_params.dart';
 import 'package:proj4dart/src/classes/projection.dart';
 import 'package:proj4dart/src/constants/values.dart' as consts;
 
@@ -20,12 +19,12 @@ class NewZealandMapGridProjection extends Projection {
   var C_im = List<double>.filled(7, 0.0);
   var D = List<double>.filled(10, 0.0);
 
-  NewZealandMapGridProjection.init(ProjParams params)
+  NewZealandMapGridProjection.init(super.params)
       : lat0 = params.lat0!,
         long0 = params.long0,
         x0 = params.x0!,
         y0 = params.y0!,
-        super.init(params) {
+        super.init() {
     A[1] = 0.6399175073;
     A[2] = -0.1358797613;
     A[3] = 0.063294409;
@@ -102,8 +101,8 @@ class NewZealandMapGridProjection extends Projection {
     // 3. Calculate z
     var th_n_re = 1.0;
     var th_n_im = 0.0; // theta^0
-    var th_n_re1;
-    var th_n_im1;
+    double th_n_re1;
+    double th_n_im1;
 
     var z_re = 0.0;
     var z_im = 0.0;
@@ -139,8 +138,8 @@ class NewZealandMapGridProjection extends Projection {
     // 2a. Calculate theta - first approximation gives km accuracy
     var z_n_re = 1.0;
     var z_n_im = 0.0; // z^0
-    var z_n_re1;
-    var z_n_im1;
+    double z_n_re1;
+    double z_n_im1;
 
     var th_re = 0.0;
     var th_im = 0.0;
@@ -160,8 +159,8 @@ class NewZealandMapGridProjection extends Projection {
     for (var i = 0; i < iterations; i++) {
       var th_n_re = th_re;
       var th_n_im = th_im;
-      var th_n_re1;
-      var th_n_im1;
+      double th_n_re1;
+      double th_n_im1;
 
       var num_re = z_re;
       var num_im = z_im;

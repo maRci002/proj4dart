@@ -1,5 +1,5 @@
 /// proj4dart library.
-library proj4dart;
+library;
 
 export 'src/classes/point.dart';
 export 'src/classes/projection.dart';

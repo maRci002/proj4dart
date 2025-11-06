@@ -1,7 +1,6 @@
 import 'dart:math' as math;
 
 import 'package:proj4dart/src/classes/point.dart';
-import 'package:proj4dart/src/classes/proj_params.dart';
 import 'package:proj4dart/src/classes/projection.dart';
 import 'package:proj4dart/src/common/utils.dart' as utils;
 import 'package:proj4dart/src/constants/values.dart' as consts;
@@ -15,12 +14,12 @@ class OrthographicProjection extends Projection {
   double y0;
   late double sin_p14, cos_p14;
 
-  OrthographicProjection.init(ProjParams params)
+  OrthographicProjection.init(super.params)
       : lat0 = params.lat0!,
         long0 = params.long0,
         x0 = params.x0!,
         y0 = params.y0!,
-        super.init(params) {
+        super.init() {
     sin_p14 = math.sin(lat0);
     cos_p14 = math.cos(lat0);
   }
@@ -50,7 +49,7 @@ class OrthographicProjection extends Projection {
       return p;
     }
 
-    throw 'Shouldn\'t reach';
+    throw Exception("Shouldn't reach");
   }
 
   @override

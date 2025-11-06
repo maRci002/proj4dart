@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.0.0
+
+- Update minimum Dart version to 3.0.0.
+- Update dependencies.
+
 ## 2.1.0
 
 - Add nadgrids support

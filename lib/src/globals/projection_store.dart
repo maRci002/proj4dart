@@ -37,7 +37,7 @@ class ProjectionStore {
     required Projection wgs84,
     required Projection nad83,
     required Projection google,
-  })   : WGS84 = wgs84,
+  })  : WGS84 = wgs84,
         GOOGLE = google,
         NAD83 = nad83,
         _projectionCache = {} {
@@ -74,7 +74,8 @@ class ProjectionStore {
   Projection register(String code, Projection projection) {
     if (_projectionCache.containsKey(code)) {
       print(
-          'Warning a Projection was already registered with the following name: $code, it will be overridden');
+        'Warning a Projection was already registered with the following name: $code, it will be overridden',
+      );
     }
 
     return _projectionCache[code] = projection;

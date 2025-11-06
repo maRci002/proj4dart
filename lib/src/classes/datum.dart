@@ -10,13 +10,15 @@ class Datum {
   final double ep2;
   final List<NadgridParam>? grids;
 
-  Datum(String? datumCode, List<double>? datum_params, double a, double b,
-      double es, double ep2, List<NadgridParam>? nadgrids)
-      : a = a,
-        b = b,
-        es = es,
-        ep2 = ep2,
-        grids = nadgrids {
+  Datum(
+    String? datumCode,
+    List<double>? datum_params,
+    this.a,
+    this.b,
+    this.es,
+    this.ep2,
+    this.grids,
+  ) {
     if (datumCode == null || datumCode == 'none') {
       datumType = consts.PJD_NODATUM;
     } else {
@@ -41,7 +43,7 @@ class Datum {
       }
     }
 
-    if (nadgrids != null) {
+    if (grids != null) {
       datumType = consts.PJD_GRIDSHIFT;
     }
   }

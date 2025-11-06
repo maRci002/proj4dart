@@ -3,8 +3,8 @@ import 'dart:math' as math;
 import 'package:proj4dart/src/classes/point.dart';
 import 'package:proj4dart/src/classes/proj_params.dart';
 import 'package:proj4dart/src/classes/projection.dart';
-import 'package:proj4dart/src/constants/values.dart' as consts;
 import 'package:proj4dart/src/common/utils.dart' as utils;
+import 'package:proj4dart/src/constants/values.dart' as consts;
 
 class EquidistantConicProjection extends Projection {
   static final List<String> names = [
@@ -69,7 +69,7 @@ class EquidistantConicProjection extends Projection {
   Point forward(Point p) {
     var lon = p.x;
     var lat = p.y;
-    var rh1;
+    double rh1;
 
     if (sphere != null && sphere!) {
       rh1 = a * (g - lat);
@@ -90,7 +90,7 @@ class EquidistantConicProjection extends Projection {
   Point inverse(Point p) {
     p.x -= x0;
     p.y = rh - p.y + y0;
-    var con, rh1, lat, lon;
+    double con, rh1, lat, lon;
     if (ns >= 0) {
       rh1 = math.sqrt(p.x * p.x + p.y * p.y);
       con = 1;
